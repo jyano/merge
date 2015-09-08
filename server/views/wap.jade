@@ -1,0 +1,20 @@
+include mixins
+!!! 5
+html(lang="en")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        script.
+          _app = wappyApp = '#{app}'
+          _pam = wappyPam = '#{pam}'
+          console.log('in wap.jade')
+
+        +css('bs')
+        +S(["us",'string', 'both', 'jq', 'jqSer',  'bs', 'cjs', 'cjsMC', 'spriteSheets', "socket.io/socket.io" ])
+        +S(['handy',  'boot', 'jqAnim', 'create', 'easel', 'tween','sprite','movie', 'anims'])
+
+
+        +S(['muggy'])
+        +S(['createGames', 'handyApps', 'bootApps', 'flexApps', 'muggyApps', 'shapeApps', 'animApps', 'filtApps'])
+        +S(['jqAnimApps', 'muggyMore', 'queueApps'])
+
+    body
