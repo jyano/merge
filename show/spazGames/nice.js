@@ -593,7 +593,7 @@ WORLDPAN=function(){W([1200, 600, 2400, 600],{g:0})
     w.pan('*')
 
 }
-ADVENTURE=function(){
+ADV=ADVENTURE=function(){
     W([1200,600,2400,1200] )//.P('+')
 
     //$.test=true
