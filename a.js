@@ -1,7 +1,3 @@
-http = require('http')
-path = require('path')
-fs = require('fs')
-
 dirs=[
     'public/pics',
     'both',
@@ -14,8 +10,35 @@ dirs=[
     'front/lib/fiz', 'front/lib/fiz/deps',
     'show', 'show/mugApps', 'show/spazGames'
 ]
+reqs()
+both()
+$l('welcome to merge')
+mongoose.connect("mongodb://localhost/brain", function () {
+    $l('mongo connected')
+})
+mongoStore = new (connectMongo(express))({db: 'brain'})
+$Md = md = $m = models = require('./server/models')
+expr()
+midwar()
+route()
+sv = httpServer = http.createServer($a)
+httpServer.listen(80, function () {
+    $l('server listening on port 80')
+})
+sock()
 
-console.log('w'); both();
+
+function reqs() {
+    http = require('http')
+    path = require('path')
+    fs = require('fs')
+    mongoose = require('mongoose')
+    express = require('express')
+    connectMongo = require('connect-mongo')
+    socketIO = require('socket.io')
+    sessionSocketIO = require('session.socket.io')
+    require('./server/defaultMug')
+}
 function both(){
     _ = require('./server/us')
     F = _.isFunction
@@ -59,150 +82,131 @@ function both(){
     _.e= _.each
     _.m= _.map
 }
-
-
-$l('welcome to spaz')
-
-require('./server/defaultMug')
-mongoose = require('mongoose')
-express = require('express')
-connectMongo = require('connect-mongo')
-socketIO = require('socket.io')
-sessionSocketIO = require('session.socket.io')
-
-mongoose.connect("mongodb://localhost/brain", function () {
-    $l('mongo connected')
-})
-
-
-mongoStore = new (connectMongo(express))({db: 'brain'})
-$Md = md = $m = models = require('./server/models')
-
-
-$e= require('express'); $a = $e(); $a.u= $a.use; $a.g=$a.get
-
-_.e({
-        port: process.env.PORT||4000,
-        'view engine' :'jade',
+function expr() {
+    $e = require('express');
+    $a = $e();
+    $a.u = $a.use;
+    $a.g = $a.get;
+    $a.po = $a.post
+    _.e({
+        port: process.env.PORT || 4000,
+        'view engine': 'jade',
         views: __dirname + '/server/views/'
-    },
-    function(v,k){$a.set(k,v)}
-)
+    }, function (v, k) {
+        $a.set(k, v)
+    })
 
-$a.use(express.bodyParser({
-    uploadDir: __dirname + "/public/uploads",
-    keepExtensions: true
-}))
-$a.use(cookieParser = express.cookieParser('xyz'))
-$a.use(express.session({
-    store: mongoStore,
-    secret: 'xyz'
-})); //$a.use( express.favicon() )
-
-
-
-
-
-$w=$Mw = function (q, p, n) {
-    mW()
-
-    //if user is logged in,
-    //he will have a username set in their session
-
-    //checks session to see if user is logged in
-    var lI = q.ss.username ? true : false
-
-    //set lI status on req
-    q.lI = q.loggedIn = lI
-
-    //set it also on res.local
-    p.lc.lI = p.lc.loggedIn = lI
-
-    //set username itself also on req
-    q.un = q.username = q.ss.username
-
-    // $l('MAIN middleware says q.username = ' + q.username)
-
-    n()
-
-    function mW() {
-        q.ss = q.session
-        p.lc = p.locals
-    }
+    $a.use(express.bodyParser({
+        uploadDir: __dirname + "/public/uploads",
+        keepExtensions: true
+    }))
+    $a.use(cookieParser = express.cookieParser('xyz'))
+    $a.use(express.session({
+        store: mongoStore,
+        secret: 'xyz'
+    })); //$a.use( express.favicon() )
 }
-$Mw.user = function (q, p, n) {
+function midwar() {
 
-    if (q.loggedIn) {
-        $Md.user.findOne({
-                username: q.username
-            },
-            function (z, u) {
-                if (z) {
-                    n(z)
-                }
-                else if (u) {
-                    q.user = p.locals.user = u
-                    q.username = p.locals.username = u.username
-                    q.userId = p.locals.userId = u._id
-                }
-                n()
-            })
+    $w = $Mw = function (q, p, n) {
+        mW()
+
+        //if user is logged in,
+        //he will have a username set in their session
+
+        //checks session to see if user is logged in
+        var lI = q.ss.username ? true : false
+
+        //set lI status on req
+        q.lI = q.loggedIn = lI
+
+        //set it also on res.local
+        p.lc.lI = p.lc.loggedIn = lI
+
+        //set username itself also on req
+        q.un = q.username = q.ss.username
+
+        // $l('MAIN middleware says q.username = ' + q.username)
+
+        n()
+
+        function mW() {
+            q.ss = q.session
+            p.lc = p.locals
+        }
     }
+    $Mw.user = function (q, p, n) {
 
-    else {
-        // $l('middleware says NOT logged in :(')
-        p.json('guest')
-    }
+        if (q.loggedIn) {
+            $Md.user.findOne({
+                    username: q.username
+                },
+                function (z, u) {
+                    if (z) {
+                        n(z)
+                    }
+                    else if (u) {
+                        q.user = p.locals.user = u
+                        q.username = p.locals.username = u.username
+                        q.userId = p.locals.userId = u._id
+                    }
+                    n()
+                })
+        }
+
+        else {
+            // $l('middleware says NOT logged in :(')
+            p.json('guest')
+        }
 
 
-} //var mP=u.mugPath;$l('mP:');$l(mP);p.l.mP=q.mP=mP;
+    } //var mP=u.mugPath;$l('mP:');$l(mP);p.l.mP=q.mP=mP;
 // $m.image.findOne({relPath:mP},function(z,d){if(!d){$l('-m')}else{$l('+m');
 // p.l.M=q.M=mug;p.l.mp=q.mp=q.M.relPath;p.l.mid=q.mid=q.M._id}n()})
 // if(!u){q.s.u=null;q.s.save(function(){p.r('guest')})}
-$Mw.Pics = $Mw.P = function (q, p, n) {
+    $Mw.Pics = $Mw.P = function (q, p, n) {
 
 
-    $m.pic.find(
-        {u: q.I},
+        $m.pic.find(
+            {u: q.I},
 
 
-        function (z, pics) {
+            function (z, pics) {
 
-            var array = []
+                var array = []
 
-            _.each(
-                pics,
+                _.each(
+                    pics,
 
-                function (pic) {
-                    array.push(
-                        _S(pic._id) + pic.e
-                    )  // $l(    )
+                    function (pic) {
+                        array.push(
+                            _S(pic._id) + pic.e
+                        )  // $l(    )
 
 
-                })
+                    })
 
-            p.locals.I = array
-            n()
-        })
+                p.locals.I = array
+                n()
+            })
+    }
+    $Mw.pic = $Mw.p = function (q, p, n) {
+
+        $Md.pic.findById(q.params.p,
+
+            function (z, i) {
+                if (z) {
+                    n(z)
+                }
+                p.locals.i = '/' + i._id
+                q.i = i
+                n()
+            })
+
+
+    }
+    $a.use($Mw)
 }
-$Mw.pic = $Mw.p = function (q, p, n) {
-
-    $Md.pic.findById(q.params.p,
-
-        function (z, i) {
-            if (z) {
-                n(z)
-            }
-            p.locals.i = '/' + i._id
-            q.i = i
-            n()
-        })
-
-
-}
-$a.use($Mw)
-$a.g = $a.get;$a.po = $a.post
-route()
 function route(){
 
     $a.g('/render/:page', function (q, p) {
@@ -591,70 +595,63 @@ function route(){
     //game
     $a.g('/play/:a/:p?', function(q,p){
         p.render('play',{app:q.params.a,pam:q.params.p})})
+    $a.use( $a.router )
+    _.e(dirs, function(dir){
+        dir= __dirname +'/'+ dir
+        $a.use($e.static(dir))
+    })
+
 }
+function sock() {
+    io = socketIO.listen(httpServer)
 
-$a.use( $a.router )
+    io.set('log level', 1)
 
-_.e(dirs, function(dir){
-    dir= __dirname +'/'+ dir
-    $a.use($e.static(dir))
-})
+    ssK = new sessionSocketIO(io, mongoStore, cookieParser)
 
-
-sv = httpServer = http.createServer($a)
-
-httpServer.listen(80, function () {
-    $l('server listening on port 80')
-})
-
-
-
-io = socketIO.listen(httpServer)
-
-io.set('log level', 1)
-
-ssK= new sessionSocketIO(io, mongoStore, cookieParser)
-
-KK = sockets =  io.sockets
-US = []  //  array-hash: socketId, username
-    $idToName=function(name){var id
+    KK = sockets = io.sockets
+    US = []  //  array-hash: socketId, username
+    $idToName = function (name) {
+        var id
         id = _.invert(US)[name]
         return id
     }
-    $nameToId=function(id){
+    $nameToId = function (id) {
         return US[id]
     }
-    $in=  KK.rm = function (rm) {
+    $in = KK.rm = function (rm) {
         var rm = KK.in(rm)
         rm.em = rm.emit
         return rm
     }
     RMS = KK.manager.rooms //an array of rooms //they all start with a slash
-    $rm= RMS.rm = function (rm) {return KK.manager.rooms['/' + rm]}
-    $getRoomUserIds=function(rm){
+    $rm = RMS.rm = function (rm) {
+        return KK.manager.rooms['/' + rm]
+    }
+    $getRoomUserIds = function (rm) {
         //$l('$getRoomUserIds')
-        var ids= KK.manager.rooms['/'+rm]
+        var ids = KK.manager.rooms['/' + rm]
         //console.dir(ids)
         return ids
     }
-    $getRoomUsernames=function(rm){
-        var ids,uns
+    $getRoomUsernames = function (rm) {
+        var ids, uns
         //$l('$getRoomUsernames')
 
-        ids= $getRoomUserIds(rm)
-        uns= _.m(ids, function(id){
+        ids = $getRoomUserIds(rm)
+        uns = _.m(ids, function (id) {
             return US[id]
         })
         //console.dir(uns)
         return uns
     }
 
-KK.on('connection',  function(k){
+    KK.on('connection', function (k) {
 
-        k.on('id', function(un){
+        k.on('id', function (un) {
             //k.em('l',  $l(k.id))  //server logs, client logs
 
-            US[ k.id ] = un  //associate socketId with username
+            US[k.id] = un  //associate socketId with username
 
             //$l('US: ' + US +  US[ k.id ] ) //log USER and username
 
@@ -664,19 +661,23 @@ KK.on('connection',  function(k){
         })
 
 
-        k.on('jRm', function(rm){$l('joining room: ' + rm  )
-            k.join( rm )
+        k.on('jRm', function (rm) {
+            $l('joining room: ' + rm)
+            k.join(rm)
 
-            k.emit( 'rmUd',  {rm: rm, US:   _.map(
-                $getRoomUserIds(rm),
-                function(un){
-                    return US[un]})
+            k.emit('rmUd', {
+                rm: rm, US: _.map(
+                    $getRoomUserIds(rm),
+                    function (un) {
+                        return US[un]
+                    })
 
-            })})
-        k.on('rmUd', function(rm ){
+            })
+        })
+        k.on('rmUd', function (rm) {
             // $l('on rmUd')
 
-            k.emit( 'rmUd',{  //$l('$RmUd')
+            k.emit('rmUd', {  //$l('$RmUd')
 
                     rm: rm,
                     users: $getRoomUsernames(rm)
@@ -686,29 +687,30 @@ KK.on('connection',  function(k){
 
             )
         })
-        k.on('ChatRmMs', function (ms){
-            $l('chatRmMs: '); console.dir(ms)
+        k.on('ChatRmMs', function (ms) {
+            $l('chatRmMs: ');
+            console.dir(ms)
             KK.in(ms.rm).emit('ChatRmMs', ms)
         })
 
 
-        k.on('myUpdate', function(ud){
+        k.on('myUpdate', function (ud) {
             k.broadcast.emit('updateGuy', ud)
         })
 
-        k.on('sendInvite', function(invite){
+        k.on('sendInvite', function (invite) {
 
             k.broadcast.emit('newInvite', invite)
         })
 
-        k.on('acceptInvite', function(invite){
+        k.on('acceptInvite', function (invite) {
             k.emit('inviteAccepted', invite)
             k.broadcast.emit('inviteAccepted', invite)
         })
 
 
-
-        k.on('bub', function(tx){$l('new bub: '+ tx)
+        k.on('bub', function (tx) {
+            $l('new bub: ' + tx)
             k.broadcast.emit('bub', tx)
         })
 
@@ -815,6 +817,7 @@ KK.on('connection',  function(k){
                 gMp[n] = {x: _.r(0, 830), y: _.r(0, 300)}
             }
         }
+
         /*
 
          //client asks am I in this room
@@ -912,3 +915,4 @@ KK.on('connection',  function(k){
 
     })
 
+}

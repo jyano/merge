@@ -1,69 +1,39 @@
-
-LUMP = function () {
-    W(5)//.Y()
-    w.D(600, 200, 'w', 180).bit(1, [1]).r(.5)
-
-    w.D(400, 0, 'g', 100).bit(2, [1, 2, 4, 8]).r(.8)
-    w.D(300, 0, 'g', 183, 183).bit(2, [1, 2, 4, 8]).r(.8)
-
-    _.t(38, function () {
-        w.D(R(1100, 100), R(300, -2500), 'w', 20).bit(1, [1])
-    })
-
-    y = w.y(100, 100).rt(40).bit(8, [1, 2, 4])
-
-    fn = _.th(function () {
-        var xx = y.X(),
-            yy = y.Y()
-        _.in(1, function () {
-            w.S(xx, yy, 'b', 15)
-        })
-    }, 100)
-    y.cl(fn)
-    _.e([[400, 500], [300, 500], [400, 300],
-        [300, 100], [400, 200], [100, 300],
-        [300, 300]
-    ], function glb(v) {
-        return w.D(v[0], v[1], 'z', 20).K('glb')
-    })
-    y.cl('glb', function (f) {
-        var glb = f.B()
-        if (!glb.j()) {
-            glb.glu(y)
-        }
-    })
-    w.wed(
-        w.D(100, 200, 'x', 100, 200).r(1),
-        w.D(200, 100, 'u', 200, 100).r(1))
-    w.wed(
-        w.D(300, 400, 'w', 50, 100),
-        w.D(300, 400, 'v', 100, 50))
-
-    w.t_.bit(1, [8])
-
-
-}
 META =  function () {
-    W([400, 400], {w: 'U'}).C('w')._(function () {
-        //cjs.rulers()
-        w.p(0, 0, 10).stat()
-        _.t(8, function () {
-            w.D(R(100, 50), R(100, 50), 'b', 30)
+
+    W([800, 600], {w: 'L'}).C('w')._(function () {
+
+       $.rulers()
+
+        //initial me
+      p=  w.p(200, 200, 5).stat()
+        //initial balls
+        _.t(5, function Ball() {
+            w.D(R(200, 50), R(-100), $r(), 30)
         })
 
-        _.ev(3, function () {
 
-            var b = w.D(200, 200, 'b', 80)
-            b.$h('x', 'X', 1).c('x', 'X', 1).bf(
-                w.s.cv0,
-                cjs.m2d(
-                    .6, .1, .1, .6, -40, 180
-                )
-            ).cir(80)
-
-        })
+        _.ev(3, MetaBall )
     })
+
+
+    function MetaBall() {
+
+        var b = w.D(400, 400, 'b', 80)
+
+        b.$h('x', 'X', 1).c('x', 'X', 1).bf(
+            w.s.cv0,
+            cjs.m2d(.6, .1, .1, .6, -40, 180)
+        ).cir(80)
+
+    }
+
+
+
 }
+
+
+
+
 CAMBALL=function(){
 
     //W([1200,600,2400,600],{g:[10,10]}).Y()
@@ -1363,6 +1333,51 @@ TFSET= function(){W()._(function(){
 })
 }
 
+LUMP = function () {
+    W(5)//.Y()
+    w.D(600, 200, 'w', 180).bit(1, [1]).r(.5)
+
+    w.D(400, 0, 'g', 100).bit(2, [1, 2, 4, 8]).r(.8)
+    w.D(300, 0, 'g', 183, 183).bit(2, [1, 2, 4, 8]).r(.8)
+
+    _.t(38, function () {
+        w.D(R(1100, 100), R(300, -2500), 'w', 20).bit(1, [1])
+    })
+
+    y = w.y(100, 100).rt(40).bit(8, [1, 2, 4])
+
+    fn = _.th(function () {
+        var xx = y.X(),
+            yy = y.Y()
+        _.in(1, function () {
+            w.S(xx, yy, 'b', 15)
+        })
+    }, 100)
+    y.cl(fn)
+    _.e([[400, 500], [300, 500], [400, 300],
+        [300, 100], [400, 200], [100, 300],
+        [300, 300]
+    ], function glb(v) {
+        return w.D(v[0], v[1], 'z', 20).K('glb')
+    })
+    y.cl('glb', function (f) {
+        var glb = f.B()
+        if (!glb.j()) {
+            glb.glu(y)
+        }
+    })
+    w.wed(
+        w.D(100, 200, 'x', 100, 200).r(1),
+        w.D(200, 100, 'u', 200, 100).r(1))
+    w.wed(
+        w.D(300, 400, 'w', 50, 100),
+        w.D(300, 400, 'v', 100, 50))
+
+    w.t_.bit(1, [8])
+
+
+
+}//freezes
 moree()
 function moree(){
 
