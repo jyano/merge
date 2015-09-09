@@ -1,4 +1,5 @@
 objects();xml();jqfn();cssz();evenz();htmll();image();inpuz();jqAn()
+
 function objects(){
     COLOR={
 
@@ -1035,7 +1036,7 @@ function xml() {
         return $
     }//
 }
-function jqfn() {
+function jqfn(){
     $.fn.fi = $.fn.find
     $.fn.ch = function () {
         return this.children()
@@ -1161,6 +1162,84 @@ function jqfn() {
         var v = this.val()
         this.val('')
         return v
+    }
+    $.fn.s= $.fn.css
+}
+function jqAn(){
+    ANob = {
+        B: 'bottom', L: 'left', R: 'right', T: 'top',
+        b: 'borderWidth', bb: 'borderBottomWidth',
+        bl: 'borderLeftWidth', br: 'borderRightWidth',
+        bt: 'borderTopWidth', bs: 'borderSpacing',
+        C: 'backgroundColor', f: 'fontSize', h: 'height', w: 'width', H: 'maxHeight', W: 'maxWidth',
+        mh: 'minHeight', mw: 'minWidth',
+        i: 'textIndent', l: 'letterSpacing', lh: ' lineHeight',
+        m: ' margin', mb: 'marginBottom', ml: 'marginLeft', mr: 'marginRight',
+        mt: 'marginTop', o: ' outlineWidth',
+        p: ' padding', pb: 'paddingBottom',
+        pl: 'paddingLeft', pr: 'paddingRight', pt: 'paddingTop',
+        ws: ' wordSpacing', x: 'backgroundPositionX', y: 'backgroundPositionY'
+
+    }
+    $.fn.st = $.fn.stop
+    $.fn.f2 = $.fn.fadeTo
+    $.fn.bgImg = $.backgroundImage
+    $.fn.gFr = $.fn.getFrame
+    $.fn.sFr = $.fn.setFrame
+    $.fn.anFr = $.fn.animateFrames
+    $.fn.xq = $.fn.xQ = $.fn.clrQ = $.fn.clearQueue
+    $.fn.qu = $.fn.queue
+    $.fn.dq = $.fn.dqu = $.fn.dequeue
+    $.fn.an = $.fn.a = function (a, b, c, d) {
+        var g = G(arguments), o
+        o = g.f
+
+        var q = this
+        if (O(a)) {
+            if (a.c) {
+                a.color = oO('c', a.c)
+            }
+            if (a.C) {
+                a.backgroundColor = oO('c', a.C)
+            }
+        }
+        q.animate(a, b, c, d)
+        return q
+
+
+        if (o.C) {//$l(o.C+'-->');
+            o.C = oO('c', o.C);
+            //$l(o.C)
+        }
+        _.e(o, function (v, k) {
+            if (ANob[k]) {
+                o[ANob[k]] = v
+            }
+        })
+        if (N(g.s)) {
+            g.s *= 1000
+        }
+        _p = o
+        this.an(o, g.s, g.t, g[3], g[4])
+        return this
+
+        $.an = $.j = function () {
+            var bd = $.bd();
+            return bd.j.apply(bd, G(arguments))
+        }
+
+    }
+    $.aF = $.anFr = $.anf = function (n, w) {
+        var c = 0;
+        n = n || 10;
+        w = w || 20;
+        $.ev(function () {
+            q.sFr(c, w)
+            c = (c + 1) % n
+        })
+    }
+    $.notAn = function (a) { // sel
+        return a.filter(':not(:animated)')
     }
 }
 function cssz(){
@@ -1360,7 +1439,7 @@ function cssz(){
 
 
     }
-    $.fn.s= $.fn.css
+
     $.fn.dp= $.fn.display=function(display){
         if(U(display)){return this.css('display')}
         this.css('display',display);return this
@@ -1852,21 +1931,8 @@ function cssz(){
         }
     }
 }
-function evenz(){
-    $.$ = function (f) {
-        return $(document).on('click', _v(f))
 
-        /*
-         $.$=function(){
-         var b=$('html')
-         b.click.apply(b, arguments)
-         return $
-         }*/
-    }
-    $.$$ = function (f) {
-        return $(document).on('dblclick', _v(f))
-//$.$$=function(a,b,c){$('body').$$(a,b,c); return this}
-    }
+function evenz(){
     $.md = $.mousedown = function (fn) {
         $('body').on('mousedown', fn);
         return this
@@ -1875,10 +1941,12 @@ function evenz(){
         $('body').on('mouseup', fn);
         return this
     }
+
     $.mm = $.mousemove = function (fn) {
         $('body').on('mousemove', fn);
         return this
     }
+
     $.oMD = function (fn) {
         $.md(function (e) {
             fn(e.clientX, e.clientY, e)
@@ -1891,12 +1959,14 @@ function evenz(){
         });
         return $
     }
+
     $.oMM = function (fn) {
         $.mm(function (e) {
             fn(e.clientX, e.clientY, e)
         });
         return $
     }
+
     $.fn.m = function (o) {
         var e = this
         if (o.mD) {
@@ -1919,6 +1989,7 @@ function evenz(){
         })
         return c
     }
+
     $.fn.mD = function (l) {
         var c = this
         c.mousedown(function (e) {
@@ -1962,7 +2033,6 @@ function evenz(){
         return V(e.pageX / scale, e.pageY / scale)
     }
     $.fn.mU = function (l) {
-        $l('mU')
         var c = this
         c.mouseup(function (e) {
             l(e.clientX, e.clientY)
@@ -1977,9 +2047,8 @@ function evenz(){
         return c
 
     }
-    $.fn.m = function (o) {
-        $l('.m')
-        var e = this
+
+    $.fn.m = function (o) {var e = this
         if (o.mD) {
             e.mD(o.mD)
         }
@@ -1991,18 +2060,36 @@ function evenz(){
         }
         return e
     }
+
     $.tap=function(func){this('body').on('keydown mousedown', func); return this}
     $.scroll = function (a) {
         return $(window).scroll(a || function () {
             $('body').C('*')
         })
     }
+    $.$ = function (f) {
+        return $(document).on('click', _v(f))
+
+        /*
+         $.$=function(){
+         var b=$('html')
+         b.click.apply(b, arguments)
+         return $
+         }*/
+    }
+    $.$$ = function (f) {
+        return $(document).on('dblclick', _v(f))
+//$.$$=function(a,b,c){$('body').$$(a,b,c); return this}
+    }
+
     $.click = m$ = function (f) {
         return $(document).on('click', _v(f))
     }
+
     $.dblclick = m$$ = function (f) {
         return $(document).on('dblclick', _v(f))
     }
+
     $.fn.xPrp=function(){
         this.on('mousedown', function(e){  e.stopPropagation()  })
         return this
@@ -2150,7 +2237,6 @@ function htmll(){
     sem()
     tabl()
     lsst()
-
     function make() {
         $.tg=function(a){return $('<'+a+'>')}
         nest()
@@ -2611,7 +2697,6 @@ $l('div')
             return a
         }
     }
-
     function lsst(){
         $.la=$.liA=  function(){var  g=G(arguments), o,
             a = $('<a>').hr('#'),
@@ -2796,7 +2881,9 @@ $l('div')
 
     }
 }
-function inpuz() {
+
+function inpuz(){
+
     $.sm = $.submit = $.submitButton = function (buttonText, func) {
         return $.button(buttonText, func).type('submit')
     }
@@ -3027,7 +3114,6 @@ function inpuz() {
         }
         return el
     }
-
     $.fU= $.fileUpload =  function(lb, t){
         var fG =  $.d().K("form-group").A(
             $.lb(  D(lb) ? lb  : 'upload file',  'upl'  ).K('control-label').fS(20),
@@ -3037,7 +3123,6 @@ function inpuz() {
             fG.A(   $.p(t).K('help-block')   )}
         return fG
     }
-
     $.bt = $.button = function () {
         var g = G(arguments), o, bt = $('<button>');
         o = g.F ? {fn: g[0]} : {t: g[0], fn: g[1]};
@@ -3124,7 +3209,6 @@ function inpuz() {
         var b = $.button(text, func).float('left')//.display('block')
         return b
     }
-
     $.ta = $.textarea = function (rows, cols, Cl, cl) {
 
         var g = G(arguments),
@@ -3402,6 +3486,7 @@ function inpuz() {
         return sl
     }
 }
+
 function image(){
     $.tEl = function(a, b, c) {
         if (O(a)) {
@@ -3453,7 +3538,6 @@ function image(){
             this.bgI('url("' + $.src(url) + '")');
             return this
         }
-
         $.fn.background = function (bg) {
             if (U(bg)) {
                 return this.css('background')
@@ -3490,7 +3574,6 @@ function image(){
             return this
 
         }
-
         $.src =    function f(e){
             if( e.image ){ e=e.image}
             if($.tCan(e) ){ e = $.tCan(e) }
@@ -3506,10 +3589,8 @@ function image(){
             this.attr('src', $.src(a) )
 
             return this
-        }
-    }
+        }}
     function can(){
-
         $.C=function(){ z();
             c = $.c('y').drag()
             x = c.ctx()
@@ -5215,86 +5296,11 @@ function image(){
             }
             x.mT = function () {
             }
-        }
-    }
+        }}
 }
-function jqAn() {
-    ANob = {
-        B: 'bottom', L: 'left', R: 'right', T: 'top',
-        b: 'borderWidth', bb: 'borderBottomWidth',
-        bl: 'borderLeftWidth', br: 'borderRightWidth',
-        bt: 'borderTopWidth', bs: 'borderSpacing',
-        C: 'backgroundColor', f: 'fontSize', h: 'height', w: 'width', H: 'maxHeight', W: 'maxWidth',
-        mh: 'minHeight', mw: 'minWidth',
-        i: 'textIndent', l: 'letterSpacing', lh: ' lineHeight',
-        m: ' margin', mb: 'marginBottom', ml: 'marginLeft', mr: 'marginRight',
-        mt: 'marginTop', o: ' outlineWidth',
-        p: ' padding', pb: 'paddingBottom',
-        pl: 'paddingLeft', pr: 'paddingRight', pt: 'paddingTop',
-        ws: ' wordSpacing', x: 'backgroundPositionX', y: 'backgroundPositionY'
-
-    }
-    $.fn.st = $.fn.stop
-    $.fn.f2 = $.fn.fadeTo
-    $.fn.bgImg = $.backgroundImage
-    $.fn.gFr = $.fn.getFrame
-    $.fn.sFr = $.fn.setFrame
-    $.fn.anFr = $.fn.animateFrames
-    $.fn.xq = $.fn.xQ = $.fn.clrQ = $.fn.clearQueue
-    $.fn.qu = $.fn.queue
-    $.fn.dq = $.fn.dqu = $.fn.dequeue
-    $.fn.an = $.fn.a = function (a, b, c, d) {
-        var g = G(arguments), o
-        o = g.f
-
-        var q = this
-        if (O(a)) {
-            if (a.c) {
-                a.color = oO('c', a.c)
-            }
-            if (a.C) {
-                a.backgroundColor = oO('c', a.C)
-            }
-        }
-        q.animate(a, b, c, d)
-        return q
 
 
-        if (o.C) {//$l(o.C+'-->');
-            o.C = oO('c', o.C);
-            //$l(o.C)
-        }
-        _.e(o, function (v, k) {
-            if (ANob[k]) {
-                o[ANob[k]] = v
-            }
-        })
-        if (N(g.s)) {
-            g.s *= 1000
-        }
-        _p = o
-        this.an(o, g.s, g.t, g[3], g[4])
-        return this
 
-        $.an = $.j = function () {
-            var bd = $.bd();
-            return bd.j.apply(bd, G(arguments))
-        }
-
-    }
-    $.aF = $.anFr = $.anf = function (n, w) {
-        var c = 0;
-        n = n || 10;
-        w = w || 20;
-        $.ev(function () {
-            q.sFr(c, w)
-            c = (c + 1) % n
-        })
-    }
-    $.notAn = function (a) { // sel
-        return a.filter(':not(:animated)')
-    }
-}
 $.rulers = function () {
     $.d('b', 100, 100).al(.3).dg()
     $.d('r', 100, 300).al(.3).dg()
@@ -5339,6 +5345,7 @@ $.h=function(){var g=G(arguments),o
     if(o.t){$.h1(o.t);$.hr().A()}
     return $
 }
+
 function later(){
     function alrr(){
         $.fn.os = function () {
