@@ -699,16 +699,7 @@ Task=  function (tt, done){   return {
 }
 }
 
-CHL = function () {
-    $.x('o');
 
-    $.h1('shown!').slV()
-
-    $.cC()
-
-    ok()
-}//err
-//working!!!
 FCB = function () {
     _$({
         C: 'u',
@@ -735,90 +726,6 @@ initialData = [
     {name: "Optimistic Snail", sales: 420, price: 1.50}
 ]
 
-GRX = function () {
-    $.x('x', 'grx')
-
-    /*
-     $CSS({
-
-
-     body { font-family: arial; font-size: 14px; }
-     .liveExample { padding: 1em; background-color: #EEEEDD; border: 1px solid #CCC; max-width: 655px; }
-     .liveExample input { font-family: Arial; }
-     .liveExample b { font-weight: bold; }
-     .liveExample p { margin-top: 0.9em; margin-bottom: 0.9em; }
-     .liveExample select[multiple] { width: 100%; height: 8em; }
-     .liveExample h2 { margin-top: 0.4em; }
-
-     .ko-grid { margin-bottom: 1em; width: 25em; border: 1px solid silver; background-color:White; }
-     .ko-grid th { text-align:left; background-color: Black; color:White; }
-     .ko-grid td, th { padding: 0.4em; }
-     .ko-grid tr:nth-child(odd) { background-color: #DDD; }
-     .ko-grid-pageLinks { margin-bottom: 1em; }
-     .ko-grid-pageLinks a { padding: 0.5em; }
-     .ko-grid-pageLinks a.selected { background-color: Black; color: White; }
-     .liveExample { height:20em; overflow:auto }
-     //Mobile Safari reflows pages slowly, so fix the height to avoid the need for reflows
-
-     li { list-style-type: disc; margin-left: 20px; }
-
-
-     })
-
-     */
-
-
-    $.d().at({'data-bind': 'simpleGrid: gridViewModel'})
-    $.bt('add item').at({'data-bind': 'click: addItem'})
-    $.bt('sort by name').at({'data-bind': 'click: sortByName'})
-    $.bt('   Jump to first page').at({
-        'data-bind': 'click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'
-    })
-
-
-    PagedGridModel = function (items) {
-
-        this.items = ko.observableArray(items)
-
-        this.addItem = function () {
-            this.items.push({
-                name: "New item", sales: 0, price: 100
-            })
-        }
-
-
-        this.sortByName = function () {
-            this.items.sort(function (a, b) {
-                return a.name < b.name ? -1 : 1
-            })
-        }
-
-        this.jumpToFirstPage = function () {
-            this.gridViewModel.currentPageIndex(0)
-        }
-
-        this.gridViewModel = new ko.simpleGrid.viewModel({
-            data: this.items,
-            columns: [
-                {headerText: "Item Name", rowText: "name"},
-                {headerText: "Sales Count", rowText: "sales"},
-                {
-                    headerText: "Price", rowText: function (item) {
-                    return "$" + item.price.toFixed(2)
-                }
-                }
-            ],
-
-            pageSize: 4
-        })
-    }
-
-
-    ok(
-        new PagedGridModel(initialData)
-    )
-
-}
 GRX = function () {
     $.x('x', 'grx1')
 
@@ -886,59 +793,6 @@ Planets = function () {
 }
 
 
-PLANET = function () {
-    $.x('g', 'Plan')
-
-
-    $.p().A(
-        $.lb().A(
-            $.cC('displayAdvancedOptions'),
-            'Display advanced options'
-        )
-    )
-
-    $.p().A(
-        'Show:',
-        $.lb([$.ip()]),
-        $.lb([$.ip()]),
-        $.lb([$.ip()])
-    )
-
-
-    /*
-     <p data-bind='fadeVisible: displayAdvancedOptions'>
-     Show:
-     <label><input type='radio' name="type" value='all' data-bind='checked: typeToShow' />All</label>
-     <label><input type='radio' name="type" value='rock' data-bind='checked: typeToShow' />Rocky planets</label>
-     <label><input type='radio' name="type" value='gasgiant' data-bind='checked: typeToShow' />Gas giants</label>
-     </p>*/
-
-
-    $.d([$.d([$.d()])])
-
-    /*
-
-     <div data-bind='template: { foreach: planetsToShow,
-     beforeRemove: hidePlanetElement,
-     afterAdd: showPlanetElement }'>
-     <div data-bind='attr: { "class": "planet " + type }, text: name'> </div>
-     </div>
-
-     */
-
-
-    $.p().A(
-        $.bt('add rocky plan').b('click: addPlanet.bind($data, "rock")'),
-
-        $.bt('add gas giant').b('click: addPlanet.bind($data, "gasgiant")')
-    ).b('fadeVisible: displayAdvancedOptions')
-
-
-    // Here's a custom Knockout binding that makes els shown/hidden via jQuery's fadeIn()/fadeOut() methods
-    // Could be stored in a separate utility library
-    ok(new Planets())
-}
-
 
 VIRT = function () {
     _$({
@@ -957,21 +811,6 @@ VIRT = function () {
 
     })
 }
-IF=function(){
-$l('if')
-    $.x('x')
-
-    $.cC('dispMs')
-
-    $.sp('Disp ms')
-
-    $.pI('dispMs', 'Here is a message. Astonishing')
-
-    ok({
-        dispMs: $o(1)
-    })
-
-} //does nuttin
 
 BLM = function () {
 
@@ -1002,107 +841,13 @@ BLM = function () {
     }
     return o
 }
-SELOP=function(){d= $.d()
-
-    $.x(null,
-        'selectedOptions')
 
 
 
-    $.p('Where you want to go?',
-        $.sl().at({size: 5, multiple: true}).b({
-            o: 'available',
-            so: 'chosen'
-        }))
 
-    ok({
-        available  : ko.oa(
-            ['France', 'Germany', 'Spain']),
-        chosen  : ko.oa(
-            ['Germany'])})
-
-    _.in(function(){
-        vm.chosen.push('France')},'*')
-}
-KO0 =function(){
-    $l('ko0')
-    $.x(); $.ipV('n'); $.h1T('n')
-    $.ulE('arr', [$.liT()])
-    $.sb().b$('A')
-    $.dA('b',100,300,200,'+').bT('n')
-
-    ok({n:ko.o('zi'), arr: ko.oa(),
-        A:function(){this.arr.push(this.n())} }) // ok('n', ko.o('zi'))
-
-    _.in(1, function(){
-        vm.n('girf')
-        _.e(['a','b','c'], function(i){
-            vm.arr.push(i)})},'*')
-}//Uncaught TypeError: Cannot set property '__proto__' of undefined (ko.js)
-
-//bE, observableArray
-KOOA=function(){$.z()
-
-
-
-    $.dE('peep', [
-
-        $.p(
-
-            $.bt('push',function(){
-
-                vm.peep.push({f:'j',l:'y'})
-
-            }),
-
-            $.spT('f'),    ' ',   $.spT('l'))
-
-    ])
-
-
-
-    OK('peep', kA(
-        {f:'B',l:'Bb'},
-        {f:'C',l:'Cc'},
-        {f:'D',l:'Dd'}))
-
-}
-
- //bind 'option'
-KOSL=function(n,v){$.x('o').h1('dests')
-
-    $.slO('cunts')
-
-    ok('cunts',
-        ko.oa('Fran', 'Ger', 'Spa'))
-
-    _.in(2,function(){
-            vm.cunts.push('Chi')},
-        '*'
-    )
-}
 
 function err(){
-KOIP=function(){$.z('x')
 
-    $.p('Login name:').A( $.ipTi('un') )
-
-    $.p('Pw:').A( $.pwTi('pw') )
-
-    // $.p(['Pw:', $.pwTi('pw')])
-
-    //<p> <input type="password" data-bind="textInput: userPassword" /></p>
-
-
-    $('body').A(
-        'vm: ',
-        $.pre().bT('ko.toJSON($root, null, 2)')
-    )
-
-
-
-    ok({un: ko.o(''), pw: ko.o('abc')})
-}
     KOC=function(){$.z()
 
         $.ip('r').at({
@@ -1162,19 +907,7 @@ KOIP=function(){$.z('x')
 
         _.in(function(){vm.chosenCunts.push('Fra')   },'*') // ... then later  France is selected too
     }
-    KOAT = function () {$l('koat')
-        $.x()
 
-
-        $.aA('{href:url,title:tt}',
-            'report')
-
-        ok({
-
-            url: ko.o("year-end.html"),
-            tt: ko.o("Report including final year-end statistics")
-        })
-    }
 }
 
 KOSCR=function(){z();$.bd().A(
@@ -1185,28 +918,6 @@ KOSCR=function(){z();$.bd().A(
 
 
 
-KOFC=function(){$.x()
-
-    $.p('Name:').A(
-
-        $.ip().b({
-            v:'editing',   v:'name',
-            f:'editing'
-        }),
-        $.d('r').b({
-            v:'!editing()',
-            t:'name',
-            $:'edit'
-        })
-    )
-
-    $.p('Click the name to edit it; click elsewhere to apply changes')
-    function VM(n) {var vm=this
-        vm.name = ko.o(n)
-        vm.editing = ko.o()
-        vm.edit = function() {vm.editing(true) }}
-    ok(new VM("Bert Bertington"))
-}
 
 function kofl(){
     KOFL=function(){
@@ -1382,38 +1093,6 @@ KOS=function(){
 }
 
 
-function enable() {
-//bind cb and bind ip to 'enable'
-    KOEN = function () {
-        $.x()
-
-        $.p().A(
-            $.cbC('hasPhone'), 'I have phone'
-        )
-
-        $.p('Your cellphone number').A(
-            $.ip().b({v: 'num', en: 'hasPhone'}))
-
-
-        ok({hasPhone: ko.o(0), num: ''})
-
-    }
-//bind cb and bind ip to 'enable'
-    KOEN = function () {
-        $.x()
-
-        $.p().A(
-            $.cbC('hasPhone'), 'I have phone'
-        )
-
-        $.p('Your cellphone number').A(
-            $.ip().b({v: 'num', en: 'hasPhone'}))
-
-
-        ok({hasPhone: ko.o(0), num: ''})
-
-    }
-}
 
 
     KOAT = function () {
@@ -1423,139 +1102,3 @@ function enable() {
         })
     }
 
-
-
-function html(){
-//bind 'html'
-    KOH=function(){$.z().dH('details')
-
-        ok('details', ko.o())
-
-        _.in(function(){
-                vm.details(
-                    "<em>For details, view report <a href='report.html'>here</a>.</em>")},
-            '*')
-    }
-
-
-    KOH=function(){_$({C:"o",  t:'koh bind -html-', vm: {html: $o('<div>afsdasdfds</div>')},
-        A: $.dH('html'),
-        _:function(){vm.html("<span> ..tadah ! </span>")}})}
-
-
-//bind 'html'
-    KOH=function() {
-        $.z().dH('details')
-
-        ok('details', ko.o())
-
-        _.in(function () {
-                vm.details(
-                    "<em>For details, view report <a href='report.html'>here</a>.</em>")
-            },
-            '*')
-    }
-
-
-    }
-
-
-
-function zi() {
-//basic databinding example
-    ZI = function () {
-
-        z()
-
-        d = dva('b', 100, 300).b('t', 'name')
-
-
-        i = ip().b('v', 'name').a()
-
-        vm = {name: ko.o('zi')}
-
-        ko.ab(vm)
-
-    }
-    ZI = function () {
-
-        z()
-
-        d = dva('b', 100, 300).b('t', 'name')
-
-
-        i = ip().b('v', 'name').a()
-
-        vm = {name: ko.o('zi')}
-
-        ko.ab(vm)
-
-    }
-}
-
-
-    messages=[
-        {message:'zi',     score:100,     responses:[
-
-            {response:'good coder',
-                comments:[{comment:'..eh'}]},
-            {response:'cool girl'}
-        ]},
-        {message:'yano',
-
-            score:3,
-
-            responses:[
-
-                {response:'is cool guy',
-                    comments:[
-
-                        {comment:'hi'},
-                        {comment:'hello'}]},
-
-                {response:'a'},
-                {response:'b'},
-                {response:'fun'}]}, {message:'is awesome',score:0,responses:[
-            {response:'afsdafsd'}]}, {message:'lame',score:20,responses:[
-            {response:'weird',comments:[
-                {comment:'not!!!!1'}]},
-            {response:'lamer',comments:[
-                {comment:'fuck ya'}]}]},
-        {message:'rocks',score:4,responses:[]}
-    ]
-ROOT=function(){$.x('x')
-    $.uE('fs', [
-        $.li().b({
-            t:'$data',
-            s:'{selected:$data==$root.chFI()}',
-            $:'$root.gtf'
-        })
-    ]).K('fs')
-
-    ok({
-        fs:['I','A','Se','Sp'],
-        chFI: ko.o(),
-        gtf: function(f){$l('click: ' + 'f: '+ f + ', this: '+this)
-            f = f||'frog'
-            vm.chFI(f)
-        }
-    })
-}
-ROOT=function(){$.x('x')
-    $.uE('fs', [
-        $.li().b({
-            t:'$data',
-            s:'{selected:$data==$root.chFI()}',
-            $:'$root.gtf'
-        })
-    ]).K('fs')
-
-    ok({
-        fs:['I','A','Se','Sp'],
-        chFI: ko.o(),
-        gtf: function(f){$l('click: ' + 'f: '+ f + ', this: '+this)
-            f = f||'frog'
-            vm.chFI(f)
-        }
-    })
-}

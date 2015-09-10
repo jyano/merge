@@ -100,175 +100,67 @@ VIRTUALELS=function(){
 
     }
 }
-KO0 =function(){$.x(); $.ipV('n'); $.h1T('n')
-    $.ulE('arr', [$.liT()])
-    $.sb().b$('A')
-    $.dA('b',100,300,200,'+').bT('n')
 
-    ok({n:ko.o('zi'), arr: ko.oa(),
-        A:function(){this.arr.push(this.n())} }) // ok('n', ko.o('zi'))
+function comput() {
+//bT,bV and computed
+    COMP = function () {
+        $.z().h1('KNOCKOUT')
 
-    $.in(1, function(){
-        vm.n('girf')
-        _.e(['a','b','c'], function(i){
-            vm.arr.push(i)})},'*')
-}
-KOE=function(){$.x().t([$.tH([$.tr([$.th('F'),$.th('L')])]),
-    $.tBE('peep', [
-        $.tr([
-            $.tdT('f'),
-            ', ',
-            $.tdT('l')
-        ])
-    ])])
-    ok({ peep: [
-        {f:'a',l:'A'},
-        {f:'b',l:'B'},
-        {f:'c',l:'C'}
-    ]})
-
-}
-//bE, observableArray
-KOOA=function(){$.z()
+        $.d([
+            $.p('F: ', $.b().bT('f')),
+            $.p('L: ', $.b().bT('l')),
+            $.p('F: ', $.ip().bV('f')),
+            $.p('L: ', $.ip().bV('l')).id('l'),
+            $.p('L: ', $.b().bT('fL')),
+            $.bt('caps').b$('capL')
+        ]).A()
 
 
-
-    $.dE('peep', [
-
-        $.p(
-
-            $.bt('push',function(){
-
-                vm.peep.push({f:'j',l:'y'})
-
+        ok({
+            f: ko.o('j'),
+            l: ko.o('y'),
+            fL: ko.c(function () {
+                return this.f() + ' ' + this.l()
             }),
-
-            $.spT('f'),    ' ',   $.spT('l'))
-
-    ])
-
-
-
-    OK('peep', kA(
-        {f:'B',l:'Bb'},
-        {f:'C',l:'Cc'},
-        {f:'D',l:'Dd'}))
-
-}
-//bind 'visibile' to a boolean
-KOBVS=function(){$.z('y').h1('see me if true!')
-    .bVs('vs')
-
-    $b('vs', ko.o(1))
-
-
-    $.in(function(){
-        vm.vs(0)
-
-        $.c$()
-
-        $.in(function(){
-            vm.vs(1)
-            $.c$()
+            capL: function () {
+                this.l(S.tU(this.l()))
+            }
         })
 
-    })
-}
-//bind cb 'checked' to boolean
-SPAM=function(){$.x()
 
-    $.cbC('spam').a2( $.p('spam? ') )
+    }
+    COMP = function () {
 
-    $b({ spam: ko.o(1)})
-    $.in(2, function(){vm.spam(0);$.c$()})
-}
-//bind 'option'
-KOSL=function(n,v){$.x('o').h1('dests')
+        $.z().h1('KNOCKOUT')
 
-    $.slO('cunts')
+        $.d([
+            $.p('F: ', $.b().bT('f')),
+            $.p('L: ', $.b().bT('l')),
+            $.p('F: ', $.ip().bV('f')),
+            $.p('L: ', $.ip().bV('l')).id('l'),
+            //   $.p('L: ', $.b().bT('fL') ),
 
-    ok('cunts',
-        ko.oa('Fran', 'Ger', 'Spa'))
+            $.bt('caps').b$('capL')
 
-    $.in(2,function(){
-            vm.cunts.push('Chi')},
-        '*'
-    )
-}
-KOIP=function(){$.z('x')
+        ])
 
-    $.p('Login name:').A( $.ipTi('un') )
+        ok({
 
-    $.p('Pw:').A( $.pwTi('pw') )
-
-    // $.p(['Pw:', $.pwTi('pw')])
-
-    //<p> <input type="password" data-bind="textInput: userPassword" /></p>
-
-
-    $.A(
-        'vm: ',
-        $.pre().bT('ko.toJSON($root, null, 2)')
-    )
-
-
-
-    ok({un: ko.o(''), pw: ko.o('abc')})
-}
-//bT,bV and computed
-COMP=function(){$.z().h1('KNOCKOUT')
-
-    $.d([
-        $.p('F: ', $.b().bT( 'f')),
-        $.p('L: ', $.b().bT( 'l') ),
-        $.p('F: ', $.ip().bV( 'f') ),
-        $.p('L: ', $.ip().bV( 'l') ).id('l'),
-        $.p('L: ', $.b().bT('fL') ),
-        $.bt('caps').b$('capL')
-    ]).A()
-
-
-    ok({
-        f:ko.o('j'),
-        l:ko.o('y'),
-        fL : ko.c(function(){
-            return this.f()+' '+this.l()}),
-        capL :function(){this.l(S.tU(this.l()))}
-    })
-
-
-
-}
-COMP = function () {
-
-    $.z().h1('KNOCKOUT')
-
-    $.d([
-        $.p('F: ', $.b().bT('f')),
-        $.p('L: ', $.b().bT('l')),
-        $.p('F: ', $.ip().bV('f')),
-        $.p('L: ', $.ip().bV('l')).id('l'),
-        //   $.p('L: ', $.b().bT('fL') ),
-
-        $.bt('caps').b$('capL')
-
-    ])
-
-    ok({
-
-        f: $o('j'),
-        l: $o('y'),
+            f: $o('j'),
+            l: $o('y'),
 
 //        fL : ko.c(function(){return this.f()+' '+this.l()}),
 
-        capL: function () {
-            this.l(S.tU(this.l()))
-        }
+            capL: function () {
+                this.l(S.tU(this.l()))
+            }
 
-    })
+        })
 
 
+    }
 }
+function tsk(){
 TASKS=function(){$.z().h3('Tasks')
 
     $.f().bSb('aT').A().A("Add task: ",
@@ -329,6 +221,7 @@ TASKS=function(){$.z().h3('Tasks')
 }
 TASK=function(){$.z('r')
 
+}
 }
 KOC=function(){$.z()
 
@@ -2175,17 +2068,7 @@ SLOP=function(){$.z()
 
 
 }
-KOSL=function(n,v){$.x('o').h1('dests')
 
-    $.slO('cunts')
-
-    ok('cunts',
-        ko.oa('Fran', 'Ger', 'Spa'))
-
-    $.in(2,function(){   vm.cunts.push('Chi')},
-        '*'
-    )
-}//bind 'option'
 KOC=function(){$.z()
 
     $.ip('r').at({

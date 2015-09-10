@@ -360,23 +360,6 @@ LIKE=function(){$.x('b', 'like')
 
 
 
-//tagUp and add, return jQ
-$.fn.qA=function(t){
-    return $('<'+t+'>').A()
-}
-
-
-
-$.fn.par=function(a,b){
-    this.at('params', a+': ' + b );
-    return this
-}
-
-
-$.fn.qAP=function(a,b,c){
-    this.qA(a).par(b, c)
-    return this
-}
 
 
 // ko.b({ g[0]:  ko.o(b) })
@@ -398,3 +381,37 @@ KOCM=function(){$.x('b','First instance, without parameters')
     ko.applyBindings()
 }
 
+function compon() {
+
+
+
+    $.dCm=function(a){return $.d().bCm(a)}
+    ko.r=ko.rg=function(n, ob){
+        ob=ob||{}
+        if( S(ob.vm) || (O(ob.vm) && !ob.vm.element)){ob.vm={element: ob.vm}}
+        ob.viewModel=ob.viewModel||ob.vm||ob.m||ob.o
+        if(U(ob.viewModel)){ob={vm:ob}}
+        ob.template = ob.template || ob.tp || ob.t
+        vm=ob
+        return ko.cm.rg(n,ob)
+    }
+}
+//tagUp and add, return jQ
+$.fn.qA=function(t){
+    return $('<'+t+'>').A()
+}
+
+
+
+
+$.fn.par=function(a,b){this.at('params', a+': ' + b ); return this}
+$.fn.qAP=function(a,b,c){
+    this.qA(a).par(b, c)
+    return this
+}
+
+$.fn.qA=function(t){alert('fn.qA')
+    return $('<'+t+'>').A()
+}
+$.fn.qAP=function(a,b,c){alert('fn.qAP')
+    this.qA(a).par(b, c); return this}
