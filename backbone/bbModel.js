@@ -55,11 +55,6 @@ md.V=function(Vw, ob){
 
 }
 
-
-
-
-
-
 md.l=function(){
     $l(this.toJSON()); return this }
 
@@ -343,9 +338,6 @@ OSYNC=function(){$.x('x','osync')
         })
 
 }
-
-
-
 
 
 /// old:

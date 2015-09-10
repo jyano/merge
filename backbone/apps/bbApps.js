@@ -1,4 +1,88 @@
 
+BACKSET=function() {$.x()
+
+    Sb= Sidebar = bb.m.e({
+
+        ask: function() {this.s({c: prompt("color?")})}})
+    sb = Sb.o()
+    sb.on('change:c', function(md, c) {$('body').C(c)})
+    sb.set({c: 'b'})
+    sb.ask()
+    //right from ko site
+    d = $.dA(400)
+
+    Sid = bb.M({
+        promptColor: function () {
+            this.s({
+                co: pr('color:')
+            })
+        }
+    })
+
+    sb = Sid()
+    sb.on('change:co', function (md, c) {d.C($l(c))})
+    sb.C('w')
+    sb.ask()
+    Per=bb.M.e({i:function(){
+        alert("Welcome")}})
+
+    p=Per({})
+    p.s({n:"mac",a:67})
+    $.dA(300).id('sb')
+
+    Sidebar=bb.M.e({
+        fn:function(){
+            return this.s({
+                c:prompt("c?")})}
+    })
+
+    Sidebar()
+        .oC('c', function(m,c){
+            $('#sb').C(c)
+        }).s({c:'w'}).fn()
+
+}
+
+BBSAMP1=function(){$.x('b','bbsamp','+')
+    d=$.d()
+    Rec = bb.M.e()
+
+    RecV = bb.V.e({
+        tagName:'div', className:'rec',
+        events:{'click': 'move'},
+        move:function(){this.$el.css('left', this.$el.position().left +10)},
+        rr:function(){return this.sDims().sPos().sCol()},
+        sDims:function(){
+            this.$el.WH(this.model.get('w'), this.model.get('h'))
+            return this
+        },
+        sPos:function(){
+            this.$el.ab()
+                .LR(
+                this.model.get('pos').x, this.model.get('pos').y)
+            return this
+        },
+        sCol:function(){
+            this.$el.C(this.model.get('C'))
+            return this}
+    })
+
+    _.e([
+        Rec.o({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+        Rec.o({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+        Rec.o({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+    ], function(md){
+
+        var r=  RecV.o({
+            model:md
+        })
+
+        r.rr().$el.a2(d)
+    })
+}
+BBEXT=function(){
+    // https://coderwall.com/p/xj81ua/a-better-way-of-extending-backbone-models-and-views
+}
 
 
     NORTR=function(){$.x(null, 'no router'); v1= v2 = v3 = 0
@@ -959,3 +1043,460 @@
 
 
     }
+
+BADS=function(){$.x().h1('backcl').i('chicks').A()
+
+    bads=$Cl()()
+    bads.oA(function(s){alert("new baddie: "+ s.g("n"))})
+    bads.add([{n:"bad1"}, {n:"bad2"}])
+
+
+}
+FRND=function(){$.x().h1('backcl')
+
+    Frnd = $M({d:{lame:1}})
+    f1=Frnd({n:"Lul", a:67})
+    f2= Frnd({g:'jigo'})
+    f2.s({n:"Rigo", a:7})
+    f2.s('n','hah')
+    Per=$M({
+
+        d:{lame:true},
+
+        i:function(){var t=this
+            t.on('error', function(m,e){
+                alert(3); $l(e)})
+            t.on('change:n',
+                function(m,e){
+                    alert(3); $l(e)})},
+
+        v:function(at){
+            if(at.n=='rigo'){return "n cant be rigo!"}
+        }
+
+    })
+    p=Per({n:"rigo", a:7})
+    cl=$Cl()()
+    f1=cl.A(f1)
+    f2=cl.A(f2)
+    cl.rm(f1)
+    Pers= $Cl({m:Per})
+    pers=Pers()
+    p1= pers.add(p)
+    pers.add(p2)
+    pers.rm(p1)
+}
+
+FETCH=EVTSAVE=function(){
+
+    m= bb.M.x({
+        n: 'j'
+    })
+
+
+    Don = $M({
+        //defaults
+        d: { n:null, sprink:0, cream:0 },
+        //u? url?
+        u: function(){return'/dn/' + this.id || ''}
+    })
+
+    bc=bostonCream= Don({n:'Bos',cream:1})
+    bc.s({sprink:1}).S()  //save
+
+    Dons= $Cl({m:Don, url:"/dn"})
+
+    dons=Dons()
+    dons.fetch() //f F
+
+
+    dons.at(0)  // a -> gets donuts by index.
+    dons.get(0) // g   -> gets donuts by id.
+    dons.each(function(d){ // e
+        $l(d.get("name"))
+    })
+
+
+    dons.select(function(d){//sl
+        return d.get("name").length>2
+    })// Select donuts with names longer than 2
+
+    dons.map(function(d){//m
+        return d.get("name")})
+
+
+    Shop= $m({i: function(){
+        this.dons=Dons()
+        this.dons.url='shops/'+this.id+"/dn"
+    }, df: {n:"z"} })
+
+    Shop.oA(function(dn){ //on ? alert added?
+        alert("added "+ dn.g('n'))
+    })
+
+    lem = Shop.dons.A({
+        n:"Lem"
+    })
+
+    //////
+
+}
+
+BBEV=function(){$.x().i('chicks')
+
+
+    ev = bb.Ev()
+    ev.b("fun:had", // bind? on?
+        function(){alert("wee!")})
+    //trigger
+    ev.tr("fun:had")  //it'll alert "wee!"
+
+
+}
+MODCHANGE=function(){$.x()
+
+    Bk = $M({
+
+        d: {ID: "", n: ""},
+        i: function(){var bk=this; $l('init..')
+
+
+            this.on('change',  function() {
+                alert('change')
+                if(bk.hasChanged('ID')){alert('ID changed')}
+                if(bk.hasChanged('n')){alert('n changed')}
+
+            })},
+
+        showAlert: function () {
+            alert('ID: '+this.g('ID')+','+' n: '+this.g('n'))
+        }
+    })
+
+
+
+    bk = Bk({ID: 1, n: "a"})    // ChildBook = Bk.extend({})
+
+
+}
+
+////
+PLV=function(){$.x('o','hi')
+
+
+    Per= bb.M.e({d: {n:'a', a:20, o:'p'}})
+
+    p=  Per.o({})
+    p1 = Per.o({n:'b'})
+    p2= {n:'c'}
+    PerV=bb.V.e({t:'li',
+        x:'some-per', k:'per',
+
+        tp:tp=_.tp('<%= n %> (<%= a %>) - <%= o %>'),
+
+        r: function(){
+            this.$el.A('fasdfsfasd')
+            _m=this.model
+            //    this.$el.A(this.tp(m  ))  // this.model.toJSON()
+        },
+
+        i: function(){this.r()}
+    })
+
+    PepC=bb.C.e({m:Per})
+
+    pV=PerV.o({m:p})
+    pC=PepC.o()
+
+    pC.add([p, p1,p2])
+
+    PepV=bb.V.e({cl: PepC, el:ul= $.ul(),
+        i:function(){},
+        r: function(){
+            ul=this.q.E()
+            this.J(function(md){PerV.o({m:md},ul)})}})
+    pCV = PepV.o({cl: pC})
+    $.in(.2,function(){pCV.r()},'*')
+    $.in(.4,function(){pCV.r()},'*')
+
+}
+C$= function(a){var b,c
+// $.ext(bb.Collection)
+    //if(U(a)){var c=new bb.Collection; return sCl(c)}
+    a=O(a)?a:{}
+    if(a.m){a.model= a.m}
+    c= bb.Collection.extend(a)
+    return function(o){o=O(o)?o:{}
+
+        //if(o.m){o.model= o.m}
+        b=new c(o)
+        o.o=o.on
+        E$(o)
+        return b}
+}
+BCL=function(){$.x().h1('BCL')
+
+    Bk = bb.M.e({d: {ID: '', n: ''}, id: "ID",
+        url: 'http://localhost:51377/api/Books'
+    })
+
+    BksC = bb.C.e({m: Bk})
+
+    cl1 =   BksC.o()
+    bk1 = Bk.o({ ID: 1,  n: "Bk 1" })
+    bk2 =  Bk.o({ ID: 2, n: "Bk 2" })
+    cl2 =  BksC.o([bk1, bk2])
+    bk3 =  Bk.o({ ID: 3, n: "Bk 3" })
+    cl2.add(bk3)
+
+    change=function(){bk3 = new Bk({ ID: 3, n: "Bk 3" })
+        cl2.add(bk3)
+        bk3_changed =  Bk.o({ ID: 3, n: "Changed Model" })
+        cl2.add(bk3_changed, { merge: true })
+    }
+
+    add=function(){ bk4 =   Bk.o({ ID: 4, n: "Bk 4" })
+        bk5 =  Bk.o({ ID: 5, n: "Bk 5" })
+        cl2.add([bk4, bk5])
+    }
+
+    addAt=function(n){bk0 = new Bk({ ID: 0, n: "Bk 0" })
+        cl2.add(bk0, {at:n||0})
+    }
+
+}
+BBCOL=function(){$.x()
+
+    Per = bb.M.e({})
+    p1 =  Per.o({n:'j'})
+    p2=  Per.o({n:'y'})
+
+    Pers= bb.C.e({model: Per})
+
+    pers=  Pers.o([p1, p2])
+}
+BBSORT=function() {
+
+    Chp = bb.M.e()
+    chps =  bb.C.e({m:Chp}).o()
+    chps.comparator = function (a) { return a.tt } //$.x(a)
+    chps.add(Chp.o({p:9, tt:"End"}))
+    chps.add(Chp.o({p:5, tt:"Mid"}))
+    chps.add(Chp.o({p:1, tt:"Beg"}))
+    $l(chps.pluck('tt'))
+}
+
+AVAIL=function(){$.x('x'); Ap={ M:{},C:{},V:{},T:{} }
+
+    Ap.T.Avail=function(model){
+        return $.d('g',400,100).mar(20).A(
+
+            $.h4(model.g('c')).id('avail').C('y','r'),
+            $.br(), $.sp('delete').id('deleteAvail'),
+            $.sp(' '), $.sp('edit').id('editAvail'),
+            $.sp(' '), $.cb().id('selAvail'))
+    }
+    Ap.M.Avail=M$({urlRoot: '/avail'})
+    Ap.C.Avails=C$({model: Ap.M.Avail, url: '/avail'})
+    Ap.V.Avail=bb.V.e({
+
+        r:function(){
+            this.$el.A( Ap.T.Avail(this.model) )
+            return this},
+        ev:{
+            'click #deleteAvail':'deleteAvail',
+            'click #editAvail':'editAvail',
+            'blur #avail':'changeAvail'},
+        changeAvail:function(){
+            this.$el.fi('#avail').at('contenteditable','false')
+            newAvail=this.$el.fi('#avail').text()
+            this.model.s('c', newAvail)
+            this.model.save()},
+        deleteAvail:function(){
+            this.model.destroy()
+            this.$el.rm()
+        },
+
+        editAvail:function(){this.$el.fi('#avail').at('contenteditable','true')}
+
+    })
+    Ap.V.Avails =bb.V.e({
+        el:'#availsDiv',
+        I:function(){this.render()},
+        R:function(){var t=this
+            t.collection.fetch({
+                success:function(){
+                    t.$el.html('')
+                    t.$el.A("<h1>Avails List</h1>")
+                    t.collection.each(function(m){
+                        t.$el.A( Ap.V.Avail({model:m}).render().el )
+                        return t},t)
+                }})
+        }})
+    //  avs=Ap.C.Avails()
+    //  v=Ap.V.Avails({collection:avs})//.render()
+//    avs.on('destroy',function(aa){$l('destroy!!!!')})
+    $.ip('new avail').id('newAvail').A()
+
+    $.bt('ok',function(){
+        Ap.M.Avail({c: $('#newAvail').v()
+        }).save()
+
+        v.render()
+
+    }).A()
+    $.dI('availsDiv')
+    $.ip('new avail').id('newAvail').A()
+    $.bt('ok',function(){
+        var m= Ap.M.Avail({
+            c:qiv('newAvail')
+        })
+        m.save()
+        m.on('destroy', function(){alert('i am the model and i was destroyed')})
+        v.render()
+    })
+    $.dI('availsDiv')
+
+
+    Ap.T.Avail=function(model){
+        return $.d('g',400,100).mar(20).A(
+            $.h4(model.g('c')).id('avail').col('y','r'),
+            $.br(),
+            $.sp('delete').id('deleteAvail'),
+            $.sp(' '), $.sp('edit').id('editAvail'),
+            $.sp(' '), $.cb().id('selAvail')
+        )
+    }
+    Ap.M.Avail=bb.M.e({urlRoot: '/avail'})
+    Ap.C.Avails=C$({model: Ap.M.Avail, url: '/avail'})
+    Ap.V.Avail=bb.V.e({
+
+        r:function(){
+            this.q(
+                Ap.T.Avail(this.model)
+            )
+            return this
+        },
+        ev:{
+            'click #deleteAvail':'deleteAvail',
+            'click #editAvail':'editAvail',
+            'blur #avail':'changeAvail'
+        },
+        changeAvail:function(){
+            qq( this.$el.find('#avail') ).cE(0)
+            var newAvail=this.$el.find('#avail').text()
+            this.model.s('c', newAvail)
+            this.model.save()
+        },
+
+        deleteAvail:function(){
+            this.model.destroy()
+            this.$el.remove()},
+        editAvail:function(){
+
+            this.$el.find('#avail').cE(1)
+
+        }
+
+    })
+
+    Ap.V.Avails =bb.V.e({el:'#availsDiv',
+        i:function(){this.render()},
+        r:function(){var t=this
+            t.collection.fetch({
+                success:function(){
+                    t.q.H('')
+
+                    t.q($.h1('Avails List'))
+
+                    t.e(
+                        function(m){
+                            t.q(
+                                Ap.V.Avail({m:m}).r().el )
+                            return t},t)
+
+                }})
+        }})
+    avs=Ap.C.Avails.o()
+
+    avs.on('destroy', function(j){
+        alert('i am col and i was destroyed')
+        v.trigger('modelDeleted')
+    })
+
+    v=Ap.V.Avails.o({cl:avs})
+
+
+    v.on('modelDeleted', function(){alert('modDel')})
+
+    bb.M.e({
+        d:{ prop:3 },
+        test:function(){
+            $( this.get('prop') ) },
+        test2:function(a){ $l('prop: '+this.get('prop'))},
+        happy:function(a){
+            this.test2(a)
+        }
+    })
+
+
+}
+DIRTPAGE=function(){$.x()
+
+    var newMsBox, newTopic, newMs,searchBox
+
+    MsM= bb.M.e({  })
+    MsC= bb.C.e({   m:'MsM'  })
+    MsView= bb.V.e({  })
+    MssView= bb.V.e({ })
+
+    $.h1().A(
+        $.a(  'Dirtpage', '/wap/dirtpage/' )
+    ).A()
+    $.dI('content')
+    if(wappyPam) {
+
+        newMsBox= $.d().WH('auto').A(
+            $.h1('new ms'),
+            $.ip().K('form-control').id('newMs'),
+            $.bt('ok', function(){var newMs = $('#newMs').v()
+                $.P('messages' , {tpc:wappyPam, ms:newMs
+                }, function(){ loadResults() })}))
+        $('#cont').A($.h1('the '+ wappyPam + ' page'),
+            newMsBox, $.dI('res'))
+        function loadRes(){$.G('topics/' + wappyPam, function(msgs){
+            $('#results').ht($.h5('len: '+msgs.length)  )
+            _.e(msgs, function(ms){$('#res').A($.h6( ms.ms ))
+            })})}
+        loadRes()}
+    else {
+        newMsBox=$.d().WH('auto').A(
+            $.h1('new message'),
+            $.ip().K('form-control').id('newTopic'),
+            $.ip().K('form-control').id('newMs'),
+            $.bt('ok', function(){
+                newTopic = $('#newTopic').v()
+                newMs = $('#newMs').v()
+                $.P('msgs', {topic:newTopic, message:newMs}, function(){})})
+        )
+        searchBox= $.d().WH('auto').A(
+            $.h1('search'),
+            $.ip().K('form-control').id('searchInput'),
+            $.bt('ok', function(){window.location=   '/wap/dirtpage/'+ $('#searchInput').v()
+                searchInput = $('#searchInput').v()
+                $.G('topics/' + searchInput, function(msgs){
+                    $('#res').ht($.h5('len: '+msgs.length)  )
+                    _.e(msgs, function(ms){$('#res').A( $.h6( ms.ms ) )})
+                })
+            })
+        )
+        $.dI('res')
+        $('#cont').A(newMsBox, searchBox)
+        $.eG('msgs',  function(ms){
+            $('#res').A($.h2().A(
+                    $.a('topic: '+ms.topic,'/wap/dirtpage/'+ms.topic)),
+                $.h3( 'ms: '+ms.ms)
+            )
+        })
+    }
+}
