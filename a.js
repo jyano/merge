@@ -1,19 +1,31 @@
 dirs=[
-    'public/pics',
-    'both',
-    'front/', 'front/graphics',
-    'front/lib',
-    'front/lib/handy',
-    'front/lib/boot', 'front/lib/boot/deps', 'front/lib/boot/deps/css',   'front/lib/boot/deps/fonts',
-    'front/lib/graf', 'front/lib/graf/deps',
 
-    'front/lib/fiz', 'front/lib/fiz/deps',
+    '', 'public/pics',
+    'front/both',
+
+    'front', 'front/graphics', 'front/handy',
+
+    'boot', 'boot/deps', 'boot/deps/css',   'boot/deps/fonts',
+
+    'front/graf', 'front/graf/deps',
+
+    'front/fiz', 'front/fiz/deps',
+
+
     'show', 'show/mugApps', 'show/spazGames',
-    'mvc',
-    'mvc/backbone',  'mvc/backbone/deps', 'mvc/backbone/marion',
-    'mvc/jqui',  'mvc/jqui/deps',  'mvc/jqui/deps/images',
-    'mvc/knock', 'mvc/knock/deps'
+    'jqui',  'jqui/deps',  'jqui/deps/images',
+
+
+    'knock', 'knock/deps', 'knock/core', 'knock/nest', 'knock/apps',
+
+    'backbone',  'backbone/deps',
+     'backbone/ev', 'backbone/nest', 'backbone/view', 'backbone/apps',
+    'backbone/marion'
+
+
 ]
+
+
 
 
 reqs()

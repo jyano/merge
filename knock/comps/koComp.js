@@ -69,6 +69,8 @@ ko.r = ko.rg= ko.cm.rg = ko.cm.reg= function(){var g=G(arguments),o
 
 
 
+function compon(){
+    $.fn.bCm=function(s){return this.b('component', s  )}}
 
 
 CM=function(){$.x()
