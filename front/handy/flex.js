@@ -44,7 +44,7 @@ FLEX=function(){  $.x('g', 'flex')
     $CSS({
 
         _flCt : {
-            
+
             ds: 'flex', flD:'row', flW: 'wrap', flJC: 'space-between'
         },
 
