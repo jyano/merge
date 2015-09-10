@@ -1,4 +1,4 @@
-preKo();coreKo();coreBinds();moreBinds();lates()
+preKo();coreKo();coreBinds();moreBinds();lates();lovely()
 function preKo(){
 
 }
@@ -550,164 +550,817 @@ function lates(){
         }
     }
 }
-IFFF=function(){$.x('x')
-    $.cC('dispMs'); $.sp('Disp ms')
-    $.pI('dispMs', 'Here is a message. Astonishing')
-    ok({dispMs: $o(1)})
+function lovely() {
 
-} //does nuttin
+    IFFF = function () {
+        $.x('x')
+        $.cC('dispMs');
+        $.sp('Disp ms')
+        $.pI('dispMs', 'Here is a message. Astonishing')
+        ok({dispMs: $o(1)})
+
+    } //does nuttin
 //bind cb and bind ip to 'enable'
-ZI = function () {z()
+    ZI = function () {
+        z()
 
-    $.dA('y', 100, 300,200,100)
-        .b('t', 'name')
-    $.ip().b('ti', 'name')
-    vm = {name: $o('zi')}
-    ko.ab(vm)
-}//basic databinding example
-CUNTS=KOSL=SELECTEDOPTIONS=function(n,v){$.x('o').h1('dests')
-    $.sO('cunts')
-    ok('cunts', $oa('Fran', 'Ger', 'Spa') )
-    _.in(2,function(){vm.cunts.push('Chi') })
-}
-TEXTROOT= K0IP=KOIP=function(){ $.z('x')
-    unTI= $.p('Login name:').A($.ipTi('un'))
-    pwTI=$.p('Pw:').A($.pwTi('pw') )
-    $('body').A('the viewModel: ').A(
-        $.pre().bT(
-            'ko.toJSON($root, null, 2)'
-        ))
+        $.dA('y', 100, 300, 200, 100)
+            .b('t', 'name')
+        $.ip().b('ti', 'name')
+        vm = {name: $o('zi')}
+        ko.ab(vm)
+    }//basic databinding example
+    CUNTS = KOSL = SELECTEDOPTIONS = function (n, v) {
+        $.x('o').h1('dests')
+        $.sO('cunts')
+        ok('cunts', $oa('Fran', 'Ger', 'Spa'))
+        _.in(2, function () {
+            vm.cunts.push('Chi')
+        })
+    }
+    TEXTROOT = K0IP = KOIP = function () {
+        $.z('x')
+        unTI = $.p('Login name:').A($.ipTi('un'))
+        pwTI = $.p('Pw:').A($.pwTi('pw'))
+        $('body').A('the viewModel: ').A(
+            $.pre().bT(
+                'ko.toJSON($root, null, 2)'
+            ))
 
-    ok({
-        un: $o(''),
-        pw: $o('abc')
-    })
-}
-TIARRAY=K00=KO0 =function(){$l('KO0'); $.x();
+        ok({
+            un: $o(''),
+            pw: $o('abc')
+        })
+    }
+    TIARRAY = K00 = KO0 = function () {
+        $l('KO0');
+        $.x();
 
-    $.ipTi('n');//textInput
-    $.h1T('n');//h1 text (read only) // $.dA('b',100,300,200,'+').bT('n')
-    //ul each 'array'
-    $.ulE('arr', [$.liT()])
-    $.sm().b$('A')
-    ok({
-        n:   $o('zi'),
-        arr: $oa(),
-        A:   function(){
-            this.arr.push(
-                this.n() )  }
-    })
-    _.in(1, function(){vm.n('girf')
-        _.e(['a','b','c'], function(i){
-            vm.arr.push(i)})})
-}
-TBPEEP= K0E= KOE=function(){
+        $.ipTi('n');//textInput
+        $.h1T('n');//h1 text (read only) // $.dA('b',100,300,200,'+').bT('n')
+        //ul each 'array'
+        $.ulE('arr', [$.liT()])
+        $.sm().b$('A')
+        ok({
+            n: $o('zi'),
+            arr: $oa(),
+            A: function () {
+                this.arr.push(
+                    this.n())
+            }
+        })
+        _.in(1, function () {
+            vm.n('girf')
+            _.e(['a', 'b', 'c'], function (i) {
+                vm.arr.push(i)
+            })
+        })
+    }
+    TBPEEP = K0E = KOE = function () {
 
-    tbHd=$.tH([
-        $.tr([
-            $.th('F'),  $.th('L')   ])])  // (not tableHTML)
-
-    $.x().t([tbHd,
-        $.tBE('peep', [// <- $.fn.tE= $.fn.tBE ?
+        tbHd = $.tH([
             $.tr([
-                $.tdT('f'),
-                ', ',
-                $.tdT('l').col('w')
+                $.th('F'), $.th('L')])])  // (not tableHTML)
+
+        $.x().t([tbHd,
+            $.tBE('peep', [// <- $.fn.tE= $.fn.tBE ?
+                $.tr([
+                    $.tdT('f'),
+                    ', ',
+                    $.tdT('l').col('w')
+                ])
             ])
         ])
-    ])
 
-    $('body').C('r')
-    ok( 'peep',  [{f:'a',l:'A'}, {f:'b',l:'B'}, {f:'c',l:'C'}]
-    )
+        $('body').C('r')
+        ok('peep', [{f: 'a', l: 'A'}, {f: 'b', l: 'B'}, {f: 'c', l: 'C'}]
+        )
 
 
-}
-BINDHTML=KOH=function() {$.z().dH('details')
-    ok('details', $o())
-    _.in(2,function () {
-        vm.details(
-            "<em>For details, view report <a href='report.html'>here</a>.</em>")
-    } )}
-KOBVSS=function(){$.z('y').h1('see me if true!').bVs('vs')
-    ok('vs', ko.o(1))
-    _.in(function(){vm.vs(0)
-        _.in(function(){
-            vm.vs(1)
-        })})
-}//bind 'visibile' to a boolean
-OPSEL=SELOP=function(){$.x(null, 'selectedOptions')
-    $.p(
-        'Where you want to go?',
-        $.sl().at({size: 5, multiple: true}).b({
-            o: 'available', so: 'chosen'
-        }))
-    ok({
-        available  : $oa(['France', 'Germany', 'Spain']),
-        chosen  : $oa(['Germany'])})
-    _.in(function(){
-        vm.chosen.push('France')})
-}
-KOFCC=function(){$.x()
-
-    $.p('Name:').A(
-
-        $.ip().b({v:'editing',   v:'name', f:'editing' }),
-        $.d('r').b({v:'!editing()', t:'name', $:'edit'})
-    )
-
-    $.p('Click the name to edit it; click elsewhere to apply changes')
-    function VM(n) {var vm=this
-        vm.name = $o(n)
-        vm.editing = $o()
-        vm.edit = function() {vm.editing(true) }}
-    ok(new VM("Bert Bertington"))
-}
-KOENN = function () {
-    $.x()
-
-    $.p().A(
-        $.cbC('hasPhone'), 'I have phone'
-    )
-
-    $.p('Your cellphone number').A(
-        $.ip().b({v: 'num', en: 'hasPhone'}))
-
-    ok({hasPhone: $o(0), num: ''})
-
-}//bind cb and bind ip to 'enable'
-ATTRIBUTS=KOATT=KOAT = function () {
-    $.x()
-    $.aA(
-        '{href:url, title:tt}',
-        'report'
-    )
-
-    ok({
-        url: $o("year-end.html"),
-        tt: $o("Report including final year-end statistics")
-    })
-}
-ROOOT=function(){$.x('x')
-    $.uE('fs', [
-        $.li().b({
-            t:'$data',
-            s:'{selected:$data==$root.chFI()}',
-            $:'$root.gtf'
+    }
+    BINDHTML = KOH = function () {
+        $.z().dH('details')
+        ok('details', $o())
+        _.in(2, function () {
+            vm.details(
+                "<em>For details, view report <a href='report.html'>here</a>.</em>")
         })
+    }
+    KOBVSS = function () {
+        $.z('y').h1('see me if true!').bVs('vs')
+        ok('vs', ko.o(1))
+        _.in(function () {
+            vm.vs(0)
+            _.in(function () {
+                vm.vs(1)
+            })
+        })
+    }//bind 'visibile' to a boolean
+    OPSEL = SELOP = function () {
+        $.x(null, 'selectedOptions')
+        $.p(
+            'Where you want to go?',
+            $.sl().at({size: 5, multiple: true}).b({
+                o: 'available', so: 'chosen'
+            }))
+        ok({
+            available: $oa(['France', 'Germany', 'Spain']),
+            chosen: $oa(['Germany'])
+        })
+        _.in(function () {
+            vm.chosen.push('France')
+        })
+    }
+    KOFCC = function () {
+        $.x()
+
+        $.p('Name:').A(
+            $.ip().b({v: 'editing', v: 'name', f: 'editing'}),
+            $.d('r').b({v: '!editing()', t: 'name', $: 'edit'})
+        )
+
+        $.p('Click the name to edit it; click elsewhere to apply changes')
+        function VM(n) {
+            var vm = this
+            vm.name = $o(n)
+            vm.editing = $o()
+            vm.edit = function () {
+                vm.editing(true)
+            }
+        }
+
+        ok(new VM("Bert Bertington"))
+    }
+    KOENN = function () {
+        $.x()
+
+        $.p().A(
+            $.cbC('hasPhone'), 'I have phone'
+        )
+
+        $.p('Your cellphone number').A(
+            $.ip().b({v: 'num', en: 'hasPhone'}))
+
+        ok({hasPhone: $o(0), num: ''})
+
+    }//bind cb and bind ip to 'enable'
+    ATTRIBUTS = KOATT = KOAT = function () {
+        $.x()
+        $.aA(
+            '{href:url, title:tt}',
+            'report'
+        )
+
+        ok({
+            url: $o("year-end.html"),
+            tt: $o("Report including final year-end statistics")
+        })
+    }
+    ROOOT = function () {
+        $.x('x')
+        $.uE('fs', [
+            $.li().b({
+                t: '$data',
+                s: '{selected:$data==$root.chFI()}',
+                $: '$root.gtf'
+            })
+        ]).K('fs')
+
+        ok({
+            fs: ['I', 'A', 'Se', 'Sp'],
+            chFI: $o(),
+            gtf: function (f) {
+                $l('click: ' + 'f: ' + f + ', this: ' + this)
+                f = f || 'frog'
+                vm.chFI(f)
+            }
+        })
+    }
+}
+Gift = function (gifts) {
+    var vm = this
+
+    vm.gifts = ko.oa(gifts)
+
+    vm.addGift = function () {
+        vm.gifts.push({name: "", price: ""})
+    }
+
+    vm.removeGift = function (gift) {
+        vm.gifts.remove(gift)
+    }
+
+    vm.save = function (form) {
+        alert("Could now transmit to server: " + ko.ut.stringifyJson(vm.gifts))
+    }
+
+    // To actually transmit to server as a regular form post, write this:
+    // ko.utils.postJson($("form")[0], self.gifts)
+
+}
+ROOT1=function(){$.x('x')
+    $.uE('fs', [  $.li().b({
+        t:'$data',
+        s:'{selected: $data==$root.chFI()}',
+        $:'$root.gtf'
+
+    })
+
     ]).K('fs')
 
     ok({
         fs:['I','A','Se','Sp'],
-        chFI: $o(),
-        gtf: function(f){$l('click: ' + 'f: '+ f + ', this: '+this)
+        chFI: ko.o(),
+        gtf: function(f){
+            $l('click: ' + 'f: '+ f + ', this: '+this)
             f = f||'frog'
             vm.chFI(f)
         }
     })
 }
-function advanced() {
+SPAM=function(){$.x('o','spam')
+    $.p('spam? ').A($.cbC('spam'))
+    ok({   spam:$o(1)   })
+    $.in(2, function(){   vm.spam(0)   })
+}
+function listAdd(){
 
+    LIST=function(){$.x('z')
+
+        f=  $.f()
+
+        f.bSb('addItem').A(
+
+            $.sp('add item'),
+            $.ip().b({v:'itemToAdd', V:'afterkeydown'}),
+            $.sb('add').bE('itemToAdd().length>0')
+        )
+
+        $.d().A(f,
+
+            $.d().A(
+                $.sp('Your values:'),
+
+                $.sl().h(5).b({
+
+                    o:'allItems',
+                    so:'selectedItems'
+                })
+            ),
+
+            $.d().A(
+
+                $.bt('remove').b({
+                    c:'removeSelected',
+                    e:'selectedItems().length>0'}),
+                $.bt('sort').b({
+                    c:'sortItems',
+                    e:'allItems().length>1'}))
+        )
+        ok({ itemToAdd:ko.o(''),
+            allItems:ko.oa(['a','b','c']),
+            selectedItems:ko.oa(['d']),
+            addItem:function(){
+                $l('addItem')
+                if(vm.itemToAdd()!='' && vm.allItems.indexOf(vm.itemToAdd())<0) {
+                    vm.allItems.push(vm.itemToAdd());vm.itemToAdd('')
+                }
+            },
+
+
+            removeSelected:function(){
+                allItems.removeAll(o.selectedItems())
+                selectedItems([])
+            },
+            sortItems:function(){o.allItems.sort()}
+        })
+    }
+LIST=function(){$.x('z')
+
+    f=  $.f().A(
+
+        $.sp('add item'),
+
+        $.ip().b({v:'itemToAdd', V:'afterkeydown'}),
+
+        $.sb('add').bE('itemToAdd().length>0')
+
+    )
+
+
+    f.bSb('addItem')
+
+
+
+
+
+    $.d().A(f,
+
+        $.d().A(
+            $.sp('Your values:'),
+            $.sl().h(5).b({
+                o:'allItems',
+                so:'selectedItems'
+            })
+        ),
+
+
+
+        $.d().A(
+
+            $.bt('remove').b({
+                c:'removeSelected',
+                e:'selectedItems().length>0'}),
+
+            $.bt('sort').b({
+                c:'sortItems',
+                e:'allItems().length>1'}))
+    )
+
+    ok({ itemToAdd:ko.o(''),
+        allItems:ko.oa(['a','b','c']),
+        selectedItems:ko.oa(['d']),
+        addItem:function(){
+            $l('addItem')
+            if(vm.itemToAdd()!='' && vm.allItems.indexOf(vm.itemToAdd())<0) {
+                vm.allItems.push(vm.itemToAdd());vm.itemToAdd('')
+            }
+        },
+
+
+        removeSelected:function(){
+            allItems.removeAll(o.selectedItems())
+            selectedItems([])
+        },
+        sortItems:function(){o.allItems.sort()}
+    })
+
+}
+BTRLST=function(){$.x('o')
+
+    f= $.fSb('A',[ 'Add:',
+        $.ipV('tA'),
+        $.sb('Add').bEn('tA().length>0')
+    ])
+
+    $.p('Your values:')
+    $.sl().mlt().b({
+        o:'all',
+        so:'sl'
+    })
+
+    $.d([
+
+        $.bt('Rem').b({
+
+            $:'xSl',
+
+            en:'sl().length > 0'
+
+        }),
+
+
+        $.bt('Srt').b({$:'srt', en:'all().length > 1'})
+
+    ])
+
+
+    Lst = function(){
+
+        this.tA = kO('')
+
+        this.all = kA('Eg', 'Hm', 'Ch', 'J', 'r', 30)
+
+        this.sl = kA('Hm')
+
+        this.A = function () {
+            if (this.tA() &&
+                this.all.indexOf(this.tA())<0
+            ){
+
+                this.all.push(this.tA())
+                this.tA('')}
+        }
+
+        this.xSl = function(){
+
+            this.all.removeAll(this.sl())
+
+            this.sl([])
+
+        }
+
+
+        this.srt = function() { this.all.sort() }
+    }
+
+    ok( new Lst() )
+
+}
+BTRLST=function(){$.x('o')
+
+    f= $.fSb('A',[ 'Add:',
+        $.ipV('tA'),
+        $.sb('Add').bEn('tA().length>0')
+    ])
+
+    $.p('Your values:')
+    $.sl().mlt().b({
+        o:'all',
+        so:'sl'
+    })
+
+    $.d([
+
+        $.bt('Rem').b({
+
+            $:'xSl',
+
+            en:'sl().length > 0'
+
+        }),
+
+
+        $.bt('Srt').b({$:'srt', en:'all().length > 1'})
+
+    ])
+
+
+    Lst = function(){
+
+        this.tA = kO('')
+
+        this.all = kA('Eg', 'Hm', 'Ch', 'J', 'r', 30)
+
+        this.sl = kA('Hm')
+
+        this.A = function () {
+            if (this.tA() &&
+                this.all.indexOf(this.tA())<0
+            ){
+
+                this.all.push(this.tA())
+                this.tA('')}
+        }
+
+        this.xSl = function(){
+
+            this.all.removeAll(this.sl())
+
+            this.sl([])
+
+        }
+
+
+        this.srt = function() { this.all.sort() }
+    }
+
+    ok( new Lst() )
+
+}
+//sort, remove
+BTRLST1=function(){$.x('o')
+
+    $.f().b({sb:'A'}).A('Add item:',
+        $.ip().b({v:'tA', vU:'afterkeydown'}),
+        $.sb('Add').b('en', 'tA().length > 0')
+    )
+
+    $.p('Your values:')
+
+    $.sl().mlt().b({ o:'all', so:'sl' })
+
+    $.d([
+
+
+        $.bt('Rem').b({$:'xSl', en:'sl().length > 0'}),
+
+        $.bt('Srt').b({$:'srt', en:'all().length > 1'})
+
+    ])
+
+    Lst = function () {
+
+        this.tA = $o('')
+
+        this.all = $oa(['Eg', 'Hm', 'Ch', 'J', 'r', 30] )
+
+        this.sl = $oa(['Hm'])
+
+        this.A = function () {
+            if (this.tA()!=''&& this.all.indexOf(this.tA())<0){
+                this.all.push(this.tA())
+                this.tA('') } }
+
+        this.xSl = function () {
+            this.all.removeAll(this.sl())
+            this.sl([]) }
+        this.srt = function() { this.all.sort() }
+    }
+
+    ok(new Lst())
+}
+DELETE=function(){$.x()
+//bind bt 'click' to parent.rem
+    $.h4('People')
+
+    $.ulE('peep',[ $.li([
+        $.sp('pos/name: '),
+        $.spT('$index'),
+        $.spT('n'),
+        $.$bt('del', 'rm', '-')
+    ]) ])
+    $.$bt('A')
+
+    ok({ peep : ko.oa({n:'B'},{n:'Ch'},{n:'De'}),
+        A: function(){this.peep.push({n: "New at "+$D()})},
+        rm : function (a) {vm.peep.remove(this)}
+    })
+
+
+}
+LIST=function(){$.x('z')
+
+    f=  $.f()
+
+    f.bSb('addItem').A(
+
+        $.sp('add item'),
+        $.ip().b({v:'itemToAdd', V:'afterkeydown'}),
+        $.sb('add').bE('itemToAdd().length>0')
+    )
+
+    $.d().A(f,
+
+        $.d().A(
+            $.sp('Your values:'),
+
+            $.sl().h(5).b({
+
+                o:'allItems',
+                so:'selectedItems'
+            })
+        ),
+
+        $.d().A(
+
+            $.bt('remove').b({
+                c:'removeSelected',
+                e:'selectedItems().length>0'}),
+            $.bt('sort').b({
+                c:'sortItems',
+                e:'allItems().length>1'}))
+    )
+    ok({ itemToAdd:ko.o(''),
+        allItems:ko.oa(['a','b','c']),
+        selectedItems:ko.oa(['d']),
+        addItem:function(){
+            $l('addItem')
+            if(vm.itemToAdd()!='' && vm.allItems.indexOf(vm.itemToAdd())<0) {
+                vm.allItems.push(vm.itemToAdd());vm.itemToAdd('')
+            }
+        },
+
+
+        removeSelected:function(){
+            allItems.removeAll(o.selectedItems())
+            selectedItems([])
+        },
+        sortItems:function(){o.allItems.sort()}
+    })
+}
+
+    ADDER=function(){$.x()
+
+        $.h4('People')
+
+        $.ulE('peep',[ $.li([
+            $.sp('pos/name: '),
+            $.spT('$index'),
+            $.spT('n'),
+            $.$bt('del', 'rm', '-')
+        ]) ])
+
+        $.$bt('A')
+
+        ok({ peep : ko.oa({n:'B'},{n:'Ch'},{n:'De'}),
+            A: function(){this.peep.push({n: "New at "+$D()})},
+            rm : function (a) {vm.peep.remove(this)}
+        })
+
+
+    }
+//bind bt 'click' to parent.rem
+    ADDER=function(){$.x()
+
+        $.h4('People')
+
+        $.ulE('peep',[ $.li([
+            $.sp('pos/name: '),
+            $.spT('$index'),
+            $.spT('n'),
+            $.$bt('del', 'rm', '-')
+        ]) ])
+
+        $.$bt('A')
+
+        ok({ peep : ko.oa({n:'B'},{n:'Ch'},{n:'De'}),
+            A: function(){this.peep.push({n: "New at "+$D()})},
+            rm : function (a) {vm.peep.remove(this)}
+        })
+
+
+    }
+}
+function cherryBarn(){
+    CHERRY=function(){$.x('o')
+        $.p($.sp('spam?'), $.cC('wants'))
+        $.d([  'Preferred flavors of spam:',
+            $.d([
+                $.p($.sp('cherry'), $.cC('flav').v('cherry')),
+                $.d([$.p($.sp('Almond'),   $.cC('flav').v('almond'))]),
+                $.p($.sp('Glut'), $.cC('flav').v('glut'))
+            ])
+        ]).bVs('wants')
+
+        ok({
+            wants:ko.o(1),
+            flav:ko.oa(["cherry","almond"])
+        })
+
+
+
+
+
+        // vm.flav.push("msg")
+        /*
+         function $.cKO(m, b, v){
+         var cb=$.cb(), p = $.p().A($.sp().A(m), cb.bC( b))
+         if(v){ cb.v(v)}
+         return p
+         }*/
+
+
+    }
+    CHERRY = function () {
+        $l('cherry')
+        $.x('o')
+        $.p($.sp('spam?'), $.cC('wants'))
+        $.d(['Preferred flavors of spam:',
+            $.d([
+                $.p($.sp('cherry'), $.cC('flav').v('cherry')),
+                $.d([$.p($.sp('Almond'), $.cC('flav').v('almond'))]),
+                $.p($.sp('Glut'), $.cC('flav').v('glut'))
+            ])
+        ]).bVs('wants')
+
+        ok({
+            wants: ko.o(1),
+            flav: ko.oa(["cherry", "almond"])
+        })
+
+
+        // vm.flav.push("msg")
+        /*
+         function $.cKO(m, b, v){
+         var cb=$.cb(), p = $.p().A($.sp().A(m), cb.bC( b))
+         if(v){ cb.v(v)}
+         return p
+         }*/
+
+
+    }
+    BARN=function(){$l('barn')
+
+        $.z().ulE(
+            'PL',[
+
+                $.li([
+
+                    $.sp('Planet: '),
+                    $.b().bT('n'),
+                    $.dI('cap',[  $.pT('cap.n') ])
+
+                ])
+
+
+            ])
+
+
+
+        ok('PL',[
+            {n: 'Merc', cap: null },
+            {n: 'Earth', cap: { n: 'Barn' } }
+        ])
+    }
+    BARN=function(){$.x()
+
+
+        $.ulE('PL', [ $.li([
+            $.sp('Planet: '),
+
+            $.b().bT('n'),
+
+            $.dI('cap',[  $.pT('cap.n')])
+
+        ])])
+
+
+        ok('PL',[
+            {n: 'Merc', cap: null },
+            {n: 'Earth', cap: { n: 'Barn' } }
+        ])
+    }
+}
+function comput() {
+//bT,bV and computed
+    COMP = function () {
+        $.z().h1('KNOCKOUT')
+
+        $.d([
+            $.p('F: ', $.b().bT('f')),
+            $.p('L: ', $.b().bT('l')),
+            $.p('F: ', $.ip().bV('f')),
+            $.p('L: ', $.ip().bV('l')).id('l'),
+            $.p('L: ', $.b().bT('fL')),
+            $.bt('caps').b$('capL')
+        ]).A()
+
+
+        ok({
+            f: ko.o('j'),
+            l: ko.o('y'),
+            fL: ko.c(function () {
+                return this.f() + ' ' + this.l()
+            }),
+            capL: function () {
+                this.l(S.tU(this.l()))
+            }
+        })
+
+
+    }
+    COMP = function () {
+
+        $.z().h1('KNOCKOUT')
+
+        $.d([
+            $.p('F: ', $.b().bT('f')),
+            $.p('L: ', $.b().bT('l')),
+            $.p('F: ', $.ip().bV('f')),
+            $.p('L: ', $.ip().bV('l')).id('l'),
+            //   $.p('L: ', $.b().bT('fL') ),
+
+            $.bt('caps').b$('capL')
+
+        ])
+
+        ok({
+
+            f: $o('j'),
+            l: $o('y'),
+
+//        fL : ko.c(function(){return this.f()+' '+this.l()}),
+
+            capL: function () {
+                this.l(S.tU(this.l()))
+            }
+
+        })
+
+
+    }
+}
+function advanced() {
+    messages=[
+        {message:'zi',     score:100,     responses:[
+
+            {response:'good coder',
+                comments:[{comment:'..eh'}]},
+            {response:'cool girl'}
+        ]},
+        {message:'yano',
+
+            score:3,
+
+            responses:[
+
+                {response:'is cool guy',
+                    comments:[
+
+                        {comment:'hi'},
+                        {comment:'hello'}]},
+
+                {response:'a'},
+                {response:'b'},
+                {response:'fun'}]}, {message:'is awesome',score:0,responses:[
+            {response:'afsdafsd'}]}, {message:'lame',score:20,responses:[
+            {response:'weird',comments:[
+                {comment:'not!!!!1'}]},
+            {response:'lamer',comments:[
+                {comment:'fuck ya'}]}]},
+        {message:'rocks',score:4,responses:[]}
+    ]
     CHL = function () {
         $.x('o');
         h1 = $.h1('shown!')
@@ -846,35 +1499,431 @@ function advanced() {
         // Could be stored in a separate utility library
         ok(new Planets())
     }
+    KOGRID = function () {
+        $.z()
 
+
+        f = $.f().at({action: '/someServerSideHandler'})
+
+
+        f.A(
+            $.p('You have asked for').A($.sp('&nbsp;').bT('gifts().length'), 'gift(s)'),
+
+            $.t().bVs('gifts().length > 0').A(
+                $.tH().A($.tr().A(//tHR
+                    $.th().A('Gift name'),
+                    $.th().A('Price'))),
+                $.tB().bE('gifts').A($.tr().A(  //tBR
+                    $.td().A($.ip().K('required').b({v: 'name', u: true})),
+                    $.td().A($.ip().K('required number')
+                        .b({v: 'price', u: true})),
+                    $.td().A($.a('delete').b$('$root.removeGift'))))),
+
+            $.bt('add gift').b$('addGift'),
+
+            $.sb().bEn('gifts().length > 0')
+        ).A()
+
+
+        ok(new Gift([
+
+            {name: "Tall Hat", price: "39.95"},
+            {name: "Long Cloak", price: "120.00"}
+
+        ]))
+
+        // $("form").validate({ submitHandler: vm.save }) // Activate jQuery Validation
+
+    }
+    MENU = function () {
+        $.z('b').h2('Your seat reservations')
+
+        $.bt('reserve').b$('A')
+
+        AM = [{n: 'fries', p: 10}, {n: 'fish', p: 20}, {n: 'noodles', p: 30}]
+
+
+        $.t().A($.tHR(['psngr n', 'm', '$$', '']), $.tB().bE('seats').A(
+                $.tr().A(
+                    $.td().bT('n'),
+                    $.td().bT('m().n'),
+                    $.td().A(
+                        $.sl().b({
+                            o: '$root.AM',
+                            ot: 'm'    //v : 'm',
+                        })
+                    ),
+                    $.td().bT('m().p')
+                )
+            )
+        )
+
+        ok({
+            seats: $oa([
+                {n: 'Jo', m: ko.o(AM[0])},
+                {n: 'Bo', m: ko.o(AM[1])}]),
+            A: function () {
+                vm.seats.push({
+                    n: 'hahaha',
+                    m: ko.o({n: 'noodles', p: 30})
+                })
+            }
+        })
+
+    }
+
+
+    KOC=function(){$.z()
+
+        $.ip('r').at({
+            name:'choices',
+            value:'summary'
+        }).bC('selectedView');
+        $.sp('summary').A()
+
+        $.ip('r').at({name:'choices',value:'details'}).bC('selectedView'); $.sp('details').A(); $.hr().A()
+
+        $.d().bT("{name: templateToUse, " + "foreach: articles }")
+
+        $.scrp("summary").A().A($.d().bT('title')),
+            $.scrp('details').A(
+                $.d([$.h2().bT('title'), $.p().bT('content'),
+                    $.bt('edit').b$('$parent.selectedArticle') ]) )
+
+        $.scrp('edit').A().A(
+            $.d([$.ip().bV('title'), $.br(), $.ip().bV('content') ])
+        )
+        ok({
+            articles: [
+                {id: 1,title: "Article One",content: "Content for article one."},
+                {id: 2,title: "Article Two",content: "Content for article two."},
+                {id: 3,title: "Article Three",content: "Content for article three."}
+
+            ],
+            selectedView: ko.o("summary"),
+            selectedArticle: ko.o(),
+            templateToUse:function(i){
+                return i===vm.selectedArticle()? 'edit' :vm.selectedView()}
+
+        })
+    }//broken select and inputs
+
+    TPLIST=function(){$.x()
+        Meals = [ { m: "sand", p: 0 }, { m: "lobst", p: 34.95 }, { m: "zebra", p: 290 } ]
+
+        $.h2('Your rsv').A( $.spT('seats().length') )
+
+        $.h3('Cost:').bVs('cost()>0').A( $.spT('cost().toFixed(2)') )
+
+        $.t([
+            $.tH([ $.tr(['Pass name','Meal','charge']) ]),
+            $.tB().bTp("{n:'rsvTp', foreach: seats}") //?
+
+        ])
+
+        $.bt('Rsv again').b({ $:'A', en:'seats().length < 5' })
+
+        $('<script type="text/x-jquery-tmpl" id="rsvTp" >').A(
+            $.tr([
+                $.td([$.ipV('n')]),
+
+                $.td([
+                    $.sl().b({o:'Meals', ot:'meal'})
+                ]),
+
+                $.td([ $.a$('del', 'rm')  ])
+            ])
+        )
+
+        seatRsv = function(n) {
+            this.n = n
+            this.Meals = Meals;
+            this.meal = ko.o(Meals[0]);
+            this.rm = function() {vm.seats.remove(this) }
+            this.fmtPrice = ko.do(function(){
+                var price = this.meal().p
+                return price ? "$" + price.toFixed(2) : "None";
+            }, this)
+        }
+
+
+        vm = {
+            seats: ko.oa([ new Rsv("St"), new Rsv("Br") ]),
+            A: function() { this.seats.push(new Rsv())} }
+
+
+        vm.cost = ko.do(function() {var tot = 0;
+            for (var i = 0; i < this.seats().length; i++)
+                tot += this.seats()[i].meal().price;
+            return tot
+        }, vm)
+
+
+
+        ok(vm)
+
+    }
+    NEST=function(){$.x('x').h2('Pp')
+        Per = function(n, ch) {
+            this.n = n
+            this.ch = $oa(ch)
+            this.A = function(){
+                this.ch.push('new ch '+ $r())
+            }
+        }
+        peep= [
+            new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
+            new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+            new Per("Charles", ["Cayenne", "Cleopatra"])
+        ]
+        $.uLE('peep',
+            $.d([  // name has length children
+                $.spT('n'), 'has', $.spT('ch().length'),  'children &nbsp;',
+                //new
+                $.a$('New','A')
+            ]),
+
+            $.uLE('ch',
+                $.spT(), //child name
+                $.spVs( '$root.showDT').A('(child rendered at ',   $.spT('$Dt().getSeconds()'),      ')')
+            )
+        )
+        $.cbC('showDT').a2Lb('Show time:')
+        //anonymous vm
+
+        ok({    peep: peep,      showDT: $o()     })
+    }
+
+    plan()
+    function plan(){
+        PLAN=function(){$.z().h1('Plan!')
+
+            $.p().A($.lb().A(
+                    $.cC('displayAdvancedOptions'), 'Display advanced options'
+                )
+            )
+
+            $.p().A('Show:',
+
+                $.lb([$.ip()]),  $.lb([$.ip()]),  $.lb([$.ip()])
+
+            )
+
+
+
+            /*
+             <p data-bind='fadeVisible: displayAdvancedOptions'>
+             Show:
+             <label><input type='radio' name="type" value='all' data-bind='checked: typeToShow' />All</label>
+             <label><input type='radio' name="type" value='rock' data-bind='checked: typeToShow' />Rocky planets</label>
+             <label><input type='radio' name="type" value='gasgiant' data-bind='checked: typeToShow' />Gas giants</label>
+             </p>*/
+
+
+            $.d([$.d([ $.d()]) ])
+
+            /*
+
+             <div data-bind='template: { foreach: planetsToShow,
+             beforeRemove: hidePlanetElement,
+             afterAdd: showPlanetElement }'>
+             <div data-bind='attr: { "class": "planet " + type }, text: name'> </div>
+             </div>
+
+             */
+
+            $.p([$.bt(), $.bt()])
+
+            /*
+             <p data-bind='fadeVisible: displayAdvancedOptions'>
+             <button data-bind='click: addPlanet.bind($data, "rock")'>Add rocky planet</button>
+             <button data-bind='click: addPlanet.bind($data, "gasgiant")'>Add gas giant</button>
+             </p>
+             */
+
+
+            Planets  = function() {
+
+                this.planets = ko.oa([
+
+                    { name: "Mercury", type: "rock"},
+                    { name: "Venus", type: "rock"},
+                    { name: "Earth", type: "rock"},
+                    { name: "Mars", type: "rock"},
+                    { name: "Jupiter", type: "gasgiant"},
+                    { name: "Saturn", type: "gasgiant"},
+                    { name: "Uranus", type: "gasgiant"},
+                    { name: "Neptune", type: "gasgiant"}
+                ]);
+
+                this.typeToShow = ko.o("all");
+                this.displayAdvancedOptions =ko.o(false);
+                this.addPlanet = function(type) {
+                    this.planets.push({
+                        name: "New planet",
+                        type: type})}
+                this.planetsToShow = ko.pc(function() {
+                    // Represents a filtered list of planets
+                    // i.e., only those matching the "typeToShow" condition
+                    var desiredType = this.typeToShow();
+                    if (desiredType == "all") return this.planets();
+                    return ko.utils.arrayFilter(this.planets(), function(planet) {
+                        return planet.type == desiredType;
+                    });
+                }, this);
+
+
+                // Animation callbacks for the planets list
+                this.showPlanetElement = function(el) {
+                    if (el.nodeType === 1) $(el).hide().slideDown()
+                }
+
+                this.hidePlanetElement = function(el) {
+                    if (el.nodeType === 1) $(el).slideUp(function() { $(el).remove(); }) }
+            }
+
+
+// Here's a custom Knockout binding that makes els shown/hidden via jQuery's fadeIn()/fadeOut() methods
+// Could be stored in a separate utility library
+
+            ko.bh.fadeVisible = {
+                init: function(el, valAcc) {
+                    // Initially set the el to be instantly visible/hidden depending on the value
+                    var value = valAcc();
+                    $(el).toggle(ko.unwrap(value)); // Use "unwrapObservable" so we can handle values that may or may not be observable
+                },
+                update: function(el, valAcc) {
+                    // Whenever the value subsequently changes, slowly fade the el in or out
+                    var value = valAcc();
+                    ko.unwrap(value) ? $(el).fadeIn() :
+                        $(el).fadeOut();
+                }
+
+            }
+
+
+            ok(new Planets())
+
+        }
+        PLAN=function(){$.z().h1('Plan!')
+
+            $.p().A($.lb().A(
+                    $.cC('displayAdvancedOptions'), 'Display advanced options'
+                )
+            )
+
+            $.p().A('Show:',
+
+                $.lb([$.ip()]),  $.lb([$.ip()]),  $.lb([$.ip()])
+
+            )
+
+
+
+            /*
+             <p data-bind='fadeVisible: displayAdvancedOptions'>
+             Show:
+             <label><input type='radio' name="type" value='all' data-bind='checked: typeToShow' />All</label>
+             <label><input type='radio' name="type" value='rock' data-bind='checked: typeToShow' />Rocky planets</label>
+             <label><input type='radio' name="type" value='gasgiant' data-bind='checked: typeToShow' />Gas giants</label>
+             </p>*/
+
+
+            $.d([$.d([ $.d()]) ])
+
+            /*
+
+             <div data-bind='template: { foreach: planetsToShow,
+             beforeRemove: hidePlanetElement,
+             afterAdd: showPlanetElement }'>
+             <div data-bind='attr: { "class": "planet " + type }, text: name'> </div>
+             </div>
+
+             */
+
+            $.p([$.bt(), $.bt()])
+
+            /*
+             <p data-bind='fadeVisible: displayAdvancedOptions'>
+             <button data-bind='click: addPlanet.bind($data, "rock")'>Add rocky planet</button>
+             <button data-bind='click: addPlanet.bind($data, "gasgiant")'>Add gas giant</button>
+             </p>
+             */
+
+
+            Planets  = function() {
+
+                this.planets = ko.oa([
+
+                    { name: "Mercury", type: "rock"},
+                    { name: "Venus", type: "rock"},
+                    { name: "Earth", type: "rock"},
+                    { name: "Mars", type: "rock"},
+                    { name: "Jupiter", type: "gasgiant"},
+                    { name: "Saturn", type: "gasgiant"},
+                    { name: "Uranus", type: "gasgiant"},
+                    { name: "Neptune", type: "gasgiant"}
+                ]);
+
+                this.typeToShow = ko.o("all");
+                this.displayAdvancedOptions =ko.o(false);
+                this.addPlanet = function(type) {
+                    this.planets.push({
+                        name: "New planet",
+                        type: type})}
+                this.planetsToShow = ko.pc(function() {
+                    // Represents a filtered list of planets
+                    // i.e., only those matching the "typeToShow" condition
+                    var desiredType = this.typeToShow();
+                    if (desiredType == "all") return this.planets();
+                    return ko.utils.arrayFilter(this.planets(), function(planet) {
+                        return planet.type == desiredType;
+                    });
+                }, this);
+
+
+                // Animation callbacks for the planets list
+                this.showPlanetElement = function(el) {
+                    if (el.nodeType === 1) $(el).hide().slideDown()
+                }
+
+                this.hidePlanetElement = function(el) {
+                    if (el.nodeType === 1) $(el).slideUp(function() { $(el).remove(); }) }
+            }
+
+
+// Here's a custom Knockout binding that makes els shown/hidden via jQuery's fadeIn()/fadeOut() methods
+// Could be stored in a separate utility library
+
+            ko.bh.fadeVisible = {
+                init: function(el, valAcc) {
+                    // Initially set the el to be instantly visible/hidden depending on the value
+                    var value = valAcc();
+                    $(el).toggle(ko.unwrap(value)); // Use "unwrapObservable" so we can handle values that may or may not be observable
+                },
+                update: function(el, valAcc) {
+                    // Whenever the value subsequently changes, slowly fade the el in or out
+                    var value = valAcc();
+                    ko.unwrap(value) ? $(el).fadeIn() :
+                        $(el).fadeOut();
+                }
+
+            }
+
+
+            ok(new Planets())
+
+        }
+        PLANS = [
+
+            {name: "Mercury", type: "rock"},
+            {name: "Venus", type: "rock"},
+            {name: "Earth", type: "rock"},
+            {name: "Mars", type: "rock"},
+            {name: "Jupiter", type: "gasgiant"},
+            {name: "Saturn", type: "gasgiant"},
+            {name: "Uranus", type: "gasgiant"},
+            {name: "Neptune", type: "gasgiant"}
+        ]}
 
 }
-messages=[
-    {message:'zi',     score:100,     responses:[
-
-        {response:'good coder',
-            comments:[{comment:'..eh'}]},
-        {response:'cool girl'}
-    ]},
-    {message:'yano',
-
-        score:3,
-
-        responses:[
-
-            {response:'is cool guy',
-                comments:[
-
-                    {comment:'hi'},
-                    {comment:'hello'}]},
-
-            {response:'a'},
-            {response:'b'},
-            {response:'fun'}]}, {message:'is awesome',score:0,responses:[
-        {response:'afsdafsd'}]}, {message:'lame',score:20,responses:[
-        {response:'weird',comments:[
-            {comment:'not!!!!1'}]},
-        {response:'lamer',comments:[
-            {comment:'fuck ya'}]}]},
-    {message:'rocks',score:4,responses:[]}
-]
