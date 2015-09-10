@@ -16,3 +16,4 @@ wrk=function(a){
 work=function(){
     w=wrk(function(){postMessage('hi')})
     w.m(function(e){$l('Worker said: '+e.data)})}
+

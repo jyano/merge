@@ -3,10 +3,10 @@ dirs=[
     'both',
     'front/', 'front/graphics',
     'front/lib',
-    'front/lib/boot', 'front/lib/boot/deps', 'front/lib/boot/deps/css',   'front/lib/boot/deps/fonts',
-    'front/lib/fiz', 'front/lib/fiz/deps',
-    'front/lib/graf', 'front/lib/graf/deps',
     'front/lib/handy',
+    'front/lib/boot', 'front/lib/boot/deps', 'front/lib/boot/deps/css',   'front/lib/boot/deps/fonts',
+    'front/lib/graf', 'front/lib/graf/deps',
+
     'front/lib/fiz', 'front/lib/fiz/deps',
     'show', 'show/mugApps', 'show/spazGames',
     'mvc',
