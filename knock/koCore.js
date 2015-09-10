@@ -1,376 +1,496 @@
-elz();corre(); bindins();   formBind(); aaps();  laterr();forEaApps();formApps()
-function elz() {
-    $.scrp = function (i, t) {
+$.scrp = function (i, t) {
 
-        var scr = $("<script type='text/html'>")
-        scr.id(i)
-        if (t) {
-            scr.A(t)
-        }
-        scr.A()
-        return scr
-
-        function old() {
-            $.scrp = script = scrp = function (i) {
-                return $("<script type='text/html'>").id(i)
-
-            }
-        }
+    var scr = $("<script type='text/html'>")
+    scr.id(i)
+    if (t) {
+        scr.A(t)
     }
-    EVob = {$: 'click', $$: 'dblclick', v: 'mouseover'}
-    el = function (ob, op) {
-        if (A(ob)) {
-            _.e(ob, function (ob) {
-                el(ob)
-            })
-            return
-        }
-        return el.d(ob, op)
+    scr.A()
+    return scr
+}
+el = function (ob, op) {
+    if (A(ob)) {
+        _.e(ob, function (ob) {
+            el(ob)
+        })
+        return
     }
-    el.d = function (ob) {
-        var d, g = G(arguments)
-        d = $('<div>')
+    return el.d(ob, op)
+}
+el.d = function (ob) {
+    var d, g = G(arguments)
+    d = $('<div>')
 
-        if (ob.b) {
-            d.b(ob.b)
-        }
-
-        if (ob.ch) {
-            ob.ch = A(ob.ch) ? ob.ch : [ob.ch]
-            _.e(ob.ch, function (ch) {
-                d.A(ch)
-            })
-        }
-
-        if (ob.C) {
-            d.C(ob.C)
-        }
-        if (ob.c) {
-            d.c(ob.c)
-        }
-        if (ob.w) {
-            d.W(ob.w)
-        }
-        if (ob.h) {
-            d.H(ob.h)
-        }
-        if (!g.n) {
-            d.A()
-        }
-
-        //ko
-        if (ob.$vs) {
-            d.bVs(ob.$vs)
-        }
-        if (ob.$h) {
-            d.bH(ob.$h)
-        }
-
-        $l('el.d..')
-        return d
+    if (ob.b) {
+        d.b(ob.b)
     }
-    els = function () {
 
-        G(arguments).e(function (g) {
-            el(g)
+    if (ob.ch) {
+        ob.ch = A(ob.ch) ? ob.ch : [ob.ch]
+        _.e(ob.ch, function (ch) {
+            d.A(ch)
         })
     }
-    _$ = function (ob) {
-        ob.C = ob.C || $r()
-        $.x(ob.C, ob.t)
-        if (ob.vm) {
-            OK(ob.vm)
-        }
-        if (ob.el) {
 
-            els(ob.el)
-        }
-        if (ob.A) {
-
-            _.e(A(ob.A) ? ob.A : [ob.A], function (q) {
-                q.A()
-            })
-        }
-        if (ob._) {
-
-            $.in(ob._)
-        }
+    if (ob.C) {
+        d.C(ob.C)
+    }
+    if (ob.c) {
+        d.c(ob.c)
+    }
+    if (ob.w) {
+        d.W(ob.w)
+    }
+    if (ob.h) {
+        d.H(ob.h)
+    }
+    if (!g.n) {
+        d.A()
     }
 
+    //ko
+    if (ob.$vs) {
+        d.bVs(ob.$vs)
+    }
+    if (ob.$h) {
+        d.bH(ob.$h)
+    }
+
+    $l('el.d..')
+    return d
+}
+els = function () {
+
+    G(arguments).e(function (g) {
+        el(g)
+    })
+}
+_$ = function (ob) {
+    ob.C = ob.C || $r()
+    $.x(ob.C, ob.t)
+    if (ob.vm) {
+        OK(ob.vm)
+    }
+    if (ob.el) {
+
+        els(ob.el)
+    }
+    if (ob.A) {
+
+        _.e(A(ob.A) ? ob.A : [ob.A], function (q) {
+            q.A()
+        })
+    }
+    if (ob._) {
+
+        $.in(ob._)
+    }
+}
+ko.u = ko.ut = ko.utils
+ko.o = ko.observable
+ko.oa = ko.oA = ko.observableArray
+ko.c = ko.computed
+ko.pc = ko.pureComputed
+ko.do = ko.dependentObservable
+ko.aB= ko.ab = ko.applyBindings
+ko.bD = ko.applyBindingsToDescendants
+ko.ve = ko.vE = ko.virtualElements
+ko.B = ko.ve.ab = ko.vE.AB = ko.vE.allowedBindings
+ko.ut.af = ko.ut.arrayFilter
+ko.rTp = ko.renderTemplate
+ko.uw = ko.unwrap
+ko.ut.uo = ko.ut.unwrapObservable
+ko.bh = ko.BH = ko.bindingHandlers
+ko.cm = ko.components
+ko.cm.rg = ko.cm.register
+ko.cm.iR = ko.cm.isRegistered
+oA = ko.observableArray.fn // inhertince extension :)
+oA.p = function (i) {
+    var oA = this
+    oA.push(i)
+    return oA
+}
+$o = ko.o = function (a) {
+    return ko.observable(a)
+}
+$oa = ko.oa = function (a) {var g = G(arguments), a = g[0]
+    return ko.observableArray(g.A_ ? g.f : g)
 
 }
-function corre() {KOob= {
-
-    $:'click', ev:'event',
-
-    sm:'submit',  sb:'submit',
-
-    en:'enable', d:'disable',
-
-    v:'value',  ti:'textInput',
-
-    f:'hasFocus',
-
-    c:'checked', ch:'checked',
-    o:'options', so:'selectedOptions',
-    //
-
-
-    t:'text', h:'html', s:'css', y:'style',
-
-    a:'attr', e:'foreach', i:'if', n:'ifnot', w:'with',
-
-    V:'valueUpdate', vs:'visible', u:'uniqueName', tp:'template', cm:'component'
-}
-    sKo(); koBind();obb()obbA();okie()
-    function sKo() {
-        ko.u = ko.ut = ko.utils
-        ko.o = ko.observable
-        ko.oa = ko.oA = ko.observableArray
-        ko.c = ko.computed
-        ko.pc = ko.pureComputed
-        ko.do = ko.dependentObservable
-        ko.ab = ko.applyBindings
-        ko.bD = ko.applyBindingsToDescendants
-        ko.ve = ko.vE = ko.virtualElements
-        ko.B = ko.ve.ab = ko.vE.AB = ko.vE.allowedBindings
-        ko.ut.af = ko.ut.arrayFilter
-        ko.rTp = ko.renderTemplate
-        ko.uw = ko.unwrap
-        ko.ut.uo = ko.ut.unwrapObservable
-        ko.bh = ko.BH = ko.bindingHandlers
-        ko.cm = ko.components
-        ko.cm.rg = ko.cm.register
-        ko.cm.iR = ko.cm.isRegistered
-    }
-    function koBind() {
-        $.fn.dB = function (dB) {
-            return this.at({'data-bind': dB})
-        }
-        $.fn.bindKO = b = knockoutBind = function (a, b) {
-            var o = []
-            if (O(a)) {
-                _.each(a, function (v, k) {
-
-                    o.push(oO('b', k) + ':' + v)
-
-                })
-                this.attr({'data-bind': o.join()})
-            }
-
-
-            else {
-
-                this.attr({
-
-                    b: oO('b', a) + ':' + b
-
-                })
-            }
-
-
-            return this
-        }
-        $.fn.b = $.fn.ko = function (a, b) {
-
-            var o = [], str
-
-            if (O(a)) {
-                _.e(a, function (v, k) {
-                    if (KOob[k]) {
-                        k = KOob[k]
-                    }
-                    ;
-                    o.push(k + ':' + v)
-                })
-                str = o.join()
-            }
-            else if (a.indexOf(':') == -1) {
-                str = KOob[a] ? KOob[a] : a + ':' + b || '$'
-            }
-            else {
-                str = a
-            }
-            this.at({'data-bind': str})
-            return this
-            function old() {
-
-                $.fn.b = $.fn.ko = function (a, b) {
-
-
-                    var o = []
-
-                    if (O(a)) {
-                        _.e(a, function (v, k) {
-                            if (KOob[k]) {
-                                k = KOob[k]
-                            }
-                            o.push(k + ':' + v)
-                        })
-                        this.at({
-                            'data-bind': $l(o.join())
-                        })
-                    }
-
-                    else {
-
-                        if (KOob[a]) {
-                            a = KOob[a]
-                        }
-                        // str= oO('b', a)
-                        str = a + ':' + b;  //$l(': '+ str  )
-
-
-                        this.at({'data-bind': str})
-                    }
-                    return this
-
-                }
-            }
-        }
-    }
-    function obb() {
-
-        $o = function (a) {
-            return ko.o(a)
-        }
-        $o = ko.o = function (a) {
-            var obb = ko.observable(a)
-            return obb
-        }
-        kO = function () {
-            var g = G(arguments)
-            return ko.o.apply(ko, g)
-        }
-    }
-    function obbA() {
-        kA = function () {
-            var g = G(arguments)
-            return ko.oa(g.A_ ? g.f : g)
-
-        }
-        ko.oa = $oa = function (a) {
-            var g = G(arguments), a = g[0]
-            if (!A(a)) {
-                a = g
-            }
-            return ko.oA(a)
-        }
-        $oa = ko.oa = function (a) {
-            var g = G(arguments)
-            var obbA = ko.observableArray(g.A_ ? g.f : g)
-            return obbA
-        }
-//extend:
-        oA = ko.observableArray.fn // inhertince extension :)
-        oA.p = function (i) {
-            var oA = this
-            oA.push(i)
-            return oA
-        }
-
-    }
-    function okie() {
-        ok = $b = ko.b = ko.ab = function (o, b) {
-            var g = G(arguments), ob
-
-            if (S(o)) {
-                ob = {}
-                ob[o] = b
-                g[0] = ob
-            }
-
-            if (O(g[0])) {
-                vm = g[0];
-                return ko.applyBindings(g[0])
-            }
-
-            return ko
-        }
-// ko.b({ g[0]:  ko.o(b) })
-        ok = function () {
-            var g = G(arguments)
-            g.p ? $.in(0, aB) : aB()
-            function aB() {
-                vm = g.S_ ? // pass a single key, value -> {key:value}
-                    Ob(g.f, g.s, g.n ? '-' : null) :
-                    g.u ? // pass nothing -> {$: $o(1)}
-                    {$: $o(g.n ? 0 : 1)} :
-                        // ???? pass plain object and element(string or ob?) :)
-                        (F(g.f) || N(g.f) || A(g.f) ) ?
-                            // pass just a value -> {$: value}
-                        {$: g.f} :
-                            // pass just plain obj (normal)
-                            g.f
-                ko.applyBindings(vm)
-                function Ob(a, b) {
-                    var g = G(arguments),
-                        o = {k: g.f, v: g.s}
-                    var ob = {}
-                    if (S(o.k)) {
-                        o.v = D(o.v) ? o.v : $o(g.n ? 0 : 1)
-                        ob[o.k] = o.v
-                    }
-                    return ob
-                }
-            }
-        }
-        OK = function (a) {
-            var g = G(arguments)
+OK = function (o, b) {var g = G(arguments), ob
+    return g.S_?
+        ko.aB( vm =  Ob(o,b)): g.O?
+        ko.aB( vm = g[0]) :
+        ko
+    function alt(){
+        OK = function (a) {var g = G(arguments),ob
             g.push('+')
             return ok.apply(null, g)
         }
-//OK=ok
-        OK = ok = $b = ko.b = ko.ab = function (o, b) {
-            var g = G(arguments), ob
-            if (S(o)) {
-                ob = {}
-                ob[o] = b
-                g[0] = ob
+    }
+}
+ok = function () {var g = G(arguments),ob
+    g.p ? $.in(0, aB) : aB()
+    function aB() {
+        vm = g.S_ ? // pass a single key, value -> {key:value}
+            Ob(g.f, g.s, g.n ? '-' : null) :
+            g.u ? // pass nothing -> {$: $o(1)}
+            {$: $o(g.n ? 0 : 1)} :
+                // ???? pass plain object and element(string or ob?) :)
+                (F(g.f) || N(g.f) || A(g.f) ) ?
+                    // pass just a value -> {$: value}
+                {$: g.f} :
+                    // pass just plain obj (normal)
+                    g.f
+        ko.aB(vm)
+
+    }
+}
+function Ob(a, b) {
+    var g = G(arguments),
+        o = {k: g.f, v: g.s}
+    var ob = {}
+    if (S(o.k)) {
+        o.v = D(o.v) ? o.v :
+            $o(g.n ? 0 : 1)
+        ob[o.k] = o.v
+    }
+    return ob
+}
+$.fn.dB = function(dB){     this.at({'data-bind': dB}); return this}
+$.fn.ko = $.fn.b =  function (a, b) {
+    this.dB(!O(a)? hasColon(a)? a: _KOob(a, b || '$'): koObStr(a)   )
+    function _KOob(k,v){if(!k){return}
+
+
+        var b= KOob[k]? KOob[k]:k
+
+        if(v){
+            b += ':' + v
+        }
+        return b
+    }
+    function koObStr(a){
+        var o=[],str
+
+        _.e(a, function (v, k) {o.push( _KOob(k,v )  )});
+        str = o.join()
+        return str
+    }
+    function hasColon(str){return str.indexOf(':') != -1}
+    return this
+}
+bindTxt();httml();ccss();attr();iff();withh();visble(); forEa()
+$.fn.bT=function(s){s=s||'$data'; return  this.dB( 'text: '+ s)}
+$.fn.bT=function(s){return  this.b('text', s||'$data')}
+$.fn.bT=function(s){s=s||'$data'; return  this.dB( 'text: '+ s)}
+$.dT=function(a){return $.d().bT(a)}
+$.dT=function(a){return $.d().bT(a)}
+$.dT = function (a){return $.d().bT(a)}
+$.h1T=$.h1Bt=function(a,b){
+    var h1= $.h1(a)
+    h1.bT(b||a)
+    return h1
+
+}
+$.h1T = $.h1Bt = function (a, b) {
+    var h1 = $.h1(a)
+    h1.bT(b || a)
+    return h1
+
+}
+$.h1T=$.h1Bt=function(a,b){
+    var h1= $.h1(a)
+    h1.bT(b||a)
+    return h1
+
+}
+$.liT=$.liBt=function(a){
+
+    return $.li().bT(a)
+}
+$.liT = $.liBt = function (a) {
+
+    return $.li().bT(a)
+}
+$.liT=$.liBt=function(a){
+    return $.li().bT(a)
+}
+$.liT=$.liBt=function(a){return $.li().bT(a)}
+$.pT=function(a){
+    var p = $.p()
+    p.bT(a)
+    return p
+}
+$.pT = function (a) {
+    var p = $.p()
+    p.bT(a)
+    return p
+}
+$.pT=function(a){
+    var p = $.p()
+    p.bT(a)
+    return p
+}
+$.sT=$.spT= function(a,b){
+    a=a||'$data'
+    return $.sp(b).bT(a)
+}
+$.spT=$.spBt=function(a,b){return $.sp(b).bT(a)}
+$.sT=$.spT= function(a,b){ return $.sp(b)
+    .bT(a||'$data')
+}
+$.sT = $.spT = function (a, b) {
+    a = a || '$data'
+    return $.sp(b).bT(a)
+}
+$.tdT = function (a, b) {
+    var td = $.td()
+    td.bT(a)
+    if (A(b)) {
+        _.e(b, function (el) {
+            td.A(el)
+        })
+    }
+    return td
+}
+$.tdT=function(a,b){var td=$.td()
+    td.bT(a)
+    if(A(b)){
+        _.e(b,function(el){
+            td.A(el)
+        })}
+    return td
+}
+$.tdT=function(a,b){var td=$.td()
+    td.bT(a)
+    if(A(b)){_.e(b,function(el){td.A(el)})}
+    return td
+}
+
+function httml(){
+    $.fn.bH=function(s){return this.dB('html: '+ s  )}
+    $.fn.bH=function(s){return this.b('html', s  )}
+    $.fn.bH = function (s) {
+        return this.dB('html: ' + s)
+    }
+    $.dH=function(a){return $.d().bH(a)}
+    $.dH=function(a){return $.d().bH(a)}
+    $.dH = function (a) {
+        return $.d().bH(a)
+    }
+}
+function ccss(){
+    $.fn.bS=function(s){return this.b('css', s  )}
+    $.fn.bS = function (s) {
+        return this.dB('css: ' + s)
+    }
+    $.fn.bS=function(s){return this.dB('css: '+ s  )}
+    $.fn.bY=$.fn.bSy=function(s){return this.b('style', s  )}
+    $.fn.bY=$.fn.bSy=function(s){return this.dB('style: '+ s  )}
+    $.fn.bY = $.fn.bSy = function (s) {
+        return this.dB('style: ' + s)
+    }
+}
+function attr() {
+    $.fn.bA= $.fn.bAt= function(s){return this.b('attr', s  )}
+    $.fn.bA= $.fn.bAt= function(s){
+        return this.dB('attr: '+ s  )}
+    $.fn.bA = $.fn.bAt = function (s) {
+        return this.dB('attr: ' + s)
+    }
+    $.aA=function(a,b,c,d){return $.a(b,c,d).bA(a)}
+    $.aA=function(a,b,c,d){
+        return $.a(b,c,d).bA(a)
+    }
+    $.aA = function (a, b, c, d) {
+        return $.a(b, c, d).bA(a)
+    }
+}
+function iff() {
+    $.fn.bI= $.fn.bIf=function(s){return this.b('if', s  )}
+    $.fn.bI = $.fn.bIf = function (s) {
+        return this.dB('if: ' + s)
+    }
+    $.fn.bI= $.fn.bIf=function(s){return this.dB('if: '+ s  )}
+    $.fn.bN= $.fn.bIN=function(s){return this.dB('ifnot: '+ s  )}
+    $.fn.bN= $.fn.bIN=function(s){return this.b('ifnot', s  )}
+    $.fn.bN = $.fn.bIN = function (s) {
+        return this.dB('ifnot: ' + s)
+    }
+    $.dIf=function(a,b){
+        var d =  $.d().bI(a)
+        if(A(b)){_.e(b,function(b){d.A(b)})}
+        return d
+    }
+    $.dIf=function(a,b){
+        var d =  $.d().bI(a)
+        if(A(b)){_.e(b,function(b){d.A(b)})}
+        return d
+    }
+    $.dIf = function (a, b) {
+        var d = $.d().bI(a)
+        if (A(b)) {
+            _.e(b, function (b) {
+                d.A(b)
+            })
+        }
+        return d
+    }
+    $.pI = function (a, b, c, d) {
+        var p = $.p(b, c, d).bI(a)
+    }
+    $.pI=function(a,b,c,d){
+        var p= $.p(b,c,d).bI(a)
+    }
+    $.pI=function(a,b,c,d){
+        var p= $.p(b,c,d).bI(a)
+    }
+
+    IF=function(){$.x('x')
+        $.cC('dispMs')
+        $.sp('Disp ms')
+        $.pI('dispMs','Here is a message. Astonishing')
+        ok({dispMs: ko.o(1)})
+    }
+}
+function withh() {
+    $.fn.bW=function(s){return this.b('with', s  )}
+    $.fn.bW=function(s){return this.dB('with: '+ s  )}
+    $.fn.bW = function (s) {
+        return this.dB('with: ' + s)
+    }
+    $.dW = $.dBw = function (a, b) {
+
+        var d = $.d().bW(a)
+        if (A(b)) {
+            _.e(b, function (b) {
+                d.A(b)
+            })
+        }
+        return d
+    }
+    $.dW = $.dBw = function (a, b) {
+
+        var d = $.d().bW(a)
+        if (A(b)) {
+            _.e(b, function (b) {
+                d.A(b)
+            })
+        }
+        return d
+    }
+    $.dW = $.dBw = function (a, b) {
+        var d = $.d()
+            .bW(a)
+        if (A(b)) {
+            _.e(b, function (b) {
+                d.A(b)
+            })
+        }
+        return d
+    }
+    $.dW = $.dBw = function (a, b) {
+        var d = $.d().bW(a)
+        if (A(b)) {
+            _.e(b, function (b) {
+                d.A(b)
+            })
+        }
+        return d
+    }
+}
+function visble() {
+    $.fn.bVs=function(s){return this.dB('visible: '+ s)}
+    $.fn.bVs = function (s) {
+        return this.dB('visible: ' + s)
+    }
+    $.fn.bVs=function(s){return this.b('visible', s)}
+    $.spVs = function (a) {
+        return $.sp().b('vs', a)
+    }
+    $.spVs = function (a) {
+        return $.sp().b('vs', a)
+    }
+    $.spVs = function (a) {
+        return $.sp().b('vs', a)
+    }
+}
+function forEa(){
+    $.fn.bE=function(s){return this.dB( 'foreach: '+ s )}
+    $.fn.bE=function(s){ return this.b('foreach', s)}
+    $.fn.koE=$.fn.eKo= $.fn.bindKOEach = fe = forEach =function(a){return this.bindKO('fe',a)}
+    $.fn.eD=$.fn.eB= $.fn.bindKOEachData = feD = forEachData = function (a) {return this.bindKOEach('$data.' + a)}
+    $.dE = function (a, b) {var d = $.d().bE(a)
+        if (A(b)) {
+            _.e(b, function (el) {
+                d.A(el)
+            })
+        }
+        else if (S(b)) {
+            d.A(b)
+        }
+        return d
+    }
+    $.uE=$.ulE=function(a,b,c){var g=G(arguments)
+
+        var ul=  $.ul().bE(a)
+
+        if(c){
+            b= $.li( _.r(g) )
+        }
+
+        else if(O(b) && !A(b)){
+            b=[b]
+        }
+
+        if(A(b)){
+            _.e(b,function(el){
+                ul.A(el)
+            })
+        }
+
+
+        else if(S(b)){
+            ul.A(b)
+        }
+        return  ul
+        function old(){
+
+
+            $.uE =$.uE=$.ulE=function(a,b){
+
+                var ul=  $.ul().bE(a)
+                if(A(b)){
+                    _.e(b,function(el){
+                        ul.A(el)
+                    })}
+                else if(S(b)){
+                    ul.A(b)
+                }
+                return  ul
             }
-            if (O(g[0])) {
-                vm = g[0];
-                return ko.applyBindings(g[0])
-            }
-            return ko
+
         }
     }
-    computed()
-    function computed(){
-        ko.c = ko.computed
-        ko.pc = ko.pureComputed
-//bT,bV and computed
-        COMP = function () {
+    $.U = function () {
+        var g = G(arguments)
+        return $.uE(g.f, [$.li(g.s)])
+    }
+    $.olE=$.olBe=function(a,b){var ol= $.ol().bE(a)
 
-            $.z().h1('KNOCKOUT')
-
-            $.d([
-                $.p('F: ', $.b().bT('f')),
-                $.p('L: ', $.b().bT('l')),
-                $.p('F: ', $.ip().bV('f')),
-                $.p('L: ', $.ip().bV('l')).id('l'),
-                //   $.p('L: ', $.b().bT('fL') ),
-
-                $.bt('caps').b$('capL')
-
-            ])
-
-            ok({
-
-                f: $o('j'),
-                l: $o('y'),
-
-//        fL : ko.c(function(){return this.f()+' '+this.l()}),
-
-                capL: function () {
-                    this.l(S.tU(this.l()))
-                }
-
-            })
-
-
-        }}
+        if(b){ol.A(b)}
+        return ol
+    }
+    $.tBE=function(a,b){
+        var tB= $.tB()
+        tB.bE(a)
+        if(A(b)){_.e(b, function(el){tB.A(el)})}
+        return tB
+    }
+    $.uLE=function(a){var g=G(arguments);return $.ulE(a, $.li(g.r) )}
 }
+formBind(); aaps();  laterr();forEaApps();formApps()
 function aaps(){
     KOCL=function(){$.x('x').h2('Peeep')
 
@@ -613,6 +733,36 @@ function aaps(){
 
 
     }
+    COMP = function () {
+
+        $.z().h1('KNOCKOUT')
+
+        $.d([
+            $.p('F: ', $.b().bT('f')),
+            $.p('L: ', $.b().bT('l')),
+            $.p('F: ', $.ip().bV('f')),
+            $.p('L: ', $.ip().bV('l')).id('l'),
+            //   $.p('L: ', $.b().bT('fL') ),
+
+            $.bt('caps').b$('capL')
+
+        ])
+
+        ok({
+
+            f: $o('j'),
+            l: $o('y'),
+
+//        fL : ko.c(function(){return this.f()+' '+this.l()}),
+
+            capL: function () {
+                this.l(S.tU(this.l()))
+            }
+
+        })
+
+
+    }
     TASKS=function(){$.z().h3('Tasks')
 
         $.f().bSb('aT').A().A("Add task: ",
@@ -749,75 +899,6 @@ function aaps(){
 
     }
 }
-function laterr(){
-    function params() {
-        $.fn.par=function(a,b){this.at('params', a+': ' + b ); return this}
-
-        $.fn.par = function (a, b) {
-            this.at('params', a + ': ' + b);
-            return this
-        }
-    }
-    function uniq() {
-        $.fn.bU= $.fn.bUN=function(s){return this.b('uniqueName', s)}
-
-        $.fn.bU= $.fn.bUN=function(s){return this.dB('uniqueName: '+ s)}
-        $.fn.bU= $.fn.bUN=function(s){return this.b('uniqueName', s)}
-
-        $.fn.bU= $.fn.bUN=function(s){return this.dB('uniqueName: '+ s)}
-        $.fn.bU = $.fn.bUN = function (s) {
-            return this.dB('uniqueName: ' + s)
-        }
-    }
-    function templ() {
-        $.fn.bTp = function (s) {
-            return this.dB('template: ' + s)
-        }
-
-
-        $.fn.bTp=function(s){return this.b('template', s)}
-        $.fn.bTp=function(s){return this.dB('template: '+ s)}
-    }
-    function compon() {
-
-        $.fn.bCm=function(s){return this.dB('component: '+ s  )}
-
-
-        $.dCm=function(a){return $.d().bCm(a)}
-        ko.r=ko.rg=function(n, ob){
-            ob=ob||{}
-            if( S(ob.vm) || (O(ob.vm) && !ob.vm.element)){ob.vm={element: ob.vm}}
-            ob.viewModel=ob.viewModel||ob.vm||ob.m||ob.o
-            if(U(ob.viewModel)){ob={vm:ob}}
-            ob.template = ob.template || ob.tp || ob.t
-            vm=ob
-            return ko.cm.rg(n,ob)
-        }
-    }
-    $.fn.qA=function(t){alert('fn.qA')
-        return $('<'+t+'>').A()
-    }
-    $.fn.qAP=function(a,b,c){alert('fn.qAP')
-        this.qA(a).par(b, c); return this}
-    function old(){
-        bd = knockoutBind2=function(a){
-            var g=G(arguments),a=g[0]
-            if(g.p){a='text: '+a}
-            if(g.n){a='click: '+a}
-            if(g.m){a='value: '+a}
-            if(g.d){a='checked: '+a}
-            q.attr({'data-bind':a})
-            return q
-        }}
-    function toFront(){
-        function addTo(){
-
-            $.fn.a2Lb=function(t){t=t||'label:'
-                return this.a2($.lb(t))
-            }
-        }
-
-    }}
 function forEaApps(){
     KO0 =function(){
         $.x(); $.ipV('n'); $.h1T('n')
@@ -1985,7 +2066,7 @@ function forEaApps(){
             flav: ko.oa(["cherry", "almond"])
         }
 
-        ko.applyBindings(vm)
+        ko.aB(vm)
 
         //viewModel.spamFlavors.push("msg"); // Now additionally checks the Monosodium Glutamate checkbox
 
@@ -2007,7 +2088,7 @@ function forEaApps(){
 
         vm = {wantsSpam: ko.o(true)}
 
-        ko.applyBindings(vm)
+        ko.aB(vm)
 
     }
 
@@ -2561,321 +2642,6 @@ function formApps(){
          //  $.Gj('ts', function(d){  o.ts($.map(d, function(i){return  { t: ko.o(i.t), iD: ko.o(i.iD) }}))})
          */
     }}
-function bindins(){bindTxt();httml();ccss();attr();iff();withh();visble(); forEa()
-
-    function bindTxt(){
-        $.fn.bT=function(s){s=s||'$data'; return  this.dB( 'text: '+ s)}
-        $.fn.bT=function(s){return  this.b('text', s||'$data')}
-        $.fn.bT=function(s){s=s||'$data'; return  this.dB( 'text: '+ s)}
-        $.dT=function(a){return $.d().bT(a)}
-        $.dT=function(a){return $.d().bT(a)}
-        $.dT = function (a){return $.d().bT(a)}
-        $.h1T=$.h1Bt=function(a,b){
-            var h1= $.h1(a)
-            h1.bT(b||a)
-            return h1
-
-        }
-        $.h1T = $.h1Bt = function (a, b) {
-            var h1 = $.h1(a)
-            h1.bT(b || a)
-            return h1
-
-        }
-        $.h1T=$.h1Bt=function(a,b){
-            var h1= $.h1(a)
-            h1.bT(b||a)
-            return h1
-
-        }
-        $.liT=$.liBt=function(a){
-
-            return $.li().bT(a)
-        }
-        $.liT = $.liBt = function (a) {
-
-            return $.li().bT(a)
-        }
-        $.liT=$.liBt=function(a){
-            return $.li().bT(a)
-        }
-        $.liT=$.liBt=function(a){return $.li().bT(a)}
-        $.pT=function(a){
-            var p = $.p()
-            p.bT(a)
-            return p
-        }
-        $.pT = function (a) {
-            var p = $.p()
-            p.bT(a)
-            return p
-        }
-        $.pT=function(a){
-            var p = $.p()
-            p.bT(a)
-            return p
-        }
-        $.sT=$.spT= function(a,b){
-            a=a||'$data'
-            return $.sp(b).bT(a)
-        }
-       $.spT=$.spBt=function(a,b){return $.sp(b).bT(a)}
-        $.sT=$.spT= function(a,b){ return $.sp(b)
-            .bT(a||'$data')
-        }
-        $.sT = $.spT = function (a, b) {
-            a = a || '$data'
-            return $.sp(b).bT(a)
-        }
-        $.tdT = function (a, b) {
-            var td = $.td()
-            td.bT(a)
-            if (A(b)) {
-                _.e(b, function (el) {
-                    td.A(el)
-                })
-            }
-            return td
-        }
-        $.tdT=function(a,b){var td=$.td()
-            td.bT(a)
-            if(A(b)){
-                _.e(b,function(el){
-                    td.A(el)
-                })}
-            return td
-        }
-        $.tdT=function(a,b){var td=$.td()
-            td.bT(a)
-            if(A(b)){_.e(b,function(el){td.A(el)})}
-            return td
-        }
-    }
-
-
-    function httml(){
-        $.fn.bH=function(s){return this.dB('html: '+ s  )}
-        $.fn.bH=function(s){return this.b('html', s  )}
-        $.fn.bH = function (s) {
-            return this.dB('html: ' + s)
-        }
-        $.dH=function(a){return $.d().bH(a)}
-        $.dH=function(a){return $.d().bH(a)}
-        $.dH = function (a) {
-            return $.d().bH(a)
-        }
-    }
-    function ccss(){
-        $.fn.bS=function(s){return this.b('css', s  )}
-        $.fn.bS = function (s) {
-            return this.dB('css: ' + s)
-        }
-        $.fn.bS=function(s){return this.dB('css: '+ s  )}
-        $.fn.bY=$.fn.bSy=function(s){return this.b('style', s  )}
-        $.fn.bY=$.fn.bSy=function(s){return this.dB('style: '+ s  )}
-        $.fn.bY = $.fn.bSy = function (s) {
-            return this.dB('style: ' + s)
-        }
-    }
-    function attr() {
-        $.fn.bA= $.fn.bAt= function(s){return this.b('attr', s  )}
-        $.fn.bA= $.fn.bAt= function(s){
-            return this.dB('attr: '+ s  )}
-        $.fn.bA = $.fn.bAt = function (s) {
-            return this.dB('attr: ' + s)
-        }
-        $.aA=function(a,b,c,d){return $.a(b,c,d).bA(a)}
-        $.aA=function(a,b,c,d){
-            return $.a(b,c,d).bA(a)
-        }
-        $.aA = function (a, b, c, d) {
-            return $.a(b, c, d).bA(a)
-        }
-    }
-    function iff() {
-        $.fn.bI= $.fn.bIf=function(s){return this.b('if', s  )}
-        $.fn.bI = $.fn.bIf = function (s) {
-            return this.dB('if: ' + s)
-        }
-        $.fn.bI= $.fn.bIf=function(s){return this.dB('if: '+ s  )}
-        $.fn.bN= $.fn.bIN=function(s){return this.dB('ifnot: '+ s  )}
-        $.fn.bN= $.fn.bIN=function(s){return this.b('ifnot', s  )}
-        $.fn.bN = $.fn.bIN = function (s) {
-            return this.dB('ifnot: ' + s)
-        }
-        $.dIf=function(a,b){
-            var d =  $.d().bI(a)
-            if(A(b)){_.e(b,function(b){d.A(b)})}
-            return d
-        }
-        $.dIf=function(a,b){
-            var d =  $.d().bI(a)
-            if(A(b)){_.e(b,function(b){d.A(b)})}
-            return d
-        }
-        $.dIf = function (a, b) {
-            var d = $.d().bI(a)
-            if (A(b)) {
-                _.e(b, function (b) {
-                    d.A(b)
-                })
-            }
-            return d
-        }
-        $.pI = function (a, b, c, d) {
-            var p = $.p(b, c, d).bI(a)
-        }
-        $.pI=function(a,b,c,d){
-            var p= $.p(b,c,d).bI(a)
-        }
-        $.pI=function(a,b,c,d){
-            var p= $.p(b,c,d).bI(a)
-        }
-
-        IF=function(){$.x('x')
-            $.cC('dispMs')
-            $.sp('Disp ms')
-            $.pI('dispMs','Here is a message. Astonishing')
-            ok({dispMs: ko.o(1)})
-        }
-    }
-    function withh() {
-        $.fn.bW=function(s){return this.b('with', s  )}
-        $.fn.bW=function(s){return this.dB('with: '+ s  )}
-        $.fn.bW = function (s) {
-            return this.dB('with: ' + s)
-        }
-        $.dW = $.dBw = function (a, b) {
-
-            var d = $.d().bW(a)
-            if (A(b)) {
-                _.e(b, function (b) {
-                    d.A(b)
-                })
-            }
-            return d
-        }
-        $.dW = $.dBw = function (a, b) {
-
-            var d = $.d().bW(a)
-            if (A(b)) {
-                _.e(b, function (b) {
-                    d.A(b)
-                })
-            }
-            return d
-        }
-        $.dW = $.dBw = function (a, b) {
-            var d = $.d()
-                .bW(a)
-            if (A(b)) {
-                _.e(b, function (b) {
-                    d.A(b)
-                })
-            }
-            return d
-        }
-        $.dW = $.dBw = function (a, b) {
-            var d = $.d().bW(a)
-            if (A(b)) {
-                _.e(b, function (b) {
-                    d.A(b)
-                })
-            }
-            return d
-        }
-    }
-    function visble() {
-        $.fn.bVs=function(s){return this.dB('visible: '+ s)}
-        $.fn.bVs = function (s) {
-            return this.dB('visible: ' + s)
-        }
-        $.fn.bVs=function(s){return this.b('visible', s)}
-        $.spVs = function (a) {
-            return $.sp().b('vs', a)
-        }
-        $.spVs = function (a) {
-            return $.sp().b('vs', a)
-        }
-        $.spVs = function (a) {
-            return $.sp().b('vs', a)
-        }
-    }
-    function forEa(){
-        $.fn.bE=function(s){return this.dB( 'foreach: '+ s )}
-        $.fn.bE=function(s){ return this.b('foreach', s)}
-        $.fn.koE=$.fn.eKo= $.fn.bindKOEach = fe = forEach =function(a){return this.bindKO('fe',a)}
-        $.fn.eD=$.fn.eB= $.fn.bindKOEachData = feD = forEachData = function (a) {return this.bindKOEach('$data.' + a)}
-        $.dE = function (a, b) {var d = $.d().bE(a)
-            if (A(b)) {
-                _.e(b, function (el) {
-                    d.A(el)
-                })
-            }
-            else if (S(b)) {
-                d.A(b)
-            }
-            return d
-        }
-        $.uE=$.ulE=function(a,b,c){var g=G(arguments)
-
-            var ul=  $.ul().bE(a)
-
-            if(c){
-                b= $.li( _.r(g) )
-            }
-
-            else if(O(b) && !A(b)){
-                b=[b]
-            }
-
-            if(A(b)){
-                _.e(b,function(el){
-                    ul.A(el)
-                })
-            }
-
-
-            else if(S(b)){
-                ul.A(b)
-            }
-            return  ul
-            function old(){
-
-
-                $.uE =$.uE=$.ulE=function(a,b){
-
-                    var ul=  $.ul().bE(a)
-                    if(A(b)){
-                        _.e(b,function(el){
-                            ul.A(el)
-                        })}
-                    else if(S(b)){
-                        ul.A(b)
-                    }
-                    return  ul
-                }
-
-            }
-        }
-        $.U = function () {
-            var g = G(arguments)
-            return $.uE(g.f, [$.li(g.s)])
-        }
-        $.olE=$.olBe=function(a,b){var ol= $.ol().bE(a)
-
-            if(b){ol.A(b)}
-            return ol
-        }
-        $.tBE=function(a,b){
-            var tB= $.tB()
-            tB.bE(a)
-            if(A(b)){_.e(b, function(el){tB.A(el)})}
-            return tB
-        }
-        $.uLE=function(a){var g=G(arguments);return $.ulE(a, $.li(g.r) )}
-    }
-}
 
 function formBind(){value();textInput();checked();options();click();event();submit();enable();hasFocus()
     function value(){
@@ -3191,10 +2957,119 @@ function formBind(){value();textInput();checked();options();click();event();subm
         $.fn.bD=function(s){return this.dB('disable: '+ s  )}
         $.fn.bD=function(s){return this.b('disable', s  )}
     }
+
     function hasFocus(){
         $.fn.bF=function(s){return this.b('hasFocus', s)}
         $.fn.bF=function(s){return this.dB('hasFocus: '+ s)}
 
     }
-
 }
+KOob= {
+
+    $:'click', ev:'event',
+
+    sm:'submit',  sb:'submit',
+
+    en:'enable', d:'disable',
+
+    v:'value',  ti:'textInput',
+
+    f:'hasFocus',
+
+    c:'checked', ch:'checked',
+    o:'options', so:'selectedOptions',
+    //
+
+
+    t:'text', h:'html', s:'css', y:'style',
+
+    a:'attr', e:'foreach', i:'if', n:'ifnot', w:'with',
+
+    V:'valueUpdate', vs:'visible', u:'uniqueName', tp:'template', cm:'component'
+}
+function laterr(){
+    function params() {
+        $.fn.par=function(a,b){this.at('params', a+': ' + b ); return this}
+
+        $.fn.par = function (a, b) {
+            this.at('params', a + ': ' + b);
+            return this
+        }
+    }
+    function uniq() {
+        $.fn.bU= $.fn.bUN=function(s){return this.b('uniqueName', s)}
+
+        $.fn.bU= $.fn.bUN=function(s){return this.dB('uniqueName: '+ s)}
+        $.fn.bU= $.fn.bUN=function(s){return this.b('uniqueName', s)}
+
+        $.fn.bU= $.fn.bUN=function(s){return this.dB('uniqueName: '+ s)}
+        $.fn.bU = $.fn.bUN = function (s) {
+            return this.dB('uniqueName: ' + s)
+        }
+    }
+    function templ() {
+        $.fn.bTp = function (s) {
+            return this.dB('template: ' + s)
+        }
+
+
+        $.fn.bTp=function(s){return this.b('template', s)}
+        $.fn.bTp=function(s){return this.dB('template: '+ s)}
+    }
+    function compon() {
+
+        $.fn.bCm=function(s){return this.dB('component: '+ s  )}
+
+
+        $.dCm=function(a){return $.d().bCm(a)}
+        ko.r=ko.rg=function(n, ob){
+            ob=ob||{}
+            if( S(ob.vm) || (O(ob.vm) && !ob.vm.element)){ob.vm={element: ob.vm}}
+            ob.viewModel=ob.viewModel||ob.vm||ob.m||ob.o
+            if(U(ob.viewModel)){ob={vm:ob}}
+            ob.template = ob.template || ob.tp || ob.t
+            vm=ob
+            return ko.cm.rg(n,ob)
+        }
+    }
+    $.fn.qA=function(t){alert('fn.qA')
+        return $('<'+t+'>').A()
+    }
+    $.fn.qAP=function(a,b,c){alert('fn.qAP')
+        this.qA(a).par(b, c); return this}
+    function old(){
+        kO = function () {var g = G(arguments)
+            return ko.o.apply(ko, g)
+        }
+        kA = function () {
+            var g = G(arguments)
+            return ko.oa(g.A_ ? g.f : g)
+
+        }
+        bd = knockoutBind2=function(a){
+            var g=G(arguments),a=g[0]
+            if(g.p){a='text: '+a}
+            if(g.n){a='click: '+a}
+            if(g.m){a='value: '+a}
+            if(g.d){a='checked: '+a}
+            q.attr({'data-bind':a})
+            return q
+        }
+
+
+        EVob = {$: 'click', $$: 'dblclick', v: 'mouseover'}
+        $.scrp = script = scrp = function (i) {
+            return $("<script type='text/html'>").id(i)
+
+        }
+
+    }
+    function toFront(){
+        function addTo(){
+
+            $.fn.a2Lb=function(t){t=t||'label:'
+                return this.a2($.lb(t))
+            }
+        }
+
+    }}
