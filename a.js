@@ -2,27 +2,14 @@ dirs=[
 
     '', 'public/pics',
     'front/both',
-
     'front', 'front/graphics', 'front/handy',
-
     'boot', 'boot/deps', 'boot/deps/css',   'boot/deps/fonts',
-
     'front/graf', 'front/graf/deps',
-
     'front/fiz', 'front/fiz/deps',
-
-
     'show', 'show/mugApps', 'show/spazGames',
-    'jqui',  'jqui/deps',  'jqui/deps/images',
-
-
-    'knock', 'knock/deps', 'knock/core', 'knock/nest', 'knock/apps',
-
-    'backbone',  'backbone/deps',
-     'backbone/ev', 'backbone/nest', 'backbone/view', 'backbone/apps',
-    'backbone/marion'
-
-
+    'jqui',  'jqui/deps',  'jqui/deps/images', 'jqui/custWid',
+    'knock', 'knock/deps', 'knock/custBind', 'knock/comps',
+    'bone',  'bone/deps', 'bone/tuts', 'bone/bbApps'
 ]
 
 

@@ -4,6 +4,7 @@ $.fn.dpb = $.fn.droppable
 $.fn.zLite=function(type, icon) {var e=this
     icon = icon? icon: (type === 'highlight')?
         'ui-icon-info': 'ui-icon-alert'
+
     return e.each(function(){var d
         $(this).K('ui-widget')
         d=$.d([$.sp().K("ui-icon '+icon+'").css({float:'left', 'margin-right':'3em'}),
@@ -13,12 +14,17 @@ $.fn.zLite=function(type, icon) {var e=this
 }
 
 $.fn.error=function(){this.zLite('error')}
+
 $.fn.highlight=function(){this.zLite('highlight')}
 
 $.fn.ef= $.fn.effect
+
 $.fn.dgb = $.fn.dgg = $.fn.draggable
+
 $.fn.dpb = $.fn.droppable
+
 $.fn.gg= $.fn.toggle
+
 $.fn.hd= function(ef, o, ms){
     if(ef=='sl'){ef='slide'}
     if(o.d){
@@ -27,7 +33,9 @@ $.fn.hd= function(ef, o, ms){
         if(o.d=='up'){o.d='up'}
         if(o.d=='down'){o.d='down'}
         o.direction = o.d }
-    return this.hide(ef,o,ms)}
+    return this.hide(ef,o,ms)
+}
+
 $.fn.sh= function(ef, o, ms){
     if(ef=='sl'){ef='slide'}
     if(o.d){
@@ -43,7 +51,9 @@ $.fn.ps= $.fn.position
 $.fn.tIx=function(a,b){
     a= this.at('tabindex', a)
     if(b){a.v(b)}
-    return a}
+    return a
+}
+
 $.fn.dtp= $.fn.datepicker // CSS Framework
 //   list of the class names
 // used by jQuery UI.
@@ -64,7 +74,7 @@ $.fn.f2= $.fn.fadeTo
 
 jqAnim()
 toFront()
-function jqAnim() {
+function jqAnim(){
     ANob = {
         B: 'bottom', L: 'left', R: 'right', T: 'top',
         b: 'borderWidth', bb: 'borderBottomWidth',
@@ -161,7 +171,10 @@ function jqAnim() {
     $.fn.xq = $.fn.xQ = $.fn.clrQ = $.fn.clearQueue
     $.fn.qu = $.fn.queue
     $.fn.dq = $.fn.dqu = $.fn.dequeue
+
 }
+
+
 function toFront(){
     $.fn.bdC=function(a){return this.css("border-color", oO('c', a||'r'))}
     $.fn.pdB=function(a){return this.css("padding-bottom", a||0 )}
