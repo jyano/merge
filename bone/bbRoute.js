@@ -1,692 +1,1089 @@
-$l('bbRoute')
-rt= bb.Router.prototype
-//navigate
-rt.n=function (url){var rt=this, g=G(arguments)
-    if(g.n){rt.navigate(url)}
-    else {rt.navigate(url, {trigger:true})}
-    return rt
-}
-//navigate: replace
-rt.rp= function (url,op){var rt=this, g=G(arguments)
-    if(g.n){rt.navigate(url, {replace:true})}
-    else {rt.navigate(url, {trigger:true, replace:true})}
-    return rt}
-//route
-rt.r = rt.oR=function(rt,fn){this.on('route:'+rt, fn); return this }
-//on
-rt.o=rt.A = rt.oR = function(rt,fn){var rtr=this
-
-    if(O(rt)){
-        _.e(rt,function(v,k){
-            rtr.o(k,v)
-        })
+roPt()
+function roPt(){
+    ro = rt = bb.Router.prototype
+    ro._n = function () {
+        this.navigate.apply(this, arguments);
+        return this
     }
-    else {
-        this.on('route:'+rt, fn)
-    }
-    return this
-}
+    ro.n = function (url) {
+        return this._n(url, G(arguments).n ? null : {trigger: true})
+    }//normal navigate, but i change the default to auto trigger the route fn
+    rt.rp = function (url, op) {
+        return this._n(url, _.x({replace: true}, G(arguments).n ? {trigger: true} : {}))
+    }//navigate: replace
+    ro.A = ro.oR = ro.r = ro.o = function (rt, fn) {
+        var rtr = this
 
-
-bb.R=function(ob){
-    return r = rt = bb.rt( this.Rt(ob) )
-}
-bb.R= bb.rt = bb.r = bb.Router
-
-bb.R.e=bb.R.x=bb.R.extend
-
-bb.r=function(ob){
-    var Rt =  bb.Router.e(ob)
-    return function(a,b,c,d){ return new Rt(a,b,c,d)    }
-}
-
-bb.rt = function (klas) {
-    var rt = new klas
-    rt.n = rt.nv = rt.ng = function (url) {
-        var rt = this, g = G(arguments)
-
-        if (g.n) {
-            rt.navigate(url)
+        if (O(rt)) {
+            _.e(rt, function (v, k) {
+                rtr.o(k, v)
+            })
         }
         else {
+            this.on('route:' + rt, fn)
+        }
+        return this
+    }
+}
+Bb.Ro= Bb.R=Bb.rt = Bb.r = Bb.Router
+Bb.Ro.e= Bb.Ro.x= Bb.Ro.extend
+//metaClass
+_$$Ro=function(ob){
+    return Bb.Ro.e( roOb(ob))
+}
+//metaClass.. no need for 'new'
+$$Ro= Bb.r=function(ob){
+    var Rt = _$$Ro(ob)
+    return function(a,b,c,d){
+        return new Rt(a,b,c,d)
+    }
+}
+//if you want instant instantiation
+$R=$Ro=function(){
+    //can pass in routes obj first as sep obj!!
+    var g=G(arguments),Rt,rtr,o
+    o = g.s? {
+        r:g.f,
+        ob: g.s
+    }: {ob: g.f}
+    if(o.r){o.ob.r = o.r}
+    o.ob = roOb(o.ob)
+    Rt= Bb.R.x(o.ob)
+    if(g.n){return function(ob){
+        return new Rt(o.ob)}
+    }
+    rtr = new Rt()
+    if(!Bb.H.started && !g.d){
+        Bb.history.start({pushState: true})
+    }
+    return r=rtr
+}
 
-            rt.navigate(url, {trigger: true})
+RTob = {
+    '': 'home',
+    'view': 'v',
+    'new': 'nn',
+    ':id': 'en',
+    'posts/:id': 'gPo',
+    '*acts': 'dfR',
+    'download/*path': 'dlF',
+    ':route/:action': 'ldV'
+}
+   ROUTE0 = function () {
+        z()
+        $R({r: {"*x": "d"}}, '+')
+        r.oR('d', function (a) {$l('d:' + a)})
+        r.oR('e', function (a) {$l('e:' + a)})
+    }
+
+    ROUTEPAMS0 = function () {
+        $.x().A('hahahahhahaha')
+
+
+
+        $R({
+            rt: RTob,
+
+            home: function () {
+                $l('home')
+            },
+
+            v: function () {
+                $l('image')
+            },
+            nn: function () {
+            },
+            en: function (id) {
+                $l('id:' + id)
+            }
+
+        }, '+')
+
+        r.oR('dfR', $l)
+
+        r.oR('gPo', function (id) {
+            $l('gPo# ' + id)
+        })
+        r.oR('gPo', function () {
+            $l(3)
+        }) //both routes fire!
+
+        r.oR('dlF', $l)
+
+        r.oR('ldV', function (rt, ac) {
+            $l(rt + '_' + ac)
+        })
+
+    }
+
+    BACKDEMO0 = function () {
+        $.x().d('yoo hoo').id('cont')
+
+        Temp = function (i, h) {
+            var s = ''
+            return _.tp($('#' + i).html(), h || {})
+            if (A(h)) {
+                _.e(h, function (h) {
+                    s += h.oh()
+                })
+            }
+            s = "<script type='text/template'>" + s + "</script>"
+            return $(s).id(i).A()
         }
 
-        return rt
+        $R({
+            rt: {'': 'f', 'f': 'f', 's': 's'},
+            f: function () {
+                $l('fir')
+            }, s: function () {
+                $l('sec')
+            },
+            task: function () {
+                t = new Task();
+                $l('t = new Task')
+            }
+        }, '+')
+
+
+        Temp('task', [
+            $.lb('Task: '),
+            $.ip().id('task_desc'),
+            $.bt('add task').id('btn')])
+
+        Tsk = $V({
+            el: $('#cont'),
+            i: function () {
+                this.r()
+            },
+            r: function () {
+                this.$el.ht(Temp('task'))
+            },
+            e: {'click button': 'add'},
+            add: function () {
+                alert($('#task_desc').v() + ' task added')
+            }
+        })
     }
-    return rt
-}
-bb.Rt=function(ob){var Rt
-    if(ob.i){ob.initialize = ob.i}
-    if(ob.$){
-        ob.initialize = function(){
-            bb.history.start({pushState:true})
-            if( F(ob.$ )){ob.$()}}}
-    if(ob.rt){ob.routes = ob.rt}
-    ob.routes = ob.routes || {}
-    ob.routes[''] = ob.routes[''] ||'index'
-    if(ob.x){ob.index = ob.x}
-    if(ob.h){ob.home = ob.h}
-    Rt= this.Router.extend(ob)
-    return Rt
-}
+    ROUTENAV0 = function () {
+        $.x('b')
+        $R({
+            r: {
+                'po/:id': 'gp',
+                '*a': 'dr'
+            },
+            dr: function (a) {
+                $l(a)
+            },
+            gp: function (id) {
+                $.bd().C($r())
+                $l('Get post ' + id)
+            }
+        }, '+')
+        $.bt('hi', function () {
+            rt.n('po/2')
+        })
 
-
-$R=function(ob){var g=G(arguments), Rt,rtr
-
-    if(ob.i){ob.initialize = ob.i
-    }
-
-    if(ob.$){ob.initialize = function(){
-        $l('ob$! (see $R)')
-        bb.history.start({pushState:true})
-        if( F(ob.$ )){ob.$()}
-    }}
-
-    ob.routes = ob.routes   ||  ob.rt || ob.r ||  {}
-    ob.routes[''] = ob.routes[''] ||'index'
-
-    if(ob.x){ob.index = ob.x}
-    if(ob.h){ob.home = ob.h}
-
-    Rt= bb.R.x(ob)
-    if(g.n){return function(ob){return new Rt(ob)}}
-    rtr= new Rt()
-    if(!bb.History.started && !g.d){
-        Backbone.history.start({pushState: true})
-    }
-    return r = rt = rtr
-
-};
-$R=function(ob, ob1){var g=G(arguments), Rt,rtr
-
-    if(O(ob1)){
-        ob1.r=ob
-        ob=ob1
-    }
-
-    if(ob.i){ob.initialize = ob.i
-    }
-    /*
-     if(ob.$){ob.initialize = function(){
-     $l('ob$! (see $R)')
-     bb.history.start({pushState:true})
-     if( F(ob.$ )){ob.$()}
-     }}
-     */
-
-    ob.routes = ob.routes   ||  ob.rt || ob.r ||  {}
-
-    ob.routes[''] = ob.routes[''] ||'index'
-
-    if(ob.x){ob.index = ob.x}
-    if(ob.h){ob.home = ob.h}
-
-    Rt= bb.R.x(ob)
-    if(g.n){
-        return function(ob){
-            return new Rt(ob)
-        }
-    }
-    rtr= new Rt()
-
-    if(!bb.History.started && !g.d){
-        Backbone.history.start({pushState: true})
 
     }
-    return r = rt = rtr
+
+    BACKDEMO1 = function () {
+        $.x().d('yoo hoo').id('cont')
 
 
-};
-R$=function(o){var r
-    o=O(o)?o:{}
-    if(o.R){o.routes=o.R}
-    r=bb.Router.extend(o)
-    r.o=r.on
-    return function(){var a=new r
-        a.o= a.on
-        a.oR=function(r,f){
-            this.on('route:'+r, f)
-            return this}
-        a.n=function(frag,op){if(O(op)){
-            if(D(op.t)){op.trigger=op.t?true:false}
-            if(D(op.r)){op.replace=op.r?true:false}}
-            a.navigate(frag, op)
-            return a}
-        return a
-    }
-}
+        $R({
+            rt: {
+                '': 'f', 'f': 'f', 's': 's',
+                '/wap/items/q': q
+            },
 
-bbR=function(o){
-    o=ob(o)
-    if(o.R){o.routes=o.R}
-    var r=Bb.Router.extend(o)
-    r.o=r.on
-    return function(){
-        var a=new r
-        a.o= a.on
-        a.oR=function(r,f){a.o('route:'+r, f)}
-        a.n=function(frag,op){
+            q: function () {
+                alert('q')
+            },
+            f: function () {
+                $l('fir')
+            },
+            s: function () {
+                $l('sec')
+            },
 
-            if(O(op)){
-                if(D(op.t)){op.trigger=op.t?true:false}
-                if(D(op.r)){op.replace=op.r?true:false}}
+            task: function () {
+                t = new Task();
+                $l('t = new Task')
+            }
 
-            a.navigate(frag, op)
+        })
 
 
-            return a}
-        return a}
-}
-bbR.tr= bbR.trigger
-bbR.ex= bbR.execute
- 
-//history:
-Bb.h = Bb.H= Bb.history
-Bb.h.tr= Bb.h.trigger
-Bb.h.s= Bb.h.start
-H$=$R.h=bbH=function(){bb.h.start(); return $R}
+        Temp = function (i, h) {
+            var s = ''
 
-BACKDEMO = function () {
-    $.x().d('yoo hoo').id('cont')
+            return _.tp(
+                $('#' + i).html(), h || {}
+            )
+
+            if (A(h)) {
+                _.e(h, function (h) {
+                    s += h.oh()
+                })
+
+            }
 
 
-    $R({
-        rt: {
-            '': 'f', 'f': 'f', 's': 's',
-            '/wap/items/q': q
-        },
+            _str = "<script type='text/template'>" + _str + "</script>"
 
-        q: function () {
-            alert('q')
-        },
-        f: function () {
-            $l('fir')
-        },
-        s: function () {
-            $l('sec')
-        },
 
-        task: function () {
-            t = new Task();
-            $l('t = new Task')
+            str = $(s)
+
+            return $(s).id(i).A()
+
         }
 
-    })
+
+        /*
 
 
-    Temp = function (i, h) {
-        var s = ''
+         Temp('task', [
 
-        return _.tp(
-            $('#' + i).html(), h || {}
-        )
+         $.lb('Task: '),
+         $.ip().id('task_desc'),
+         $.bt('add task').id('btn')
+         ])
 
-        if (A(h)) {
-            _.e(h, function (h) {
-                s += h.oh()
+
+         Tsk=$V({el: $('#cont'),
+
+         i: function(){this.r()},
+         r: function(){this.$el.ht( Temp('task') )},
+         e: {'click button': 'add'},
+         add: function(){alert( $('#task_desc').v() + ' task added')}
+
+         })
+         */
+
+        $.bt('sfad', function () {
+            r.n('/wap/items/q')
+        })
+    }
+    BACKDEMO = function () {
+        $.x()
+
+        Temp = function (i, h) {
+            var s = ''
+            return _.tp($('#' + i).html(), h || {})
+            if (A(h)) {
+                _.e(h, function (h) {
+                    s += h.oh()
+                })
+            }
+            s = "<script type='text/template'>" + s + "</script>"
+            return $(s).id(i).A()
+        }
+
+        Temp('task', [
+            $.lb('Task: '),
+            $.ip().id('task_desc'),
+            $.bt('add task').id('btn')])
+
+        $.dI('cont')
+
+        Bb.R({
+            rt: {
+                '': 'f',
+                'f': 'f',
+                's': 's'
+            },
+            f: function () {
+                $l('fir')
+            },
+            s: function () {
+                new Task()
+                $l('sec')
+            }
+        })
+
+        Tsk = Bb.V.e({
+            el: $('#cont'),
+            i: function () {
+                this.r()
+            },
+            r: function () {
+                this.$el.ht(Temp('task'))
+            },
+            e: {'click button': 'add'},
+            add: function () {
+                alert($('#task_desc').v() + ' task added')
+            }
+        })
+    }
+    ITEMS1 = function () {
+        $.x()
+
+        Ap = {M: {}, V: {}, C: {}}
+        Ap.M.Item = Bb.M.e({})
+
+        Bb.R({
+
+            r: {'': 'welcome', 'itemlist': 'showItemList', 'j': 'j'},
+
+            welcome: function () {
+                $.bd().E().A($.h1('welcome'))
+
+            },
+
+
+            j: function () {
+            },
+            showItemList: function () {
+                $.bd().E().A($.h1('show item list'))
+
+            }
+        })
+
+        i1 = Ap.M.Item.o({n: 'jason', g: 'mason'})
+        i1.oR('j', function () {
+            $.bd().E().A($.h1('j'))
+        })
+
+        // H$()
+    }
+    ITEMS = function () {
+        $.x().h3('jason')
+
+        Ap = {M: {}, V: {}, C: {}}
+
+        Ap.M.Item = $M({})
+
+        $R({
+            r: {
+                '': 'welcome',
+                'wap/items': 'welcome1',
+                'wap/items/itemlist': 'showItemList',
+                'wap/items/j': 'j'
+            },
+
+            welcome: function () {
+                $.bd().E().A($.h1('welcome'))
+            },
+
+            j: function () {
+                $l('asdfjfsdafsdf')
+            },
+
+            showItemList: function () {
+                $l('showItemList')
+                $.bd().A($.h1('show item list'))
+            }
+        }, '/')
+
+
+        i1 = Ap.M.Item({n: 'jason', g: 'mason'})
+
+        r.o('/wap/items/j', function () {
+            $.bd().E().A(
+                $.h1('j')
+            )
+        })
+        r.o('/wap/items/q', function () {
+            $.bd().E().A($.h1('q'))
+
+        })
+
+        Bb.h.s({pushState: true})
+
+        $.bt('add', function () {
+            r.n('/wap/items/itemlist')
+        })
+        $.bt('add1', function () {
+            $.A($.h1('k'))
+            r.n('/wap/items/j')
+        })
+
+    }
+    NORTR = function () {
+        $.x()
+
+
+        V1 = Bb.V.e({
+
+            i: function () {
+                this.r()
+            },
+            r: function () {
+                this.$el.ht(this.model.get('Ms') + " from the View 1")
+                return this
+            }
+        })
+
+        V2 = Bb.V.e({
+
+            i: function () {
+                this.r();
+            },
+
+            r: function () {
+                this.$el.ht(this.model.g('Ms') + " from the View 2");
+                return this;
+            }
+        })
+        V3 = Bb.V.e({
+            i: function () {
+                this.render();
+            },
+            r: function () {
+                this.$el.html(this.model.get('Message') + " from the View 3");
+                return this;
+            }
+        })
+        // Now we need a view that will contain the view and render it whenever the user makes a choice on the screen.
+
+        CtV = Bb.V.e({
+            myChildV: null,
+            r: function () {
+                this.$el.ht("Greeting Area");
+                this.$el.A(this.myChildV.$el);
+                return this;
+            }
+        })
+
+        /*  Now lets create a simple div on the UI which will be used as el to this ContainerView.
+         We will then position three buttons on the UI which will let the user to change the view.
+         Below code shows the application setup that is creating the container view and the functions
+         that will get invoked when the user selects the view from screen.
+         */
+
+        greet = V1.o({
+            Ms: "Hello world"
+        })
+
+
+        cont = CtV.o({
+            el: $("#AppContainer"),
+            model: greet
+        })
+
+        v1 = null;
+        v2 = null;
+        v3 = null;
+
+        function showView1() {
+            if (view1 == null) {
+                view1 = new View1({model: greeting});
+            }
+
+            container.myChildView = view1;
+            container.render();
+        }
+
+        function showView2() {
+            if (view2 == null) {
+                view2 = new View2({model: greeting});
+            }
+
+            container.myChildView = view2;
+            container.render();
+        }
+
+        function showView3() {
+            if (view3 == null) {
+                view3 = new View3({model: greeting});
+            }
+
+            container.myChildView = view3;
+            container.render();
+        }
+
+
+    }
+    ROUTENAV = function () {
+        $.x('b')
+        Bb.R({
+            rt: {
+                'po/:id': 'gp',
+                '*a': 'dr'
+            },
+            dr: function (a) {
+                alert(a)
+            },
+            gp: function (id) {
+                alert('Get post ' + id)
+            }
+
+        })
+        $.bt('hi', function () {
+            $l('11111111')
+            rt.n('po/2', {t: 1})
+        })
+    }
+    RNAV = function () {
+        $.x('b')
+
+        $R({
+            r: {'po/:id': 'gp', '*a': 'dr'},
+            dr: function (a) {
+                $l(a)
+            },
+            gp: function (id) {
+                $.l$('Get post ' + id)
+            }
+        })
+
+        $.bt('hi', function () {
+            rt.n('po/2')
+        })
+        $.bt('hi1', function () {
+            rt.n('po/4')
+        })
+
+        r.o('wappy/rnav/j', function () {
+            alert('!')
+        })
+
+        $.bt('hi1', function () {
+            rt.n('wappy/rnav/j')
+        })
+    }
+    ROUTE1 = function () {
+        z()
+        r = Bb.R({rt: {"*x": "d"}})
+        r.oR('d', function (a) {
+            alert(a)
+        })//#hello -> 'hello'
+        r.oR('e', function (a) {
+            alert(a)
+        })//#e -> 'e' (could do '/#/e')
+        // H$()
+    }
+    ROUTE = function () {
+        $.x()
+        $R({r: {'*x': 'd'}})
+        // r.o('d',function(a){$l('d:'+ a)}); r.o('e',function(a){$l('e:'+a)})
+        r.o({
+            d: function (a) {
+                $l('d:' + a)
+            },
+            e: function (a) {
+                $l('e:' + a)
+            }
+        })
+    }
+    ROUTEPAMS1 = function () {
+        $.x().A('hahahahhahaha')
+
+
+        $R({
+            '': 'home',
+            'view': 'v',
+            'new': 'nn',
+            ':id': 'en',
+            'posts/:id': 'gPo',
+            '*acts': 'dfR',
+            'download/*path': 'dlF',
+            ':route/:action': 'ldV'
+        }, {
+            home: function () {
+                $l('home')
+            },
+            v: function () {
+                $l('image')
+            },
+            nn: function () {
+            },
+            en: function (id) {
+                $l('id:' + id)
+            }
+        })
+
+        r.o('dfR', $l)
+        r.o('gPo', function (id) {
+            $l('gPo# ' + id)
+        })
+        r.o('gPo', function () {
+            $l(3)
+        }) //both routes fire!
+        r.o('dlF', $l)
+        r.o('ldV', function (rt, ac) {
+            $l(rt + '_' + ac)
+        })
+    }
+    ROUTEPAMS = function () {
+        z()
+        Bb.R({
+
+            rt: {
+                '': 'home',
+                'view': 'v',
+                'new': 'nn',
+                ':id': 'en',
+                'posts/:id': 'gPo',
+                '*acts': 'dfR',
+                'download/*path': 'dlF',
+                ':route/:action': 'ldV'
+            },
+            home: function () {
+                al('home')
+            },
+            v: function () {
+                al('image')
+            },
+            nn: function () {
+            },
+            en: function (id) {
+                al(id)
+            }
+
+        })
+        r.oR('dfR', alert)
+        r.oR('gPo', function (id) {
+            alert('gPo# ' + id)
+        })
+        r.oR('gPo', function () {
+            alert(3)
+        }) //both routes fire!
+        r.oR('dlF', alert)
+        r.oR('ldV', function (rt, ac) {
+            alert(rt + '_' + ac)
+        })
+        // H$()  // or Bb.h.s({pushState: true})
+    }
+    RTR11 = function () {
+        $.x('b')
+
+        RTob = {
+            '': 'index',
+            'wap/rtr/images/:id': 'image',
+
+            view: 'viewImage'
+
+        }
+
+        $R({
+
+            r: RTob,
+            h: function () {
+                $l('you are viewing home page')
+            },
+            x: function () {
+                $l('you are viewing index')
+            },
+            image: function (id) {
+                $l('image===')
+                _.t(10, function () {
+                    $l($r() + '-id: ' + id)
+                });
+                $.bd().C('z')
+            },
+            viewImage: function () {
+                $l('you are viewing an image')
+            }
+
+        }, '+')
+
+        _.in(function () {
+            $l('......')
+
+            r.n('/wap/rtr/images/32903290239032902390')
+
+
+        }, '*')
+        //looks for clicks on any anchor els where
+        //href starts with '/' (no domain) and stop
+        //bw from nv to it
+
+
+        $.bd().on('click', 'a[href^="/"]', function (ev) {
+            $l('wow')
+            ev.preventDefault()
+            r.n($(this).attr('href', {trigger: true}))
+        })
+
+    }
+    RTR1 = function () {
+        $.x('b')
+
+        RTob = {
+            '': 'index',
+            'wap/rtr/images/:id': 'image',
+
+            view: 'viewImage'
+
+        }
+
+        $R({
+            r: RTob,
+            h: function () {
+                $l('you are viewing home page')
+            },
+            x: function () {
+                $l('you are viewing index')
+            },
+            image: function (id) {
+                $l('image===')
+                _.t(10, function () {
+                    $l($r() + '-id: ' + id)
+                });
+                $.bd().C('z')
+            },
+            viewImage: function () {
+                $l('you are viewing an image')
+            }
+
+        })
+
+        _.in(function () {
+            $l('......')
+
+            r.n('/wap/rtr/images/32903290239032902390')
+
+
+        }, '*')
+        //looks for clicks on any anchor els where
+        //href starts with '/' (no domain) and stop
+        //bw from nv to it
+
+
+        $.bd().on('click', 'a[href^="/"]', function (ev) {
+            $l('wow')
+            ev.preventDefault()
+            r.n($(this).attr('href', {trigger: true}))
+        })
+
+    }
+    RTR = function () {
+        $l('RTR');
+        $.x('y');
+        $CSS({h1: {'font-size': 100}})
+
+        ro = Ro = Bb.Rtr({
+
+            $: 1,
+            rt: {
+
+                '': 'index',
+                'wap/rtr/images/:id': 'image',
+                view: 'viewImage'
+            },
+            image: function (id) {
+                _.t(10, function () {
+                    $l($r() + '-id: ' + id)
+                })
+                $.bd().C('z')
+            },
+            h: function () {
+                alert('you are viewing home page')
+            },
+            x: function () {
+                alert('you are viewing index')
+            },
+            viewImage: function () {
+                alert('you are viewing an image')
+            }
+        })
+
+
+        _.in(3, function () {
+            ro.n('55c24c8f4198473b0d000004.png')
+        })
+
+        //looks for clicks on any anchor els where
+        //href starts with '/' (no domain) and stop
+        //bw from nv to it
+
+        $.a().A($.h1('afsd'))
+
+        $('body').on('click', 'a[href^="/"]', function (ev) {
+            ev.preventDefault()
+            ro.n($(this).attr('href', {trigger: true}))
+        })
+
+    } //works!.. ?
+function apz(){
+    function usesVw(){
+        NORTR0 = function () {
+            $.x(null, 'no router');
+            v1 = v2 = v3 = 0
+            $.d('r', 100, 100).id('div')
+
+            // ha.. this is just 'no router'
+            V1 = $V({
+                i: function () {
+                    this.r()
+                }, r: function () {
+
+                    //this.$el.ht(this.model.get('Ms') + " from the View 1" )
+
+                    return this
+                }
+            })
+
+            V2 = $V({
+                i: function () {
+                    this.r()
+                },
+                r: function () {
+                    this.$el.ht(this.model.g('Ms') + " from the View 2");
+                    return this
+                }
+            })
+            V3 = $V({
+                i: function () {
+                    this.render()
+                },
+                r: function () {
+                    this.$el.html(this.model.get('Message') + " from the View 3")
+                    return this
+                }
+            })
+
+
+            // Now we need a view that will contain the view
+            // and render it
+            // whenever the user makes a choice on the screen.
+
+            CtV = $V({
+                chV: 0,
+                render: function () {
+                    this.$el.ht('Hi Area').A(
+                        this.chV.$el
+                    )
+                    return this
+                }
+            })
+
+            hi = V1({Ms: "Hello world"})
+
+            ct = CtV({
+                el: $("#div"),
+                model: hi
+            })
+
+
+            /*
+             Now lets create a simple div on the UI which will be used as el to this ContainerView.
+             We will then position three buttons on the UI which will let the user to change the view.
+             Below code shows the application setup that is creating the container view and the functions
+             that will get invoked when the user selects the view from screen.
+             */
+
+
+            $.bt('v1', function () {
+                    if (!v1) {
+                        v1 = V1({model: hi})
+                    }
+                    ct.chV = v1
+                    ct.render()
+                }
+            )
+
+            $.bt('v2', function () {
+                if (!v2) {
+                    v2 = V2({model: hi})
+                }
+                ct.chV = v2
+                ct.render()
+            })
+
+
+            $.bt('v3', function () {
+                if (!v3) {
+                    v3 = V3({model: hi})
+                }
+                ct.chV = v3
+                ct.render()
             })
 
         }
+    }
+    function usesMd(){
+        ITEMS0 = function () {
+            $.x().h3('jason')
+            Ap = {M: {}, V: {}, C: {}}
+            Ap.M.Item = $M({})
+
+            $Ro({
+
+                    r: {
+                        '': 'welcome',
+
+                        itemlist: 'showItemList',
+                        'j': 'j'
+
+                    },
+
+                    welcome: function () {
+                        $.bd().E().A($.h1('welcome'))
+                    },
+                    j: function () {
+                    },
+                    showItemList: function () {
+                        $l('showItemList')
+                        $.bd().A($.h1('show item list'))
+                    }
+                },
+
+                '+')
 
 
-        _str = "<script type='text/template'>" + _str + "</script>"
+            i1 = Ap.M.Item({n: 'jason', g: 'mason'})
+            i1.oR('j', function () {
+                $.bd().E().A($.h1('j'))
+            })
+            //Bb.history.start({pushState: true})
 
+            $.bt('add', function () {
+                r.n('/itemlist')
 
-        str = $(s)
+            })
 
-        return $(s).id(i).A()
-
+        }
     }
 
-
-    /*
-
-
-     Temp('task', [
-
-     $.lb('Task: '),
-     $.ip().id('task_desc'),
-     $.bt('add task').id('btn')
-     ])
-
-
-     Tsk=$V({el: $('#cont'),
-
-     i: function(){this.r()},
-     r: function(){this.$el.ht( Temp('task') )},
-     e: {'click button': 'add'},
-     add: function(){alert( $('#task_desc').v() + ' task added')}
-
-     })
-     */
-
-    $.bt('sfad', function () {
-        r.n('/wap/items/q')
-    })
 }
-BACKDEMO=function(){$.x()
+    function alt() {
+        R$ = function (o) {
+            var r
+            o = roOb(ob)
+            r = Bb.Router.extend(o)
+            r.o = r.on
+            return function () {
+                var a = new r
+                a.o = a.on
+                a.oR = function (r, f) {
+                    this.on('route:' + r, f)
+                    return this
+                }
+                a.n = function (frag, op) {
+                    if (O(op)) {
+                        if (D(op.t)) {
+                            op.trigger = op.t ? true : false
+                        }
+                        if (D(op.r)) {
+                            op.replace = op.r ? true : false
+                        }
+                    }
+                    a.navigate(frag, op)
+                    return a
+                }
+                return a
+            }
+        } //=bbR
+        R$.tr = R$.trigger
+        R$.ex = R$.execute
+        ROUTE = function () {
+            z()
 
-    Temp=function(i,h){  var s=''
-        return _.tp($('#'+i).html(), h||{})
-        if(A(h)){_.e(h, function(h){s += h.oh()})}
-        s="<script type='text/template'>"+ s +"</script>"
-        return $(s).id(i).A()
+            r = R$({
+
+                R: {"*x": "d"}
+
+            })()
+
+            r.oR('d', function (a) {
+                alert(a)
+            })//#hello -> 'hello'
+            r.oR('e', function (a) {
+                alert(a)
+            })//#e -> 'e' (could do '/#/e')
+
+            bbH()
+        }
+        ROUTEPAMS = function () {
+            z()
+
+            rtr = R$({
+
+                R: {
+
+                    '': 'home',
+                    'view': 'v',
+                    'new': 'nn',
+                    ':id': 'en',
+                    'posts/:id': 'gPo',
+
+                    '*acts': 'dfR',
+
+                    'download/*path': 'dlF',
+
+                    ':route/:action': 'ldV'
+
+                },
+
+                home: function () {
+                    al('home')
+                },
+                v: function () {
+                    al('image')
+                },
+                nn: function () {
+                },
+                en: function (id) {
+                    al(id)
+                }
+            })
+
+
+            r = rtr()
+
+            r.oR('dfR', al)
+            r.oR('gPo', function (id) {
+                al('gPo# ' + id)
+            })
+            r.oR('gPo', function () {
+                alert(3)
+            }) //both routes fire!
+
+            r.oR('dlF', al)
+            r.oR('ldV', function (rt, ac) {
+                al(rt + '_' + ac)
+            })
+
+            bbH()  // or Bb.h.s({pushState: true})
+
+        }
+        ROUTENAV = function () {
+            z()
+
+            Rt = R$({
+
+                routes: {
+                    'po/:id': 'gp',
+                    '*a': 'dr'
+                },
+
+                dr: function (a) {
+                    al(a)
+                },
+
+                gp: function (id) {
+                    al('Get post ' + id)
+                }
+
+            })
+
+
+            r = Rt()
+            bbH()
+            bt('hi', function () {
+                r.n('po/2', {t: 1})
+            }).a()
+        }
     }
 
-    Temp('task', [
-        $.lb('Task: '),
-        $.ip().id('task_desc'),
-        $.bt('add task').id('btn') ])
-
-    $.dI('cont')
-
-    bb.R({
-        rt:{'':'f',
-            'f':'f',
-            's':'s'},
-        f:function(){$l('fir')},
-        s:function(){
-            new Task()
-            $l('sec')}
-    })
-
-    Tsk=bb.V.e({
-        el: $('#cont'),
-        i: function(){this.r()},
-        r: function(){this.$el.ht( Temp('task') )},
-        e: {'click button': 'add'},
-        add: function(){
-            alert( $('#task_desc').v() + ' task added' )
-        }
-    })
-}
-ITEMS=function(){$.x()
-
-    Ap={M:{},V:{},C:{}}
-    Ap.M.Item = bb.M.e({})
-
-    bb.R({
-
-        r:{'':'welcome', 'itemlist':'showItemList', 'j':'j'},
-
-        welcome:function(){
-            $.bd().E().A($.h1('welcome'))
-
-        },
-
-
-        j:function(){},
-        showItemList:function(){
-            $.bd().E().A($.h1('show item list'))
-
-        }
-    })
-
-    i1=Ap.M.Item.o({ n:'jason', g:'mason' })
-    i1.oR('j',function(){
-        $.bd().E().A($.h1('j'))
-    })
-
-    // H$()
-}
-ITEMS = function () {
-    $.x().h3('jason')
-
-    Ap = {M: {}, V: {}, C: {}}
-
-    Ap.M.Item = $M({})
-
-    $R({
-        r: {
-            '': 'welcome',
-            'wap/items': 'welcome1',
-            'wap/items/itemlist': 'showItemList',
-            'wap/items/j': 'j'
-        },
-
-        welcome: function () {
-            $.bd().E().A($.h1('welcome'))
-        },
-
-        j: function () {
-            $l('asdfjfsdafsdf')
-        },
-
-        showItemList: function () {
-            $l('showItemList')
-            $.bd().A($.h1('show item list'))
-        }
-    }, '/')
-
-
-    i1 = Ap.M.Item({n: 'jason', g: 'mason'})
-
-    r.o('/wap/items/j', function () {
-        $.bd().E().A(
-            $.h1('j')
-        )
-    })
-    r.o('/wap/items/q', function () {
-        $.bd().E().A($.h1('q'))
-
-    })
-
-    bb.h.s({pushState: true})
-
-    $.bt('add', function () {
-        r.n('/wap/items/itemlist')
-    })
-    $.bt('add1', function () {
-        $.A($.h1('k'))
-        r.n('/wap/items/j')
-    })
-
-}
-NORTR=function(){$.x()
-
-
-    V1 = bb.V.e({
-
-        i: function() {this.r()},
-        r: function(){
-            this.$el.ht(this.model.get('Ms') + " from the View 1" )
-            return this
-        }
-    })
-
-    V2 = bb.V.e({
-
-        i: function() {
-            this.r();
-        },
-
-        r: function() {
-            this.$el.ht(this.model.g('Ms') + " from the View 2");
-            return this;
-        }
-    })
-    V3 = bb.V.e({
-        i: function() {
-            this.render();
-        },
-        r: function() {
-            this.$el.html(this.model.get('Message') + " from the View 3");
-            return this;
-        }
-    })
-    // Now we need a view that will contain the view and render it whenever the user makes a choice on the screen.
-
-    CtV = bb.V.e({
-        myChildV: null,
-        r: function() {
-            this.$el.ht("Greeting Area");
-            this.$el.A(this.myChildV.$el);
-            return this;
-        }
-    })
-
-    /*  Now lets create a simple div on the UI which will be used as el to this ContainerView.
-     We will then position three buttons on the UI which will let the user to change the view.
-     Below code shows the application setup that is creating the container view and the functions
-     that will get invoked when the user selects the view from screen.
-     */
-
-    greet = V1.o({
-        Ms: "Hello world"
-    })
-
-
-    cont = CtV.o({el: $("#AppContainer"),
-        model: greet
-    })
-
-    v1 = null;
-    v2 = null;
-    v3 = null;
-
-    function showView1() {
-        if (view1 == null) {
-            view1 = new View1({ model: greeting });
-        }
-
-        container.myChildView = view1;
-        container.render();
+function roOb(ob){
+    ob=ob||{}
+    if(ob.i){ob.initialize = ob.i}
+    if(ob.$){ob.initialize = function(){
+        Bb.history.start({pushState:true})
+        if( F(ob.$ )){ob.$()}
+    }
     }
 
-    function showView2() {
-        if (view2 == null) {
-            view2 = new View2({ model: greeting });
-        }
-
-        container.myChildView = view2;
-        container.render();
-    }
-
-    function showView3() {
-        if (view3 == null) {
-            view3 = new View3({ model: greeting });
-        }
-
-        container.myChildView = view3;
-        container.render();
-    }
+    ob.routes = ob.routes   ||  ob.rt || ob.r ||  {}
+    if(ob.R){o.routes=ob.R}
+    ob.routes = ob.routes   ||  ob.rt || ob.r ||  {}
+    ob.routes[''] = ob.routes[''] ||'index'
 
 
-
+    if(ob.x){ob.index = ob.x}
+    if(ob.h){ob.home = ob.h}
+    return ob
 }
-ROUTENAV=function(){$.x('b')
-    bb.R({
-        rt:{
-            'po/:id'  :  'gp',
-            '*a'      :  'dr'
-        },
-        dr:function(a){alert(a)},
-        gp:function(id){alert('Get post '+id)}
-
-    })
-    $.bt('hi', function(){$l('11111111')
-        rt.n('po/2', {t:1})
-    })
-}
-RNAV = function () {
-    $.x('b')
-
-    $R({
-        r: {'po/:id': 'gp', '*a': 'dr'},
-        dr: function (a) {
-            $l(a)
-        },
-        gp: function (id) {
-            $.l$('Get post ' + id)
-        }
-    })
-
-    $.bt('hi', function () {
-        rt.n('po/2')
-    })
-    $.bt('hi1', function () {
-        rt.n('po/4')
-    })
-
-    r.o('wappy/rnav/j', function () {
-        alert('!')
-    })
-
-    $.bt('hi1', function () {
-        rt.n('wappy/rnav/j')
-    })
-}
-ROUTE=function(){z()
-    r= bb.R({ rt:{"*x":"d"}  })
-    r.oR('d',function(a){
-        alert(a)
-    })//#hello -> 'hello'
-    r.oR('e',function(a){
-        alert(a)
-    })//#e -> 'e' (could do '/#/e')
-    // H$()
-}
-ROUTE = function () {
-    $.x()
-    $R({r: {'*x': 'd'}})
-    // r.o('d',function(a){$l('d:'+ a)}); r.o('e',function(a){$l('e:'+a)})
-    r.o({
-        d: function (a) {
-            $l('d:' + a)
-        },
-        e: function (a) {
-            $l('e:' + a)
-        }
-    })
-}
-ROUTEPAMS = function () {
-    $.x().A('hahahahhahaha')
-
-
-    $R({
-        '': 'home',
-        'view': 'v',
-        'new': 'nn',
-        ':id': 'en',
-        'posts/:id': 'gPo',
-        '*acts': 'dfR',
-        'download/*path': 'dlF',
-        ':route/:action': 'ldV'
-    }, {
-        home: function () {
-            $l('home')
-        },
-        v: function () {
-            $l('image')
-        },
-        nn: function () {
-        },
-        en: function (id) {
-            $l('id:' + id)
-        }
-    })
-
-    r.o('dfR', $l)
-    r.o('gPo', function (id) {
-        $l('gPo# ' + id)
-    })
-    r.o('gPo', function () {
-        $l(3)
-    }) //both routes fire!
-    r.o('dlF', $l)
-    r.o('ldV', function (rt, ac) {
-        $l(rt + '_' + ac)
-    })
-}
-ROUTEPAMS=function(){z()
-    bb.R({
-
-        rt:{
-            '':'home',
-            'view':'v',
-            'new': 'nn',
-            ':id': 'en',
-            'posts/:id':'gPo',
-            '*acts':'dfR',
-            'download/*path': 'dlF',
-            ':route/:action': 'ldV'},
-        home:function(){al('home')},
-        v:function(){al('image')} ,
-        nn:function(){},
-        en:function(id){al(id)}
-
-    })
-    r.oR('dfR',alert)
-    r.oR('gPo',function(id){
-        alert('gPo# '+id)})
-    r.oR('gPo', function(){
-        alert(3)}) //both routes fire!
-    r.oR('dlF', alert)
-    r.oR('ldV', function(rt,ac){
-        alert(rt+'_'+ac)})
-    // H$()  // or bb.h.s({pushState: true})
-}
-RTR = function () {
-    $.x('b')
-
-    RTob = {
-        '': 'index',
-        'wap/rtr/images/:id': 'image',
-
-        view: 'viewImage'
-
-    }
-
-    $R({
-        r: RTob,
-        h: function () {
-            $l('you are viewing home page')
-        },
-        x: function () {
-            $l('you are viewing index')
-        },
-        image: function (id) {
-            $l('image===')
-            _.t(10, function () {
-                $l($r() + '-id: ' + id)
-            });
-            $.bd().C('z')
-        },
-        viewImage: function () {
-            $l('you are viewing an image')
-        }
-
-    })
-
-    $.in(function () {
-        $l('......')
-
-        r.n('/wap/rtr/images/32903290239032902390')
-
-
-    }, '*')
-    //looks for clicks on any anchor els where
-    //href starts with '/' (no domain) and stop
-    //bw from nv to it
-
-
-    $.bd().on('click', 'a[href^="/"]', function (ev) {
-        $l('wow')
-        ev.preventDefault()
-        r.n($(this).attr('href', {trigger: true}))
-    })
-
-}
-RTR=function(){$.x('b')
-
-    bb.R({$:1, rt:{
-        '' : 'index',
-        'wap/rtr/images/:id':'image',
-        view: 'viewImage'
-    },
-        h: function () { alert('you are viewing home page')},
-        x:function(){alert('you are viewing index')},
-        image:function(id){
-            _.t(10, function(){
-                $l($r() +'-id: '+ id)}); $.bd().C('z') },
-        viewImage: function () {
-            alert('you are viewing an image')}
-    })
-
-    $.in(function(){
-
-        rt.n('wap/rtr/images/32903290239032902390')
-
-    }, '*')
-
-    //looks for clicks on any anchor els where
-    //href starts with '/' (no domain) and stop
-    //bw from nv to it
-
-    $.bd().on('click', 'a[href^="/"]', function(ev){
-        ev.preventDefault()
-        rt.n($(this).attr('href', {trigger:true}))
-    })
-} //works!.. ?

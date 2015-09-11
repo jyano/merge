@@ -1,5 +1,11 @@
 objects();xml();jqfn();cssz();evenz();htmll();image();inpuz();jqAn()
 
+$.A=function(){
+    $.fn.A.apply( $('body'), arguments)
+   return $
+}
+
+
 function objects(){
     COLOR={
 
