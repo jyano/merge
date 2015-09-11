@@ -2670,7 +2670,7 @@ BBSORT=function(){
 }
 
 valid()
-function valid(){/*
+function valid() {/*
 
  md.validate() checking attr vals  prior to setting them.
 
@@ -2691,11 +2691,16 @@ function valid(){/*
  */
 
 
-    VALID=function(){$.x('x','valid')
+    VALID = function () {
+        $.x('x', 'valid')
 
         Per = new bb.M({n: 'J'})
 
-        Per.validate = function(at){if (!at.n) {return '!name' }}
+        Per.validate = function (at) {
+            if (!at.n) {
+                return '!name'
+            }
+        }
         Per.s({n: 'S'})
 
 
@@ -2703,19 +2708,20 @@ function valid(){/*
         Per.unset('name', {vld: true}) // false
 
 
-
-
-
-
-
         Td = bb.M.x({
 
-            df: {  completed: false },
-            vld: function(at){ if(U(at.tt)){  return "!tt"  }},
+            df: {completed: false},
+            vld: function (at) {
+                if (U(at.tt)) {
+                    return "!tt"
+                }
+            },
 
-            i: function(){
+            i: function () {
 
-                this.on("invalid", function(md, z){   $l('err: '+ z)   })
+                this.on("invalid", function (md, z) {
+                    $l('err: ' + z)
+                })
             }
 
         })
@@ -2727,69 +2733,87 @@ function valid(){/*
 
         $l('completed: ' + td.g('completed')); // completed: false
 
-        emptyTd = new Td(null, {vld: true});  $l(emptyTd.validationError);
+        emptyTd = new Td(null, {vld: true});
+        $l(emptyTd.validationError);
 
     }
 
 
-    FRND=function(){$.x().h1('frnd')
+    FRND = function () {
+        $.x().h1('frnd')
 
 
-        Per =  $M({
+        Per = $M({
 
-            d:{lame:true},
+            d: {lame: true},
 
-            v: function(at,op){  if(at.n=='rigo'){return "n cant be rigo!"}  },
+            v: function (at, op) {
+                if (at.n == 'rigo') {
+                    return "n cant be rigo!"
+                }
+            },
 
-            i: function(){  var md=this; $l('new frnd!')
+            i: function () {
+                var md = this;
+                $l('new frnd!')
 
-                md.on('change:n', function(m,e){  $l('change:n:'+ e)  })
+                md.on('change:n', function (m, e) {
+                    $l('change:n:' + e)
+                })
 
-                md.oIv(function(m,z){   $l('invalid trgd: '+z)    })
+                md.oIv(function (m, z) {
+                    $l('invalid trgd: ' + z)
+                })
             }
 
 
         })
 
 
-
-
-        p1 = Per({g:'jigo'})
+        p1 = Per({g: 'jigo'})
 
 
         p1.s('n', 'hah')
-        p1.s({n:"rigo", a:7}, {validate:true}
-
+        p1.s({n: "rigo", a: 7}, {validate: true}
         )
 
 
-        $l('n:'+p1.g('n'))
+        $l('n:' + p1.g('n'))
 
 
-        p2= Per({ n:"qigo",  a:47  })
-        p3= Per({ n:"rigo",  a:7  })
+        p2 = Per({n: "qigo", a: 47})
+        p3 = Per({n: "rigo", a: 7})
 
-        $.bt('p2 validty', function(){$l('isValid: ' + p2.isValid())
+        $.bt('p2 validty', function () {
+            $l('isValid: ' + p2.isValid())
         }) //  valid
-        $.bt('p3 validty', function(){$l('isValid: ' + p3.isValid())
+        $.bt('p3 validty', function () {
+            $l('isValid: ' + p3.isValid())
         }) //not valid
 
 
-
-
         //
-        cl=$Cl({m:Per})()
-        cl.add([p2,p3])
+        cl = $Cl({m: Per})()
+        cl.add([p2, p3])
         cl.remove(p3)
 
     }
-    PEOPLE=function(){$.x('b', 'people')
+    PEOPLE = function () {
+        $.x('b', 'people')
 
 
-        Per  = $M({
-            i: function () { this.oIv(function(m,z){$l(z)}) },
-            d: {n:'doe', a: 30, j: 'wrk'},
-            validate: function (at) {if (at.a<0){return 'a<0!'}},
+        Per = $M({
+            i: function () {
+                this.oIv(function (m, z) {
+                    $l(z)
+                })
+            },
+            d: {n: 'doe', a: 30, j: 'wrk'},
+            validate: function (at) {
+                if (at.a < 0) {
+                    return 'a<0!'
+                }
+            },
             work: function () {
                 return this.g('n') + ' is working'
             }
@@ -2797,7 +2821,9 @@ function valid(){/*
 
 
         p = Per({n: 'y', a: 34})
-        p.oIv(function (m, z) {$l('err: '+z)})
+        p.oIv(function (m, z) {
+            $l('err: ' + z)
+        })
 
 
         PerV = $V({
@@ -2809,15 +2835,15 @@ function valid(){/*
             },
 
             //tp: _.tp("<strong><%= name %></strong> (<%= age %>) - <%= job %>"),
-            r: function () { var v = this
+            r: function () {
+                var v = this
                 //this works, but doesnt use a template
-                v.h(v.g('n')+' '+v.g('a')+' '+v.g('j'))
-                v.h( v.tJ() ) }
+                v.h(v.g('n') + ' ' + v.g('a') + ' ' + v.g('j'))
+                v.h(v.tJ())
+            }
         })
 
-        pV= PerV({m: p})
-
-
+        pV = PerV({m: p})
 
 
         peepC = $Cl({m: Per})
@@ -2833,22 +2859,28 @@ function valid(){/*
         pC.s('name', 'joejoe')
         PeepV = $V({
             tn: 'ul',
-            i: function () { $l('hi'); $l(this.cl)  },
+            i: function () {
+                $l('hi');
+                $l(this.cl)
+            },
 
-            r: function () {var vw=this
-                vw.eCl(function (p) {var v,pV
+            r: function () {
+                var vw = this
+                vw.eCl(function (p) {
+                    var v, pV
                     $l(p.g('n'))
                     pV = PerV({m: p})
                     $l(pV.el)
                     vw.q.A(pV.el)
-                }, this) }
+                }, this)
+            }
         })
         pcv = PeepV({cl: pC})
         pcv.r()
-        $.A( pcv.el )
+        $.A(pcv.el)
     }
 
-
+}
 
 
 // 2 plugins
@@ -4258,4 +4290,472 @@ function servr(){$l('bbServer')
 
          */
     }
+}
+
+
+function works(){
+
+    BBVIEW=function(){$.x('b','bbview')
+
+        $.dI('d1',
+            'r', 500, 500)
+
+
+
+        LstV = bb.V.e({
+            el: '#d1',
+            r: function(){
+                this.A(
+                    $.ul([
+                        'hello']))},
+            i: function(){ this.r() }})
+
+        v = LstV.o()
+    }
+    BBVIEW=function(){$.x('b','bbview')
+        v=$V({
+            q: d=$.dI('d1','r', 500, 500),
+            r: function(){this.A($.ul(['hello']))},
+            i: function(){this.r()}
+        })()
+    }
+    BBVIEW=function(){$.x('b','bbview')
+
+
+        $.dI('d1','r', 500,500).V({
+            r: function(){this.A($.ul(['hello']))},
+            i: function(){this.r()}
+        })()
+
+    }
+    PER=function(){$.x('n')
+        Per=bb.M.e({
+
+            d: {n:'j', a:20, o:'p'}
+
+        })
+        p= new Per
+        PerV = $V({t:'li', _:'some-per', k:'per',
+            r: function(){
+                this.A('n').A()
+            },
+            //  this.A(this.g('n')).A() //  this.A(this.model.get('n').A()
+            i: function(){
+                $l(this.model);
+                this.r()
+            }
+        })
+        pV =  PerV({ m:p  })
+
+    }
+    PER=function(){$.x('n')
+
+        p = $M({ d: {n:'j',a:20,o:'p'}   })()
+
+        PerV = $V({t:'li', _:'some-per', k:'per',
+            r: function(){  this.A('n').A() },
+            i: function(){ $l(this.model); this.r() }
+        })
+
+        pV = p.V(PerV) //PerV({ m: p })
+    }
+    PER=function(){$.x('n')
+        m = $M({d:{n:'j',a:20,o:'p'}})()
+        m.V($V({
+            t:'li', _:'some-per', k:'per',
+            r: function(){  this.A('n').A() },
+            i: function(){this.r()}
+        }))
+        $.in(function(){m.l()}, '*')
+    }
+    TP=function(){$.x().A(
+        a= _.tp("<div>hello:<%=n%></div>")({n:'moe'}),
+        b= _.tp('<b><%-tag%></b>',{tag:'<script>'}), // <%- vs <%= ?
+        c= _.tp(
+            '<%_.e(peep,function(name){%>'+
+            '<li>'+'<%=name%>'+'</li>'+
+            '<%})%>'
+            ,{peep:['moe','curly','larry']})
+    )
+
+    }
+    WOB=function(){$.x('x', 'bb view people')
+        //without backbone!
+        ul = $.ul().id('peep')
+        peep = [{n:'a',a:11}, {n:'b',a:46}, {n:'c',a:13}]
+        vw={r:function(){
+            $('#peep').E()
+            _.e(peep, function(p){
+                $('#peep').A('<li>'+ p.n + '(' + p.a + ')</li>')
+            })}}
+        vw.r()
+        $.in(function(){peep.pop(); vw.r()},'*')
+    }
+    SIMP=function(){$.x('r').h1('tut')
+        p = $M()({n:'j'})
+        $.h3('p: '+p.g('n'))
+    }
+    BBVP1=function(){$.x('x', 'bb view people')
+
+        peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
+        vw= $V({t:'ul',
+            i:function(){this.$el.C($r())},
+            r:function(){var el=this.$el.E()
+                _.e(this.collection, function(p){$('#peep')
+                    el.A($.li().A(p.n + '(' + p.a + ')'))})
+                return this}
+
+        })({cl: peep})
+
+
+        $.A(vw.r().el)
+        $.in(function(){peep.pop(); vw.r()},'*')
+    }
+    BBVP=function(){$.x('x', 'bb view people')
+
+        peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
+
+        vw= $.ulV({
+            i:function(){
+                this.q.C($r())
+
+            },
+            r:function(){var el=this.q.E()
+                this.cl(function(p){
+                    el.A($.li().A(p.n+'('+p.a+')'))})
+                return this}
+        })({cl: peep})
+        $.A(vw.r().q)
+        $.in(function(){peep.pop(); vw.r()},'*')
+    }
+    TMP=function(){$.x('r'); $V({
+        t:'li', x:'some-per', k:'per',
+        tp: tp=_.tp('<%= n %> (<%= a %>) - <%= o %>'),
+        r: function(){this.A().A(this.tp(this.model.toJSON()))},
+        i: function(){$l(this.model); this.r()}
+    })({m:Per=$M({d:{n:'j',a:20,o:'p'}})()})}
+    BBSAMP1=function(){$.x('b','bbsamp','+')
+        d=$.d()
+        Rec = bb.M.e()
+
+        RecV = bb.V.e({t:'div', k:'rec',
+
+            events:{'click': 'move'},
+            move:function(){this.$el.css('left', this.$el.position().left +10)},
+            rr:function(){return this.sDims().sPos().sCol()},
+            sDims:function(){this.$el.WH(this.model.get('w'), this.model.get('h'))
+                return this},
+            sPos:function(){this.$el.ab().LR(
+                this.model.get('pos').x, this.model.get('pos').y)
+                return this
+            },
+
+            sCol:function(){this.$el.C(this.model.get('C'))
+                return this}
+        })
+
+
+        _.e([
+            Rec.o({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+            Rec.o({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+            Rec.o({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+        ], function(md){
+
+
+            var r=  RecV.o({model:md})
+
+            r.rr().$el.a2(d)
+        })
+
+
+
+    }
+    BBSAMP=function(){$.x('b','bbsamp','+')
+
+
+        d=$.d()
+        Rec = $M()
+
+        RecV = $V({k:'rec',
+
+            e: {'click': 'move'},
+
+            move:function(){
+                this.q.css('left',
+                    this.q.position().left +10)
+            },
+            r:function(){return this.sDims().sPos().sCol()},
+            sDims:function(){
+                this.q.WH(this.model.g('w'),
+                    this.model.g('h'))
+                return this
+            },
+
+            sPos:function(){this.q.ab().LR(
+                this.model.g('pos').x,
+                this.model.g('pos').y
+            )
+                return this
+            },
+
+
+            sCol:function(){this.q.C(this.model.g('C'))
+                return this}
+        })
+
+        _.e([
+            Rec({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+            Rec({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+            Rec({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+        ], function(md){ RecV({model:md}).rr().$el.a2(d)  })
+
+    }
+    BBVT=function(){$.x('x', 'bb view and template');
+        md= new bb.M({d:[{t:'a.com', h:'a.com'}, {t:'b.com', h:'b.com'}, {t:'c.com', h:'c.com'}]})
+
+
+        $.dI('ct', [$.bt('Load'), $.ul().id('list')]).C('y')
+
+        $.dI('list-tp', [ $.la() ]).C('o')
+
+
+        Vw = bb.V.e({
+            el:'#ct',
+            i: function(op){$l(op.blOp); this.tp =$('#list-tp').children()},
+            rr:function(){var da, tp; $l('rr: '+ this.model.get('d')[0].h );//$.c('b').ab(300,300)
+                da=this.model.get('d')
+                tp=this.tp, ul= this.$el.find('ul')
+                _.e(da, function(da){ul.A(tp.clone()
+                    .find('a').hr('href', da.h).T(da.t).end())}) },
+            ev: {'click button':'rr'}
+        })
+        vw = new Vw({blOp:'empty!', model:md})
+        return vw
+
+    }
+    BBVT=function(){$.x('x', 'bb view and template');
+
+
+
+        $.dI('ct', [
+                $.bt('Load'),
+                $.ul().id('list')
+            ]
+        ).C('y')
+
+        $.dI('list-tp', [ $.la() ]).C('o')
+
+
+        v=$V({
+
+            q: '#ct',
+
+            events: {'click button': 'r'},
+
+            r: function(){var da, tp,ul
+                $l('RENDER')
+                /*
+                 $l('rr: '+ this.model.get('d')[0].h )
+                 //$.c('b').ab(300,300)
+                 da=this.model.get('d')
+                 tp=this.tp
+                 ul= this.$el.find('ul')
+                 _.e(da, function(da){ul.A(tp.clone()
+                 .find('a').hr('href', da.h)
+                 .T(da.t).end())})
+                 */
+            },
+            i: function(op){
+                $l(op.blOp)
+                this.tp = $('#list-tp').children()
+            }
+        })({
+
+            blOp: 'empty!',
+
+            m: m=$M()({
+                d:[
+                    {t:'a.com', h:'a.com'},
+                    {t:'b.com', h:'b.com'},
+                    {t:'c.com', h:'c.com'}
+                ]
+            })
+
+        })
+
+    }
+
+
+}
+
+works()
+
+BACKSET = function () {
+    $.x()
+
+    Sb = Sidebar = bb.m.e({
+        ask: function () {
+            this.s({c: prompt("color?")})
+        }
+    })
+    sb = Sb.o()
+    sb.on('change:c', function (md, c) {
+        $('body').C(c)
+    })
+    sb.set({c: 'b'})
+    sb.ask()
+    //right from ko site
+    d = $.dA(400)
+
+    Sid = bb.M({
+        promptColor: function () {
+            this.s({
+                co: pr('color:')
+            })
+        }
+    })
+
+    sb = Sid()
+    sb.on('change:co', function (md, c) {
+        d.C($l(c))
+    })
+    sb.C('w')
+    sb.ask()
+    Per = bb.M.e({
+        i: function () {
+            alert("Welcome")
+        }
+    })
+    p = Per({})
+    p.s({n: "mac", a: 67})
+    $.dA(300).id('sb')
+    Sidebar = bb.M.e({
+        fn: function () {
+            return this.s({
+                c: prompt("c?")
+            })
+        }
+    })
+    Sidebar().oC('c', function (m, c) {
+        $('#sb').C(c)
+    }).s({c: 'w'}).fn()
+
+}
+BBCL = function () {
+    $.x().h1('backcl')
+    bads = bb.C.e().o().oA(function (s) {
+        alert("new baddie: " + s.g("n"))
+    })
+    bads.add([{n: "bad1"}, {n: "bad2"}])
+
+    Frnd = bb.M.e({d: {lame: 1}})
+    f1 = Frnd.o({n: "Lul", a: 67})
+    f2 = Frnd.o({g: 'jigo'})
+    f2.s({n: "Rigo", a: 7})
+    f2.s('n', 'hah')
+    Per = bb.M.e({
+        d: {lame: true},
+        i: function () {
+            var t = this
+            t.on('error', function (m, e) {
+                alert(3);
+                $l(e)
+            })
+            t.on('change:n',
+                function (m, e) {
+                    alert(3);
+                    $l(e)
+                })
+        },
+        v: function (at) {
+            if (at.n == 'rigo') {
+                return "n cant be rigo!"
+            }
+        }
+    })
+    p = Per.o({n: "rigo", a: 7})
+
+    cl = bb.C.e().o()
+    f1 = cl.A(f1)
+    f2 = cl.A(f2)
+    cl.rm(f1)
+
+
+    Pers = bb.C.e({m: Per})
+    pers = Pers.o()
+    p1 = pers.add(p)
+    pers.add(p2)
+    pers.rm(p1)
+
+}
+FETCH = EVTSAVE = function () {
+    m = bb.M.e({n: 'j'})
+    Don = bb.M.e({
+        d: {n: null, sprink: 0, cream: 0},
+        u: function () {
+            return this.id ? '/dn/' + this.id : '/dn'
+        }
+    })
+    bc = bostonCream = Don.o({n: 'Bos', cream: 1})
+    bc.s({sprink: 1}).S() //save
+    Dons = bb.C.e({m: Don, url: "/dn"})
+    dons = Dons.o()
+    dons.fetch()
+    // donuts.at(0); -> gets donuts by index.
+    // donuts.get(0); -> gets donuts by id.
+    // donuts.each(function(d){$l(d.get("name"))})
+    // donuts.select(function(d){return d.get("name").length>2})// Select donuts with names longer than 2
+    // donuts.map(function(d){return d.get("name")})
+    Shop = bb.M.e({
+
+        i: function () {
+            this.dons = Dons()
+            this.dons.url = 'shops/' + this.id + "/dn"
+        },
+        df: {n: "z"}
+    }).o()
+    Shop.oA(function (dn) {
+        alert("added " + dn.g('n'))
+    })
+    lem = Shop.dons.A({n: "Lem"})
+    ev = bb.E()
+    ev.b("fun:had", function () {
+        alert("wee!")
+    })
+    ev.tr("fun:had")  //it'll alert "wee!"
+}
+
+
+MODCHANGE = function () {
+    $.x()
+
+    Bk = bb.M.e({
+
+        d: {ID: "", n: ""},
+        initiate: function () {
+
+            $l('init..')
+
+            var that = this
+
+            this.on('change', function () {
+                alert('change')
+                if (that.hasChanged('ID')) {
+                    alert('ID changed')
+                }
+                if (that.hasChanged('n')) {
+                    alert('n changed')
+                }
+            })
+        },
+
+        showAlert: function () {
+            alert('ID: ' + this.g('ID') + ',' + ' n: ' + this.g('n'))
+        }
+
+    })
+
+
+    // ChildBook = Bk.extend({})
+    bk = Bk.o({ID: 1, n: "a"})
 }
