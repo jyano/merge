@@ -4,15 +4,28 @@ peep = [
     {n:'c',a:13}
 ]
 
-DIVADD= BBVIEW = function () {z()
+DIVADD= BBVIEW = function (){z()
+
     d = $.dI('d1', 'r', 500, 500)
+
+
     _.t(3, function () {
+
         $$V({
-            i: function () {this.r()},
+
+            initialize: function () {this.r()},
+
             r: function () {
-                d.A($.ul(['hello']))}
-        })()
+
+                d.A(
+                    $.ul(['hello'])
+                )
+            }
+        })({})
+
+
     })
+
 
 
     function alt(){
@@ -42,23 +55,24 @@ DIVADD= BBVIEW = function () {z()
         }
     }
 }
+
+
 ARRPOP= BBVP=function(){z()
 
     vw= $$V({
         t:'ul',
-        i:function(){this.$el.C('r')},
+        initialize:function(){this.$el.C('r')},
         r:function(){
             var el=this.$el.E()
             _.e(this.collection, function(p){$('#peep')
                 el.A($.li().A(p.n + '(' + p.a + ')'))})
-            return this
-        }
+            return this}
     })({
-        cl: peep
+        collection: peep
     })
 
-    $.A(
 
+    $.A(
         vw.r().el
     )
 
