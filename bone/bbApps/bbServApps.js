@@ -360,7 +360,6 @@ FETCH=EVTSAVE=function(){
     //////
 
 }
-
 OBJECT=function(){$.fm()
 
     s1.A('your objects', $.br(2), t= $.ip(),
@@ -1229,7 +1228,6 @@ LIBBOOK=function(){
 
      */
 }
-
 AVAIL=function(){$.x('x'); Ap={ M:{},C:{},V:{},T:{} }
 
     Ap.T.Avail=function(model){
@@ -1480,7 +1478,6 @@ FETCH = EVTSAVE = function () {
     })
     ev.tr("fun:had")  //it'll alert "wee!"
 }
-
 MODDONUT=function(){m=bbM({n:'j'})
     Donut = bbM({
 
@@ -1660,9 +1657,7 @@ MOD=function(){
 
 
 }
-OSYNC = function () {
-    $.x('x', 'osync')
-
+OSYNC = function () {$.x('x', 'osync')
     Bb.sync = function (met, md) {
         $l(met + ': ' + _.jS(md))
         md.s('id', 1)
@@ -1673,16 +1668,11 @@ OSYNC = function () {
     })
     bk.S()
     bk.S({au: "Teddy"})
-
-
     // save accepts success and error cbs in the options hash,
     // which will be passed the args (md, resp, ops).
     // If a server-side validation fails, return a non-200 HTTP response code,
     // along with an error response in text or JSON.
-
-
-    bk.save(
-        "au", "F.D.R.", {
+    bk.save("au", "F.D.R.", {
             error: function () {
                 $l('error')
             },
@@ -1690,10 +1680,8 @@ OSYNC = function () {
                 $l('success')
             }
         })
-
 }
-function learn(){
-    function bbSynd(){
+function learnBbSynd(){
         /*
 
 
@@ -1853,39 +1841,6 @@ function learn(){
          such as jQ or Zepto. Underscore is primarily used for its utility mets (which bb relies upon heavily) and json2.js for legacy  bw JSON support if bb.sync is used.
 
          */
-    }
+
 }
 
-
-old=function() {
-//Note=Bb.M.e({initialize:function(){},author:function(){},coordinates:function(){},canEdit:function(ac){return true}})
-//PrivNote=Note.extend({canEdit:function(ac){return ac.owns(this)}})
-//Note2=Bb.M.e({set:function(atts,opts){Bb.M.prototype.set.apply(this,arguments)}})
-//render does nothing unless u override it
-//cannot access model from init
-
-
-    /*
-     VWob={  i:'initialize',
-     m:'model',  c:'collection',
-     e:'el',  n:'id', x:'id',  k:'className',
-     tn:'tagName',  t:'tagName',
-     a:'attributes',  ev:'event'  }
-
-
-     Vw = $V({
-     renderCollection: function(op) {op = op || {}
-     op.target = op.target || this.$el;
-     op.cl = op.cl ||    op.collection ||  this.collection;
-     //- reset views
-     if (!op.add) {this.disposeViews()}
-     else {this._subviews = []}
-     this._renderOptions = op
-     //- if there is a collection and a view then render it
-     if (op.cl && this.view) {op.cl.each(this._renderView, this)}
-     return this
-     }
-     })
-
-     */
-}
