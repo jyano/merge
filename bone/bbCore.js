@@ -20,3 +20,7 @@ Bb.U=Bb.Utility
 Bb.S=Bb.Sync
 
 
+Bb.R=   Bb.Router
+Bb.R.x=  Bb.R.e= Bb.R.extend
+bb.V= bb.View
+bb.V.x=bb.V.extend

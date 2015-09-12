@@ -1,10 +1,48 @@
-bb.V= bb.View
-bb.V=bb.View
+
+bb.V.e=  function(ob){var g=G(arguments); ob=ob||{}
+    ob._i = ob.initialize  || ob.i
+    ob.initialize = function(op){
+        // ok so i think i see what is happening here...
+        // first of all, i am clearly overwriting 'initialize' here
+        // so why bother setting it prior?
+        this.q= this.$el
+        this.a2=function(a){
+            var res=   this.q.a2(a)
+            //return this
+            return res
+        } //this.g=function(a){  if(a){return this.model.get(a)}}
+        this.A=function(ob){var g=G(arguments),  q=this.q
+            if(S(ob)){ob = this.g(ob)}
+            if(ob){q.A(ob)}
+            if(U(ob) || g.p){q.A()}
+            return q}
+        if(F(ob._i)){   _.b(ob._i, this)(op) }
+    }
+
+    ob.id = D(ob.id)? ob.id : ob.x || ob._ || ob['#']
+    ob.className=ob.className|| ob.k
+
+    ob.defaults=ob.defaults || ob.df || ob.d
+    ob.events= ob.events || ob.ev || ob.e
+    ob.events = bb.eParse(ob.events)
+    ob.render=ob.render || ob.rr || ob.r
+    ob.tagName=ob.tagName || ob.tn || ob.t
+    ob.collection= ob.collection || ob.cl || ob.c
+    ob.model = ob.model || ob.md || ob.m
+    ob.el = ob.el || ob.q
+    ob.render = ob.render || ob.rn || ob.rr || ob
+    ob.events = bb.parseEvents(ob.events)
+    vw= bb.V.extend(ob)
+    return vw
+
+}
+
+
 bb.v=function(ob){var Vw =  bb.V.x(ob)
     return function(a,b,c,d){
         return new Vw(a,b,c,d)}}
 
-bb.V=bb.View
+
 bb.v=function(ob){var Vw =  bb.V.x(ob)
     return function(a,b,c,d){
         return new Vw(a,b,c,d)}}
@@ -56,47 +94,6 @@ bb.v=function(ob){var Vw =  bb.V.x(ob)
 
 
 
-
-
-bb.V.x=  function(ob){var g=G(arguments); ob=ob||{}
-
-
-    ob._i = ob.initialize  || ob.i
-    ob.initialize = function(op){
-        // ok so i think i see what is happening here...
-        // first of all, i am clearly overwriting 'initialize' here
-        // so why bother setting it prior?
-        this.q= this.$el
-        this.a2=function(a){
-            var res=   this.q.a2(a)
-            //return this
-            return res
-        } //this.g=function(a){  if(a){return this.model.get(a)}}
-        this.A=function(ob){var g=G(arguments),  q=this.q
-            if(S(ob)){ob = this.g(ob)}
-            if(ob){q.A(ob)}
-            if(U(ob) || g.p){q.A()}
-            return q}
-        if(F(ob._i)){   _.b(ob._i, this)(op) }
-    }
-
-    ob.id = D(ob.id)? ob.id : ob.x || ob._ || ob['#']
-    ob.className=ob.className|| ob.k
-
-    ob.defaults=ob.defaults || ob.df || ob.d
-    ob.events= ob.events || ob.ev || ob.e
-    ob.events = bb.eParse(ob.events)
-    ob.render=ob.render || ob.rr || ob.r
-    ob.tagName=ob.tagName || ob.tn || ob.t
-    ob.collection= ob.collection || ob.cl || ob.c
-    ob.model = ob.model || ob.md || ob.m
-    ob.el = ob.el || ob.q
-    ob.render = ob.render || ob.rn || ob.rr || ob
-    ob.events = bb.parseEvents(ob.events)
-    vw= bb.V.extend(ob)
-    return vw
-
-}
 
 
 
