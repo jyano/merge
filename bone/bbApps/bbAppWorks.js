@@ -221,3 +221,38 @@ RESET = function () {z()
     }
 
 }
+
+BBRECS= BBSAMP=function(){$.x('b','bbsampp','+')
+
+    d=$.d()
+    Rec = $$M()
+    RecV = $$V({
+        k:'rec', e: {'click': 'move'},
+        move:function(){
+            this.q.css('left',
+                this.q.position().left +10)
+        },
+        rr:function(){return this.sDims().sPos().sCol()},
+        sDims:function(){
+            this.q.WH(this.model.g('w'),
+                this.model.g('h'))
+            return this
+        },
+        sPos:function(){
+            this.q.ab().LR(
+                this.model.g('pos').x,
+                this.model.g('pos').y  )
+            return this
+        },
+        sCol:function(){this.q.C(this.model.g('C'))
+            return this}
+    })
+    _.e([
+        Rec({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+        Rec({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+        Rec({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+    ], function(md){
+        RecV({model:md})
+            .rr().$el.a2(d)
+    })
+}
