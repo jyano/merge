@@ -354,3 +354,32 @@ MODCHANGE = function () {$.x('x', 'modchange')
 
     }, '*')
 }
+
+BBSORT=function(){
+
+
+    Chapter  = Backbone.Model
+
+    chapters = new Backbone.Collection
+
+    chapters.comparator =
+        //'page'
+        function(a){return _z(a)}
+
+    chapters.add(
+        new Chapter({page: 9, title: "The End"}))
+
+
+    chapters.add(
+        new Chapter({page: 5, title: "The Middle"}))
+
+
+    chapters.add(
+        new Chapter({page: 1, title: "The Beginning"}))
+
+
+
+    $l(chapters.pluck('title'))
+
+
+}

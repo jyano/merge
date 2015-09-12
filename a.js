@@ -245,7 +245,7 @@ function routes(){
         p.render('play',{app:q.params.a,pam:q.params.p})
     })
 
-    $a.g('/mvc/:a/:p?', function(q,p){
+    $a.g('/mvc/:a/:p?/:p2?/:p3?', function(q,p){
         p.render('mvc',{app:q.params.a,pam:q.params.p})
     })
 

@@ -87,122 +87,7 @@ Bb.sEv=function(md){
 //Events:
 Bb.E= Bb.Ev=Bb.Events; Bb.E.x=Bb.E.extend
 
-//Views:
-Bb.V= Bb.View; Bb.V.x=Bb.V.extend; vw = Bb.View.prototype; Bb.sEv(md)
-vw.g=function(m){
-    if(this.model && this.model.get){
-        return this.model.get(m)
-    }
-    else if(this.collection && this.collection.get){
-        return this.collection.get(m)
-    }
-}
-vw.s=function(a,b){this.model.set(a,b); return this}
-vw.E=function(){this.q.E();return this}
-vw.e=function(a,b){return (this.collection || this.cl).each(a,b)}
-vw.cl= vw.eCl= function(fn){
-    //
-    var cl=this.collection
-    if(U(fn)){return cl}
-    if(cl){_.e(cl,fn)}
-    return this
-}
-vw.ECl= function(fn){this.E();return this.eCl(fn)}
-vw.eM=function(fn){
-    _.e(this.model, fn);
-    return this
-    function alt(){
-        vw.e= function(a, b){
-            var cl = this.collection || this.cl;
-            cl.each(a, b)
-            return this}}
-}
-vw.h=function(a){this.$el.html(a);return this}//=vw.H
-vw.j=function(fn){var vw=this,j
-    if(this.collection){
-        j= this.collection.toJSON()
-        if(F(fn)){_.e(j,fn);return vw}
-        return j}
-    if(this.model){return this.model.toJSON()}
-}
-vw.a2 = function (a) {$l('vw.a2')
-    if(!this. q){alert('vw.a2 !q'); return this}
- return this.q.a2(a)
-}
-vw.A = function (ob) {$l('vw.A')
-    var g = G(arguments), q = this.q
-    if(!q){alert('vw.A !q');if (S(ob)) {ob = this.g(ob)}
-    if (ob) {q.A(ob)}
-    if (U(ob) || g.p) {q.A()}
-    return q
-}
-}
-_$$V= function(ob){ob = ob || {}
-    ob.id = D(ob.id) ? ob.id : ob.x || ob._ || ob['#']
-    ob.tagName = ob.tagName || ob.tn || ob.t
-    ob.className = ob.className || ob.k //if (ob.k) {ob.className = ob.k}
-    ob.defaults = ob.defaults || ob.df || ob.d
-    ob.events = ob.events || ob.E || ob.ev || ob.e // || {$: function () {}}//; EVob = {$: 'click', $$: 'dblclick', v: 'mouseover'}; _.e(ob.events, function (v, k) {if (EVob[k]) {ob.events[EVob[k]] = v}})
-    //ob.render = ob.render ||ob.R|| ob.rn || ob.rr || ob
-    ob.model = ob.model || ob.md || ob.m
-    ob.collection = ob.collection || ob.cl || ob.c
-    ob.el = ob.el || ob.q
 
-
-    if(F(ob.i)){
-
-        ob.initialize =   ob.i
-
-        function _$$V_init(){
-            ob._i = ob.initialize || ob.i
-
-            ob.initialize = function (op) {
-                // ok so i think i see what is happening here...
-                // first of all, i am clearly overwriting 'initialize' here
-                // so why bother setting it prior?
-                this.q = this.$el
-
-
-                if (F(ob._i)) {_.b(ob._i, this)(op)}
-            }
-            if (ob.I) {ob.initialize = ob.I}
-        }
-    }
-
-
-    return Bb.V.x( ob )
-}
-$$V=function(ob){
-
-    var Vw =  _$$V(ob||{})
-
-    return function(ob,q){
-
-        ob=ob||{}
-      ob.model=ob.model||ob.md||ob.m
-      ob.collection=ob.collection ||ob.cl||ob.c
-        var  vw = new Vw(ob);
-
-        vw.md= vw.model;
-        vw.cl= vw.collection
-
-        vw.q= vw.$el
-        if(q){ alert('see $$V'); vw.a2(q ) }
-        return vw
-    }
-}
-
-
-$V=function(ob, a,b,c){return $$V(ob,a,b,c)()}
-
-$.fn.V=function(ob){
-    ob=ob||{};
-    ob.q=this
-    return $V(ob)
-}
-$.uV=$.ulV=function(ob){
-    ob=ob||{};ob.t = 'ul'; return $V(ob)
-} // make a bbV with t:ul
 
 //Models:
 Bb.M = Bb.Model; Bb.M.x = Bb.M.extend;md = Bb.Model.prototype; Bb.sEv(md)
@@ -222,7 +107,10 @@ md.s = function (a, b, c) {var md = this
     return md
 }
 md.l = function () {
-    $l(this.toJSON()); return this}
+    $l( JSON.stringify(this.toJSON()))
+    return this
+}
+
 md.l1 = md.lT1= md.lTo1= function (a, b, c, d) {
     return this.listenToOnce(a, b, c, d)
 }
@@ -235,10 +123,9 @@ md.a2 = function (a) {$l('me.a2')
     if(!this.q){alert('me.a2 !q'); return this}
     return this.q.a2(a)
 }
-md.V=function(Vw, ob){
-    ob = ob || {}
-    ob.m= this
-    return Vw(ob)}
+
+
+
 _$$M=function(ob){ob=ob||{} // o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s} //o=o||{}
 
     ob.initialize = ob.initialize || ob.i || function(){}
@@ -296,160 +183,3 @@ $$M = function (ob,a,b,c) {
 $M=function(op,a,b,c){
     return $$M(op,a,b,c)()
 }
-
-//Collections:
-Bb.C = Bb.Collection; Bb.C.x = Bb.C.extend; cl = Bb.Collection.prototype; Bb.sEv(cl)
-cl.A = cl.add
-cl.rm=cl.remove
-cl.s= function(a,b,c){var cl=this
-    if(O(a) && O(b)){if(b.v){b.validate= b.v?true:false}}
-    if(S(a) && O(c)){if(c.v){c.validate= c.v?true:false}}
-    cl.set(a,b,c)
-    return cl
-}
-_$$C = function(ob){ob=ob||{}
-    //var g=G(arguments), o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s}; o=o||{}
-    if(!F(ob.initialize) && F(ob.i) ) {  ob.initialize = ob.i  }
-    if(!O(ob.collection) &&(O(ob.cl)||O(ob.c))) {ob.collection = ob.cl ||ob.c}
-
-    if(!O(ob.model) && (O(ob.md)||O(ob.m)) ) {ob.model = ob.md || ob.m}
-    //ob.model= ob.model || ob.md || ob.m
-    //if(ob.m){ob.model= ob.m}
-    ob.defaults = ob.defaults || ob.df || ob.d
-    ob.id = D(ob.id)? ob.id : ob.x
-    ob.idAttribute = ob.idAttribute || ob._id
-    ob.events= ob.events || ob.ev || ob.e
-    ob.validate=ob.validate || ob.v
-
-    function more() {
-        if (ob.fn) {
-            ob.i = ob.fn
-        }
-        ob.initialize = ob.initialize || ob.i
-        ob._i = ob.initialize
-        ob.id = D(ob.id) ? ob.id : ob.x
-        ob.className = ob.className || ob.k
-        ob.tagName = ob.tagName || ob.tn || ob.t
-        ob.defaults = ob.defaults || ob.df || ob.d
-        ob.events = ob.events || ob.ev || ob.e
-        ob.render = ob.render || ob.rr || ob.r
-        ob.tagName = ob.tagName || ob.tn || ob.t
-        ob.collection = ob.collection || ob.cl || ob.c
-        // ob.render= ob.render || ob.rr || ob.r
-        ob.render = ob.render || ob.rn
-    }
-    return Bb.C.x(ob||{})
-}
-
-$$C=function(ob){
-    var Cl = _$$C(ob)
-    return function(ob,b,c,d){
-        ob=ob||{}
-        var cl
-        ob.collection= ob.collection || ob.cl || ob.c
-        ob.model = ob.model || ob.md || ob.m
-        cl= new Cl(ob,b,c,d) //if(q){cl.a2(q)}
-        cl.q= cl.$el
-        cl.a2=function(a){return cl.q.a2(a)}
-        cl.g=function(a){if(a){return cl.model.get(a)}}
-
-        /*
-        cl.A=function(ob){
-
-            var g=G(arguments)
-            if(S(ob)){ob = cl.g(ob)}
-            if(ob){this.$el.A(ob)}
-            if(U(ob) || g.p){ this.$el.A() }
-            return this.$el
-        }
-        //_.b(ob._i,cl) (op)
-        */
-        return cl
-    }
-
-}
-
-
-$C=function(ob,a,b,c){return $$C(ob,a,b,c)()}
-C$= function(a){var b,c
-// $.ext(Bb.Collection)
-    //if(U(a)){var c=new Bb.Collection; return sCl(c)}
-    a=O(a)?a:{}
-    if(a.m){a.model= a.m}
-    c= Bb.C.x(a)
-    return function(o){o=O(o)?o:{}
-        //if(o.m){o.model= o.m}
-        b=new c(o)
-        return b}
-}
-
-//Router:
-Bb.R=  Bb.Router;
-Bb.R.x=  Bb.R.extend
-ro._n = function (){
-    this.navigate.apply(this, arguments);
-    return this
-}
-ro.n = function (url){
-    return this._n(url,  G(arguments).n ? null : {trigger: true})
-}//normal navigate, but i change the default to auto trigger the route fn
-rt.rp = function (url, op) {
-    return this._n(url, _.x({replace: true},
-        G(arguments).n ? {trigger: true} : {}))
-}//navigate: replace
-ro.A = ro.oR   = function (rt, fn){
-    var rtr = this
-    if (O(rt)) {
-        _.e(rt, function (v, k) {
-            rtr.o(k, v)
-        })}
-    else {this.on('route:' + rt, fn)}
-    return this
-} //= ro.r = ro.o
-_$$R=function(ob){
-    //metaClass
-    ob=ob||{}
-    if(ob.i){ob.initialize = ob.i}
-    doAler(); function doAler(){
-    if(ob.$) {
-        ob.initialize = function () {
-            alert('ob.$')
-            Bb.h.start({pushState: true})
-            if (F(ob.$)) {
-                ob.$()
-            }
-        }
-    }
-
-    }
-    ob.routes = ob.routes   ||  ob.rt || ob.r ||  {} // if(ob.R){ob.routes=ob.R}
-    //ob.routes[''] = ob.routes[''] || 'index'
-    // if(ob.x){ob.index = ob.x}; if(ob.h){ob.home = ob.h}
-    ob.routes= _.x({'':'_',}, ob.routes)
-    ob= _.x({_:function(){
-        $l('INDEX INDEX INDEX ( _ ) INDEX INDEX INDEX')
-    }}, ob)
-
-    return Bb.R.x(ob)
-}
-
-
-$$R= Bb.r=function(ob){//metaClass.. no need for 'new'
-    var Rt = _$$R(ob)
-    return function(a,b,c,d){
-        return new Rt(a,b,c,d)
-    }
-}
-$R= function(ob){
-//if you want instant instantiation
-    var g=G(arguments)
-    r = $$R(ob)()
-    //if(!Bb.H.started && !g.d){Bb.history.start({pushState: true})}
-    return r
-}
-
-//History:
-Bb.H= Bb.History
-Bb.h =   Bb.history
-Bb.h.tr= Bb.h.trigger
-Bb.h.s= Bb.h.start

@@ -1059,11 +1059,20 @@ function jqfn(){
         e.remove()
         return e
     }
+
     $.fn.E = function (html) {
-        this.empty();
-        this.html(html);
+        this.empty()
+        if(S(html)){this.h(html)}
+
+        else {
+
+            G(arguments).e(function(q){this.A(q)})
+        }
         return this
     }
+
+
+
     $.fn.A = function (stuff) {
         if (U(stuff)) {
             $('body').append(this);
@@ -2761,19 +2770,30 @@ $l('div')
             return ol
         }
 
-        $.ul=function(){var g=G(arguments), o, ul=$('<ul>')
-            if(g.A_){
+        $.ul=function(){$l('$.ul')
+            var g=G(arguments),
+                ul=$('<ul>')
+
+            if(g.A_){$l('$.ul g.A_')
                 _.e(g.f, function (el) {
                     if (g.p) {if(el.iLi()){el = $.li([el])}}
                     if(S(el)){el = $.li(el)}
                     ul.A(el)
-                })}
-            //if(g.p){ul.dg()}
-            if(g.n){ul.K('ddm')} else {ul.A()}//dropdown menu
-            if(g.p){ul.K('n nbn')}//navbar nav
+                })
+
+            }//if(g.p){ul.dg()}//if(g.n){ul.K('ddm')} //dropdown menu
+
+            if(g.p){alert('$.ul g.p')
+                ul.K('n nbn')
+            }//navbar nav
             // $l(ul.oh())
+
+           _ul= ul.A()
+
             return ul
         }
+
+
 
         $.uK= $.ulK=function(k, a,b,c,d){
             var ul = $.ul(a,b,c,d).K(k)
