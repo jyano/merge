@@ -1,118 +1,6 @@
-vw= Bb.View.prototype
+vwPt()
+Bb.V.e=function(ob){var g=G(arguments),o = g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s}; o=o||{}; ob=ob||{}; if(o.fn){ob.i= o.fn}
 
-vw.cl=function(fn){var cl
-    cl=this.collection
-    if(U(fn)){return cl}
-    if(cl){_.e(cl,fn)}
-    return this
-}
-vw.e=function(fn){
-    _.e(this.model, fn)
-    return this
-}
-vw.g=function(m){
-    $l('g')
-    if(this.model && this.model.get){
-
-        return this.model.get(m)
-    }
-
-    $l('!model')
-
-}
-vw.s=function(a,b){this.model.set(a,b); return this}
-vw.h=vw.H=function(a){this.$el.html(a); return this}
-vw.eCl= function(fn){_.e(this.collection, fn)
-    return this}
-vw.ECl= function(fn){
-    this.E()
-    _.e(this.collection, fn)
-    return this
-}
-vw.oC=function(fn){var g=G(arguments)
-    this.model.on('change', fn)
-    if(g.p){this.r()}
-    return this
-}
-vw.e= function(a,b){ var cl = this.collection || this.cl
-    return cl.each(a,b)
-}
-vw.j=vw.tJ=vw.J=function(){
-    if(this.model){
-        return this.model.toJSON()
-    }
-
-    $l('j:!md')
-}
-vw.J= function(fn){
-    var vw=this,
-        j= this.collection.toJSON()
-    if(F(fn)){
-
-        _.e(j,fn);return vw}
-
-    return j
-}
-vw.r=  vw.rr=function(){ return this.render() }
-vw.E=function(){   this.q.E(); return this }
-vw.C$=function(s){  this.q.C$(s); return this  }
-vw.g=function(m){return this.model.get(m)}
-vw.H=function(a){this.$el.html(a);return this}
-vw.J=function(){return this.model.toJSON()}
-vw.cl= vw.collection
-vw.e=function(a,b){
-    return this.cl.each(a,b)
-}
-vw.J=function(fn){
-    var vw=this,
-        j= this.collection.toJSON()
-    if(F(fn)){_.e(j,fn);return vw}
-    return j
-}
-vw.r=  vw.rr=function(){return this.render()}
-vw.cl=function(fn){
-    _.e(this.collection, fn)
-    return this
-}
-vw.g=function(m){
-    return this.model.get(m)}
-vw.s=function(a,b){
-    this.model.set(a,b)
-    return this
-}
-vw.h=vw.H=function(a){
-    this.$el.html(a);
-    return this
-}
-vw.cl= vw.collection
-vw.e= function(a,b){
-    return this.cl.each(a,b)
-}
-vw.j=vw.tJ=vw.J=function(){return this.model.toJSON()}
-vw.J= function(fn){
-    var vw=this,
-        j= this.collection.toJSON()
-    if(F(fn)){
-        _.e(j,fn);return vw}
-    return j
-}
-vw.r=  vw.rr=function(){ return this.render() }
-vw.cl=function(fn){
-    _.e(this.collection, fn)
-    return this
-}
-vw.e=function(fn){
-    _.e(this.model, fn)
-    return this
-}
-
-
-
-Bb.V.e=function(ob){var g=G(arguments),o
-    o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s}
-    o=o||{}
-    ob=ob||{}
-    if(o.fn){ob.i= o.fn}
     ob.initialize = ob.initialize || ob.i
     ob._i=ob.initialize
     ob.initialize=function(op){
@@ -169,77 +57,7 @@ Bb.V.e=function(ob){var g=G(arguments),o
     }
     return vw
 }
-Bb.V.e=function(ob){var g=G(arguments),o
-    o= g.F_?
-    {fn: g.f, ob: g.s} :
-    {ob: g.f, fn: g.s}
-
-    o=o||{}
-    ob=ob||{}
-    if(o.fn){ob.i= o.fn}
-
-    ob.initialize = ob.initialize || ob.i
-    ob._i=ob.initialize
-    ob.initialize=function(op){
-        this.q= this.$el
-
-        this.a2=function(a){
-            return this.q.a2(a)
-        }
-        //$l('gen init..')
-        this.g=function(a){
-
-            if(a){return this.model.get(a)}
-        }
-
-
-        this.A=function(ob){
-            var g=G(arguments),
-                q=this.q
-            if(S(ob)){ob = this.g(ob)}
-            if(ob){q.A(ob)}
-
-            if(U(ob) || g.p){q.A()}
-            return q
-        }
-
-        if(F(ob._i)){
-            _.b(ob._i,this) (op)
-        }
-
-    }
-    ob.id = D(ob.id)? ob.id : ob.x || ob._ || ob['#']
-    ob.className=ob.className|| ob.k
-    ob.tagName=ob.tagName|| ob.tn || ob.t
-    ob.defaults=ob.defaults || ob.df || ob.d
-    ob.events= ob.events || ob.ev || ob.e
-    ob.render=ob.render || ob.rr || ob.r
-    ob.tagName=ob.tagName || ob.tn || ob.t
-    ob.collection= ob.collection || ob.cl || ob.c
-    ob.model= ob.model || ob.md || ob.m
-    ob.el = ob.el || ob.q
-    // ob.render= ob.render || ob.rr || ob.r
-    ob.render= ob.render || ob.rn
-
-    ob.events = Bb.parseEvents(
-        ob.events
-    )
-
-
-    vw= Bb.V.extend(ob)
-    //vw.o=function(ob){ return new this(ob)}
-    vw.o=function(ob,q){
-        var Vw = this, vw
-        ob=ob||{}
-        ob.collection= ob.collection || ob.cl || ob.c
-        ob.model = ob.model || ob.md || ob.m
-        vw=new Vw(ob)
-        if(q){vw.a2(q)}
-        return vw
-    }
-    return vw
-}
-Bb.V.e=  function(ob){var g=G(arguments); ob=ob||{}
+Bb.V.e=function(ob){var g=G(arguments); ob=ob||{}
     ob._i = ob.initialize  || ob.i
     ob.initialize = function(op){
         // ok so i think i see what is happening here...
@@ -258,10 +76,8 @@ Bb.V.e=  function(ob){var g=G(arguments); ob=ob||{}
             return q}
         if(F(ob._i)){   _.b(ob._i, this)(op) }
     }
-
     ob.id = D(ob.id)? ob.id : ob.x || ob._ || ob['#']
     ob.className=ob.className|| ob.k
-
     ob.defaults=ob.defaults || ob.df || ob.d
     ob.events= ob.events || ob.ev || ob.e
     ob.events = Bb.eParse(ob.events)
@@ -272,20 +88,20 @@ Bb.V.e=  function(ob){var g=G(arguments); ob=ob||{}
     ob.el = ob.el || ob.q
     ob.render = ob.render || ob.rn || ob.rr || ob
     ob.events = Bb.parseEvents(ob.events)
-    vw= Bb.V.extend(ob)
-    return vw
+    vw= Bb.V.extend(ob); return vw
+}
+Bb.v=function(ob){var Vw =  Bb.V.x(ob); return function(a,b,c,d){
+        return new Vw(a,b,c,d)}}
 
+
+
+
+
+$v=function(){var g=G(arguments)
+    return $V.apply(null, g)()
 }
-Bb.v=function(ob){var Vw =  Bb.V.x(ob)
-    return function(a,b,c,d){
-        return new Vw(a,b,c,d)}}
-Bb.v=function(ob){var Vw =  Bb.V.x(ob)
-    return function(a,b,c,d){
-        return new Vw(a,b,c,d)}}
-Bb.v=function(ob){var Vw =  Bb.V.x(ob)
-    return function(a,b,c,d){
-        return new Vw(a,b,c,d)}
-}
+$v=function(){var g=G(arguments); return $V.apply(null, g)()}
+
 bbV=function(a){a=ob(a)
 
     if(a.I){a.initialize = a.I}
@@ -327,50 +143,6 @@ bbV=function(a){a=ob(a)
 
     }
 }
-$V=function(){var g=G(arguments),
-
-    Vw = Bb.V.e.apply(V,g)
-
-    return function(){
-        var    g=G(arguments), vw, ob
-
-        ob= g.f||{}
-        ob.collection= ob.collection || ob.cl || ob.c
-        ob.model = ob.model || ob.md || ob.m
-
-        vw = new Vw(ob)
-
-        if(g.s){vw.a2(g.s)}
-
-        return Vw}
-}
-$V=function(){var g=G(arguments),
-    Vw = Bb.V.e.apply(Bb.V,g)
-    return function(){var g=G(arguments), vw,
-        ob =  g.O_? g.f:  {}
-        ob.collection= ob.collection || ob.cl || ob.c
-        ob.model = ob.model || ob.md || ob.m
-        vw = new Vw(ob)
-        if(g.s){ vw.a2( g.s ) }
-        return Vw
-    }
-}
-$v=function(){var g=G(arguments)
-    return $V.apply(null, g)()
-}
-$v=function(){var g=G(arguments); return $V.apply(null, g)()}
-$V=function(){var g=G(arguments),
-    Vw = Bb.V.x.apply(Bb.V, g)
-    // ***  Bb.V.x.apply(Bb.V, g) same as _.x(Bb.V,g)??
-
-    return function(){var g=G(arguments), vw,
-        ob =  g.O_? g.f:  {}
-        ob.collection= ob.collection || ob.cl || ob.c
-        ob.model = ob.model || ob.md || ob.m
-        vw = new Vw(ob)
-        if(g.s){ vw.a2( g.s ) }
-        return vw}
-}
 Vw=Bb.V.e({
     renderCollection: function(op) {op = op || {}
         op.target = op.target || this.$el;
@@ -384,34 +156,61 @@ Vw=Bb.V.e({
         return this
     }
 })
-$.fn.V=function(ob){ob=ob||{}; ob.q=this
-    return $V(ob)
-}
-$.fn.V=function(ob){
-    ob=ob||{}
-    ob.q=this
-    return $V(ob)
-}
-$.fn.V=function(ob){
-    ob=ob||{}
-    ob.q=this
-    return $V(ob)
-}
-$.uV=$.ulV=function(ob){ob=ob||{}; // make a bbV with t:ul
-    ob.t = 'ul'; return $V(ob)
-}
-$.uV=$.ulV=function(ob){ob=ob||{}
-    ob.t = 'ul'
-    return $V(ob)
-}
-$.uV=$.ulV=function(ob){ob=ob||{}
-    ob.t = 'ul'
-    return $V(ob)
-}
-$m=function(){var g=G(arguments)
-    return $M.apply(null, g)()
-}
+$.uV=$.ulV=function(ob){ob=ob||{};ob.t = 'ul'; return $V(ob)} // make a bbV with t:ul
 
+function vwPt(){
+    vw= Bb.View.prototype
+    vw.cl= vw.collection
+    vw.cl=function(fn){var cl
+        cl=this.collection
+        if(U(fn)){return cl}
+        if(cl){_.e(cl,fn)}
+        return this
+    }
+    vw.e=function(fn){_.e(this.model, fn); return this}
+    vw.e= function(a,b){ var cl = this.collection || this.cl;
+        return cl.each(a,b)
+    }
+    vw.E=function(){   this.q.E(); return this }
+    vw.eCl= function(fn){_.e(this.collection, fn); return this}
+    vw.ECl= function(fn){this.E(); _.e(this.collection, fn); return this}
+    vw.g=function(m){
+
+        if(this.model && this.model.get){
+            return this.model.get(m)
+        }
+
+
+
+    }
+    vw.h=vw.H=function(a){this.$el.html(a);return this}
+    vw.j=vw.tJ=vw.J=function(){
+        if(this.model){
+            return this.model.toJSON()
+        }
+
+
+    }
+    vw.J= function(fn){var vw=this, j= this.collection.toJSON()
+        if(F(fn)){
+
+            _.e(j,fn);return vw}
+
+
+        return j}
+    vw.oC=function(fn){var g=G(arguments)
+        this.model.on('change', fn)
+        if(g.p){this.r()}
+        return this
+    }
+    vw.r=  vw.rr=function(){ return this.render() }
+    vw.s=function(a,b){this.model.set(a,b); return this}
+//alert
+    vw.C$=function(s){
+        alrert('vw.C$')
+        this.q.C$(s); return this
+    }
+}
 function templs(){TMPWORKS=function(){$.x('b')
 
     data = { n:'j', a:20, o:'p' }

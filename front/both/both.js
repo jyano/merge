@@ -320,7 +320,7 @@ _.spl = function (a, b) {
 _.bf = function (a, b) {
     return a.split(b || '.')[0]
 } //before('.')
-
+_.cl= _.clone
 S.cR = function (a, b) {
     return s$(a).chompRight(b).s
 }
