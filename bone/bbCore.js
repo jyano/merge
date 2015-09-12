@@ -391,7 +391,7 @@ ro._n = function (){
     return this
 }
 ro.n = function (url){
-    return this._n(url, G(arguments).n ? null : {trigger: true})
+    return this._n(url,  G(arguments).n ? null : {trigger: true})
 }//normal navigate, but i change the default to auto trigger the route fn
 rt.rp = function (url, op) {
     return this._n(url, _.x({replace: true},
@@ -409,26 +409,31 @@ ro.A = ro.oR   = function (rt, fn){
 _$$R=function(ob){
     //metaClass
     ob=ob||{}
-
     if(ob.i){ob.initialize = ob.i}
-    if(ob.$){ob.initialize = function(){
-        alert('ob.$')
-        Bb.h.start({pushState:true})
-        if( F(ob.$ )){
-            ob.$()
+    doAler(); function doAler(){
+    if(ob.$) {
+        ob.initialize = function () {
+            alert('ob.$')
+            Bb.h.start({pushState: true})
+            if (F(ob.$)) {
+                ob.$()
+            }
         }
     }
 
-    } //alert
-
-
-
+    }
     ob.routes = ob.routes   ||  ob.rt || ob.r ||  {} // if(ob.R){ob.routes=ob.R}
     //ob.routes[''] = ob.routes[''] || 'index'
     // if(ob.x){ob.index = ob.x}; if(ob.h){ob.home = ob.h}
+    ob.routes= _.x({'':'_',}, ob.routes)
+    ob= _.x({_:function(){
+        $l('INDEX INDEX INDEX ( _ ) INDEX INDEX INDEX')
+    }}, ob)
 
     return Bb.R.x(ob)
 }
+
+
 $$R= Bb.r=function(ob){//metaClass.. no need for 'new'
     var Rt = _$$R(ob)
     return function(a,b,c,d){
@@ -436,13 +441,10 @@ $$R= Bb.r=function(ob){//metaClass.. no need for 'new'
     }
 }
 $R= function(ob){
-
 //if you want instant instantiation
     var g=G(arguments)
     r = $$R(ob)()
-    if(!Bb.H.started && !g.d){
-        Bb.history.start({
-            pushState: true})}
+    //if(!Bb.H.started && !g.d){Bb.history.start({pushState: true})}
     return r
 }
 

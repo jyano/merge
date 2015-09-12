@@ -5965,7 +5965,7 @@ function later(){
             //i.load(function(i){$(i.target)}) //var i = // i.W( i.W() ) // i.H( i.H() )//gets rid of auto-scaling quirk
 
         }
-        alrt()
+       // alrt()
         function alrt(){
             $.C=function(){
                 alert('$.C')
@@ -6088,4 +6088,11 @@ function later(){
             }
             $.fn.oH = $.fn.outerHeight
         }}
+}
+
+$.C=function(Col,col){
+    var bd=$('body')
+    bd.C(Col)
+    if(col){bd.col(col)}
+    return $
 }
