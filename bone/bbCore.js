@@ -172,16 +172,27 @@ _$$V= function(ob){ob = ob || {}
 
     return Bb.V.x( ob )
 }
-$$V=function(ob){var Vw =  _$$V(ob)
+$$V=function(ob){
+
+    var Vw =  _$$V(ob||{})
+
     return function(ob,q){
+
+        ob=ob||{}
+      ob.model=ob.model||ob.md||ob.m
+      ob.collection=ob.collection ||ob.cl||ob.c
         var  vw = new Vw(ob);
+
         vw.md= vw.model;
-        vw.cl= vw.collection;
+        vw.cl= vw.collection
+
         vw.q= vw.$el
         if(q){ alert('see $$V'); vw.a2(q ) }
         return vw
     }
 }
+
+
 $V=function(ob, a,b,c){return $$V(ob,a,b,c)()}
 
 $.fn.V=function(ob){
@@ -397,3 +408,9 @@ $R= function(ob){
             pushState: true})}
     return r
 }
+
+//History:
+Bb.H= Bb.History
+Bb.h =   Bb.history
+Bb.h.tr= Bb.h.trigger
+Bb.h.s= Bb.h.start

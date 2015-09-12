@@ -71,6 +71,2193 @@ PER=function(){$.x('n')
     }))
     $.in(function(){m.l()}, '*')
 }
+PER22=function(){
+
+    $.x('n')
+
+    Per= Bb.M.x({
+        d: {n:'j', a:20, o:'p'}
+    })
+    p = new Per
+
+    PerV = $$V({
+        t:'li', _:'some-per',
+        k:'per',
+        r: function(){
+            this.A('n').A()
+        },
+        //  this.A(this.g('n')).A() //  this.A(this.model.get('n').A()
+        initialize: function(){
+            $l(this.model);
+            this.r()
+        }
+    })
+
+    pV =  PerV({ m:p  })
+
+}
+PER11=function(){$.x('n')
+
+    p = $$M()({
+
+        d: {n:'j',a:20,o:'p'}
+    })
+
+
+    PerV = $V({
+        t:'li', _:'some-per', k:'per',
+        r: function(){  this.A('n').A() },
+        i: function(){
+            $l(this.model); this.r() }
+    })
+
+    pV = PerV({ m: p }) //-> p.V(PerV)
+}
+PER00=function(){$.x('n')
+    m = $M({d:{n:'j',a:20,o:'p'}})()
+
+    m.V($V({
+
+        t:'li', _:'some-per', k:'per',
+        r: function(){  this.A('n').A() },
+        initialize: function(){this.r()}
+    }))
+
+    _.in(function(){m.l()})
+
+}
+function samp(){
+    BBSAMP1=function(){$.x('b','bbsamp','+')
+        d=$.d()
+        Rec = Bb.M.x()
+        RecV = Bb.V.x({t:'div', k:'rec',
+            events:{'click': 'move'},
+            move:function(){this.$el.css('left', this.$el.position().left +10)},
+            rr:function(){return this.sDims().sPos().sCol()},
+            sDims:function(){this.$el.WH(this.model.get('w'), this.model.get('h'))
+                return this},
+            sPos:function(){this.$el.ab().LR(
+                this.model.get('pos').x, this.model.get('pos').y)
+                return this
+            },
+            sCol:function(){this.$el.C(this.model.get('C'))
+                return this}
+        })
+        _.e([
+            Rec.o({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+            Rec.o({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+            Rec.o({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+        ], function(md){
+            var r=  RecV.o({model:md})
+            r.rr().$el.a2(d)
+        })
+
+
+
+    }
+    BBSAMP=function(){$.x('b','bbsamp','+')
+
+        d=$.d()
+        Rec = $M()
+        recs=[
+            Rec({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+            Rec({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+            Rec({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+        ]
+
+        RecV = $V({
+            k:'rec',
+            e: {'click': 'move'},
+            move:function(){
+                this.q.css('left',
+                    this.q.position().left +10)
+            },
+            rr:function(){return this.sDims().sPos().sCol()},
+            sDims:function(){
+                this.$el.WH(
+                    this.model.get('w'),
+                    this.model.get('h'))
+                return this
+            },
+
+            sPos:function(){this.q.ab().LR(
+                this.model.g('pos').x,
+                this.model.g('pos').y
+            )
+                return this
+            },
+            sCol:function(){this.q.C(this.model.g('C'))
+                return this}
+        })
+
+        _.e(recs  , function(md){
+            RecV({model:md}).rr().$el.a2(d)
+        })
+
+    }
+}
+function tempApps(){
+    TMPWORKS=function(){$.x('b')
+
+        data = { n:'j', a:20, o:'p' }
+        $V({ t:'li',  i: function(){
+            $l(this.model)
+            this.r()         },
+
+            r: function(){
+                this.A().A(
+                    $.h1( this.tp( this.model.toJSON() ) ) )},
+
+            tp: tp= _.tp(
+                '<%=n%> ( ((( (((( -  -<%=a%>-  - )))) )) ) - <%=o%>'
+            ),
+
+
+            x:'some-per',
+            k:'per'
+
+        })({m:Per=$M()(data)//=== M({df:data})()
+        })
+
+    }
+    TMP =function(){$.x('r');
+
+        data = { n:'j', a:20, o:'p' }
+        $V({ t:'li',
+            i: function(){$l(this.model); this.r()},
+            r: function(){this.A().A(this.tp(this.model.toJSON()))},
+            tp: tp=_.tp('<%= n %> (<%= a %>) - <%= o %>'),
+            x:'some-per',
+            k:'per'
+        })({m:Per=$M({
+                d: data
+            })()}
+        )}
+    PLV=function(){$.x('o','hi'); $l('PLV')
+
+        Per= $M({//name, age, occ
+            d: {n:'a', a:20, o:'p'}
+        })
+
+        p0 = Per()
+        p1 = Per({n:'b'})
+        p2 = {n:'c'}
+
+        PerV = $V({
+            t:'li',
+            x: 'some-per',  // id
+            i:  function(){this.r()}, //??
+            r: function(){  this.q.A('fasdfsfasd')
+
+                this.q.A(
+                    this.tp(
+                        this.model
+                    )
+                )
+
+            },
+
+
+            k: 'per',   // className
+            tp: tp= _.tp('fo real? <%= n %> (<%= a %>) - <%= o %>'),
+        })
+
+
+
+        pV=PerV({m:p0})
+        PepC=$Cl({m:Per})
+        pC=PepC()
+        pC.add([p0, p1,p2])
+        PepV=$V({
+            cl: PepC,
+            el:ul= $.ul(),
+            r: function(){
+                ul=this.q.E()
+                this.J(function(md){
+                    PerV({m:md}, ul)})} })
+        pCV = PepV({cl: pC})
+
+
+        $.in(.2,function(){
+            pCV.r()
+        },'*')
+
+
+        $.in(.4,function(){
+            pCV.r()
+        },'*')
+
+
+    }
+    BBVTdArr=[  {t:'a.com', h:'a.com'}, {t:'b.com', h:'b.com'}, {t:'c.com', h:'c.com'}   ]
+
+    BBVT=function(){$.x('x', 'bb view and template'); listTp(); m= $M()({ d:BBVTdArr })
+        $.dI('ct', [$.bt('Load'), $.ul().id('list')]).C('y')
+        Vw = $V({q:'#ct',
+            i: function(op){$l(op.blOp); this.tp =$('#list-tp').children()},
+            r:rFn,
+            ev: {'click button':'r'}})
+        v =  Vw({  m:m, blOp:'emp!' })}
+    BBVT=function(){$.x('x', 'bb view and template'); listTp(); m= $M()({  d: BBVTdArr  })
+
+
+        $.d('y').id('ct').A(
+            $.bt('Load', function(){v.r()}),
+            $.ul().id('list') )
+
+
+
+        Vw=$V({q:'#ct',
+
+            i: function(op){$l(op.blOp);
+
+                this.tp = $('#list-tp')
+                    .children()},
+
+            r: rFn2,
+
+
+            events: {'click button': 'r'}
+
+        })
+
+
+
+
+        v=Vw({  zm: m  ,  blOp: 'emp!' })
+
+    }
+    TP=function(){$.x().A(
+
+        a= _.tp("<div>hello:<%=n%></div>")({n:'moe'}),
+
+        b= _.tp('<b><%-tag%></b>',{tag:'<script>'}),
+        // <%- vs <%= ?
+
+
+        c= _.tp(
+
+            '<%_.e(peep,function(name){%>'+
+            '<li>'+'<%=name%>'+'</li>'+
+            '<%})%>'
+            ,{peep:['moe','curly','larry']}
+        )
+
+
+    )}
+    TP=function(){z()
+
+        c1=tp("hello: <%= name %>" , {name:'moe'} )
+
+        c1b=tp("hello: <%= name %>")(  {name:'moe'} )
+
+        c2=tp(
+
+            "<% _e(people, function(name){%>  " +
+            "<li>  " +
+            "<%= name %>  " +
+            "</li>  " +
+            "<% }) %>",
+
+            {people:['moe','curly','larry']}
+        )
+
+        c3= tp( "<b>  <%- tag %>  </b>",   {tag: '<script>'})  // <%- vs <%= ?
+
+        $b()(c2)
+
+    }
+
+    TP=function(){z()
+
+        c1=tp("hello: <%= name %>" , {name:'moe'} )
+
+        c1b=tp("hello: <%= name %>")(  {name:'moe'} )
+
+        c2=tp(
+
+            "<% _e(people, function(name){%>  " +
+            "<li>  " +
+            "<%= name %>  " +
+            "</li>  " +
+            "<% }) %>",
+
+            {people:['moe','curly','larry']}
+        )
+
+        c3= tp( "<b>  <%- tag %>  </b>",   {tag: '<script>'})  // <%- vs <%= ?
+
+        $b()(c2)
+
+    }
+    CATZ=function(){z()
+
+
+
+        //tempScr('cat', [thead()(tr().k('header')(  th()('Name') )  ), tbody()]).a()
+
+
+        //tempScr('cats', [td()("<%= name =>")]).a()
+
+        //Temp('cat1', [thead()(tr().k('header')(  th()('Name') )  ), tbody()]).a()
+
+        //Temp('cats1', [td()( "<%= name =>" )]).a()
+
+
+        d=_d().w(500).h(500).c('y').id('content').a()
+
+        MyApp = new Backbone.Marionette.Application()
+
+        MyApp.addRegions({mainRegion: "#content"})
+
+
+        AngryCat=Backbone.Model.extend({
+
+            rankUp: function(){
+                this.set({
+                    rank: this.get('rank')-1
+                })},
+
+            rankDown: function(){
+                this.set({rank: this.get('rank') + 1
+                })}
+
+            //,  defaults:{rank:0}
+        })
+
+
+        AngryCats=Backbone.Collection.extend({
+
+            model: AngryCat,
+
+            initialize: function(cats){
+                var rank=1
+
+
+                // _.each(cats, function(cat){ cat.set('rank', rank); ++rank })
+
+                var self=this;
+
+                MyApp.on('rank:up',function(cat){console.log('rank up');
+
+                    if (cat.get('rank') === 1) {
+                        // can't increase rank of top-ranked cat
+                        return true}
+
+                    self.rankUp(cat)
+                    self.sort()
+                    self.trigger('reset')
+
+                })
+                MyApp.on('rank:down', function(cat){console.log('rank down');
+
+                    if (cat.get('rank') === self.size()) {
+                        // can't decrease rank of lowest ranked cat
+                        return true}
+
+                    self.rankDown(cat)
+                    self.sort()
+                    self.trigger('reset')
+
+                })},
+
+
+            rankUp: function(cat) {
+                // find the cat we're going to swap ranks with
+
+                var rankToSwap = cat.get('rank') - 1
+                var otherCat = this.at(rankToSwap - 1)
+
+                // swap ranks
+                cat.rankUp()
+                otherCat.rankDown()},
+            rankDown: function(cat) {
+                // find the cat we're going to swap ranks with
+                var rankToSwap = cat.get('rank') + 1;
+                var otherCat = this.at(rankToSwap - 1);
+                // swap ranks
+                cat.rankDown();
+                otherCat.rankUp()},
+            comparator: function(cat){return cat.get('rank')}})
+
+
+
+
+        AngryCatView = Backbone.Marionette.ItemView.extend({
+
+            template: "#cat_template",
+            tagName: 'tr',
+            className: 'angry_cat',
+
+            events: {
+                'click .rank_up': 'rankUp',
+                'click .rank_down': 'rankDown'},
+
+
+            rankUp: function(){
+                MyApp.trigger('rank:up', this.model);
+                console.log('trigger rank up')},
+
+
+            rankDown: function(){
+                MyApp.trigger('rank:down', this.model);
+                console.log('trigger rank down')}
+
+
+        })
+
+
+        AngryCatsView = Backbone.Marionette.CompositeView.extend({
+
+            tagName: "table",
+            id: "angry_cats",
+            className: "table-striped table-bordered",
+
+            template: "#cats_template",
+
+            itemView:AngryCatView,
+
+            appendHtml: function(collectionView, itemView){
+                collectionView.$("tbody").append(itemView.el)
+            }
+
+        })
+
+
+
+
+        MyApp.addInitializer(
+
+            function(options){
+
+                angryCatsView = new AngryCatsView({collection: options.cats})
+
+
+                MyApp.mainRegion.show(angryCatsView)
+
+            })
+
+
+
+        MyApp.start({
+
+            cats:new AngryCats([
+                {name: 'Wet Cat', img:'/me.png', rank:1},
+                {name: 'Bitey Cat',img:'/guy.png',rank:2},
+                {name: 'Surprised Cat',img:'/chicks.png',rank:3}
+            ])
+
+        })
+
+
+
+
+
+
+
+
+
+    }
+    CATZ=function(){z()
+
+
+
+        //tempScr('cat', [thead()(tr().k('header')(  th()('Name') )  ), tbody()]).a()
+
+
+        //tempScr('cats', [td()("<%= name =>")]).a()
+
+        //Temp('cat1', [thead()(tr().k('header')(  th()('Name') )  ), tbody()]).a()
+
+        //Temp('cats1', [td()( "<%= name =>" )]).a()
+
+
+        d=_d().w(500).h(500).c('y').id('content').a()
+
+        MyApp = new Backbone.Marionette.Application()
+
+        MyApp.addRegions({mainRegion: "#content"})
+
+
+        AngryCat=Backbone.Model.extend({
+
+            rankUp: function(){
+                this.set({
+                    rank: this.get('rank')-1
+                })},
+
+            rankDown: function(){
+                this.set({rank: this.get('rank') + 1
+                })}
+
+            //,  defaults:{rank:0}
+        })
+
+
+        AngryCats=Backbone.Collection.extend({
+
+            model: AngryCat,
+
+            initialize: function(cats){
+                var rank=1
+
+
+                // _.each(cats, function(cat){ cat.set('rank', rank); ++rank })
+
+                var self=this;
+
+                MyApp.on('rank:up',function(cat){console.log('rank up');
+
+                    if (cat.get('rank') === 1) {
+                        // can't increase rank of top-ranked cat
+                        return true}
+
+                    self.rankUp(cat)
+                    self.sort()
+                    self.trigger('reset')
+
+                })
+                MyApp.on('rank:down', function(cat){console.log('rank down');
+
+                    if (cat.get('rank') === self.size()) {
+                        // can't decrease rank of lowest ranked cat
+                        return true}
+
+                    self.rankDown(cat)
+                    self.sort()
+                    self.trigger('reset')
+
+                })},
+
+
+            rankUp: function(cat) {
+                // find the cat we're going to swap ranks with
+
+                var rankToSwap = cat.get('rank') - 1
+                var otherCat = this.at(rankToSwap - 1)
+
+                // swap ranks
+                cat.rankUp()
+                otherCat.rankDown()},
+            rankDown: function(cat) {
+                // find the cat we're going to swap ranks with
+                var rankToSwap = cat.get('rank') + 1;
+                var otherCat = this.at(rankToSwap - 1);
+                // swap ranks
+                cat.rankDown();
+                otherCat.rankUp()},
+            comparator: function(cat){return cat.get('rank')}})
+
+
+
+
+        AngryCatView = Backbone.Marionette.ItemView.extend({
+
+            template: "#cat_template",
+            tagName: 'tr',
+            className: 'angry_cat',
+
+            events: {
+                'click .rank_up': 'rankUp',
+                'click .rank_down': 'rankDown'},
+
+
+            rankUp: function(){
+                MyApp.trigger('rank:up', this.model);
+                console.log('trigger rank up')},
+
+
+            rankDown: function(){
+                MyApp.trigger('rank:down', this.model);
+                console.log('trigger rank down')}
+
+
+        })
+
+
+        AngryCatsView = Backbone.Marionette.CompositeView.extend({
+
+            tagName: "table",
+            id: "angry_cats",
+            className: "table-striped table-bordered",
+
+            template: "#cats_template",
+
+            itemView:AngryCatView,
+
+            appendHtml: function(collectionView, itemView){
+                collectionView.$("tbody").append(itemView.el)
+            }
+
+        })
+
+
+
+
+        MyApp.addInitializer(
+
+            function(options){
+
+                angryCatsView = new AngryCatsView({collection: options.cats})
+
+
+                MyApp.mainRegion.show(angryCatsView)
+
+            })
+
+
+
+        MyApp.start({
+
+            cats:new AngryCats([
+                {name: 'Wet Cat', img:'/me.png', rank:1},
+                {name: 'Bitey Cat',img:'/guy.png',rank:2},
+                {name: 'Surprised Cat',img:'/chicks.png',rank:3}
+            ])
+
+        })
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+}
+function viewApps(){
+    VWW=function(){$.x()
+
+
+        d= $.d('r',200).A(
+            $.h1('hello'),
+            $.bt(__)
+        )
+
+        //d.$(function(){v.r()})
+
+        mOv=function(){$l('mouse over !')}
+
+        v = $V({
+            e:{'click button': function(){$l('click')},
+                $$: 'r',
+                v: mOv
+            },
+
+            q:d,
+
+            r:function(){
+                alert('double click')
+                $.bd().C($r())
+            }
+        })()
+    }
+
+    BBVIEW=function(){$.x('b','bbview')
+
+
+        v=$V({
+
+            q: d=$.dI('d1','r', 500, 500),
+
+            r: function(){this.A($.ul(['hello']))},
+
+            i: function(){this.r()}
+
+        })()
+
+
+        /* also works, uses jq.fn.V ...very cool
+
+
+         $.dI('d1','r', 500,500).V({
+         r: function(){this.A($.ul(['hello']))},
+         i: function(){this.r()}
+         })()
+
+         */
+
+    }
+    BBVIEWV=function(){$.x('b','bbviewV')
+        //  uses jq.fn.V ...very cool
+        $.dI('d1','r', 500,500).V({
+            r: function(){this.A($.ul(['hello']))},
+            i: function(){this.r()}
+
+        })()
+    }
+
+    PER=function(){$.x('n')
+
+        Per= Bb.Per()
+
+
+        PerV = $V({
+
+            t:'li', //  _:'some-per',
+            k:'per',
+
+
+            r: function(){
+                this.q.A('n')
+                this.q.A()
+                //  this.A(this.g('n')).A() //
+                // this.A(this.model.get('n').A()
+            },
+
+            i: function(){
+                $l('i: ' + _.jS(this.model.J()) );
+                this.r()
+            }
+
+
+        })
+
+        p=  Per()
+
+        pV =  PerV({
+            m:p
+        })
+
+        $.ev(.5,function(){
+            pV.r()
+        })
+
+    }
+    PER1=function(){$.x('n')
+
+        m = $m({  d:   {n:'j',a:20,o:'p'}   })
+
+
+        Vw=$V({
+            t: 'li',
+            r: function(){
+
+                this.q.A(
+                    'n: '+ this.model.g('n')
+                ).A()
+
+
+            },
+
+            i: function(){$l('init..')
+                this.q.A()
+                this.r()
+            }
+        })
+
+
+        vw =  m.V(Vw)
+
+
+        $.in(function(){
+
+            m.l()
+
+        }, '*')
+
+    }
+
+
+
+
+
+
+    BBV=function(){$.x('x','bbv')
+        Med = $M({})
+        m=Med({t:'antibiotic'})
+        m1=Med({t:'antipsychotic'})
+
+
+        d = $.dA('b', 300,400).XY( 100,100)
+        d1 = $.dA('r', 300, 400).XY( 600,100)
+
+
+        Vw =$V({
+            r:function(){this.q.h(this.g('t'));return this },
+            i:function(){var v=this
+                v.oC(function(){v.r()},'+') }
+        })
+
+
+
+        v=Vw({ el:d, m:m  })
+
+        v2=Vw({ el:d1,  m:m1 })
+
+        i = $.ip()
+
+        $.bt('change', function(){  m.s('t', i.v())  })
+
+
+    } //*** study this one. is it necess to wrap vws?
+
+
+//without backbone!
+    WOB=function(){$.x('x', 'bb view people')
+
+        ul = $.ul().id('peep')
+        peep = [{n:'a',a:11}, {n:'b',a:46}, {n:'c',a:13}]
+        vw={r:function(){
+            $('#peep').E()
+            _.e(peep, function(p){
+                $('#peep').A('<li>'+ p.n + '(' + p.a + ')</li>')
+            })}}
+        vw.r()
+        $.in(function(){peep.pop(); vw.r()},'*')
+    }
+
+
+
+
+
+    BBSAMP1=function(){$.x('b','bbsamp','+')
+        d=$.d()
+        Rec = Bb.M.e()
+
+        RecV = Bb.V.e({
+            tagName:'div', className:'rec',
+            events:{'click': 'move'},
+            move:function(){this.$el.css('left', this.$el.position().left +10)},
+            rr:function(){return this.sDims().sPos().sCol()},
+            sDims:function(){
+                this.$el.WH(this.model.get('w'), this.model.get('h'))
+                return this
+            },
+            sPos:function(){
+                this.$el.ab()
+                    .LR(
+                    this.model.get('pos').x, this.model.get('pos').y)
+                return this
+            },
+            sCol:function(){
+                this.$el.C(this.model.get('C'))
+                return this}
+        })
+
+        _.e([
+            Rec.o({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+            Rec.o({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+            Rec.o({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+        ], function(md){
+
+            var r=  RecV.o({
+                model:md
+            })
+
+            r.rr().$el.a2(d)
+        })
+    }
+
+}
+function routeApz(){
+
+
+    RTR0 = function (){$.x('y');$CSS({h1: {'font-size': 100}})
+
+        r = $$R({
+            rt: {
+                '': 'index',
+                'wap/rtr/images/:id': 'image',
+                view: 'viewImage'
+            },
+
+            image: function (id) {
+                _.t(10, function () {
+                    $l($r() + '-id: ' + id)
+                })
+                $.bd().C('z')
+            },
+            h: function () {
+                alert('you are viewing home page')
+            },
+            x: function () {
+                alert('you are viewing index')
+            },
+            viewImage: function () {
+                alert('you are viewing an image')
+            }
+        })()
+
+
+
+        Bb.h.start({pushState:true})
+
+        _.in(3, function () {
+            r.n('55c24c8f4198473b0d000004.png')
+        })
+
+
+        //looks for clicks on any anchor els where
+        //href starts with '/' (no domain) and stop
+        //bw from nv to it
+
+        $.a().A($.h1('afsd'))
+
+        $('body').on('click', 'a[href^="/"]', function (ev) {
+            ev.preventDefault()
+            r.n($(this).attr('href', {trigger: true}))
+        })
+
+
+    }
+
+
+    function withoutPushState() {
+        VID0 = function () {
+            z();
+            $('body').C('o').css('font-size', 80)
+            $.d().id('ct')
+
+            $$R({
+                r: {'': 'pg1', 'first': 'pg1', 'sec': 'pg2'},
+                pg1: function () {
+                    new FirstVw({el: $('#ct')})
+                },
+                pg2: function () {
+                    new SecVw({el: $('#ct')})
+                }
+            })()
+            Bb.h.start(
+                //{pushState:true}
+            )
+        }
+        VID1 = function () {
+            z();
+            $('body').C('o').css('font-size', 80)
+            $.d().id('ct')
+            $$R({
+                r: {
+                    ':post/:id': 'pam',
+                    '*post': 'splat',
+                    'post/*id': 'splatMustBeLast'
+                },
+                pam: function (post, id) {
+                    $l('fnPam: ' + post + ', id# ' + id)
+                },
+                splat: function () {
+                    alert('1')
+                },
+                splatMustBeLast: function () {
+                    alert('2')
+                }
+
+            })()
+
+            Bb.h.start(
+                {pushState: true}
+            )
+        }
+    }
+
+//push state not working???
+    VID00=function(){z(); $('body').C('o').css('font-size', 80)
+        $.d().id('ct')
+
+
+        $$R({
+            r: {'':'pg1',
+                'first':'pg1',
+                'sec':'pg2'
+            },
+            pg1: function(){
+                new $FirstVw({el: $('#ct')})},
+            pg2: function(){
+                new $SecVw({el: $('#ct')})}
+
+        })()
+
+        Bb.h.start(
+
+            //{pushState:true}
+        )
+    }
+
+    RTob = {
+        '': 'home',
+        'view': 'v',
+        'new': 'nn',
+        ':id': 'en',
+        'posts/:id': 'gPo',
+        '*acts': 'dfR',
+        'download/*path': 'dlF',
+        ':route/:action': 'ldV'
+    }
+    FirstVw = Bb.V.x({
+        initialize: function () {
+            this.render()
+        },
+        render: function () {
+            var first = $.d().rm().A(
+                $.lb().A('My 1st View'), $.br(),
+                $.a().hr('#sec').A('Go to 2nd View')
+            ).oh();
+
+            this.$el.html(first)
+        }
+    })
+    SecVw = Bb.V.x({
+        initialize: function () {
+            this.render()
+        },
+        render: function () {
+            var sec = $.d().rm()
+                .A($.lb().A('My 2nd View'), $.br(), $.a()
+                    .hr('#first').A('Go to 1st View'))
+                .oh()
+            this.$el.html(sec)
+        }
+    })
+
+    $FirstVw = Bb.V.x({
+        initialize: function () {
+            this.render()
+        },
+        render: function () {
+            var first = $.d().rm().A(
+                $.lb().A('My 1st View'), $.br(),
+                $.a().hr('sec').A('Go to 2nd View')
+            ).oh();
+
+            this.$el.html(first)
+        }
+    })
+    $SecVw = Bb.V.x({
+        initialize: function () {
+            this.render()
+        },
+        render: function () {
+            var sec = $.d().rm()
+                .A($.lb().A('My 2nd View'), $.br(), $.a()
+                    .hr('first').A('Go to 1st View'))
+                .oh()
+            this.$el.html(sec)
+        }
+    })
+    ROUTE0 = function () {
+        z()
+        $R({r: {"*x": "d"}}, '+')
+        r.oR('d', function (a) {$l('d:' + a)})
+        r.oR('e', function (a) {$l('e:' + a)})
+    }
+    ROUTEPAMS0 = function () {
+        $.x().A('hahahahhahaha')
+
+
+
+        $R({
+            rt: RTob,
+
+            home: function () {
+                $l('home')
+            },
+
+            v: function () {
+                $l('image')
+            },
+            nn: function () {
+            },
+            en: function (id) {
+                $l('id:' + id)
+            }
+
+        }, '+')
+
+        r.oR('dfR', $l)
+
+        r.oR('gPo', function (id) {
+            $l('gPo# ' + id)
+        })
+        r.oR('gPo', function () {
+            $l(3)
+        }) //both routes fire!
+
+        r.oR('dlF', $l)
+
+        r.oR('ldV', function (rt, ac) {
+            $l(rt + '_' + ac)
+        })
+
+    }
+    BACKDEMO0 = function () {
+        $.x().d('yoo hoo').id('cont')
+
+        Temp = function (i, h) {
+            var s = ''
+            return _.tp($('#' + i).html(), h || {})
+            if (A(h)) {
+                _.e(h, function (h) {
+                    s += h.oh()
+                })
+            }
+            s = "<script type='text/template'>" + s + "</script>"
+            return $(s).id(i).A()
+        }
+
+        $R({
+            rt: {'': 'f', 'f': 'f', 's': 's'},
+            f: function () {
+                $l('fir')
+            }, s: function () {
+                $l('sec')
+            },
+            task: function () {
+                t = new Task();
+                $l('t = new Task')
+            }
+        }, '+')
+
+
+        Temp('task', [
+            $.lb('Task: '),
+            $.ip().id('task_desc'),
+            $.bt('add task').id('btn')])
+
+        Tsk = $V({
+            el: $('#cont'),
+            i: function () {
+                this.r()
+            },
+            r: function () {
+                this.$el.ht(Temp('task'))
+            },
+            e: {'click button': 'add'},
+            add: function () {
+                alert($('#task_desc').v() + ' task added')
+            }
+        })
+    }
+    ROUTENAV0 = function () {
+        $.x('b')
+        $R({
+            r: {
+                'po/:id': 'gp',
+                '*a': 'dr'
+            },
+            dr: function (a) {
+                $l(a)
+            },
+            gp: function (id) {
+                $.bd().C($r())
+                $l('Get post ' + id)
+            }
+        }, '+')
+        $.bt('hi', function () {
+            rt.n('po/2')
+        })
+
+
+    }
+    BACKDEMO1 = function () {
+        $.x().d('yoo hoo').id('cont')
+
+
+        $R({
+            rt: {
+                '': 'f', 'f': 'f', 's': 's',
+                '/wap/items/q': q
+            },
+
+            q: function () {
+                alert('q')
+            },
+            f: function () {
+                $l('fir')
+            },
+            s: function () {
+                $l('sec')
+            },
+
+            task: function () {
+                t = new Task();
+                $l('t = new Task')
+            }
+
+        })
+
+
+        Temp = function (i, h) {
+            var s = ''
+
+            return _.tp(
+                $('#' + i).html(), h || {}
+            )
+
+            if (A(h)) {
+                _.e(h, function (h) {
+                    s += h.oh()
+                })
+
+            }
+
+
+            _str = "<script type='text/template'>" + _str + "</script>"
+
+
+            str = $(s)
+
+            return $(s).id(i).A()
+
+        }
+
+
+        /*
+
+
+         Temp('task', [
+
+         $.lb('Task: '),
+         $.ip().id('task_desc'),
+         $.bt('add task').id('btn')
+         ])
+
+
+         Tsk=$V({el: $('#cont'),
+
+         i: function(){this.r()},
+         r: function(){this.$el.ht( Temp('task') )},
+         e: {'click button': 'add'},
+         add: function(){alert( $('#task_desc').v() + ' task added')}
+
+         })
+         */
+
+        $.bt('sfad', function () {
+            r.n('/wap/items/q')
+        })
+    }
+    BACKDEMO = function () {
+        $.x()
+
+        Temp = function (i, h) {
+            var s = ''
+            return _.tp($('#' + i).html(), h || {})
+            if (A(h)) {
+                _.e(h, function (h) {
+                    s += h.oh()
+                })
+            }
+            s = "<script type='text/template'>" + s + "</script>"
+            return $(s).id(i).A()
+        }
+
+        Temp('task', [
+            $.lb('Task: '),
+            $.ip().id('task_desc'),
+            $.bt('add task').id('btn')])
+
+        $.dI('cont')
+
+        $$R({
+            rt: {
+                '': 'f',
+                'f': 'f',
+                's': 's'
+            },
+            f: function () {
+                $l('fir')
+            },
+            s: function () {
+                new Task()
+                $l('sec')
+            }
+        })
+
+        Tsk = Bb.V.e({
+            el: $('#cont'),
+            i: function () {
+                this.r()
+            },
+            r: function () {
+                this.$el.ht(Temp('task'))
+            },
+            e: {'click button': 'add'},
+            add: function () {
+                alert($('#task_desc').v() + ' task added')
+            }
+        })
+    }
+    ITEMS1 = function () {
+        $.x()
+
+        Ap = {M: {}, V: {}, C: {}}
+        Ap.M.Item = Bb.M.e({})
+
+        Bb.R({
+
+            r: {'': 'welcome', 'itemlist': 'showItemList', 'j': 'j'},
+
+            welcome: function () {
+                $.bd().E().A($.h1('welcome'))
+
+            },
+
+
+            j: function () {
+            },
+            showItemList: function () {
+                $.bd().E().A($.h1('show item list'))
+
+            }
+        })
+
+        i1 = Ap.M.Item.o({n: 'jason', g: 'mason'})
+        i1.oR('j', function () {
+            $.bd().E().A($.h1('j'))
+        })
+
+        // H$()
+    }
+    ITEMS = function () {
+        $.x().h3('jason')
+
+        Ap = {M: {}, V: {}, C: {}}
+
+        Ap.M.Item = $M({})
+
+        $R({
+            r: {
+                '': 'welcome',
+                'wap/items': 'welcome1',
+                'wap/items/itemlist': 'showItemList',
+                'wap/items/j': 'j'
+            },
+
+            welcome: function () {
+                $.bd().E().A($.h1('welcome'))
+            },
+
+            j: function () {
+                $l('asdfjfsdafsdf')
+            },
+
+            showItemList: function () {
+                $l('showItemList')
+                $.bd().A($.h1('show item list'))
+            }
+        }, '/')
+
+
+        i1 = Ap.M.Item({n: 'jason', g: 'mason'})
+
+        r.o('/wap/items/j', function () {
+            $.bd().E().A(
+                $.h1('j')
+            )
+        })
+        r.o('/wap/items/q', function () {
+            $.bd().E().A($.h1('q'))
+
+        })
+
+        Bb.h.s({pushState: true})
+
+        $.bt('add', function () {
+            r.n('/wap/items/itemlist')
+        })
+        $.bt('add1', function () {
+            $.A($.h1('k'))
+            r.n('/wap/items/j')
+        })
+
+    }
+    NORTR = function () {
+        $.x()
+
+
+        V1 = Bb.V.e({
+
+            i: function () {
+                this.r()
+            },
+            r: function () {
+                this.$el.ht(this.model.get('Ms') + " from the View 1")
+                return this
+            }
+        })
+
+        V2 = Bb.V.e({
+
+            i: function () {
+                this.r();
+            },
+
+            r: function () {
+                this.$el.ht(this.model.g('Ms') + " from the View 2");
+                return this;
+            }
+        })
+        V3 = Bb.V.e({
+            i: function () {
+                this.render();
+            },
+            r: function () {
+                this.$el.html(this.model.get('Message') + " from the View 3");
+                return this;
+            }
+        })
+        // Now we need a view that will contain the view and render it whenever the user makes a choice on the screen.
+
+        CtV = Bb.V.e({
+            myChildV: null,
+            r: function () {
+                this.$el.ht("Greeting Area");
+                this.$el.A(this.myChildV.$el);
+                return this;
+            }
+        })
+
+        /*  Now lets create a simple div on the UI which will be used as el to this ContainerView.
+         We will then position three buttons on the UI which will let the user to change the view.
+         Below code shows the application setup that is creating the container view and the functions
+         that will get invoked when the user selects the view from screen.
+         */
+
+        greet = V1.o({
+            Ms: "Hello world"
+        })
+
+
+        cont = CtV.o({
+            el: $("#AppContainer"),
+            model: greet
+        })
+
+        v1 = null;
+        v2 = null;
+        v3 = null;
+
+        function showView1() {
+            if (view1 == null) {
+                view1 = new View1({model: greeting});
+            }
+
+            container.myChildView = view1;
+            container.render();
+        }
+
+        function showView2() {
+            if (view2 == null) {
+                view2 = new View2({model: greeting});
+            }
+
+            container.myChildView = view2;
+            container.render();
+        }
+
+        function showView3() {
+            if (view3 == null) {
+                view3 = new View3({model: greeting});
+            }
+
+            container.myChildView = view3;
+            container.render();
+        }
+
+
+    }
+    ROUTENAV = function () {
+        $.x('b')
+        Bb.R({
+            rt: {
+                'po/:id': 'gp',
+                '*a': 'dr'
+            },
+            dr: function (a) {
+                alert(a)
+            },
+            gp: function (id) {
+                alert('Get post ' + id)
+            }
+
+        })
+        $.bt('hi', function () {
+            $l('11111111')
+            rt.n('po/2', {t: 1})
+        })
+    }
+    RNAV = function () {
+        $.x('b')
+
+        $R({
+            r: {'po/:id': 'gp', '*a': 'dr'},
+            dr: function (a) {
+                $l(a)
+            },
+            gp: function (id) {
+                $.l$('Get post ' + id)
+            }
+        })
+
+        $.bt('hi', function () {
+            rt.n('po/2')
+        })
+        $.bt('hi1', function () {
+            rt.n('po/4')
+        })
+
+        r.o('wappy/rnav/j', function () {
+            alert('!')
+        })
+
+        $.bt('hi1', function () {
+            rt.n('wappy/rnav/j')
+        })
+    }
+    ROUTE1 = function () {
+        z()
+        r = Bb.R({rt: {"*x": "d"}})
+        r.oR('d', function (a) {
+            alert(a)
+        })//#hello -> 'hello'
+        r.oR('e', function (a) {
+            alert(a)
+        })//#e -> 'e' (could do '/#/e')
+        // H$()
+    }
+    ROUTE = function () {
+        $.x()
+        $R({r: {'*x': 'd'}})
+        // r.o('d',function(a){$l('d:'+ a)}); r.o('e',function(a){$l('e:'+a)})
+        r.o({
+            d: function (a) {
+                $l('d:' + a)
+            },
+            e: function (a) {
+                $l('e:' + a)
+            }
+        })
+    }
+    ROUTEPAMS1 = function () {
+        $.x().A('hahahahhahaha')
+
+
+        $R({
+            '': 'home',
+            'view': 'v',
+            'new': 'nn',
+            ':id': 'en',
+            'posts/:id': 'gPo',
+            '*acts': 'dfR',
+            'download/*path': 'dlF',
+            ':route/:action': 'ldV'
+        }, {
+            home: function () {
+                $l('home')
+            },
+            v: function () {
+                $l('image')
+            },
+            nn: function () {
+            },
+            en: function (id) {
+                $l('id:' + id)
+            }
+        })
+
+        r.o('dfR', $l)
+        r.o('gPo', function (id) {
+            $l('gPo# ' + id)
+        })
+        r.o('gPo', function () {
+            $l(3)
+        }) //both routes fire!
+        r.o('dlF', $l)
+        r.o('ldV', function (rt, ac) {
+            $l(rt + '_' + ac)
+        })
+    }
+    ROUTEPAMS = function () {
+        z()
+        Bb.R({
+
+            rt: {
+                '': 'home',
+                'view': 'v',
+                'new': 'nn',
+                ':id': 'en',
+                'posts/:id': 'gPo',
+                '*acts': 'dfR',
+                'download/*path': 'dlF',
+                ':route/:action': 'ldV'
+            },
+            home: function () {
+                al('home')
+            },
+            v: function () {
+                al('image')
+            },
+            nn: function () {
+            },
+            en: function (id) {
+                al(id)
+            }
+
+        })
+        r.oR('dfR', alert)
+        r.oR('gPo', function (id) {
+            alert('gPo# ' + id)
+        })
+        r.oR('gPo', function () {
+            alert(3)
+        }) //both routes fire!
+        r.oR('dlF', alert)
+        r.oR('ldV', function (rt, ac) {
+            alert(rt + '_' + ac)
+        })
+        // H$()  // or Bb.h.s({pushState: true})
+    }
+    RTR11 = function () {
+        $.x('b')
+
+        RTob = {
+            '': 'index',
+            'wap/rtr/images/:id': 'image',
+
+            view: 'viewImage'
+
+        }
+
+        $R({
+
+            r: RTob,
+            h: function () {
+                $l('you are viewing home page')
+            },
+            x: function () {
+                $l('you are viewing index')
+            },
+            image: function (id) {
+                $l('image===')
+                _.t(10, function () {
+                    $l($r() + '-id: ' + id)
+                });
+                $.bd().C('z')
+            },
+            viewImage: function () {
+                $l('you are viewing an image')
+            }
+
+        }, '+')
+
+        _.in(function () {
+            $l('......')
+
+            r.n('/wap/rtr/images/32903290239032902390')
+
+
+        }, '*')
+        //looks for clicks on any anchor els where
+        //href starts with '/' (no domain) and stop
+        //bw from nv to it
+
+
+        $.bd().on('click', 'a[href^="/"]', function (ev) {
+            $l('wow')
+            ev.preventDefault()
+            r.n($(this).attr('href', {trigger: true}))
+        })
+
+    }
+    RTR1 = function () {
+        $.x('b')
+
+        RTob = {
+            '': 'index',
+            'wap/rtr/images/:id': 'image',
+
+            view: 'viewImage'
+
+        }
+
+        $R({
+            r: RTob,
+            h: function () {
+                $l('you are viewing home page')
+            },
+            x: function () {
+                $l('you are viewing index')
+            },
+            image: function (id) {
+                $l('image===')
+                _.t(10, function () {
+                    $l($r() + '-id: ' + id)
+                });
+                $.bd().C('z')
+            },
+            viewImage: function () {
+                $l('you are viewing an image')
+            }
+
+        })
+
+        _.in(function () {
+            $l('......')
+
+            r.n('/wap/rtr/images/32903290239032902390')
+
+
+        }, '*')
+        //looks for clicks on any anchor els where
+        //href starts with '/' (no domain) and stop
+        //bw from nv to it
+
+
+        $.bd().on('click', 'a[href^="/"]', function (ev) {
+            $l('wow')
+            ev.preventDefault()
+            r.n($(this).attr('href', {trigger: true}))
+        })
+
+    }
+    function usesVw(){
+        NORTR0 = function () {
+            $.x(null, 'no router');
+            v1 = v2 = v3 = 0
+            $.d('r', 100, 100).id('div')
+
+            // ha.. this is just 'no router'
+            V1 = $V({
+                i: function () {
+                    this.r()
+                }, r: function () {
+
+                    //this.$el.ht(this.model.get('Ms') + " from the View 1" )
+
+                    return this
+                }
+            })
+
+            V2 = $V({
+                i: function () {
+                    this.r()
+                },
+                r: function () {
+                    this.$el.ht(this.model.g('Ms') + " from the View 2");
+                    return this
+                }
+            })
+            V3 = $V({
+                i: function () {
+                    this.render()
+                },
+                r: function () {
+                    this.$el.html(this.model.get('Message') + " from the View 3")
+                    return this
+                }
+            })
+
+
+            // Now we need a view that will contain the view
+            // and render it
+            // whenever the user makes a choice on the screen.
+
+            CtV = $V({
+                chV: 0,
+                render: function () {
+                    this.$el.ht('Hi Area').A(
+                        this.chV.$el
+                    )
+                    return this
+                }
+            })
+
+            hi = V1({Ms: "Hello world"})
+
+            ct = CtV({
+                el: $("#div"),
+                model: hi
+            })
+
+
+            /*
+             Now lets create a simple div on the UI which will be used as el to this ContainerView.
+             We will then position three buttons on the UI which will let the user to change the view.
+             Below code shows the application setup that is creating the container view and the functions
+             that will get invoked when the user selects the view from screen.
+             */
+
+
+            $.bt('v1', function () {
+                    if (!v1) {
+                        v1 = V1({model: hi})
+                    }
+                    ct.chV = v1
+                    ct.render()
+                }
+            )
+
+            $.bt('v2', function () {
+                if (!v2) {
+                    v2 = V2({model: hi})
+                }
+                ct.chV = v2
+                ct.render()
+            })
+
+
+            $.bt('v3', function () {
+                if (!v3) {
+                    v3 = V3({model: hi})
+                }
+                ct.chV = v3
+                ct.render()
+            })
+
+        }
+    }
+    function usesMd(){
+        ITEMS0 = function () {
+            $.x().h3('jason')
+            Ap = {M: {}, V: {}, C: {}}
+            Ap.M.Item = $M({})
+
+            $R({
+
+                    r: {
+                        '': 'welcome',
+
+                        itemlist: 'showItemList',
+                        'j': 'j'
+
+                    },
+
+                    welcome: function () {
+                        $.bd().E().A($.h1('welcome'))
+                    },
+                    j: function () {
+                    },
+                    showItemList: function () {
+                        $l('showItemList')
+                        $.bd().A($.h1('show item list'))
+                    }
+                },
+
+                '+')
+
+
+            i1 = Ap.M.Item({n: 'jason', g: 'mason'})
+            i1.oR('j', function () {
+                $.bd().E().A($.h1('j'))
+            })
+            //Bb.history.start({pushState: true})
+
+            $.bt('add', function () {
+                r.n('/itemlist')
+
+            })
+
+        }
+    }
+}
+function modAppss(){
+    Bb.Per=function(){
+        return $M({
+            d: {n:'j', a:20, o:'p'}
+        })
+    }
+    MODCHANGE = function () {
+        $.x('x', 'modchange')
+
+
+        Bk = $M({
+
+            d: {ID: "ooooo", n: ""},
+
+            i: function () {
+                var bk = this;
+                $l('init..')
+
+
+                bk.$(function () {
+                    $l('change')
+                    g = G(arguments)
+                    o = g[1]
+                    m = g[0]
+
+                    if (bk.hC('ID')) {
+                        $l('ID changed')
+                    }
+                    // if(bk.hC('n')){$l('n changed') }
+                    bk.hC('n', function () {
+                        $l('n changed')
+                    })
+                })
+            },
+
+            show: function () {
+                $l('ID: ' + this.g('ID') + ',' + ' n: ' + this.g('n'))
+            }
+
+        })
+
+        bk = Bk({ID: 1, n: "a"})
+        bk.s({r: 'a'}, {a: 1, b: 2, c: 3})
+        $.in(function () {
+            bk.s('n', 'z', {a: 1, b: 2, c: 3})
+            $.in(function () {
+                bk.s({n: 'rfds'}, {a: 1, b: 2, c: 3})
+            }, '*')
+
+        }, '*')
+    }
+
+
+    BACKSET = function () {
+        $.x('g', 'backset')
+
+
+        d = $.d('z', 500, 300).id('sb')
+
+
+        Sb = $M({
+
+            ask: function () {
+
+                this.s({c: prompt('col?')})
+
+            }
+        })
+
+        sb = Sb()
+
+
+        // sb.on('change', function(){g=G(arguments)})
+        sb.on('change:c', function (modThatChangedC, cChangedTo, ops) {
+            $l('changed to ' + cChangedTo)
+
+            o = ops
+
+            modThatChangedC.s('dat', 'something')
+
+            $('#sb').C(cChangedTo)
+            $.h1(modThatChangedC.g('dat'))
+        })
+
+
+        sb.s({
+            c: 'b'
+        })
+
+
+        //   sb.ask()
+        //   Per=$M({i: function(){  $l(  this.g('n')  + ' says hello!'   ) }})
+        //   p=Per( {n:"mac", a:67})
+
+    }
+
+
+    OPS = function () {
+        $.x('o', 'ops')
+
+
+        o = _.x({}, Bb.E)
+
+
+        o.on('yo', function () {
+            g = G(arguments)
+        })
+
+
+        o.trigger('yo', 'a', 'b', 'c')
+
+    }
+
+    BBSAMP1 = function () {
+        $.x('b', 'bbsamp', '+')
+
+        d = $.d()
+
+        Rec = $M()
+
+        RecV = $V({
+            tagName: 'div', className: 'rec',
+            events: {'click': 'move'},
+            move: function () {
+                this.$el.css('left', this.$el.position().left + 10)
+            },
+            rr: function () {
+                return this.sDims().sPos().sCol()
+            },
+            sDims: function () {
+                this.$el.WH(this.model.get('w'), this.model.get('h'))
+                return this
+            },
+            sPos: function () {
+                this.$el.ab()
+                    .LR(
+                    this.model.get('pos').x, this.model.get('pos').y)
+                return this
+            },
+            sCol: function () {
+                this.$el.C(this.model.get('C'))
+                return this
+            }
+        })
+
+        _.e([
+            Rec({w: 100, h: 30, pos: {x: 300, y: 400}, C: 'o'}),
+            Rec({w: 100, h: 20, pos: {x: 400, y: 400}, C: 'g'}),
+            Rec({w: 100, h: 200, pos: {x: 0, y: 100}, C: 'y'})
+        ], function (md) {
+
+            var r = RecV({model: md})
+            r.rr().$el.a2(d)
+        })
+    }
+
+
+    OSYNC = function () {
+        $.x('x', 'osync')
+
+        Bb.sync = function (met, md) {
+            $l(met + ': ' + _.jS(md))
+            md.s('id', 1)
+        }
+        bk = new Bb.M({
+            tt: "The Rough Riders",
+            au: "Theodore Roosevelt"
+        })
+        bk.S()
+        bk.S({au: "Teddy"})
+
+
+        // save accepts success and error cbs in the options hash,
+        // which will be passed the args (md, resp, ops).
+        // If a server-side validation fails, return a non-200 HTTP response code,
+        // along with an error response in text or JSON.
+
+
+        bk.save(
+            "au", "F.D.R.", {
+                error: function () {
+                    $l('error')
+                },
+                success: function () {
+                    $l('success')
+                }
+            })
+
+    }
+}
+function EvApz(){
+    BBEV=function(){$.x().i('chicks')
+
+        ev = Bb.E
+        ev.b("fun:had", function(){  $l("wee!")  })
+        ev.tr("fun:had")
+
+    }
+}
+function template() {
+
+    TP=function(){$.x().A(
+        a= _.tp("<div>hello:<%=n%></div>")({n:'moe'}),
+        b= _.tp('<b><%-tag%></b>',{tag:'<script>'}), // <%- vs <%= ?
+        c= _.tp(
+            '<%_.e(peep,function(name){%>'+
+            '<li>'+'<%=name%>'+'</li>'+
+            '<%})%>'
+            ,{peep:['moe','curly','larry']})
+    )
+
+    }
+    TMP = function () {
+        $.x('r');
+        $V({
+            t: 'li', x: 'some-per', k: 'per',
+            tp: tp = _.tp('<%= n %> (<%= a %>) - <%= o %>'),
+            r: function () {
+                this.A().A(this.tp(this.model.toJSON()))
+            },
+            i: function () {
+                $l(this.model);
+                this.r()
+            }
+        })({m: Per = $M({d: {n: 'j', a: 20, o: 'p'}})()})
+    }
+
+    function vwTp(){BBVT1=function(){$.x('x', 'bb view and template');
+        md= new Bb.M({d:[{t:'a.com', h:'a.com'}, {t:'b.com', h:'b.com'}, {t:'c.com', h:'c.com'}]})
+
+
+        $.dI('ct', [$.bt('Load'), $.ul().id('list')]).C('y')
+
+        $.dI('list-tp', [ $.la() ]).C('o')
+
+
+        Vw = Bb.V.e({
+            el:'#ct',
+            i: function(op){$l(op.blOp); this.tp =$('#list-tp').children()},
+            rr:function(){var da, tp; $l('rr: '+ this.model.get('d')[0].h );//$.c('b').ab(300,300)
+                da=this.model.get('d')
+                tp=this.tp, ul= this.$el.find('ul')
+                _.e(da, function(da){ul.A(tp.clone()
+                    .find('a').hr('href', da.h).T(da.t).end())}) },
+            ev: {'click button':'rr'}
+        })
+        vw = new Vw({blOp:'empty!', model:md})
+        return vw
+
+    }
+        BBVT=function(){$.x('x', 'bb view and template');
+
+
+
+            $.dI('ct', [
+                    $.bt('Load'),
+                    $.ul().id('list')
+                ]
+            ).C('y')
+
+            $.dI('list-tp', [ $.la() ]).C('o')
+
+
+            v=$V({
+
+                q: '#ct',
+
+                events: {'click button': 'r'},
+
+                r: function(){var da, tp,ul
+                    $l('RENDER')
+                    /*
+                     $l('rr: '+ this.model.get('d')[0].h )
+                     //$.c('b').ab(300,300)
+                     da=this.model.get('d')
+                     tp=this.tp
+                     ul= this.$el.find('ul')
+                     _.e(da, function(da){ul.A(tp.clone()
+                     .find('a').hr('href', da.h)
+                     .T(da.t).end())})
+                     */
+                },
+                i: function(op){
+                    $l(op.blOp)
+                    this.tp = $('#list-tp').children()
+                }
+            })({
+
+                blOp: 'empty!',
+
+                m: m=$M()({
+                    d:[
+                        {t:'a.com', h:'a.com'},
+                        {t:'b.com', h:'b.com'},
+                        {t:'c.com', h:'c.com'}
+                    ]
+                })
+
+            })
+
+        }}
+
+}
 TP=function(){$.x().A(
     a= _.tp("<div>hello:<%=n%></div>")({n:'moe'}),
     b= _.tp('<b><%-tag%></b>',{tag:'<script>'}), // <%- vs <%= ?
@@ -2600,1099 +4787,3 @@ function valid() {/*
 }
 
 
-
-
-// 2 plugins
-// http://naturaily.com/blog/post/backbonejs-plugins-localstorage-and-backbonevalidation}
-show=function(a){
-    alert('show')
-    a=a||'welcome'
-
-    $b().H('')(h1(a))
-}
-Bb.eParse=function(e){e=e||{}
-
-
-    _.e(e, function(v,k){
-
-        if(k=='$'){
-            e['click']=v
-        }
-
-        if(k=='$$'){
-            e['dblclick']=v
-        }
-
-    })
-
-
-    return e
-}
-//Note=Bb.M.e({initialize:function(){},author:function(){},coordinates:function(){},canEdit:function(ac){return true}})
-//PrivNote=Note.extend({canEdit:function(ac){return ac.owns(this)}})
-//Note2=Bb.M.e({set:function(atts,opts){Bb.M.prototype.set.apply(this,arguments)}})
-
-
-///collection apps:
-
-BCL = function () {
-    $.x().h1('BCL but whats up wit dose funcs?')
-
-
-    BksC = $Cl({
-        m: Bk = $M({
-            d: {n: '', g: 'fun'},
-            url: 'http://localhost:51377/api/Books'
-        }),
-        d: {pizzaTopping: 'pepperoni'}
-    })
-
-
-    cl1 = BksC()
-    cl1.A([Bk({n: "Bk 1"}), {}, {}, Bk({n: "Bk 2"})])
-    cl2 = BksC([bk1 = Bk({ID: 1, n: "Bk 1"}), bk2 = Bk({ID: 2, n: "Bk 2"})])
-    cl2.A(bk3 = Bk({ID: 3, n: "Bk 3"}))
-
-    add = function () {
-        $l('add')
-        cl2.A([
-            bk4 = Bk({ID: 4, n: "Bk 4"}),
-            bk5 = Bk({ID: 5, n: "Bk 5"})
-        ])
-    }
-
-    add()
-    addAt = function (n) {
-
-        cl2.add(bk0 = Bk({n: "Bk 0"}), {at: n || 0})
-    }
-    change = function () {
-        bk3 = Bk({ID: 3, n: "Bk 3"})
-        cl2.add(bk3)
-        bk3_changed = Bk({ID: 3, n: "Changed Model"})
-        cl2.add(bk3_changed, {merge: true})
-    }
-}
-BBSORT = function () {
-    $.x('a', 'sort dont work')
-
-
-    chps = $Cl({m: Chp = $M()})()
-    chps.comparator = function (a) {
-        return a.tt
-    }
-    chps.add(Chp({p: 9, tt: "End"}));
-    chps.add(Chp({p: 5, tt: "Mid"}));
-    chps.add(Chp({p: 1, tt: "Beg"}))
-    $l(chps.pluck('tt'))
-    chps.sort()
-    $l(chps.pluck('tt'))
-}
-FLCL = function () {
-    $.x('r', 'filtering a cl, but tp missing?!')
-    // ... get the filter info from the DOM
-    // get the filtered list from the collection
-    // iterate over the filtered list and render the results in to the html array
-    // populate the DOM with the resulting HTML
-
-    FlV = $V({
-        ev: {'click #run': 'runFilter'},
-
-        runFilter: function (e) {
-            e.pD();
-            this.fl = {};
-            this.r()
-        },
-
-        r: function () {
-            HT = [];
-            _.e(this.cl.where(this.fl),
-                function (item) {
-                    HT.push(_.tp($('my-item-template').H())(item.tJ()))
-                })
-            this.q.h(HT);
-            return this
-        }
-
-
-    })
-
-
-    Cl = $Cl({
-        i: function () {
-            $l('fuck')
-        }
-    })
-    cl = Cl()
-    cl.add([{a: 'f', b: 's'}, {a: 't', b: 's'}, {a: 'f', b: 's'}, {a: 's', b: 't'}])
-    res = cl.where({a: 'f', b: 's'})
-    _.e(res, function (q) {
-        var j = q.tJ();
-        $.h1(j.a + ' !@@@##@ ' + j.b)
-    })
-
-//http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
-
-}
-TASKER = function () {
-    $.x('g', 'tasker');
-    Ap = {M: {}, C: {}, V: {}}
-
-    Ap.M.Tsk = $M()
-
-    t1 = Ap.M.Tsk({t: 'store', pr: 4})
-    t2 = Ap.M.Tsk({t: 'park', pr: 3})
-
-    Ap.V.Tsk = $V({
-        t: 'li',
-        r: function () {
-            this.A(this.g('tt'));
-            return this
-        }
-    })
-    tskV = Ap.V.Tsk({m: t1})
-
-
-    Ap.C.Tsks = $Cl({m: Ap.M.Tsk})
-    tsks = Ap.C.Tsks([{tt: 'hi'}, {tt: 'bye'}])
-
-
-    Ap.V.Tsks = $V({
-        t: 'li',
-        r: function () {
-            var v = this
-            v.eCl(function (t) {
-                v.q.A(Ap.V.Tsk({m: t}).r().q)
-            })
-            this.q.A()
-        }
-    })
-
-    tsksV = Ap.V.Tsks({cl: tsks})
-
-    $.bt('r Ap.V.Tsks tsksV', function () {
-        tsksV.r()
-    })
-
-}
-BADS = function () {
-    $.x().h1('backcl');
-    $.i('chicks').A()
-    $cl().oA(function (s) {
-        $l("new: " + s.g('n'))
-    }).A([{n: 'g1'}, {n: 'g2'}])
-}
-COUNTER = function () {
-
-    $Cl({md: $M({d: {tt: '', completed: false}})})
-    ([Td({tt: 'Read', id: 2})]).length // 1
-
-
-    Td = $M({df: {tt: '', completed: false}})
-    TdsCl = $Cl({md: Td})
-    tds = TdsCl([
-        a = Td({tt: 'Jam'}), b = Td({tt: 'Chin'})
-    ]);
-    tds.length //  --> 2
-    tds.A(c = Td({tt: 'Disn'}));
-    tds.length  // --> 3
-    tds.rm([a, b]);
-    tds.length // --> 1
-    tds.rm(c);
-    tds.length  //--> 0
-
-
-    // -add() and rm() accept  indiv mds | []      // { merge: true }  -> MERGE  dup mds, !ignore
-
-
-    items = $cl().A([{id: 1, n: "Dog", a: 3}, {id: 2, n: "cat", a: 2}]).A([{
-        id: 1,
-        n: "Bear"
-    }], {merge: true}).A([{id: 2, n: "lion"}])// merge: false
-
-
-    $l(_.jS(items.toJSON())) // [{"id":1,"name":"Bear","age":3},{"id":2,"name":"cat","age":2}]
-
-    //    to retriev a md from a cl, use Cl.get(), accepts single id:
-    tds = TdsCl([td = Td({id: 2, tt: 'book'})])
-    td2 = tds.g(2);
-    $l(td2 === td) // true
-    //   mds  passed by reference
-    $l(tdCid === td); // true
-    //Listening for evs
-
-
-    //   can listen for add and rm evs which occur when mds are added/rmd from cl
-    TdsCl = $cl()
-    TdsCl.on("add", function (td) {
-        $l("Gone " + td.g("tt") + " ?" + (td.g("completed") ? 'Y' : 'N'))
-    })
-    TdsCl.A([{tt: 'Jamai', completed: false}, {tt: 'DL', completed: true}])  // Gone Jamai? N    Gone DL? Y
-
-
-    // can bind to change event to listen for changes to any of mds in cl
-    TdsCl = $cl()
-    TdsCl.on("change:tt", function (m) {
-        $l("Nah! I " + m.g('tt'))
-    })
-    TdsCl.A([{tt: ' Jamaica.', completed: false, id: 3}])
-    td = TdsCl.g(3)
-    td.s('tt', 'go fishing')  //  Nah! I  go fishing
-
-
-    Td = $M({df: {tt: '', completed: false}})
-    td = Td().s({tt: 'Buy cookies', completed: true})
-    td.on({
-        'change:tt': ttChd = function () {
-            $l('tt chd!')
-        },
-        'change:completed': sttChd = function () {
-            $l('stt chd!')
-        }
-    })
-    td.s({tt: 'groceries'})  // tt chd!
-
-
-    // Use once, dont need to unbind   ev  listener
-    TdCounter = _.x({cA: 0, cB: 0}, Bb.E)
-    TdCounter.once('event', incrA = function () {
-        TdCounter.cA += 1;
-        TdCounter.trigger('event')
-    })  // This triggering will not  produce any effect on counters
-    TdCounter.once('event', incrB = function () {
-        TdCounter.cB += 1
-    })
-    TdCounter.trigger('event')   // Trigger event for first time
-    TdCounter.cA //1
-    TdCounter.cB //1
-    // counterA and counterB should only have been incred once.
-}
-RESET = function () {
-
-
-
-    //   Resetting/Refreshing Cls
-    // Rather than adding or removing mds individually,
-    // you might want to update entire cl at once.
-    // Cl.set() takes array of mds and performs necessary
-    // add, rm, and change operations required to update cl.
-
-
-    TdsCl = $cl()
-    TdsCl.A([
-        {id: 1, tt: 'go to Jamaica.', completed: false},
-        {id: 2, tt: 'go to China.', completed: false},
-        {id: 3, tt: 'go to Disneyland.', completed: true}
-    ])
-    // we can listen for add/change/rm evs
-    TdsCl.on("add", function (m) {
-        $l("Added " + m.g('tt'))
-    })
-    TdsCl.on("rm", function (m) {
-        $l("Removed " + m.g('tt'))
-    })
-    TdsCl.on(
-        "change:completed",
-        function (m) {
-            $l("Completed " + m.g('tt'))
-        }
-    )
-
-
-    TdsCl.s([
-        {id: 1, tt: 'go to Jamaica.', completed: true},
-        {id: 2, tt: 'go to China.', completed: false},
-        {id: 4, tt: 'go to Disney World.', completed: false}
-    ])
-
-    // Above logs:    // Completed go to Jamaica.  // Removed go to Disneyland.  // Added go to Disney World.
-
-
-    //  replace  entire cl  content
-
-
-    TdsCl = $cl()
-
-    // we can listen for reset evs
-
-    TdsCl.on("reset", function () {
-        $l("Cl reset.")
-    })
-
-    TdsCl.A([{
-        tt: 'go to Jamaica.', completed: false
-    }, {
-        tt: 'go to China.',
-        completed: false
-    },
-        {tt: 'go to Disneyland.', completed: true}]);
-
-    $l('Cl size: ' + TdsCl.length); // Cl size: 3
-
-    TdsCl.reset([{tt: 'go to Cuba.', completed: false}]);
-    // Above logs 'Cl reset.'
-
-    $l('Cl size: ' + TdsCl.length); // Cl size: 1
-
-    // use reset with no arguments to clear outcl completely.
-    //  This is handy when dynamically loading new page of results
-    // where you want to blank out current page of results.
-
-    myCl.reset()
-
-    // -using Cl.reset() doesn’t fire  add | rm evs. reset event   fired instead
-    // The reason you might want to use this is to perform super-optimized
-    //rendering in extreme cases where individual evs are too expensive.
-
-
-    td = $M()()
-
-    tds = $Cl([td])()
-
-        .on('reset', function (tds, ops) {  //    prev mds list avail in ops.prevMds
-            $l(ops.prevMds);
-            $l([td]);
-            $l(ops.prevMds[0] === td); // true
-
-        })
-
-    tds.reset([])
-
-
-    // set()  SMART updates  cl with a list of md: new mds added, present mds merged, models not in list rmd
-
-
-    Beat = $M({d: {job: 'mus'}})
-    john = Beat({fN: 'John', lN: 'Lennon'});
-    paul = Beat({fN: 'Paul', lN: 'McCartney'});
-    george = Beat({fN: 'George', lN: 'Harrison'});
-    ringo = Beat({fN: 'Ringo', lN: 'Starr'});
-
-    theBeats = $Cl([john, paul, george, ringo]);// Create a cl using our mds
-
-    pete = Beat({fN: 'Pete', lN: 'Best'});// Createseparate md for Pete Best
-
-    theBeats.s([john, paul, george, pete]); // Update cl
-
-
-    // Fires`rm` event for 'Ringo', and `add` event for 'Pete'.
-    // Updates any of John, Paul and Georges's atts that may have
-    // changed over years.
-
-
-}
-INDEXSORT = function () {
-
-
-    tds = $cl().A([{tt: '  Belgium.', completed: false}, {tt: ' China.', completed: false}, {
-        tt: '  Aust',
-        completed: true
-    }])
-
-    tds.forEach(function (md) {
-        $l(md.g('tt'))
-    }) //   Belgium.//   China. //   Austria.
-
-
-    // sortBy()- sort a cl on spec attr, ex: sortByAlph
-    tds.sortBy(function (td) {
-        return td.g("tt").tLC()
-    }).forEach(function (m) {
-        $l(m.g('tt'))
-    }) // go to Austria. // go to Belgium. // go to China.
-
-
-    count = 1;
-    $l(tds.map(function (md) {
-        return count++ + ". " + md.g('tt')
-    })) //1. go to Belgium. //2. go to China. //3. go to Austria.
-
-
-    tds.max(function (m) {
-        return m.id
-    }).id;
-    tds.min(function (m) {
-        return m.id
-    }).id
-
-
-    //  pluck() extract  spec attr
-    captions = tds.pluck('caption') // returns list of captions
-
-
-    // filter()  ex: Filter by array of md IDs
-    Tds = $Cl({
-        md: Td, filterById: function (ids) {
-            return this.mds.filter(function (c) {
-                return _.contains(ids, c.id)
-            })
-        }
-    })
-
-
-    //   indexOf() return index of particular item within cl
-    peop = $cl()
-    peop.comparator = function (a, b) {
-        return a.g('n') < b.g('n') ? -1 : 1
-    }
-    peop.A(tom = $m({n: 'T'})).A(rob = $m({n: 'R'})).A(tim = $m({n: 'T'}))
-    peop.indexOf(rob)//0
-    peop.indexOf(tom)//2
-}
-USMETS = function () {
-    // any()  confirm  if any of  vals  incl  pass  iterator   truth  test
-    tds.any(function (md) {
-        return md.id === 100
-    })
-    tds.some(function (md) {
-        return md.id === 100;
-    })
-
-
-    //  size() return cl size, tds.size() ~ tds.length;
-
-    //  isEmpty()  determine whethercl is empty
-    isEmpty = tds.isEmpty()
-
-
-    //   groupBy() group cl into groups of like items, ex: create groups of completed and incomplete mds
-    tds = $cl().A([{tt: 'Belgium.', completed: false}, {tt: 'China.', completed: false}, {
-        tt: 'Austria.',
-        completed: true
-    }])
-
-    byCompleted = tds.groupBy('completed');
-    completed = $cl(byCompleted[true]);
-    $l(completed.pluck('tt')) //  ["Aust"]
-
-
-    //Underscore  operations  on  objects  are  avail as mets  on   Mds.
-
-
-    //   pick()  extractset   of   atts   frommd
-    Td = $M({d: {tt: '', completed: false}})
-    td = Td({tt: 'go to Austria.'});
-    $l(td.pick('tt')) //  {tt: "go to Austria"}
-
-
-    //  omit(), extract all atts from md, except those listed
-    td = Td({tt: 'go to Austria.'});
-    $l(td.omit('tt'))   //   {completed: false}
-
-
-    // keys(), vals() -> lists of attr names, vals
-    td = Td({tt: 'go to Austria.'});
-    $l(td.keys())   //   ["tt", "completed"]
-    $l(td.vals())  //  ["go to Austria.", false]
-
-
-    // pairs() get  list  of atts as [key, val] pairs
-    pairs = Td({tt: 'Aust'}).pairs();
-    $l(pairs[0]); // ["tt", "Aust"]
-    $l(pairs[1]) // ["completed", false]
-
-
-    //  invert() creates ob where vals are keys, atts are vals
-    Td({tt: 'go to Austria.'}).invert()  // {'go to Austria.': 'tt', 'false': 'completed'}
-
-
-}
-CHAINABLE = function () {
-
-
-    //prob: us's arr manip  ops avail as Cl-mets, but cannot be directly chained (return arrays, !orig cl)
-    // sol: bb   supports  _.chain, which returns ob  w  us-arr-ops  attached as mets which return that ob
-    //chain starts chain, returns wrapper around cl's mds (wrapped arr)
-    //  The chain ends with call to val(), which  terminates chain and returns resulting array
-
-    Cl([{n: 'T', a: 5}, {n: 'I', a: 26}, {n: 'R', a: 55}]).chain()
-        .fl(function (i) {
-            return i.g('a') > 10
-        })
-        .m(function (i) {
-            return i.g('n')
-        })
-        .val() //['I','R']
-
-    // Some of bb- spec mets do return this, which means they can be chained as well:
-    $cl().A({n: 'J', a: 23}).A({n: 'H', a: 33}).A({n: 'S', a: 41}).pluck('n') //['J','H','S']
-
-}
-RESTPERSIST = function () {
-
-    //RESTful Persistence
-    //Thus far, all of our example data has been created in  bw. For most single page apps, mds are derived fromdata store residing onserver.
-    //This is area in which bb dramatically simplifies code you need to write to perform RESTful synchronization withserver throughsimple API on its mds and cls.
-
-
-// Fetching mds from server
-// Cls.fetch() retrieves set of mds from server in form ofJSON array by sending HTTP GET request to URL spec by cl’s url property (which may befunction).
-// When this data is received,set() will be executed to update cl.
-
-    Td = $M({df: {tt: '', completed: false}})
-    TdsCl = $Cl({md: Td, url: '/tds'})
-    tds = TdsCl();
-    tds.fetch(); // sends HTTP GET to /tds
-
-
-}
-SAVEMDTOSERVER = function () {
-
-
-    // bb can retrieve entire cl of mds from server at once, but updates to mds are performed individually using md’s save() met.
-    //  When save() is called on a md that was fetched from server, it constructs a URL by appending md’s id to cl’s URL and sends HTTP PUT to server.
-
-    // If md is new instance that was created in  bw (i.e. it doesn’t have id) then HTTP POST is sent to cl’s URL. Cls.create() can be used to createnew md, add it to cl,  and send it to server insingle met call.
-
-
-    Td = $M({df: {tt: '', completed: false}});
-
-    TdsCl = $Cl({md: Td, url: '/tds'});
-
-    tds = TdsCl();
-    tds.fetch();
-
-    td2 = tds.g(2);
-    td2.s('tt', 'go fishing');
-    td2.S(); // sends HTTP PUT to /tds/2
-
-
-    tds.create({tt: 'Try out code samples'}); // sends HTTP POST to /tds and adds to cl
-//     As mentioned earlier,md’s validate() met is called automatically by save() and will trigger invalid event on md if validation fails.
-
-    //  Deleting mds from server
-
-    //  A md can be rmd from containing cl and server by calling its destroy() met. Unlike Cl.rm() which only rmsmd fromcl, Md.destroy() will also send HTTP DELETE to cl’s URL.
-
-    Td = $M({df: {tt: '', completed: false}});
-
-    TdsCl = $Cl({md: Td, url: '/tds'});
-
-    tds = TdsCl();
-    tds.fetch();
-    td2 = tds.g(2)
-
-    td2.destroy(); // sends HTTP DELETE to /tds/2 and rms from cl
-    // Calling destroy onMd will return false if md isNew:
-
-    td = new Bb.Md();
-    $l(td.destroy())  // false
-    // Options
-
-    // Each RESTful API met accepts a variety of ops.
-    //  Most importantly, all mets accept success and error cbs which can be used
-    //  to custize handling of server responses.
-
-    //  Specifying {patch: true} option to Md.save() will cause it to use HTTP PATCH to send only changed atts (i.e. partial updates) to server
-    //  instead of entire md; i.e. md.save(attrs, {patch: true}):
-
-    // Save partial using PATCH
-    md.clear().set({id: 1, a: 1, b: 2, c: 3, d: 4});
-    md.save();
-    md.save({b: 2, d: 4}, {patch: true});
-    $l(this.syncArgs.met);
-    // 'patch'
-    // Similarly, passing {reset: true} option to Cl.fetch() will result in cl being updated using reset() rather than set().
-
-
-}
-CID = function () {
-
-
-
-// to uniquely identify mds  use:
-
-// id --- unique identifier (int|S, e.g.,UUID) -can be used to fetch md from cl
-//Internally, Bb.Cl contains [md] enumerated by md.id, if md insts have one.
-// When cl.g(id) is called, arr checked for existence of md inst  with corresp  id.
-
-// cid--- (client id), auto-gen-d at md creation -can be used to fetch md from cl,
-// helpful when you don’t have true id (   not (or not yet) saving it to db  )
-// tdCid = tds.g(td2.cid)
-
-//  idAttribute( df=id)----  identifying attr name of md returned from server (i.e. id in your db).
-//  -tells bb which data field from server should be used  to populate id property (think of it as a mapper).
-// if your server sets unique attr on your md named “userId” then you would set idAttribute to “userId” in your md definition.
-//  The val of md’s idAttribute should be set by server when md is saved. -shouldn’t need to set it manually, unless further control is required.
-
-
-}
-PLV=function(){$.x('o','hi')
-
-
-    Per= Bb.M.e({d: {n:'a', a:20, o:'p'}})
-
-    p=  Per.o({})
-    p1 = Per.o({n:'b'})
-    p2= {n:'c'}
-    PerV=Bb.V.e({t:'li',
-        x:'some-per', k:'per',
-
-        tp:tp=_.tp('<%= n %> (<%= a %>) - <%= o %>'),
-
-        r: function(){
-            this.$el.A('fasdfsfasd')
-            _m=this.model
-            //    this.$el.A(this.tp(m  ))  // this.model.toJSON()
-        },
-
-        i: function(){this.r()}
-    })
-
-    PepC=Bb.C.e({m:Per})
-
-    pV=PerV.o({m:p})
-    pC=PepC.o()
-
-    pC.add([p, p1,p2])
-
-    PepV=Bb.V.e({cl: PepC, el:ul= $.ul(),
-        i:function(){},
-        r: function(){
-            ul=this.q.E()
-            this.J(function(md){PerV.o({m:md},ul)})}})
-    pCV = PepV.o({cl: pC})
-    $.in(.2,function(){pCV.r()},'*')
-    $.in(.4,function(){pCV.r()},'*')
-
-}
-C$= function(a){var b,c
-// $.ext(Bb.Collection)
-    //if(U(a)){var c=new Backbone.Collection; return sCl(c)}
-    a=O(a)?a:{}
-    if(a.m){a.model= a.m}
-    c= Backbone.Collection.extend(a)
-    return function(o){o=O(o)?o:{}
-
-        //if(o.m){o.model= o.m}
-        b=new c(o)
-        o.o=o.on
-        E$(o)
-        return b}
-}
-BCL=function(){$.x().h1('BCL')
-
-    Bk = Bb.M.e({
-        d: {ID: '', n: ''},
-        id: "ID",
-        url: 'http://localhost:51377/api/Books'
-    })
-
-    BksC = Bb.C.e({m: Bk})
-
-    cl1 =   BksC.o()
-    bk1 = Bk.o({ ID: 1,  n: "Bk 1" })
-    bk2 =  Bk.o({ ID: 2, n: "Bk 2" })
-    cl2 =  BksC.o([bk1, bk2])
-    bk3 =  Bk.o({ ID: 3, n: "Bk 3" })
-    cl2.add(bk3)
-
-    change=function(){
-        bk3 = new Bk({ ID: 3, n: "Bk 3" })
-        cl2.add(bk3)
-        bk3_changed =  Bk.o({ ID: 3, n: "Changed Model" })
-        cl2.add(bk3_changed, { merge: true })
-    }
-
-    add=function(){
-        bk4 =   Bk.o({ ID: 4, n: "Bk 4" })
-        bk5 =  Bk.o({ ID: 5, n: "Bk 5" })
-        cl2.add([bk4, bk5])
-    }
-    addAt=function(n){
-        bk0 = new Bk({ ID: 0, n: "Bk 0" })
-        cl2.add(
-            bk0, {at:n||0}
-        )
-    }
-
-}
-BBCOL=function(){$.x()
-
-    Per = Bb.M.e({})
-    p1 =  Per.o({n:'j'})
-    p2=  Per.o({n:'y'})
-
-    Pers= Bb.C.e({model: Per})
-
-    pers=  Pers.o([p1, p2])
-}
-BBSORT=function() {
-    Chp = Bb.M.e()
-
-    chps =  Bb.C.e({
-        m:Chp
-    }).o()
-
-
-    chps.comparator = function (a) { return a.tt } //$.x(a)
-
-    chps.add(
-        Chp.o({p:9, tt:"End"})
-    )
-    chps.add(
-        Chp.o({p:5, tt:"Mid"}))
-    chps.add(
-        Chp.o({p:1, tt:"Beg"})
-    )
-
-    $l(chps.pluck('tt'))
-
-}
-FLCL=function(){$.x('r', 'filtering a cl:')
-
-    /*
-     FlV = Bb.V.e({
-     ev: {'click #run': 'runFilter'},
-     runFilter: function(e){e.pD();
-     this.fl = {
-     // ... get the filter info from the DOM
-     }; this.rr()},
-     rr: function(){// get the filtered list from the collection
-     // iterate over the filtered list and render the results in to the html array
-     // populate the DOM with the resulting HTML
-     HT=[]
-     _.e(this.cl.where(this.fl),
-     function(item){HT.push(
-     _.tp($('my-item-template').H())(item.tJ())
-     )})
-
-     this.$el.html(HT); return this }
-     })*/
-
-
-    Cl =  Bb.C.e({
-        i:function(){}
-    })
-
-
-    cl = Cl.o({})
-
-
-    /*
-     cl.add([{a: 'f', b: 's'},
-     {a: 't', b: 's'},
-     {a:'f', b: 's'},
-     {a: 's', b:'t'}
-     ])
-
-
-     res = cl.where({a:'f',b:'s'})
-     */
-    //http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
-}
-TASKER=function(){$.x()
-    Ap={M:{}, C:{}, V:{}}
-
-    Ap.M.Task = Bb.M.e({})
-
-    t1=Ap.M.Task.o({t:'go  store', pr:4})
-
-    t2=Ap.M.Task.o({t:'go park', pr:3})
-
-    Ap.V.Tsk= Bb.V.e({t:'li',
-        rr: function(){this.A( this.g('t') )
-            return this
-        }
-    })
-
-    taskView=Ap.V.Tsk.o({m:t1})
-    Ap.C.Tasks = Bb.C.e({m:Ap.M.Tsk})
-    tasks=Ap.C.Tasks.o([{t:'hi'}, {t:'bye'}])
-    Ap.V.Tasks = Bb.V.e({t:'li',
-        rr: function(){
-            var that=this
-            this.cl.each(
-                function(t){
-                    var v=Ap.V.Task.o({m:t})
-                    that.$el.A(v.rr().el)
-                }, this)
-            this.el.A()
-        }
-    })
-
-    tasksV=Ap.V.Tasks.o({cl:tasks})
-}
-PEOPLE=function(){$.x()
-
-    Per  = Bb.M.e({
-        i: function () {
-            //this.oV(function(mod, err){$l(err)})
-        },
-        d: {n:'doe', a: 30, j: 'wrk'},
-        validate: function (ats) {if (ats.age < 0) {return 'a < 0!'}},
-        work: function () {return this.g('n') + ' is working'}
-    })
-
-    p = Per.o({n: 'y', a: 34})
-
-    //p.oV(function (mod, z) {$l(z)})
-
-    PerV = Bb.V.e({tn: 'li',
-        k: 'person', x: 'some-person',
-        i: function () {this.r()},
-        tp: _.template("<strong><%= name %></strong> (<%= age %>) - <%= job %>"),
-        r: function () {
-            var t = this
-            //this works, but doesnt use a template
-            // t.H(  t.g('name')+' '+t.g('age')+' '+t.g('job'))
-            t.H(
-                t.T(
-                    t.J()
-                )
-            )
-        }
-    })
-
-    pV= PerV.o({m: p})
-
-    peepC = Bb.C.e({m: Per})
-
-
-    pC = peepC.o([
-        {n: 'rigo', a: 29},
-        {n: 'j', a: 2},
-        {n: 's', j: 'gx'}
-    ])
-    pC.add(p)
-
-
-    pC.at(1).n('joejoe')
-    pC.at(1).s('name', 'joejoe')
-
-    PeepV = Bb.V.e({tn: 'ul',
-        i: function () {
-            $l('hi')
-            $l(this.cl)
-        },
-        r: function () {//var t=this
-            this.cl.each(function (p) {var v,pV  //$l(p.g('n'))
-                pV = PerV.o({m: p}) //$l(pV.el)
-                this.$el.append(pV.el) //t.q( pV.el  )
-            }, this)
-        }
-
-    })
-
-    pcv = PeepV.o({cl: pC})
-    pcv.r()
-    $.A( pcv.el )
-
-}
-fromServ()
-function fromServ(){
-    AVAIL=function(){$.x('x'); Ap={ M:{},C:{},V:{},T:{} }
-
-        Ap.T.Avail=function(model){
-            return $.d('g',400,100).mar(20).A(
-
-                $.h4(model.g('c')).id('avail').C('y','r'),
-                $.br(), $.sp('delete').id('deleteAvail'),
-                $.sp(' '), $.sp('edit').id('editAvail'),
-                $.sp(' '), $.cb().id('selAvail'))
-        }
-        Ap.M.Avail=M$({urlRoot: '/avail'})
-        Ap.C.Avails=C$({model: Ap.M.Avail, url: '/avail'})
-        Ap.V.Avail=Bb.V.e({
-
-            r:function(){
-                this.$el.A( Ap.T.Avail(this.model) )
-                return this},
-            ev:{
-                'click #deleteAvail':'deleteAvail',
-                'click #editAvail':'editAvail',
-                'blur #avail':'changeAvail'},
-            changeAvail:function(){
-                this.$el.fi('#avail').at('contenteditable','false')
-                newAvail=this.$el.fi('#avail').text()
-                this.model.s('c', newAvail)
-                this.model.save()},
-            deleteAvail:function(){
-                this.model.destroy()
-                this.$el.rm()
-            },
-
-            editAvail:function(){this.$el.fi('#avail').at('contenteditable','true')}
-
-        })
-        Ap.V.Avails =Bb.V.e({
-            el:'#availsDiv',
-            I:function(){this.render()},
-            R:function(){var t=this
-                t.collection.fetch({
-                    success:function(){
-                        t.$el.html('')
-                        t.$el.A("<h1>Avails List</h1>")
-                        t.collection.each(function(m){
-                            t.$el.A( Ap.V.Avail({model:m}).render().el )
-                            return t},t)
-                    }})
-            }})
-        //  avs=Ap.C.Avails()
-        //  v=Ap.V.Avails({collection:avs})//.render()
-//    avs.on('destroy',function(aa){$l('destroy!!!!')})
-        $.ip('new avail').id('newAvail').A()
-
-        $.bt('ok',function(){
-            Ap.M.Avail({c: $('#newAvail').v()
-            }).save()
-
-            v.render()
-
-        }).A()
-        $.dI('availsDiv')
-        $.ip('new avail').id('newAvail').A()
-        $.bt('ok',function(){
-            var m= Ap.M.Avail({
-                c:qiv('newAvail')
-            })
-            m.save()
-            m.on('destroy', function(){alert('i am the model and i was destroyed')})
-            v.render()
-        })
-        $.dI('availsDiv')
-
-
-        Ap.T.Avail=function(model){
-            return $.d('g',400,100).mar(20).A(
-                $.h4(model.g('c')).id('avail').col('y','r'),
-                $.br(),
-                $.sp('delete').id('deleteAvail'),
-                $.sp(' '), $.sp('edit').id('editAvail'),
-                $.sp(' '), $.cb().id('selAvail')
-            )
-        }
-        Ap.M.Avail=Bb.M.e({urlRoot: '/avail'})
-        Ap.C.Avails=C$({model: Ap.M.Avail, url: '/avail'})
-        Ap.V.Avail=Bb.V.e({
-
-            r:function(){
-                this.q(
-                    Ap.T.Avail(this.model)
-                )
-                return this
-            },
-            ev:{
-                'click #deleteAvail':'deleteAvail',
-                'click #editAvail':'editAvail',
-                'blur #avail':'changeAvail'
-            },
-            changeAvail:function(){
-                qq( this.$el.find('#avail') ).cE(0)
-                var newAvail=this.$el.find('#avail').text()
-                this.model.s('c', newAvail)
-                this.model.save()
-            },
-
-            deleteAvail:function(){
-                this.model.destroy()
-                this.$el.remove()},
-            editAvail:function(){
-
-                this.$el.find('#avail').cE(1)
-
-            }
-
-        })
-
-        Ap.V.Avails =Bb.V.e({el:'#availsDiv',
-            i:function(){this.render()},
-            r:function(){var t=this
-                t.collection.fetch({
-                    success:function(){
-                        t.q.H('')
-
-                        t.q($.h1('Avails List'))
-
-                        t.e(
-                            function(m){
-                                t.q(
-                                    Ap.V.Avail({m:m}).r().el )
-                                return t},t)
-
-                    }})
-            }})
-        avs=Ap.C.Avails.o()
-
-        avs.on('destroy', function(j){
-            alert('i am col and i was destroyed')
-            v.trigger('modelDeleted')
-        })
-
-        v=Ap.V.Avails.o({cl:avs})
-
-
-        v.on('modelDeleted', function(){alert('modDel')})
-
-        Bb.M.e({
-            d:{ prop:3 },
-            test:function(){
-                $( this.get('prop') ) },
-            test2:function(a){ $l('prop: '+this.get('prop'))},
-            happy:function(a){
-                this.test2(a)
-            }
-        })
-
-
-    }
-    DIRTPAGE=function(){$.x()
-
-        var newMsBox, newTopic, newMs,searchBox
-
-        MsM= Bb.M.e({  })
-        MsC= Bb.C.e({   m:'MsM'  })
-        MsView= Bb.V.e({  })
-        MssView= Bb.V.e({ })
-
-        $.h1().A(
-            $.a(  'Dirtpage', '/wap/dirtpage/' )
-        ).A()
-        $.dI('content')
-        if(wappyPam) {
-
-            newMsBox= $.d().WH('auto').A(
-                $.h1('new ms'),
-                $.ip().K('form-control').id('newMs'),
-                $.bt('ok', function(){var newMs = $('#newMs').v()
-                    $.P('messages' , {tpc:wappyPam, ms:newMs
-                    }, function(){ loadResults() })}))
-            $('#cont').A($.h1('the '+ wappyPam + ' page'),
-                newMsBox, $.dI('res'))
-            function loadRes(){$.G('topics/' + wappyPam, function(msgs){
-                $('#results').ht($.h5('len: '+msgs.length)  )
-                _.e(msgs, function(ms){$('#res').A($.h6( ms.ms ))
-                })})}
-            loadRes()}
-        else {
-            newMsBox=$.d().WH('auto').A(
-                $.h1('new message'),
-                $.ip().K('form-control').id('newTopic'),
-                $.ip().K('form-control').id('newMs'),
-                $.bt('ok', function(){
-                    newTopic = $('#newTopic').v()
-                    newMs = $('#newMs').v()
-                    $.P('msgs', {topic:newTopic, message:newMs}, function(){})})
-            )
-            searchBox= $.d().WH('auto').A(
-                $.h1('search'),
-                $.ip().K('form-control').id('searchInput'),
-                $.bt('ok', function(){window.location=   '/wap/dirtpage/'+ $('#searchInput').v()
-                    searchInput = $('#searchInput').v()
-                    $.G('topics/' + searchInput, function(msgs){
-                        $('#res').ht($.h5('len: '+msgs.length)  )
-                        _.e(msgs, function(ms){$('#res').A( $.h6( ms.ms ) )})
-                    })
-                })
-            )
-            $.dI('res')
-            $('#cont').A(newMsBox, searchBox)
-            $.eG('msgs',  function(ms){
-                $('#res').A($.h2().A(
-                        $.a('topic: '+ms.topic,'/wap/dirtpage/'+ms.topic)),
-                    $.h3( 'ms: '+ms.ms)
-                )
-            })
-        }
-    }
-}

@@ -16,13 +16,4 @@ Eve=function(){
     e.e= e.trigger
     return e
 }
-apz()
-function apz(){
-    BBEV=function(){$.x().i('chicks')
 
-        ev = Bb.E
-        ev.b("fun:had", function(){  $l("wee!")  })
-        ev.tr("fun:had")
-
-    }
-}
