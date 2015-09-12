@@ -46,7 +46,6 @@ NOPUSHSTATE= VID0 = function () {z();
                 this.$el.html(sec)
             }
         })
-
         $('body').C('o').css('font-size', 80)
         $.d().id('ct')
         $$R({
@@ -61,12 +60,11 @@ NOPUSHSTATE= VID0 = function () {z();
         Bb.h.start(
             //{pushState:true}
         )
-    }
-STILLNOPUSH=VID1 = function () {
-        z();
-        $('body').C('o').css('font-size', 80)
-        $.d().id('ct')
-        $$R({
+}
+STILLNOPUSH=VID1 = function () {z();
+    $('body').C('o').css('font-size', 80)
+    $.d().id('ct')
+    $$R({
             r: {
                 ':post/:id': 'pam',
                 '*post': 'splat',
@@ -82,11 +80,8 @@ STILLNOPUSH=VID1 = function () {
                 alert('2')
             }
         })()
-
-        Bb.h.start(
-            {pushState: true}
-        )
-    }
+    Bb.h.start({pushState: true})
+}
 //WORKS (above):
 VID00=function(){
 
@@ -136,7 +131,6 @@ VID00=function(){
             //{pushState:true}
         )
     }  //push state not working???
-
 SHOWVW=NORTR = function () {
     $.x()
     V1 = $$V({
@@ -400,10 +394,7 @@ RTPAMS = function () {z(); $.x().A('rtpams hahahahhahaha')
 
 
 }
-ITEMZ = function () {
-    $.x()
-
-    Ap = {M: {}, V: {}, C: {}}
+ITEMZ = function () {$.x(); Ap = {M: {}, V: {}, C: {}}
     Ap.M.Item = $$M({})
     $$R({
         routes: {
@@ -428,13 +419,11 @@ ITEMZ = function () {
         }
 
     })()
-
     i1 = Ap.M.Item({n: 'jason', g: 'mason'})
     i1.oR('j', function () {
         $.bd().E().A($.h1('j'))
     })
     i1 = Ap.M.Item({n: 'jason', g: 'mason'})
-
     r.A('/wap/items/j', function () {
         $.bd().E().A(
             $.h1('j')
@@ -444,11 +433,7 @@ ITEMZ = function () {
         $.bd().E().A($.h1('q'))
 
     })
-
     Bb.h.start({pushState:true})
-
-
-
     $.bt('add', function () {
         r.n('/wap/items/itemlist')
     })
@@ -456,57 +441,18 @@ ITEMZ = function () {
         $.A($.h1('k'))
         r.n('/wap/items/j')
     })
-}
-ITEMS0 = function () {
-    $.x().h3('jason')
-    Ap = {M: {}, V: {}, C: {}}
-    Ap.M.Item = $M({})
-
-    $R({
-
-            r: {
-                '': 'welcome',
-
-                itemlist: 'showItemList',
-                'j': 'j'
-
-            },
-
-            welcome: function () {
-                $.bd().E().A($.h1('welcome'))
-            },
-            j: function () {
-            },
-            showItemList: function () {
-                $l('showItemList')
-                $.bd().A($.h1('show item list'))
-            }
-        },
-
-        '+')
-
-
-    i1 = Ap.M.Item({n: 'jason', g: 'mason'})
-    i1.oR('j', function () {
-        $.bd().E().A($.h1('j'))
-    })
-    //Bb.history.start({pushState: true})
-
     $.bt('add', function () {
         r.n('/itemlist')
 
     })
-
 }
 RTR0 = function (){$.x('y');$CSS({h1: {'font-size': 100}})
-
     r = $$R({
         rt: {
             '': 'index',
             'wap/rtr/images/:id': 'image',
             view: 'viewImage'
         },
-
         image: function (id) {
             _.t(10, function () {
                 $l($r() + '-id: ' + id)
@@ -569,7 +515,8 @@ RTENAV=function(){z()
 AHREF= RTR1 = function () {$.x('b')
 
     $R({
-        routes:  {'': 'index',
+        routes:  {
+            '': 'index',
             'wap/rtr/images/:id': 'image',
             view: 'viewImage'},
         h: function () {
@@ -591,11 +538,8 @@ AHREF= RTR1 = function () {$.x('b')
     })
     _.in(function () {
         $l('......')
-
         r.n('/wap/rtr/images/32903290239032902390')
-
-
-    }, '*')
+    })
     //looks for clicks on any anchor els where
     //href starts with '/' (no domain) and stop
     //bw from nv to it
@@ -607,21 +551,18 @@ AHREF= RTR1 = function () {$.x('b')
 }
 RTPAMS = function () {$.x().A('hahahahhahaha')
     r= $$R({
-        rt: {'': 'home',
+        routes: {'': 'home',
 
             'view': 'v',
-
             'new': 'nn',
             ':id': 'en',
             'posts/:id': 'gPo',
             '*acts': 'dfR', 'download/*path': 'dlF',
             ':route/:action': 'ldV'
         },
-
         home: function () {
             $l('home')
         },
-
         v: function () {
             $l('image')
         },
@@ -630,7 +571,6 @@ RTPAMS = function () {$.x().A('hahahahhahaha')
         en: function (id) {
             $l('id:' + id)
         }
-
     })()
     r.oR('dfR', $l)
     r.oR('gPo', function (id) {
@@ -644,3 +584,5 @@ RTPAMS = function () {$.x().A('hahahahhahaha')
         $l(rt + '_' + ac)
     })
 }
+
+$l('bbRoApps')
