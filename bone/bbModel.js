@@ -149,11 +149,7 @@ function late(){
                 return o
             }
         }
-        md.V=function(Vw, ob){alet('md.V')
-            ob = ob || {}
-            ob.m= this
-            return Vw(ob)
-        }
+
 
     }
 }

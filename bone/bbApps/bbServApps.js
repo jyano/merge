@@ -1481,7 +1481,58 @@ FETCH = EVTSAVE = function () {
     ev.tr("fun:had")  //it'll alert "wee!"
 }
 
+MODDONUT=function(){m=bbM({n:'j'})
+    Donut = bbM({
 
+        d:{
+            n:null,
+            sparkles:false,
+            cream_filled:false},
+
+        u:function(){var t=this
+            return t.id?'/donuts/'+t.id:'/donuts'}
+
+    })
+    bostonCream=Donut({
+        n:'Boston Cream',
+        cream_filled:true
+    })
+    bostonCream.s({sprinkles:true})
+    bostonCream.S() //save
+    Donuts=bbC({
+
+        m:Donut,
+
+        url:"/donuts"
+
+    })
+    donuts=Donuts()
+    donuts.fetch()// donuts.at(0); -> gets donuts by index.
+    // donuts.get(0); -> gets donuts by id.
+    // donuts.each(function(d){$l(d.get("name"))})
+    // donuts.select(function(d){return d.get("name").length>2})// Select donuts with names longer than 2
+    // donuts.map(function(d){return d.get("name")})
+    DonutShop=bbM({
+
+        defaults:{n:"Untitled"},
+
+        initialize:function(){var t=this
+
+            t.donuts=Donuts()
+            t.donuts.url='donut_shops/'+t.id+"/donuts"}
+    })
+    donutShop.oA(function(donut){
+        alert("added "+donut.get("name"))})
+    lemonFilled = donutShop.donuts.a({
+        n:"Lemon Filled"
+    })
+    a=Eve()
+    a.o("fun:had",function(){alert("wee!")});
+
+    a.e("fun:had")//it'll alert "wee!"
+
+
+}
 FETCH=EVTSAVE=function(){
 
     m= Bb.M.x({

@@ -235,7 +235,10 @@ md.a2 = function (a) {$l('me.a2')
     if(!this.q){alert('me.a2 !q'); return this}
     return this.q.a2(a)
 }
-
+md.V=function(Vw, ob){
+    ob = ob || {}
+    ob.m= this
+    return Vw(ob)}
 _$$M=function(ob){ob=ob||{} // o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s} //o=o||{}
 
     ob.initialize = ob.initialize || ob.i || function(){}
