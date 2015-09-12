@@ -1,65 +1,148 @@
-BBVIEW2=function(){
+peep = [
+    {n:'a',a:11},
+    {n:'b',a:46},
+    {n:'c',a:13}
+]
 
-    $.dI('d1', 'r', 500, 500)
-    LstV = bb.V.x({
-        el: '#d1',
-        r: function(){
-            this.A(
-                $.ul([
-                    'hello']))},
-        i: function(){ this.r() }
+DIVADD= BBVIEW = function () {z()
+    d = $.dI('d1', 'r', 500, 500)
+    _.t(3, function () {
+        $$V({
+            i: function () {this.r()},
+            r: function () {
+                d.A($.ul(['hello']))}
+        })()
     })
-    v = LstV.o() //not function
+
+
+    function alt(){
+
+        BBVIEW2=function(){
+
+            $.dI('d1', 'r', 500, 500)
+            LstV = Bb.V.x({
+                el: '#d1',
+                r: function(){
+                    this.A(
+                        $.ul([
+                            'hello']))},
+                i: function(){ this.r() }
+            })
+
+            v = LstV.o() //not function
+        }
+        BBVIEW0=function(){$.x('b','bbview0')
+
+
+            $.dI('d1','r', 500,500).V({
+                r: function(){this.A($.ul(['hello']))},
+                i: function(){this.r()}
+            })()
+
+        }
+    }
+}
+ARRPOP= BBVP=function(){z()
+
+    vw= $$V({
+        t:'ul',
+        i:function(){this.$el.C('r')},
+        r:function(){
+            var el=this.$el.E()
+            _.e(this.collection, function(p){$('#peep')
+                el.A($.li().A(p.n + '(' + p.a + ')'))})
+            return this
+        }
+    })({
+        cl: peep
+    })
+
+    $.A(
+
+        vw.r().el
+    )
+
+    _.in(1, function(){
+        peep.pop()
+        vw.r()
+    })
+
+
+    function alpha(){
+        BBVP0=function(){$.x('x', 'bb view people 0')
+            peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
+            vw= $.ulV({
+                i:function(){
+                    this.q.C($r())
+
+                },
+                r:function(){var el=this.q.E()
+                    this.cl(function(p){
+                        el.A($.li().A(p.n+'('+p.a+')'))})
+                    return this}
+            })({cl: peep})
+            $.A(vw.r().q)
+            _.in(function(){peep.pop(); vw.r()},'*')
+        }
+    }
+}
+MDGET=  function(){
+    $.x('r').h1('tut')
+    p = $$M()({ n:'j' })
+
+    $.h3('p: '+ p.g('n'))
 }
 
 
 
-BBVIEW0=function(){$.x('b','bbview0')
+PER22=function(){
 
+    $.x('n')
 
-    $.dI('d1','r', 500,500).V({
-        r: function(){this.A($.ul(['hello']))},
-        i: function(){this.r()}
-    })()
-
-}
-
-PER2=function(){$.x('n')
-    Per=bb.M.x({
+    Per= Bb.M.x({
         d: {n:'j', a:20, o:'p'}
     })
+    p = new Per
 
-    p= new Per
-    PerV = $V({
+    PerV = $$V({
         t:'li', _:'some-per',
         k:'per',
-
         r: function(){
             this.A('n').A()
         },
-
         //  this.A(this.g('n')).A() //  this.A(this.model.get('n').A()
         initialize: function(){
             $l(this.model);
             this.r()
         }
     })
+
     pV =  PerV({ m:p  })
 
 }
 
-PER1=function(){$.x('n')
 
-    p = $M({ d: {n:'j',a:20,o:'p'}   })()
+PER11=function(){$.x('n')
 
-    PerV = $V({t:'li', _:'some-per', k:'per',
-        r: function(){  this.A('n').A() },
-        i: function(){ $l(this.model); this.r() }
+    p = $$M()({
+
+        d: {n:'j',a:20,o:'p'}
     })
 
-    pV = p.V(PerV) //PerV({ m: p })
+
+    PerV = $V({
+        t:'li', _:'some-per', k:'per',
+        r: function(){  this.A('n').A() },
+        i: function(){
+            $l(this.model); this.r() }
+    })
+
+    pV = PerV({ m: p }) //-> p.V(PerV)
 }
-PER=function(){$.x('n')
+
+
+
+PER00=function(){$.x('n')
     m = $M({d:{n:'j',a:20,o:'p'}})()
 
     m.V($V({
@@ -73,12 +156,11 @@ PER=function(){$.x('n')
 
 }
 
-
 function samp(){
 BBSAMP1=function(){$.x('b','bbsamp','+')
     d=$.d()
-    Rec = bb.M.x()
-    RecV = bb.V.x({t:'div', k:'rec',
+    Rec = Bb.M.x()
+    RecV = Bb.V.x({t:'div', k:'rec',
         events:{'click': 'move'},
         move:function(){this.$el.css('left', this.$el.position().left +10)},
         rr:function(){return this.sDims().sPos().sCol()},
@@ -143,11 +225,6 @@ BBSAMP=function(){$.x('b','bbsamp','+')
     })
 
 }
-    }
-SIMP=function(){
-    $.x('r').h1('tut')
-    p = $M()({ n:'j' })
-    $.h3('p: '+p.g('n'))
 }
 
 
@@ -181,7 +258,7 @@ function template() {
     }
 
     function vwTp(){BBVT1=function(){$.x('x', 'bb view and template');
-        md= new bb.M({d:[{t:'a.com', h:'a.com'}, {t:'b.com', h:'b.com'}, {t:'c.com', h:'c.com'}]})
+        md= new Bb.M({d:[{t:'a.com', h:'a.com'}, {t:'b.com', h:'b.com'}, {t:'c.com', h:'c.com'}]})
 
 
         $.dI('ct', [$.bt('Load'), $.ul().id('list')]).C('y')
@@ -189,7 +266,7 @@ function template() {
         $.dI('list-tp', [ $.la() ]).C('o')
 
 
-        Vw = bb.V.e({
+        Vw = Bb.V.e({
             el:'#ct',
             i: function(op){$l(op.blOp); this.tp =$('#list-tp').children()},
             rr:function(){var da, tp; $l('rr: '+ this.model.get('d')[0].h );//$.c('b').ab(300,300)

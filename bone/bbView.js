@@ -1,84 +1,5 @@
-vwPt()
+vw= Bb.View.prototype
 
-
-
-
-
-
-
-
-
-
-Vw=Bb.V.e({
-    renderCollection: function(op) {op = op || {}
-        op.target = op.target || this.$el;
-        op.cl = op.cl ||    op.collection ||  this.collection;
-        //- reset views
-        if (!op.add) {this.disposeViews()}
-        else {this._subviews = []}
-        this._renderOptions = op
-        //- if there is a collection and a view then render it
-        if (op.cl && this.view) {op.cl.each(this._renderView, this)}
-        return this
-    }
-})
-$.uV=$.ulV=function(ob){ob=ob||{};ob.t = 'ul'; return $V(ob)} // make a bbV with t:ul
-
-function vwPt(){
-    vw= Bb.View.prototype
-    vw.g=function(m){
-        if(this.model && this.model.get){
-            return this.model.get(m)
-        }
-    }
-    vw.s=function(a,b){this.model.set(a,b); return this}
-
-    vw.cl= vw.collection
-    vw.cl=function(fn){var cl
-        cl=this.collection
-        if(U(fn)){return cl}
-        if(cl){_.e(cl,fn)}
-        return this
-    }
-    vw.e=function(fn){_.e(this.model, fn); return this}
-    vw.e= function(a,b){ var cl = this.collection || this.cl;
-        return cl.each(a,b)
-    }
-    vw.E=function(){   this.q.E(); return this }
-    vw.eCl= function(fn){_.e(this.collection, fn); return this}
-    vw.ECl= function(fn){this.E(); _.e(this.collection, fn); return this}
-
-    vw.h=vw.H=function(a){
-        this.$el.html(a);return this}
-    vw.j=vw.tJ=vw.J=function(){
-        if(this.model){
-            return this.model.toJSON()
-        }
-
-
-    }
-    vw.J= function(fn){var vw=this, j= this.collection.toJSON()
-        if(F(fn)){
-
-            _.e(j,fn);return vw}
-
-
-        return j}
-    vw.oC=function(fn){var g=G(arguments)
-        this.model.on('change', fn)
-        if(g.p){this.r()}
-        return this
-    }
-    vw.r=  vw.rr=function(){ return this.render() }
-
-
-//alert
-    vw.C$=function(s){
-        alrert('vw.C$')
-        this.q.C$(s); return this
-    }
-
-}
 function templs(){TMPWORKS=function(){$.x('b')
 
     data = { n:'j', a:20, o:'p' }
@@ -102,9 +23,6 @@ function templs(){TMPWORKS=function(){$.x('b')
     })
 
 }
-
-
-
     TMP =function(){$.x('r');
 
         data = { n:'j', a:20, o:'p' }
@@ -118,8 +36,6 @@ function templs(){TMPWORKS=function(){$.x('b')
                 d: data
             })()}
         )}
-
-
     PLV=function(){$.x('o','hi'); $l('PLV')
 
         Per= $M({//name, age, occ
@@ -176,23 +92,13 @@ function templs(){TMPWORKS=function(){$.x('b')
 
 
     }
-
-
-
-
-
-
-
-
     BBVTdArr=[  {t:'a.com', h:'a.com'}, {t:'b.com', h:'b.com'}, {t:'c.com', h:'c.com'}   ]
-
     listTp=function(){
         $.dI('list-tp', [ $.la() ]).C('o')
         //$.d('o').id('list-tp').A($.la())
 
 
     }
-
     rFn=function(){var da, tp, ul
 
         $l('r: '+this.model.g('d')[0].h)
@@ -210,17 +116,12 @@ function templs(){TMPWORKS=function(){$.x('b')
 
         })
     }
-
     rFn2=function(){$l('rr: '+ this.model.g('d')[0].h )  //$.c('b').ab(300,300)
         da = this.model.g('d'); tp=this.tp
         ul= this.q.find('ul')
         _.e(da,  function(da){
             clo=  tp.clone()
             ul.A(clo.find('a').hr('href', da.h).T(da.t).end())  })}
-
-
-
-
     BBVT=function(){$.x('x', 'bb view and template'); listTp(); m= $M()({ d:BBVTdArr })
         $.dI('ct', [$.bt('Load'), $.ul().id('list')]).C('y')
         Vw = $V({q:'#ct',
@@ -228,7 +129,6 @@ function templs(){TMPWORKS=function(){$.x('b')
             r:rFn,
             ev: {'click button':'r'}})
         v =  Vw({  m:m, blOp:'emp!' })}
-
     BBVT=function(){$.x('x', 'bb view and template'); listTp(); m= $M()({  d: BBVTdArr  })
 
 
@@ -258,8 +158,6 @@ function templs(){TMPWORKS=function(){$.x('b')
         v=Vw({  zm: m  ,  blOp: 'emp!' })
 
     }
-
-
     TP=function(){$.x().A(
 
         a= _.tp("<div>hello:<%=n%></div>")({n:'moe'}),
@@ -278,12 +176,6 @@ function templs(){TMPWORKS=function(){$.x('b')
 
 
     )}
-
-
-
-
-
-
     TP=function(){z()
 
         c1=tp("hello: <%= name %>" , {name:'moe'} )
@@ -306,12 +198,6 @@ function templs(){TMPWORKS=function(){$.x('b')
         $b()(c2)
 
     }
-
-
-
-
-
-
     Temp=function(i,  h){
         var s=''
 
@@ -333,10 +219,6 @@ function templs(){TMPWORKS=function(){$.x('b')
         ).id(i).a()
 
     }
-
-
-
-
     tempScr=function(i,e){
 
         t=qq($(
@@ -353,44 +235,24 @@ function templs(){TMPWORKS=function(){$.x('b')
 
         return t
     }
-
-
-
-
     temp=function(a,b){
         return _.template(
             $('#'+a).html(),
             ob(b))}
-
-
-
-
-
-
-
 //QT:
-
 // this will be an attempt to make
 // underscore templates, but via qq
 // -does not actually use _.template at all
-
-
     qT=function(f,o,e){
         return f(ob(o), e||_d())
     }
-
-
 //a sample template
     lii=function(o,e){
 
         return e( li(o.me), li(o.me) )
     }
-
 //return [li(o.me), li(o.me)]
-
 // e= qT( lii, {me:'jason'} ).a()
-
-
     thed=function(o,e){
 
         return e(
@@ -402,15 +264,7 @@ function templs(){TMPWORKS=function(){$.x('b')
             )
         )
     }
-
-
-
 // t=qT(thed).a()
-
-
-
-
-
     TP=function(){z()
 
         c1=tp("hello: <%= name %>" , {name:'moe'} )
@@ -433,12 +287,6 @@ function templs(){TMPWORKS=function(){$.x('b')
         $b()(c2)
 
     }
-
-
-
-
-
-
     Temp=function(i,  h){
         var s=''
 
@@ -460,10 +308,6 @@ function templs(){TMPWORKS=function(){$.x('b')
         ).id(i).a()
 
     }
-
-
-
-
     tempScr=function(i,e){
 
         t=qq($(
@@ -480,62 +324,10 @@ function templs(){TMPWORKS=function(){$.x('b')
 
         return t
     }
-
-
-
-
     temp=function(a,b){
         return _.template(
             $('#'+a).html(),
             ob(b))}
-
-
-
-
-
-
-
-//QT:
-
-// this will be an attempt to make
-// underscore templates, but via qq
-// -does not actually use _.template at all
-
-
-    qT=function(f,o,e){
-        return f(ob(o), e||_d())
-    }
-
-
-//a sample template
-    lii=function(o,e){
-
-        return e( li(o.me), li(o.me) )
-    }
-
-//return [li(o.me), li(o.me)]
-
-// e= qT( lii, {me:'jason'} ).a()
-
-
-    thed=function(o,e){
-
-        return e(
-
-            thead()(
-                tr().k('header')(
-                    th()('Name'),th()('Age')
-                )
-            )
-        )
-    }
-
-
-
-// t=qT(thed).a()
-
-
-
     CATZ=function(){z()
 
 
@@ -704,10 +496,6 @@ function templs(){TMPWORKS=function(){$.x('b')
 
 
     }
-
-
-
-
     CATZ=function(){z()
 
 
@@ -876,8 +664,6 @@ function templs(){TMPWORKS=function(){$.x('b')
 
 
     }
-
-
 }
 function appp(){
     VWW=function(){$.x()
@@ -1222,18 +1008,51 @@ function learn(){
 //render does nothing unless u override it
 //cannot access model from init
 }
+//alert
+vw.C$=function(s){
+    alert('vw.C$')
+    this.q.C$(s); return this
+}
 old=function(){
-    /*
+    //vw.cl= vw.collection
+    vw.r=  vw.rr=function(){ return this.render() }
+
+    vw.oC=function(fn){var g=G(arguments)
+        this.model.on('change', fn)
+        if(g.p){this.r()}
+        return this
+    }
+
+
+    Vw=Bb.V.e({
+        renderCollection: function(op) {op = op || {}
+            op.target = op.target || this.$el;
+            op.cl = op.cl ||    op.collection ||  this.collection;
+            //- reset views
+            if (!op.add) {this.disposeViews()}
+            else {this._subviews = []}
+            this._renderOptions = op
+            //- if there is a collection and a view then render it
+            if (op.cl && this.view) {
+                op.cl.each(this._renderView, this)}
+            return this
+        }
+    })
+
      VWob={
+
      i:'initialize',
-     m:'model', c:'collection',
+     m:'model',
+         c:'collection',
      e:'el',
-     n:'id', x:'id',
-     k:'className',
+     n:'id',
+         x:'id',
+         k:'className',
      tn:'tagName',
      t:'tagName',
      a:'attributes',
      ev:'event'
+
      }
-     */
+
 }
