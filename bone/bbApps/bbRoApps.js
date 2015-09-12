@@ -1,3 +1,142 @@
+ROUTEE = function(){$.x();$l('routee')
+        r= $$R({
+            routes: {
+                '*x': 'd'
+            },
+            d: function (a) {
+                $l('dddddddddddddddddddd')
+                $l('d:' + a)
+            },
+            e: function (a) {
+                $l('e:' + a)
+            }
+        })()
+        // r.o('d',function(a){$l('d:'+ a)}); r.o('e',function(a){$l('e:'+a)})
+
+        Bb.h.start()
+
+        _.in(2,function(){
+            Bb.h.navigate('d', {trigger:true})
+        })
+
+    }
+NOPUSHSTATE= VID0 = function () {z();
+        FirstVw = Bb.V.x({
+            initialize: function () {
+                this.render()
+            },
+            render: function () {
+                var first = $.d().rm().A(
+                    $.lb().A('My 1st View'), $.br(),
+                    $.a().hr('#sec').A('Go to 2nd View')
+                ).oh();
+
+                this.$el.html(first)
+            }
+        })
+        SecVw = Bb.V.x({
+            initialize: function () {
+                this.render()
+            },
+            render: function () {
+                var sec = $.d().rm()
+                    .A($.lb().A('My 2nd View'), $.br(), $.a()
+                        .hr('#first').A('Go to 1st View'))
+                    .oh()
+                this.$el.html(sec)
+            }
+        })
+
+        $('body').C('o').css('font-size', 80)
+        $.d().id('ct')
+        $$R({
+            r: {'': 'pg1', 'first': 'pg1', 'sec': 'pg2'},
+            pg1: function () {
+                new FirstVw({el: $('#ct')})
+            },
+            pg2: function () {
+                new SecVw({el: $('#ct')})
+            }
+        })()
+        Bb.h.start(
+            //{pushState:true}
+        )
+    }
+STILLNOPUSH=VID1 = function () {
+        z();
+        $('body').C('o').css('font-size', 80)
+        $.d().id('ct')
+        $$R({
+            r: {
+                ':post/:id': 'pam',
+                '*post': 'splat',
+                'post/*id': 'splatMustBeLast'
+            },
+            pam: function (post, id) {
+                $l('fnPam: ' + post + ', id# ' + id)
+            },
+            splat: function () {
+                alert('1')
+            },
+            splatMustBeLast: function () {
+                alert('2')
+            }
+        })()
+
+        Bb.h.start(
+            {pushState: true}
+        )
+    }
+//WORKS (above):
+VID00=function(){
+
+        $FirstVw = Bb.V.x({
+            initialize: function () {
+                this.render()
+            },
+            render: function () {
+                var first = $.d().rm().A(
+                    $.lb().A('My 1st View'), $.br(),
+                    $.a().hr('sec').A('Go to 2nd View')
+                ).oh();
+
+                this.$el.html(first)
+            }
+        })
+        $SecVw = Bb.V.x({
+            initialize: function () {
+                this.render()
+            },
+            render: function () {
+                var sec = $.d().rm()
+                    .A($.lb().A('My 2nd View'), $.br(), $.a()
+                        .hr('first').A('Go to 1st View'))
+                    .oh()
+                this.$el.html(sec)
+            }
+        })
+        z(); $('body').C('o').css('font-size', 80)
+        $.d().id('ct')
+
+
+        $$R({
+            r: {'':'pg1',
+                'first':'pg1',
+                'sec':'pg2'
+            },
+            pg1: function(){
+                new $FirstVw({el: $('#ct')})},
+            pg2: function(){
+                new $SecVw({el: $('#ct')})}
+
+        })()
+
+        Bb.h.start(
+
+            //{pushState:true}
+        )
+    }  //push state not working???
+
 SHOWVW=NORTR = function () {
     $.x()
     V1 = $$V({
@@ -407,7 +546,7 @@ RTR0 = function (){$.x('y');$CSS({h1: {'font-size': 100}})
 
 
 }
-ROUTENAV1=function(){z()
+RTENAV=function(){z()
     Rt=$$R({
         routes:{
             'po/:id'  :  'gp',
@@ -416,354 +555,92 @@ ROUTENAV1=function(){z()
         gp:function(id){al('Get post '+id)}
     })
     r=Rt()
-    Bb.h.s({pushState: true})
-    $.bt('hi', function(){r.n('po/2', {t:1}) }).a()
-}
-ROUTENAV0 = function () {
-    $.x('b')
-    $R({
-        r: {
-            'po/:id': 'gp',
-            '*a': 'dr'
-        },
-        dr: function (a) {
-            $l(a)
-        },
-        gp: function (id) {
-            $.bd().C($r())
-            $l('Get post ' + id)
-        }
-    }, '+')
-    $.bt('hi', function () {
-        rt.n('po/2')
-    })
-
-
-}
-ROUTENAV = function () {
-    $.x('b')
-    Bb.R({
-        rt: {
-            'po/:id': 'gp',
-            '*a': 'dr'
-        },
-        dr: function (a) {
-            alert(a)
-        },
-        gp: function (id) {
-            alert('Get post ' + id)
-        }
-
-    })
-    $.bt('hi', function () {
-        $l('11111111')
-        rt.n('po/2', {t: 1})
-    })
-}
-RNAVV = function () {
-    $.x('b')
-    r=$$R({
-        routes: {
-            'po/:id': 'gp',
-            '*a': 'dr'
-        },
-        dr: function (a) {
-            $l(a)
-        },
-        gp: function (id) {
-            $l('Get post ' + id)
-        }
-    })()
-    $.bt('hi', function () {rt.n('po/2')})
-    $.bt('hi1', function () {rt.n('po/4')})
     r.A('mvc/rnav/j', function () {
         alert('!')
     })
+    Bb.h.s({pushState: true})
+    $.bt('hi', function(){r.n('po/2', {t:1}) }).a()
+    $.bt('hi', function () {rt.n('po/2')})
+    $.bt('hi1', function () {rt.n('po/4')})
     $.bt('hiiiii', function () {
         r.navigate('mvc/rnavv/j', {trigger:true})
     })
-    Bb.h.start({pushState:true})
 }
-rtrOb();firstSec();werk()
-function rtrOb(){
-    RTob1 = {'': 'index',
-        'wap/rtr/images/:id': 'image',
-        view: 'viewImage'
-    }
-    RTob = {'': 'home',
-        'view': 'v', 'new': 'nn',
-        ':id': 'en',
-        'posts/:id': 'gPo',
-        '*acts': 'dfR', 'download/*path': 'dlF',
-        ':route/:action': 'ldV'
-    }
-    RTR1 = function () {
-        $.x('b')
+AHREF= RTR1 = function () {$.x('b')
+
+    $R({
+        routes:  {'': 'index',
+            'wap/rtr/images/:id': 'image',
+            view: 'viewImage'},
+        h: function () {
+            $l('you are viewing home page')
+        },
+        x: function () {
+            $l('you are viewing index')
+        },
+        image: function (id) {
+            $l('image===')
+            _.t(10, function () {
+                $l($r() + '-id: ' + id)
+            });
+            $.bd().C('z')
+        },
+        viewImage: function () {
+            $l('you are viewing an image')
+        }
+    })
+    _.in(function () {
+        $l('......')
+
+        r.n('/wap/rtr/images/32903290239032902390')
 
 
-        $R({
-            r: RTob1,
-            h: function () {
-                $l('you are viewing home page')
-            },
-            x: function () {
-                $l('you are viewing index')
-            },
-            image: function (id) {
-                $l('image===')
-                _.t(10, function () {
-                    $l($r() + '-id: ' + id)
-                });
-                $.bd().C('z')
-            },
-            viewImage: function () {
-                $l('you are viewing an image')
-            }
-
-        })
-
-        _.in(function () {
-            $l('......')
-
-            r.n('/wap/rtr/images/32903290239032902390')
-
-
-        }, '*')
-        //looks for clicks on any anchor els where
-        //href starts with '/' (no domain) and stop
-        //bw from nv to it
-
-
-        $.bd().on('click', 'a[href^="/"]', function (ev) {
-            $l('wow')
-            ev.preventDefault()
-            r.n($(this).attr('href', {trigger: true}))
-        })
-
-    }
-    RTR11 = function () {
-        $.x('b')
-
-
-        $R({
-
-            r: RTob1,
-            h: function () {
-                $l('you are viewing home page')
-            },
-            x: function () {
-                $l('you are viewing index')
-            },
-            image: function (id) {
-                $l('image===')
-                _.t(10, function () {
-                    $l($r() + '-id: ' + id)
-                });
-                $.bd().C('z')
-            },
-            viewImage: function () {
-                $l('you are viewing an image')
-            }
-
-        }, '+')
-
-        _.in(function () {
-            $l('......')
-
-            r.n('/wap/rtr/images/32903290239032902390')
-
-
-        }, '*')
-        //looks for clicks on any anchor els where
-        //href starts with '/' (no domain) and stop
-        //bw from nv to it
-
-
-        $.bd().on('click', 'a[href^="/"]', function (ev) {
-            $l('wow')
-            ev.preventDefault()
-            r.n($(this).attr('href', {trigger: true}))
-        })
-
-    }
-    ROUTEPAMS0 = function () {
-        $.x().A('hahahahhahaha')
-
-
-
-        $R({
-            rt: RTob,
-
-            home: function () {
-                $l('home')
-            },
-
-            v: function () {
-                $l('image')
-            },
-            nn: function () {
-            },
-            en: function (id) {
-                $l('id:' + id)
-            }
-
-        }, '+')
-
-        r.oR('dfR', $l)
-
-        r.oR('gPo', function (id) {
-            $l('gPo# ' + id)
-        })
-        r.oR('gPo', function () {
-            $l(3)
-        }) //both routes fire!
-
-        r.oR('dlF', $l)
-
-        r.oR('ldV', function (rt, ac) {
-            $l(rt + '_' + ac)
-        })
-
-    }
+    }, '*')
+    //looks for clicks on any anchor els where
+    //href starts with '/' (no domain) and stop
+    //bw from nv to it
+    $.bd().on('click', 'a[href^="/"]', function (ev) {
+        $l('wow')
+        ev.preventDefault()
+        r.n($(this).attr('href', {trigger: true}))
+    })
 }
-function firstSec(){
-    FirstVw = Bb.V.x({
-        initialize: function () {
-            this.render()
+RTPAMS = function () {$.x().A('hahahahhahaha')
+    r= $$R({
+        rt: {'': 'home',
+
+            'view': 'v',
+
+            'new': 'nn',
+            ':id': 'en',
+            'posts/:id': 'gPo',
+            '*acts': 'dfR', 'download/*path': 'dlF',
+            ':route/:action': 'ldV'
         },
-        render: function () {
-            var first = $.d().rm().A(
-                $.lb().A('My 1st View'), $.br(),
-                $.a().hr('#sec').A('Go to 2nd View')
-            ).oh();
 
-            this.$el.html(first)
-        }
-    })
-    SecVw = Bb.V.x({
-        initialize: function () {
-            this.render()
+        home: function () {
+            $l('home')
         },
-        render: function () {
-            var sec = $.d().rm()
-                .A($.lb().A('My 2nd View'), $.br(), $.a()
-                    .hr('#first').A('Go to 1st View'))
-                .oh()
-            this.$el.html(sec)
-        }
-    })
-    $FirstVw = Bb.V.x({
-        initialize: function () {
-            this.render()
+
+        v: function () {
+            $l('image')
         },
-        render: function () {
-            var first = $.d().rm().A(
-                $.lb().A('My 1st View'), $.br(),
-                $.a().hr('sec').A('Go to 2nd View')
-            ).oh();
-
-            this.$el.html(first)
-        }
-    })
-    $SecVw = Bb.V.x({
-        initialize: function () {
-            this.render()
+        nn: function () {
         },
-        render: function () {
-            var sec = $.d().rm()
-                .A($.lb().A('My 2nd View'), $.br(), $.a()
-                    .hr('first').A('Go to 1st View'))
-                .oh()
-            this.$el.html(sec)
+        en: function (id) {
+            $l('id:' + id)
         }
+
+    })()
+    r.oR('dfR', $l)
+    r.oR('gPo', function (id) {
+        $l('gPo# ' + id)
     })
-    function withoutPushState() {
-        VID0 = function () {
-            z();
-            $('body').C('o').css('font-size', 80)
-            $.d().id('ct')
-
-            $$R({
-                r: {'': 'pg1', 'first': 'pg1', 'sec': 'pg2'},
-                pg1: function () {
-                    new FirstVw({el: $('#ct')})
-                },
-                pg2: function () {
-                    new SecVw({el: $('#ct')})
-                }
-            })()
-            Bb.h.start(
-                //{pushState:true}
-            )
-        }
-        VID1 = function () {
-            z();
-            $('body').C('o').css('font-size', 80)
-            $.d().id('ct')
-            $$R({
-                r: {
-                    ':post/:id': 'pam',
-                    '*post': 'splat',
-                    'post/*id': 'splatMustBeLast'
-                },
-                pam: function (post, id) {
-                    $l('fnPam: ' + post + ', id# ' + id)
-                },
-                splat: function () {
-                    alert('1')
-                },
-                splatMustBeLast: function () {
-                    alert('2')
-                }
-
-            })()
-
-            Bb.h.start(
-                {pushState: true}
-            )
-        }
-    }
-    //push state not working???
-    VID00=function(){z(); $('body').C('o').css('font-size', 80)
-        $.d().id('ct')
-
-
-        $$R({
-            r: {'':'pg1',
-                'first':'pg1',
-                'sec':'pg2'
-            },
-            pg1: function(){
-                new $FirstVw({el: $('#ct')})},
-            pg2: function(){
-                new $SecVw({el: $('#ct')})}
-
-        })()
-
-        Bb.h.start(
-
-            //{pushState:true}
-        )
-    }
-}
-function werk(){
-    ROUTEE = function(){$.x();$l('routee')
-        r= $$R({
-            routes: {
-                '*x': 'd'
-            },
-            d: function (a) {
-                $l('dddddddddddddddddddd')
-                $l('d:' + a)
-            },
-            e: function (a) {
-                $l('e:' + a)
-            }
-        })()
-        // r.o('d',function(a){$l('d:'+ a)}); r.o('e',function(a){$l('e:'+a)})
-        Bb.h.start()
-        _.in(2,function(){
-            Bb.h.navigate('d', {trigger:true})
-        })
-    }
+    r.oR('gPo', function () {
+        $l(3)
+    }) //both routes fire!
+    r.oR('dlF', $l)
+    r.oR('ldV', function (rt, ac) {
+        $l(rt + '_' + ac)
+    })
 }
