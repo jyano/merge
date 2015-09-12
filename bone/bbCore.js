@@ -15,10 +15,10 @@ WOB=WITHOUTBB=function(){
 Bb= Backbone; Bb.U=Bb.Utility; Bb.S=Bb.Sync
 Bb.R=  Bb.Router; Bb.R.x=  Bb.R.extend
 Bb.E= Bb.Ev=Bb.Events; Bb.E.x=Bb.E.extend
-late()
-bbMdCl(); bbVw(); apz();
+late(); bbMdCl(); bbVw(); apz();
 
-function bbMdCl() {
+
+function bbMdCl(){
     Bb.M = Bb.Model
     bb.M.x = bb.M.extend
     $M = function () {
@@ -45,11 +45,17 @@ function bbMdCl() {
         return md.set(a, b, c)
         return md
     }
+
+    md.tr=  function(a,b){ this.trigger(a,b); return this}
     md.l = function () {
-        $l(this.toJSON());
-        return this
+        $l(this.toJSON()); return this}
+    md.l1 = md.lT1= md.lTo1= function (a, b, c, d) {
+        return this.listenToOnce(a, b, c, d)
     }
 
+    md.l2 =md.lT= md.lTo=function (a, b, c, d) {
+        return this.listenTo(a, b, c, d)
+    }
     Bb.C = Bb.Collection
     bb.C.x = bb.C.extend
 }
