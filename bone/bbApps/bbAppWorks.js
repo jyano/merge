@@ -1,24 +1,18 @@
 BBVIEW2=function(){
-    $.x('b','bbview2')
-    $.dI('d1',
-        'r', 500, 500)
+
+    $.dI('d1', 'r', 500, 500)
     LstV = bb.V.x({
         el: '#d1',
         r: function(){
             this.A(
                 $.ul([
                     'hello']))},
-        i: function(){ this.r() }})
+        i: function(){ this.r() }
+    })
     v = LstV.o() //not function
 }
 
-BBVIEW1=function(){$.x('b','bbview1')
-    v=$V({
-        q: d=$.dI('d1','r', 500, 500),
-        r: function(){this.A($.ul(['hello']))},
-        i: function(){this.r()}
-    })()
-}
+
 
 BBVIEW0=function(){$.x('b','bbview0')
 
@@ -30,54 +24,22 @@ BBVIEW0=function(){$.x('b','bbview0')
 
 }
 
-BBVP1=function(){$.x('x', 'bb view people 1')
-
-    peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
-    vw= $V({t:'ul',
-        i:function(){this.$el.C($r())},
-        r:function(){var el=this.$el.E()
-            _.e(this.collection, function(p){$('#peep')
-                el.A($.li().A(p.n + '(' + p.a + ')'))})
-            return this}
-
-    })({cl: peep})
-
-
-    $.A(vw.r().el)
-    $.in(function(){peep.pop(); vw.r()},'*')
-}
-BBVP0=function(){$.x('x', 'bb view people 0')
-
-    peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
-
-    vw= $.ulV({
-        i:function(){
-            this.q.C($r())
-
-        },
-        r:function(){var el=this.q.E()
-            this.cl(function(p){
-                el.A($.li().A(p.n+'('+p.a+')'))})
-            return this}
-    })({cl: peep})
-    $.A(vw.r().q)
-    $.in(function(){peep.pop(); vw.r()},'*')
-}
-
-
 PER2=function(){$.x('n')
-    Per=bb.M.e({
-
+    Per=bb.M.x({
         d: {n:'j', a:20, o:'p'}
-
     })
+
     p= new Per
-    PerV = $V({t:'li', _:'some-per', k:'per',
+    PerV = $V({
+        t:'li', _:'some-per',
+        k:'per',
+
         r: function(){
             this.A('n').A()
         },
+
         //  this.A(this.g('n')).A() //  this.A(this.model.get('n').A()
-        i: function(){
+        initialize: function(){
             $l(this.model);
             this.r()
         }
@@ -85,6 +47,7 @@ PER2=function(){$.x('n')
     pV =  PerV({ m:p  })
 
 }
+
 PER1=function(){$.x('n')
 
     p = $M({ d: {n:'j',a:20,o:'p'}   })()
@@ -98,19 +61,24 @@ PER1=function(){$.x('n')
 }
 PER=function(){$.x('n')
     m = $M({d:{n:'j',a:20,o:'p'}})()
+
     m.V($V({
+
         t:'li', _:'some-per', k:'per',
         r: function(){  this.A('n').A() },
-        i: function(){this.r()}
+        initialize: function(){this.r()}
     }))
-    $.in(function(){m.l()}, '*')
+
+    _.in(function(){m.l()})
+
 }
+
+
+function samp(){
 BBSAMP1=function(){$.x('b','bbsamp','+')
     d=$.d()
-    Rec = bb.M.e()
-
-    RecV = bb.V.e({t:'div', k:'rec',
-
+    Rec = bb.M.x()
+    RecV = bb.V.x({t:'div', k:'rec',
         events:{'click': 'move'},
         move:function(){this.$el.css('left', this.$el.position().left +10)},
         rr:function(){return this.sDims().sPos().sCol()},
@@ -120,21 +88,15 @@ BBSAMP1=function(){$.x('b','bbsamp','+')
             this.model.get('pos').x, this.model.get('pos').y)
             return this
         },
-
         sCol:function(){this.$el.C(this.model.get('C'))
             return this}
     })
-
-
     _.e([
         Rec.o({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
         Rec.o({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
         Rec.o({w:100, h:200, pos:{x: 0, y:100},C:'y'})
     ], function(md){
-
-
         var r=  RecV.o({model:md})
-
         r.rr().$el.a2(d)
     })
 
@@ -143,22 +105,26 @@ BBSAMP1=function(){$.x('b','bbsamp','+')
 }
 BBSAMP=function(){$.x('b','bbsamp','+')
 
-
     d=$.d()
     Rec = $M()
+    recs=[
+        Rec({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
+        Rec({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
+        Rec({w:100, h:200, pos:{x: 0, y:100},C:'y'})
+    ]
 
-    RecV = $V({k:'rec',
-
+    RecV = $V({
+        k:'rec',
         e: {'click': 'move'},
-
         move:function(){
             this.q.css('left',
                 this.q.position().left +10)
         },
-        r:function(){return this.sDims().sPos().sCol()},
+        rr:function(){return this.sDims().sPos().sCol()},
         sDims:function(){
-            this.q.WH(this.model.g('w'),
-                this.model.g('h'))
+            this.$el.WH(
+                this.model.get('w'),
+                this.model.get('h'))
             return this
         },
 
@@ -168,37 +134,24 @@ BBSAMP=function(){$.x('b','bbsamp','+')
         )
             return this
         },
-
-
         sCol:function(){this.q.C(this.model.g('C'))
             return this}
     })
 
-    _.e([
-        Rec({w:100, h: 30, pos:{x: 300, y:400},C:'o'}),
-        Rec({w:100, h: 20, pos:{x: 400, y:400},C:'g'}),
-        Rec({w:100, h:200, pos:{x: 0, y:100},C:'y'})
-    ], function(md){ RecV({model:md}).rr().$el.a2(d)  })
+    _.e(recs  , function(md){
+        RecV({model:md}).rr().$el.a2(d)
+    })
 
 }
-SIMP=function(){$.x('r').h1('tut')
-    p = $M()({n:'j'})
+    }
+SIMP=function(){
+    $.x('r').h1('tut')
+    p = $M()({ n:'j' })
     $.h3('p: '+p.g('n'))
 }
 
-WOB=function(){
-    $.x('x', 'bb view people')
-    //without backbone!
-    ul = $.ul().id('peep')
-    peep = [{n:'a',a:11}, {n:'b',a:46}, {n:'c',a:13}]
-    vw={r:function(){
-        $('#peep').E()
-        _.e(peep, function(p){
-            $('#peep').A('<li>'+ p.n + '(' + p.a + ')</li>')
-        })}}
-    vw.r()
-    $.in(function(){peep.pop(); vw.r()},'*')
-}
+
+
 function template() {
 
     TP=function(){$.x().A(

@@ -8,21 +8,8 @@ Bb.x= Bb.e= function(ob){
 }
 Bb.E.b=Bb.E.bind
 Bb.E.tr=Bb.E.trg=Bb.E.trigger
-Bb.pe=Bb.parseEvents=function(ev){
 
-    EVob = {
-        $: 'click', $$: 'dblclick',
-        v: 'mouseover'
-    }
-    ev=ev||{$: function(){}}
-    _.e(ev, function(v, k){
-        if(EVob[k]){
-            ev[EVob[k]]=v  }
-    })
 
-    return ev
-
-}
 bbE=function bbE(o){ // "add" (model, collection, options)
     // — when a model is added to a collection.
     // "remove" (model, collection, options) — when a model is removed from a collection.

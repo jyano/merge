@@ -1,15 +1,9 @@
 $l('bbModel')
 md=Bb.Model.prototype
+
 md.at = md.attributes
 md.at= function(){return this.attributes}
 md.b = md.bind
-md.g = md.get
-md.s= function(a,b,c){var md=this
-    if(O(a) && O(b)){if(b.v){b.validate= b.v?true:false}}
-    if(S(a) && O(c)){if(c.v){c.validate= c.v?true:false}}
-    return md.set(a,b,c)
-    return md
-}
 md.S= md.save
 md.hC=function(at){var md=this,
     g=G(arguments),o
@@ -27,13 +21,13 @@ md.hC=function(at){var md=this,
 mdJson()
 listn()
 mdEv()
+
 md.V=function(Vw, ob){
     ob = ob || {}
     ob.m=this
-
     return Vw(ob)
-
 }
+
 function mdJson() {
     md.J = md.tJ = md.toJSON
     md.jS = md.tS = function () {
@@ -42,10 +36,7 @@ function mdJson() {
     md.$l = md.lJ = function () {
         return $l(this.jS())
     }
-    md.l = function () {
-        $l(this.toJSON());
-        return this
-    }
+
 }
 function listn() {
     md.l1 = function (a, b, c, d) {
@@ -395,11 +386,16 @@ Bb.m=function(ob){ob=O(ob)?ob:{}
 $m=function(){var g=G(arguments)
     return $M.apply(null, g)()
 }
+
+
 $M=function(ob){var g=G(arguments), Md, klas
 
     ob=ob||{}
+
     ob.defaults = ob.defaults || ob.df || ob.d
+
     if(  !F(ob.initialize) && F(ob.i) ) {  ob.initialize = ob.i  }
+
     ob.id = D(ob.id)? ob.id : ob.x
     ob.idAttribute = ob.idAttribute || ob._id
     ob.events= ob.events || ob.ev || ob.e
@@ -410,15 +406,19 @@ $M=function(ob){var g=G(arguments), Md, klas
         var g=G(arguments)
         return new Md(a,b,c,d)
     }
-    klas.m=klas.M= Md
+
+    klas.m= klas.M = Md
+
     return klas
+
+
+
 }
-$M = function () {var g = G(arguments), Md = Bb.M.x.apply(V, g)
-    return function (a, b, c, d) {
-        var g = G(arguments)
-        return new Md(a, b, c, d)
-    }
-}
+
+
+
+
+
 
 appss()
 function appss(){
