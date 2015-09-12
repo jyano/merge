@@ -71,3 +71,53 @@ TASKER0=function(){$.x()
 
     tasksV=Ap.V.Tasks.o({cl:tasks})
 }
+
+
+function oldSchol(){
+    BACKDEMO=function(){z()
+
+
+        Temp('task', [
+
+            lb('Task: '),
+            tx().id('task_desc'),
+            bt('add task').id('btn')   ])
+
+
+        di('container').a()
+
+        bbR({
+
+
+            R:{
+                '':'first',
+                'first':'first',
+                'second':'second'},
+
+            first:function(){$l('first')},
+            second:function(){
+                new Task()
+                $l('second')}
+
+        })()
+
+        bbH()
+
+
+        Task=bbV({
+
+            el: $('#container'),
+
+            i: function(){this.r()},
+
+            r: function(){this.$el.html( temp('task') )},
+
+            e: {'click button': 'add'},
+
+            add: function(){ alert( qiv('task_desc') + ' task added' )}
+
+        })
+
+    }
+
+}

@@ -8,12 +8,7 @@ cl.g= cl.get
 cl.j= cl.tJ=cl.toJSON
 cl.l=function(){$l(this.toJSON()); return this }
 cl.rm= cl.r= cl.remove
-cl.s= function(a,b,c){var cl=this
-    if(O(a) && O(b)){if(b.v){b.validate= b.v?true:false}}
-    if(S(a) && O(c)){if(c.v){c.validate= c.v?true:false}}
-    cl.set(a,b,c)
-    return cl
-}
+
 cl.l2 = function (a, b, c, d) {return this.listenTo(a, b, c, d)}
 cl.l1 = function (a, b, c, d) {return this.listenToOnce(a, b, c, d)}
 cl.V=function(Vw, ob){ob = ob || {}

@@ -298,6 +298,12 @@ $M=function(op,a,b,c){
 Bb.C = Bb.Collection; Bb.C.x = Bb.C.extend; cl = Bb.Collection.prototype; Bb.sEv(cl)
 cl.A = cl.add
 cl.rm=cl.remove
+cl.s= function(a,b,c){var cl=this
+    if(O(a) && O(b)){if(b.v){b.validate= b.v?true:false}}
+    if(S(a) && O(c)){if(c.v){c.validate= c.v?true:false}}
+    cl.set(a,b,c)
+    return cl
+}
 _$$C = function(ob){ob=ob||{}
     //var g=G(arguments), o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s}; o=o||{}
     if(!F(ob.initialize) && F(ob.i) ) {  ob.initialize = ob.i  }
@@ -362,6 +368,17 @@ $$C=function(ob){
 
 
 $C=function(ob,a,b,c){return $$C(ob,a,b,c)()}
+C$= function(a){var b,c
+// $.ext(Bb.Collection)
+    //if(U(a)){var c=new Bb.Collection; return sCl(c)}
+    a=O(a)?a:{}
+    if(a.m){a.model= a.m}
+    c= Bb.C.x(a)
+    return function(o){o=O(o)?o:{}
+        //if(o.m){o.model= o.m}
+        b=new c(o)
+        return b}
+}
 
 //Router:
 Bb.R=  Bb.Router;

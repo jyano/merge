@@ -264,3 +264,55 @@
         }
 
     }
+    MODCHANGE=function(){$.x()
+        Bk = $M({
+
+            d: {ID: "", n: ""},
+            i: function(){var bk=this; $l('init..')
+
+
+                this.on('change',  function() {
+                    alert('change')
+                    if(bk.hasChanged('ID')){alert('ID changed')}
+                    if(bk.hasChanged('n')){alert('n changed')}
+
+                })},
+
+            showAlert: function () {
+                alert('ID: '+this.g('ID')+','+' n: '+this.g('n'))
+            }
+        })
+        bk = Bk({ID: 1, n: "a"})    // ChildBook = Bk.extend({})
+    }
+
+    MODCHANGE = function () {
+        $.x()
+
+        Bk = Bb.M.e({
+
+            d: {ID: "", n: ""},
+            initiate: function () {
+
+                $l('init..')
+
+                var that = this
+
+                this.on('change', function () {
+                    alert('change')
+                    if (that.hasChanged('ID')) {
+                        alert('ID changed')
+                    }
+                    if (that.hasChanged('n')) {
+                        alert('n changed')
+                    }
+                })
+            },
+
+            showAlert: function () {
+                alert('ID: ' + this.g('ID') + ',' + ' n: ' + this.g('n'))
+            }
+
+        })
+        // ChildBook = Bk.extend({})
+        bk = Bk.o({ID: 1, n: "a"})
+    }

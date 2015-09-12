@@ -1,3 +1,98 @@
+RESTPERSIST0 = function () {
+
+    //RESTful Persistence
+    //Thus far, all of our example data has been created in  bw. For most single page apps, mds are derived fromdata store residing onserver.
+    //This is area in which bb dramatically simplifies code you need to write to perform RESTful synchronization withserver throughsimple API on its mds and cls.
+// Fetching mds from server
+// Cls.fetch() retrieves set of mds from server in form ofJSON array by sending HTTP GET request to URL spec by cl’s url property (which may befunction).
+// When this data is received,set() will be executed to update cl.
+
+    Td = $M({df: {tt: '', completed: false}})
+    TdsCl = $Cl({md: Td, url: '/tds'})
+    tds = TdsCl();
+    tds.fetch(); // sends HTTP GET to /tds
+
+
+}
+SAVEMDTOSERVER = function () {
+
+
+    // bb can retrieve entire cl of mds from server at once, but updates to mds are performed individually using md’s save() met.
+    //  When save() is called on a md that was fetched from server, it constructs a URL by appending md’s id to cl’s URL and sends HTTP PUT to server.
+
+    // If md is new instance that was created in  bw (i.e. it doesn’t have id) then HTTP POST is sent to cl’s URL. Cls.create() can be used to createnew md, add it to cl,  and send it to server insingle met call.
+
+
+    Td = $M({df: {tt: '', completed: false}});
+
+    TdsCl = $Cl({md: Td, url: '/tds'});
+
+    tds = TdsCl();
+    tds.fetch();
+
+    td2 = tds.g(2);
+    td2.s('tt', 'go fishing');
+    td2.S(); // sends HTTP PUT to /tds/2
+
+
+    tds.create({tt: 'Try out code samples'}); // sends HTTP POST to /tds and adds to cl
+//     As mentioned earlier,md’s validate() met is called automatically by save() and will trigger invalid event on md if validation fails.
+
+    //  Deleting mds from server
+
+    //  A md can be rmd from containing cl and server by calling its destroy() met. Unlike Cl.rm() which only rmsmd fromcl, Md.destroy() will also send HTTP DELETE to cl’s URL.
+
+    Td = $M({df: {tt: '', completed: false}});
+
+    TdsCl = $Cl({md: Td, url: '/tds'});
+
+    tds = TdsCl();
+    tds.fetch();
+    td2 = tds.g(2)
+
+    td2.destroy(); // sends HTTP DELETE to /tds/2 and rms from cl
+    // Calling destroy onMd will return false if md isNew:
+
+    td = new Bb.Md();
+    $l(td.destroy())  // false
+    // Options
+
+    // Each RESTful API met accepts a variety of ops.
+    //  Most importantly, all mets accept success and error cbs which can be used
+    //  to custize handling of server responses.
+
+    //  Specifying {patch: true} option to Md.save() will cause it to use HTTP PATCH to send only changed atts (i.e. partial updates) to server
+    //  instead of entire md; i.e. md.save(attrs, {patch: true}):
+
+    // Save partial using PATCH
+    md.clear().set({id: 1, a: 1, b: 2, c: 3, d: 4});
+    md.save();
+    md.save({b: 2, d: 4}, {patch: true});
+    $l(this.syncArgs.met);
+    // 'patch'
+    // Similarly, passing {reset: true} option to Cl.fetch() will result in cl being updated using reset() rather than set().
+
+
+}
+CID0 = function () {
+
+// to uniquely identify mds  use:
+
+// id --- unique identifier (int|S, e.g.,UUID) -can be used to fetch md from cl
+//Internally, Bb.Cl contains [md] enumerated by md.id, if md insts have one.
+// When cl.g(id) is called, arr checked for existence of md inst  with corresp  id.
+
+// cid--- (client id), auto-gen-d at md creation -can be used to fetch md from cl,
+// helpful when you don’t have true id (   not (or not yet) saving it to db  )
+// tdCid = tds.g(td2.cid)
+
+//  idAttribute( df=id)----  identifying attr name of md returned from server (i.e. id in your db).
+//  -tells bb which data field from server should be used  to populate id property (think of it as a mapper).
+// if your server sets unique attr on your md named “userId” then you would set idAttribute to “userId” in your md definition.
+//  The val of md’s idAttribute should be set by server when md is saved. -shouldn’t need to set it manually, unless further control is required.
+
+
+}
 AVAILSRV=function(){$.x('x'); Ap={ M:{},C:{},V:{},T:{} }
     M$=function(ob){ob=O(ob)?ob:{}
         var Md, md
@@ -1348,6 +1443,203 @@ DIRTPAGE=function(){$.x()
             )
         })
     }
+}
+FETCH = EVTSAVE = function () {
+    m = Bb.M.e({n: 'j'})
+    Don = Bb.M.e({
+        d: {n: null, sprink: 0, cream: 0},
+        u: function () {
+            return this.id ? '/dn/' + this.id : '/dn'
+        }
+    })
+    bc = bostonCream = Don.o({n: 'Bos', cream: 1})
+    bc.s({sprink: 1}).S() //save
+    Dons = Bb.C.e({m: Don, url: "/dn"})
+    dons = Dons.o()
+    dons.fetch()
+    // donuts.at(0); -> gets donuts by index.
+    // donuts.get(0); -> gets donuts by id.
+    // donuts.each(function(d){$l(d.get("name"))})
+    // donuts.select(function(d){return d.get("name").length>2})// Select donuts with names longer than 2
+    // donuts.map(function(d){return d.get("name")})
+    Shop = Bb.M.e({
+
+        i: function () {
+            this.dons = Dons()
+            this.dons.url = 'shops/' + this.id + "/dn"
+        },
+        df: {n: "z"}
+    }).o()
+    Shop.oA(function (dn) {
+        alert("added " + dn.g('n'))
+    })
+    lem = Shop.dons.A({n: "Lem"})
+    ev = Bb.E()
+    ev.b("fun:had", function () {
+        alert("wee!")
+    })
+    ev.tr("fun:had")  //it'll alert "wee!"
+}
+
+
+FETCH=EVTSAVE=function(){
+
+    m= Bb.M.x({
+        n: 'j'
+    })
+
+
+    Don = $M({
+        //defaults
+        d: { n:null, sprink:0, cream:0 },
+        //u? url?
+        u: function(){return'/dn/' + this.id || ''}
+    })
+
+    bc=bostonCream= Don({n:'Bos',cream:1})
+    bc.s({sprink:1}).S()  //save
+
+    Dons= $Cl({m:Don, url:"/dn"})
+
+    dons=Dons()
+    dons.fetch() //f F
+
+
+    dons.at(0)  // a -> gets donuts by index.
+    dons.get(0) // g   -> gets donuts by id.
+    dons.each(function(d){ // e
+        $l(d.get("name"))
+    })
+
+
+    dons.select(function(d){//sl
+        return d.get("name").length>2
+    })// Select donuts with names longer than 2
+
+    dons.map(function(d){//m
+        return d.get("name")})
+
+
+    Shop= $m({i: function(){
+        this.dons=Dons()
+        this.dons.url='shops/'+this.id+"/dn"
+    }, df: {n:"z"} })
+
+    Shop.oA(function(dn){ //on ? alert added?
+        alert("added "+ dn.g('n'))
+    })
+
+    lem = Shop.dons.A({
+        n:"Lem"
+    })
+
+    //////
+
+}
+MOD=function(){
+
+    m=bbM({n:'j'})
+
+
+    Donut = bbM({
+
+        d:{
+            n:null,
+            sparkles:false,
+            cream_filled:false},
+
+        u:function(){var t=this
+            return t.id?'/donuts/'+t.id:'/donuts'}
+
+    })
+
+
+
+
+    bostonCream=Donut({
+        n:'Boston Cream',
+        cream_filled:true
+    })
+
+
+    bostonCream.s({sprinkles:true})
+
+    bostonCream.S() //save
+
+    Donuts=bbC({
+
+        m:Donut,
+
+        url:"/donuts"
+
+    })
+
+    donuts=Donuts()
+
+    donuts.fetch()// donuts.at(0); -> gets donuts by index.
+    // donuts.get(0); -> gets donuts by id.
+    // donuts.each(function(d){$l(d.get("name"))})
+    // donuts.select(function(d){return d.get("name").length>2})// Select donuts with names longer than 2
+    // donuts.map(function(d){return d.get("name")})
+
+    DonutShop=bbM({
+
+        defaults:{n:"Untitled"},
+
+        initialize:function(){var t=this
+
+            t.donuts=Donuts()
+            t.donuts.url='donut_shops/'+t.id+"/donuts"}
+    })
+
+    donutShop.oA(function(donut){
+        alert("added "+donut.get("name"))})
+
+
+    lemonFilled = donutShop.donuts.a({
+        n:"Lemon Filled"
+    })
+
+
+    a=Eve()
+
+    a.o("fun:had",function(){alert("wee!")});
+
+    a.e("fun:had")//it'll alert "wee!"
+
+
+}
+OSYNC = function () {
+    $.x('x', 'osync')
+
+    Bb.sync = function (met, md) {
+        $l(met + ': ' + _.jS(md))
+        md.s('id', 1)
+    }
+    bk = new Bb.M({
+        tt: "The Rough Riders",
+        au: "Theodore Roosevelt"
+    })
+    bk.S()
+    bk.S({au: "Teddy"})
+
+
+    // save accepts success and error cbs in the options hash,
+    // which will be passed the args (md, resp, ops).
+    // If a server-side validation fails, return a non-200 HTTP response code,
+    // along with an error response in text or JSON.
+
+
+    bk.save(
+        "au", "F.D.R.", {
+            error: function () {
+                $l('error')
+            },
+            success: function () {
+                $l('success')
+            }
+        })
+
 }
 function learn(){
     function bbSynd(){
