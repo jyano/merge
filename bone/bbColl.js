@@ -20,7 +20,23 @@ cl.V=function(Vw, ob){ob = ob || {}
     ob.m=this
     return Vw(ob)}
 
+function alpha(){
+    C$= function(a){var b,c
 
+// $.ext(Bb.Collection)
+        //if(U(a)){var c=new Backbone.Collection; return sCl(c)}
+        a=O(a)?a:{}
+        if(a.m){a.model= a.m}
+        c= Backbone.Collection.extend(a)
+        return function(o){o=O(o)?o:{}
+
+            //if(o.m){o.model= o.m}
+            b=new c(o)
+            o.o=o.on
+            E$(o)
+            return b}
+    }
+}
 
    old=function() {//cl.o= function(){var g=G(arguments); this.on.apply(this, g) }
 

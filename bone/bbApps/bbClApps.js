@@ -1,47 +1,8 @@
 $l('bbClApps')
 
-BCL = function () {
-    $.x().h1('BCL but whats up wit dose funcs?')
 
-
-    BksC = $Cl({
-        m: Bk = $M({
-            d: {n: '', g: 'fun'},
-            url: 'http://localhost:51377/api/Books'
-        }),
-        d: {pizzaTopping: 'pepperoni'}
-    })
-
-
-    cl1 = BksC()
-    cl1.A([Bk({n: "Bk 1"}), {}, {}, Bk({n: "Bk 2"})])
-    cl2 = BksC([bk1 = Bk({ID: 1, n: "Bk 1"}), bk2 = Bk({ID: 2, n: "Bk 2"})])
-    cl2.A(bk3 = Bk({ID: 3, n: "Bk 3"}))
-
-    add = function () {
-        $l('add')
-        cl2.A([
-            bk4 = Bk({ID: 4, n: "Bk 4"}),
-            bk5 = Bk({ID: 5, n: "Bk 5"})
-        ])
-    }
-
-    add()
-    addAt = function (n) {
-
-        cl2.add(bk0 = Bk({n: "Bk 0"}), {at: n || 0})
-    }
-    change = function () {
-        bk3 = Bk({ID: 3, n: "Bk 3"})
-        cl2.add(bk3)
-        bk3_changed = Bk({ID: 3, n: "Changed Model"})
-        cl2.add(bk3_changed, {merge: true})
-    }
-}
-BBSORT = function () {
+BBSORT00 = function () {
     $.x('a', 'sort dont work')
-
-
     chps = $Cl({m: Chp = $M()})()
     chps.comparator = function (a) {
         return a.tt
@@ -53,7 +14,55 @@ BBSORT = function () {
     chps.sort()
     $l(chps.pluck('tt'))
 }
-FLCL = function () {
+
+BBSORT0=function() {
+    Chp = $$M()
+    chps =  $$C({ m:Chp })()
+    chps.comparator = function (a) {
+        return a.tt
+    } //$.x(a)
+    chps.add(Chp({p:9, tt:"End"}))
+    chps.add(Chp({p:5, tt:"Mid"}))
+    chps.add(Chp({p:1, tt:"Beg"}))
+    $l(chps.pluck('tt'))
+}
+
+function templa(){
+FLCL00=function(){$.x('r', 'filtering a cl:')
+    /*
+     FlV = Bb.V.e({
+     ev: {'click #run': 'runFilter'},
+     runFilter: function(e){e.pD();
+     this.fl = {
+     // ... get the filter info from the DOM
+     }; this.rr()},
+     rr: function(){// get the filtered list from the collection
+     // iterate over the filtered list and render the results in to the html array
+     // populate the DOM with the resulting HTML
+     HT=[]
+     _.e(this.cl.where(this.fl),
+     function(item){HT.push(
+     _.tp($('my-item-template').H())(item.tJ())
+     )})
+     this.$el.html(HT); return this }
+     })*/
+    Cl =  $$C({i:function(){}})
+    cl = Cl({})
+
+
+    /*
+     cl.add([{a: 'f', b: 's'},
+     {a: 't', b: 's'},
+     {a:'f', b: 's'},
+     {a: 's', b:'t'}
+     ])
+
+
+     res = cl.where({a:'f',b:'s'})
+     */
+    //http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
+}
+FLCL0 = function () {
     $.x('r', 'filtering a cl, but tp missing?!')
     // ... get the filter info from the DOM
     // get the filtered list from the collection
@@ -62,13 +71,11 @@ FLCL = function () {
 
     FlV = $V({
         ev: {'click #run': 'runFilter'},
-
         runFilter: function (e) {
             e.pD();
             this.fl = {};
             this.r()
         },
-
         r: function () {
             HT = [];
             _.e(this.cl.where(this.fl),
@@ -78,12 +85,9 @@ FLCL = function () {
             this.q.h(HT);
             return this
         }
-
-
     })
 
-
-    Cl = $Cl({
+    Cl = $$C({
         i: function () {
             $l('fuck')
         }
@@ -95,89 +99,23 @@ FLCL = function () {
         var j = q.tJ();
         $.h1(j.a + ' !@@@##@ ' + j.b)
     })
-
 //http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
 
 }
-TASKER = function () {
-    $.x('g', 'tasker');
-    Ap = {M: {}, C: {}, V: {}}
-
-    Ap.M.Tsk = $M()
-
-    t1 = Ap.M.Tsk({t: 'store', pr: 4})
-    t2 = Ap.M.Tsk({t: 'park', pr: 3})
-
-    Ap.V.Tsk = $V({
-        t: 'li',
-        r: function () {
-            this.A(this.g('tt'));
-            return this
-        }
-    })
-    tskV = Ap.V.Tsk({m: t1})
+    }
 
 
-    Ap.C.Tsks = $Cl({m: Ap.M.Tsk})
-    tsks = Ap.C.Tsks([{tt: 'hi'}, {tt: 'bye'}])
 
+COUNTER = function () {z()
 
-    Ap.V.Tsks = $V({
-        t: 'li',
-        r: function () {
-            var v = this
-            v.eCl(function (t) {
-                v.q.A(Ap.V.Tsk({m: t}).r().q)
-            })
-            this.q.A()
-        }
-    })
-
-    tsksV = Ap.V.Tsks({cl: tsks})
-
-    $.bt('r Ap.V.Tsks tsksV', function () {
-        tsksV.r()
-    })
-
-}
-BADS = function () {
-    $.x().h1('backcl');
-    $.i('chicks').A()
-    $cl().oA(function (s) {
-        $l("new: " + s.g('n'))
-    }).A([{n: 'g1'}, {n: 'g2'}])
-}
-COUNTER = function () {
-
-    $Cl({md: $M({d: {tt: '', completed: false}})})
-    ([Td({tt: 'Read', id: 2})]).length // 1
-
-
-    Td = $M({df: {tt: '', completed: false}})
-    TdsCl = $Cl({md: Td})
-    tds = TdsCl([
-        a = Td({tt: 'Jam'}), b = Td({tt: 'Chin'})
-    ]);
-    tds.length //  --> 2
-    tds.A(c = Td({tt: 'Disn'}));
-    tds.length  // --> 3
-    tds.rm([a, b]);
-    tds.length // --> 1
-    tds.rm(c);
-    tds.length  //--> 0
-
+    Td = $$M({df: {tt: '', completed: false}})
 
     // -add() and rm() accept  indiv mds | []      // { merge: true }  -> MERGE  dup mds, !ignore
-
-
     items = $cl().A([{id: 1, n: "Dog", a: 3}, {id: 2, n: "cat", a: 2}]).A([{
         id: 1,
         n: "Bear"
     }], {merge: true}).A([{id: 2, n: "lion"}])// merge: false
-
-
     $l(_.jS(items.toJSON())) // [{"id":1,"name":"Bear","age":3},{"id":2,"name":"cat","age":2}]
-
     //    to retriev a md from a cl, use Cl.get(), accepts single id:
     tds = TdsCl([td = Td({id: 2, tt: 'book'})])
     td2 = tds.g(2);
@@ -203,7 +141,6 @@ COUNTER = function () {
     TdsCl.A([{tt: ' Jamaica.', completed: false, id: 3}])
     td = TdsCl.g(3)
     td.s('tt', 'go fishing')  //  Nah! I  go fishing
-
 
     Td = $M({df: {tt: '', completed: false}})
     td = Td().s({tt: 'Buy cookies', completed: true})
@@ -621,57 +558,6 @@ PLV=function(){$.x('o','hi')
     $.in(.4,function(){pCV.r()},'*')
 
 }
-C$= function(a){var b,c
-// $.ext(Bb.Collection)
-    //if(U(a)){var c=new Backbone.Collection; return sCl(c)}
-    a=O(a)?a:{}
-    if(a.m){a.model= a.m}
-    c= Backbone.Collection.extend(a)
-    return function(o){o=O(o)?o:{}
-
-        //if(o.m){o.model= o.m}
-        b=new c(o)
-        o.o=o.on
-        E$(o)
-        return b}
-}
-BCL=function(){$.x().h1('BCL')
-
-    Bk = Bb.M.e({
-        d: {ID: '', n: ''},
-        id: "ID",
-        url: 'http://localhost:51377/api/Books'
-    })
-
-    BksC = Bb.C.e({m: Bk})
-
-    cl1 =   BksC.o()
-    bk1 = Bk.o({ ID: 1,  n: "Bk 1" })
-    bk2 =  Bk.o({ ID: 2, n: "Bk 2" })
-    cl2 =  BksC.o([bk1, bk2])
-    bk3 =  Bk.o({ ID: 3, n: "Bk 3" })
-    cl2.add(bk3)
-
-    change=function(){
-        bk3 = new Bk({ ID: 3, n: "Bk 3" })
-        cl2.add(bk3)
-        bk3_changed =  Bk.o({ ID: 3, n: "Changed Model" })
-        cl2.add(bk3_changed, { merge: true })
-    }
-
-    add=function(){
-        bk4 =   Bk.o({ ID: 4, n: "Bk 4" })
-        bk5 =  Bk.o({ ID: 5, n: "Bk 5" })
-        cl2.add([bk4, bk5])
-    }
-    addAt=function(n){
-        bk0 = new Bk({ ID: 0, n: "Bk 0" })
-        cl2.add(
-            bk0, {at:n||0}
-        )
-    }
-
-}
 BBCOL=function(){$.x()
 
     Per = Bb.M.e({})
@@ -681,102 +567,6 @@ BBCOL=function(){$.x()
     Pers= Bb.C.e({model: Per})
 
     pers=  Pers.o([p1, p2])
-}
-BBSORT=function() {
-    Chp = Bb.M.e()
-
-    chps =  Bb.C.e({
-        m:Chp
-    }).o()
-
-
-    chps.comparator = function (a) { return a.tt } //$.x(a)
-
-    chps.add(
-        Chp.o({p:9, tt:"End"})
-    )
-    chps.add(
-        Chp.o({p:5, tt:"Mid"}))
-    chps.add(
-        Chp.o({p:1, tt:"Beg"})
-    )
-
-    $l(chps.pluck('tt'))
-
-}
-FLCL=function(){$.x('r', 'filtering a cl:')
-
-    /*
-     FlV = Bb.V.e({
-     ev: {'click #run': 'runFilter'},
-     runFilter: function(e){e.pD();
-     this.fl = {
-     // ... get the filter info from the DOM
-     }; this.rr()},
-     rr: function(){// get the filtered list from the collection
-     // iterate over the filtered list and render the results in to the html array
-     // populate the DOM with the resulting HTML
-     HT=[]
-     _.e(this.cl.where(this.fl),
-     function(item){HT.push(
-     _.tp($('my-item-template').H())(item.tJ())
-     )})
-
-     this.$el.html(HT); return this }
-     })*/
-
-
-    Cl =  Bb.C.e({
-        i:function(){}
-    })
-
-
-    cl = Cl.o({})
-
-
-    /*
-     cl.add([{a: 'f', b: 's'},
-     {a: 't', b: 's'},
-     {a:'f', b: 's'},
-     {a: 's', b:'t'}
-     ])
-
-
-     res = cl.where({a:'f',b:'s'})
-     */
-    //http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
-}
-TASKER=function(){$.x()
-    Ap={M:{}, C:{}, V:{}}
-
-    Ap.M.Task = Bb.M.e({})
-
-    t1=Ap.M.Task.o({t:'go  store', pr:4})
-
-    t2=Ap.M.Task.o({t:'go park', pr:3})
-
-    Ap.V.Tsk= Bb.V.e({t:'li',
-        rr: function(){this.A( this.g('t') )
-            return this
-        }
-    })
-
-    taskView=Ap.V.Tsk.o({m:t1})
-    Ap.C.Tasks = Bb.C.e({m:Ap.M.Tsk})
-    tasks=Ap.C.Tasks.o([{t:'hi'}, {t:'bye'}])
-    Ap.V.Tasks = Bb.V.e({t:'li',
-        rr: function(){
-            var that=this
-            this.cl.each(
-                function(t){
-                    var v=Ap.V.Task.o({m:t})
-                    that.$el.A(v.rr().el)
-                }, this)
-            this.el.A()
-        }
-    })
-
-    tasksV=Ap.V.Tasks.o({cl:tasks})
 }
 PEOPLE=function(){$.x()
 
@@ -843,221 +633,4 @@ PEOPLE=function(){$.x()
     pcv.r()
     $.A( pcv.el )
 
-}
-fromServ()
-function fromServ(){
-    AVAIL=function(){$.x('x'); Ap={ M:{},C:{},V:{},T:{} }
-
-        Ap.T.Avail=function(model){
-            return $.d('g',400,100).mar(20).A(
-
-                $.h4(model.g('c')).id('avail').C('y','r'),
-                $.br(), $.sp('delete').id('deleteAvail'),
-                $.sp(' '), $.sp('edit').id('editAvail'),
-                $.sp(' '), $.cb().id('selAvail'))
-        }
-        Ap.M.Avail=M$({urlRoot: '/avail'})
-        Ap.C.Avails=C$({model: Ap.M.Avail, url: '/avail'})
-        Ap.V.Avail=Bb.V.e({
-
-            r:function(){
-                this.$el.A( Ap.T.Avail(this.model) )
-                return this},
-            ev:{
-                'click #deleteAvail':'deleteAvail',
-                'click #editAvail':'editAvail',
-                'blur #avail':'changeAvail'},
-            changeAvail:function(){
-                this.$el.fi('#avail').at('contenteditable','false')
-                newAvail=this.$el.fi('#avail').text()
-                this.model.s('c', newAvail)
-                this.model.save()},
-            deleteAvail:function(){
-                this.model.destroy()
-                this.$el.rm()
-            },
-
-            editAvail:function(){this.$el.fi('#avail').at('contenteditable','true')}
-
-        })
-        Ap.V.Avails =Bb.V.e({
-            el:'#availsDiv',
-            I:function(){this.render()},
-            R:function(){var t=this
-                t.collection.fetch({
-                    success:function(){
-                        t.$el.html('')
-                        t.$el.A("<h1>Avails List</h1>")
-                        t.collection.each(function(m){
-                            t.$el.A( Ap.V.Avail({model:m}).render().el )
-                            return t},t)
-                    }})
-            }})
-        //  avs=Ap.C.Avails()
-        //  v=Ap.V.Avails({collection:avs})//.render()
-//    avs.on('destroy',function(aa){$l('destroy!!!!')})
-        $.ip('new avail').id('newAvail').A()
-
-        $.bt('ok',function(){
-            Ap.M.Avail({c: $('#newAvail').v()
-            }).save()
-
-            v.render()
-
-        }).A()
-        $.dI('availsDiv')
-        $.ip('new avail').id('newAvail').A()
-        $.bt('ok',function(){
-            var m= Ap.M.Avail({
-                c:qiv('newAvail')
-            })
-            m.save()
-            m.on('destroy', function(){alert('i am the model and i was destroyed')})
-            v.render()
-        })
-        $.dI('availsDiv')
-
-
-        Ap.T.Avail=function(model){
-            return $.d('g',400,100).mar(20).A(
-                $.h4(model.g('c')).id('avail').col('y','r'),
-                $.br(),
-                $.sp('delete').id('deleteAvail'),
-                $.sp(' '), $.sp('edit').id('editAvail'),
-                $.sp(' '), $.cb().id('selAvail')
-            )
-        }
-        Ap.M.Avail=Bb.M.e({urlRoot: '/avail'})
-        Ap.C.Avails=C$({model: Ap.M.Avail, url: '/avail'})
-        Ap.V.Avail=Bb.V.e({
-
-            r:function(){
-                this.q(
-                    Ap.T.Avail(this.model)
-                )
-                return this
-            },
-            ev:{
-                'click #deleteAvail':'deleteAvail',
-                'click #editAvail':'editAvail',
-                'blur #avail':'changeAvail'
-            },
-            changeAvail:function(){
-                qq( this.$el.find('#avail') ).cE(0)
-                var newAvail=this.$el.find('#avail').text()
-                this.model.s('c', newAvail)
-                this.model.save()
-            },
-
-            deleteAvail:function(){
-                this.model.destroy()
-                this.$el.remove()},
-            editAvail:function(){
-
-                this.$el.find('#avail').cE(1)
-
-            }
-
-        })
-
-        Ap.V.Avails =Bb.V.e({el:'#availsDiv',
-            i:function(){this.render()},
-            r:function(){var t=this
-                t.collection.fetch({
-                    success:function(){
-                        t.q.H('')
-
-                        t.q($.h1('Avails List'))
-
-                        t.e(
-                            function(m){
-                                t.q(
-                                    Ap.V.Avail({m:m}).r().el )
-                                return t},t)
-
-                    }})
-            }})
-        avs=Ap.C.Avails.o()
-
-        avs.on('destroy', function(j){
-            alert('i am col and i was destroyed')
-            v.trigger('modelDeleted')
-        })
-
-        v=Ap.V.Avails.o({cl:avs})
-
-
-        v.on('modelDeleted', function(){alert('modDel')})
-
-        Bb.M.e({
-            d:{ prop:3 },
-            test:function(){
-                $( this.get('prop') ) },
-            test2:function(a){ $l('prop: '+this.get('prop'))},
-            happy:function(a){
-                this.test2(a)
-            }
-        })
-
-
-    }
-    DIRTPAGE=function(){$.x()
-
-        var newMsBox, newTopic, newMs,searchBox
-
-        MsM= Bb.M.e({  })
-        MsC= Bb.C.e({   m:'MsM'  })
-        MsView= Bb.V.e({  })
-        MssView= Bb.V.e({ })
-
-        $.h1().A(
-            $.a(  'Dirtpage', '/wap/dirtpage/' )
-        ).A()
-        $.dI('content')
-        if(wappyPam) {
-
-            newMsBox= $.d().WH('auto').A(
-                $.h1('new ms'),
-                $.ip().K('form-control').id('newMs'),
-                $.bt('ok', function(){var newMs = $('#newMs').v()
-                    $.P('messages' , {tpc:wappyPam, ms:newMs
-                    }, function(){ loadResults() })}))
-            $('#cont').A($.h1('the '+ wappyPam + ' page'),
-                newMsBox, $.dI('res'))
-            function loadRes(){$.G('topics/' + wappyPam, function(msgs){
-                $('#results').ht($.h5('len: '+msgs.length)  )
-                _.e(msgs, function(ms){$('#res').A($.h6( ms.ms ))
-                })})}
-            loadRes()}
-        else {
-            newMsBox=$.d().WH('auto').A(
-                $.h1('new message'),
-                $.ip().K('form-control').id('newTopic'),
-                $.ip().K('form-control').id('newMs'),
-                $.bt('ok', function(){
-                    newTopic = $('#newTopic').v()
-                    newMs = $('#newMs').v()
-                    $.P('msgs', {topic:newTopic, message:newMs}, function(){})})
-            )
-            searchBox= $.d().WH('auto').A(
-                $.h1('search'),
-                $.ip().K('form-control').id('searchInput'),
-                $.bt('ok', function(){window.location=   '/wap/dirtpage/'+ $('#searchInput').v()
-                    searchInput = $('#searchInput').v()
-                    $.G('topics/' + searchInput, function(msgs){
-                        $('#res').ht($.h5('len: '+msgs.length)  )
-                        _.e(msgs, function(ms){$('#res').A( $.h6( ms.ms ) )})
-                    })
-                })
-            )
-            $.dI('res')
-            $('#cont').A(newMsBox, searchBox)
-            $.eG('msgs',  function(ms){
-                $('#res').A($.h2().A(
-                        $.a('topic: '+ms.topic,'/wap/dirtpage/'+ms.topic)),
-                    $.h3( 'ms: '+ms.ms)
-                )
-            })
-        }
-    }
 }

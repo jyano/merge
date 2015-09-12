@@ -99,8 +99,26 @@ MDGET=function(){
     p = $$M()({ n:'j' })
     $.h3('p: '+ p.g('n'))
 }
-
-
-
-
-
+CLONADD = function () {$.x().h1('backcl'); $.i('chicks').A()
+    cl= $$C({})().oA(function (s) {
+        $l("new!!!!!! " + s.g('n'))
+    }).A([{n: 'g1'}, {n: 'g2'}])
+}
+CLLEN = function (){z()
+    Td = $$M({df: {tt: '', completed: false}});
+    cl = $$C({
+        md: $$M({d: {tt: '', completed: false}})
+    })([Td({tt: 'Read', id: 2})]); $l('len 1?: ' + cl.length)
+    TdsCl = $$C({md: Td})
+    tds = TdsCl([
+        a = Td({tt: 'Jam'}),
+        b = Td({tt: 'Chin'})
+    ])
+    $l('len 2?: ' + tds.length)
+    tds.A(c = Td({tt: 'Disn'}))
+    $l('len 3?: ' + tds.length)
+    tds.rm([a, b]);
+    $l('len 1?: ' + tds.length)
+    tds.rm(c);
+    $l('len 0?: ' + tds.length)
+}

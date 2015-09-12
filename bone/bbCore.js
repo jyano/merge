@@ -229,8 +229,17 @@ md.l1 = md.lT1= md.lTo1= function (a, b, c, d) {
 md.l2 =md.lT= md.lTo=function (a, b, c, d) {
     return this.listenTo(a, b, c, d)
 }
+
+md.a2 = function (a) {$l('me.a2')
+    return this
+    if(!this.q){alert('me.a2 !q'); return this}
+    return this.q.a2(a)
+}
+
 _$$M=function(ob){ob=ob||{} // o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s} //o=o||{}
-     ob.initialize = ob.initialize || ob.i; function init(){
+
+    ob.initialize = ob.initialize || ob.i || function(){}
+    function init(){
 
         if(ob.fn){
             ob.i= o.fn}
@@ -254,6 +263,8 @@ _$$M=function(ob){ob=ob||{} // o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s} 
             _.b(ob._i,this) (op)
         }
     }
+
+
     ob.className=ob.className|| ob.k
     ob.defaults = ob.defaults || ob.df || ob.d
     ob.events= ob.events || ob.ev || ob.e
@@ -267,17 +278,14 @@ _$$M=function(ob){ob=ob||{} // o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s} 
     return Bb.M.x(ob||{})
 }
 $$M = function (ob,a,b,c) {
+    ob=ob||{}
     var g = G(arguments), Md
-
-
-    Md = Bb.M.x(ob,a,b,c)
-
+    Md = _$$M(ob,a,b,c)
     return function (ob, q) {var md
         ob = ob || {}
         ob.collection = ob.collection || ob.cl || ob.c
         ob.model = ob.model || ob.md || ob.m
-
-        md=new Md(ob, a, b, c)
+        md= new Md(ob)
         if (q) {md.a2(q)}
         return md
     }
@@ -289,6 +297,7 @@ $M=function(op,a,b,c){
 //Collections:
 Bb.C = Bb.Collection; Bb.C.x = Bb.C.extend; cl = Bb.Collection.prototype; Bb.sEv(cl)
 cl.A = cl.add
+cl.rm=cl.remove
 _$$C = function(ob){ob=ob||{}
     //var g=G(arguments), o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s}; o=o||{}
     if(!F(ob.initialize) && F(ob.i) ) {  ob.initialize = ob.i  }
@@ -322,28 +331,36 @@ _$$C = function(ob){ob=ob||{}
     }
     return Bb.C.x(ob||{})
 }
+
 $$C=function(ob){
     var Cl = _$$C(ob)
-    return function(ob,b,c,d){var cl
+    return function(ob,b,c,d){
+        ob=ob||{}
+        var cl
         ob.collection= ob.collection || ob.cl || ob.c
         ob.model = ob.model || ob.md || ob.m
         cl= new Cl(ob,b,c,d) //if(q){cl.a2(q)}
-        return sCl(cl)
-    }
-    function sCl(cl){
         cl.q= cl.$el
         cl.a2=function(a){return cl.q.a2(a)}
         cl.g=function(a){if(a){return cl.model.get(a)}}
+
+        /*
         cl.A=function(ob){
-            var g=G(arguments),
-                q=cl.q
+
+            var g=G(arguments)
             if(S(ob)){ob = cl.g(ob)}
-            if(ob){q.A(ob)}
-            if(U(ob) || g.p){q.A()}
-            return q}
-        _.b(ob._i,cl) (op)
+            if(ob){this.$el.A(ob)}
+            if(U(ob) || g.p){ this.$el.A() }
+            return this.$el
+        }
+        //_.b(ob._i,cl) (op)
+        */
         return cl
-    }}
+    }
+
+}
+
+
 $C=function(ob,a,b,c){return $$C(ob,a,b,c)()}
 
 //Router:
