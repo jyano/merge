@@ -2649,7 +2649,7 @@ function htmll(){
     }
     function sem(){
 
-        $.str=function(){
+        $.S=$.str=function(){
             var g=G(arguments), s= $('<strong>');
             _.e(g,function(g){s.A(g)});
             return s

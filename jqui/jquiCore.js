@@ -72,120 +72,43 @@ $.fn.dtp= $.fn.datepicker // CSS Framework
 $.fn.st= $.fn.stop
 $.fn.f2= $.fn.fadeTo
 
-jqAnim()
-toFront()
-function jqAnim(){
-    ANob = {
-        B: 'bottom', L: 'left', R: 'right', T: 'top',
-        b: 'borderWidth', bb: 'borderBottomWidth',
-        bl: 'borderLeftWidth', br: 'borderRightWidth',
-        bt: 'borderTopWidth', bs: 'borderSpacing',
-        C: 'backgroundColor', f: 'fontSize', h: 'height', w: 'width', H: 'maxHeight', W: 'maxWidth',
-        mh: 'minHeight', mw: 'minWidth',
-        i: 'textIndent', l: 'letterSpacing', lh: ' lineHeight',
-        m: ' margin', mb: 'marginBottom', ml: 'marginLeft', mr: 'marginRight',
-        mt: 'marginTop', o: ' outlineWidth',
-        p: ' padding', pb: 'paddingBottom',
-        pl: 'paddingLeft', pr: 'paddingRight', pt: 'paddingTop',
-        ws: ' wordSpacing', x: 'backgroundPositionX', y: 'backgroundPositionY'
 
-    }
+$.dlg = function (msg) {
 
-    $.fn.an = $.fn.a = function (a, b, c, d) {
-        var g = G(arguments), o
-        o = g.f
-        var q = this
-        if (O(a)) {
-            if (a.c) {
-                a.color = oO('c', a.c)
-            }
-            if (a.C) {
-                a.backgroundColor = oO('c', a.C)
-            }
-        }
-        q.animate(a, b, c, d)
-        return q
+    var dlg=$("#response-dialog")
 
-
-        if (o.C) {//$l(o.C+'-->');
-            o.C = oO('c', o.C);
-            //$l(o.C)
-        }
-        _.e(o, function (v, k) {
-            if (ANob[k]) {
-                o[ANob[k]] = v
-            }
-        })
-        if (N(g.s)) {
-            g.s *= 1000
-        }
-        _p = o
-        this.an(o, g.s, g.t, g[3], g[4])
-        return this
-
-        $.an = $.j = function () {
-            var bd = $.bd();
-            return bd.j.apply(bd, G(arguments))
-        }
-
-    }
-    an = function (q, a) {
-        alert('an')
-        if (q.han) {
-            _.xI(q.han)
-        }
-        if (a.u) {
-            q.bi(a.u)
-        }
-        if (a.n > 1) {
-            q.han = _.sI(function () {
-                a.c++
-                if (!a.l && a.c > a.n) {
-                    _.xI(q.han);
-                    q.han = false
-                }
-                else {
-                    a.c %= a.n
-                }
-                q.sFr(a)
-            }, a.r)
-        }
-    }
-    $.aF = $.anFr = $.anf = function (n, w) {
-        var c = 0;
-        n = n || 10;
-        w = w || 20;
-        $.ev(function () {
-            q.sFr(c, w)
-            c = (c + 1) % n
+    if(!dlg[0]){
+        dlg=$.d().at({
+            title:"Messaage",
+            id:"response-dialog"
         })
     }
-    $.notAn = function (a) { // sel
-        return a.filter(':not(:animated)')
-    }
-    $.fn.bgImg = $.backgroundImage
 
-    $.fn.gFr = $.fn.getFrame
-    $.fn.sFr = $.fn.setFrame
-    $.fn.anFr = $.fn.animateFrames
-    $.fn.xq = $.fn.xQ = $.fn.clrQ = $.fn.clearQueue
-    $.fn.qu = $.fn.queue
-    $.fn.dq = $.fn.dqu = $.fn.dequeue
+    dlg.html(msg).dialog({
+        autoOpen: true,
+        width: 400,  modal: true,
+        closeOnEscape: true,
+        buttons:  { Ok: function () {dlg .dialog("close")}  }
+    })
+}
+
+DIAL=function(){$.x(null, 'dialog')
+
+    $.d([
+        $.p('This is the default dialog which is useful for displaying information'),
+        $.p('dialog window can be moved, resized and closed with the x icon')]).id('dialog').at('title', 'Basic dialog')
+    $("#dialog" ).dialog()
+
+
+    $.dlg('dialog 1')
+    $.in(3, function(){
+        $.dlg('dialog 2')
+        $.dlg('dialog 3')
+        $.dlg('dialog 4')  })
 
 }
 
 
-function toFront(){
-    $.fn.bdC=function(a){return this.css("border-color", oO('c', a||'r'))}
-    $.fn.pdB=function(a){return this.css("padding-bottom", a||0 )}
-    $.fn.mgT=function(a){return this.css("margin-top", a||0 )}
-    $.fn.pad=function(a){return this.css("padding", a||0 )}
-}
 
-//alert:
-anim=function(o){o=o||{}
-    alert('anim')
-    return {u:o.u||'chicks', n:o.n||1, w:o.w||64, r:o.r||60, c:o.c||0, l:o.l||false}
-}
 
 

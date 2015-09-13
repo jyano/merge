@@ -1,3 +1,36 @@
+kO = function () {
+    var g = G(arguments)
+    return ko.o.apply(ko, g)
+}
+kA = function () {
+    var g = G(arguments)
+    return ko.oa(g.A_ ? g.f : g)
+
+}
+bd = knockoutBind2 = function (a) {
+    var g = G(arguments), a = g[0]
+    if (g.p) {
+        a = 'text: ' + a
+    }
+    if (g.n) {
+        a = 'click: ' + a
+    }
+    if (g.m) {
+        a = 'value: ' + a
+    }
+    if (g.d) {
+        a = 'checked: ' + a
+    }
+    q.attr({'data-bind': a})
+    return q
+}
+
+
+EVob = {$: 'click', $$: 'dblclick', v: 'mouseover'}
+$.scrp = script = scrp = function (i) {
+    return $("<script type='text/html'>").id(i)
+
+}
 
 NO_RTR=function(){$.x(null, 'no router'); v1= v2 = v3 = 0
     $.d('r',100,100).id('div')

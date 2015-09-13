@@ -770,9 +770,7 @@ function mets(){
             })}
     }
 }
-function theming() {
-
-
+function theming(){
     LAYOUTHELP = function () {
 
         k = $('.k')
@@ -794,7 +792,6 @@ function theming() {
         // (can be appld to par  or sib  of hdr).
 
     }
-
     HIDE = function () {
         $.x()
 
@@ -1394,12 +1391,6 @@ function wids(){
 
 
 }
-
-
-
-
-
-
 
 //to use bootstrap with jqui!!!
 //http://www.ryadel.com/2015/01/03/using-jquery-ui-bootstrap-togheter-web-page/
