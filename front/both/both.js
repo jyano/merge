@@ -75,7 +75,7 @@ $l = function (a) {
     var g = G(arguments), v
     if (O(a) && N(a.x) && N(a.y)) {
         v = a.toFixed()
-        $l(v.x + ' , ' + v.y)
+      //  $l(v.x + ' , ' + v.y)
         return a
     }
     _.e(g, function (a) {
@@ -91,7 +91,7 @@ $l = function (a) {
         var g = G(arguments), v
         if (O(a) && N(a.x) && N(a.y)) {
             v = a.toFixed()
-            $l(v.x + ' , ' + v.y)
+           alert("$l(v.x + ' , ' + v.y)")
             return a
         }
         _.e(g, function (a) {
@@ -258,7 +258,7 @@ G = function (arg, str) {
 }
 G._ = function () {
     g = G(arguments)
-    $l(g.L + ' args')
+   alert("$l(g.L + ' args')")
 }
 
 $z = function (z) {

@@ -187,3 +187,5 @@ anim=function(o){o=o||{}
     alert('anim')
     return {u:o.u||'chicks', n:o.n||1, w:o.w||64, r:o.r||60, c:o.c||0, l:o.l||false}
 }
+
+

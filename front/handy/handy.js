@@ -1488,7 +1488,7 @@ function cssz(){
          ])*/
 
 
-        $l( ol )
+        //$l( ol )
         return ol
     }
     $.fn.col = function(col){
@@ -2351,13 +2351,7 @@ function htmll(){
                     li.A(g)
                 })
             }
-            $.fn.C$ = function (s) {
-                if (s) {
-                    $l(s + ' !!!')
-                }
-                return this.C($r())
-            }
-        }
+            $.fn.C$ = function () {alert('$.fn.C$');return this.C($r())}}
 
         $.frg = function () {
             return $(
@@ -2420,14 +2414,13 @@ function htmll(){
         }
     }
     function div() {
-$l('div')
+
         $.dI = function (id, a, b, c, d, e, f) {
             //dI conflict?
             return $.d(a, b, c, d, e, f).id(id)
         }
         $.dK = function (k) {
 
-            $l('in $.dK')
 
             var d = $.d()
             d.K(k)
@@ -2770,11 +2763,11 @@ $l('div')
             return ol
         }
 
-        $.ul=function(){$l('$.ul')
+        $.ul=function(){
             var g=G(arguments),
                 ul=$('<ul>')
 
-            if(g.A_){$l('$.ul g.A_')
+            if(g.A_){
                 _.e(g.f, function (el) {
                     if (g.p) {if(el.iLi()){el = $.li([el])}}
                     if(S(el)){el = $.li(el)}
@@ -3401,7 +3394,7 @@ function inpuz(){
         }
         sp = $.sp().A(lb, ip)
         if (!g.n) {
-            $l('adding sp');
+
             sp.A()
         }
         return sp
@@ -4184,7 +4177,7 @@ function image(){
                     function superCanvasText(el) {
 
                         el.font = function (font) {
-                            this.context.font = $l(HTML5.font(font))
+                            this.context.font = HTML5.font(font)
                             return this
                         }
 
@@ -4248,7 +4241,7 @@ function image(){
                             var el = this, g = G(arguments), i = g[0]
                             $.i(i, function (e, i) {
 
-                                $l('draw')
+
                                 ii = i
                                 g[0] = i[0]
                                 el.dI.apply(el, g)
@@ -4260,7 +4253,7 @@ function image(){
                         el.fit = function f(i, x, y) {
                             var el = this
 
-                            $l('fit: - el.W():' + el.W())
+                            //$l('fit: - el.W():' + el.W())
                             i = i || 'me'
                             x = x || 0
                             y = y || 0
@@ -6029,7 +6022,8 @@ function later(){
                 _.e(g, function(s){str+=  ' '  + s.toString() + ' |'})
                 str += '|'}
             else {str = a.toString()}
-            $l(str)}
+            alert(str)
+        }
             return a
         }
         ipsum()

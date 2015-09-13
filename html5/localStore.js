@@ -1,3 +1,22 @@
+
+ssS=sessionStorage
+sR=function(a){var i=ssS.getItem(a)
+    ssS.removeItem(a)
+    return i}
+sS=function(a,b){ssS.setItem(a,b); return ssS}
+sG=function(a){return ssS.getItem(a)}
+sL=function(){return ssS.length}
+sX=function(){ssS.clear();return ssS}
+lcS=localStorage
+lR=function(a){var i=lcS.getItem(a)
+    lcS.removeItem(a)
+    return i}
+lS=function(a,b){lcS.setItem(a,b); return lcS}
+lG=function(a){return lcS.getItem(a)}
+lL=function(){return lcS.length}
+lX=function(){lcS.clear();return lcS}
+
+
 $ls= function(k,v0){
 
     if(D(v0)){ $ls.s(k,v0)  }
@@ -85,27 +104,22 @@ bbLocStorPLUG=function(){
 // A simple module to replace `bb.sync` with *localStorage*-based
 // persistence. Models are given GUIDS, and saved into a JSON object. Simple
 // as that.
-
 // Generate four random hex digits.
         function S4() {
             return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
         };
-
 // Generate a pseudo-GUID by concatenating random hexadecimal.
         function guid() {
             return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
-        };
-
+        }
         function isObject(item) {
             return item === Object(item);
         }
-
         function contains(array, item) {
             var i = array.length;
             while (i--) if (array[i] === item) return true;
             return false;
         }
-
         function extend(obj, props) {
             for (var key in props) obj[key] = props[key]
             return obj;
@@ -116,7 +130,6 @@ bbLocStorPLUG=function(){
             var value = object[property];
             return (typeof value === 'function') ? object[property]() : value;
         }
-
 // Our Store is represented by a single JS object in *localStorage*. Create it
 // with a meaningful name, like the name you'd give a table.
 // window.Store is deprectated, use bb.LocalStorage instead
@@ -137,7 +150,6 @@ bbLocStorPLUG=function(){
             var store = this.localStorage().getItem(this.name);
             this.records = (store && store.split(",")) || [];
         };
-
         extend(bb.LocalStorage.prototype, {
 
             // Save the current state of the **Store** to *localStorage*.
@@ -236,7 +248,6 @@ bbLocStorPLUG=function(){
             }
 
         })
-
 // localSync delegate to the model or collection's
 // *localStorage* property, which should be an instance of `Store`.
 // window.Store.sync and bb.localSync is deprecated, use bb.LocalStorage.sync instead
@@ -306,9 +317,7 @@ bbLocStorPLUG=function(){
 
             return syncDfd && syncDfd.promise();
         };
-
         bb.ajaxSync = bb.sync
-
         bb.getSyncMethod = function(model, options) {
             forceAjaxSync = options && options.ajaxSync
             if(!forceAjaxSync && (result(model, 'localStorage') ||
@@ -318,15 +327,11 @@ bbLocStorPLUG=function(){
         }
 // Override 'bb.sync' to default to localSync,
 // the original 'bb.sync' is still available in 'bb.ajaxSync'
-
         bb.sync = function(met, md, op) {
             return bb.getSyncMethod(md, op).apply(this, [met, md, op])}
         return bb.LocalStorage
     }))
-
 }
-
-
 
 
 BBLS=function(){$.x()
@@ -370,8 +375,6 @@ function sessStore() {
 
 }
 function locApps() {
-
-
     JQLS1 = function () {
         $.x('o', 'jqls')
         $.d([$.h3('Pending')
@@ -674,8 +677,6 @@ function locApps() {
 
 
     }
-
-
     LCS = function () {
         $.x('r', 'localStorage')
 
@@ -689,7 +690,6 @@ function locApps() {
         $.h1('i didnt know that jason ' +
         j() + ' ' + $ls.g('food') + '!')
     }
-
     JQLS = function () {
         $.x('o', 'jqls')
 
@@ -909,7 +909,6 @@ function locApps() {
 
 
     }
-
     BBTODOS=function(){
 
         dfx = {
