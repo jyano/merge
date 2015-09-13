@@ -1,3 +1,11 @@
+function Prod(n, rating) {
+    this.n = n;
+    this.userRating = $o(rating || null)
+}
+
+VM=function(p) {this.somePop = p.smKey}
+VM.prototype.doSmg = function() {}
+
 Gift= function (gifts) {
     var vm = this
     vm.gifts = $oa(gifts)
@@ -116,3 +124,11 @@ initialData = [
     {name: "Ingenious Tadpole", sales: 39450, price: 0.35},
     {name: "Optimistic Snail", sales: 420, price: 1.50}
 ]
+Feed=function(){this.ms=ko.o('pf!')}
+VM = function () {this.ms = ko.o("Hi");
+    this.feed = new Feed();
+    this.feed2 = new Feed();
+    this.feed.ms("Ms1");
+    this.feed2.ms("Ms2");
+}
+Ms = function (m) { return {m:ko.o(m||'') }}

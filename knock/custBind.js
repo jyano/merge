@@ -1,26 +1,3 @@
-function docs(){
-// “update” cb ko will call the upd cb init when   bd   applied to an el and tr any deps (observs/computeds) that you access.
-//    When deps change-> upd  cb  called (pams:  el (DOM el  involved in this bd) and valAcc
-// — fn that you can call to get the cur md pop involved in this bd (cur md pop v = valAcc())
-
-//To easily accept both observable and plain values,
-// call ko.unwrap on the returned value.
-
-//    allBindings — ob,
-// used to access all the md values bound to this el
-//Call allBindings.get('name') to retrieve the value of the name binding (returns undefined if the binding doesn’t exist);
-//or allBindings.has('name') to determine if the name binding is present for the current element.
-
-//    vm —   deprecated  ! (Use bindingContext.$data or bindingContext.$rawData (to access vm))
-
-//    bindingCtx — ob, holds the binding ctx available to this el’s bindings,
-//    includes special properties including $parent, $parents,
-//    and $root that can be used to access data that is bound against ancestors of this ctx
-//ex: you might have been controlling an element’s vs using the vs binding,
-//    but now you want to go a step further and animate the transition.
-//    You want elements to slide into and out of existence according to the value of an observable.
-//    You can do this by writing a cust  binding that calls jq’s slideUp/slideDown functions:
-}
 ko.bH=  ko.bindingHandlers
 ko.$bH= ok.bH=$bH=function(bHName, ob){
 
@@ -192,6 +169,8 @@ ko.$bH({
             update: function(el, vA) { var observable = vA();  $("span", el).each(function(index) {$(this).toggleClass("chosen", index < observable())})} // Give the first x stars the "chosen" class, where x <= rating
         }
     })
+
+//////////////////////////////////////
 
 BDSMPGRD=function(){
 

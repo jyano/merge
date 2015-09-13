@@ -1,0 +1,69 @@
+ http://www.knockmeout.net/2011/08/all-of-knockoutjscom-live-samples-in.html
+
+ http://codereview.stackexchange.com/questions/45909/prototype-inheritance-with-knockout-observables
+
+********** custBind:
+ // “update” cb ko will call the upd cb init when   bd   applied to an el and tr any deps (observs/computeds) that you access.
+ //    When deps change-> upd  cb  called (pams:  el (DOM el  involved in this bd) and valAcc
+ // — fn that you can call to get the cur md pop involved in this bd (cur md pop v = valAcc())
+
+ //To easily accept both observable and plain values,
+ // call ko.unwrap on the returned value.
+
+ //    allBindings — ob,
+ // used to access all the md values bound to this el
+ //Call allBindings.get('name') to retrieve the value of the name binding (returns undefined if the binding doesn’t exist);
+ //or allBindings.has('name') to determine if the name binding is present for the current element.
+
+ //    vm —   deprecated  ! (Use bindingContext.$data or bindingContext.$rawData (to access vm))
+
+ //    bindingCtx — ob, holds the binding ctx available to this el’s bindings,
+ //    includes special properties including $parent, $parents,
+ //    and $root that can be used to access data that is bound against ancestors of this ctx
+ //ex: you might have been controlling an element’s vs using the vs binding,
+ //    but now you want to go a step further and animate the transition.
+ //    You want elements to slide into and out of existence according to the value of an observable.
+ //    You can do this by writing a cust  binding that calls jq’s slideUp/slideDown functions:
+
+
+
+**********  templateSpec:
+ //template spec:
+         function usingStringOfMarkup() {
+             ko.R('my-comp', {
+                 t: '<h1 data-bind="text: title"></h1><button data-bind="click: doSomething">Clickety</button>',
+                 m: _
+             })
+         }
+
+         function usingDocumentFragment() {
+             // entire (top-level) document fragment treated as component template.
+             ko.R('my-comp', {t: frg, m: _})
+         }
+
+         function usingExistingElIDOrElInstance() {
+             // can use any type of el, <template> els are convenient( don’t get rendered on their own):
+             // only nodes INSIDE container element cloned into each comp instance
+             $("<template id='my-template'>" +
+             "<h1 data-bind='text: title'></h1>" +
+             "<button data-bind='click: doSomething'>Click me</button>" +
+             "</template>")
+
+             ko.R('my-comp', {t: {element: 'my-template'}, m: _})
+             ko.R('my-comp', {t: {element: $('#my-template')[0]}, m: _})
+         }
+
+         function usingArrayOfDOMNodes() {
+             //In this case, all the specified nodes (and their descendants) will be cloned and concatenated into each copy of the component that gets instantiated.
+
+             nodes = _.m([$('#first-node'), $('#second-node'), $('#third-node')], function (q) {
+                 return q[0]
+             })
+
+
+             ko.R('my-comp', {
+
+                 t: nodes, m: _
+
+             })
+         }

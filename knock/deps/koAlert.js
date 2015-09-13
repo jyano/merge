@@ -1,13 +1,3 @@
-$.fn.qA=function(t){
-    alert('fn.qA')
-    return $('<'+t+'>').A()
-}
-$.fn.qAP=function(a,b,c){
-    alert('fn.qAP')
-    this.qA(a).par(b, c);
-    return this
-}
-
 
 $.cKO = function (m, b, v) {
     alert('$.cKO')
