@@ -4,6 +4,13 @@ oA.p = function (i) {
     oA.push(i)
     return oA
 }
+
+oA.rm = function (i) {
+    var oA = this
+    oA.remove(i)
+    return oA
+}
+
 $o = ko.o = function (a) {
     return ko.observable(a)
 }
@@ -23,31 +30,7 @@ $Ob = function (a, b) {
     }
     return ob
 }
-$KOob = function self(k, v) {
-    KOob = {
-        $: 'click', ev: 'event',
-        sm: 'submit', sb: 'submit',
-        en: 'enable', d: 'disable',
-        v: 'value', ti: 'textInput',
-        f: 'hasFocus',
-        c: 'checked', ch: 'checked',
-        o: 'options', so: 'selectedOptions', sO: 'selectedOptions', O: 'selectedOptions',
-        //
-        t: 'text', h: 'html', s: 'css', y: 'style',
-        a: 'attr', e: 'foreach', i: 'if', n: 'ifnot', w: 'with',
-        V: 'valueUpdate', vs: 'visible', u: 'uniqueName',
-        tp: 'template', cm: 'component'
-    }
-    var o = []
-    var g = G(arguments)
-    if (g.O) {
-        _.e(g.f, function (v, k) {
-            o.push(self(k, v))
-        })
-        return o.join()
-    }
-    return (KOob[k] ? KOob[k] : k) + (v ? (':' + v) : '')
-}
+
 ok = function () {
     var g = G(arguments), ob
     g.p ? _.in(0, aB) : aB()
@@ -81,21 +64,52 @@ ok = function () {
         }
     }
 }
-$.fn.b = $.fn.ko = function (a, b) {
-    $.fn.dB = function (dB) {
-        this.at({'data-bind': dB});
-        return this
+
+KOob = {
+    e: 'foreach', c: 'checked', t: 'text', v: 'value', h: 'html', i: 'if', $: 'click',
+    f: 'hasFocus', w: 'with', s: 'css', y: 'style', a: 'attr', en: 'enable',
+    vs: 'visible', tI: 'textInput',
+    o: 'options',
+    oT: 'optionsText',
+    ev: 'event',
+    sm: 'submit', sO: 'selectedOptions', n: 'ifnot', d: 'disable', u: 'uniqueName', vU: 'valueUpdate',
+    cm: 'component', tp: 'template'
+}
+
+
+
+$KOob = function self(k, v) {  var g = G(arguments),o = []
+    if (g.O) {_.e(g.f, function (v, k) {
+        o.push(self(k, v))})
+        return o.join()
     }
+
+    return (KOob[k] ? KOob[k] : k) + (v ? (':' + v) : '')
+}
+
+$.fn.dB = function (dB) {
+    this.at({'data-bind': dB})
+    return this
+}
+
+$.fn.b = $.fn.ko = function (a, b) {
+
     this.dB(
-        O(a) ? $KOob(a) :
-            hasColon(a) ? a :
-                $KOob(a, b || '$'))
+        O(a) ?
+            $KOob(a) : hasColon(a) ?
+            a :
+            $KOob(a, b || '$'))
+
+
     function hasColon(str) {
         return str.indexOf(':') != -1
     }
-
     return this
 }
+
+
+
+
 ko.u = ko.ut = ko.utils
 ko.o = ko.observable
 ko.oa = ko.oA = ko.observableArray
@@ -125,8 +139,9 @@ $.fn.bT = function (s) {
 $.fn.bH = function (s) {
     return this.b('html', s)
 }
-$.fn.bTi = $.fn.bTI = function (a) {
-    return this.b({ti: a})
+
+$.fn.bTi= $.fn.bTI = function (a) {
+    return this.b({tI: a})
 }
 $.fn.bE =  function (s) {
     // if called from $.fn.eD = $.fn.eB =  feD = ... use '+'
@@ -187,9 +202,11 @@ $.h1T = function (a, b) {
 $.liT = function (a) {
     return $.li().bT(a)
 }
+
+
 $.tdT = function (a, b) {
-    var td = $.td();
-    td.bT(a)
+    var td = $.td().bT(a)
+
     if (A(b)) {
         _.e(b, function (el) {
             td.A(el)
@@ -197,12 +214,15 @@ $.tdT = function (a, b) {
     }
     return td
 }
+
+
 $.dH = function (a) {
     return $.d().bH(a)
 }
 $.IP=$.ipTi = function (a) {
     return $.ip().bTi(a)
 }
+
 $.pwTi = function (a) {
     return $.pw().bTi(a)
 }
@@ -274,15 +294,33 @@ $.olE = function (a, b) {
     return ol
 }
 $.tBE = function (a, b) {
-    var tB = $.tB()
+    var g=G(arguments),
+        tB = $.tB()
     tB.bE(a)
     if (A(b)) {
         _.e(b, function (el) {
             tB.A(el)
         })
     }
+    else {
+        _.e(g.r, function(q){
+            tB.A((q[0].tagName == "TD")?q:$.td().A(q))
+
+
+        })
+    }
     return tB
 }
+$.slB=function(a){var q= $.sl()
+    q.b.apply(q, arguments)
+    return q
+}
+$.tBT=function(arr){var g=G(arguments),
+    tB=$.tB(), tr= $.tr()
+    _.e(g.r,function(q){tr.A(q)})
+    return tB.bE(arr).A(tr)
+}
+
 $.uLE = function (a) {
     var g = G(arguments);
     return $.ulE(a, $.li(g.r))
@@ -309,13 +347,10 @@ $.sO = function (a) {
 $.a$ = function (t, fn) {
     return $.a(t).b('$', fn)
 }
+
 $.bt$ = $.btB$ = function (a, b, c) {
     var bt = $.bt(a).b$(a)
-
-    if (c) {
-        bt.bEn(c)
-    }
-
+    if (c) {bt.bEn(c)}
     return bt
 }
 $.s$ = function (a, b, c, d) {
@@ -362,7 +397,8 @@ $.fn.bN = $.fn.bIN = function (s) {
 //css and attr
 $.fn.bS = function (s) {
     return this.b('css', s)
-}
+} //not bind sprite!!
+
 $.fn.bY = $.fn.bSy = function (s) {
     return this.b('style', s)
 }
@@ -376,7 +412,7 @@ $.aA = function (a, b, c, d) {
 $.fn.bEv = function (s) {
     return this.b('event', s)
 }
-$.fn.bSb = function (s) {
+$.fn.bSm = function (s) {
     return this.b('submit', s)
 }
 $.fn.bEn = function (a) {
@@ -388,7 +424,7 @@ $.fn.bD = function (s) {
 $.fn.bF = function (s) {
     return this.b('hasFocus', s)
 }
-$.fSb = $.fBsb = function (a, b) {
+$.fSm = $.fBSm = function (a, b) {
     var f = $.f();
     f.bSb(a)
     if (A(b)) {

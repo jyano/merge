@@ -6110,3 +6110,29 @@ $.C=function(Col,col){
     if(col){bd.col(col)}
     return $
 }
+
+$.tH=function(){var g=G(arguments),q= $('<thead>')
+    if(g.A_){
+        _.e(g.f,function(e){
+            q.A(e)
+        })}
+    return q
+}
+
+
+$.tB=function(){
+
+    var g=G(arguments), q=$('<tbody>')
+
+    if(g.A_){
+        _.e(g.f,function(e){
+            q.A(e)
+        })
+    }
+    return q
+}
+$.B=function(a){
+    var q = $('<bold>')
+    if(a){q.A(a)}
+    return q
+}

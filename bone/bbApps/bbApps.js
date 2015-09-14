@@ -2451,3 +2451,142 @@ DIRTPAGE = function () {
     }
 
 }
+
+
+PEOPLE=function(){$.x()
+
+    Per  = bb.M.e({
+        i: function () {
+            //this.oV(function(mod, err){$l(err)})
+        },
+        d: {n:'doe', a: 30, j: 'wrk'},
+        validate: function (ats) {if (ats.age < 0) {return 'a < 0!'}},
+        work: function () {return this.g('n') + ' is working'}
+    })
+
+    p = Per.o({n: 'y', a: 34})
+
+    //p.oV(function (mod, z) {$l(z)})
+
+    PerV = bb.V.e({tn: 'li',
+        k: 'person', x: 'some-person',
+        i: function () {this.r()},
+        tp: _.template("<strong><%= name %></strong> (<%= age %>) - <%= job %>"),
+        r: function () {
+            var t = this
+            //this works, but doesnt use a template
+            // t.H(  t.g('name')+' '+t.g('age')+' '+t.g('job'))
+            t.H(
+                t.T(
+                    t.J()
+                )
+            )
+        }
+    })
+
+    pV= PerV.o({m: p})
+
+    peepC = bb.C.e({m: Per})
+
+
+    pC = peepC.o([
+        {n: 'rigo', a: 29},
+        {n: 'j', a: 2},
+        {n: 's', j: 'gx'}
+    ])
+    pC.add(p)
+
+
+    pC.at(1).n('joejoe')
+    pC.at(1).s('name', 'joejoe')
+
+    PeepV = bb.V.e({tn: 'ul',
+        i: function () {
+            $l('hi')
+            $l(this.cl)
+        },
+        r: function () {//var t=this
+            this.cl.each(function (p) {var v,pV  //$l(p.g('n'))
+                pV = PerV.o({m: p}) //$l(pV.el)
+                this.$el.append(pV.el) //t.q( pV.el  )
+            }, this)
+        }
+
+    })
+
+    pcv = PeepV.o({cl: pC})
+    pcv.r()
+    $.A( pcv.el )
+
+}
+FLCL=function(){$.x('r', 'filtering a cl:')
+
+    /*
+     FlV = bb.V.e({
+     ev: {'click #run': 'runFilter'},
+     runFilter: function(e){e.pD();
+     this.fl = {
+     // ... get the filter info from the DOM
+     }; this.rr()},
+     rr: function(){// get the filtered list from the collection
+     // iterate over the filtered list and render the results in to the html array
+     // populate the DOM with the resulting HTML
+     HT=[]
+     _.e(this.cl.where(this.fl),
+     function(item){HT.push(
+     _.tp($('my-item-template').H())(item.tJ())
+     )})
+
+     this.$el.html(HT); return this }
+     })*/
+
+
+    Cl =  bb.C.e({i:function(){}})
+    cl = Cl.o({})
+
+
+    /*
+     cl.add([{a: 'f', b: 's'},
+     {a: 't', b: 's'},
+     {a:'f', b: 's'},
+     {a: 's', b:'t'}
+     ])
+
+
+     res = cl.where({a:'f',b:'s'})
+     */
+    //http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
+}
+
+TASKER=function(){$.x()
+    Ap={M:{}, C:{}, V:{}}
+
+    Ap.M.Task = bb.M.e({})
+
+    t1=Ap.M.Task.o({t:'go  store', pr:4})
+
+    t2=Ap.M.Task.o({t:'go park', pr:3})
+
+    Ap.V.Tsk= bb.V.e({t:'li',
+        rr: function(){this.A( this.g('t') )
+            return this
+        }
+    })
+
+    taskView=Ap.V.Tsk.o({m:t1})
+    Ap.C.Tasks = bb.C.e({m:Ap.M.Tsk})
+    tasks=Ap.C.Tasks.o([{t:'hi'}, {t:'bye'}])
+    Ap.V.Tasks = bb.V.e({t:'li',
+        rr: function(){
+            var that=this
+            this.cl.each(
+                function(t){
+                    var v=Ap.V.Task.o({m:t})
+                    that.$el.A(v.rr().el)
+                }, this)
+            this.el.A()
+        }
+    })
+
+    tasksV=Ap.V.Tasks.o({cl:tasks})
+}

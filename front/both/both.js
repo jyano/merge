@@ -764,17 +764,18 @@ _.in = function (time, fn) {
     o.s = N(o.s) ? o.s : 1
     o.fn = o.fn || function () {
     }
+
     return setTimeout(
         function () {
 
-            if (g.m) {
-                $.c$()
-            }
+            if (g.m) { $.C($r())}
             o.fn()
 
         },
         o.s * 1000)
 }
+
+
 _.cI = _.xI = function (a, b) {
     clearInterval(a)
 }
@@ -826,4 +827,9 @@ _.gS = function (pop) {
 _v = function (a) {
     return S(a) ? function () {
         Function(a)()} : F(a) ? a : F(a.value) ? a.value() : a.value
+}
+
+_.tF=function(a,b){
+    b=N(b,2)
+    return a.toFixed(b)
 }

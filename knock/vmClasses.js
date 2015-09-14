@@ -77,13 +77,20 @@ Per = function (n, ch) {
     per.A = function(){
         this.ch.push('new ch')}
 }
+Per = function(n, ch) {var per=this
+    per.n = n
+    per.ch = $oa(ch)
 
+    per.A = function(){  per.ch.push('new ch')    }
 
-peep = [
+}
+peep= [
     new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
     new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
     new Per("Charles", ["Cayenne", "Cleopatra"])
 ]
+
+
 function SurvVM(qu, ptsBdg, aws) {
     this.qu = qu;
     this.ptsBdg = ptsBdg
@@ -132,3 +139,22 @@ VM = function () {this.ms = ko.o("Hi");
     this.feed2.ms("Ms2");
 }
 Ms = function (m) { return {m:ko.o(m||'') }}
+
+
+Task=function(d){return {t: $o(d.t), iD: $o(d.iD)}}
+
+Gift = function(gifts) {var vm = this
+    vm.gifts = $oa(gifts)
+    vm.addGift = function() {vm.gifts.push({name: "", price: "" }) }
+    vm.removeGift = function(gift) { vm.gifts.remove(gift) }
+    vm.save = function(form) {alert("Could now transmit to server: " + ko.ut.stringifyJson(vm.gifts))}  // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
+
+}
+
+Gift = function(gifts) {var vm = this
+    vm.gifts = $oa(gifts)
+    vm.addGift = function() {vm.gifts.push({name: "", price: "" }) }
+    vm.removeGift = function(gift) { vm.gifts.remove(gift) }
+    vm.save = function(form) {alert("Could now transmit to server: " + ko.ut.stringifyJson(vm.gifts))}  // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
+
+}
