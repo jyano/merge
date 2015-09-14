@@ -84,6 +84,7 @@ Per = function(n, ch) {var per=this
     per.A = function(){  per.ch.push('new ch')    }
 
 }
+
 peep= [
     new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
     new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
@@ -157,4 +158,29 @@ Gift = function(gifts) {var vm = this
     vm.removeGift = function(gift) { vm.gifts.remove(gift) }
     vm.save = function(form) {alert("Could now transmit to server: " + ko.ut.stringifyJson(vm.gifts))}  // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
 
+}
+
+Per = function(n, ch) {
+    this.n = n
+    this.ch = $oa(ch)
+    this.A = function(){this.ch.p('new ch '+ $r())}
+}
+ULNEST=function(){$.x('x').h2('Pp')
+
+
+
+    $.ulE('peep', $.d([  // name has length children
+            $.spT('n'), 'has', $.spT('ch().length'),  'children &nbsp;',
+            //new
+            $.a$('New','A')
+        ]),
+
+        $.uLE('ch',
+            $.spT(), //child name
+            $.spVs( '$root.showDT').A('(child rendered at ',   $.spT('$Dt().getSeconds()'),      ')')
+        )
+    )
+    $.lb('show time: ').A( $.cbC('showDT'))
+    //anonymous vm
+    ok({    peep: peep,      showDT: $o()     })
 }
