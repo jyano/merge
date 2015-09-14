@@ -100,6 +100,7 @@ ko.u = ko.ut = ko.utils
 ko.o = ko.observable
 ko.oa = ko.oA = ko.observableArray
 ko.c = ko.computed
+
 ko.pc = ko.pureComputed
 ko.do = ko.dependentObservable
 ko.aB = ko.ab = ko.applyBindings

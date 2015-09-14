@@ -49,7 +49,6 @@ ko.R('like-widget', widDataOb(
         this.like=function(){vm.chosenValue('like') }
         this.dislike=function(){vm.chosenValue('dislike')}}))
 
-
 ///////////////////////////////////////////////////////////////
 
 LIKE=PROD=function(){z()

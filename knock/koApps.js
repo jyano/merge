@@ -719,61 +719,7 @@ BLM = function () {
     }
     return o
 }
-KOCL=function(){$.x('x').h2('Peeep')
 
-    Per = function(n, ch) {var per=this
-        per.n = n
-        per.ch = ko.oa(ch)
-
-        per.A = function(){  per.ch.push('new ch')    }
-
-    }
-
-
-
-    peep= [
-        new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
-        new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
-        new Per("Charles", ["Cayenne", "Cleopatra"])
-    ]
-
-
-    $.uE('peep',[
-
-
-        $.li().A(
-
-            $.d([
-                $.spT('n'), 'has',
-                $.spT('ch().length'),
-                'children &nbsp;',
-                $.a$('New','A')
-
-            ]),
-
-            $.ulE('ch',[
-                $.li([
-
-                    $.spT(), $.spVs( '$root.showDT').A(
-                        ' (child rendered at ', $.spT('$Dt().getSeconds()'),')'
-
-                    )])
-
-            ])
-
-        )
-
-    ])
-    $.cbC('showDT').a2Lb('Show time:')
-
-    //anonymous vm
-
-    OK({  peep: peep, showDT: kO()   })
-
-
-
-
-}
 VIRTUALELS=function(){
 
     ko.bh.randomOrder = {
@@ -1327,26 +1273,7 @@ function lovely(){
             vm.chosen.push('France')
         })
     }
-    KOFCC = function () {
-        $.x()
 
-        $.p('Name:').A(
-            $.ip().b({v: 'editing', v: 'name', f: 'editing'}),
-            $.d('r').b({v: '!editing()', t: 'name', $: 'edit'})
-        )
-
-        $.p('Click the name to edit it; click elsewhere to apply changes')
-        function VM(n) {
-            var vm = this
-            vm.name = $o(n)
-            vm.editing = $o()
-            vm.edit = function () {
-                vm.editing(true)
-            }
-        }
-
-        ok(new VM("Bert Bertington"))
-    }
     KOENN = function () {
         $.x()
 
@@ -1411,41 +1338,8 @@ function lovely(){
 
 
     }
-    KOEACH = function () {
-        format()
 
 
-        s2(
-            _t()(
-                thead()(
-                    tr()(
-                        th()('First name'),
-                        th()('Last name')
-                    )
-                ),
-
-
-                tbody().b('E', 'people')(
-                    tr()(
-                        td().b('t', 'fn'),
-                        td().b('t', 'ln'))
-                )
-            )
-        )
-
-
-        ko.ab({
-
-            people: [
-                {fn: 'B', ln: 'Bert'},
-                {fn: 'Ch', ln: 'Char'},
-                {fn: 'De', ln: 'Dent'}
-            ]
-
-        })
-
-
-    }
     KOEACH2 = function () {
 
         format()
@@ -1492,6 +1386,133 @@ function lovely(){
 
 
 }
+function bert(){
+
+    peep= [
+        new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
+        new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+        new Per("Charles", ["Cayenne", "Cleopatra"])
+    ]
+    KOCL=function(){$.x('x').h2('Peeep')
+
+        Per = function(n, ch) {var per=this
+            per.n = n
+            per.ch = ko.oa(ch)
+
+            per.A = function(){  per.ch.push('new ch')    }
+
+        }
+
+
+
+        peep= [
+            new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
+            new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+            new Per("Charles", ["Cayenne", "Cleopatra"])
+        ]
+
+
+        $.uE('peep',[
+
+
+            $.li().A(
+
+                $.d([
+                    $.spT('n'), 'has',
+                    $.spT('ch().length'),
+                    'children &nbsp;',
+                    $.a$('New','A')
+
+                ]),
+
+                $.ulE('ch',[
+                    $.li([
+
+                        $.spT(), $.spVs( '$root.showDT').A(
+                            ' (child rendered at ', $.spT('$Dt().getSeconds()'),')'
+
+                        )])
+
+                ])
+
+            )
+
+        ])
+        $.cbC('showDT').a2Lb('Show time:')
+
+        //anonymous vm
+
+        OK({  peep: peep, showDT: kO()   })
+
+
+
+
+    }
+    NEST=function(){$.x('x').h2('Pp')
+        Per = function(n, ch) {
+            this.n = n
+            this.ch = $oa(ch)
+            this.A = function(){
+                this.ch.push('new ch '+ $r())
+            }
+        }
+
+
+        $.uLE('peep',
+            $.d([  // name has length children
+                $.spT('n'), 'has', $.spT('ch().length'),  'children &nbsp;',
+                //new
+                $.a$('New','A')
+            ]),
+
+            $.uLE('ch',
+                $.spT(), //child name
+                $.spVs( '$root.showDT').A('(child rendered at ',   $.spT('$Dt().getSeconds()'),      ')')
+            )
+        )
+        $.cbC('showDT').a2Lb('Show time:')
+        //anonymous vm
+
+        ok({    peep: peep,      showDT: $o()     })
+    }
+
+    KOEACH = function () {
+        format()
+
+
+        s2(
+            _t()(
+                thead()(
+                    tr()(
+                        th()('First name'),
+                        th()('Last name')
+                    )
+                ),
+
+
+                tbody().b('E', 'people')(
+                    tr()(
+                        td().b('t', 'fn'),
+                        td().b('t', 'ln'))
+                )
+            )
+        )
+
+
+        ko.ab({
+
+            people: [
+                {fn: 'B', ln: 'Bert'},
+                {fn: 'Ch', ln: 'Char'},
+                {fn: 'De', ln: 'Dent'}
+            ]
+
+        })
+
+
+    }
+}
+
 function listAdd(){
 
     LIST=function(){$.x('z')
@@ -3474,36 +3495,7 @@ function advanced() {
         ok(vm)
 
     }
-    NEST=function(){$.x('x').h2('Pp')
-        Per = function(n, ch) {
-            this.n = n
-            this.ch = $oa(ch)
-            this.A = function(){
-                this.ch.push('new ch '+ $r())
-            }
-        }
-        peep= [
-            new Per("Annabelle", ["Arnie", "Anders", "Apple"]),
-            new Per("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
-            new Per("Charles", ["Cayenne", "Cleopatra"])
-        ]
-        $.uLE('peep',
-            $.d([  // name has length children
-                $.spT('n'), 'has', $.spT('ch().length'),  'children &nbsp;',
-                //new
-                $.a$('New','A')
-            ]),
 
-            $.uLE('ch',
-                $.spT(), //child name
-                $.spVs( '$root.showDT').A('(child rendered at ',   $.spT('$Dt().getSeconds()'),      ')')
-            )
-        )
-        $.cbC('showDT').a2Lb('Show time:')
-        //anonymous vm
-
-        ok({    peep: peep,      showDT: $o()     })
-    }
 
     plan()
     function plan(){
@@ -4419,3 +4411,383 @@ TPLIST=function(){$.x()
 }
 
 
+
+
+k1()
+
+function k1(){
+    K1MAYBE= function () {$.x('K1');$Ms('K1')
+        $.p('Name:').A(
+            $.ip().b({
+                v: 'editing',
+                v: 'name',
+                f: 'editing'
+            }),
+            $.d('r').b({v: '!editing()', t: 'name', $: 'edit'})
+        )
+        $.p('Click the name to edit it; click elsewhere to apply changes')
+        ok({
+            name : $o("Bert Bertington"),
+            editing : $o(),
+            edit : function () {vm.editing(true)}
+        })//KOFCC
+    }
+
+
+    K11 = function(){Html()
+        function AppViewModel(){
+
+            this.firstName = ko.observable("Bert")
+            this.lastName = ko.observable("Bertington")
+            this.fullName = ko.computed(function (){
+                return this.firstName() + " " + this.lastName()
+            }, this)
+
+            this.capitalizeLastName = function(){
+                var currentVal = this.lastName()
+                this.lastName(currentVal.toUpperCase())
+            }
+        }
+
+        ko.applyBindings(new AppViewModel())
+    }
+    K1 = function () {
+        Html()
+        vm = {
+            firstName: $o("Bert"),
+            lastName: $o("Bertington"),
+
+            capitalizeLastName: function () {
+                this.lastName(_.tU(this.lastName()))
+            }
+        }
+        vm.fullName = ko.c(function () {
+            return this.firstName() + " " + this.lastName()
+        }, vm), ok(vm)
+    }
+
+    K10=function(){z()
+        $.p('f').A($.S().bT('f'))
+        $.p('l').A($.S().bT('l'))
+        $.p('f:').A($.ip().bV('f'))
+        $.p('l:').A($.ip().bV('l'))
+        $.p('full:').A($.S().bT('full'))
+        $.bt('tU').b$('tU')
+        vm = {f:$o('a'), l:$o('b'), tU:function(){this.l(_.tU(this.l()))}}
+        vm.full=ko.c(function(){return vm.f()+' '+vm.l()})
+        ok(vm)
+    }
+
+    function Html() {
+        z()
+        $.p('First name').A($.S().bT('firstName'))
+        $.p('Last name').A($.S().bT('lastName'))
+        $.p('First name:').A($.ip().bV('firstName'))
+        $.p('Last name:').A($.ip().bV('lastName'))
+        $.p('Fullname:').A($.S().bT('fullName'))
+        $.bt('Go caps').b$('capitalizeLastName')
+    }
+}
+K31=function(){z()
+
+    str= '<h3 data-bind="text: question"></h3>'
+    str+= '<p>Please distribute <b data-bind="text: pointsBudget"></b> points between the following options.</p>'
+    str+=' <table>'
+    str+=' <thead><tr><th>Option</th><th>Importance</th></tr></thead>'
+    str+='  <tbody data-bind="foreach: answers">'
+    str+=' <tr>'
+    str+='<td data-bind="text: answerText"></td>'
+    str+=' <td><select data-bind="options: [1,2,3,4,5], value: points"></select></td>'
+    str+=' </tr>'
+    str+=' </tbody>'
+    str+='  </table>'
+    str+='<h3 data-bind="visible: pointsUsed() > pointsBudget">Youve used too many points! Please remove some.</h3>'
+    str+='<p>Youve got <b data-bind="text: pointsBudget - pointsUsed()"></b>'
+    str+='points left to use.</p>'
+    str+='<button data-bind="enable: pointsUsed() <= pointsBudget, click: save">Finished</button>  '
+
+    $(str).A()
+
+
+
+    function Answer(text) { this.answerText = text; this.points = ko.observable(1); }
+
+    function SurveyViewModel(question, pointsBudget, answers) {
+        this.question = question;
+        this.pointsBudget = pointsBudget;
+        this.answers = $.map(answers, function(text) { return new Answer(text) });
+        this.save = function() { alert('To do') };
+
+        this.pointsUsed = ko.computed(function() {
+            var total = 0;
+            for (var i = 0; i < this.answers.length; i++)
+                total += this.answers[i].points();
+            return total;
+        }, this);
+    }
+
+    ko.applyBindings(new SurveyViewModel("Which factors affect your technology choices?", 10, [
+        "Functionality, compatibility, pricing - all that boring stuff",
+        "How often it is mentioned on Hacker News",
+        "Number of gradients/dropshadows on project homepage",
+        "Totally believable testimonials on project homepage"
+    ]));
+
+}
+K3=function(){z()
+
+    str= '<h3 data-bind="text: question"></h3>'
+    str+= '<p>Please distribute <b data-bind="text: pointsBudget"></b> points between the following options.</p>'
+    str+=' <table>'
+    str+=' <thead><tr><th>Option</th><th>Importance</th></tr></thead>'
+    str+='  <tbody data-bind="foreach: answers">'
+    str+=' <tr>'
+    str+='<td data-bind="text: answerText"></td>'
+    str+=' <td><select data-bind="options: [1,2,3,4,5], value: points"></select></td>'
+    str+=' </tr>'
+    str+=' </tbody>'
+    str+='  </table>'
+    str+='<h3 data-bind="visible: pointsUsed() > pointsBudget">Youve used too many points! Please remove some.</h3>'
+    str+='<p>Youve got <b data-bind="text: pointsBudget - pointsUsed()"></b>'
+    str+='points left to use.</p>'
+    str+='<button data-bind="enable: pointsUsed() <= pointsBudget, click: save">Finished</button>  '
+    $(str).A()
+    function Answer(text) {
+        this.answerText = text;
+        this.points = $o(1);
+    }
+    function VM(question, pointsBudget, answers) {
+        this.question = question
+        this.pointsBudget = pointsBudget
+        this.answers = $.map(answers, function(text) {return new Answer(text) })
+        this.save = function(){alert('To do')}
+        this.pointsUsed = ko.c(function() {
+            var total = 0;
+            for (var i = 0; i < this.answers.length; i++)
+                total += this.answers[i].points();
+            return total;
+        }, this);
+    }
+   ok(new VM("Which factors affect your technology choices?", 10, [
+        "Functionality, compatibility, pricing - all that boring stuff",
+        "How often it is mentioned on Hacker News",
+        "Number of gradients/dropshadows on project homepage",
+        "Totally believable testimonials on project homepage"
+    ]))
+}
+K30=function(){z()
+
+    str= '<h3 data-bind="text: q"></h3>'
+    str+= '<p> distribute <b data-bind="text: pB"></b> points  </p>'
+    str+=' <table><thead><tr><th>Option</th><th>Importance</th></tr></thead>'
+    str+='  <tbody data-bind="foreach: As"><tr>'
+            str+='<td data-bind="text: aT"></td>'
+            str+=' <td><select data-bind="options: [1,2,3,4,5], value:Ps"></select></td>'
+    str+=' </tr> </tbody> </table>'
+
+    str+='<h3 data-bind="visible: pU() > pB">  too many points!  </h3>'
+    str+='<p><b data-bind="text: pB-pU()"></b> left</p>'
+    str+='<button data-bind="enable: pU() <= pB, click: save">Finished</button>  '
+
+    $(str).A()
+
+    function VM(q, pB, As) {var vm=this
+        vm.q  = q
+        vm.pB = pB
+        vm.As = $.map(As, function(t) {return {aT:t, Ps: $o(1)} })
+        vm.save = function(){alert('To do')}
+        vm.pU = ko.c(function(){var t = 0; _.e(vm.As, function(a){t += a.Ps()}); return t}) //points Used
+    }
+
+    ok(new VM("factors?", 10, ["Functionality", "News", "dropshadows", "testimonials"]))
+
+}
+K4=function(){z()
+
+    ko.$bH({
+        fadeVisible:{
+            i:  function(e,v) {
+                var v=v()
+                $l('v:'+v)
+                $(e).toggle(v)
+            },
+            u:function(el,vAc){
+                vAc()?$(el).fadeIn():$(el).fadeOut()
+            }
+        },
+        jqButton: {
+            i: function(e){$(e).button()},
+            u: function(e, vA) {                 $(e).button("option", "disabled", vA().enable === false);}
+        }
+})
+
+    ko.bindingHandlers.jqButton =
+
+    str= '<h3 data-bind="text: q"></h3>'
+    str+= '<p> distribute <b data-bind="text: pB"></b> points  </p>'
+    str+=' <table><thead><tr><th>Option</th><th>Importance</th></tr></thead>'
+    str+='  <tbody data-bind="foreach: As"><tr>'
+    str+='<td data-bind="text: aT"></td>'
+    str+=' <td><select data-bind="options: [1,2,3,4,5], value:Ps"></select></td>'
+    str+=' </tr> </tbody> </table>'
+    str+='<h3 data-bind="fadeVisible: pU() > pB">  too many points!  </h3>'
+    str+='<p><b data-bind="text: pB-pU()"></b> left</p>'
+    str+='<button data-bind="jqButton: jqButton: { enable: pU() <= pB },  click: save">Finished</button>  '
+    $(str).A()
+
+    function VM(q, pB, As) {var vm=this
+
+
+
+        vm.q  = q
+        vm.pB = pB
+        vm.As = $.map(As, function(t) {return {aT:t, Ps: $o(1)} })
+        vm.save = function(){alert('To do')}
+        vm.pU = ko.c(function(){var t = 0; _.e(vm.As, function(a){t += a.Ps()}); return t}) //points Used
+    }
+
+    ok(new VM("factors?", 10, ["Functionality", "News", "dropshadows", "testimonials"]))
+
+}
+K342=function(){z()
+
+    ko.bindingHandlers.starRating = {
+        init: function(element, valueAccessor) {
+            $(element).addClass("starRating");
+            for (var i = 0; i < 5; i++)
+                $("<span>").appendTo(element);
+
+            $("span", element).each(function(index) {
+                $(this).hover(
+                    function() { $(this).prevAll().add(this).addClass("hoverChosen") },
+                    function() { $(this).prevAll().add(this).removeClass("hoverChosen") }
+                );
+            })
+        },
+        update: function(element, valueAccessor) {
+            // Give the first x stars the "chosen" class, where x <= rating
+            var observable = valueAccessor();
+            $("span", element).each(function(index) {
+                $(this).toggleClass("chosen", index < observable());
+            });
+        }
+    }
+
+
+
+    str= '<h3 data-bind="text: question"></h3>'
+    str+= '<p>Please distribute <b data-bind="text: pointsBudget"></b> points between the following options.</p>'
+    str+=' <table>'
+    str+=' <thead><tr><th>Option</th><th>Importance</th></tr></thead>'
+    str+='  <tbody data-bind="foreach: answers">'
+    str+=' <tr>'
+    str+='<td data-bind="text: answerText"></td>'
+    str+='<td data-bind="starRating: points"></td>'
+    str+=' </tr>'
+    str+=' </tbody>'
+    str+='  </table>'
+    str+='<h3 data-bind="visible: pointsUsed() > pointsBudget">Youve used too many points! Please remove some.</h3>'
+    str+='<p>Youve got <b data-bind="text: pointsBudget - pointsUsed()"></b>'
+    str+='points left to use.</p>'
+    str+='<button data-bind="enable: pointsUsed() <= pointsBudget, click: save">Finished</button>  '
+    $(str).A()
+    function Answer(text) {
+        this.answerText = text;
+        this.points = $o(1);
+    }
+    function VM(question, pointsBudget, answers) {
+        this.question = question
+        this.pointsBudget = pointsBudget
+        this.answers = $.map(answers, function(text) {return new Answer(text) })
+        this.save = function(){alert('To do')}
+        this.pointsUsed = ko.c(function() {
+            var total = 0;
+            for (var i = 0; i < this.answers.length; i++)
+                total += this.answers[i].points();
+            return total;
+        }, this);
+    }
+
+
+
+    ok(new VM("Which factors affect your technology choices?", 10, [
+        "Functionality, compatibility, pricing - all that boring stuff",
+        "How often it is mentioned on Hacker News",
+        "Number of gradients/dropshadows on project homepage",
+        "Totally believable testimonials on project homepage"
+    ]))
+}
+
+KOSPAAA=function(){z();$Ms('KOSPA')
+
+    $.ulE('folders').K('folders').A(
+        $.liT('$data')
+    )
+
+
+   ok(new (function WebmailVM() {
+       var self = this
+
+       this.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+   }))
+
+}
+
+KOSPA=function(){
+    /*
+     <ul class="folders" data-bind="foreach: folders">
+     <li data-bind="text: $data,css: { selected: $data == $root.chosenFolderId() }, click: $root.goToFolder"></li>
+     </ul>
+
+
+
+
+
+     <table class="mails" data-bind="with: chosenFolderData">
+     <thead><tr><th>From</th><th>To</th><th>Subject</th><th>Date</th></tr></thead>
+     <tbody data-bind="foreach: mails">
+     <tr data-bind="click: $root.goToMail">
+     <td data-bind="text: from"></td>
+     <td data-bind="text: to"></td>
+     <td data-bind="text: subject"></td>
+     <td data-bind="text: date"></td>
+     </tr>
+     </tbody>
+     </table>
+     <div class="viewMail" data-bind="with: chosenMailData">
+     <div class="mailInfo">
+     <h1 data-bind="text: subject"></h1>
+     <p><label>From</label>: <span data-bind="text: from"></span></p>
+     <p><label>To</label>: <span data-bind="text: to"></span></p>
+     <p><label>Date</label>: <span data-bind="text: date"></span></p>
+     </div>
+     <p class="message" data-bind="html: messageContent" />
+     </div>
+     */
+
+    function WebmailViewModel() {
+        // Data
+        var self = this;
+        self.folders = ['Inbox', 'Archive', 'Sent', 'Spam'];
+        self.chosenFolderId = ko.observable();
+        self.chosenFolderData = ko.observable();
+        self.chosenMailData = ko.observable();
+
+        // Behaviours
+        self.goToFolder = function(folder) {
+            self.chosenFolderId(folder);
+            self.chosenMailData(null); // Stop showing a mail
+            $.get('/mail', { folder: folder }, self.chosenFolderData);
+        };
+        self.goToMail = function(mail) {
+            self.chosenFolderId(mail.folder);
+            self.chosenFolderData(null); // Stop showing a folder
+            $.get("/mail", { mailId: mail.id }, self.chosenMailData);
+        };
+
+        // Show inbox by default
+        self.goToFolder('Inbox');
+    };
+
+    ko.applyBindings(new WebmailViewModel());
+}

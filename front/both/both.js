@@ -290,7 +290,7 @@ _.eR=function(g,fn){
     _.e(_.r(g),fn)
 }
 
-
+_.z=  _.size // _.s ???
 _.m = _.map;
 _.t = _.times
 _.x = _.extend;
