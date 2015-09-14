@@ -15,10 +15,13 @@ ko.bP.instance.preprocessNode = function(node) {
         }
     }
 }
+
 ko.$oa=function(name,fn){
     ko.oa.fn[name]=fn
 }
-ko.$oa('filterByProperty',  function(propName, matchValue) {
+
+ko.$oa('filterByProperty',
+    function(propName, matchValue) {
     return ko.pureComputed(function() {
         var allItems = this(), matchingItems = [];
         for (var i = 0; i < allItems.length; i++) {
@@ -29,16 +32,11 @@ ko.$oa('filterByProperty',  function(propName, matchValue) {
     }, this)
 })
 
+
 URLBINDPLUGIN=function() {
 
-// Prototype for an observable<->URL binding plugin.
-// CAN'T FIND '$.address'
-
-        var currentParams = {},
-            updateTimer
-
+        var currentParams = {}, updateTimer
         // Gives an address (URL) to a view model state
-
     ko.linkObservableToUrl = function (observable, hashPropertyName, defaultValue) {
             // When the observable changes, update the URL
             observable.subscribe(function (val) {
@@ -60,16 +58,14 @@ URLBINDPLUGIN=function() {
                 observable(hashPropertyName in evt.parameters ? evt.parameters[hashPropertyName] : defaultValue);
             })
         }
-
     function ensureString(val) {
         return (  U(val) ||val === null ) ? val : val.toString()
     }
-
     function queueAction(action){
             if (updateTimer) {clearTimeout(updateTimer)}
             updateTimer = _.sT(action, 0)}// $.address.autoUpdate(false)
-
-
+// Prototype for an observable<->URL binding plugin.
+// CAN'T FIND '$.address'
 
 }
 KOFILTER=function(){
@@ -416,12 +412,10 @@ KOEXT=function(){
      Source code: View model
      */
 
-
     function Task(title, done) {
         this.title = $o(title)
         this.done = $o(done)
     }
-
     function AppViewModel() {
         this.tasks = $oArray([
             new Task('Find new desktop background', true),
@@ -431,7 +425,6 @@ KOEXT=function(){
         // Here's where we use the custom function
         this.doneTasks = this.tasks.filterByProperty("done", true)
     }
-
     /*
      ko.applyBindings(new AppViewModel());
      It’s not mandatory
@@ -440,7 +433,6 @@ KOEXT=function(){
 
 
      */
-
     func=  function(){var all,done
         all = this.tasks()
         done = []

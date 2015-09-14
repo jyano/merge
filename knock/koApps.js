@@ -1,65 +1,65 @@
-TXIP = function (){z()//basic databinding example
-    $.dA('y', 100, 300, 200, 100).b('t','n')
-    $.ip().b('tI','n')
-    ok({n: $o('zi')})
-}
-
-K1 =function(){z()
+TXIP= TWOWAY= function (){z()
+    $.dA('y', 100, 300, 200, 100).bT('n')
+    $.ip().bTI('n')
+    ok({  n: $o('ph text') })
+} // bT(text)  bTI(textInput)  $o
+K1=function(){z()
     $.p('f').A($.S().bT('f'))
     $.p('l').A($.S().bT('l'))
     $.p('f:').A($.ip().bV('f'))
     $.p('l:').A($.ip().bV('l'))
     $.p('full:').A($.S().bT('full'))
     $.bt('tU').b$('tU')
-    vm = {f:$o('a'), l:$o('b'), tU:function(){this.l(_.tU(this.l()))}}
-    vm.full=ko.c(function(){return vm.f()+' '+vm.l()})
+
+    vm = {
+        f:$o('a'),
+        l:$o('b'),
+        tU:function(){
+            this.l(_.tU(this.l()))
+        }
+    }
+
+    vm.full=ko.c(function(){
+        return vm.f()+' '+vm.l()
+    })
+
     ok(vm)
-}
-TXIPROOT =  TXI=  function () {
-    $.z('x')
-    unTI = $.p('Login name:').A(
-        $.ipTi('un'))
-    pwTI = $.p('Pw:').A($.pwTi('pw'))
-    $('body').A('the vm: ').A(
-        $.pre().bT('ko.toJSON($root, null, 2)'))
-    ok({
-        un: $o(''),
-        pw: $o('abc')
-    })
-}
-BHTML = HTM=  function(){$.z().dH('details').fS(100)
-    ok('details', $o('wait for it...'))
-    _.in(2, function(){vm.details("<em>For details, view report <a href='http://www.playboy.com'>here</a>.</em>")},'*')
+} //bT  bV(value)  b$ ko.c(computed)
+TXIPROOT =  TXI=  function () {$.z('x')
+    $.d([
+        $.p(['un:',$.ipTi('un')]),
+        $.p(['Pw:',$.pwTi('pw')]),
+        'the vm: ',
+            $.pre().bT('ko.toJSON($root,null,2)')
+    ])
+    ok({un:$o('fred flintsone'), pw: $o('yaba daba password')})}//$.ipTi  $.pwTi   $.pre  bT  ko.toJSON  $root
+BHTML = HTM=  function(){$.z().dH('details').fS(100); ok('h',$o('wait..'));
+    _.in(2, function(){vm.h("<em>report:<a href='http://www.playboy.com'>here</a>.</em>")})}// dH
+ATTR= function(){$.x(); $.aA('{href:url, title:tt}', 'report').fS(100)
+    ok({url:$o("http://www.hustler.com"),tt: $o("statistics")})
+}// aA
 
-}
-ATTR= function () {$.x()
 
-    $.aA('{href:url, title:tt}', 'report').fS(100)
+VISABLE=VIS=   function (){$.z('y').h1('see me if true!').bVs('vs')
+    $.h1('ALWAYS HERE!'); ok('vs', $o(1))
+    _.in(function(){vm.vs(0); _.in(function (){
+        vm.vs(1)})})}// bVs
 
-    ok({
-        url: $o("http://www.hustler.com"),
-        tt: $o("Report including final year-end statistics")
-    })
 
-}
-VISABLE =VIS=   function () {
-    $.z('y').h1('see me if true!').bVs('vs')
-    ok('vs', $o(1))
-    _.in(function () {vm.vs(0); _.in(function () {
-            vm.vs(1)
-        })})
-}
+IF=function(){$.x('x');
+    $.d([
+        'Display?',$.cC('ms'),
+        $.pI('ms').A('Here is a message. Astonishing')
+    ])
+    ok({ms: $o(0)});
+    _.in(function(){
+        vm.ms(1)})     } //$.cC  $.pI
+
 ENABLE = EN=function () {$.x()
     $.p().A($.cbC('hasPhone'), 'I have phone')
     $.p('Your cellphone number').A(
         $.ip().b({v: 'num', en: 'hasPhone'}))
     ok({hasPhone: $o(0), num: ''})
-}
-IF  = function () {$.x('x')
-    $.cC('dispMs');$.sp('Disp ms')
-    $.pI('dispMs', 'Here is a message. Astonishing')
-    ok({dispMs: $o(0)})
-    _.in(function () {vm.dispMs(1)})
 }
 VALUE= VAL=function () {$.x('K1');$Ms('K1')
     $.p('Name:').A($.ip().b({
@@ -117,7 +117,7 @@ TTR =   function () {$.C('r'); $('body').fS(30)
 
     }}
 }
-BUL=MONK= function() {
+BINDUL= BUL=MONK= function() {
     $.x('x')
     $.h1('monkey').bT('monkey')
     $.iV('monkey')
@@ -199,7 +199,7 @@ ULIF=  function(){$.x()
         {n: 'Uranus'  }
     ])
 }
-SLMULTI = SLM =function () {
+SELMULTI = SLM =function () {
     $.x(null, 'selectedOptions')
     $.p(
         'Where you want to go?',
@@ -248,7 +248,7 @@ K3=function(){z()
     ok(new VM("factors?", 10, ["Functionality", "News", "dropshadows", "testimonials"]))
 
 }
-DIVEACHADD=EAD=function(){$.x()
+EACHDIVADD=EDA=function(){$.x()
     $.dE('peep', [  $.p($.spT('f'),    ' ',   $.spT('l')) ])
     vm = {peep: $oa([         {f: 'B', l: 'Bb'},         {f: 'C', l: 'Cc'},         {f: 'D', l: 'Dd'}])}
     ok(vm)

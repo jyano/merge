@@ -1,7 +1,3 @@
-function Prod(n, rating) {
-    this.n = n;
-    this.userRating = $o(rating || null)
-}
 
 VM=function(p) {this.somePop = p.smKey}
 VM.prototype.doSmg = function() {}
@@ -133,17 +129,9 @@ initialData = [
     {name: "Optimistic Snail", sales: 420, price: 1.50}
 ]
 Feed=function(){this.ms=ko.o('pf!')}
-VM = function () {this.ms = ko.o("Hi");
-    this.feed = new Feed();
-    this.feed2 = new Feed();
-    this.feed.ms("Ms1");
-    this.feed2.ms("Ms2");
-}
+
 Ms = function (m) { return {m:ko.o(m||'') }}
-
-
 Task=function(d){return {t: $o(d.t), iD: $o(d.iD)}}
-
 Gift = function(gifts) {var vm = this
     vm.gifts = $oa(gifts)
     vm.addGift = function() {vm.gifts.push({name: "", price: "" }) }
@@ -151,7 +139,6 @@ Gift = function(gifts) {var vm = this
     vm.save = function(form) {alert("Could now transmit to server: " + ko.ut.stringifyJson(vm.gifts))}  // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
 
 }
-
 Gift = function(gifts) {var vm = this
     vm.gifts = $oa(gifts)
     vm.addGift = function() {vm.gifts.push({name: "", price: "" }) }
@@ -159,7 +146,6 @@ Gift = function(gifts) {var vm = this
     vm.save = function(form) {alert("Could now transmit to server: " + ko.ut.stringifyJson(vm.gifts))}  // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
 
 }
-
 Per = function(n, ch) {
     this.n = n
     this.ch = $oa(ch)

@@ -31,9 +31,11 @@ $Ob = function (a, b) {
     return ob
 }
 
-ok = function () {
+ok= function () {
     var g = G(arguments), ob
-    g.p ? _.in(0, aB) : aB()
+    g.p ? _.in(0, aB) :
+        aB()
+
     function aB() {
         vm = g.S_ ? // pass a single key, value -> {key:value}
             $Ob(g.f, g.s, g.n ? '-' : null) :
@@ -46,26 +48,30 @@ ok = function () {
                     // pass just plain obj (normal)
                     g.f
         ko.aB(vm)
-
     }
 
-    OK = function (o, b) {
-        var g = G(arguments), ob
-        return g.S_ ?
-            ko.aB(vm = $Ob(o, b)) : g.O ?
-            ko.aB(vm = g[0]) :
-            ko
-        function alt() {
-            OK = function (a) {
-                var g = G(arguments), ob
-                g.push('+')
-                return ok.apply(null, g)
+
+
+    function old() {
+        OK = function (o, b) {
+            var g = G(arguments), ob
+            return g.S_ ?
+                ko.aB(vm = $Ob(o, b)) : g.O ?
+                ko.aB(vm = g[0]) :
+                ko
+            function alt() {
+                OK = function (a) {
+                    var g = G(arguments), ob
+                    g.push('+')
+                    return ok.apply(null, g)
+                }
             }
         }
     }
 }
 
-KOob = {
+
+KOob= {
     e: 'foreach', c: 'checked', t: 'text', v: 'value', h: 'html', i: 'if', $: 'click',
     f: 'hasFocus', w: 'with', s: 'css', y: 'style', a: 'attr', en: 'enable',
     vs: 'visible', tI: 'textInput',
@@ -78,27 +84,32 @@ KOob = {
 
 
 
-$KOob = function self(k, v) {  var g = G(arguments),o = []
+$KOob= function self(k, v) {
+    var g = G(arguments),o = []
     if (g.O) {_.e(g.f, function (v, k) {
         o.push(self(k, v))})
         return o.join()
     }
 
-    return (KOob[k] ? KOob[k] : k) + (v ? (':' + v) : '')
+    return (KOob[k] ? KOob[k] : k) + (v ? (': ' + v) : '')
 }
 
-$.fn.dB = function (dB) {
+
+$.fn.dB= function (dB) {
     this.at({'data-bind': dB})
     return this
 }
 
-$.fn.b = $.fn.ko = function (a, b) {
+
+$.fn.b= $.fn.ko = function (a, b) {
 
     this.dB(
-        O(a) ?
-            $KOob(a) : hasColon(a) ?
+
+        O(a) ? $KOob(a) :
+            hasColon(a) ?
             a :
-            $KOob(a, b || '$'))
+            $KOob(a, b || '$')
+    )
 
 
     function hasColon(str) {
@@ -163,9 +174,8 @@ $.fn.bO = function (s) {
 $.fn.bSO = function (s) {
     return this.b('so', s)
 }
-$.fn.b$ = function (s) {
-    return this.b('click', s)
-}
+$.fn.b$=function(s){return this.b('click', s)}
+
 
 $.dI= $.dIf = function (a, b) {
     var d = $.d().bI(a)
@@ -238,19 +248,20 @@ $.dE = function (a, b) {
     }
     return d
 }
+
+
 $.uE = $.ulE = function (a, b, c) {
     var g = G(arguments)
 
     var ul = $.ul().bE(a)
 
     if (c) {
-        b = $.li(_.r(g))
+        b = $.li( _.r(g))
     }
 
     else if (O(b) && !A(b)) {
         b = [b]
     }
-
     if (A(b)) {
         _.e(b, function (el) {
             ul.A(el)
@@ -281,6 +292,8 @@ $.uE = $.ulE = function (a, b, c) {
 
     }
 }
+
+
 $.U = function () {
     var g = G(arguments)
     return $.uE(g.f, [$.li(g.s)])
@@ -348,11 +361,38 @@ $.a$ = function (t, fn) {
     return $.a(t).b('$', fn)
 }
 
-$.bt$ = $.btB$ = function (a, b, c) {
-    var bt = $.bt(a).b$(a)
+$.b$= $.bt$ = $.btB$ = function (a, b, c) {
+    var bt = $.bt(a)
+
+    bt.b$(b||a)
+
     if (c) {bt.bEn(c)}
     return bt
 }
+$.b$$=function(){
+    var sp= $.sp()
+    _.e(arguments,function(a){
+        sp.A($.b$(a))
+    }); return sp
+}
+$.ST=function(t){
+   return $.S().bT(t)
+}
+$.dV=$.dVs=function(){
+    var g=G(arguments),
+        d= $.d().bVs(g.f)
+
+
+    _.e(g.r,function(q){
+        d.A(q)
+    })
+
+
+
+    return d
+}
+
+
 $.s$ = function (a, b, c, d) {
     return $.sb(b, c, d).b$(a)
 }
@@ -366,6 +406,7 @@ $.$bt = function (a, b) {
     return $.bt(a).b$(b)
 
 }
+
 $.eT=$.emT=function(t){return $.em().bT(t)}
 
 //val and not

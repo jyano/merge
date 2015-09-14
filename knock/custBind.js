@@ -78,10 +78,6 @@ ko.$bH({
 
 
     },
-
-
-
-
     fadeVisible: {i: function(el, vA) {// 1st set el vs pop rel to val
                 $(el).toggle(ko.unwrap(vA()))}, u: function(el, vA) {//on change, slowly fade el in/out
                 ko.unwrap(vA()) ? $(el).fadeIn() : $(el).fadeOut()}},
