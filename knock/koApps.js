@@ -1,9 +1,10 @@
-TEXTIP = function (){z()//basic databinding example
+TXIP = function (){z()//basic databinding example
     $.dA('y', 100, 300, 200, 100).b('t','n')
     $.ip().b('tI','n')
     ok({n: $o('zi')})
 }
-TUT1=function(){z()
+
+K1 =function(){z()
     $.p('f').A($.S().bT('f'))
     $.p('l').A($.S().bT('l'))
     $.p('f:').A($.ip().bV('f'))
@@ -14,19 +15,19 @@ TUT1=function(){z()
     vm.full=ko.c(function(){return vm.f()+' '+vm.l()})
     ok(vm)
 }
-TXIPROOT =   function () {
+TXIPROOT =  TXI=  function () {
     $.z('x')
     unTI = $.p('Login name:').A(
         $.ipTi('un'))
     pwTI = $.p('Pw:').A($.pwTi('pw'))
-    $('body').A('the viewModel: ').A(
+    $('body').A('the vm: ').A(
         $.pre().bT('ko.toJSON($root, null, 2)'))
     ok({
         un: $o(''),
         pw: $o('abc')
     })
 }
-KOHTML =  function(){$.z().dH('details').fS(100)
+BHTML = HTM=  function(){$.z().dH('details').fS(100)
     ok('details', $o('wait for it...'))
     _.in(2, function(){vm.details("<em>For details, view report <a href='http://www.playboy.com'>here</a>.</em>")},'*')
 
@@ -41,14 +42,14 @@ ATTR= function () {$.x()
     })
 
 }
-VISABLE =   function () {
+VISABLE =VIS=   function () {
     $.z('y').h1('see me if true!').bVs('vs')
     ok('vs', $o(1))
     _.in(function () {vm.vs(0); _.in(function () {
             vm.vs(1)
         })})
 }
-ENABLE = function () {$.x()
+ENABLE = EN=function () {$.x()
     $.p().A($.cbC('hasPhone'), 'I have phone')
     $.p('Your cellphone number').A(
         $.ip().b({v: 'num', en: 'hasPhone'}))
@@ -58,10 +59,9 @@ IF  = function () {$.x('x')
     $.cC('dispMs');$.sp('Disp ms')
     $.pI('dispMs', 'Here is a message. Astonishing')
     ok({dispMs: $o(0)})
-
     _.in(function () {vm.dispMs(1)})
 }
-VALUE= function () {$.x('K1');$Ms('K1')
+VALUE= VAL=function () {$.x('K1');$Ms('K1')
     $.p('Name:').A($.ip().b({
             v: 'editing',
             v: 'name',
@@ -74,7 +74,7 @@ VALUE= function () {$.x('K1');$Ms('K1')
         edit : function () {vm.editing(true)}
     })//KOFCC
 }
-SEL=CUNTS = function (n, v) {
+SEL= CUNTS = function (n, v) {
     $.x('o').h1('dests')
     $.sO('cunts')
     ok('cunts', $oa('Fran', 'Ger', 'Spa'))
@@ -82,7 +82,7 @@ SEL=CUNTS = function (n, v) {
         vm.cunts.push('Chi')
     })
 }
-TBTRPEEPS = function () {$.C('r'); $('body').fS(30)
+TTR =   function () {$.C('r'); $('body').fS(30)
     $.x().t([$.tH([$.tr([$.th('F'),$.th('L')])]), $.tBE('peep', [
         $.tr([$.tdT('f'), ', ', $.tdT('l')])])])//  $.t([$.tH([$.tr([$.th('F'), $.th('L')])]), $.tBE('peep', [$.tr([$.tdT('f').col('b'), ', ', $.tdT('l').col('w')])])])// <- $.fn.tE= $.fn.tBE ? // (not tableHTML)
     ok({peep: $oa([{f: 'a', l: 'A'}, {f: 'b', l: 'B'}, {f: 'c', l: 'C'}])}) //ok({ peep: [{f:'a',l:'A'},      {f:'b',l:'B'}, {f:'c',l:'C'}]})
@@ -117,7 +117,7 @@ TBTRPEEPS = function () {$.C('r'); $('body').fS(30)
 
     }}
 }
-ULMONK=function() {
+BUL=MONK= function() {
     $.x('x')
     $.h1('monkey').bT('monkey')
     $.iV('monkey')
@@ -147,7 +147,7 @@ ULMONK=function() {
     //https://www.youtube.com/watch?v=JGwRIbWWqjE
 
 }
-COMPUTED = function () {$.z().h1('KNOCKOUT') //bT,bV and computed
+COMPUTED= CPD  = function () {$.z().h1('KNOCKOUT') //bT,bV and computed
     $.d().A(
         $.p('F: ', $.b().bT('f')),
         $.p('L: ', $.b().bT('l')),
@@ -187,7 +187,7 @@ COMPUTED = function () {$.z().h1('KNOCKOUT') //bT,bV and computed
         }
     }
 }
-ULIF=function(){$.x()
+ULIF=  function(){$.x()
     $.ulE('PL', [ $.li([
         $.sp('Planet: '),
         $.b().bT('n'),
@@ -199,7 +199,7 @@ ULIF=function(){$.x()
         {n: 'Uranus'  }
     ])
 }
-SELMULT = function () {
+SLMULTI = SLM =function () {
     $.x(null, 'selectedOptions')
     $.p(
         'Where you want to go?',
@@ -214,7 +214,7 @@ SELMULT = function () {
         vm.chosen.push('France')
     })
 }
-TUT3=function(){z()
+K3=function(){z()
     ko.$bH({
         fadeVisible:{i:  function(e,v) {
             var v=v()
@@ -248,13 +248,13 @@ TUT3=function(){z()
     ok(new VM("factors?", 10, ["Functionality", "News", "dropshadows", "testimonials"]))
 
 }
-DIVEACHADD=function(){$.x()
+DIVEACHADD=EAD=function(){$.x()
     $.dE('peep', [  $.p($.spT('f'),    ' ',   $.spT('l')) ])
     vm = {peep: $oa([         {f: 'B', l: 'Bb'},         {f: 'C', l: 'Cc'},         {f: 'D', l: 'Dd'}])}
     ok(vm)
     $.bt('push',function(){vm.peep.push({f:'j',l:'y'})})
 }
-ULADDSHOWTIME=PEEP=function(){$.x('x').h2('Peeep')
+ULADD=ULA=function(){$.x('x').h2('Peeep')
     $.lb('Show time: ').A(
         $.cbC('showDT'))
     $.uE('peep',[$.li().A(
@@ -271,7 +271,7 @@ ULADDSHOWTIME=PEEP=function(){$.x('x').h2('Peeep')
     //add, conditional el
     //anonymous vm
 }
-ULADDDEL=function(){$.x();  $.h4('People')
+ULDEL=ULD=function(){$.x();  $.h4('People')
 //bind bt 'click' to parent.rem
     $.ulE('peep',[ $.li([
         $.sp('pos/name: '),
@@ -329,7 +329,7 @@ ULADDDEL=function(){$.x();  $.h4('People')
         }
     }
 }
-TUT4=TUTC=COLLECTION=function(){z();$Ms('TUTC'); $.h2(['seats:(',$.spT("_.z(Ss())"),')'])
+K4=TUTC=COL=function(){z();$Ms('TUTC'); $.h2(['seats:(',$.spT("_.z(Ss())"),')'])
     $.t([$.tH([$.tr([$.th('n'),$.th('M'), $.th('$$'),$.th()])]),
         $.tBT('Ss',$.tdT('n'),$.td($.slB({o:'$root.Ms',v:'m',oT:"'n'"})),
             $.tdT('fm'), $.td([$.a$('XX',"$root.rm")]))])
@@ -397,7 +397,60 @@ TUT4=TUTC=COLLECTION=function(){z();$Ms('TUTC'); $.h2(['seats:(',$.spT("_.z(Ss()
 
     }
 }
+BSTY=function(){z()
+    $CSS({body:{'font-size':100,C:'p'}, _profWarn:{C:'r',c:'b'}, _profPos:{C:'b', c:'r'}});
+    d=$.d(['Prof Info'])
+    str="{ color: curProf() < 0 ? 'red' : 'black', padding: curProf() < 0 ? '20px' : '200px'}"
+    d.b({ y: str })
 
+    vm = {curProf: $o(150000)}
+    ok(vm)
+     _.in(2,function(){
+        // Causes the "profitPositive" class to be removed
+        // and "profitWarning" class to be added
+        vm.curProf(-50)
+    })
+}
+BCSS=function(){z()
+
+    $CSS({
+        _profWarn:{C:'r',c:'b'}, _profPos:{C:'b', c:'r'}
+    })
+
+    $.d(['Prof Info']).fS(40)
+        .b({s:'profSts'})
+    vm = {curProf:$o(150000)
+    }
+
+     vm.profSts = ko.pureComputed(function() {$l('in vm.protSs')
+         var res=this.curProf() < 0 ? "profWarn" : "profPos"
+         $l('res: '+res)
+         return  res
+     }, vm)
+    ok(vm)
+
+    _.in(2,function(){
+        // Causes the "profitPositive" class to be removed
+        // and "profitWarning" class to be added
+        vm.curProf(-50)
+    })
+
+}
+WITH=function(){z(); $.d([$.h1().bT('city'), $.p(['lat:', $.spT('lat'), 'lon:', $.spT('lon')]).b('w','xy')])
+    ok({
+        city: "London",
+        xy: {lat:51,lon:-0.1}
+    })}
+WITHPARENT= WPA= function(){z(); $.f().A('Twt-acc:', $.ip().bV('twtN'), $.sm().A('Get twts')).b({sm: 'getTwts'})
+    $.d([$.h3(['Rec twts fetched at', $.spT('retrDt')]),
+        $.ol().bE('topTwts').A($.liT('text')),
+        $.bt('Clear twts').b('$','$parent.clearRes')]).b({w: 'resDa'})
+    ok(new (function(){var vw = this
+        vw.twtN = $o('@ex');vw.resDa = $o(0)
+        vw.clearRes = function(){vw.resDa(undefined)}
+        vw.getTwts = function (){var n=vw.twtN(); vw.resDa({topTwts: [{text:n+':nice'}, {text:n+':trump'}, {text:n+':sex'}], retrDt: new Date()})}
+    }))
+}
 
 
 
@@ -553,7 +606,7 @@ CHECK =SPAM=function(){$.x('o','spam')
     ok(vm)
     _.in(2, function(){   vm.wantSpam(0)   })
 //bind cb 'checked' to boolean
-    //viewModel.spamFlavors.push("msg"); // Now additionally checks the Monosodium Glutamate checkbox
+    //vm.spamFlavors.push("msg"); // Now additionally checks the Monosodium Glutamate checkbox
 }
 SLOP=function(){$.z()
     $.p('Choose some countries youd like to visit:').A(
@@ -1293,3 +1346,39 @@ function declarativeAppLoader(){
         _:function(){ vm.n(-5) } })}
 
 }
+
+
+
+
+
+
+//
+//1 parameter: object that you want to use as the context for binding descendant elements.
+//    If the expression you supply evaluates to null or undefined,
+// descendant elements will not be bound at all,
+// but will instead be removed from the document.
+
+//    If the expression you supply involves any observable values,
+// the expression will be re-evaluated whenever any of those observables change.
+// Then, descendant elements will be cleared out,
+// and a new copy of the markup will be added to your document and
+// bound in the context of the new evaluation result.
+
+//Note 1: Using “with” without a container element
+//Just like other control flow elements such as if and foreach,
+// you can use with without any container element to host it.
+// This is useful if you need to use with in a place where
+// it would not be legal to introduce a new container element just
+// to hold the with binding.
+
+
+//<ul>
+//<li>Header element</li>
+//<!-- ko with: outboundFlight -->
+//...
+//<!-- /ko -->
+//<!-- ko with: inboundFlight -->
+//...
+//<!-- /ko -->
+//</ul>
+//The <!-- ko --> and <!-- /ko --> comments act as start/end markers, defining a “virtual element” that contains the markup inside. Knockout understands this virtual element syntax and binds as if you had a real container element.
