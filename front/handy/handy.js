@@ -720,17 +720,24 @@ function htmll(){
     }
     function div() {
 
-        $.dI = function (id, a, b, c, d, e, f) {
-            //dI conflict?
-            return $.d(a, b, c, d, e, f).id(id)
-        }
-        $.dK = function (k) {
 
+        $.dI=function(){$l('$.dI')
+            var g=G(arguments),
+                d= $.d.apply($, g.r)
 
-            var d = $.d()
-            d.K(k)
+            d.id(g.f)
             return d
         }
+
+
+        $.dK=function(k){
+            var g=G(arguments),
+
+                d= $.d.apply($, _.r(arguments))
+
+            return d.K(k)
+        }
+
         $.dD = $.divD = function (c, w, h, x, y) {
             var d, g = G(arguments)
             w = N(w, 200)
@@ -4441,3 +4448,23 @@ $.B=function(a){
     if(a){q.A(a)}
     return q
 }
+
+$.qs =  function f(sty,styVal){
+    var o = {}
+    if(S(sty)){addSty(o,sty,styVal)}
+    else{_.e(sty, function(styVal,sty){
+        addSty(o,sty,styVal)
+    })}
+    return o
+
+    function addSty(o,a,b){
+
+        if(N(b) && M.abs(b)>10){
+            b = String(b)+'px'
+        }
+        o[oO('s',a)] = oO(a, b,'R')
+        return o
+    }
+}
+$.fn.hv= $.fn.hover
+$.fn.sb= $.fn.siblings

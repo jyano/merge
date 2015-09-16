@@ -64,11 +64,6 @@ $.getChecked=function(name){return $("input[type='radio'][name="+name+"]:checked
 
 
 
-$.word = function (t, c1, c2) {return $.sp(t).C(c1, c2).A().dg()}
-
-
-
-
 
 
 

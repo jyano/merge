@@ -747,24 +747,13 @@ bootStrap=function(){
 
 CSS= {
 
-    flD: 'flex-direction',
-    flW: 'flex-wrap',
-
-    flJC: 'justify-content',
 
 
-    $:'flex',
-    $$:'flex-flow',
+    $:'flex', $$:'flex-flow', $F:'flex-flow',
     $D:'flex-direction',
-    $W:'flex-wrap',
-    $J:'justify-content',
-    $I:'align-items',
-    $C:'align-content',
-    $O:'order',
-    $G:'grow',
-    $S:'shrink',
-    $B:'basis',
-    $A:'align-self',
+    $W:'flex-wrap', $J:'justify-content', $I:'align-items',
+    $C:'align-content', $O:'order', $G:'grow', $S:'shrink', $B:'basis', $A:'align-self',
+
 
 
 
@@ -773,13 +762,15 @@ CSS= {
     f: 'font',
     ff: 'font-family',
     fc: '@font-face', // for font files
-    fz: 'font-size',//xx-small,x-small,small,medium,large,x-large,xx-large//smaller,larger
+
+    fS:'font-size', fZ:'font-size', fz: 'font-size',//xx-small,x-small,small,medium,large,x-large,xx-large//smaller,larger
+
     fs: 'font-style', //normal,oblique,italic
     fv: 'font-variant', //normal,smallcaps
     fw: 'font-weight',//normal,bold,100-900
     fh: 'font-stretch',
     lh: 'line-height',  //minimum distance between the baselines of adjacent lines of text
-    ta: 'text-align',         //left, right, center and justify
+    tA: 'text-align',    ta: 'text-align',         //left, right, center and justify
     td: 'text-decoration',     // underline, overline, line-through, blink
     ti: 'text-indent',    // indent for the first line of a block level element
     ttf: 'text-transform',   //none,uppercase,lowercase,capitalize
@@ -876,9 +867,9 @@ CSS= {
     gb: "padding-bottom",
     gl: "padding-left",
 
-    m: "margin",
-    mar: "margin",
-    M: "margin",
+
+
+    M: "margin",  mar: "margin",  m: "margin",
 
     mT: "margin-top",
     mR: "margin-right",
@@ -990,7 +981,7 @@ ooo={
     fv:FONTVARIANT,
     tt:TEXTTRANSFORM,
     td:TEXTDECORATION,
-    ta:TEXTALIGNMENT, tb:TEXTBASELINE,
+    tA:TEXTALIGNMENT, tb:TEXTBASELINE,
     x:XMET,X:XPOP, z:PATTERN, lj:LINEJOIN, lc:LINECAP,g:GCO,
     j: CREATE,   E:EASE,
 

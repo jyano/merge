@@ -129,7 +129,16 @@ dv=function(){
         //dI conflict?
         return $.d(a,b,c,d,e,f).id(id)}
 
-    $.dK=function(k){return $.d().K(k)}
+
+
+    $.dK=function(k){$l('dK')
+        var g=G(arguments),
+
+            d= $.d.apply($, _.r(arguments))
+
+        return d.K(k)
+    }
+
     $.dD= $.divD = function(c, w, h, x,y ){var d,g=G(arguments)
         w=N(w,200)
         h=N(h,w)

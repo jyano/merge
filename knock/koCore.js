@@ -177,7 +177,7 @@ $.fn.bSO = function (s) {
 $.fn.b$=function(s){return this.b('click', s)}
 
 
-$.dI= $.dIf = function (a, b) {
+$.dIf = function (a, b) {
     var d = $.d().bI(a)
     if (A(b)) {
         _.e(b, function (b) {
@@ -185,7 +185,7 @@ $.dI= $.dIf = function (a, b) {
         })
     }
     return d
-}
+}//$.dI=
 $.pI = function (a, b, c, d) {
     return $.p(b, c, d).bI(a)
 }

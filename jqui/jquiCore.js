@@ -18,19 +18,25 @@ $.fn.ef= $.fn.effect
 $.fn.dgb = $.fn.dgg = $.fn.draggable
 $.fn.dpb = $.fn.droppable
 $.fn.gg= $.fn.toggle
+
+
 $.fn.hd= function(ef, o, ms){
-    if(ef=='sl'){ef='slide'}
-    if(o.d){
+    if(ef=='sl'){
+        ef='slide'}
+
+    if(o&&o.d){
         if(o.d=='l'){o.d='left'}
         if(o.d=='r'){o.d='right'}
         if(o.d=='up'){o.d='up'}
         if(o.d=='down'){o.d='down'}
-        o.direction = o.d }
+        o.direction = o.d
+    }
+
     return this.hide(ef,o,ms)
 }
 $.fn.sh= function(ef, o, ms){
     if(ef=='sl'){ef='slide'}
-    if(o.d){
+    if(o&&o.d){
         if(o.d=='l'){o.d='left'}
         if(o.d=='r'){o.d='right'}
         if(o.d=='u'){o.d='up'}
@@ -38,6 +44,7 @@ $.fn.sh= function(ef, o, ms){
         o.direction = o.d}
     return this.show(ef, o, ms)
 }
+
 $.fn.ps= $.fn.position
 $.fn.tIx=function(a,b){
     a= this.at('tabindex', a)
