@@ -12,19 +12,12 @@ $.fn.zLite=function(type, icon) {var e=this
         d.K('ui-state-'+type+'ui-corner-all').css({padding:'0 .7em'})
         $(this).html(d) })
 }
-
 $.fn.error=function(){this.zLite('error')}
-
 $.fn.highlight=function(){this.zLite('highlight')}
-
 $.fn.ef= $.fn.effect
-
 $.fn.dgb = $.fn.dgg = $.fn.draggable
-
 $.fn.dpb = $.fn.droppable
-
 $.fn.gg= $.fn.toggle
-
 $.fn.hd= function(ef, o, ms){
     if(ef=='sl'){ef='slide'}
     if(o.d){
@@ -35,7 +28,6 @@ $.fn.hd= function(ef, o, ms){
         o.direction = o.d }
     return this.hide(ef,o,ms)
 }
-
 $.fn.sh= function(ef, o, ms){
     if(ef=='sl'){ef='slide'}
     if(o.d){
@@ -46,7 +38,6 @@ $.fn.sh= function(ef, o, ms){
         o.direction = o.d}
     return this.show(ef, o, ms)
 }
-
 $.fn.ps= $.fn.position
 $.fn.tIx=function(a,b){
     a= this.at('tabindex', a)
@@ -92,19 +83,24 @@ $.dlg = function (msg) {
     })
 }
 
-DIAL=function(){$.x(null, 'dialog')
+DIAL=function(){
+    $l('dial')
+    $.x(null, 'dialog')
 
     $.d([
         $.p('This is the default dialog which is useful for displaying information'),
         $.p('dialog window can be moved, resized and closed with the x icon')]).id('dialog').at('title', 'Basic dialog')
-    $("#dialog" ).dialog()
+
+     $("#dialog" ).dialog()
 
 
     $.dlg('dialog 1')
+
     $.in(3, function(){
         $.dlg('dialog 2')
         $.dlg('dialog 3')
-        $.dlg('dialog 4')  })
+        $.dlg('dialog 4')
+    })
 
 }
 

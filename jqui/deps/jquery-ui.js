@@ -2122,7 +2122,7 @@ var accordion = $.widget( "ui.accordion", {
 		}
 		this._trigger( "activate", null, data );
 	}
-});
+})
 
 
 /*!

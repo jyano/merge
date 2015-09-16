@@ -5,6 +5,7 @@ dirs=[
     'front', 'front/graphics', 'front/handy',
     'boot', 'boot/deps', 'boot/deps/css',   'boot/deps/fonts',
     'front/graf', 'front/graf/deps',
+    'style',
     'front/fiz', 'front/fiz/deps',
     'show', 'show/mugApps', 'show/spazGames',
     'jqui',  'jqui/deps',  'jqui/deps/images', 'jqui/custWid',

@@ -46,16 +46,19 @@ ko.cm.gN= ko.cm.getComponentNameForNode = function(nd){
 ///////////////////////////
 LIKE= function(){z()
 
-    $((function(Vm){
-        ko._('LIKE',[
-            $.dV("!vt()", $.b$$('like','hate')),
-            $.dV('vt', 'you:', $.ST('vt'))
-        ],Vm)})(function(p){
+
+    ko._('LIKE',[
+                $.dV("!vt()", $.b$$('like','hate')),
+                $.dV('vt', 'you:', $.ST('vt'))
+
+    ], Vm)
+
+
+    function Vm(p){
         var vm = {vt:p.vt||''}
         vm.like = function () {this.vt('like')}
         vm.hate = function () {this.vt('hate')}
-        return vm}))
-
+        return vm}
 
     $.ulE('MS',[
         $.sT('ms'),
