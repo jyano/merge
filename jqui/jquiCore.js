@@ -1,4 +1,3 @@
-$l('jquiCore')
 $.fn.dgb= $.fn.draggable
 $.fn.dpb = $.fn.droppable
 $.fn.zLite=function(type, icon) {var e=this
@@ -15,15 +14,9 @@ $.fn.zLite=function(type, icon) {var e=this
 $.fn.error=function(){this.zLite('error')}
 $.fn.highlight=function(){this.zLite('highlight')}
 $.fn.ef= $.fn.effect
-$.fn.dgb = $.fn.dgg = $.fn.draggable
-$.fn.dpb = $.fn.droppable
-$.fn.gg= $.fn.toggle
-
-
 $.fn.hd= function(ef, o, ms){
     if(ef=='sl'){
         ef='slide'}
-
     if(o&&o.d){
         if(o.d=='l'){o.d='left'}
         if(o.d=='r'){o.d='right'}
@@ -31,7 +24,6 @@ $.fn.hd= function(ef, o, ms){
         if(o.d=='down'){o.d='down'}
         o.direction = o.d
     }
-
     return this.hide(ef,o,ms)
 }
 $.fn.sh= function(ef, o, ms){
@@ -44,14 +36,12 @@ $.fn.sh= function(ef, o, ms){
         o.direction = o.d}
     return this.show(ef, o, ms)
 }
-
 $.fn.ps= $.fn.position
 $.fn.tIx=function(a,b){
     a= this.at('tabindex', a)
     if(b){a.v(b)}
     return a
 }
-
 $.fn.dtp= $.fn.datepicker // CSS Framework
 //   list of the class names
 // used by jQuery UI.
@@ -69,49 +59,6 @@ $.fn.dtp= $.fn.datepicker // CSS Framework
 //jqAnim:
 $.fn.st= $.fn.stop
 $.fn.f2= $.fn.fadeTo
-
-
-$.dlg = function (msg) {
-
-    var dlg=$("#response-dialog")
-
-    if(!dlg[0]){
-        dlg=$.d().at({
-            title:"Messaage",
-            id:"response-dialog"
-        })
-    }
-
-    dlg.html(msg).dialog({
-        autoOpen: true,
-        width: 400,  modal: true,
-        closeOnEscape: true,
-        buttons:  { Ok: function () {dlg .dialog("close")}  }
-    })
-}
-
-DIAL=function(){
-    $l('dial')
-    $.x(null, 'dialog')
-
-    $.d([
-        $.p('This is the default dialog which is useful for displaying information'),
-        $.p('dialog window can be moved, resized and closed with the x icon')]).id('dialog').at('title', 'Basic dialog')
-
-     $("#dialog" ).dialog()
-
-
-    $.dlg('dialog 1')
-
-    $.in(3, function(){
-        $.dlg('dialog 2')
-        $.dlg('dialog 3')
-        $.dlg('dialog 4')
-    })
-
-}
-
-
-
-
-
+$.fn.fI= $.fn.fadeIn
+$.fn.wid= $.fn.widget
+$.wg = $.wid=  $.widget

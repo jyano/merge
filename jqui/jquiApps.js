@@ -1,5 +1,59 @@
-pre()
 
+
+DIAL=function(){
+    $.dlg = function (msg) {
+        var dlg=$("#response-dialog")
+        if(!dlg[0]){
+            dlg=$.d().at({
+                title:"Messaage",
+                id:"response-dialog"
+            })
+        }
+        dlg.html(msg).dialog({
+            autoOpen: true,
+            width: 400,  modal: true,
+            closeOnEscape: true,
+            buttons:  { Ok: function () {dlg .dialog("close")}  }
+        })
+    }
+
+    $l('dial')
+    $.x(null, 'dialog')
+
+    $.d([
+        $.p('This is the default dialog which is useful for displaying information'),
+        $.p('dialog window can be moved, resized and closed with the x icon')]).id('dialog').at('title', 'Basic dialog')
+
+    $("#dialog" ).dialog()
+
+
+    $.dlg('dialog 1')
+
+    $.in(3, function(){
+        $.dlg('dialog 2')
+        $.dlg('dialog 3')
+        $.dlg('dialog 4')
+    })
+
+
+}
+
+
+
+
+
+
+TIP=function(){z()
+
+    $.p([
+
+        $.a('text goes here: ').ti('description, yo'),
+        $.ip().ti('little help..')
+    ])//.tooltip()
+
+     $( document ).tooltip()
+
+}
 BUTSET=function(){z()
 /*
         $.f([$.fs([$.lg('Favorite jQuery Project'),
@@ -21,10 +75,7 @@ BUTSET=function(){z()
 
         $( "#radio" ).buttonset()
     }
-
 SLIDER=function(){z(); $CSS({_slider:{M:12}}); $.dI('slider').slider()}
-
-
 MENU=function(){z(); $CSS({'.ui-menu': { w: 150 }})
         $.ul([
             $.li(['Hockey']),
@@ -43,8 +94,6 @@ MENU=function(){z(); $CSS({'.ui-menu': { w: 150 }})
         ]).id('menu')
         $( "#menu" ).menu()
 }
-
-
 NUMSPIN=function(){z();$Ms('simple number spinner');$.C('z')
 
         $.ip().id('spinner').C('o')
@@ -53,9 +102,6 @@ NUMSPIN=function(){z();$Ms('simple number spinner');$.C('z')
 
 
     }
-
-
-
 UITAB=function(){z()
     $.d([
 
@@ -74,22 +120,6 @@ UITAB=function(){z()
 
 
 }
-
-
-
-
-
-
-    TIP=function(){z()
-
-        $.p().A(
-            $('<a href="#" title="Anchor description">Anchor text</a> <input title="Input help">')
-        )
-
-        $( document ).tooltip()
-
-    }
-
 UIBUT=function(){z()
 
     $.C('o')
@@ -106,7 +136,6 @@ UIBUT=function(){z()
         borderWidth:200
     })
 }
-
     SPANFOCUS= FOC = function () {
         $.x()
 
@@ -124,7 +153,6 @@ UIBUT=function(){z()
             value: false
         })
     }
-
     HIDESHOWNICE=HIDE = function () {
 
 
@@ -152,7 +180,6 @@ UIBUT=function(){z()
 
 
     }
-
 OVERLAY =FADEIN=FIN= function () {
         $.h({
 
@@ -170,12 +197,10 @@ OVERLAY =FADEIN=FIN= function () {
         })
 
     }
-
     DGB = function () {
         $.s({$dgb: {w: 100, h: 100, C: 'r'}} ,'o', 'dgb')
         $.dI('dgb', ['Drag me']).dgb()
     }
-
     DPB = function () {
         $.x('b', 'dpb')
         $CSS({
@@ -240,7 +265,6 @@ OVERLAY =FADEIN=FIN= function () {
         $("#files").selectmenu()
         $("#number").selectmenu().selectmenu("menuWidget").K("overflow")
     }
-
     DATEPICK=function(){$.x('b','jqui')
 
         $.d().id("datepicker")
@@ -301,9 +325,7 @@ OVERLAY =FADEIN=FIN= function () {
             $.h3('Section 3'), $.d([$.p(l1 ), ul])
         ]).accordion()
     }
-
-
-    SAMPLER= EFFECTS=EFS=function(){$.x('x')
+ SAMPLER= EFFECTS=EFS=function(){$.x('x')
 
         $CSS({
             _toggler: {w:500, h:200, p:'r'},
@@ -345,7 +367,7 @@ OVERLAY =FADEIN=FIN= function () {
 
 
     }
-    HIGHLIGHT=HLT = function () {
+HIGHLIGHT=HLT = function () {
 
         $.h({
             p: {C: 'y', w: 200, B: '1px solid green'},
@@ -820,71 +842,196 @@ function err(){
 //http://www.ryadel.com/2015/01/03/using-jquery-ui-bootstrap-togheter-web-page/
 // http://api.jqueryui.com/jQ.widget.bridge/
 
-function pre(){
-    $.s=function(css,c,tx){
-        $CSS(css)
 
-        $.x(c,tx)
-        return $
-    }
-    $.rz=function(fn){var g=G(arguments)
-        var wd= $(window)
-        wd.rz(fn);
-        if(g.p){fn()}
-        return wd
-    }
 
-    $.fn.fI= $.fn.fadeIn
-    $.fn.rz= $.fn.resize
-    $.lg=function(){var g=G(arguments),
-        q= $('<legend>')
+FID=function(){z()
 
-        if(g.A){
-            _.e(g.f, function(e){
-                q.A(e)
-            })
+
+
+    $.wg("jy.simp", {
+        options: {text: ""},
+        _setOption: function (k, v) {
+            if(k === "text") {
+                this.element.text(v)
+            }
+            this._trigger("change")
         }
-        else{
-            g.e(function(e){q.A(e)})
+    })
+    a = $.a('Hello World')
+        .simp().on("simpchange", function(){
+            //p.html( a.simp("option", "text"))
+        })
+
+   // p = $.p()
+
+    $.bt('Change Text',function(){
+        a.simp("option", "text", "new text")
+    }).button()
+
+
+
+}
+
+CBW=function(){z()
+
+    $.widget( "app.checkbox", {
+
+        _create: function() {
+
+            // Call the default widget constructor first.
+            this._super();
+
+            // Hide the HTML checkbox, then insert our button.
+            this.element.addClass( "ui-helper-hidden-accessible" );
+            this.button = $( "<button/>" ).insertAfter( this.element );
+
+            // Configure the button by adding our widget class,
+            // setting some default text, default icons, and such.
+            // The create event handler removes the title attribute,
+            // because we don't need it.
+            this.button.addClass( "ui-checkbox" )
+                .text( "checkbox" )
+                .button({
+                    text: false,
+                    icons: {
+                        primary: "ui-icon-blank"
+                    },
+                    create: function( e, ui ) {
+                        $( this ).removeAttr( "title" );
+                    }
+                });
+
+            // Listen for click events on the button we just inserted and
+            // toggle the checked state of our hidden checkbox.
+            this._on( this.button, {
+                click: function( e ) {
+                    this.element.prop( "checked", !this.element.is( ":checked" ) );
+                    this.refresh();
+                }
+            });
+
+            // Update the checked state of the button, depending on the
+            // initial checked state of the checkbox.
+            this.refresh();
+
+        },
+
+        _destroy: function() {
+
+            // Standard widget cleanup.
+            this._super();
+
+            // Display the HTML checkbox and remove the button.
+            this.element.removeClass( "ui-helper-hidden-accessible" );
+            this.button.button( "destroy" ).remove();
+
+        },
+
+        refresh: function() {
+            // Set the button icon based on the state of the checkbox.
+            this.button.button( "option", "icons", {
+                primary: this.element.is( ":checked" ) ?
+                    "ui-icon-check" : "ui-icon-blank"
+            });
+
         }
 
-        return q
-    }
+    });
+    s = $('<span>').A(
+    $('<div>').A(
 
-    $.fs=function(){var g=G(arguments),
-        q= $('<fieldset>')
+        $.cb().id('sm') ,
+        $.lb('Small',  'check').K('ui-widget')
+    ) ,
 
-        if(g.A){
-            _.e(g.f, function(e){
-                q.A(e)
-            })
+    $('<div>').A(
+        $.cb().id('md') ,
+        $.lb('Medium',  'check').K('ui-widget')
+    ),
+
+    $('<div>').A(
+        $.cb().id('lg') ,
+        $.lb('Large',  'check').K('ui-widget'))
+    ).A()
+
+    $( "input[type='checkbox']" ).checkbox();
+
+}
+
+CBW=function(){z()
+
+html='<div> <input id="sm" type="checkbox"/> <label for="check" class="ui-widget">Small</label> </div> <div> <input id="md" type="checkbox"/> <label for="check" class="ui-widget">Medium</label> </div> <div> <input id="lg" type="checkbox"/> <label for="check" class="ui-widget">Large</label> </div>'
+
+    $(html).A()
+
+
+    $.widget( "app.checkbox", {
+
+        _create: function() {
+
+            // Call the default widget constructor first.
+            this._super();
+
+            // Hide the HTML checkbox, then insert our button.
+            this.element.addClass( "ui-helper-hidden-accessible" );
+            this.button = $( "<button/>" ).insertAfter( this.element );
+
+            // Configure the button by adding our widget class,
+            // setting some default text, default icons, and such.
+            // The create event handler removes the title attribute,
+            // because we don't need it.
+            this.button.addClass( "ui-checkbox" )
+                .text( "checkbox" )
+                .button({
+                    text: false,
+                    icons: {
+                        primary: "ui-icon-blank"
+                    },
+                    create: function( e, ui ) {
+                        $( this ).removeAttr( "title" );
+                    }
+                });
+
+            // Listen for click events on the button we just inserted and
+            // toggle the checked state of our hidden checkbox.
+            this._on( this.button, {
+                click: function( e ) {
+                    this.element.prop( "checked", !this.element.is( ":checked" ) );
+                    this.refresh();
+                }
+            });
+
+            // Update the checked state of the button, depending on the
+            // initial checked state of the checkbox.
+            this.refresh();
+
+        },
+
+        _destroy: function() {
+
+            // Standard widget cleanup.
+            this._super();
+
+            // Display the HTML checkbox and remove the button.
+            this.element.removeClass( "ui-helper-hidden-accessible" );
+            this.button.button( "destroy" ).remove();
+
+        },
+
+        refresh: function() {
+            // Set the button icon based on the state of the checkbox.
+            this.button.button( "option", "icons", {
+                primary: this.element.is( ":checked" ) ?
+                    "ui-icon-check" : "ui-icon-blank"
+            });
+
         }
-        else{
-            g.e(function(e){q.A(e)})
-        }
-        return q
-    }
-    $.rb=function(name,id){var g=G(arguments)
-        id=id||name
-        var q=  $('<input>').at('type','radio')
-        q.n(name)
-        q.id(id)
-        if(g.p){q.at('checked',true)}
-        return q}
 
-    l1 =    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy' +
-    ' nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.     ' +
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ' +
-    'sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam ' +
-    'erat volutpat.'
+    });
 
-    l2=
-        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy' +
-        ' nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.' +
-        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy ' +
-        'nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.' +
-        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ' +
-        'sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam' +
-        ' erat volutpat.'
+    // Create three checkbox instances.
+    $(function() {
+        $( "input[type='checkbox']" ).checkbox();
+    });
 
 }

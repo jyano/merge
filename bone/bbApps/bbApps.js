@@ -287,32 +287,36 @@ function roApps(){
     })
 }
 viewApps()
+
+
 function viewApps(){
-    DEFAULT= function(){$.x('n')
-        md = $$M({defaults: {
-            n:'j', a:20, o:'p'
-        }})()
 
-        $$V({
-            t: 'li',
-            i: function(){this.$el.fS(149).col('b').C('r').A(); this.r()},
-            r: function(){this.$el.A('n: '+this.g('n')  )}
-        }) ({m: md})
-
-    }
     VIEW=function(){$.x('b','viw');
 
-        $V({
-            el: $.dA('g', 800, 800,200,200),
-            i: function(){this.r()},
+        $V({el: $.dA('g', 400,400,200,200),
+            i: function(){
+                this.r()},
             r: function(){
-                this.A($.ul().fS(40).A('hello'))}
+                var vw=this
+                this.A($.ul().fS(40).A('hello'))
+                _.in(function(){vw.r()})
+            }
         })
 
-        $$V({
-            i: function(){this.r()},
-            r: function(){this.A($.ul(['hello']))}
-        })({el:$.d('O', 500,500)})
+
+        _.in(3, function(){
+            $$V({
+                i: function(){
+                    this.r()},
+                r: function(){
+                    this.A(
+                        $.ul([
+                        'hello'
+                    ]))}
+            })({
+                el: $.d('O', 500,500)
+            })
+        })
 
         function alpha() {
             //  uses jq.fn.V ...very cool
@@ -325,33 +329,75 @@ function viewApps(){
 
 
     }
-    PEOPOP=function(){$.x('x', 'bb view people')
 
-        peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
+    DEFAULT= function(){$.x('n')
+        md = $$M({defaults: {
+            n:'j', a:20, o:'p'
+        }})()
+        $$V({  t: 'li', i: function(){this.$el.A()
+            .C('r').col('b').fS(149)
+            this.r()},
+            r: function(){
+                this.$el.A(
+                'n: '+this.g('n')
+            )}
+        }) ({m: md})
+    }
 
-        vw= $$V({
-            t:'ul',
-            i:function(){
-                this.$el.C('y')
+
+    EVENTS= function(){$.x('o','beauty')
+        dv=$.d('r', 200).A(
+            $.h1('hello'),
+            bt=  $.bt('-------')
+        )
+        $V({el :dv ,
+            events: {
+                'click button': function(){
+                    bt.C($r()) },
+                'dblclick': 'r',
+                'mouseover': function(){
+                    dv.C($r())
+                }
             },
+            r : function(){$.C($r())}
+        })
 
-            r:function(){
-                var el=this.$el.E()
+    }
+
+
+
+    CHANGE=function(){$.x('x','bbv'); $('body').fS(30)
+        div= $.dA('o', 300,400).XY( 200,200)
+        m=  $$M()({rx:'antibiotic'})
+        $$V({
+            i:function(){var vw=this; vw.r()
+                vw.oC(function(){vw.r()})
+            },
+            r:function(){return this.h(this.g('rx'))}
+        })({
+            el: div,
+            m: m
+        })
+        ip = $.ip()
+        $.bt('change', function(){
+            m.s('rx', ip.v() )
+        })
+    }
+    PEOPOP=function(){$.x('x', 'bb view people')
+        peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
+        vw= $$V({t:'ul',
+            i:function(){this.$el.C('y')},
+            r:function(){var el=this.$el.E()
                 _.e(this.collection, function(p){//$('#peep')
-                    el.A(
-                        $.li().A(p.n + '(' + p.a + ')')
-                    )
-                })
-
+                    el.A($.li([p.n + '(' + p.a + ')']))})
                 return this}
-
         })({cl: peep})
-
-
-        $.A(vw.r().el)
-
+        $.A(
+            vw.r().el
+        )
         _.in(function(){
-            peep.pop(); vw.r()
+            peep.pop();
+            vw.r()
         })
 
         function alpha(){
@@ -376,53 +422,9 @@ function viewApps(){
 
         }
     }
-    CHANGE=function(){$.x('x','bbv'); $('body').fS(30)
-
-        div= $.dA('o', 300,400).XY( 200,200)
-        m=  $$M()({rx:'antibiotic'})
-
-        $$V({
-            i:function(){var vw=this; vw.r()
-
-                vw.oC(function(){vw.r()})
-
-            },
-
-            r:function(){return this.h(this.g('rx'))}
-        })({
-            el: div,
-            m: m
-        })
-
-        ip = $.ip()
-
-        $.bt('change', function(){m.s('rx', ip.v() )})
 
 
-    }
-    EVENTS= function(){$.x('o','beauty')
 
-        dv=$.d('r', 200).A(
-            $.h1('hello'),
-            bt=  $.bt('-------')
-        )
-        $V({
-
-            el :dv ,
-            events: {
-                'click button': function(){bt.C($r()) },
-                'dblclick': 'r',
-                'mouseover': function(){
-                    dv.C($r())
-                }
-            },
-
-            r : function(){$.C($r())}
-
-        })
-
-
-    }
     function alpha() {
         SHOWVW=NOROUTER = function () {$.x()
             V1 = $$V({
@@ -608,6 +610,16 @@ function viewApps(){
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 BBBEV=function(){$.x().i('chicks')
     ev = Bb.Ev()
     ev.b("fun:had", // bind? on?

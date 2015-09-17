@@ -4468,3 +4468,119 @@ $.qs =  function f(sty,styVal){
 }
 $.fn.hv= $.fn.hover
 $.fn.sb= $.fn.siblings
+
+$.fn.da  = $.fn.data
+$.fn.fi= $.fn.find
+$.fn.fRm=function(a){
+    return this.fi(a).rm()
+}
+$.fn._ = $.fn.closest
+$.fn.__ + $.fn.parent
+$.fn.rp + $.fn.replace
+
+
+$.fn.tx= $.fn.text
+$q=function(e){
+    if(!O(e)){return false}
+    if(e.target){e= e.target}
+    return $(e)
+}
+
+$.fn.wr= $.fn.wrap
+$.fn.d= $.fn.da= $.fn.data
+
+$.fn.tK= $.fn.ggK= $.fn.toggleClass
+$.fn.rK= $.fn.rmK= $.fn.removeClass
+_.sT=setTimeout
+_.pF=parseFloat
+$.fn.iB= $.fn.insertBefore
+$.fn.pr= $.fn.parent
+
+_.cT= function(a){
+    return clearTimeout(a)
+}
+
+$w=function(){
+    var w=  $('window')
+    return w
+}
+
+
+
+_.pI=parseInt
+
+$.fn.iA=$.fn.insertAfter
+$.fn.ouH= $.fn.outerHeight
+$.fn.os= $.fn.offset
+
+
+
+$.fn.ti=function(a){
+    this.at('title',a)
+    return this}
+
+$.fn.gg= $.fn.toggle
+$.s=function(css,c,tx){
+    $CSS(css)
+
+    $.x(c,tx)
+    return $
+}
+$.rz=function(fn){var g=G(arguments)
+    var wd= $(window)
+    wd.rz(fn);
+    if(g.p){fn()}
+    return wd
+}
+$.fs=function(){var g=G(arguments),
+    q= $('<fieldset>')
+
+    if(g.A){
+        _.e(g.f, function(e){
+            q.A(e)
+        })
+    }
+    else{
+        g.e(function(e){q.A(e)})
+    }
+    return q
+}
+$.rb=function(name,id){var g=G(arguments)
+    id=id||name
+    var q=  $('<input>').at('type','radio')
+    q.n(name)
+    q.id(id)
+    if(g.p){q.at('checked',true)}
+    return q}
+
+$.lg=function(){var g=G(arguments),
+    q= $('<legend>')
+    if(g.A){
+        _.e(g.f, function(e){
+            q.A(e)
+        })
+    }
+    else{
+        g.e(function(e){q.A(e)})
+    }
+    return q
+}
+
+$.cts = $.contains // ??
+$.fn.iA= $.fn.insertAfter
+$.fn.ea = $.fn.each
+
+l1 =    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy' +
+' nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.     ' +
+'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ' +
+'sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam ' +
+'erat volutpat.'
+
+l2=
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy' +
+    ' nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.' +
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy ' +
+    'nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.' +
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ' +
+    'sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam' +
+    ' erat volutpat.'
