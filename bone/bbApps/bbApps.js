@@ -1,299 +1,9 @@
-WOB=WITHOUTBB=function(){
-    $.x('x', 'bb view people')
-    ul = $.ul().id('peep')
-    peep = [{n:'a',a:11}, {n:'b',a:46}, {n:'c',a:13}]
-    vw={r:function(){
-        $('#peep').E()
-        _.e(peep, function(p){
-            $('#peep').A('<li>'+ p.n + '(' + p.a + ')</li>')
-        })}}
-    vw.r()
-    _.in(function(){
-        peep.pop(); vw.r()},'*')
+$.fn.V = function (ob) {
+    ob = ob || {};ob.el = this; return $V(ob)
 }
-roApps()
-function roApps(){
-    $Fn = function (name, fn) {
-        window[name] = fn;
-        return fn
-    }
-    $RoApp = function (name, fn) {
+VIEW=function(){$.x('b','viw');
 
-        $Fn(name, function () {
-            name = _.tU(name)
-            $l('name: ' + name)
-
-            Ap = {M: {}, V: {}, C: {}}
-            z();
-
-            header(name);
-            d = $.d().id('ct').fS(40)
-            fn();
-
-            startRtr(name)
-
-            function header(name) {
-                $.d().A(
-                    $.sp().A('this is RoApp: ').fS(75).col('r'),
-                    $.sp().A(name)
-                        .fS(100).col('x').C('o'),
-                    $.d('B').H(8).W('auto')
-                )
-            }
-
-            function startRtr(name) {
-                Bb.h.start({
-                    pushState: true,
-                    root: "/mvc/" + name + "/"
-                })
-            }
-        })
-    }
-    $RoApp('ROAP', function () {
-        $R({
-            r: {
-                hello: 'hi',
-                goodbye: function () {
-                    $.C('o')
-                }
-            },
-
-            _: function () {
-                $l('indexxxxx')
-                $.C('p')
-            }, //index
-            hi: function () {
-                $.C('g');
-                alert('well hi there!')
-            },
-            d: function () {
-                $.C('z')
-                $.A(
-                    $.sp('d e f a u l t')
-                        .fS(30).C('g').col('w')
-                )
-            } //default
-        })
-        $.bt('index', function () {
-            r.n('')
-        })
-        $.bt('hello', function () {
-            r.n('hello')
-        })
-        $.bt('goodbye', function () {
-            r.n('goodbye')
-        })
-        $.bt('default', function () {
-            r.n('asfd/afsd')
-        })
-    })
-    $RoApp('TWOVWS', function () {
-        FirstVw = $$V({
-            i: function () {
-                this.r()
-            },
-            r: function () {
-                this.$el.E().A($.d().A(
-                    $.sp('My 1st View').fS(60),
-                    $.bt('Go to 2nd View', function (e) {
-                        $l('clicked "go to 2nd View" anchor')
-                        r.n('sec')
-                    }).C('y')))
-            }
-        })
-        SecVw = $$V({
-            i: function () {
-                this.r()
-            },
-            r: function () {
-                this.$el.E().A($.d().A(
-                    $.bt('Go to 1st View', function (e) {
-                        $l('clicked "go to 1st View" anchor')
-                        r.n('first')
-                    }).C('o'),
-                    $.sp('My 2nd View').fS(50)
-                ))
-            }
-        })
-        r = $R({
-
-            r: {
-                '': 'pg1',
-                'first': 'pg1',
-                'sec': 'pg2'
-            },
-
-            pg1: function () {
-
-                $l('in pg1')
-
-                FirstVw({
-                    el: $('#ct')
-                })
-            },
-
-
-            pg2: function () {
-                $l('in pg2')
-                SecVw({el: $('#ct')})
-            }
-        })
-    })
-    HOWDYPAM = function () {
-        z()
-
-
-        d = $.d()
-        $R({
-            r: {
-
-                'cool/:name': 'welcome',
-                'image/:id': 'image',
-                'items': 'items',
-                'items/:item': 'item',
-                'itemlist': 'showItemList'
-            },
-
-            welcome: function (name) {
-                var greet = 'howdy, ' + name + '!'
-                d.h(greet)
-                $l(greet)
-                //$.bd().E().A($.h1('welcome'))
-            },
-
-            items: function () {
-                $.bd().E().A($.h1('show item list'))
-            },
-            item: function (item) {
-                $.bd().E().A($.h1('show item: ' + item))
-            },
-
-            image: function (id) {
-                $l('image===')
-                _.t(10, function () {
-                    $l($r() + '-id: ' + id)
-                })
-                $.bd().C('z')
-            },
-
-            _: function () {
-                $l('you are viewing index')
-            }
-
-        })
-
-        // _.in(2,function(){ r.n('cool/jason') })
-
-        _.in(5, function () {
-            $l('-> img')
-
-            r.n('image/55c24c8f4198473b0d000004.png', {trigger: true})
-
-        })
-
-
-        $.bt('add', function () {
-            r.n('items')
-        })
-
-        $.bt('add1', function () {
-            $.A($.h1('k'))
-            r.n('items/j')
-        })
-
-        Bb.h.start({pushState: true})
-    }
-    $RoApp('ROUTEE', function () {
-        $.x();
-        $l('routee')
-
-        $R({
-            r: {
-
-                ':post/:id': 'pam',
-                'post/*id': 'splatMustBeLast',
-                '*post': 'splat'
-
-            },
-
-
-            pam: function (post, id) {
-                $l('Get post ' + id)
-                $l('fnPam: ' + post + ', id# ' + id)
-            },
-            splat: function () {
-                alert('1')
-            },
-            splatMustBeLast: function () {
-                alert('2')
-            },
-            d: function (a) {
-                $l('ddddddddd:' + a)
-            },
-            e: function (a) {
-                $l('eeeeeeeee:' + a)
-            }
-        })
-
-        r.A('rnav/j', function () {
-            alert('!')
-        })
-        $.bt('hi', function () {
-            r.n('po/2', {t: 1})
-        }).a()
-        $.bt('hi', function () {
-            rt.n('po/2')
-        })
-        $.bt('hi1', function () {
-            rt.n('po/4')
-        })
-        $.bt('hiiiii', function () {
-            r.n('mvc/rnavv/j', {trigger: true})
-        })
-
-
-        $.a('home', '/mvc/routee')
-        _.in(2, function () {
-            r.n('d')
-        })
-        function alpha() {
-            function anchorClickBlocker() {
-                //looks for clicks on any anchor els where
-                //href starts with '/' (no domain) and stop
-                //bw from nv to it
-
-                $.bd().on('click', 'a[href^="/"]', function (ev) {
-                    $l('wow')
-                    ev.preventDefault()
-                    r.n($(this).attr('href', {trigger: true}))
-                })
-
-
-//looks for clicks on any anchor els where
-//href starts with '/' (no domain) and stop
-//bw from nv to it
-                $('body').on('click', 'a[href^="/"]', function (ev) {
-                    ev.preventDefault()
-                    r.n($(this).attr('href'))
-                })
-
-
-            }
-
-            $.a().A($.h1('afsd'))
-            anchorClickBlocker()
-
-        }
-    })
-}
-viewApps()
-
-
-function viewApps(){
-
-    VIEW=function(){$.x('b','viw');
-
-        $V({el: $.dA('g', 400,400,200,200),
+    $V({el: $.dA('g', 400,400,200,200),
             i: function(){
                 this.r()},
             r: function(){
@@ -302,8 +12,6 @@ function viewApps(){
                 _.in(function(){vw.r()})
             }
         })
-
-
         _.in(3, function(){
             $$V({
                 i: function(){
@@ -317,20 +25,10 @@ function viewApps(){
                 el: $.d('O', 500,500)
             })
         })
-
-        function alpha() {
-            //  uses jq.fn.V ...very cool
-            $.fn.V = function (ob) {
-                ob = ob || {};
-                ob.el = this
-                return $V(ob)
-            }
-        }
+}
 
 
-    }
-
-    DEFAULT= function(){$.x('n')
+DEFAULT= function(){$.x('n')
         md = $$M({defaults: {
             n:'j', a:20, o:'p'
         }})()
@@ -342,10 +40,9 @@ function viewApps(){
                 'n: '+this.g('n')
             )}
         }) ({m: md})
-    }
+}
 
-
-    EVENTS= function(){$.x('o','beauty')
+EVENTS= EVS=function(){$.x('o','beauty')
         dv=$.d('r', 200).A(
             $.h1('hello'),
             bt=  $.bt('-------')
@@ -361,12 +58,9 @@ function viewApps(){
             },
             r : function(){$.C($r())}
         })
+}
 
-    }
-
-
-
-    CHANGE=function(){$.x('x','bbv'); $('body').fS(30)
+CHANGE=function(){$.x('x','bbv'); $('body').fS(30)
         div= $.dA('o', 300,400).XY( 200,200)
         m=  $$M()({rx:'antibiotic'})
         $$V({
@@ -383,7 +77,7 @@ function viewApps(){
             m.s('rx', ip.v() )
         })
     }
-    PEOPOP=function(){$.x('x', 'bb view people')
+PEOPOP=function(){$.x('x', 'bb view people')
         peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
         vw= $$V({t:'ul',
             i:function(){this.$el.C('y')},
@@ -423,9 +117,7 @@ function viewApps(){
         }
     }
 
-
-
-    function alpha() {
+function vwAlpha() {
         SHOWVW=NOROUTER = function () {$.x()
             V1 = $$V({
                 i: function () {this.r()},
@@ -609,24 +301,9 @@ function viewApps(){
 
         }
     }
-}
 
 
 
-
-
-
-
-
-
-
-BBBEV=function(){$.x().i('chicks')
-    ev = Bb.Ev()
-    ev.b("fun:had", // bind? on?
-        function(){alert("wee!")})
-    //trigger
-    ev.tr("fun:had")  //it'll alert "wee!"
-}
 DIVADD = function () {
     z()
 
@@ -756,11 +433,15 @@ ARRPOP = function () {
         }
     }
 }//= BBVP
+
 MDGET = function () {
     $.x('r').h1('tut')
     p = $$M()({n: 'j'})
     $.h3('p: ' + p.g('n'))
 }
+
+
+
 CLONADD = function () {
     $.x().h1('backcl');
     $.i('chicks').A()
@@ -1040,7 +721,7 @@ CHANGECOL = function () {
             })
             sb.C('w')
             sb.ask()
-            Per = Bb.M.e({
+            Per = Bb.M.x({
                 i: function () {
                     alert("Welcome")
                 }
@@ -1050,7 +731,7 @@ CHANGECOL = function () {
             p.s({n: "mac", a: 67})
             $.dA(300).id('sb')
 
-            Sidebar = Bb.M.e({
+            Sidebar = Bb.M.x({
                 fn: function () {
                     return this.s({
                         c: prompt("c?")
@@ -1461,10 +1142,9 @@ SORT  = function () {$.x('a', 'sort dont work')
     chps.sort()
     $l(chps.pluck('tt'))
 }
+
 FRND=function(){$.x().h1('FRND')
-
     Frnd = $M({d:{lame:1}})
-
     Frnd = $$M({
         d: {lame: true},
         i: function () {
@@ -1504,436 +1184,8 @@ FRND=function(){$.x().h1('FRND')
     f2.s('n','hah')
 
 }
-COLLEC=function(){$.x().h1('BCL')
-    Bk = $$M({d: {ID: '', n: ''}, id: "ID",
-        url: 'http://localhost:51377/api/Books'
-    })
-
-    BksC = $$C({m: Bk})
-    cl1 =   BksC()
-    bk1 = Bko({ ID: 1,  n: "Bk 1" })
-    bk2 =  Bko({ ID: 2, n: "Bk 2" })
-    cl2 =  BksC([bk1, bk2])
-    bk3 =  Bk({ ID: 3, n: "Bk 3" })
-    cl2.A(bk3)
-    change=function(){
-        bk3 = new Bk({ ID: 3, n: "Bk 3" })
-        cl2.add(bk3)
-        bk3_changed =  Bk.o({ ID: 3, n: "Changed Model" })
-        cl2.add(bk3_changed, { merge: true })
-    }
-    add=function(){ bk4 =   Bk.o({ ID: 4, n: "Bk 4" })
-        bk5 =  Bk.o({ ID: 5, n: "Bk 5" })
-        cl2.add([bk4, bk5])
-    }
-    addAt=function(n){bk0 = new Bk({ ID: 0, n: "Bk 0" })
-        cl2.add(bk0, {at:n||0})
-    }
-
-}
-PERS=function(){$l('people');z()
-    Quiz0=function(title){
-
-        this.title=title
-
-    }
-    Quiz0=function(title){
-
-        this.title=title
-
-    }
-    Person0=function(o){
-
-        this.name=o.name
-        this.age=o.age
-        this.job=o.job
-
-        //this.work=function(){}
-    }
-    Person0=function(o){
-
-        this.name=o.name
-        this.age=o.age
-        this.job=o.job
-
-        //this.work=function(){}
-    }
-    Person0.prototype.work=function(){return this.name + ' is working'}
-    Person=$$M({
-        I:function(){}, // this.oV(function(mod, err){$l(err)})
-        D:{name:'john doe', age:30, job:'worker'},
-        V:function(ats){if(ats.age <0){return 'age below zero, stupid!'}},
-        work:function(){return this.g('name')+' is working'}})
-    p=Person({name:'yano', age:34})
-    p.oV(function(mod,z){$l(z)})
-    personView=$$V({
-        t:'li',
-        k:'person',
-        i:'some-person',
-
-        I:function(){this.R()},
-
-        T: _.template("<strong><%= name %></strong> (<%= age %>) - <%= job %>"),
-
-        R:function(){var t=this
-
-
-            //this works, but doesnt use a template
-            // t.H(  t.g('name')+' '+t.g('age')+' '+t.g('job'))
-
-            t.H(t.T(t.J()))
-        }
-
-    })
-    v=personView({m:p})
-    peopleCol=$$C({m:Person } )
-    Per = $$M({})
-    p1 =  Per({n:'j'})
-    p2=  Per({n:'y'})
-    Pers= $$C({model: Per})
-    pers=  Pers([p1, p2])
-    Pers= $Cl({m:Per})
-    pers=Pers()
-    p1= pers.add(p)
-    pers.add(p2)
-    pers.rm(p1)
-    //pC=new peopleCol()
-    //pC.add(p)
-    pC=  peopleCol([
-
-        {name:'rigo',age:29},
-        {name:'jan',age:2},
-        {name:'sal',job:'graphics'}
-
-    ])
-    pC.at(1).s('name', 'joejoe')
-    peopleView=$$V({
-
-        t:'ul',
-
-        I:function(){
-            $l('hi')
-            $l(this.cl)
-        },
-
-
-        R:function(){//var t=this
-
-            this.cl.each(
-
-                function(person){
-
-                    //$l(person.get('name'))
-
-                    var v=personView({m: person})
-
-                    //$l(v.el)
-
-                    this.$el.append(v.el)
-
-                    //t.q( v.el  )
-
-                }, this)
-        }
-
-    })
-    $.x('o','hi')
-
-    Per= $$M({d: {n:'a', a:20, o:'p'}})
-    Per = $$M({})
-    p1 =  Per({n:'j'})
-    p2=  Per({n:'y'})
-    Pers= $$C({model: Per})
-    pers=  Pers([p1, p2])
-    p=  Per({})
-    p1 = Per({n:'b'})
-    p2= {n:'c'}
-    PerV=$$V({t:'li',
-        x:'some-per', k:'per',
-
-        tp:tp=_.tp('<%= n %> (<%= a %>) - <%= o %>'),
-
-        r: function(){
-            this.$el.A('fasdfsfasd')
-            _m=this.model
-            //    this.$el.A(this.tp(m  ))  // this.model.toJSON()
-        },
-
-        i: function(){this.r()}
-    })
-    PepC=$$C({m:Per})
-
-    peop = $cl()
-
-    peop.comparator = function (a, b) {
-        return a.g('n') < b.g('n') ? -1 : 1
-    }
-    peop.A(tom = $m({n: 'T'})).A(rob = $m({n: 'R'})).A(tim = $m({n: 'T'}))
-    peop.indexOf(rob)//0
-    peop.indexOf(tom)//2
-    pV=PerV({m:p})
-    pC=PepC()
-    pC.A([p, p1,p2])
-
-    PepV=$$V({
-
-        cl: PepC, el:ul= $.ul(),
-        i:function(){},
-        r: function(){
-            ul=this.$el.E()
-
-            this.j(function(md){
-                PerV({m:md},ul)
-            })}
-    })
-    pCV = PepV({cl: pC})
-
-
-    Per= $$M({d: {n:'a', a:20, o:'p'}})
-    Per=$M({
-        d:{lame:true},
-        i:function(){var t=this
-            t.on('error', function(m,e){
-                alert(3); $l(e)})
-            t.on('change:n',
-                function(m,e){
-                    alert(3); $l(e)})},
-        v:function(at){
-            if(at.n=='rigo'){return "n cant be rigo!"}
-        }
-
-    })
-    p=Per({n:"rigo", a:7})
-    p=  Per({})
-    p1 = Per({n:'b'})
-    p2= {n:'c'}
-    PerV=$$V({t:'li',
-        x:'some-per', k:'per',
-
-        tp:tp=_.tp('<%= n %> (<%= a %>) - <%= o %>'),
-
-        r: function(){
-            this.$el.A('fasdfsfasd')
-            _m=this.model
-            //    this.$el.A(this.tp(m  ))  // this.model.toJSON()
-        },
-
-        i: function(){this.r()}
-    })
-
-    PepC=$$C({m:Per})
-
-    pV=PerV({m:p})
-
-    pC=PepC()
-
-
-    pC.A([p, p1,p2])
-
-    PepV=$$V({cl: PepC, el:ul= $.ul(),
-        i:function(){},
-        r: function(){
-            ul=this.q.E()
-            this.J(function(md){PerV.o({m:md},ul)})}})
-    pCV = PepV({cl: pC})
-    _.in(.2,function(){pCV.r()},'*')
-    _.in(.4,function(){pCV.r()},'*')
-
-    _.in(.2,function(){pCV.r()})
-    _.in(.4,function(){pCV.r()})
-    pcv=peopleView({cl:pC})
-    pcv.R()
-
-    //$b()(pcv.el)
-
-    Person0.prototype.work=function(){return this.name + ' is working'}
-
-
-    Person=$$M({
-        I:function(){}, // this.oV(function(mod, err){$l(err)})
-        D:{name:'john doe', age:30, job:'worker'},
-        V:function(ats){if(ats.age <0){return 'age below zero, stupid!'}},
-        work:function(){return this.g('name')+' is working'}})
-
-    p=Person({name:'yano', age:34})
-    p.oV(function(mod, err){$l(err)})
-    personView=$$V({t:'li',
-        k:'person',
-        i:'some-person',
-        I:function(){this.R()},
-        T: _.template("<strong><%= name %></strong> (<%= age %>) - <%= job %>"),
-        R:function(){var t=this
-
-
-            //this works, but doesnt use a template
-            // t.H(  t.g('name')+' '+t.g('age')+' '+t.g('job'))
-
-            t.H(t.T(t.J()))
-        }
-    })
-    v=personView({m:p})
-    peopleCol=$$C({m:Person } )
-    //pC=new peopleCol()
-    //pC.add(p)
-    pC=  peopleCol([
-
-        {name:'rigo',age:29},
-        {name:'jan',age:2},
-        {name:'sal',job:'graphics'}
-    ])
-    pC.at(1).s('name','joejoe')
-    peopleView=$$V({
-
-        t:'ul',
-
-        I:function(){
-            $l('hi')
-            $l(this.cl)
-        },
-
-
-        R:function(){//var t=this
-
-            this.cl.each(
-
-                function(person){
-
-                    //$l(person.get('name'))
-
-                    var v=personView({m: person})
-
-                    //$l(v.el)
-
-                    this.$el.append(v.el)
-
-                    //t.q( v.el  )
-
-                }, this)
-        }
-
-    })
-    pcv=peopleView({cl:pC})
-    pcv.R()
-    $b()(pcv.el)
-    //$b()(pcv.q)
-
-
-
-
-}
-TASK=function(){  $.x('g', 'tasker'); Ap={M:{}, C:{}, V:{}}
-    Ap.M.Task=$$M({})
-    task1=Ap.M.Task({
-        title:'go to the store',
-        priority:4})
-    task2=Ap.M.Task({
-        title:'go to the park',
-        priority:3})
-    t1=Ap.M.Task({t:'go  store', pr:4})
-    t2=Ap.M.Task({t:'go park', pr:3})
-    Ap.M.Tsk = $M()
-    Ap.M.Task = $$M({})
-    Ap.V.Task=$$V({
-        t:'li',
-        R:function(){
-            return this.H(
-                this.g('title'))
-        }
-    })
-    Ap.V.Tsk= $$V({t:'li',
-        rr: function(){this.A( this.g('t') )
-            return this
-        }
-    })
-    Ap.V.Tsk = $V({
-        t: 'li',
-        r: function () {
-            this.A(this.g('tt'));
-            return this
-        }
-    })
-    taskView=Ap.V.Task({m:task})
-    taskView=Ap.V.Tsk({m:t1})
-    tasksV=Ap.V.Tasks({cl:tasks})
-    tasksV=Ap.V.Tasks({cl:tasks})
-    tsksV = Ap.V.Tsks({cl: tsks})
-    Ap.V.Tsks = $V({
-        t: 'li',
-        r: function () {
-            var v = this
-            v.eCl(function (t) {
-                v.q.A(Ap.V.Tsk({m: t}).r().q)
-            })
-            this.q.A()
-        }
-    })
-    Ap.V.Tasks = $$V({t:'li',
-        rr: function(){
-            var that=this
-            this.cl.each(
-                function(t){
-                    var v=Ap.V.Task.o({m:t})
-                    that.$el.A(v.rr().el)
-                }, this)
-            this.el.A()
-        }
-    })
-    Ap.V.Tasks=$$V({
-        t:'li',
-        R:function(){
-            this.cl.each(
-                function(t){
-                    var v=Ap.V.Task({m:t})
-                    this.$el.append(v.el)},
-
-                this)
-
-            $b()(this.el)
-        }
-    })
-    tskV = Ap.V.Tsk({m: t1})
-    Ap.C.Tasks = $$C({m:Ap.M.Tsk})
-    Ap.C.Tasks=$$C({m:Ap.M.Task})
-    Ap.C.Tsks = $Cl({m: Ap.M.Tsk})
-    tasks=Ap.C.Tasks([{t:'hi'}, {t:'bye'}])
-    tasks=Ap.C.Tasks([
-        {title:'hi'},
-        {title:'bye'}])
-    tsks = Ap.C.Tsks([{tt: 'hi'}, {tt: 'bye'}])
-    $.bt('r Ap.V.Tsks tsksV', function () {
-        tsksV.r()
-    })
-    Temp('task', [
-        $.lb('Task: '),
-        $.ip().id('task_desc'),
-        $.bt('add task').id('btn')
-    ])
-    $.d().id('container')
-    r=$R({
-        R:{
-            '':'first',
-            'first':'first',
-            'second':'second'},
-        first:function(){$l('first')},
-        second:function(){
-            new Task()
-            $l('second')}
-
-    })
-    Task=$$V({
-        el: $('#container'),
-        i: function(){this.r()},
-        r: function(){this.h( temp('task') )},
-
-        events: {'click button': 'add'},
-        add: function(){ alert( $('#task_desc') + ' task added' )}
-
-    })
-    Bb.h.start({pushState:true})
-}
 
 ITEMS=function(){z(); Ap={M:{},V:{},C:{}}
-
     $Ro= Router = $$R({
         R:{
             '':'welcome',
@@ -1951,654 +1203,45 @@ ITEMS=function(){z(); Ap={M:{},V:{},C:{}}
         }
     })
     r=router= $R()
-
     Ap.M.item = $$M({})
     i1=Ap.M.item({ n:'jason', g:'mason' })
     i1.oR('j',function(){show('j')})
     Bb.h.start({pushState:true})
 }
 
-AVAIL=function(){z()
-
-    tx('new avail').id('newAvail').a()
-
-    bt('ok',function(){
-        Ap.M.Avail({c:qiv('newAvail')}).save()
-        v.render()}).a()
-
-    di('availsDiv').a()
 
 
-    $.ip('new avail').id('newAvail')
+BADS=function(){z()
 
+    $.h1('backcl').id('chicks').A()
 
-    $.bt('ok',function(){
-
-        var m= Ap.M.Avail({
-            c:qiv('newAvail') })
-
-        m.save()
-
-        m.on('destroy', function(){
-            alert('i am the model and i was destroyed')
-
-        })
-
-        v.render()
-
+    bads = $C()
+    bads.oA(function(s){
+        $Ms("new baddie: " + s.g("n"))
     })
 
-    $.d().id('availsDiv')
-    Ap={ M:{},C:{},V:{},T:{} }
-
-    Ap.T.Avail=function(model){
-        return _d().w(400).h(100).M(20).c('g')(
-            h4(model.g('c')).id('avail').c('y','r'),
-            br(),sp('delete').id('deleteAvail'),
-            sp(' '),sp('edit').id('editAvail'),
-            sp(' '),cb2().id('selAvail')).q}
-    Ap.M.Avail=$$M({urlRoot: '/avail'})
-    Ap.C.Avails=$$C({model: Ap.M.Avail, url: '/avail'})
-    Ap.V.Avail=$$V({
-        r:function(){
-            this.$el.append( Ap.T.Avail(this.model) )
-            return this
-        },
-        events:{
-            'click #deleteAvail':'deleteAvail',
-            'click #editAvail':'editAvail',
-            'blur #avail':'changeAvail'},
-        changeAvail:function(){
-            qq( this.$el.find('#avail') ).at('contenteditable','false')
-            var newAvail=this.$el.find('#avail').text()
-            this.model.s('c', newAvail)
-            this.model.save()},
-        deleteAvail:function(){
-            this.model.destroy()
-            this.$el.remove()},
-        editAvail:function(){
-            qq(this.$el.find('#avail')).at('contenteditable','true')}
-    })
-    Ap.V.Avails =$$V({
-        el:'#availsDiv',
-        I:function(){this.render()},
-
-        R:function(){
-            var t=this
-
-            t.collection.fetch({
-
-                success:function(){
-
-                    t.$el.html('')
-
-                    t.$el.append("<h1>Avails List</h1>")
-
-                    t.collection.each(function(m){
-                        t.$el.append( Ap.V.Avail({model:m}).render().el )
-                        return t},t)
-
-                }})
-        }})
-
-
-    Ap.T.Avail=function(model){
-        return _d().w(400).h(100).M(20).c('g')(
-
-            h4(model.g('c')).id('avail').c('y','r'),
-
-            br(),   sp('delete').id('deleteAvail'),
-            sp(' '), sp('edit').id('editAvail'),
-            sp(' '), cb2().id('selAvail')).q}
-
-
-    Ap.M.Avail=$$M({urlRoot: '/avail'})
-
-    Ap.C.Avails=$$C({model: Ap.M.Avail, url: '/avail'})
-
-    Ap.V.Avail=$$V({
-
-        R:function(){
-            this.q(Ap.T.Avail(this.model) )
-            return this
-        },
-
-
-        events:{
-
-            'click #deleteAvail':'deleteAvail',
-            'click #editAvail':'editAvail',
-            'blur #avail':'changeAvail'
-        },
-
-
-        changeAvail:function(){
-            qq( this.$el.find('#avail') ).cE(0)
-            var newAvail=this.$el.find('#avail').text()
-            this.model.s('c', newAvail)
-            this.model.save()
-        },
-
-
-        deleteAvail:function(){
-            this.model.destroy()
-            this.$el.remove()},
-
-
-        editAvail:function(){
-
-            qq(this.$el.find('#avail')).cE(1)
-
-        }
-
-    })
-
-
-    Ap.V.Avails =$$V({
-
-        el:'#availsDiv',
-
-        I:function(){this.render()},
-
-        R:function(){var t=this
-
-            t.collection.fetch({
-
-                success:function(){
-
-                    t.q.H('')
-
-                    t.q(h1('Avails List'))
-
-                    t.e(
-                        function(m){
-                            t.q(
-                                Ap.V.Avail({m:m}).r().el )
-                            return t},t)
-
-                }})
-        }})
-    Ap.T.Avail=function(model){
-        return $.d('g',400,100).mar(20).A(
-
-            $.h4(model.g('c')).id('avail').C('y','r'),
-            $.br(), $.sp('delete').id('deleteAvail'),
-            $.sp(' '), $.sp('edit').id('editAvail'),
-            $.sp(' '), $.cb().id('selAvail'))
-    }
-    Ap.T.Avail=function(model){
-        return $.d('g',400,100).mar(20).A(
-            $.h4(model.g('c')).id('avail').col('y','r'),
-            $.br(),
-            $.sp('delete').id('deleteAvail'),
-            $.sp(' '), $.sp('edit').id('editAvail'),
-            $.sp(' '), $.cb().id('selAvail')
-        )
-    }
-    Ap.M.Avail=$$M({urlRoot: '/avail'})
-    Ap.M.Avail=M$({urlRoot: '/avail'})
-    Ap.V.Avail=Bb.V.e({
-
-        r:function(){
-            this.$el.A( Ap.T.Avail(this.model) )
-            return this},
-        ev:{
-            'click #deleteAvail':'deleteAvail',
-            'click #editAvail':'editAvail',
-            'blur #avail':'changeAvail'},
-        changeAvail:function(){
-            this.$el.fi('#avail').at('contenteditable','false')
-            newAvail=this.$el.fi('#avail').text()
-            this.model.s('c', newAvail)
-            this.model.save()},
-        deleteAvail:function(){
-            this.model.destroy()
-            this.$el.rm()
-        },
-
-        editAvail:function(){this.$el.fi('#avail').at('contenteditable','true')}
-
-    })
-    Ap.V.Avails =Bb.V.e({
-        el:'#availsDiv',
-        I:function(){this.render()},
-        R:function(){var t=this
-            t.collection.fetch({
-                success:function(){
-                    t.$el.html('')
-                    t.$el.A("<h1>Avails List</h1>")
-                    t.collection.each(function(m){
-                        t.$el.A( Ap.V.Avail({model:m}).render().el )
-                        return t},t)
-                }})
-        }})
-    Ap.C.Avails= C$({model: Ap.M.Avail, url: '/avail'})
-
-
-    Ap.V.Avail=$$V({
-
-        r:function(){
-            this.q(
-                Ap.T.Avail(this.model)
-            )
-            return this
-        },
-        ev:{
-            'click #deleteAvail':'deleteAvail',
-            'click #editAvail':'editAvail',
-            'blur #avail':'changeAvail'
-        },
-        changeAvail:function(){
-            qq( this.$el.find('#avail') ).cE(0)
-            var newAvail=this.$el.find('#avail').text()
-            this.model.s('c', newAvail)
-            this.model.save()
-        },
-
-        deleteAvail:function(){
-            this.model.destroy()
-            this.$el.remove()},
-        editAvail:function(){
-
-            this.$el.find('#avail').cE(1)
-
-        }
-
-    })
-
-    Ap.V.Avails =$$V({el:'#availsDiv',
-        i:function(){this.render()},
-        r:function(){var t=this
-            t.collection.fetch({
-                success:function(){
-                    t.q.H('')
-
-                    t.q($.h1('Avails List'))
-
-                    t.e(
-                        function(m){
-                            t.q(
-                                Ap.V.Avail({m:m}).r().el )
-                            return t},t)
-
-                }})
-        }})
-
-    avs=Ap.C.Avails()
-    avs.on('destroy', function(j){
-        alert('i am col and i was destroyed')
-        v.trigger('modelDeleted')
-    })
-
-    v=Ap.V.Avails({cl:avs})
-    v.on('modelDeleted', function(){alert('modDel')})
-
-
-
-    avs=Ap.C.Avails()
-
-
-    avs.on('destroy',
-
-        function(j){
-            alert('i am col and i was destroyed')
-
-            v.trigger('modelDeleted')
-
-        })
-
-
-
-
-
-    v=Ap.V.Avails({cl:avs})
-
-
-    v.on('modelDeleted', function(){alert('modDel')})
-    $$M({
-        d:{ prop:3 },
-        test:function(){
-            $( this.get('prop') ) },
-        test2:function(a){ $l('prop: '+this.get('prop'))},
-        happy:function(a){
-            this.test2(a)
-        }
-    })
-
-    a=$$M({
-
-        defaults:{ prop:3 },
-
-        test:function(){ console.log( this.get('prop') ) },
-
-
-
-
-        test2:function(a){
-
-
-            console.log(
-
-                (function(){return this.get('prop')}) ()
-
-            )
-
-
-        },
-
-
-        happy:function(a){
-
-            this.test2(a)
-        }
-
-    })
-
-
-    f=a()
-
-    avs=Ap.C.Avails()
-
-    v=Ap.V.Avails({collection:avs})//.render()
-
-    avs.on('destroy',function(aa){$l('destroy!!!!')})
-
-
-
-    //  avs=Ap.C.Avails()
-    //  v=Ap.V.Avails({collection:avs})//.render()
-//    avs.on('destroy',function(aa){$l('destroy!!!!')})
-    $.ip('new avail').id('newAvail').A()
-    $.bt('ok',function(){
-        Ap.M.Avail({c: $('#newAvail').v()
-        }).save()
-
-        v.render()
-
-    }).A()
-    $.dI('availsDiv')
-    $.ip('new avail').id('newAvail').A()
-    $.bt('ok',function(){
-        var m= Ap.M.Avail({
-            c:qiv('newAvail')
-        })
-        m.save()
-        m.on('destroy', function(){alert('i am the model and i was destroyed')})
-        v.render()
-    })
-    $.dI('availsDiv')
-
-
-}
-BADS=function(){$.x().h1('backcl').i('chicks').A()
-    bads = $$C()()
-    bads.oA(function (s) {alert("new baddie: " + s.g("n"))})
     bads.add([{n: "bad1"}, {n: "bad2"}])
 }
-SWEET = function(){$.x('x', 'bb view people')
 
-    Bb.View.prototype.C$=function(s){this.$el.C$(s); return this}
-
-    Vw= $V({
-        el: $.ul(),
-        i: function(){
-            this.r().C$('init..')},
-        r: function(){ var ul=this.q
-            this.ECl(function(p){ul.li(p.n,'(',p.a,')') })
-            return this}
-    })
-    peep= [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
-    vw=Vw({ cl: peep  })
-    _.in(function(){ peep.pop(); vw.r() })
-    BBVP1=function(){$.x('x', 'bb view people')
-
-
-        Vw= $.ulV({
-            i:function(){  this.q.C($r())   },
-            r:function(){var el=this.q.E()
-                this.cl(function(p){  el.A($.li().A(p.n+'('+p.a+')'))})
-                return this}
-
-        })
-
-        vw=Vw({   cl: peep = [{n:'a',a:11},{n:'b',a:46},{n:'c',a:13}]
-
-        })
-
-        /*
-
-         $.A(vw.r().q)
-         _.in(function(){peep.pop(); vw.r()},'*')
-         */
-
-
-    }
-}
-CHAINABLE0 = function () {
-    //prob: us's arr manip  ops avail as Cl-mets, but cannot be directly chained (return arrays, !orig cl)
-    // sol: bb   supports  _.chain, which returns ob  w  us-arr-ops  attached as mets which return that ob
-    //chain starts chain, returns wrapper around cl's mds (wrapped arr)
-    //  The chain ends with call to val(), which  terminates chain and returns resulting array
-    Cl([{n: 'T', a: 5}, {n: 'I', a: 26}, {n: 'R', a: 55}]).chain()
-        .fl(function (i) {
-            return i.g('a') > 10
-        })
-        .m(function (i) {
-            return i.g('n')
-        })
-        .val() //['I','R']
-    // Some of bb- spec mets do return this, which means they can be chained as well:
-    $cl().A({n: 'J', a: 23}).A({n: 'H', a: 33}).A({n: 'S', a: 41}).pluck('n') //['J','H','S']
-}
-DIRTPAGE = function () {
-    $.x()
-    var newMsBox, newTopic, newMs, searchBox
-
-    MsM = $$M({})
-    MsC = $$C({m: 'MsM'})
-    MsView = $$V({})
-    MssView = $$V({})
-    $.h1().A(
-        $.a('Dirtpage', '/wap/dirtpage/')
-    ).A()
-    $.dI('content')
-    if (wappyPam) {
-
-        newMsBox = $.d().WH('auto').A(
-            $.h1('new ms'),
-            $.ip().K('form-control').id('newMs'),
-            $.bt('ok', function () {
-                var newMs = $('#newMs').v()
-                $.P('messages', {
-                    tpc: wappyPam, ms: newMs
-                }, function () {
-                    loadResults()
-                })
-            }))
-        $('#cont').A($.h1('the ' + wappyPam + ' page'),
-            newMsBox, $.dI('res'))
-
-        $.g('topics/' + wappyPam, function (msgs) {
-            $('#results').ht($.h5('len: ' + msgs.length))
-            _.e(msgs, function (ms) {
-                $('#res').A($.h6(ms.ms))
-            })
-        })
-    }
-
-    else {
-        newMsBox = $.d().WH('auto').A(
-            $.h1('new message'),
-            $.ip().K('form-control').id('newTopic'),
-            $.ip().K('form-control').id('newMs'),
-            $.bt('ok', function () {
-                newTopic = $('#newTopic').v()
-                newMs = $('#newMs').v()
-                $.P('msgs', {topic: newTopic, message: newMs}, function () {
-                })
-            })
-        )
-        searchBox = $.d().WH('auto').A(
-            $.h1('search'),
-            $.ip().K('form-control').id('searchInput'),
-            $.bt('ok', function () {
-                window.location = '/wap/dirtpage/' + $('#searchInput').v()
-                searchInput = $('#searchInput').v()
-                $.G('topics/' + searchInput, function (msgs) {
-                    $('#res').ht($.h5('len: ' + msgs.length))
-                    _.e(msgs, function (ms) {
-                        $('#res').A($.h6(ms.ms))
-                    })
-                })
-            })
-        )
-        $.dI('res')
-        $('#cont').A(newMsBox, searchBox)
-        $.eG('msgs', function (ms) {
-            $('#res').A($.h2().A(
-                    $.a('topic: ' + ms.topic, '/wap/dirtpage/' + ms.topic)),
-                $.h3('ms: ' + ms.ms)
-            )
-        })
-    }
-
+//
+BBBEV=function(){
+    $.x().i('chicks')
+    ev = Bb.Ev()
+    ev.b("fun:had", function(){alert("wee!")})// bind? on?
+    ev.tr("fun:had")//trigger  //it'll alert "wee!"
 }
 
-
-PEOPLE=function(){$.x()
-
-    Per  = bb.M.e({
-        i: function () {
-            //this.oV(function(mod, err){$l(err)})
-        },
-        d: {n:'doe', a: 30, j: 'wrk'},
-        validate: function (ats) {if (ats.age < 0) {return 'a < 0!'}},
-        work: function () {return this.g('n') + ' is working'}
-    })
-
-    p = Per.o({n: 'y', a: 34})
-
-    //p.oV(function (mod, z) {$l(z)})
-
-    PerV = bb.V.e({tn: 'li',
-        k: 'person', x: 'some-person',
-        i: function () {this.r()},
-        tp: _.template("<strong><%= name %></strong> (<%= age %>) - <%= job %>"),
-        r: function () {
-            var t = this
-            //this works, but doesnt use a template
-            // t.H(  t.g('name')+' '+t.g('age')+' '+t.g('job'))
-            t.H(
-                t.T(
-                    t.J()
-                )
-            )
-        }
-    })
-
-    pV= PerV.o({m: p})
-
-    peepC = bb.C.e({m: Per})
-
-
-    pC = peepC.o([
-        {n: 'rigo', a: 29},
-        {n: 'j', a: 2},
-        {n: 's', j: 'gx'}
-    ])
-    pC.add(p)
-
-
-    pC.at(1).n('joejoe')
-    pC.at(1).s('name', 'joejoe')
-
-    PeepV = bb.V.e({tn: 'ul',
-        i: function () {
-            $l('hi')
-            $l(this.cl)
-        },
-        r: function () {//var t=this
-            this.cl.each(function (p) {var v,pV  //$l(p.g('n'))
-                pV = PerV.o({m: p}) //$l(pV.el)
-                this.$el.append(pV.el) //t.q( pV.el  )
-            }, this)
-        }
-
-    })
-
-    pcv = PeepV.o({cl: pC})
-    pcv.r()
-    $.A( pcv.el )
-
-}
-FLCL=function(){$.x('r', 'filtering a cl:')
-
-    /*
-     FlV = bb.V.e({
-     ev: {'click #run': 'runFilter'},
-     runFilter: function(e){e.pD();
-     this.fl = {
-     // ... get the filter info from the DOM
-     }; this.rr()},
-     rr: function(){// get the filtered list from the collection
-     // iterate over the filtered list and render the results in to the html array
-     // populate the DOM with the resulting HTML
-     HT=[]
-     _.e(this.cl.where(this.fl),
-     function(item){HT.push(
-     _.tp($('my-item-template').H())(item.tJ())
-     )})
-
-     this.$el.html(HT); return this }
-     })*/
-
-
-    Cl =  bb.C.e({i:function(){}})
-    cl = Cl.o({})
-
-
-    /*
-     cl.add([{a: 'f', b: 's'},
-     {a: 't', b: 's'},
-     {a:'f', b: 's'},
-     {a: 's', b:'t'}
-     ])
-
-
-     res = cl.where({a:'f',b:'s'})
-     */
-    //http://tech.pro/tutorial/1519/rendering-a-filtered-backbonecollection
+WOB=WITHOUTBB=function(){
+    $.x('x', 'bb view people')
+    ul = $.ul().id('peep')
+    peep = [{n:'a',a:11}, {n:'b',a:46}, {n:'c',a:13}]
+    vw={r:function(){
+        $('#peep').E()
+        _.e(peep, function(p){
+            $('#peep').A('<li>'+ p.n + '(' + p.a + ')</li>')
+        })}}
+    vw.r()
+    _.in(function(){
+        peep.pop(); vw.r()},'*')
 }
 
-TASKER=function(){$.x()
-    Ap={M:{}, C:{}, V:{}}
-
-    Ap.M.Task = bb.M.e({})
-
-    t1=Ap.M.Task.o({t:'go  store', pr:4})
-
-    t2=Ap.M.Task.o({t:'go park', pr:3})
-
-    Ap.V.Tsk= bb.V.e({t:'li',
-        rr: function(){this.A( this.g('t') )
-            return this
-        }
-    })
-
-    taskView=Ap.V.Tsk.o({m:t1})
-    Ap.C.Tasks = bb.C.e({m:Ap.M.Tsk})
-    tasks=Ap.C.Tasks.o([{t:'hi'}, {t:'bye'}])
-    Ap.V.Tasks = bb.V.e({t:'li',
-        rr: function(){
-            var that=this
-            this.cl.each(
-                function(t){
-                    var v=Ap.V.Task.o({m:t})
-                    that.$el.A(v.rr().el)
-                }, this)
-            this.el.A()
-        }
-    })
-
-    tasksV=Ap.V.Tasks.o({cl:tasks})
-}
