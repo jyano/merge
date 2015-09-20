@@ -1,3 +1,5 @@
+
+
 $.tK=function(k,toAdd){var g=G(arguments),
     t= $.t()
     t.K(k)
@@ -10,12 +12,10 @@ $.tK=function(k,toAdd){var g=G(arguments),
     }
     return t
 }
-
 $l=function(a){console.log.apply(console, arguments); return a }
 $.fn.v= $.fn.val
 $.fn.v_ = function(){ var val =this.val(); this.val(''); return val }
 $.fn.A= $.fn.append; $.fn.K = $.fn.addClass
-
 
 Bb = Backbone
 Bb.Model.prototype.j = function(){ return this.toJSON() }
@@ -28,17 +28,14 @@ Blog = Bb.M.x({ defaults:{author:'', title:'', url:'' } })
 Blogs= Bb.C.x({ model: Blog,  url: 'http://localhost/api/blogs' })
 
 BlogView= Bb.V.x({tagName:'tr',
-    template: function(o){ return [
 
+    template: function(o){ return [
         $('<td>').A(
             $('<span>').K('author').text( o.author) ),
-
         $('<td>').A(
             $('<span>').K('title').text( o.title) ),
-
         $('<td>').A(
             $('<span>').K('url').text( o.url) ),
-
         $('<td>').A(
             $('<button>').K('btn btn-warning edit-blog').text('Edit'),
             $('<button>').K('btn btn-danger delete-blog').text('Delete'),
@@ -49,17 +46,20 @@ BlogView= Bb.V.x({tagName:'tr',
                 .text('Cancel').css('display', 'none')
         )
     ] },
+
     render: function(){var vw=this,
         nodes =vw.template(this.model.j())
         vw.$el.A( nodes )//_.each(nodes, function(node){ vw.$el.A(node) })
         return vw
     },
+
     events:{
         'click .edit-blog':'edit',
         'click .update-blog':'update',
         'click .cancel':'cancel',
         'click .delete-blog':'delete'
     },
+
     edit: function(){
         var vw=this,author,title,url
         vw.$('.edit-blog').hide()
@@ -87,15 +87,26 @@ BlogView= Bb.V.x({tagName:'tr',
 
 
     },
+
     update:function(){
-        this.model.set('author', $('.author-update').v())
-        this.model.set('title', $('.title-update').v())
-        this.model.set('url', $('.url-update').v())
-        this.model.save(null, {
-            success:function() {
+        var md=this.model
+
+        md.set('author', $('.author-update').v())
+
+
+        md.set('title', $('.title-update').v())
+
+        md.set('url', $('.url-update').v())
+
+        md.save(null, {
+
+            success : function(){
                 $l('success updated!')
             }
+
         })
+
+
     },
 
     cancel: function(){
@@ -139,51 +150,6 @@ BlogsView = Bb.V.x({
 
 
 $(function(){
-//$('body').A(  $('<script src="/us.js">') )
-//$('body').A(  $('<script src="/string.js">') )
-
-    $.scr = function(js){
-
-        var  script = $('<script>')
-
-        script.attr('src', js); return script
-
-    }
-
-
-    $.j = $.js = function(js){$('body').A( $.scr(js) )}
-
-
-    $.j('/us.js')
-    $.j('/string.js')
-    $.j('/both.js')
-
-
-    //$.j('/jq.js')
-    //$.j('/jqSer.js')
-
-    $.j('/bs.js')
-    $.j('/frontOb.js')
-    $.j('/handy.js')
-    $.j('/sty.js')
-    $.j('/rules.js')
-    $.j('/flex.js')
-    $.j('/bb.js')
-    $.j('/bbCore.js')
-    $.j('/bbLs.js')
-
-
-    arr = [
-        "us",'string', 'both', 'jq', 'jqSer',  'bs', 'frontOb','handy',  'sty',
-        'rules', 'flex','flexApps', 'boot', 'bb', 'bbCore',  'bbLs', 'bbTemplate',
-        'bbApps', 'avail', 'bbLsApps', 'BfRoll','blog'
-    ]
-
-
-
-
-
-
 
     container = $('<div>').K('container')
     table = $('<table>').K('table')

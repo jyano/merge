@@ -1,3 +1,4 @@
+console.log('both.js')
 s$=S
 $A = Array;
 $B = Boolean;

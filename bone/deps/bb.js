@@ -1,7 +1,7 @@
-//     Backbone.js 1.2.3
+//     Bb.js 1.2.3
 
 //     (c) 2010-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-//     Backbone may be freely distributed under the MIT license.
+//     Bb may be freely distributed under the MIT license.
 //     For all details and documentation:
 //     http://backbonejs.org
 
@@ -12,12 +12,12 @@
     var root = (typeof self == 'object' && self.self == self && self) ||
         (typeof global == 'object' && global.global == global && global);
 
-    // Set up Backbone appropriately for the environment. Start with AMD.
+    // Set up Bb appropriately for the environment. Start with AMD.
     if (typeof define === 'function' && define.amd) {
         define(['underscore', 'jquery', 'exports'], function(_, $, exports) {
             // Export global even in AMD case in case this script is loaded with
-            // others that may still expect a global Backbone.
-            root.Backbone = factory(root, exports, _, $);
+            // others that may still expect a global Bb.
+            root.Bb = factory(root, exports, _, $);
         });
 
         // Next for Node.js or CommonJS. jQuery may not be needed as a module.
@@ -28,47 +28,52 @@
 
         // Finally, as a browser global.
     } else {
-        root.Backbone = factory(root, {}, root._, (root.jQuery || root.Zepto || root.ender || root.$));
+        root.Bb = factory(root, {}, root._, (root.jQuery || root.Zepto || root.ender || root.$));
     }
 
-}(function(root, Backbone, _, $) {
+}(
+
+    function(root, Bb, _, $) {
+
+
+
 
     // Initial Setup
     // -------------
 
-    // Save the previous value of the `Backbone` variable, so that it can be
+    // Save the previous value of the `Bb` variable, so that it can be
     // restored later on, if `noConflict` is used.
-    var previousBackbone = root.Backbone;
+    var previousBb = root.Bb;
 
     // Create a local reference to a common array method we'll want to use later.
     var slice = Array.prototype.slice;
 
     // Current version of the library. Keep in sync with `package.json`.
-    Backbone.VERSION = '1.2.3';
+    Bb.VERSION = '1.2.3';
 
-    // For Backbone's purposes, jQuery, Zepto, Ender, or My Library (kidding) owns
+    // For Bb's purposes, jQuery, Zepto, Ender, or My Library (kidding) owns
     // the `$` variable.
-    Backbone.$ = $;
+    Bb.$ = $;
 
-    // Runs Backbone.js in *noConflict* mode, returning the `Backbone` variable
-    // to its previous owner. Returns a reference to this Backbone object.
-    Backbone.noConflict = function() {
-        root.Backbone = previousBackbone;
+    // Runs Bb.js in *noConflict* mode, returning the `Bb` variable
+    // to its previous owner. Returns a reference to this Bb object.
+    Bb.noConflict = function() {
+        root.Bb = previousBb;
         return this;
     };
 
     // Turn on `emulateHTTP` to support legacy HTTP servers. Setting this option
     // will fake `"PATCH"`, `"PUT"` and `"DELETE"` requests via the `_method` parameter and
     // set a `X-Http-Method-Override` header.
-    Backbone.emulateHTTP = false;
+    Bb.emulateHTTP = false;
 
     // Turn on `emulateJSON` to support legacy servers that can't deal with direct
     // `application/json` requests ... this will encode the body as
     // `application/x-www-form-urlencoded` instead and will send the model in a
     // form param named `model`.
-    Backbone.emulateJSON = false;
+    Bb.emulateJSON = false;
 
-    // Proxy Backbone class methods to Underscore functions, wrapping the model's
+    // Proxy Bb class methods to Underscore functions, wrapping the model's
     // `attributes` object or collection's `models` array behind the scenes.
     //
     // collection.filter(function(model) { return model.get('age') > 10 });
@@ -116,7 +121,7 @@
         };
     };
 
-    // Backbone.Events
+    // Bb.Events
     // ---------------
 
     // A module that can be mixed in to *any object* in order to provide it with
@@ -125,11 +130,11 @@
     // succession.
     //
     //     var object = {};
-    //     _.extend(object, Backbone.Events);
+    //     _.extend(object, Bb.Events);
     //     object.on('expand', function(){ alert('expanded'); });
     //     object.trigger('expand');
     //
-    var Events = Backbone.Events = {};
+    var Events = Bb.Events = {};
 
     // Regular expression used to split event strings.
     var eventSplitter = /\s+/;
@@ -361,7 +366,7 @@
 
     // A difficult-to-believe, but optimized internal dispatch function for
     // triggering events. Tries to keep the usual cases speedy (most internal
-    // Backbone events have 3 arguments).
+    // Bb events have 3 arguments).
     var triggerEvents = function(events, args) {
         var ev, i = -1, l = events.length, a1 = args[0], a2 = args[1], a3 = args[2];
         switch (args.length) {
@@ -377,21 +382,21 @@
     Events.bind   = Events.on;
     Events.unbind = Events.off;
 
-    // Allow the `Backbone` object to serve as a global event bus, for folks who
+    // Allow the `Bb` object to serve as a global event bus, for folks who
     // want global "pubsub" in a convenient place.
-    _.extend(Backbone, Events);
+    _.extend(Bb, Events);
 
-    // Backbone.Model
+    // Bb.Model
     // --------------
 
-    // Backbone **Models** are the basic data object in the framework --
+    // Bb **Models** are the basic data object in the framework --
     // frequently representing a row in a table in a database on your server.
     // A discrete chunk of data and a bunch of useful, related methods for
     // performing computations and transformations on that data.
 
     // Create a new model with the specified attributes. A client id (`cid`)
     // is automatically generated and assigned for you.
-    var Model = Backbone.Model = function(attributes, options) {
+    var Model = Bb.Model = function(attributes, options) {
         var attrs = attributes || {};
         options || (options = {});
         this.cid = _.uniqueId(this.cidPrefix);
@@ -430,10 +435,10 @@
             return _.clone(this.attributes);
         },
 
-        // Proxy `Backbone.sync` by default -- but override this if you need
+        // Proxy `Bb.sync` by default -- but override this if you need
         // custom syncing semantics for *this* particular model.
         sync: function() {
-            return Backbone.sync.apply(this, arguments);
+            return Bb.sync.apply(this, arguments);
         },
 
         // Get the value of an attribute.
@@ -684,7 +689,7 @@
         },
 
         // Default URL for the model's representation on the server -- if you're
-        // using Backbone's restful methods, override this to change the endpoint
+        // using Bb's restful methods, override this to change the endpoint
         // that will be called.
         url: function() {
             var base =
@@ -738,10 +743,10 @@
     // Mix in each Underscore method as a proxy to `Model#attributes`.
     addUnderscoreMethods(Model, modelMethods, 'attributes');
 
-    // Backbone.Collection
+    // Bb.Collection
     // -------------------
 
-    // If models tend to represent a single row of data, a Backbone Collection is
+    // If models tend to represent a single row of data, a Bb Collection is
     // more analogous to a table full of data ... or a small slice or page of that
     // table, or a collection of rows that belong together for a particular reason
     // -- all of the messages in this particular folder, all of the documents
@@ -751,7 +756,7 @@
     // Create a new **Collection**, perhaps to contain a specific type of `model`.
     // If a `comparator` is specified, the Collection will maintain
     // its models in sort order, as they're added and removed.
-    var Collection = Backbone.Collection = function(models, options) {
+    var Collection = Bb.Collection = function(models, options) {
         options || (options = {});
         if (options.model) this.model = options.model;
         if (options.comparator !== void 0) this.comparator = options.comparator;
@@ -782,7 +787,7 @@
     // Define the Collection's inheritable methods.
     _.extend(Collection.prototype, Events, {
 
-        // The default model for a collection is just a **Backbone.Model**.
+        // The default model for a collection is just a **Bb.Model**.
         // This should be overridden in most cases.
         model: Model,
 
@@ -796,12 +801,12 @@
             return this.map(function(model) { return model.toJSON(options); });
         },
 
-        // Proxy `Backbone.sync` by default.
+        // Proxy `Bb.sync` by default.
         sync: function() {
-            return Backbone.sync.apply(this, arguments);
+            return Bb.sync.apply(this, arguments);
         },
 
-        // Add a model, or list of models to the set. `models` may be Backbone
+        // Add a model, or list of models to the set. `models` may be Bb
         // Models or raw JavaScript objects to be converted to Models, or any
         // combination of the two.
         add: function(models, options) {
@@ -1163,7 +1168,7 @@
     });
 
     // Underscore methods that we want to implement on the Collection.
-    // 90% of the core usefulness of Backbone Collections is actually implemented
+    // 90% of the core usefulness of Bb Collections is actually implemented
     // right here:
     var collectionMethods = { forEach: 3, each: 3, map: 3, collect: 3, reduce: 4,
         foldl: 4, inject: 4, reduceRight: 4, foldr: 4, find: 3, detect: 3, filter: 3,
@@ -1177,10 +1182,10 @@
     // Mix in each Underscore method as a proxy to `Collection#models`.
     addUnderscoreMethods(Collection, collectionMethods, 'models');
 
-    // Backbone.View
+    // Bb.View
     // -------------
 
-    // Backbone Views are almost more convention than they are actual code. A View
+    // Bb Views are almost more convention than they are actual code. A View
     // is simply a JavaScript object that represents a logical chunk of UI in the
     // DOM. This might be a single item, an entire list, a sidebar or panel, or
     // even the surrounding frame which wraps your whole app. Defining a chunk of
@@ -1188,9 +1193,9 @@
     // having to worry about render order ... and makes it easy for the view to
     // react to specific changes in the state of your models.
 
-    // Creating a Backbone.View creates its initial element outside of the DOM,
+    // Creating a Bb.View creates its initial element outside of the DOM,
     // if an existing element is not provided...
-    var View = Backbone.View = function(options) {
+    var View = Bb.View = function(options) {
         this.cid = _.uniqueId('view');
         _.extend(this, _.pick(options, viewOptions));
         this._ensureElement();
@@ -1203,7 +1208,7 @@
     // List of view options to be set as properties.
     var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
 
-    // Set up all inheritable **Backbone.View** properties and methods.
+    // Set up all inheritable **Bb.View** properties and methods.
     _.extend(View.prototype, Events, {
 
         // The default `tagName` of a View's element is `"div"`.
@@ -1227,7 +1232,7 @@
         },
 
         // Remove this view by taking the element out of the DOM, and removing any
-        // applicable Backbone.Events listeners.
+        // applicable Bb.Events listeners.
         remove: function() {
             this._removeElement();
             this.stopListening();
@@ -1256,7 +1261,7 @@
         // alternative DOM manipulation API and are only required to set the
         // `this.el` property.
         _setElement: function(el) {
-            this.$el = el instanceof Backbone.$ ? el : Backbone.$(el);
+            this.$el = el instanceof Bb.$ ? el : Bb.$(el);
             this.el = this.$el[0];
         },
 
@@ -1297,7 +1302,7 @@
 
         // Clears all callbacks previously bound to the view by `delegateEvents`.
         // You usually don't need to use this, but may wish to if you have multiple
-        // Backbone views attached to the same DOM element.
+        // Bb views attached to the same DOM element.
         undelegateEvents: function() {
             if (this.$el) this.$el.off('.delegateEvents' + this.cid);
             return this;
@@ -1340,10 +1345,10 @@
 
     });
 
-    // Backbone.sync
+    // Bb.sync
     // -------------
 
-    // Override this function to change the manner in which Backbone persists
+    // Override this function to change the manner in which Bb persists
     // models to the server. You will be passed the type of request, and the
     // model in question. By default, makes a RESTful Ajax request
     // to the model's `url()`. Some possible customizations could be:
@@ -1352,19 +1357,19 @@
     // * Send up the models as XML instead of JSON.
     // * Persist models via WebSockets instead of Ajax.
     //
-    // Turn on `Backbone.emulateHTTP` in order to send `PUT` and `DELETE` requests
+    // Turn on `Bb.emulateHTTP` in order to send `PUT` and `DELETE` requests
     // as `POST`, with a `_method` parameter containing the true HTTP method,
     // as well as all requests with the body as `application/x-www-form-urlencoded`
     // instead of `application/json` with the model in a param named `model`.
     // Useful when interfacing with server-side languages like **PHP** that make
     // it difficult to read the body of `PUT` requests.
-    Backbone.sync = function(method, model, options) {
+    Bb.sync = function(method, model, options) {
         var type = methodMap[method];
 
         // Default options, unless specified.
         _.defaults(options || (options = {}), {
-            emulateHTTP: Backbone.emulateHTTP,
-            emulateJSON: Backbone.emulateJSON
+            emulateHTTP: Bb.emulateHTTP,
+            emulateJSON: Bb.emulateJSON
         });
 
         // Default JSON-request options.
@@ -1383,6 +1388,7 @@
 
         // For older servers, emulate JSON by encoding the request into an HTML-form.
         if (options.emulateJSON) {
+            
             params.contentType = 'application/x-www-form-urlencoded';
             params.data = params.data ? {model: params.data} : {};
         }
@@ -1413,12 +1419,15 @@
         };
 
         // Make the request, allowing the user to override any Ajax options.
-        var xhr = options.xhr = Backbone.ajax(_.extend(params, options));
+        var xhr = options.xhr = Bb.ajax(_.extend(params, options));
         model.trigger('request', model, xhr, options);
         return xhr;
-    };
+    }
 
-    // Map from CRUD to HTTP for our default `Backbone.sync` implementation.
+
+
+
+    // Map from CRUD to HTTP for our default `Bb.sync` implementation.
     var methodMap = {
         'create': 'POST',
         'update': 'PUT',
@@ -1427,18 +1436,18 @@
         'read':   'GET'
     };
 
-    // Set the default implementation of `Backbone.ajax` to proxy through to `$`.
+    // Set the default implementation of `Bb.ajax` to proxy through to `$`.
     // Override this if you'd like to use a different library.
-    Backbone.ajax = function() {
-        return Backbone.$.ajax.apply(Backbone.$, arguments);
+    Bb.ajax = function() {
+        return Bb.$.ajax.apply(Bb.$, arguments);
     };
 
-    // Backbone.Router
+    // Bb.Router
     // ---------------
 
     // Routers map faux-URLs to actions, and fire events when routes are
     // matched. Creating a new one sets its `routes` hash, if not set statically.
-    var Router = Backbone.Router = function(options) {
+    var Router = Bb.Router = function(options) {
         options || (options = {});
         if (options.routes) this.routes = options.routes;
         this._bindRoutes();
@@ -1452,7 +1461,7 @@
     var splatParam    = /\*\w+/g;
     var escapeRegExp  = /[\-{}\[\]+?.,\\\^$|#\s]/g;
 
-    // Set up all inheritable **Backbone.Router** properties and methods.
+    // Set up all inheritable **Bb.Router** properties and methods.
     _.extend(Router.prototype, Events, {
 
         // Initialize is an empty function by default. Override it with your own
@@ -1473,12 +1482,12 @@
             }
             if (!callback) callback = this[name];
             var router = this;
-            Backbone.history.route(route, function(fragment) {
+            Bb.history.route(route, function(fragment) {
                 var args = router._extractParameters(route, fragment);
                 if (router.execute(callback, args, name) !== false) {
                     router.trigger.apply(router, ['route:' + name].concat(args));
                     router.trigger('route', name, args);
-                    Backbone.history.trigger('route', router, name, args);
+                    Bb.history.trigger('route', router, name, args);
                 }
             });
             return this;
@@ -1490,13 +1499,13 @@
             if (callback) callback.apply(this, args);
         },
 
-        // Simple proxy to `Backbone.history` to save a fragment into the history.
+        // Simple proxy to `Bb.history` to save a fragment into the history.
         navigate: function(fragment, options) {
-            Backbone.history.navigate(fragment, options);
+            Bb.history.navigate(fragment, options);
             return this;
         },
 
-        // Bind all defined routes to `Backbone.history`. We have to reverse the
+        // Bind all defined routes to `Bb.history`. We have to reverse the
         // order of the routes here to support behavior where the most general
         // routes can be defined at the bottom of the route map.
         _bindRoutes: function() {
@@ -1534,7 +1543,7 @@
 
     });
 
-    // Backbone.History
+    // Bb.History
     // ----------------
 
     // Handles cross-browser history management, based on either
@@ -1542,7 +1551,7 @@
     // [onhashchange](https://developer.mozilla.org/en-US/docs/DOM/window.onhashchange)
     // and URL fragments. If the browser supports neither (old IE, natch),
     // falls back to polling.
-    var History = Backbone.History = function() {
+    var History = Bb.History = function() {
         this.handlers = [];
         this.checkUrl = _.bind(this.checkUrl, this);
 
@@ -1565,7 +1574,7 @@
     // Has the history handling already been started?
     History.started = false;
 
-    // Set up all inheritable **Backbone.History** properties and methods.
+    // Set up all inheritable **Bb.History** properties and methods.
     _.extend(History.prototype, Events, {
 
         // The default interval to poll for hash changes, if necessary, is
@@ -1629,7 +1638,7 @@
         // Start the hash change handling, returning `true` if the current URL matches
         // an existing route, and `false` otherwise.
         start: function(options) {
-            if (History.started) throw new Error('Backbone.history has already been started');
+            if (History.started) throw new Error('Bb.history has already been started');
             History.started = true;
 
             // Figure out the initial configuration. Do we need an iframe?
@@ -1701,7 +1710,7 @@
             if (!this.options.silent) return this.loadUrl();
         },
 
-        // Disable Backbone.history, perhaps temporarily. Not useful in a real app,
+        // Disable Bb.history, perhaps temporarily. Not useful in a real app,
         // but possibly useful for unit testing Routers.
         stop: function() {
             // Add a cross-platform `removeEventListener` shim for older browsers.
@@ -1835,8 +1844,8 @@
 
     });
 
-    // Create the default Backbone.history.
-    Backbone.history = new History;
+    // Create the default Bb.history.
+    Bb.history = new History;
 
     // Helpers
     // -------
@@ -1894,6 +1903,6 @@
         };
     };
 
-    return Backbone;
+    return Bb;
 
-}));
+}))
