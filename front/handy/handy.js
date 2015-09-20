@@ -4570,6 +4570,11 @@ $.cts = $.contains // ??
 $.fn.iA= $.fn.insertAfter
 $.fn.ea = $.fn.each
 
+
+_.iv= _.invoke
+$.fn.fc= $.fn.focus
+$.fn.v= $.fn.val
+
 l1 =    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy' +
 ' nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.     ' +
 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ' +
@@ -4584,3 +4589,14 @@ l2=
     'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ' +
     'sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam' +
     ' erat volutpat.'
+
+//alpha:
+
+$.d_ = function () {
+    var g = G(arguments)
+    d = $.d()
+    g.e(function (el) {
+        d.A(el)
+    })
+    return d
+}

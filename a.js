@@ -10,7 +10,8 @@ dirs=[
     'show', 'show/mugApps', 'show/spazGames',
     'jqui',  'jqui/deps',  'jqui/deps/images', 'jqui/custWid',
     'knock', 'knock/deps', 'knock/custBind', 'knock/comps',
-    'bone',  'bone/deps', 'bone/tuts', 'bone/bbApps'
+    'bone',  'bone/deps', 'bone/tuts', 'bone/bbApps',
+    'mar'
 ]
 
 
@@ -24,7 +25,17 @@ mongoose.connect("mongodb://localhost/brain", function () {
 })
 mongoStore = new (connectMongo(express))({db: 'brain'})
 $Md = md = $m = models = require('./server/models')
+Schema = mongoose.Schema
+BlogSchema = new Schema({
+    author: String, title: String, url: String
+})
+mongoose.model('blog', BlogSchema)
+Blog = mongoose.model('blog')
+
+
+
 expr()
+$a.use(express.static( __dirname +  '/bone/blog' ))
 midwar()
 routes()
 $a.use( $a.router )
@@ -37,8 +48,6 @@ httpServer.listen(80, function () {
     $l('server listening on port 80')
 })
 sock()
-
-
 function reqs() {
     http = require('http')
     path = require('path')
@@ -220,6 +229,51 @@ function midwar() {
 }
 function routes(){
 
+
+    $a.g('/api/blogs', function (q, p) {
+
+        $l('afsd;klfasjkfajk;fasdkfasddfjkskl;')
+
+        Blog.find(function (z, docs) {
+            docs.forEach(function (item) {
+                console.log('got request for _id: ' + item._id)
+            })
+
+            p.send(docs) //docs.forEach(function(item){console.log('got request for _id: ' + item._id)})
+        })
+
+    })
+
+    $l('pitting in blogs post route')
+
+    $a.post('/api/blogs', function(q,p){
+       $l('recieved post request')
+        for (var key in q.body) {
+            console.log(key + ': ' + q.body[key])
+        }
+        var blog = new Blog(q.body)
+        blog.save(function (z, doc) {
+            p.send(doc)
+        })
+    })
+
+    $a.delete('/api/blogs/:id', function (q, p) {
+        Blog.remove({_id: q.params.id},
+            function (z, d) {
+                p.send({_id: q.params.id})
+            })
+    })
+    $a.put('/api/blogs/:id', function (q, p) {
+
+        $l('got an UPDATE req for _id: ' + q.params.id)
+        Blog.update({_id: q.params.id}, q.body, function (z, doc) {
+
+            p.send({_id: q.params.id})
+            //docs.forEach(function(item){console.log('got request for _id: ' + item._id)})
+
+        })
+
+    })
     $a.g('/render/:page', function (q, p) {
         p.render(q.params.page)
 
@@ -249,6 +303,10 @@ function routes(){
     $a.g('/mvc/:a/:p?/:p2?/:p3?', function(q,p){
         p.render('mvc',{app:q.params.a,pam:q.params.p})
     })
+
+
+
+
 
     function muggy() {
         $a.g('/users', function (q, p) {

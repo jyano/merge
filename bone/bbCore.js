@@ -2,6 +2,16 @@ $Ms=function(ms){
     return $.d().fS(80).C($r()).col($r()).A(ms)
 };$l('bbCore');
 Bb= Backbone; Bb.U=Bb.Utility; Bb.S=Bb.Sync;
+
+V$ = Bb.View
+M$$ = Cl$= Bb.Collection
+M$ = Bb.Model
+E$ = Bb.Events
+R$ = Bb.Router
+
+
+
+
 ro = rt = Bb.Router.prototype; md = Bb.Model.prototype; vw = Bb.View.prototype; cl = Bb.Collection.prototype
 Bb.sEv=function(md){
     md.b = md.bind
@@ -90,10 +100,12 @@ md.s = function (a, b, c) {var md = this
      md.set(a, b, c)
     return md
 }
+md.sv=md.save
 md.l = function () {
     $l( JSON.stringify(this.toJSON()))
     return this
 }
+
 md.l1 = md.lT1= md.lTo1= function (a, b, c, d) {
     return this.listenToOnce(a, b, c, d)
 }
@@ -118,7 +130,9 @@ md.hC=function(at){var md=this,
     }
     return this.hasChanged(at)
 }
-md.J = md.tJ = md.toJSON
+
+md.j = md.J = md.tJ = md.toJSON
+
 md.jS = md.tS = function () {
     return _.jS(this.J())
 }
@@ -191,6 +205,10 @@ cl.s= function(a,b,c){var cl=this
     cl.set(a,b,c)
     return cl
 }
+cl.fl=cl.filter
+cl.wo=cl.without
+cl.la=cl.last
+cl.cr=cl.create
 _$$C = function(ob){ob=ob||{}
     //var g=G(arguments), o= g.F_? {fn: g.f, ob: g.s} : {ob: g.f, fn: g.s}; o=o||{}
     if(!F(ob.initialize) && F(ob.i) ) {  ob.initialize = ob.i  }
@@ -254,7 +272,8 @@ $$C=function(ob){
 $C=function(ob,a,b,c){return $$C(ob,a,b,c)()}
 C$= function(ob){return $$C()(ob)}
 
-
+cl.j = cl.toJSON
+cl.fe= cl.fetch
 $c=function(ob){
     var m= new Bb.Collection(ob); return m}
 
@@ -401,7 +420,9 @@ vw.oC=function(){
     this.model.oC.apply(this.model, arguments)
     return this
 }
-
+vw.ds=function(){
+    if(this.model){this.model.destroy()}
+}
 _$$V= function(ob){ob = ob || {}
     ob.id = D(ob.id) ? ob.id : ob.x || ob._ || ob['#']
     ob.tagName = ob.tagName || ob.tn || ob.t

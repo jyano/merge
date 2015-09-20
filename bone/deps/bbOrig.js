@@ -755,12 +755,7 @@
         options || (options = {});
         if (options.model) this.model = options.model;
         if (options.comparator !== void 0) this.comparator = options.comparator;
-        if(F(this._reset)){
-            this._reset()
-        }
-        else {
-            $l('! this._reset')
-        }
+        this._reset();
         this.initialize.apply(this, arguments);
         if (models) this.reset(models, _.extend({silent: true}, options));
     };
@@ -1553,8 +1548,7 @@
         }
     };
 
-    // Cached regex for stripping a leading hash/slash and trailing space.
-    var routeStripper = /^[#\/]|\s+$/g;
+
 
     // Cached regex for stripping leading and trailing slashes.
     var rootStripper = /^\/+|\/+$/g;
@@ -1571,60 +1565,77 @@
         // The default interval to poll for hash changes, if necessary, is
         // twenty times a second.
         interval: 50,
-
-        // Are we at the app root?
-        atRoot: function() {
-            var path = this.location.pathname.replace(/[^\/]$/, '$&/');
-            return path === this.root && !this.getSearch();
-        },
-
-        // Does the pathname match the root?
-        matchRoot: function() {
-            var path = this.decodeFragment(this.location.pathname);
-            var root = path.slice(0, this.root.length - 1) + '/';
-            return root === this.root;
-        },
-
-        // Unicode characters in `location.pathname` are percent encoded so they're
-        // decoded for comparison. `%25` should not be decoded since it may be part
-        // of an encoded parameter.
-        decodeFragment: function(fragment) {
-            return decodeURI(fragment.replace(/%25/g, '%2525'));
-        },
-
-        // In IE6, the hash fragment and search params are incorrect if the
-        // fragment contains `?`.
         getSearch: function() {
+            // In IE6, the hash fragment and search params
+            // are incorrect if the
+            // fragment contains `?`.
             var match = this.location.href.replace(/#.*/, '').match(/\?.+/);
             return match ? match[0] : '';
         },
 
-        // Gets the true hash value. Cannot use location.hash directly due to bug
-        // in Firefox where location.hash will always be decoded.
-        getHash: function(window) {
-            var match = (window || this).location.href.match(/#(.*)$/);
-            return match ? match[1] : '';
+
+        atRoot: function() {   // Are we at the app root?
+            var pt= this.location.pathname.replace(/[^\/]$/, '$&/');
+            return (pt===this.root)  && !this.getSearch();
         },
 
-        // Get the pathname and search params, without the root.
+
+        matchRoot: function() {
+            // Does the pathname match the root?
+            var pt,root
+            pt = this.decodeFragment(this.location.pathname);
+             root = pt.slice(0, this.root.length - 1) + '/'
+            return root === this.root;
+        },
+
+        decodeFragment: function(fragment) {
+            // Unicode characters in `location.pathname`
+            // are percent encoded so they're
+            // decoded for comparison.
+            // `%25` should not be decoded since it may be part
+            // of an encoded parameter.
+
+            return decodeURI(fragment.replace(/%25/g, '%2525'));
+        },
+
+
+
+
+
+        getHash: function(window) {
+            // Gets the true hash value. Cannot use location.hash directly due to bug
+            // in Firefox where location.hash will always be decoded.
+            var match = (window || this).location.href.match(/#(.*)$/);
+            return match ? match[1] : '' },
+
         getPath: function() {
-            var path = this.decodeFragment(
+            // Get pathname, search pams (w/o root)
+
+            var pt = this.decodeFragment(
                 this.location.pathname + this.getSearch()
             ).slice(this.root.length - 1);
-            return path.charAt(0) === '/' ? path.slice(1) : path;
+
+            return pt.charAt(0) === '/' ?
+                pt.slice(1) : pt
         },
 
+
+
         // Get the cross-browser normalized URL fragment from the path or hash.
-        getFragment: function(fragment) {
-            if (fragment == null) {
-                if (this._usePushState || !this._wantsHashChange) {
-                    fragment = this.getPath();
-                } else {
-                    fragment = this.getHash();
-                }
-            }
-            return fragment.replace(routeStripper, '');
+        getFragment: function(frg) {
+
+            // Cached regex for stripping a leading hash/slash
+            // and trailing space
+            var routeStripper = /^[#\/]|\s+$/g
+            if (frg == null) {
+                frg = (this._usePushState || !this._wantsHashChange)?
+                    this.getPath(): this.getHash() }
+            return frg.replace(routeStripper, '')
         },
+
+
+
+
 
         // Start the hash change handling, returning `true` if the current URL matches
         // an existing route, and `false` otherwise.
@@ -1651,6 +1662,7 @@
             // requested.
             if (this._wantsHashChange && this._wantsPushState) {
 
+
                 // If we've started off with a route from a `pushState`-enabled
                 // browser, but we're currently in a browser that doesn't support it...
                 if (!this._hasPushState && !this.atRoot()) {
@@ -1666,6 +1678,8 @@
                 }
 
             }
+
+
 
             // Proxy an iframe to handle location events if the browser doesn't
             // support the `hashchange` event, HTML5 history, or the user wants
@@ -1684,21 +1698,26 @@
             }
 
             // Add a cross-platform `addEventListener` shim for older browsers.
-            var addEventListener = window.addEventListener || function (eventName, listener) {
-                    return attachEvent('on' + eventName, listener);
-                };
+            var addEventListener = window.addEventListener || function (eventName, listener){
+                    return attachEvent('on' + eventName, listener)
+                }
 
             // Depending on whether we're using pushState or hashes, and whether
             // 'onhashchange' is supported, determine how we check the URL state.
-            if (this._usePushState) {
+            if (this._usePushState){
+
                 addEventListener('popstate', this.checkUrl, false);
-            } else if (this._useHashChange && !this.iframe) {
+            }
+
+            else if (this._useHashChange && !this.iframe) {
                 addEventListener('hashchange', this.checkUrl, false);
-            } else if (this._wantsHashChange) {
+            }
+            else if (this._wantsHashChange) {
                 this._checkUrlInterval = setInterval(this.checkUrl, this.interval);
             }
 
-            if (!this.options.silent) return this.loadUrl();
+
+            if (!this.options.silent) {return this.loadUrl()}
         },
 
         // Disable Backbone.history, perhaps temporarily. Not useful in a real app,
@@ -1771,55 +1790,55 @@
         // The options object can contain `trigger: true` if you wish to have the
         // route callback be fired (not usually desirable), or `replace: true`, if
         // you wish to modify the current URL without adding an entry to the history.
-        navigate: function(fragment, options) {
-            if (!History.started) return false;
-            if (!options || options === true) options = {trigger: !!options};
 
-            // Normalize the fragment.
-            fragment = this.getFragment(fragment || '');
+        navigate:  function(frg, op) {
+            $l('navigate (in bb src)')
 
-            // Don't include a trailing slash on the root.
-            var root = this.root;
-            if (fragment === '' || fragment.charAt(0) === '?') {
-                root = root.slice(0, -1) || '/';
-            }
-            var url = root + fragment;
+            var root, url
 
-            // Strip the hash and decode for matching.
-            fragment = this.decodeFragment(fragment.replace(pathStripper, ''));
+            if (!History.started) {return false}
 
-            if (this.fragment === fragment) return;
-            this.fragment = fragment;
+            if (!op || op === true) {op = {trigger: !!op}}
 
-            // If pushState is available, we use it to set the fragment as a real URL.
+            frg = this.getFragment(frg || '') // Normalize the frg.
+
+            $l('frg: '+frg + ' (in bb src)')
+
+            root = this.root
+
+            if (frg === '' || frg.charAt(0) === '?') {
+                root = root.slice(0, -1) || '/'
+            }  // Don't include a trailing slash on the root.
+
+            url = root + frg
+
+            frg = this.decodeFragment(frg.replace(pathStripper, '')) // Strip the hash and decode for matching
+            if (this.frg === frg) {return}
+            this.frg = frg
+            // If pushState is available, we use it to set the frg as a real URL.
             if (this._usePushState) {
-                this.history[options.replace ? 'replaceState' : 'pushState']({}, document.title, url);
+                this.history[
+                    op.replace ? 'replaceState' : 'pushState'
+                    ]({}, document.title, url)
+            }  // If hash changes haven't been explicitly disabled, update the hash frg to store history.
 
-                // If hash changes haven't been explicitly disabled, update the hash
-                // fragment to store history.
-            } else if (this._wantsHashChange) {
-                this._updateHash(this.location, fragment, options.replace);
-                if (this.iframe && (fragment !== this.getHash(this.iframe.contentWindow))) {
-                    var iWindow = this.iframe.contentWindow;
-
-                    // Opening and closing the iframe tricks IE7 and earlier to push a
-                    // history entry on hash-tag change.  When replace is true, we don't
-                    // want this.
-                    if (!options.replace) {
-                        iWindow.document.open();
-                        iWindow.document.close();
-                    }
-
-                    this._updateHash(iWindow.location, fragment, options.replace);
-                }
-
-                // If you've told us that you explicitly don't want fallback hashchange-
-                // based history, then `navigate` becomes a page refresh.
-            } else {
-                return this.location.assign(url);
+            else if (this._wantsHashChange){
+                this._updateHash(this.location, frg, op.replace);
+                if (this.iframe && (frg !== this.getHash(this.iframe.contentWindow))) {
+                    var iWindow = this.iframe.contentWindow; // Opening and closing the iframe tricks IE7 and earlier to push a history entry on hash-tag change.  When replace is true, we don't want this.
+                    if (!op.replace) {iWindow.document.open();iWindow.document.close()}
+                    this._updateHash(iWindow.location, frg, op.replace)} // If you've told us that you explicitly don't want fallback hashchange-based history, then `navigate` becomes a page refresh.
             }
-            if (options.trigger) return this.loadUrl(fragment);
+
+            else {
+                return this.location.assign(url)
+            }
+
+            if (op.trigger) {
+                return this.loadUrl(frg)
+            }
         },
+
 
         // Update the hash location, either replacing the current entry, or adding
         // a new one to the browser history.
@@ -1833,7 +1852,7 @@
             }
         }
 
-    });
+    })
 
     // Create the default Backbone.history.
     Backbone.history = new History;
@@ -1844,6 +1863,7 @@
     // Helper function to correctly set up the prototype chain for subclasses.
     // Similar to `goog.inherits`, but uses a hash of prototype properties and
     // class properties to be extended.
+
     var extend = function(protoProps, staticProps) {
         var parent = this;
         var child;
@@ -1896,4 +1916,7 @@
 
     return Backbone;
 
-}));
+}))
+
+
+Bb=Backbone
