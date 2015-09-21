@@ -1,3 +1,4 @@
+console.log('\n\n\n')
 dirs=[
 
     '', 'public/pics',
@@ -13,52 +14,17 @@ dirs=[
     'bone',  'bone/deps', 'bone/tuts', 'bone/bbApps',
     'mar'
 ]
-
-
-
-
-reqs()
+$bodyParser      = require('body-parser');
+$methodOverride  = require('method-override');
+$cookieParser    = require('cookie-parser');
+ http = require('http')
+path = require('path')
+fs = require('fs')
+mongoose = require('mongoose')
+socketIO = require('socket.io')
+sessionSocketIO = require('session.socket.io')
+require('./server/defaultMug')
 both()
-$l('welcome to merge')
-mongoose.connect("mongodb://localhost/brain", function () {
-    $l('mongo connected')
-})
-mongoStore = new (connectMongo(express))({db: 'brain'})
-$Md = md = $m = models = require('./server/models')
-Schema = mongoose.Schema
-BlogSchema = new Schema({
-    author: String, title: String, url: String
-})
-mongoose.model('blog', BlogSchema)
-Blog = mongoose.model('blog')
-
-
-
-expr()
-$a.use(express.static( __dirname +  '/bone/blog' ))
-midwar()
-routes()
-$a.use( $a.router )
-_.e(dirs, function(dir){
-    dir= __dirname +'/'+ dir
-    $a.use($e.static(dir))
-})
-sv = httpServer = http.createServer($a)
-httpServer.listen(80, function () {
-    $l('server listening on port 80')
-})
-sock()
-function reqs() {
-    http = require('http')
-    path = require('path')
-    fs = require('fs')
-    mongoose = require('mongoose')
-    express = require('express')
-    connectMongo = require('connect-mongo')
-    socketIO = require('socket.io')
-    sessionSocketIO = require('session.socket.io')
-    require('./server/defaultMug')
-}
 function both(){
     _ = require('./server/us')
     F = _.isFunction
@@ -102,30 +68,91 @@ function both(){
     _.e= _.each
     _.m= _.map
 }
-function expr() {
-    $e = require('express');
-    $a = $e();
-    $a.u = $a.use;
-    $a.g = $a.get;
-    $a.po = $a.post
-    _.e({
-        port: process.env.PORT || 4000,
-        'view engine': 'jade',
-        views: __dirname + '/server/views/'
-    }, function (v, k) {
-        $a.set(k, v)
+$e = express = require('express')
+
+
+$a = $e()
+
+multer  = require('multer')
+
+uplod = multer({
+
+    dest: 'public/uploads/'
+
+}).single('avatar')
+
+//$a.use(upload.single('avatar'))
+
+
+
+
+
+mongoose.connect(
+    "mongodb://localhost/brain", function () {
+        $l('mongo connected')
     })
 
-    $a.use(express.bodyParser({
-        uploadDir: __dirname + "/public/uploads",
-        keepExtensions: true
-    }))
-    $a.use(cookieParser = express.cookieParser('xyz'))
-    $a.use(express.session({
-        store: mongoStore,
-        secret: 'xyz'
-    })); //$a.use( express.favicon() )
-}
+
+
+$Md = md = $m = models = require('./server/models')
+Schema = mongoose.Schema
+BlogSchema = new Schema({
+    author: String, title: String, url: String
+})
+mongoose.model('blog', BlogSchema)
+Blog = mongoose.model('blog')
+
+$a.u = $a.use;
+$a.g = $a.get;
+$a.po = $a.post
+_.e({
+    port: process.env.PORT || 4000,
+    'view engine': 'jade',
+    views: __dirname + '/server/views/'
+}, function (v, k) {$a.set(k, v)})
+$a.use( cookieParser=$cookieParser('xyz')   )
+//$a.use(methodOverride()
+
+
+$a.use($bodyParser.urlencoded({ extended: false }))
+// parse application/json
+$a.use($bodyParser.json())
+
+
+$session   = require('express-session');
+MongoStore   = require('connect-mongo')($session)
+
+$a.use($session({
+    resave:true,
+    secret: 'foo',
+    saveUninitialized:true,
+        store: new MongoStore({
+
+        url: 'mongodb://localhost/jy'
+    })
+}))
+
+
+
+
+
+
+$a.use(express.static( __dirname +  '/bone/blog' ))
+
+
+midwar()
+routes()
+//$a.use( $a.router )
+_.e(dirs, function(dir){
+    dir= __dirname +'/'+ dir
+    $a.use($e.static(dir))
+})
+
+sv = httpServer = http.createServer($a)
+
+
+httpServer.listen(80, function(){$l('server listening on port 80')})
+sock()
 function midwar() {
 
     $w = $Mw = function (q, p, n) {
@@ -151,6 +178,7 @@ function midwar() {
         n()
 
         function mW() {
+
             q.ss = q.session
             p.lc = p.locals
         }
@@ -243,11 +271,8 @@ function routes(){
         })
 
     })
-
-    $l('pitting in blogs post route')
-
     $a.post('/api/blogs', function(q,p){
-       $l('recieved post request')
+        $l('recieved post request')
         for (var key in q.body) {
             console.log(key + ': ' + q.body[key])
         }
@@ -256,7 +281,6 @@ function routes(){
             p.send(doc)
         })
     })
-
     $a.delete('/api/blogs/:id', function (q, p) {
         Blog.remove({_id: q.params.id},
             function (z, d) {
@@ -294,20 +318,13 @@ function routes(){
         })
     })
     muggy()
-
     //game
     $a.g('/play/:a/:p?', function(q,p){
         p.render('play',{app:q.params.a,pam:q.params.p})
     })
-
     $a.g('/mvc/:a/:p?/:p2?/:p3?', function(q,p){
         p.render('mvc',{app:q.params.a,pam:q.params.p})
     })
-
-
-
-
-
     function muggy() {
         $a.g('/users', function (q, p) {
             // for all users g ->  [{id, username, mug, status}]
@@ -434,12 +451,29 @@ function routes(){
                 p.send(m)
             })
         })
-        $a.del('/user', function (req, res, next) {
+        $a.delete('/user', function (req, res, next) {
             models.user.remove(req.body, function (err, data) {
                 res.json(data)
             })
         })
-        $a.po('/pic', $w.user, function (q, p, n) {
+
+        $a.po('/pic', uplod, $w.user, function (q, p, n) {
+
+
+            $l('post new pic')
+
+            //uplod(q, p, function (err) {if (err) {$l('errrrrrrr')}; $l(err)})
+
+
+
+
+            bd = q.body
+
+
+            $l('q.file: ')
+            $l(q.file)
+
+
 
             //when a user uploads a pic..
             // by default, it first goes to /public/uploads..
@@ -458,53 +492,47 @@ function routes(){
             $f.wF = $f.writeFile
             $p = path
             $p.rs = $p.resolve
-            var i = q.files.png || q.files.i
-            models.pic.create(Pic(q.userId, i), function (z, pic) {
-                if (z) {
-                    $l('ERR:' + z)
-                }
-                copyFileTo(i.path, newPath(i, pic), function () {
-                    pic.save(savedToMongo)
-                }) //<- $f.rF(i.path,  function(z, fileData){$f.wF(newPath(i, pic), fileData,  savedToFile)})
-                function savedToMongo(z) {
-                    if (z) {
-                        $l('z');
-                        n(z)
-                    }
-                    else {
-                        $l('pic saved');
-                        p.redirect('/wap/uploads') //  p.redirect('back')
-                    }
-                }
-            })
-            function copyFileTo(origPath, newPath, fn) {
-                $f.rF(origPath, function (z, fileData) {
-                    $f.wF(newPath, fileData, fn)
+
+            var i = q.file//q.files.png || q.files.i
+
+            models.pic.create(
+
+                Pic(q.userId, i), function (z, pic) {  //if (z) {$l('ERR:' + z)}
+
+                    copyFileTo(
+
+                        i.path,
+                        newPath(i, pic),
+                        function () {pic.save(function(z){if (z) {$l('z');n(z)} else {
+                            $l('pic saved'); p.redirect('/wap/uploads')}})}
+                    ) //<- $f.rF(i.path,  function(z, fileData){$f.wF(newPath(i, pic), fileData,  savedToFile)})
+
                 })
-            }
 
+
+            function copyFileTo(origPath, newPath, fn) {$f.rF(origPath, function (z, fileData) {$f.wF(newPath, fileData, fn)})}
             function newPath(i, pic) {
-                var newPath = $p.rs(i.path, '../../pics/', _id(pic) + pic.ext)
-                $l('origPath: ' + i.path)
-                $l('newPath: ' + newPath)   //for some reason extensions are saved with a starting '.'
+                var newPath = $p.rs(i.path, '../../pics/', _id(pic) + pic.ext)  //$l('origPath: ' + i.path); $l('newPath: ' + newPath)   //for some reason extensions are saved with a starting '.'
+                function _id(pic) {return pic._id.toString()}
                 return newPath
-                function _id(pic) {
-                    return pic._id.toString()
-                }
             }
 
-            function Pic(id, i) {
-                return {
-                    user: id,
-                    ext: $p.extname(i.path) || '.png',
-                    name: i.name,
-                    size: i.size,
-                    modified: i.lastModifiedDate
-                }
-            }
+
+            function Pic(id, i) {return {
+                user: id,
+                ext: $p.extname(i.path) || '.png',
+                //name: i.name,
+                size: i.size//, modified: i.lastModifiedDate
+            }}
+
+
+
 
         })
-        $a.del('/pic', function (q, p) {
+
+
+
+        $a.delete('/pic', function (q, p) {
             $l('remove a pic')//remove a pic
             models.pic.remove(q.body, function (z, d) {
                 p.json(d)
@@ -588,7 +616,7 @@ function routes(){
             })  //new image
             //remove an image (by id) //cutouts?
             // $a.po('/rmI', function( req, res ){   models.img.remove(  req.body,  function(err, data){res.json(data)} )  })
-            $a.del('/img', function (req, res) {
+            $a.delete('/img', function (req, res) {
 
                 $l('del /img')
                 models.img.remove(req.body, function (err, data) {
@@ -681,7 +709,7 @@ function sock() {
 
     io.set('log level', 1)
 
-    ssK = new sessionSocketIO(io, mongoStore, cookieParser)
+    //ssK = new sessionSocketIO(io, mongoStore, cookieParser)
 
     KK = sockets = io.sockets
     US = []  //  array-hash: socketId, username

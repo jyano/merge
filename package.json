@@ -1,24 +1,29 @@
-
-
 {
-  "name": "wappy",  "version": "0.0.1",
-
-  "private": true, "scripts": {"start": "node app.js"},
-
-  "dependencies":{
-
-                "connect":"*", "express": "*","jade": "*",
-
-      "mongoose": "*",
-
-      "socket.io":"*",
-
-                "connect-flash":"*", "connect-mongo":"*", "session.socket.io":"*" ,
-
-                "expect.js":"*", "chai": "*", "mocha": "*", "sinon": "*",
-
-                "superagent": "*"
+  "name": "wappy",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "chai": "*",
+    "connect": "*",
+    "connect-flash": "*",
+    "connect-mongo": "^0.8.2",
+    "cookie-parser": "^1.4.0",
+    "cookie-session": "^1.2.0",
+    "expect.js": "*",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "jade": "*",
+    "method-override": "^2.3.5",
+    "mocha": "*",
+    "mongoose": "*",
+    "multer": "^1.0.5",
+    "session.socket.io": "*",
+    "sinon": "*",
+    "socket.io": "*",
+    "superagent": "*"
   }
-
-
 }

@@ -1445,6 +1445,7 @@ function inpuz(){
         }
         return el
     }
+
     $.fU= $.fileUpload =  function(lb, t){
         var fG =  $.d().K("form-group").A(
             $.lb(  D(lb) ? lb  : 'upload file',  'upl'  ).K('control-label').fS(20),
@@ -1454,6 +1455,9 @@ function inpuz(){
             fG.A(   $.p(t).K('help-block')   )}
         return fG
     }
+
+
+
     $.bt = $.button = function () {
         var g = G(arguments), o, bt = $('<button>');
         o = g.F ? {fn: g[0]} : {t: g[0], fn: g[1]};

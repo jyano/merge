@@ -1,12 +1,55 @@
+$.fU= $.fileUpload =  function(lb, t){
+
+    var fG =  $.d().K("form-group").A(
+        $.lb(
+
+
+            D(lb) ? lb :'upload file',
+
+            'upl'
+
+
+        ),//.K('control-label')//.fS(20),
+
+
+        $.ip().ty('file').id('upl').name('avatar')
+    )
+
+
+    if(t){
+        fG.A(
+            $.p(t)//.K('help-block')
+        )}
+
+    return fG
+
+}
+
+
+
 UPLOAD=function(){
-    f =  $.f().attr({
+
+    f =  $.f([
+
+        $.fU('').attr('name', 'avatar'),
+
+        $.sm().val('ok')//.K("show")
+    ])
+
+
+    f.attr({
+
         method:'post',
         enctype: 'multipart/form-data',
         action: '/pic'
-    }).C('o').A($.fU(''),
-        $.sm().val('ok').K("show"))
-    $.pop(f, {title: 'upload a new pic'} ).dg()
+    })
+
+    f.C('o') //$.pop(f, {title: 'upload a new pic'} ).dg()
 }
+
+
+
+
 
 UPLOADS=function(){
 
