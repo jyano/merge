@@ -1,3 +1,4 @@
+console.log('both.js')
 s$=S
 $A = Array;
 $B = Boolean;
@@ -75,7 +76,7 @@ $l = function (a) {
     var g = G(arguments), v
     if (O(a) && N(a.x) && N(a.y)) {
         v = a.toFixed()
-        $l(v.x + ' , ' + v.y)
+      //  $l(v.x + ' , ' + v.y)
         return a
     }
     _.e(g, function (a) {
@@ -91,7 +92,7 @@ $l = function (a) {
         var g = G(arguments), v
         if (O(a) && N(a.x) && N(a.y)) {
             v = a.toFixed()
-            $l(v.x + ' , ' + v.y)
+           alert("$l(v.x + ' , ' + v.y)")
             return a
         }
         _.e(g, function (a) {
@@ -258,7 +259,7 @@ G = function (arg, str) {
 }
 G._ = function () {
     g = G(arguments)
-    $l(g.L + ' args')
+   alert("$l(g.L + ' args')")
 }
 
 $z = function (z) {
@@ -290,7 +291,7 @@ _.eR=function(g,fn){
     _.e(_.r(g),fn)
 }
 
-
+_.z=  _.size // _.s ???
 _.m = _.map;
 _.t = _.times
 _.x = _.extend;
@@ -320,7 +321,7 @@ _.spl = function (a, b) {
 _.bf = function (a, b) {
     return a.split(b || '.')[0]
 } //before('.')
-
+_.cl= _.clone
 S.cR = function (a, b) {
     return s$(a).chompRight(b).s
 }
@@ -764,17 +765,18 @@ _.in = function (time, fn) {
     o.s = N(o.s) ? o.s : 1
     o.fn = o.fn || function () {
     }
+
     return setTimeout(
         function () {
 
-            if (g.m) {
-                $.c$()
-            }
+            if (g.m) { $.C($r())}
             o.fn()
 
         },
         o.s * 1000)
 }
+
+
 _.cI = _.xI = function (a, b) {
     clearInterval(a)
 }
@@ -826,4 +828,9 @@ _.gS = function (pop) {
 _v = function (a) {
     return S(a) ? function () {
         Function(a)()} : F(a) ? a : F(a.value) ? a.value() : a.value
+}
+
+_.tF=function(a,b){
+    b=N(b,2)
+    return a.toFixed(b)
 }

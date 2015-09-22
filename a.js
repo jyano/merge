@@ -2,7 +2,10 @@ console.log('......\n...\n.\n\n\n');
 require('./server/serverBoth');
 $l(' - merge - \n');
 
-require('./server/superNode')
+$h = http = require('http');
+$p = path = require('path');
+
+//require('./server/superNode')
 require('./server/expressApp')(__dirname)
 
 require('./server/database')

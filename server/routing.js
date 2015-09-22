@@ -1,18 +1,37 @@
 dirs = [
 
-    '', 'bone/blog', 'bone/tpcs',
+    '', 'bone/blog',
+    'bone/tpcs',
 
-    'public/pics', 'front/both',
+    'public/pics',
 
-    'front', 'front/graphics', 'front/handy',
+    'both',
 
-    'boot', 'boot/deps',
-         'boot/deps/css', 'boot/deps/fonts',
+    'front', 'front/graphics', 'front/handy', 'style',
 
-    'front/graf', 'front/graf/deps',       'style',
+
+    'front/graf', 'front/graf/deps',
+
+    
+    //bootstrap
+    'boot', 'boot/deps', 'boot/deps/css', 'boot/deps/fonts',
+
+    //fiz
     'front/fiz', 'front/fiz/deps',
-    'show', 'show/mugApps', 'show/spazGames', 'jqui', 'jqui/deps', 'jqui/deps/images', 'jqui/custWid', 'knock', 'knock/deps', 'knock/custBind', 'knock/comps',
-    'bone', 'bone/deps',        'bone/tuts', 'bone/bbApps'
+
+    'show', 'show/mugApps', 'show/spazGames',
+
+
+
+    //jQuery UI
+    'jqui', 'jqui/deps', 'jqui/deps/images', 'jqui/custWid',
+
+    //backbone
+    'bone', 'bone/deps',        'bone/tuts', 'bone/bbApps',
+
+    //knockout
+    'knock', 'knock/deps', 'knock/custBind', 'knock/comps'
+
 ]
 
 

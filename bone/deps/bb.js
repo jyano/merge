@@ -36,6 +36,7 @@
     function(root, Bb, _, $) {
 
 
+        Backbone = Bb
 
 
     // Initial Setup

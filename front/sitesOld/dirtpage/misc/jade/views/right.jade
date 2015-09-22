@@ -1,0 +1,33 @@
+
+<span class="tinywhite"> being posted on: </span> <br> <br>
+
+
+while("all postedon, order descending by id, limit 200"){
+
+	 <A HREF= "/page.php? topic=" + str_replace( " ", "+", $row['topic']) + "\">
+
+	 <span class="tinysilver"> toLowerCase( $row['topic'] )  </span>
+
+	 </a>
+
+	 <br>
+
+	}
+
+
+<br>
+
+
+<span class="tinywhite">  being viewed:  </span>  <br><br>
+
+while( "all viewed, order descending by id, limit 50" ){
+
+	<A HREF="/page.php?topic=" . str_replace(" ", "+", $row['topic']) . "\">
+
+	<span class="tinysilver"> toLowerCase( $row['topic'] )  </span>
+
+	</a>
+
+	<br>
+	
+	}
