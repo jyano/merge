@@ -7,20 +7,20 @@ dirs = [
 
     'both',
 
-    'front', 'front/graphics', 'front/handy', 'style',
+    'front', 'graphics/art', 'front/handy', 'style',
 
 
-    'front/graf', 'front/graf/deps',
+    'graphics/graf', 'graphics/graf/deps',
 
     
+
     //bootstrap
     'boot', 'boot/deps', 'boot/deps/css', 'boot/deps/fonts',
 
     //fiz
-    'front/fiz', 'front/fiz/deps',
+    'fiz', 'fiz/deps',
 
     'show', 'show/mugApps', 'show/spazGames',
-
 
 
     //jQuery UI

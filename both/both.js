@@ -612,7 +612,9 @@ R=function(n,n2){var num
     n2=N(n2)?n2:0
     return M.round((M.random()*n)+n2)
 }
+
 $Dt = Date
+
 $Dt.n = $Dt.now  //->  cur time - ms since  1970 UTC (N)
 $Dt.H = 3600000
 $Dt.U = $Dt.UTC// ?
