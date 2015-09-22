@@ -12,8 +12,6 @@ dirs = [
 
     'graphics/graf', 'graphics/graf/deps',
 
-    
-
     //bootstrap
     'boot', 'boot/deps', 'boot/deps/css', 'boot/deps/fonts',
 

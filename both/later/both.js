@@ -1,3 +1,130 @@
+
+function both(){
+    G1 = function (a) {
+        //if(!_.isArguments(a)){return}
+        var p, n, m, d
+        a = _.toArray(a)
+        if (_.last(a) === '+') {
+            p = a.pop()
+        }
+        if (_.last(a) === '-') {
+            n = a.pop()
+        }
+        if (_.last(a) === '*') {
+            m = a.pop()
+        }
+        if (_.last(a) === '/') {
+            d = a.pop()
+        }
+
+        return D(a, {
+
+            z: a.length,
+            f: _.first(a),
+            l: _.last(a),
+            r: _.rest(a),
+            i: _.initial(a),
+            p: p,
+            P: !p,
+            m: m,
+            M: !m,
+            d: d,
+            D: !d,
+            n: n,
+            N: !n
+
+        })
+    }
+    function time() {
+        tf = function () {
+            alert('tf')
+            var g = G(arguments)
+            t = n = 1
+            $.in(1, function () {
+                t = 0
+            })
+
+            $.ev(1, function () {
+                if (t) {
+                    n = n + 1
+
+                    co()
+
+                }
+
+                else {
+                    $l(n)
+                }
+            })
+
+        }
+        $.fn.in=function(num){
+            var g=G(arguments)
+            this.delay(num * 1000)
+            return this
+        }
+
+        $.sec = function (f) {
+            return setTimeout(f, 1000)
+        }
+        $.do = function (func) {
+            setTimeout(func, 0);
+            return 'nada'
+        }
+        $.T = function (a, b) {
+            return setTimeout(_v(a), b)
+        }
+        $.dateTime = $.date = dateTime = dt = function (a) {
+            var d = new Date(a);
+            d.y = d.getFullYear;
+            d.d = d.getDate;
+            d.D = d.getDay;
+            d.M = d.getMinutes;
+            d.m = d.getMonth;
+            d.date = function () {
+                return d.d() + '/' + d.m() + '/' + d.y()
+            };
+            d.time = function () {
+                return d.h() + ':' + d.M()
+            };
+            d.dt = function () {
+                return d.date() + ' ' + d.time()
+            };
+            d.ms = d.getMilliseconds;
+            d.h = d.getUTCHours;
+            d.s = d.getSeconds;
+            //d.tm= d.getTime
+            //d.gto= d.getTimezoneOffset
+            d.udt = d.getUTCDate;
+            d.gud = d.getUTCDay;
+            d.ufy = d.getUTCFullYear;
+            d.gh = d.getHours;
+            d.gms = d.getUTCMilliseconds;
+            d.um = d.getUTCMinutes;
+            d.um = d.getUTCMonth;
+            d.us = d.getUTCSeconds;
+            return d
+        }
+        $.dateAndTime = dtt = function (a) {
+            var datetime = new Date(a);
+            return datetime.date() + ' ' + datetime.time()
+        }
+    }
+
+
+    /* S1=function(a,b,c){
+     return _.isUndefined(b)? (_.isString(a)? $.span().html(a):0  )
+     :N(b)? a.substr(b,c)
+     :S(b)? s$(a).startsWith(b)
+     :_.some(a, b||F,c)
+     }
+     */
+//  nN=function(w){return Boolean(Number(w))}//M=
+//  Nn = _.isNan
+
+}
+
+
 function core() {
     s$ = S  // ******** must go before 'S' is re-assigned to a bool
 
