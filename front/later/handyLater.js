@@ -685,17 +685,16 @@ function inputs() {
     }
 }
 
-
 $.br = function (a) {
 
-    if (U(a)) {
-        return $('<br>')
-    }
+    if (U(a)) { return $('<br>') }
 
     var span = $.span()
 
     _.times(a,
+
         function () {
+
             span.A($('<br>'))
         })
 
@@ -752,10 +751,7 @@ $.a = function (a, f) {
     }
 
     // if(g.n){ l.K('dropdown-toggle').attr({ 'data-target' : 'dropdown' }) }
-
-
     //if(g.p){ l = $.li( l ) }
-
     //if(g.m){ l = $.li( l ).K('active') }
 
     return l

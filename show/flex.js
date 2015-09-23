@@ -65,7 +65,9 @@ Web/CSS/align-self The align-self CSS property aligns flex items of the current 
 
 apps()
 function apps(){
+
     GRAIL=function(){$.bd().E()
+
         o={
             bd: {f: '24px Helvetica', C:'a' ,c:'b'},
 
@@ -98,6 +100,9 @@ function apps(){
 
 
     }
+
+
+
     FLEX=function(){  $.x('g', 'flex')
 
         $CSS({
@@ -146,6 +151,7 @@ function apps(){
         })
 
     }
+
     BASIS=function(){$.x('o','basis')
         // http://jsfiddle.net/jakub_g/s5jAB/
         // Both items have flex-basis: 200px defined.
@@ -222,6 +228,7 @@ function apps(){
             ).css({margin:20}).C('b')
         }
     }
+
     function notSure(){
         GME=function(){$.x('y','gme');
             $CSS({
