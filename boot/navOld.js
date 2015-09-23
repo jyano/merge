@@ -69,39 +69,81 @@ WAPNAV=function(a){ var g=G(arguments),a=g[0];if(a){co(a)};if(g.N){z()};NAV(bar(
 
 
 
-
-
-
-
+function oldTwitLibCantImagineImUsing(){
 
 
 wap=function(a){
-    return lik(a,ldr(a))}
+    return lik(a,ldr(a))
+}
 
-lkd=function(){var  g=G(arguments),u=ul('-'),l=li('-')(  dropl(g[0]))
-    _e(g.r,function(v){ if(S(v)){ v= g.p? wap(v): lik(v) }
-        u(v)});return l(u)}
-
-waps=function(){var g=G(arguments),
+waps=function(){
+    var g=G(arguments),
     gly=gl(g.f[0], g.f[1]),w=_m(g.r,wap),args=[gly].concat(w)
-    return _a(lkd,w )}
+    return _a(lkd,w )
+}
 
-ib=function(n){var s=_s();_t(n||1,function(){s(sp(['ib']))});return s}
-navHeader=function(a){a=a||'me'
-    return dk('nbh')(bt().k('nbg').at({dg:'#navbar',dt:'collapse'})(
-            sp(['sr'],'toggle nav'),'',ib(4)),
+
+    lkd = function () {
+        var g = G(arguments), u, l
+
+        // i don't think my ul takes a neg anyore
+        u = $.ul('-')
+
+        l = li('-')(dropl(g.f))
+
+        _e(g.r, function (v) {
+            if (S(v)) {
+                v = g.p ? wap(v) :
+                    lik(v)
+            }
+
+            u(v)
+        })
+
+        return l(u)
+    }
+
+
+    ib = function (n) {
+        var s = _s();
+
+        _t(n || 1, function () {
+            s(sp(['ib']))
+        });
+
+        return s
+
+    }
+
+
+}
+
+navHeader=function(a){
+    a=a||'me'
+    return dk('nbh')(
+        bt().k('nbg').at({dg:'#navbar',dt:'collapse'})(
+            sp(['sr'],
+                'toggle nav'),'',ib(4)),
         lk('wappy',function(){
-
            $w.location='/wap'
-        }).k('nbB'))}
+        }).k('nbB')
+    )
+}
 
 
 
-navbar=function(){var g=G(arguments)
-    return _a(_d().k('nb nbd nbi nbft').at({r:'naviation'}),g)}
-NAV=function(a,b,c,d){return navbar(navHeader(),
+
+navbar=function(){
+    var g=G(arguments)
+    return _a(_d().k('nb nbd nbi nbft')
+        .at({r:'naviation'}),g)
+}
+
+NAV=function(a,b,c,d){
+    return navbar(navHeader(),
         _a(dk('co nbc').id('navbar'),
-            G(arguments))).pp()}
+            G(arguments))).pp()
+}
 
 
 

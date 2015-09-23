@@ -12,6 +12,7 @@ $.fn.fi = $.fn.find
 $.Ev= $.Event
 
 Tab = function Tab (q){
+
     this.element = $(q)
 }
 
@@ -29,7 +30,7 @@ Tab.prototype.show = function(){
         shEv
 
     if (!sel){sel  = q.at('href') && sel.rp(/.*(?=#[^\s]*$)/, '')} // strip for ie7
-    
+
     if (q.__('li').hK('active')) {return}
     prev = $ul.fi('.active:last a')
     hdEv = $.Ev('hide.bs.tab', {relTg: q[0]})
@@ -38,7 +39,7 @@ Tab.prototype.show = function(){
     q.tr(shEv)
     if (shEv.isDefaultPrevented() || hdEv.isDefaultPrevented()) return
     var tg = $(sel)
-    
+
     this.actvt(q.___('li'), $ul)
     this.actvt(tg, tg.__(), function(){
         prev.tr({
@@ -62,12 +63,12 @@ Tab.prototype.actvt = function (q, ct, fn) {
             )
 
     function next(){
-        
+
         act.rK('active')
             .fi('> .dropdown-menu > .active').rK('active')
             .end().fi('[data-toggle="tab"]')
             .at('aria-expanded', false)
-       
+
         q.K('active')
             .fi('[data-toggle="tab"]')
             .at('aria-expanded', true)
@@ -97,9 +98,13 @@ Tab.prototype.actvt = function (q, ct, fn) {
 }
 
 function Plugin(op){
-    return this.ea(function(){var e=this, q = $(e),
-        d=q.da('bs.tab')
+    return this.ea(function(){
+        var e=this, q = $(e),
+
+            d=q.da('bs.tab')
+
         if (!d) {q.d('bs.tab', (d = new Tab(e)))}
+
         if(S(op)){d[op]()}
     })
 }
