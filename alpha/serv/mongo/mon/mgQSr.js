@@ -133,8 +133,12 @@ QSr.destroy//Destroys the stream. No more events will be emitted after calling t
  ///
 
 
- $ScS=function(m){return  $Sc({n:$S})}
- $Ms=function(m){return $M(m, $ScS())}
+ $ScS=function(m){
+ return  $Sc({n:$S})}
+
+ $Ms=function(m){
+ return $M(m, $ScS())}
+
 
  Per=$Ms('Per')
  dropDB(function(){

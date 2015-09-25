@@ -938,36 +938,31 @@ function inpuz(){
         r.attr({name: n, min: m, max: M});
         return r
     }
+    
+    //hi
     $.ip = function (n) {
-        var g = G(arguments), o, ip
-        ip = $('<input>').at('type', 'text')
-        if (n) {
-            ip.n(n);
-            ip.id(n)
-        }
-        o = g.O ? g.f :
-            g.N_ ? {w: g.f, id: g.s} :
+     $l('input')
+     var ip = $('<input>').at('type', 'text')
+     
+     return ip
+     
+     var g = G(arguments), o, ip
+    
+        if (n) {  ip.n(n);  ip.id(n)  }
+        o = g.O ? g.f :    g.N_ ? {w: g.f, id: g.s} :
             {ph: g.f, id: g.s, v: g.t || g.s, n: g.t || g.s}
         ip.ph(o.ph)
-        if (o.w) {
-            ip.W(o.w)
-        }
-        if (o.id) {
-            ip.id(o.id)
-        }
-        if (o.v) {
-            ip.v(o.v)
-        }
-        if (o.n) {
-            ip.n(o.n)
-        }
+        if (o.w) {ip.W(o.w)}
+        if (o.id) { ip.id(o.id)  }
+        if (o.v) {  ip.v(o.v)  }
+        if (o.n) {  ip.n(o.n)  }
         ip.C(o.C || 'r').col(o.c || 'b')
-        if (!g.n) {
-            ip.K('form-control')
-            ip.A()
-        }
+        if (!g.n) {   ip.K('form-control');  ip.A()   }
         return ip
     }
+    
+   
+    
     $.ipBt = function (btT, f) {
         return $.d().A($.ip(),
             $.bt(btT, function () {

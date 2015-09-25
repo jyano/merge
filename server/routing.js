@@ -13,13 +13,12 @@ dirs = [
     'graphics/graf', 'graphics/graf/deps',
 
     //bootstrap
-    'boot', 'boot/deps', 'boot/deps/css', 'boot/deps/fonts',
+    'boot', 'boot/deps',// 'boot/deps/css', 'boot/deps/fonts',
 
     //fiz
     'fiz', 'fiz/deps',
 
     'show', 'show/mugApps', 'show/spazGames',
-
 
     //jQuery UI
     'jqui', 'jqui/deps', 'jqui/deps/images', 'jqui/custWid',

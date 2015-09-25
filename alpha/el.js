@@ -1,5 +1,6 @@
 el = function(ob, op){
     if(A(ob)){
+
         _.e(ob, function(ob){
             el(ob)
         })

@@ -16,8 +16,16 @@ require('./server/routing')(__dirname)
 
 $hS = $h.createServer($a);
 $hS.listen(80, function(){
-    $l('\n port 80 <-\n') })
+    
+    $l('\n port 80 <-\n');
+    var url = 'http://localhost/wap/txx';
+    
+   // var spawn = require('child_process').spawn; spawn('open', [url]);
+    
+})
+ 
 
 require('./server/serverSockets')
 
 
+ 

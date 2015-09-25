@@ -42,7 +42,9 @@ Dropdown.prototype.keydown = function (e) {if (!/(38|40|27|32)/.test(e.which) ||
 function clearMenus(e) {
     if (e && e.which === 3) return
     $(drop).rm()
-    $(tog).ea(function () {var q = $(this), pa = getParent(q), relTg = { relTg: this }
+    $(tog).ea(function () {
+    
+    var q = $(this), pa = getParent(q), relTg = { relTg: this }
         if (!pa.hK('open')) return
         pa.tr(e = $.Ev('hide.bs.dropdown', relTg))
         if (e.isDefaultPrevented()) {return}
@@ -50,6 +52,8 @@ function clearMenus(e) {
         pa.rK('open').tr('hidden.bs.dropdown', relTg)
     })
 }
+
+
 function getParent(q) {var sel = q.at('da-target'), pa
     if (!sel) {sel = q.at('href') && /#[A-Za-z]/.test(sel) && sel.rp(/.*(?=#[^\s]*$)/, '') // strip for ie7}
         return (pa = sel && $(sel)) && _.z(pa) ? pa : q.__()} }

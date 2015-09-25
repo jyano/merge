@@ -1,248 +1,261 @@
 //objects moved to own file(s)
-xml();jqfn();evenz(); image();
+evenz(); image();
 $.A=function(){
     $.fn.A.apply( $('body'), arguments)
    return $
 }
-function xml() {
-    $.XML = function () {
-        return new XMLHttpRequest()
-    }
-    $.aj = function (ob) {
-        return $.ajax(ob)
-    }
-    $.txG = function (url) {
-        $.get('/' + url, function (aa) {
-            a = aa
-        })
-    }
-    $.G = $.g = function () {
-        var g = G(arguments), o;
-        if (U(g[1])) {
-            return _.p($.G, g[0])
+
+superJQ()
+
+function superJQ(){
+    ajax();
+    manip();
+    attrib();
+    function manip(){
+        $.fn.fi = $.fn.find
+        $.fn.ch = function () {
+            return this.children()
         }
-        o = F(g[1]) ? {p: g[0], fn: g[1]} :
-        {p: g[0], d: g[1], fn: g[2]};
-        $.get(S.eL(o.p), o.d || {},
-            function (d) {
-                o.fn = o.fn || function () {
-                    return 'boo ya!'
-                };
-                o.fn(d)
+        $.fn.pa = $.fn.parent
+        $.fn.sib = function () {
+            var g = G(arguments);
+            return this.sib.apply(this.g)
+        }
+        $.fn.hd = $.fn.hide
+        $.fn.sh = $.fn.show
+        $.fn.rm = $.fn.xx = function () {
+            var e = this
+            e.remove()
+            return e
+        }
+        $.fn.E = function (html) {
+            this.empty()
+            if (S(html)) {
+                this.h(html)
+            }
+            else {
+                G(arguments).e(function (q) {
+                    this.A(q)
+                })
+            }
+            return this
+        }
+        $.fn.A = function (stuff) {
+            if (U(stuff)) {
+                $('body').append(this);
+                return this
+            }
+            this.append.apply(this, arguments)
+            return this
+        }
+        $.fn.a2 = $.fn.ap2 = function (a) {
+            a.A(this);
+            return this
+        }
+        $.fn.iA = $.fn.insertAfter
+        $.fn.pp = function (a) {
+            this.pp(a);
+            return this
+        }
+        $.fn.pp2 = function (a) {
+            this.prependTo(a);
+            return this
+        }
+        $.fn.e = $.fn.each
+        $.fn.N = $.fn.next
+        $.fn.at = $.fn.attr
+        $.fn.s = $.fn.css
+    }
+    function ajax(){
+        $.XML = function () {
+            return new XMLHttpRequest()
+        }
+        $.aj = function (ob) {
+            return $.ajax(ob)
+        }
+        $.txG = function (url) {
+            $.get('/' + url, function (aa) {
+                a = aa
             })
-    }
-    $.eG = function () {
-        var g = G(arguments), o;
-
-        if (U(g[1])) {
-            return _.p($.eG, g[0])
         }
-        o = F(g[1]) ? {p: g[0], fn: g[1]} :
-        {p: g[0], d: g[1], fn: g[2]};
-
-        $.G(o.p, o.d || {},
-            function (dd) {
+        $.G = $.g = function () {
+            var g = G(arguments), o;
+            if (U(g[1])) {
+                return _.p($.G, g[0])
+            }
+            o = F(g[1]) ? {p: g[0], fn: g[1]} :
+            {p: g[0], d: g[1], fn: g[2]};
+            $.get(S.eL(o.p), o.d || {},
+                function (d) {
+                    o.fn = o.fn || function () {
+                        return 'boo ya!'
+                    };
+                    o.fn(d)
+                })
+        }
+        $.eG = function () {
+            var g = G(arguments), o;
+            if (U(g[1])) {
+                return _.p($.eG, g[0])
+            }
+            o = F(g[1]) ? {p: g[0], fn: g[1]} :
+            {p: g[0], d: g[1], fn: g[2]};
+            $.G(o.p, o.d || {},
+                function (dd) {
+                    _.e(dd, function (d) {
+                        o.fn(d)
+                    })
+                });
+            return $
+        }
+        $.Gj = function () {
+            var g = G(arguments), o;
+            if (U(g[1])) {
+                return _.p($.Gj, g[0])
+            }
+            o = F(g[1]) ? {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
+            o.fn = o.fn || function () {
+                return 'boo ya!'
+            };
+            $.getJSON(
+                S.eL(o.p),
+                o.d || {},
+                function (d) {
+                    o.fn(d)
+                });
+            return $
+        }
+        $.eJ = $.eGj = function () {
+            var g = G(arguments), o;
+            if (U(g[1])) {
+                return _.p($.eJ, g[0])
+            }
+            o = F(g[1]) ?
+            {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
+            $.Gj(o.p, o.d || {}, function (dd) {
                 _.e(dd, function (d) {
                     o.fn(d)
                 })
             });
-        return $
-    }
-    $.Gj = function () {
-        var g = G(arguments), o;
-        if (U(g[1])) {
-            return _.p($.Gj, g[0])
+            return $
         }
-        o = F(g[1]) ? {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
-        o.fn = o.fn || function () {
-            return 'boo ya!'
-        };
-        $.getJSON(
-            S.eL(o.p),
-            o.d || {},
-            function (d) {
-                o.fn(d)
+        $.P = $.po = function () {
+            var g = G(arguments), o;
+            o = F(g[1]) ? {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
+            o.d = U(o.d) ? {} : O(o.d) ? o.d : {data: o.d};
+            o.fn = o.fn || function () {
+                return 'boo ya!'
+            };
+            $.post(S.eL(o.p), o.d, function (d) {
+                o.fn(o.d, o)
             });
-        return $
-    }
-    $.eJ = $.eGj = function () {
-        var g = G(arguments), o;
-        if (U(g[1])) {
-            return _.p($.eJ, g[0])
+            return $
         }
-        o = F(g[1]) ?
-        {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
-        $.Gj(o.p, o.d || {}, function (dd) {
-            _.e(dd, function (d) {
-                o.fn(d)
-            })
-        });
-        return $
+        $.eP = function () {
+            var g = G(arguments);
+            if (U(g[1])) {
+                return _.p($.eP, g[0])
+            }
+            o = F(g[1]) ? {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
+            $.P(o.u, o.d || {}, function (dd) {
+                _.e(dd, function (d) {
+                    o.fn(d)
+                })
+            });
+            return $
+        }//
     }
-    $.P = $.po = function () {
-        var g = G(arguments), o;
-        o = F(g[1]) ? {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
-        o.d = U(o.d) ? {} : O(o.d) ? o.d : {data: o.d};
-        o.fn = o.fn || function () {
-            return 'boo ya!'
-        };
-        $.post(S.eL(o.p), o.d, function (d) {
-            o.fn(o.d, o)
-        });
-        return $
-    }
-    $.eP = function () {
-        var g = G(arguments);
-        if (U(g[1])) {
-            return _.p($.eP, g[0])
+    function attrib(){
+        $.fn.mlt = function (m) {
+            return this.at('multiple', true)
         }
-        o = F(g[1]) ? {p: g[0], fn: g[1]} : {p: g[0], d: g[1], fn: g[2]};
-        $.P(o.u, o.d || {}, function (dd) {
-            _.e(dd, function (d) {
-                o.fn(d)
-            })
-        });
-        return $
-    }//
-}
-function jqfn(){
-    $.fn.fi = $.fn.find
-    $.fn.ch = function () {
-        return this.children()
-    }
-    $.fn.pa = $.fn.parent
-    $.fn.sib = function () {
-        var g = G(arguments);
-        return this.sib.apply(this.g)
-    }
-    $.fn.hd = $.fn.hide
-    $.fn.sh = $.fn.show
-    $.fn.rm = $.fn.xx = function () {
-        var e = this
-        e.remove()
-        return e
-    }
-
-    $.fn.E = function (html) {
-        this.empty()
-        if(S(html)){this.h(html)}
-
-        else {
-
-            G(arguments).e(function(q){this.A(q)})
+        $.fn.ph = $.fn.placeholder = function(forWhat) {
+            return this.attr('placeholder', forWhat)
         }
-        return this
-    }
-
-
-
-    $.fn.A = function (stuff) {
-        if (U(stuff)) {
-            $('body').append(this);
+        $.fn.chk = function () {
+            this.at('checked', true)
+        }
+        $.fn.ty = $.fn.type = function (type) {
+            if (U(type)) {
+                return this.attr('type')
+            }
+            this.attr('type', type);
             return this
         }
-        this.append.apply(this, arguments)
-        return this
+        $.fn.id = function (id) {
+            if (U(id)) {
+                return this.attr('id')
+            }
+            ;
+            this.attr('id', id);
+            return this
+        }
+        $.fn.n = $.fn.name = function (name) {
+            if (U(name)) {
+                return this.attr('name')
+            }
+            ;
+            this.attr('name', name);
+            return this
+        }
+        $.fn.hf = $.fn.href = function (href) {
+            if (U(href)) {
+                return this.attr('href')
+            }
+            this.attr('href', href);
+            return this
+        }
+        $.fn.for = $.fn.fr = function (forWhat) {
+            return this.attr('for', forWhat)
+        }
+        $.fn.role = function (role) {
+            if (U(role)) {
+                return this.attr('role')
+            }
+            this.attr('role', role)
+            return this
+        }
+        $.fn.v = function (v) {
+            var g = G(arguments), v
+            if (D(v)) {
+                this.val(v)
+                return this
+            }
+            v = this.val()
+            if (!g.p) {
+                this.val('')
+            }
+            return v
+        }
+        $.fn.V = function () {
+            var v = this.val()
+            this.val('')
+            return v
+        }
     }
-    $.fn.a2 = $.fn.ap2 = function (a) {
-        a.A(this);
-        return this
+    
+}
+
+
+
+
+ 
+    $.fn.oh = function () {
+        return this[0].outerHTML
     }
-    $.fn.iA = $.fn.insertAfter
-    $.fn.pp = function (a) {
-        this.pp(a);
-        return this
-    }
-    $.fn.pp2 = function (a) {
-        this.prependTo(a);
-        return this
-    }
-    $.fn.e = $.fn.each
-    $.fn.N = $.fn.next
+
     $.fn.tt = $.fn.tit = $.fn.title = function (t, c) {
-        var p
-        p = $.p(t).fS(24).K('text-center').C('X', c || 'z').mH(10).pH(30)
+        var p = $.p(t).fS(24).K('text-center')
+            
+        p.mH(10).pH(30)
+        
         this.A(p, $.hr().fS(10))
         return this
     }
     $.fn.gg = $.fn.toggle
     $.fn.h = $.fn.ht = $.fn.html
-    $.fn.oh = function () {
-        return this[0].outerHTML
-    }
-    $.fn.mlt = function (m) {
-        return this.at('multiple', true)
-    }
-    $.fn.ph = $.fn.placeholder = function (forWhat) {
-        return this.attr('placeholder', forWhat)
-    }
-    $.fn.chk = function () {
-        this.at('checked', true)
-    }
-    $.fn.at = $.fn.attr
-    $.fn.ty = $.fn.type = function (type) {
-        if (U(type)) {
-            return this.attr('type')
-        }
-        this.attr('type', type);
-        return this
-    }
-    $.fn.id = function (id) {
-        if (U(id)) {
-            return this.attr('id')
-        }
-        ;
-        this.attr('id', id);
-        return this
-    }
-    $.fn.n = $.fn.name = function (name) {
-        if (U(name)) {
-            return this.attr('name')
-        }
-        ;
-        this.attr('name', name);
-        return this
-    }
-    $.fn.hf = $.fn.href = function (href) {
-        if (U(href)) {
-            return this.attr('href')
-        }
-        this.attr('href', href);
-        return this
-    }
-    $.fn.for = $.fn.fr = function (forWhat) {
-        return this.attr('for', forWhat)
-    }
-    $.fn.role = function (role) {
-        if (U(role)) {
-            return this.attr('role')
-        }
-        this.attr('role', role)
-        return this
-
-    }
-    $.fn.v = function (v) {
-        var g = G(arguments), v
-
-        if (D(v)) {
-            this.val(v)
-
-            return this
-        }
-        v = this.val()
-        if (!g.p) {
-            this.val('')
-        }
-        return v
-
-    }
-    $.fn.V = function () {
-        var v = this.val()
-        this.val('')
-        return v
-    }
-    $.fn.s= $.fn.css
-}
+ 
+ 
 function evenz(){
     $.md = $.mousedown = function (fn) {
         $('body').on('mousedown', fn);
@@ -489,13 +502,18 @@ function evenz(){
 
     }
 }
+
+
+
 function image(){
+    
     $.tEl = function(a, b, c) {
         if (O(a)) {
             a = O(a.e) ? a.e : O(a.c) ? a.c : a
             a = $(a)[0]
             if (_.isElement(a)) {return a}}
     }
+    
     img()
     can()
     ctx()
@@ -2299,7 +2317,10 @@ function image(){
             x.mT = function () {
             }
         }}
+
 }
+
+
 $.rulers = function () {
     $.d('b', 100, 100).al(.3).dg()
     $.d('r', 100, 300).al(.3).dg()

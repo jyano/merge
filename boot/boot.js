@@ -139,6 +139,9 @@ function container(){
         }
     }
 }
+
+
+
 function imgs(){
     $.iR = $.imgResponsive = function (s, f) {
         return $.img(s, f).K('img-responsive')
@@ -227,6 +230,7 @@ function nav(){
         return $.dK("navbar-collapse collapse")
     }
 }
+
 function nails(){
     $.aTn = $.thumbA = $.thumbnailClick = function (i, fn) {
         var a
@@ -545,4 +549,73 @@ function notUsedCurrently(){
             return $.sp(a).K("glyphicon glyphicon-" + glyph)
         }
     }
+}
+
+ 
+
+PLACE=function(){z()
+
+
+//Fixed topCopy
+$.q('nav', [$.a('Fixed top').K("navbar-brand")]).K("navbar navbar-fixed-top navbar-light bg-faded")
+
+
+//Fixed bottomCopy
+$.q('nav', [$.a('Fixed bottom').K("navbar-brand")]).K("navbar navbar-fixed-bottom navbar-light bg-faded")
+
+
+
+}
+ONLY=function(){z()
+
+$.q('nav', [
+ 
+  
+  $.bt('&#9776;').K("navbar-toggler hidden-sm-up" )
+  .data('toggle','collapse')
+  .data('target', '#exCollapsingNavbar2'),
+ 
+ 
+ $.q('div').K("collapse navbar-toggleable-xs").id("exCollapsingNavbar2").A(    
+     $.a('Responsive navbar').K("navbar-brand"),
+     $.ul().K("nav navbar-nav").A(
+             $.li().K("nav-item active").A(  $.a('Home').K("nav-link").A(    
+               $.sp('(current)').K("sr-only")    ),
+        $.li().K("nav-item").A( $.a('Features').K("nav-link")  ),
+        $.li().K("nav-item").A( $.a('Pricing').K("nav-link")  ),
+       $.li().K("nav-item").A( $.a('About').K("nav-link")  )  )
+      )
+  )
+  
+  
+]).K("navbar navbar-light bg-faded")
+ 
+ 
+ 
+
+}
+
+NAVCT=function(){z()
+
+//Containers
+//Although it’s not required, you can wrap a navbar in a .container to center it on a page or add one within to only center the contents of the navbar.
+
+ 
+$.q('div',[  
+    $.q('nav',[$.a('Navbar').K("navbar-brand")]).K( "navbar navbar-light bg-faded")  
+]).K('container')
+
+  
+  
+  $.q('nav',[
+  
+    $.q('div',[  
+        $.a('Navbar').K("navbar-brand")
+      ]).K('container')
+  
+  ]).K( "navbar navbar-light bg-faded")  
+
+   
+
+
 }

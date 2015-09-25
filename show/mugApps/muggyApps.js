@@ -24,9 +24,6 @@ $.fU= $.fileUpload =  function(lb, t){
     return fG
 
 }
-
-
-
 UPLOAD=function(){
 
     f =  $.f([
@@ -46,11 +43,6 @@ UPLOAD=function(){
 
     f.C('o') //$.pop(f, {title: 'upload a new pic'} ).dg()
 }
-
-
-
-
-
 UPLOADS=function(){
 
 
@@ -318,37 +310,18 @@ CUTOUTS=function(){
     })
 }
 TWEEN=function(a){
-
-
     st=$St(500,500)
-
-
-
-
     st.mug(function(bm){
-
         b = bm
-
         TR(bm)
-
-
         $Tw(
-
             [ bm, 'l' ],
-
             { x:0, sxy:.7, r:0 },
-
             [ {x:300,sxy:2.3,r:0}, 1000 ],
-
             [ {x:0,sxy:.7,r:-30,a:.5}, 3000 ]
         )
-
-
     })
-
-
-
-
+    
     st.mug(function(bm){
 
         bm.TR()
@@ -369,8 +342,9 @@ TWEEN=function(a){
 
     })
 
-
-
+   
+    
+    $.A('hahaahah')
 
 }
 
@@ -874,9 +848,6 @@ SPRITE=function(sprite){
 
     s = sprite
     return  controls}
-
-
-
 BOD=function(){z()
     s = $St(800, 800).A(
         b1=Bod1(),
@@ -983,7 +954,6 @@ BOD=function(){z()
     }
 
 }
-
 function moree(){
     INDEXX = function () {
         z()
@@ -2112,4 +2082,54 @@ function moree(){
         }
     }
 
+}
+
+
+
+BOOT3 = function(){z();
+    
+    $._d = function () {
+        var g=G(arguments),  d=  $('<div>').A()
+        g.e(function(q){ d.A(q) })
+        return d
+    }
+
+
+    $._d(
+        $._d(
+            $.h4('Collapsed content'),
+            $.sp('Toggleable  via  the  navbar  brand').K("test-muted")
+        ).K("bg-inverse p-a")
+    ).K('collapse').id('exCollapsingNavbar')
+
+
+    $('<nav>').K("navbar navbar-light bg-faded").A(
+        $.bt().A('&#9776;').K("navbar-toggler")
+            .data('toggle', 'collapse')
+            .data('target', '#exCollapsingNavbar'))
+
+
+    $.h1('boot4')
+    
+    $('<button>').A('primary').A().K('btn btn-primary')
+    $('<button>').A('warning large').A().K('btn btn-warning btn-lg')
+}
+
+BOOT4=function(){z()
+    
+    $('<nav>').A().K("navbar navbar-light bg-faded").A(
+        
+        $.a(' Navbar').K("navbar-brand"), 
+        
+        $.ul().K("nav navbar-nav").A(
+            $.li().K("nav-item active").A($.a('Home').A($.sp('(current)').K('sr-only').K('nav-link'))),
+            $.li().K("nav-item").A($.a('Features').K('nav-link')),
+            $.li().K("nav-item").A($.a('Pricing').K('nav-link')),
+            $.li().K("nav-item").A($.a('About').K('nav-link'))
+        ),
+        $.f().K("form-inline navbar-form pull-right").A(
+            $.ip().K("form-control").at('placeholder','Search'),
+            $.bt('Search').K("btn btn-success-outline")
+        )
+    )
 }
