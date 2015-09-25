@@ -48,16 +48,14 @@ Bs.icB = function (num) {
 Bs.brand = function (tx) {
     return $.a(tx).K("navbar-brand")
 }
-Bs.nbTog = function (id) {
 
+Bs.nbTog = function (id) {
     id = id || "#navbar"
     var bt = $.bt().K("navbar-toggle collapsed")
     bt.data('toggle', "collapse")
-
     bt.data('target', id)
     return bt
 }
-
 
 Bs.ddTog = function (tx) {
     tx = tx || 'Dropdown'
@@ -72,8 +70,6 @@ Bs.ddTog = function (tx) {
 
     return a
 }
-
-
 Bs.nbHdr = function () {
     var d = $.d().K("navbar-header")
     return d
@@ -107,8 +103,6 @@ Bs.dd = function () {
 Bs.nbN = function () {
     return $.ul().K('nav navbar-nav')
 }
-
-
 Bs.mu=function(){
     var g=G(arguments),
         sp =   $.sp().K("text-muted")
@@ -122,10 +116,7 @@ Bs.mu=function(){
     
     return sp
 }
- 
-
-
- Bs.J = function () {
+Bs.J = function () {
     var g = G(arguments),
         d = $.d().K('jumbotron')
     

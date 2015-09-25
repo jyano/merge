@@ -21,7 +21,7 @@ return a
 
 BASIC=function(){z()
 
-$.nav( "navbar navbar-light bg-faded",[
+$.nav( "navbar navbar-dark bg-faded",[
 
 $.aK( "navbar-brand" ,' Logo'),
 
@@ -70,12 +70,22 @@ Bs.tgb=function(id){
     return q
 }
 
-Bs.nb = function () {
+
+Bs.nb = function () {var g=G(arguments),
+        
     
-  var $q = $.N().K("navbar")
+    $q = $.N().K("navbar")
     
-    return $q
-}
+    if(g.A){
+        _.e(g.f, function(el){
+            $q.A(el);
+        });
+    }
+    return $q;
+};
+
+
+
 
 $.N=function(){
     var q = $('<nav>')
@@ -85,14 +95,12 @@ Bs.nbN_ = function(){
         var $q = $('<nav>')
         $q.K("navbar navbar-light bg-faded")
         return $q
-} 
-
+}
 Bs.nbBr=function(tx){
         
         var q = $.a(tx).K("navbar-brand")
         return q
     }
-    
 
 Bs.nIt=function(a){
   var q = $.li().K("nav-item")
@@ -100,45 +108,44 @@ Bs.nIt=function(a){
     return q
 }
 
-
 Bs.nLk=function(tx, hrf){
     var q = $.a(tx, hrf)
     q.K("nav-link")
     return q
 }
-
-
 Bs.nItLk=function(tx){ 
     var lk = Bs.nLk(tx)
     return Bs.nIt(lk)
     
 }
-
-
 $.fn.$nbGg= $.fn.$nbGgr =function(){
     
     this.K("navbar-toggler")
     return this
 }  
-
 Bs.nbGgBt=function(tg){
+    
+    tg = tg || '#nb'
+    
   var $q=  $.bt('☰').K("navbar-toggler")
         .$gg('collapse')
       
       $q.$tg(tg)
-
-    return $q
+    
+    return $q.K("hidden-sm-up")
     
 }
 
-Bs.tgbNb=function(id){
-var $q = $.dK("collapse navbar-toggleable-xs")
-
-    if(S(id)){$q.id(id)}
+Bs.tgbNb=function(id, itArr){
+    var g=G(arguments),
+        o= _.defaults(g.S_? {id:g.f, itArr: g.s}: {itArr:g.f},
+            {id:'nb', itArr:[]}),
+        $q = $.dK("collapse navbar-toggleable-xs").id(o.id)
+        _.e(o.itArr, function(it){$q.A(it)})
     return $q
 }
 
-DDDD=function(){z()
+DDDDD=function(){z()
 
     
     var nav = $('<nav>').K("navbar navbar-light bg-faded")
@@ -161,13 +168,12 @@ DDDD=function(){z()
     
     Bs('+').A( nav )
 }
-
-
 DDDD = function () {z()
  
     Bs('+').A(
      
-        Bs.nb().K("navbar-light bg-faded").A(
+        Bs.nb().K("navbar-light").K("bg-faded")
+            .A(
             Bs.nbGgBt('#nav-content').K("hidden-sm-up"),
             Bs.tgbNb("nav-content").A(
                 Bs.nbBr('Logo'),  $.ul([Bs.nItLk('Link 1'),
@@ -179,6 +185,249 @@ DDDD = function () {z()
         )
     )
 }
+DDD = function () {z()
+    Bs('+').A(
+        Bs.nb() .A(
+            Bs.nbGgBt('#nav-content').K("hidden-sm-up"),
+            Bs.tgbNb("nav-content").A(
+                Bs.nbBr('Logo'), $.ul([
+                    
+                    Bs.nItLk('Link 1'),
+                    Bs.nItLk('Link 9'), Bs.nItLk('Link 4')
+                
+                ])//.K("nav navbar-nav")
+            )
+        )
+    )
+}
+
+Bs.nItLks=function(){var g=G(arguments),
+    ul = $.ul()
+    
+    
+    if(g.A){ _.e(g.f,eLi) } else {g.e(eLi)}
+    
+    return ul.K("nav").K("navbar-nav")
+
+    function eLi(li) {
+        ul.A(Bs.nItLk(li))
+    }
+}
+
+
+DDD = function () {z()
+    Bs('+').A(
+        
+        
+        
+        
+        Bs.nb([
+            
+            Bs.nbGgBt('#id'),
+            
+            
+            Bs.tgbNb("id").A(
+                Bs.nbBr('Wappy'),
+                Bs.nItLks('create', 'play', 'social')
+            )
+            
+            
+            
+            
+        ])
+    
+    
+    
+    
+        
+        
+        
+    
+    )
+}
+
+DDD = function () {
+    z()
+    
+    Bs('+').A(
+        Bs.nb([
+
+            Bs.nbGgBt('#id'),
+
+
+            Bs.tgbNb("id").A(
+                Bs.nbBr('Wappy'),
+                Bs.nItLks('create', 'play', 'social')
+            )
+
+
+        ])
+    )
+}
+
+DDD = function () {z()
+
+    Bs([
+        
+        
+        
+        Bs.nb([
+            Bs.nbGgBt(),
+            
+            Bs.tgbNb([
+                Bs.nbBr('Wappy'),
+                Bs.nItLks(['create', 'play', 'social'])
+            ])
+        ])
+        
+    ])
+}
+
+
+
+
+Bs.NB=function(brand, itsArr){var g=G(arguments),
+    
+    nb = Bs.tgbNb([
+        
+        Bs.nbBr(brand),
+        
+        Bs.nItLks(itsArr)
+    ])
+  
+    return nb
+    
+}
+
+
+
+DDD = function () {
+    z()
+
+    Bs([
+
+
+        Bs.nb([
+            Bs.nbGgBt(),   Bs.NB('Wappy', [   'create', 'play', 'social'  ])
+        ])
+
+        
+        
+    ])
+
+}
+
+
+$nb=function(brand, itArr){
+
+
+return    Bs.nb([
+    
+        Bs.nbGgBt(), Bs.NB(brand, itArr)
+    ])
+
+
+    
+}
+
+
+$BS = function (brand, itArr) {
+    var nb,ct
+    
+    z()
+
+    ct = Bs()
+
+
+    nb = $nb(brand, itArr) 
+    
+    ct.A(nb)
+   
+    return ct
+}
+
+
+DNB = function () {z()
+
+    Bs([
+        
+        
+        $nb('Wappy', ['create', 'play', 'social'])
+    
+    ])    
+    
+}
+ 
+
+
+ 
+
+DNZ=function(){
+
+    
+    ct = $BS('Wappy', ['create', 'play', 'social'])
+    ct.A(
+        well = $.dK('lead').C('grey')
+    )
+    
+    well.A(
+        $.bt('click me').K('btn btn-primary'),
+        $.i('me')
+    )
+    
+}
+
+
+
+
+NAVBARDROPDOWN=function(){
+
+    Bs.ddIt = function (a) {
+        var q = $.li().K("dropdown-item")
+        q.A(a)
+        return q
+    }
+    Bs.ddM=function(){
+        
+        var g=G(arguments),
+            $q = $.dK("dropdown-menu")
+        
+        if(g.A){
+            
+            _.e(g.f, function(q){$q.A(q)})
+        }
+        return $q
+    }
+    
+    Bs.ddGg=function(tx){
+        var g=G(arguments), $q= $.a(tx).K("nav-link dropdown-toggle")
+    
+        $q.data('toggle','dropdown')
+        
+        return $q
+    }
+    
+    Bs.dd  = function () {
+        var g = G(arguments),
+            $q = $.li().K("nav-item dropdown")
+        
+        if(g.A){_.e(g.f, function(q){$q.A(q)})}
+        return $q
+    }
+  
+
+    
+    z()
+    dd =  Bs.dd([
+        Bs.ddGg('create'),
+        Bs.ddM([
+            Bs.ddIt('upload pic'),  
+            Bs.ddIt('edit pic'), 
+            Bs.ddIt('delete pic') 
+        ])
+    ])
+}
+
 
 
 
