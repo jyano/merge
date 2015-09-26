@@ -6,8 +6,14 @@ Bs.dd=function(){return _A($.d().$dd(),arguments) }
 Bs.ddHdr=function(tx){return $.li(tx).K("dropdown-header")}
 //dropdown button(toggler)
 $.fn.ddGg=function(){return this.K("dropdown-toggle").at('data-toggle','dropdown')}
-Bs.btDdBt=function(tx){ return Bs.bt(tx).ddGg() }// bt.K("dropdown-toggle"); bt.at('data-toggle','dropdown')
+Bs.btDdBt=function(tx){ return Bs.bt(tx).ddGg() }
+$.fn.$tg=function(tg){return this.at('data-target',tg)}
+$.fn.$gg=function(gg){ return this.at('data-toggle',gg) }
+
+
+// bt.K("dropdown-toggle"); bt.at('data-toggle','dropdown')
 //dropdown menu
+
 $.fn.$ddM=function(){return this.K("dropdown-menu")}
 Bs.ddM=function(){return $.ul().K("dropdown-menu")}
 Bs.ddM=function(){return _A($.dK("dropdown-menu"),G(arguments)) }

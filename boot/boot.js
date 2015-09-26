@@ -1,5 +1,4 @@
 container();nav();nails();rowCol(); imgs(); modal(); dataAttr()
-
 function dataAttr() {
     $.fn.gg = $.fn.toggle = function (a) {
         return this.attr("data-toggle", a)
@@ -139,9 +138,6 @@ function container(){
         }
     }
 }
-
-
-
 function imgs(){
     $.iR = $.imgResponsive = function (s, f) {
         return $.img(s, f).K('img-responsive')
@@ -230,7 +226,6 @@ function nav(){
         return $.dK("navbar-collapse collapse")
     }
 }
-
 function nails(){
     $.aTn = $.thumbA = $.thumbnailClick = function (i, fn) {
         var a
@@ -550,9 +545,6 @@ function notUsedCurrently(){
         }
     }
 }
-
- 
-
 PLACE=function(){z()
 
 
@@ -594,7 +586,6 @@ $.q('nav', [
  
 
 }
-
 NAVCT=function(){z()
 
 //Containers
