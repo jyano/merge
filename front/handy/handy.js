@@ -1461,12 +1461,15 @@ function inpuz(){
     $.bt = $.button = function () {
         var g = G(arguments), o, bt = $('<button>');
         o = g.F ? {fn: g[0]} : {t: g[0], fn: g[1]};
-        o.t = o.t || 'submit';
+        //o.t = o.t || 'submit';
         if (!g.n) {
             bt.A()
         }
-        return bt.T(o.t).$(o.fn)
+            
+         bt.T(o.t)
+            return bt.$(o.fn)
     }
+        
     $.BT = $.btL = function (t, fn) {
         if (F(t)) {
             return $.bt('submit', t)

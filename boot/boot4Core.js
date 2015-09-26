@@ -1,4 +1,18 @@
-_A=function(q,ch){var g=G(arguments)
+function pre(){
+        $.fn.D=function(k,v){
+                if(U(k)){return}else
+                        if(U(v)){
+                                return this.at('data-'+k)
+                        }
+                this.at('data-'+k,v);
+                return this
+        }
+        $.spK=function(k){
+                var sp=$.sp();
+                sp.K(k);
+                return _A(sp,G(arguments))
+        }
+        _A=function(q,ch){var g=G(arguments)
         if(A(ch)){_.e(ch,function(c){q.A(c)})}
         else if(ch){q.A(ch)}
         return q
@@ -6,297 +20,416 @@ _A=function(q,ch){var g=G(arguments)
 $.q=function(str,arr){return _A($('<'+str+'>').A(),arr)}
 $.aK=function(k,tx){return _A($.a(tx).K(k),G(arguments))}
 $.N=function(){return _A($('<nav>'), G(arguments)) }
-////
 Bs=function(){
         var g=G(arguments);
-        return _A($.d().K(g.p?'container-fliud':'container').A(),g)
+        return _A($.d().K(
+            g.p?'container-fliud':'container').A(),g)
 }
-//
+        Bs.liA=function(tx){
+                return $.li().A($.a(tx))
+        }
+}
+pre();nav();buttons();cards();media()
 
-$.fn.$tg = function(tg){return   this.at('data-target', tg)}
-$.fn.$gg=function(gg){ return  this.at('data-toggle', gg) }
-Bs.nbGgBt=function(tx){return $.bt(tx||'click me').K("navbar-toggler")}
-Bs.togBt = function (tx, tg) {return  $.bt(tx||'click me').K("navbar-toggler").at('data-toggle', 'collapse').at('data-target', tg)}
-Bs.bt=function(tx,fn){ return $.bt(tx||'click me',fn).K('btn btn-primary') }
- Bs.brand=function(tx){return $.a(tx).K("navbar-brand")}
-Bs.nbHdr=function(){return $.d().K("navbar-header")}
-Bs.ddHdr=function(tx){return $.li(tx).K("dropdown-header")}
-Bs.dvdr=function(){return $.li().K("divider")}
-Bs.liA=function(tx){return $.li().A($.a(tx))}
-Bs.ddM=function(){return $.ul().K("dropdown-menu")}
-Bs.car=function(){return $.sp().K('caret')}
-Bs.dd=function(){return $.li().K('dropdown')}
-Bs.nbN=function(){return $.ul().K('nav navbar-nav')}
+$.fn.$tg = function(tg){return this.at('data-target', tg)}
+$.fn.$gg=function(gg){ return this.at('data-toggle', gg) }
+Bs.clps=function(){return _A($.dK('collapse'),G(arguments))}
+$.fn.$$=function(){return this.K('active')}
 Bs.mu=function(){return _A($.sp().K("text-muted"),G(arguments))}
 Bs.J=function(){return _A($.dK('jumbotron'),G(arguments))}
-Bs.clps=function(){return _A($.dK('collapse'),G(arguments))}
-Bs.mut=function(tx){return $.sp(tx).K("text-muted")}
-$.fn.$nb=function(){return this.K("navbar")}
-$.fn.$nbBr=function(){return this.K("navbar-brand")}
-$.fn.$nbL=function(){return this.K("navbar-light")}
-$.fn.$nbD=function(){return this.K("navbar-dark")}
-$.fn.$nbN=function(){return this.K("navbar-nav")}
+Bs.ct=function(){return _A($.dK('container'),G(arguments))}
+Bs.jbt=function(){return _A($.dK('jumbotron'),G(arguments))}
+$.fn.$ld=function(){return this.K('lead')}
+Bs.ldP=Bs.ld=function(){return _A($.p().$ld(),G(arguments))}
+JMBO=BS18=function(){z()
+        
+        
+        Bs.ct([Bs.jbt([
+                        $.h1('awesome h1 title').K('display-3'),
+                        Bs.ldP('this is an awwwwwwesome p tag with a lead'),
+                        $.hr().K('m-y-md'),
+                        $.p('less awesome awesome h1 title'),
+                        Bs.ldP(
+                            $.a('click me','www.playboy.com').
+                                $bt().$bt('primary','lg') )
+        ]) ])
+}
+ 
+function buttons(){
+        Bs.bt=function(tx,fn){
+                var bt=$.bt(tx,fn);
+                return bt.K('btn')
+        }
+        Bs.btGpD=Bs.btGp=function(){return _A($.dK("btn-group"),G(arguments)) }
+        Bs.vBtGpD=Bs.vBtGr=Bs.btGpV=$.btGpV=function(){return _A($.dK("btn-group-vertical"),G(arguments))}
+        $.fn.$btGp=function(sub){
+                var $q=this
+                if(A(sub)){
+                        $q.K('btn-group')
+                        _.e(
+                            sub,function(k){
+                                    $q.K('btn-group-'+k)
+                            }
+                        )
+                        return $q
+                }else
+                        if(U(sub)){return $q.K('btn-group')}else
+                                if(S(sub)){return $q.K('btn-group-'+sub)}
+        }
+        Bs.btGpD=function(){
+                return _A($.d().K('btn-group'),G(arguments))
+        }
+        Bs.btGpDLg=function(){
+                return _A(Bs.btGpD().K('btn-group-lg'),G(arguments))
+        }
+        Bs.btGpDSm=function(){
+                return _A(
+                    Bs.btGpD().K('btn-group-sm'),G(arguments)
+                )
+        }
+        Bs.btGpDMd=function(){
+                return _A(
+                    Bs.btGpD().K('btn-group-md'),G(arguments)
+                )
+        }
+        Bs.btTlbD=Bs.tlbD=function(){return _A($.dK("btn-toolbar"),G(arguments))}
+        $.fn.$bt=function(sub){
+                var $q=this,g=G(arguments)
+                if(A(sub)){
+                        $q.K('btn')
+                        _.e(sub,function(k){$q.K('btn-'+k)})
+                        return $q
+                }else
+                        if(U(sub)){return $q.K('btn btn-primary')}else
+                                if(S(sub)){
+                                        g.e(
+                                            function(sub){
+                                                    $q.K('btn-'+sub)
+                                            }
+                                        )
+                                        return $q
+                                }
+        }
+        $.fn.$btOl=function(sty){
+                return this.K('btn-'+sty+'-outline')
+        }
+        Bs.btDd=function(){
+                var bt=Bs.bt().K('dropdown-toggle').at('data-toggle','dropdown')
+                return _A(bt,$(arguments))
+        }
+        Bs.dDd=function(){
+                return _A($.dK('dropdown-menu'),G(arguments))
+        }
+        Bs.aDd=function(){
+                return _A($.a().K('dropdown-item'),G(arguments))
+        }
+        Bs.ddGgBt=function(tx,fn){
+                return Bs.bt(tx,fn).K("dropdown-toggle").at('data-toggle','dropdown')
+        }
+        BSBT=function(){
+                z()
+                //STYLES
+                Bs.bt('Primary').K('btn btn-primary')
+                Bs.bt('Secondary').K('btn btn-secondary')
+                Bs.bt('Success').K('btn btn-success')
+                Bs.bt('Warning').K('btn btn-warning')
+                Bs.bt('Danger').K('btn btn-danger')
+                Bs.bt('Link').K('btn btn-link')
+                //sizes
+                Bs.bt('lg').K("btn-primary btn-lg")
+                Bs.bt('lg').K("btn-secondary btn-lg")
+                Bs.bt('sm').K("btn-primary btn-sm")
+                Bs.bt('sm').K("btn-secondary btn-sm")
+                Bs.bt('blk').K("btn-primary btn-lg btn-block")
+                Bs.bt('blk').K("btn-secondary btn-lg btn-block")
+                //outline
+                Bs.bt('Pridmary').K('btn-primary-outline')
+                Bs.bt('Secondary').K('btn-secondary-outline')
+                Bs.bt('Success').K('btn-success-outline')
+                Bs.bt('Warning').K('btn-warning-outline')
+                Bs.bt('Danger').K('btn-danger-outline')
+                Bs.bt('Link').K('btn-link-outline')
+        }
+        BSBTS=function(){
+                z()
+                $.bt('Primary').$bt()//~(['primary'])
+                $.bt('Seconddary').$bt(['secondary'])
+                $.bt('Success').$bt(['success'])
+                $.bt('Warning').$bt(['warning'])
+                $.bt('Danger').$bt(['btn-danger'])
+                $.bt('Link').$bt(['link'])
+                Bs.vBtGpD([Bs.bt('Thailand'),Bs.bt('Combodia'),Bs.bt('Vietname')])
+                $.br(5).A()
+                Bs.bt('Primary').$btOl('primary')
+                Bs.bt('Secondary').$btOl('secondary')
+                Bs.bt('Success').$btOl('success')
+                Bs.bt('Warning').$btOl('warning')
+                Bs.bt('Danger').$btOl('danger')
+                Bs.bt('Link').$btOl('link')
+                $.br(5).A()
+                Bs.bt('Large button').$bt("primary","lg")
+                Bs.bt('Large button').$bt("secondary","lg")
+                Bs.bt('Small button').$bt("primary","sm")
+                Bs.bt('Small button').$bt("secondary","sm")
+                $.br(5).A()
+                Bs.bt('Block level button').$bt('secondary','lg','block')
+                Bs.bt('Block level button').$bt('primary','lg','block')
+                $.br(5)
+                Bs.tlbD(
+                    [
+                            Bs.btGpD(
+                                [
+                                        Bs.bt('Gp1'),Bs.bt('Gp1'),Bs.bt('Gp1')
+                                ]
+                            ),Bs.btGpD(
+                        [
+                                Bs.bt('Gp2'),Bs.bt('Gp2')
+                        ]
+                    )
+                    ]
+                )
+        }
+        BTGROUPSIZE=GRZ=function(){
+                z();
+                $CSS(
+                    {
+                            div:{M:10}
+                    }
+                )
+                /*
+                        Bs.btGpD('xs').A(  Bs.bt('xsmall'),  Bs.bt('xsmall'),  Bs.bt('sxmall'))
+                        
+                        $.d().$btGp(['sm']).A(  Bs.bt('small'),   Bs.bt('small'),   Bs.bt('small'))
+                        
+                        $.d().K('btn-group').A(
+                            Bs.bt('default'),
+                            Bs.bt('default'),Bs.bt('default')
+                        )
+                         */
+                Bs.btGpDLg(
+                    [
+                            Bs.bt('lg'),Bs.bt('lg'),Bs.bt('lg')
+                    ]
+                )
+                Bs.btGpDMd(
+                    [
+                            Bs.bt('md'),Bs.bt('md'),Bs.bt('md')
+                    ]
+                )
+                Bs.btGpDSm(
+                    [
+                            Bs.bt('sm'),Bs.bt('sm'),Bs.bt('sm')
+                    ]
+                )
+        }
+        SPLITDD=SDD=BTGROUPWITHDD=BGD=function(){
+                z()
+                function $splBt(){
+                        return Bs.btGpD(
+                            [
+                                    Bs.bt('Action').$bt('danger'),$('<button class="btn">').$bt('danger').K('dropdown-toggle').D('toggle',"dropdown").A($.sp('Toggle Dropdown').K('sr-only')),$.dK("dropdown-menu").A(
+                                $('<a class="dropdown-item" href="#">Action</a>'),$('<a class="dropdown-item" href="#">Another action</a>'),$('<a class="dropdown-item" href="#">Something else here</a>'),$('<div class="dropdown-divider"></div>'),$('<a class="dropdown-item" href="#">Separated link</a>')
+                            )
+                            ]
+                        )
+                }
+
+                btGp1=Bs.btGpD([Bs.bt('hello'),$splBt(),Bs.bt('nice to see ya'),$splBt(),Bs.bt('goodbye')])
+                btGp2=Bs.btGpD(
+                    [
+                            Bs.ddGgBt('About Us'),Bs.dDd(
+                        [
+                                Bs.aDd('strasdoy'),Bs.aDd('stdy'),Bs.aDd('stroy')
+                        ]
+                    )
+                    ]
+                )
+                Bs.btTlbD([btGp1,btGp2])
+        }
+}
+
+function nav(){
 $.fn.$nI=function(){return this.K("nav-item")}
 $.fn.$n=function(){return this.K("nav")}
 $.fn.bgF=function(){return this.K('bg-faded')}
-$.fn.$dd=function(){return this.K('dropdown')}
-$.fn.$nIdd=function(){return this.$dd().K('nav-item')}
-$.fn.$nbGg=$.fn.$nbGgr=function(){return this.K("navbar-toggler")}
-$.fn.$ddI=function(){return this.K("dropdown-item")}
-$.fn.ddGg=function(){return this.K("dropdown-toggle").at('data-toggle','dropdown')}
-$.fn.$ddM=function(){return this.K("dropdown-menu")}
-$.fn.$nbTr=function(){return this.K("navbar-toggler hidden-sm-up")}
-Bs.ddI=function(tx){return $.a(tx).$ddI()}
-Bs.btDdBt=function(tx){ return Bs.bt(tx).ddGg() }// bt.K("dropdown-toggle"); bt.at('data-toggle','dropdown')
-Bs.ddM=function(){ return _A($.d().$ddM(),G(arguments)) }
 $.nv=function(k,arr){return _A($.N().A().K(k),G(arguments)) }
-Bs.tgb=function(id){return $.dI(id||'tgb').K("collapse navbar-toggleable-xs") }
-Bs.nb=function(){return _A($.N().K("navbar"),G(arguments))}
-Bs.nbN_=function(){return $.N().K("navbar navbar-light bg-faded")}
-Bs.nbBr=function(tx){return $.a(tx).K("navbar-brand") }
 Bs.nIt=function(a){return _A($.li().K("nav-item"),G(arguments))}
 Bs.nLk=function(tx,hrf){return $.a(tx,hrf).K("nav-link")}
-Bs.nItLk=function(tx){return Bs.nIt(Bs.nLk(tx))}
-Bs.ddIt=function(a){return _A($.li().K("dropdown-item"),G(arguments))}
-Bs.ddM=function(){return _A($.dK("dropdown-menu"),G(arguments)) }
-Bs.dd=function(){return _A($.d().$dd(),arguments) }
-Bs.nIDd=function(){return _A($.li().$nIdd(),arguments)}
-Bs.nbGgBt=function(tg){ return $.bt('☰').K("navbar-toggler").$gg('collapse').$tg(tg||'#nb') }
-$nb=function(brand,itArr){return Bs.nb([Bs.nbGgBt(),Bs.NB(brand,itArr)])}
-Bs.icB=function(n){var sp=$.sp(); _.t(n||1,function(){sp.A($.sp().K("icon-bar"))}); return sp }
-Bs.tgbNb=function(id,itArr){var g=G(arguments),
-    o=_.defaults(g.S_?{id:g.f,itArr:g.s}:{itArr:g.f},{id:'nb',itArr:[]})
-        return _A($.dK("collapse navbar-toggleable-xs").id(o.id),
-            o.itArr)}
-Bs.nItLks=function(){var g=G(arguments),ul=$.ul(); if(g.A){_.e(g.f,eLi)} else{g.e(eLi)}
-        return ul.K("nav").K("navbar-nav"); function eLi(li){ul.A(Bs.nItLk(li))}}
-Bs.NB=function(brand,itsArr){return Bs.tgbNb([Bs.nbBr(brand),Bs.nItLks(itsArr)])}
-$BS=function(brand,itArr){z(); return Bs().A($nb(brand,itArr))}
+Bs.nItLk=function(tx){return Bs.nIt(Bs.nLk(tx))} 
+}
 
 
-
-$BSW=function(){
-        var g=G(arguments),o=_.df(
-            S(g.t)?{br:g.f,n:g.s,c:g.t,ct:g[3]}:{br:g.f,n:g.s,ct:g.t},{c:'grey'}
-        ),ct=_A(
-            $.dK('lead').C(o.c),o.ch
-        ),pg=$BS(o.br,o.n).A(ct)
-        return ct
-}
-COLLAP=function(){
-        z()
-        Bs(Bs.J($.h1('jumbo')))
-        $.dK("collapse").id("exCollapsingNavbar").A(
-            $.dK("bg-inverse p-a").A(
-                $.h4('Collapsed content'),Bs.mut('Toggleable via the navbar brand')
-            )
-        ), // $('nav').K("navbar navbar-light bg-faded").A(
-            Bs.nbGgBt().$gg('collapse').$tg("#exCollapsingNavbar")
-        // )
-}
-BSBT=function(){
-        z()
-        //STYLES
-        Bs.bt('Primary').K('btn btn-primary')
-        Bs.bt('Secondary').K('btn btn-secondary')
-        Bs.bt('Success').K('btn btn-success')
-        Bs.bt('Warning').K('btn btn-warning')
-        Bs.bt('Danger').K('btn btn-danger')
-        Bs.bt('Link').K('btn btn-link')
-        //sizes
-        Bs.bt('lg').K("btn-primary btn-lg")
-        Bs.bt('lg').K("btn-secondary btn-lg")
-        Bs.bt('sm').K("btn-primary btn-sm")
-        Bs.bt('sm').K("btn-secondary btn-sm")
-        Bs.bt('blk').K("btn-primary btn-lg btn-block")
-        Bs.bt('blk').K("btn-secondary btn-lg btn-block")
-        //outline
-        Bs.bt('Pridmary').K('btn-primary-outline')
-        Bs.bt('Secondary').K('btn-secondary-outline')
-        Bs.bt('Success').K('btn-success-outline')
-        Bs.bt('Warning').K('btn-warning-outline')
-        Bs.bt('Danger').K('btn-danger-outline')
-        Bs.bt('Link').K('btn-link-outline')
-}
-DRD=function(){
-        z()
-        Bs.dd(
-            [
-                    Bs.btDdBt('afsdfazzzzsfsdfsd'),Bs.ddM(
-                [
-                        Bs.ddI('Our Story'),Bs.ddI('Our Bory'),Bs.ddI('Our .. who we kidasfdding..')
-                ]
-            )
-            ]
-        )
-}
-BASIC=function(){
-        z()
-        $.nv(
-            "navbar navbar-dark bg-faded",[
-                    $.aK("navbar-brand",' Logo'),$.ul(
-                        [
-                                $.li().K("nav-item").A($.aK("nav-link",'Link1')),$.li().K("nav-item").A($.aK("nav-link",'Link2')),$.li().K("nav-item").A($.aK("nav-link",'Link'))
-                        ]
-                    ).K("nav navbar-nav")
-            ]
-        )
-}
-DDD=function(){
-        z();
-        _.t(
-            100,function(){
-                    $.sp('☰').css("padding-right",0.1);
-            }
-        );
-}
-PERFECT1=function(){
-        z()
-        var nav=$('<nav>').K("navbar navbar-light bg-faded")
-        nav.A(
-            $.bt('☰').K("navbar-toggler hidden-sm-up").attr(
-                {
-                        'data-toggle':'collapse','data-target':'#nav-content'
-                }
-            ),$.dK("collapse navbar-toggleable-xs").id("nav-content").A(
-                $.a('Logo').K("navbar-brand"),$.ul(
-                    [
-                            $.li().K('nav-item').A($.a('Link 1').K('nav-link')),$.li().K('nav-item').A($.a('Link 2').K('nav-link')),$.li().K('nav-item').A($.a('Link 3').K('nav-link'))
-                    ]
-                ).K("nav navbar-nav")
-            )
-        )
-        Bs('+').A(nav)
-}
-DDD3=function(){
-        z()
-        Bs('+').A(
-            Bs.nb(
-                [
-                        Bs.nbGgBt('#id'),Bs.tgbNb("id").A(
-                    Bs.nbBr('Wappy'),Bs.nItLks('create','play','social')
+function media(){
+        BS9=BSMEDIA=function(){
+                z()
+                $CSS(
+                    {
+                            body:{C:'w'},
+                            _grey:{c:'w',C:'grey'},
+                            _red:{c:'w',C:'r'},
+                            _green:{c:'w',C:'g'},
+                            _blue:{c:'w',C:'b'}
+                    }
                 )
-                ]
-            )
-        )
-}
-DDD2=function(){
-        z()
-        Bs('+').A(
-            Bs.nb(
-                [
-                        Bs.nbGgBt('#id'),Bs.tgbNb("id").A(
-                    Bs.nbBr('Wappy'),Bs.nItLks('create','play','social')
+                med=$('<div>').K('media').A(
+                    $.a('','google.com').K('media-left').A($.i('me').K('media-object')),$('<div>').K('media-body').A(
+                        $.h4('Arwaseome title').K('media-heading'),'afdsssdfsfadfd sdf fa fa afsd fas ffsd sf fds'+' fdsa dafs fd aff adsadfs fda fdsa fsda afsd asfd '
+                    )
                 )
-                ]
-            )
-        )
-}
-DDD1=function(){
-        z()
-        Bs(
-            [
-                    Bs.nb(
-                        [
-                                Bs.nbGgBt(),Bs.tgbNb(
-                            [
-                                    Bs.nbBr('Wappy'),Bs.nItLks(['create','play','social'])
-                            ]
+                ct=$('<div>').A().K('container').A(
+                    $('<div>').K('row').A(
+                        $('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-2 red').A('hello world'),$('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-2 green').A('hello world'),$('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-12').A(med)
+                    )
+                )
+        }
+        BS10=function(){
+                z()
+                $CSS(
+                    {
+                            body:{C:'w'},
+                            _grey:{c:'w',C:'grey'},
+                            _red:{c:'w',C:'r'},
+                            _green:{c:'w',C:'g'},
+                            _blue:{c:'w',C:'b'}
+                    }
+                )
+                ct=$('<div>').A().K('container').A(
+                    $('<div>').K('row').A(
+                        $('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-2 red').A('hello world'),$('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-2 green').A('hello world'),$('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-12').A(getMediaOb())
+                    )
+                )
+                function getMediaOb(){
+                        var med=$('<div>').K('media')
+                        med.A(
+                            $.a('','google.com').K('media-left').A($.i('me').K('media-object')),$('<div>').K('media-body').A(
+                                $.h4('Arwaseome title').K('media-heading'),'afdsssdfsfadfd sdf fa fa afsd fas ffsd sf fds'+' fdsa dafs fd aff adsadfs fda fdsa fsda afsd asfd ',$('<div>').K('media').A(
+                                    $.a('','google.com').K('media-left').A($.i('me').K('media-object')),$('<div>').K('media-body').A(
+                                        $.h4('Arwaseome title').K('media-heading'),'afdsssdfsfadfd sdf fa fa afsd fas ffsd sf fds'+' fdsa dafs fd aff adsadfs fda fdsa fsda afsd asfd ',$('<div>').K('media').A(
+                                            $.a('','google.com').K('media-left').A($.i('me').K('media-object')),$('<div>').K('media-body').A(
+                                                $.h4('Arwaseome title').K('media-heading'),'afdsssdfsfadfd sdf fa fa afsd fas ffsd sf fds'+' fdsa dafs fd aff adsadfs fda fdsa fsda afsd asfd '
+                                            )
+                                        )
+                                    )
+                                ),$('<div>').K('media').A(
+                                    $.a('','google.com').K('media-left').A($.i('me').K('media-object')),$('<div>').K('media-body').A(
+                                        $.h4('Arwaseome title').K('media-heading'),'afdsssdfsfadfd sdf fa fa afsd fas ffsd sf fds'+' fdsa dafs fd aff adsadfs fda fdsa fsda afsd asfd '
+                                    )
+                                )
+                            )
                         )
-                        ]
+                        return med
+                }
+        }
+        BS11=function(){
+                z()
+                str=''
+                _.t(
+                    120,function(){
+                            str+='afdsssdfsfadfd sdf fa fa afsd fas ffsd sf fds'
+                    }
+                )
+                $CSS(
+                    {
+                            body:{C:'w'},
+                            _grey:{c:'w',C:'grey'},
+                            _red:{c:'w',C:'r'},
+                            _green:{c:'w',C:'g'},
+                            _blue:{c:'w',C:'b'}
+                    }
+                )
+                med=$('<div>').K('media').A(
+                    $.a('','google.com').K('media-left').A($.i('guy').K('media-object')),$.a('','google.com').K('media-left media-middle').A($.i('guy').K('media-object')),$.a('','google.com').K('media-left media-bottom').A($.i('guy').K('media-object')),$('<div>').K('media-body').A(
+                        $.h4('Arwaseome title').K('media-heading'),str
                     )
-            ]
-        )
-}
-DDD=function(){
-        z()
-        Bs(
-            [
-                    Bs.nb(
-                        [
-                                Bs.nbGgBt(),Bs.NB('Wappy',['create','play','social'])
-                        ]
+                )
+                ct=$('<div>').A().K('container').A(
+                    $('<div>').K('row').A(
+                        $('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-2 red').A('hello world'),$('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-2 green').A('hello world'),$('<div>').K('col-xs-12  col-sm-6 col-md-4 col-lg-3  col-xl-12').A(med)
                     )
-            ]
-        )
-}
-DNB=function(){
-        z()
-        Bs(
-            [
-                    $nb('Wappy',['create','play','social'])
-            ]
-        )
-}
-DNZ=function(){
-        ct=$BS('Wappy',['create','play','social'])
-        ct.A(
-            well=$.dK('lead').C('grey')
-        )
-        well.A(
-            $.bt('click me').K('btn btn-primary'),$.i('me')
-        )
-}
-NAVBARALPHA=NBA=function(){
-        ct=$BSW(
-            'Wappy',['create','play','social'],'r',[$.i('me')]
-        )
-        _.in(
-            3,function(){
-                    ct.A($.i('chicks'))
-            }
-        )
-}
-//Wrap the dropdown trigger element within an element with Bootstrap's .dropdown class, or another element that uses position: relative;
-DRPDOWN=function(){
-        z()
-        Bs.dd().A(
-            Bs.bt('About Usass').id('about-us').K("btn btn-primary dropdown-toggle").at('data-toggle','dropdown'),$.dK("dropdown-menu").A(
-                $.a('Our Story').K("dropdown-item"),$.a('Our Bory').K("dropdown-item"),$.a('Our .. who we kidding..').K("dropdown-item")
-            )
-        )
-}
-//Add Bootstrap's .dropdown-toggle class and add data-toggle="dropdown" to the trigger element (i.e. the element that users click on to expand the dropdown). In the above example, the trigger is a <button> element.
-PERFECT=function(){
-        z()
-        var links=[
-                    Bs.nItLk('Link 1'),Bs.nItLk('Link 9'),Bs.nItLk('Link 4')
-            ],bt=Bs.nbGgBt('#nav-content').K("hidden-sm-up")
-        nb=Bs.nb().K("navbar-light").K("bg-faded").A(
-            bt,Bs.tgbNb("nav-content").A(
-                Bs.nbBr('Logo'),$.ul(links).K("nav navbar-nav")
-            )
-        )
-        Bs('+').A(nb)
+                )
+        }
+       
 }
 
-//Wrap all dropdown items in a <div> with .dropdown-menu applied //Each dropdown item uses the <a> element (but can also use the <button> element) with a class of .dropdown-item.
- /*
-
-old=function(){
-        
-        Bs.ddGg=function(tx){
-                alert('Bs.ddGg broken')
-                var g=G(arguments),$q=$.a(tx).K("nav-link dropdown-toggle")
-                //i think this dont work
-                $q.data('toggle','dropdown')
-                return $q
+function cards(){
+        BS21=CARDS=BS25=CAD=function(){
+                z()
+                $.d().K('container').A(
+                    $.d().K('card').C('r').css('max-width',500).A(
+                        $.i('me').K('card-img-top').at('alt','Card Image'),$.dK('card-block').A(
+                            $.h4().K('card-title').A('this is a title'),$.p().K('card-text').A(
+                                'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'
+                            ),$.a('A button','http://www.playboy.com').K('btn btn-warning')
+                        )
+                    )
+                )
         }
-        // undefinied??? $gg('collapse')
-        Bs.nbClpBt=function(tg){
-                alert('Bs.nbClpBt')
-                var bt=$.bt().K("navbar-toggler hidden-sm-up")
-                bt.$gg('collapse')
-                bt.$tg(tg)
-                return bt
+        BS22=function(){
+                z()
+                $.d().K('container').A(
+                    $.d().K('card').css('max-width',500).A(
+                        $.i('me').K('card-img-top').at('alt','Card Image'),$.ul().K('list-group list-group-flush').A(
+                            $.li('afsda fssaff').K('list-group-item1'),$.li('afsdafadsfadfaaffdaf fdaafda 2').K('list-group-item'),$.li('afsda').K('list-group-item 3')
+                        ),$.dK('card-block').A(
+                            $.h4().K('card-title').A('this is a title'),$.p().K('card-text').A(
+                                'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'
+                            ),$.a('A button','http://www.playboy.com').K('btn btn-warning')
+                        )
+                    )
+                )
         }
-        Bs.nbTog=function(id){
-                id=id||"#navbar"
-                var bt=$.bt().K("navbar-toggle collapsed")
-                bt.data('toggle',"collapse")
-                bt.data('target',id)
-                return bt
+        BS23=function(){
+                z()
+                $.d().K('container').A(
+                    $.d().K('card text-center').css('max-width',500).A(
+                        $.i('me').K('card-img-top').at('alt','Card Image'),$.ul().K('list-group list-group-flush').A(
+                            $.li('afsda fssaff').K('list-group-item1'),$.li('afsdafadsfadfaaffdaf fdaafda 2').K('list-group-item'),$.li('afsda').K('list-group-item 3')
+                        ),$.dK('card-block text-right').A(
+                            $.h4().K('card-title').A('this is a title'),$.p().K('card-text').A(
+                                'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'
+                            ),$.a('A button','http://www.playboy.com').K('btn btn-warning')
+                        )
+                    )
+                )
         }
-        //Bs.ddTog=function(tx){return =$.a().K("dropdown-toggle").data('toggle',"dropdown").A( tx||'Dropdown', Bs.car())}
+        BS24=function(){
+                z()
+                $.d().K('container').A(
+                    $.d().K('card text-center').css('max-width',500).A(
+                        $.d().K('card-header text-center').A('this is the headoter hadha '),$.i('me').K('card-img-top').at('alt','Card Image'),$.ul().K('list-group list-group-flush').A(
+                            $.li('afsda fssaff').K('list-group-item1'),$.li('afsdafadsfadfaaffdaf fdaafda 2').K('list-group-item'),$.li('afsda').K('list-group-item 3')
+                        ),$.dK('card-block text-right').A(
+                            $.h4().K('card-title').A('this is a title'),$.p().K('card-text').A(
+                                'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'
+                            ),$.a('A button','http://www.playboy.com').K('btn btn-warning')
+                        ),$.d().K('card-footer text-right text-muted').A('this is the foooter hadh h')
+                    )
+                )
+        }
+        BS25=function(){
+                z()
+                $.d().K('container').A(
+                    $.br(5),$.d('b').K('card text-center card-inverse').C('z').css('max-width',500).A(
+                        $.d().K('card-header text-center').A('this is the headoter hadha '),$.i('me').K('card-img-top').at('alt','Card Image'),$.dK('card-block text-right').A(
+                            $.h4().K('card-title').A('this is a title'),$.p().K('card-text').A(
+                                'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'
+                            ),$.a('A button','http://www.playboy.com').K('btn btn-danger')
+                        ),$.d().K('card-footer text-right text-muted').A('this is the foooter hadh h')
+                    ),$.br(5)
+                )
+        }
+        BS26=function(){
+                z()
+                $.d().K('container').A(
+                    $.br(5),$.d('b').K('card text-center card-inverse').C('z').css('max-width',500).A(
+                        $.d().K('card-header text-center').A('this is the headoter hadha '),$.i('me').K('card-img-top').at('alt','Card Image'),$.dK('card-img-overlay text-right').A(
+                            $.h4().K('card-title').A('this is a title'),$.p().K('card-text').A(
+                                'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'+'random textafsd fa f fa dfasfasdffasdadsf fads fads fa af'
+                            ),$.a('A button','http://www.playboy.com').K('btn btn-danger')
+                        ),$.d().K('card-footer text-right text-muted').A('this is the foooter hadh h')
+                    ),$.br(5)
+                )
+        }
 }
-*/
+
+ 
