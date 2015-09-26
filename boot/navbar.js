@@ -172,19 +172,24 @@ function makeNb(){
                 ])
         }
 };makeNb()
-
-
-PERFECT=function(){
-        z()
-        links=[
-                Bs.nItLk('Link 1'),Bs.nItLk('Link 9'),Bs.nItLk('Link 4')
-        ]
+PERFECT=function(){z()
+        
+        
         bt=Bs.nbGgBt('#nb').K("hidden-sm-up")
+        
         nb=Bs.nb().K("navbar-light").K("bg-faded").A(
-            bt,Bs.tgbNb("nb").A(
-                Bs.nbBr('Logo'),$.ul(links).K("nav navbar-nav")
+            bt,
+            Bs.tgbNb("nb").A(
+                Bs.nbBr('Logo'),
+                $.ul().K("nav navbar-nav").A(
+                        Bs.nItLk('Link 1'),
+                        Bs.nItLk('Link 9'),
+                        Bs.nItLk('Link 4')
+                )
             )
         )
+        
+        
         Bs('+').A(nb)
         $l(bt.oh())
 }
@@ -207,7 +212,6 @@ NAVBARALPHA=NBA=function(){
             }
         )
 }
-
 ALMOST=NBDD=function(){
         z()
         links=[
@@ -327,13 +331,7 @@ function allLookSame(){
 
 
 }
-
-
-
-
 allLookSame()
-
-
 function UnderCon(){
         NAVBARDROPDOWN=NBDD=function(){
                 Bs.ddIt=function(a){
@@ -713,59 +711,362 @@ function UnderCon(){
                  */
         }//
 }
- 
-
 YOG=function(){pre()
         navLinkAnchorNavItemListItem = function(tx){ return navItemListItem( navLinkAnchor(tx) ) }
-        navbarNavLightFaded([ navbarBrandAnchor("Yog"), navbarNavUnorderedList([
-                navItemListItem(navLinkAnchor('Lk1')),
-                navItemListItem(navLinkAnchor('Lk2')),
-                dropdownNavItemListItem([
-                        navLinkDropdownToggleAnchor('da dropdown'),
-                        dropdownMenuDiv([
-                                dropdownItemAnchor('ddLk1'),
-                                dropdownItemAnchor('ddLk2'),
-                                dropdownItemAnchor('ddLk3')])]),
-                navLinkAnchorNavItemListItem('Lk4'),
-                navItemListItem(navLinkAnchor('Lk5'))
-        ]) ])
+        navbarNavLightFaded([
+                navbarBrandAnchor("YOg"),
+                nbLs = navbarNavUnorderedList([
+                        nbIt=    navItemListItem( navLinkAnchor('Lk1') ),
+                        nbIt=  navItemListItem(navLinkAnchor('Lk2')),
+                        nbDd = nbDdIt  = dropdownNavItemListItem([
+                                ddLk = ddGgLk= navLinkDropdownToggleAnchor('da dropdown'),
+                                ddD = ddM= ddMnD = dropdownMenuDiv([
+                                        ddItLk = dropdownItemAnchor('ddLk1'),
+                                        ddItLk =  dropdownItemAnchor('ddLk2'),
+                                        ddItLk =  dropdownItemAnchor('ddLk3')])]),
+                        navLinkAnchorNavItemListItem('Lk4'),
+                        navItemListItem(navLinkAnchor('Lk5'))
+                ])
+        ])
         function pre(){
-        z()
+                z()
+
+                dropdownMenuDiv=function(){
+                        return _A($.d().K("dropdown-menu"),G(arguments))
+                }
+                dropdownItemAnchor=function(tx){
+                        return $.a(tx).K('dropdown-item')
+                }
+                dropdownToggleAnchor=function(tx){
+                        return $.a(tx).K("dropdown-toggle").D('toggle','dropdown')
+                }
+                navLinkDropdownToggleAnchor=function(tx){
+                        return dropdownToggleAnchor(tx).K("nav-link")
+                }
+                navLinkAnchor=function(tx){
+                        return $.a(tx).K('nav-link')
+                }
+                navItemListItem=function(){
+                        return _A($.li().K("nav-item"),G(arguments))
+                }
+                dropdownNavItemListItem=function(){
+                        return _A(navItemListItem().K("dropdown"),G(arguments))
+                }
+                navbarBrandAnchor=function(tx){return $.a(tx).K("navbar-brand")}
+                navbarNavUnorderedList=function(){
+                        return _A(
+                            $.ul().K("nav navbar-nav"),G(arguments)
+                        )
+                }
+                navbarNav=function(){return _A($.N().A().K("navbar"),G(arguments))}
+                navbarNavLight=function(){return _A(navbarNav().K('navbar-light'), G(arguments))}
+                navbarNavFaded=function(){return _A(navbarNav().K('bg-faded'),G(arguments))}
+                navbarNavLightFaded=function(){
+                        return _A(navbarNavLight().K('bg-faded'),G(arguments))
+                }
+
+        }
+}
+/*
+
+<nav class="navbar navbar-light bg-faded">
+             
+             nbBrLk
+             brLk
+             nbBrA
+             brA
+             nbBr
+             
+             
+                 <a class="navbar-brand" href="#">Logo</a>
+                        
+                           
+            
+                   nbNUl   nbUl
+                   
+                   
+            <ul class="nav navbar-nav">
+                        
+                        <li class="nav-item">
+                        
+                        <a class="nav-link "href="#">Link 1</a></li>
+                        
+                        
+                        nvLkIt
+                        <li class="nav-item">
+                                nvLk
+                     <a class="nav-link" href="#">Link 2</a>
+                        </li>
+                        
+                        
+                          
+                          ddNvLkIt  nvLkDdIt
+                       <li class="nav-item dropdown">
+                                         
+                                ddNvLk
+                       
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        Dropdown
+                        </a>
+                        
+                  
+                        
+                        ddMnD mnD  ddMD mD ddD
+                       
+                        <div class="dropdown-menu" >
+                        
+                        ddItLk  ddIt  ddLk  ddItA   ddLA
+                                <a class="dropdown-item" href="#">Dropdown Link 1</a>
+                                <a class="dropdown-item" href="#">Dropdown Link 2</a>
+                                <a class="dropdown-item" href="#">Dropdown Link 3</a>
+                        </div>
+                        
+                        
+                        
+                        </li>
+                   </ul>
         
-        dropdownMenuDiv=function(){
+
+</nav>
+
+
+ */
+GOY=function(){z()
+        
+        Bs.ddMnD= ddMD= dropdownMenuDiv=function(){
+                
                 return _A($.d().K("dropdown-menu"),G(arguments))
         }
-        dropdownItemAnchor=function(tx){
-                return $.a(tx).K('dropdown-item')
-        }
-        dropdownToggleAnchor=function(tx){
+        
+        
+        
+        Bs. ddItLk= dropdownItemAnchor=function(tx){ return $.a(tx).K('dropdown-item') }
+        ddGgLk=  dropdownToggleAnchor=function(tx){
                 return $.a(tx).K("dropdown-toggle").D('toggle','dropdown')
         }
-        navLinkDropdownToggleAnchor=function(tx){
+        Bs.ddGgLk= ddGgLk=  navLinkDropdownToggleAnchor=function(tx){
                 return dropdownToggleAnchor(tx).K("nav-link")
         }
-        navLinkAnchor=function(tx){
+        nLk= Bs.nItLk=  navLinkAnchor=function(tx){
                 return $.a(tx).K('nav-link')
         }
-        navItemListItem=function(){
+        nIt= Bs.nItLi= navItemListItem=function(){
                 return _A($.li().K("nav-item"),G(arguments))
         }
-        dropdownNavItemListItem=function(){
+        Bs.nbDdLi= ddIt= dropdownNavItemListItem=function(){
                 return _A(navItemListItem().K("dropdown"),G(arguments))
         }
-        navbarBrandAnchor=function(tx){return $.a(tx).K("navbar-brand")}
-        navbarNavUnorderedList=function(){
+        Bs.BrLk = navbarBrandAnchor=function(tx){return $.a(tx).K("navbar-brand")}
+        Bs.nbNUl= navbarNavUnorderedList=function(){
                 return _A(
                     $.ul().K("nav navbar-nav"),G(arguments)
                 )
         }
-        navbarNav=function(){return _A($.N().A().K("navbar"),G(arguments))}
-        navbarNavLight=function(){return _A(navbarNav().K('navbar-light'), G(arguments))}
-        navbarNavFaded=function(){return _A(navbarNav().K('bg-faded'),G(arguments))}
-        navbarNavLightFaded=function(){
-                return _A(navbarNavLight().K('bg-faded'),G(arguments))
+        nbN= navbarNav=function(){return _A($.N().A().K("navbar"),G(arguments))}
+        nbNL= navbarNavLight=function(){return _A(navbarNav().K('navbar-light'),G(arguments))}
+        nbNF=  navbarNavFaded=function(){return _A(navbarNav().K('bg-faded'),G(arguments))}
+        Bs.nbLF=  navbarNavLightFaded=function(){return _A(navbarNavLight().K('bg-faded'),G(arguments))}
+        
+        nLi=  navLinkAnchorNavItemListItem=function(tx){ return navItemListItem(navLinkAnchor(tx)) }
+      
+        
+        
+        Bs.nbLF([Bs.BrLk("YdOg"), Bs.nbNUl([
+                Bs.nItLi(
+                    Bs.nItLk('Lk1')),
+                Bs.nbDdLi([
+                        Bs.ddGgLk('da dropdown'),
+                        Bs.ddMnD([
+                                Bs.ddItLk('ddLk1'),
+                                Bs.ddItLk('ddLk2'),
+                                Bs.ddItLk('ddLk3')])])])])
+}
+YGO=function(){z()
+        
+        
+        Bs.ddMnD= function(){return _A($.d().K("dropdown-menu"),G(arguments))}
+        Bs.ddItLk= function(tx){ return $.a(tx).K('dropdown-item') }
+        ddGgLk=dropdownToggleAnchor=function(tx){
+                return $.a(tx).K("dropdown-toggle").D('toggle','dropdown')
+        }
+        Bs.ddGgLk=ddGgLk=navLinkDropdownToggleAnchor=function(tx){
+                return $.a(tx).K("dropdown-toggle").D('toggle','dropdown').K("nav-link")
         }
         
+        Bs.nLk=Bs.nItLk=navLinkAnchor=function(tx){return $.a(tx).K('nav-link')}
+        
+        Bs.nLi =Bs.nItLi=navItemListItem=function(){return _A($.li().K("nav-item"),G(arguments))}
+        
+        
+        Bs.nbDdLi=ddIt=dropdownNavItemListItem=function(){return _A(Bs.nLi().K("dropdown"),G(arguments))}
+        Bs.BrLk= function(tx){return $.a(tx).K("navbar-brand")}
+        Bs.nbNUl= function(){return _A($.ul().K("nav navbar-nav"),G(arguments))}
+        Bs.nbN=function(){return _A($.N().A().K("navbar"),G(arguments))}
+        Bs.nbNL= function(){return _A(Bs.nbN().K('navbar-light'),G(arguments))}
+        Bs.nbNF= function(){return _A(Bs.nbN().K('bg-faded'),G(arguments))}
+        Bs.nbLF= function(){return _A(Bs.nbNL().K('bg-faded'),G(arguments))}
+        Bs.nLiLk=function(tx){
+                return Bs.nLi( Bs.nLk(tx) )
         }
+        Bs.nbLF([
+                Bs.BrLk("YdfdsaOg"),
+                Bs.nbNUl([
+                        Bs.nLiLk('Lk1'),Bs.nLiLk('Lk2'),Bs.nLiLk('Lk3'), Bs.nbDdLi([
+                                Bs.ddGgLk('da dropdown'),
+                                Bs.ddMnD([
+                                        Bs.ddItLk('ddLk1'),
+                                        Bs.ddItLk('ddLk2'),
+                                        Bs.ddItLk('ddLk3') ]) ])
+                ])
+        ])
+        
+}
+YOGO=function(){
+        z()
+        Bs.ddMnD=function(){return _A($.d().K("dropdown-menu"),G(arguments))}
+        Bs.ddItLk=function(tx){ return $.a(tx).K('dropdown-item') }
+        ddGgLk=dropdownToggleAnchor=function(tx){
+                return $.a(tx).K("dropdown-toggle").D('toggle','dropdown')
+        }
+        Bs.ddGgLk=ddGgLk=navLinkDropdownToggleAnchor=function(tx){
+                return $.a(tx).K("dropdown-toggle").D('toggle','dropdown').K("nav-link")
+        }
+        Bs.nLk=Bs.nItLk=navLinkAnchor=function(tx){return $.a(tx).K('nav-link')}
+        Bs.nLi=Bs.nItLi=navItemListItem=function(){return _A($.li().K("nav-item"),G(arguments))}
+        Bs.nbDdLi=ddIt=dropdownNavItemListItem=function(){return _A(Bs.nLi().K("dropdown"),G(arguments))}
+        Bs.BrLk=function(tx){return $.a(tx).K("navbar-brand")}
+        Bs.nbNUl=function(){return _A($.ul().K("nav navbar-nav"),G(arguments))}
+        Bs.nbN=function(){return _A($.N().A().K("navbar"),G(arguments))}
+        Bs.nbNL=function(){return _A(Bs.nbN().K('navbar-light'),G(arguments))}
+        Bs.nbNF=function(){return _A(Bs.nbN().K('bg-faded'),G(arguments))}
+        Bs.nbLF=function(){return _A(Bs.nbNL().K('bg-faded'),G(arguments))}
+        Bs.nLiLk=function(tx){
+                return Bs.nLi(Bs.nLk(tx))
+        }
+        
+        Bs.nbLF([ Bs.BrLk("YdfdsaOg"),Bs.nbNUl([
+                        
+                
+                Bs.nLiLk('Lk1'),
+                
+                Bs.nLiLk('Lk2'),
+                
+                Bs.nLiLk('Lk3'),
+                
+                Bs.nbDdLi([
+                        
+                        Bs.ddGgLk('da dropdown'),
+                        Bs.ddMnD([
+                                Bs.ddItLk('ddLk1'),
+                                Bs.ddItLk('ddLk2'),
+                                Bs.ddItLk('ddLk3')
+                        ])]),Bs.nbDdLi(
+                    [
+                            Bs.ddGgLk('another dropdown'),Bs.ddMnD(
+                        [
+                                Bs.ddItLk('ddLk1'),Bs.ddItLk('ddLk2'),Bs.ddItLk('ddLk3')
+                        ]
+                    )
+                    ]
+                )
+        
+        ])])
+}
+FINAL=function(){
+        z()
+        ddMets()
+       
+        links=[
+                
+                Bs.nItLk('Link 1'),
+                Bs.nItLk('Link 9'),
+                
+                Bs.nbDdLi([
+                        Bs.ddGgLk('another dropdown'),
+                        Bs.ddMnD([
+                                Bs.ddItLk('ddLk1'),
+                                Bs.ddItLk('ddLk2'),
+                                Bs.ddItLk('ddLk3')
+                        ])
+                ]),
+                
+                
+                Bs.nItLk('Link 4'),
+                
+                
+        ]
+        
+        
+        bt=Bs.nbGgBt('#nb').K("hidden-sm-up")
+        
+        nb=Bs.nb().K("navbar-light").K("bg-faded").A(bt,Bs.tgbNb("nb").A(
+                        Bs.nbBr('Logo'),
+                        $.ul(links).K("nav navbar-nav"))
+        )
+        
+        Bs('+').A(nb)
+        $l(bt.oh())
+       function ddMets(){
+               
+                Bs.ddMnD=function(){return _A($.d().K("dropdown-menu"),G(arguments))}
+                Bs.ddItLk=function(tx){ return $.a(tx).K('dropdown-item') }
+                ddGgLk=dropdownToggleAnchor=function(tx){
+                        return $.a(tx).K("dropdown-toggle").D('toggle','dropdown')
+                }
+                Bs.ddGgLk=ddGgLk=navLinkDropdownToggleAnchor=function(tx){
+                        return $.a(tx).K("dropdown-toggle").D('toggle','dropdown').K("nav-link")
+                }
+                Bs.nLk=Bs.nItLk=navLinkAnchor=function(tx){return $.a(tx).K('nav-link')}
+                Bs.nLi=Bs.nItLi=navItemListItem=function(){return _A($.li().K("nav-item"),G(arguments))}
+                Bs.nbDdLi=ddIt=dropdownNavItemListItem=function(){return _A(Bs.nLi().K("dropdown"),G(arguments))}
+                Bs.BrLk=function(tx){return $.a(tx).K("navbar-brand")}
+                Bs.nbNUl=function(){return _A($.ul().K("nav navbar-nav"),G(arguments))}
+                Bs.nbN=function(){return _A($.N().A().K("navbar"),G(arguments))}
+                Bs.nbNL=function(){return _A(Bs.nbN().K('navbar-light'),G(arguments))}
+                Bs.nbNF=function(){return _A(Bs.nbN().K('bg-faded'),G(arguments))}
+                Bs.nbLF=function(){return _A(Bs.nbNL().K('bg-faded'),G(arguments))}
+                Bs.nLiLk=function(tx){
+                        return Bs.nLi(Bs.nLk(tx))
+                }
+             
+        }
+}
+BEST=function(){
+        z()
+        
+        
+        ul =$.ul().K("nav navbar-nav").A(
+            Bs.nItLk('Link 1'),
+            Bs.nItLk('Link 9'),
+            Bs.nItLk('Link 4'),
+            
+            $('<li class="nav-item dropdown">').A(
+                $.a('afsd').K("nav-link dropdown-toggle").D('toggle', "dropdown"),
+                $.d().K("dropdown-menu").A($('<a class="dropdown-item" href="#">Dropdown Link 1</a>'),$('<a class="dropdown-item" href="#">Dropdown Link 2</a>'),$('<a class="dropdown-item" href="#">Dropdown Link 3</a>'))
+            
+            )
+        )
+      
+        
+        
+        nb=Bs.nb().K("navbar-light").K("bg-faded").A(
+            
+            bt=Bs.nbGgBt('#nb').K("hidden-sm-up"),
+            
+            Bs.tgbNb("nb").A(
+                
+                
+                Bs.nbBr('Logo'),ul
+                
+               
+                
+                
+            )
+        )
+        
+        
+        
+        Bs('+').A(nb)
+        $l(bt.oh())
 }
 
