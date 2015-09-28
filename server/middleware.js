@@ -9,8 +9,15 @@ $a.use(
 )
 $a.use(($cP=require('cookie-parser'))('xyz'))
 $bP=require('body-parser');
-$a.use($bP.urlencoded({ extended: false }));
-$a.use($bP.json())
+
+$a.use($bP.urlencoded({
+extended: false,
+limit:'50mb'
+
+}));
+$a.use($bP.json({limit:'50mb'}))
+
+ 
 $w = $Mw = function (q, p, n) {
 
     q.ss = q.session; p.lc = p.locals
@@ -18,24 +25,28 @@ $w = $Mw = function (q, p, n) {
     q.un = q.username = q.ss.username; n()
 
 }
+
 $Mw.user = function (q, p, n) {
-
-    if (q.loggedIn) {
-
+	$l('.user middleware.. loggedIn?= '+q.loggedIn)
+	
+	if (q.loggedIn) {
         $md.user.findOne({
-
             username: q.username}, function (z, u) {
             if (z) {n(z)}
             else if (u) {q.user = p.locals.user = u
+                
                 q.username = p.locals.username = u.username
-                q.userId = p.locals.userId = u._id}; n() })
-
+                
+                q.userId = p.locals.userId = u._id}; n() 
+                
+                })
+    }
+    else {
+		p.json('guest')
     }
 
-
-    else {p.json('guest')}
-
 }
+
 $a.use($Mw)
 old=function(){
 

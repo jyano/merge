@@ -240,18 +240,21 @@ $.fm = $.format = function () {
 
 };
 k = io.connect(); k.em = k.emit
-Y = function self(page){
 
+Y = function self(page){
     self.render(page)
     return self
 }
+
 $ren=Y.render = function(page){
     $l('in render')
+    
     if(Y[page]){
         $l('found page: '+ page)
         return Y[page]() || true
     }
 }
+
 $run=Y.run = function(app){$l('Y.run')
     app = app.toUpperCase()
     if(app = Y[app] || window[app]){
@@ -263,41 +266,82 @@ $to=Y.to=  Y.load =  function(a){
     alert('y.to y.load')
     window.location = '/wap/' + a}
 $GuestPage= Y.GuestPage = function(){
-
+	$l('.Y.GuestPage..')
+    
     z('r')
+    
+	
+    ct =$.dK('container').dg().C('g')
+    ct.al(.9)
+    ct.top(100).left(100)
 
-    ct = $.dC()
-        .dg().C('g').al(.9).top(100).left(100)
-
+ 
     jb =  $.J('a graphics-based real-time social gaming creativity web app', $.br())
 
     jb.A(
 
         $.btL('log in', function(){
+        
             f = $.f().C('green').pad(4)
+            
             f.A(
-                $.fG().A($.lb('username: ','username'),
-                    $.ip('username')),
-                $.fG().A($.lb('password: ', 'password'),
-                    $.pw('password')),
+                $.fG().A(
+                $.lb('username: ','username'), 
+                $.ip('username').id('un')
+                ),
+                 
+                $.fG().A(
+                $.lb('password: ', 'password'), 
+                $.pw('password').id('pw')
+                ),
+                $.sm('log in')
+            )
 
-                $.sm('log in') )
 
-            f.submit(function(e){
+            f.submit(function (e) {
                 e.preventDefault()
 
-                fData=  f.serializeJSON()
+                $l('login form will be submited')
+                
+                fData = {
+                username: $('#un').v(),
+                password: $('#pw').v() 
+                }
+                
+               // fData = f.serializeJSON()
+                
+                $l(fData)
+                
+                $.post('/login', fData, function (un) {
 
-                $.post('/login',fData,   function( un ){
-                    u=un
-                    $l('check u!')
-                    if(un==='guest'){$('.modal').modal('toggle'); $.pop('try again.. idiot') }
-                    else {Y('HomePage'); $.pop( 'welcome '+ un + '!' )}
+                    if (un === 'guest') {
+                        $('.modal').modal('toggle');
+
+                        $.pop('try again.. idiot')
+                    }
+
+                    else {
+                        Y('HomePage');
+
+                        $.pop('welcome ' + un + '!')
+                    }
+
+
                 })
+                
+
             })
 
             $.pop( f ).dg()
-        }).C('z','w'), $.sp(' - '),
+            
+        }).C('z','w'),
+        
+        
+        
+        
+        
+         $.sp(' - '),
+        
         $.btL('sign up',  function(){
             usernameInput= $.dK('form-group').fS(20).n('username').A($.lb('username: ','username'), $.ip().K('form-control').id('uname') )
             passwordInput= $.dK('form-group').A($.lb('password: ','password'), $.pw().id('password')).fS(20).n('password')
@@ -309,7 +353,10 @@ $GuestPage= Y.GuestPage = function(){
                         if(username==='guest'){$('.modal').modal('toggle'); $.pop('try again.. idiot')}
                         else {Y('HomePage'); $.pop( 'welcome ' + username + '!' )}}) })
             $.pop( f ).dg()
-        }).C('w','z'),$.sp(' - '),
+        }).C('w','z'),
+        
+        $.sp(' - '),
+        
         $.btL('guest', function(){}).C('a','y')
     )
 
@@ -515,18 +562,35 @@ $.ChatBt = function (n) {
 ////////////////////////
 $(function(){
 
-    $.Gj('loggedIn', function(un){
-        Y._un = Y._userName = _username = $l(un)
-        function isGuest(un){return un == 'guest' || !un}
-        if( isGuest(un) ){ Y('GuestPage') } else { logInUser(un) }
+	
+	$.j('loggedIn', function(un){$l('un: '+ un)
+		
+        
+        if( isGuest(Y._un=Y._userName=_username=un))
+        {Y('GuestPage') } else { logInUser(un) }
+        
+        
+
+        
+        
         function logInUser(un){
             k.em('id', un);   k.em('jRm',  _username )
             $.g('myMug', function(mug){
                 Y._userMug = _userMug  = mug
                 $l('going to home page..')
-                Y('HomePage')})}})
+                Y('HomePage')})
+                }
+		
+		function isGuest(un){
+			return un=='guest'|| !un
+		}
+	})
+                
+                
 
 })
+
+
 ////////////////////////
 ////////////////////////
 ////////////////////////

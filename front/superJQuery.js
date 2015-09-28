@@ -395,6 +395,7 @@ function ajax(){
 			a=aa
 		})
 	}
+	
 	$.j=$.gJ=$.Gj=function(){
 		var g=G(arguments),o;
 		if(U(g[1])){
@@ -412,6 +413,7 @@ function ajax(){
 			});
 		return $
 	}
+	
 	$.eJ=$.eGj=function(){
 		var g=G(arguments),o;
 		if(U(g[1])){

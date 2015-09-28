@@ -12,7 +12,7 @@ $.fU= $.fileUpload =  function(lb, t){
         ),//.K('control-label')//.fS(20),
 
 
-        $.ip().ty('file').id('upl').name('avatar')
+        $.ip().ty('file').id('upl').n('avatar')
     )
 
 
