@@ -15,7 +15,176 @@ var g=G(arguments),q=this
 $.fn.qu=$.fn.queue	
 $.fn.dq=$.fn.dqu=$.fn.dequeue	
 $.fn.cQ=$.fn.xq=$.fn.xQ=$.fn.clrQ=$.fn.clearQueue
-
+ANob = {
+    B: 'bottom', L: 'left', R: 'right', T: 'top',
+    b: 'borderWidth', bb: 'borderBottomWidth',
+    bl: 'borderLeftWidth', br: 'borderRightWidth',
+    bt: 'borderTopWidth', bs: 'borderSpacing',
+    C: 'backgroundColor', f: 'fontSize', h: 'height', w: 'width', H: 'maxHeight', W: 'maxWidth',
+    mh: 'minHeight', mw: 'minWidth',
+    i: 'textIndent', l: 'letterSpacing', lh: ' lineHeight',
+    m: ' margin', mb: 'marginBottom', ml: 'marginLeft', mr: 'marginRight',
+    mt: 'marginTop', o: ' outlineWidth',
+    p: ' padding', pb: 'paddingBottom',
+    pl: 'paddingLeft', pr: 'paddingRight', pt: 'paddingTop',
+    ws: ' wordSpacing', x: 'backgroundPositionX', y: 'backgroundPositionY'
+}
+ANob = {
+    B: 'bottom', L: 'left', R: 'right', T: 'top',
+    b: 'borderWidth', bb: 'borderBottomWidth',
+    bl: 'borderLeftWidth', br: 'borderRightWidth',
+    bt: 'borderTopWidth', bs: 'borderSpacing',
+    C: 'backgroundColor', f: 'fontSize', h: 'height', w: 'width', H: 'maxHeight', W: 'maxWidth',
+    mh: 'minHeight', mw: 'minWidth',
+    i: 'textIndent', l: 'letterSpacing', lh: ' lineHeight',
+    m: ' margin', mb: 'marginBottom', ml: 'marginLeft', mr: 'marginRight',
+    mt: 'marginTop', o: ' outlineWidth',
+    p: ' padding', pb: 'paddingBottom',
+    pl: 'paddingLeft', pr: 'paddingRight', pt: 'paddingTop',
+    ws: ' wordSpacing', x: 'backgroundPositionX', y: 'backgroundPositionY'
+}
+$.fn.st = $.fn.stop
+$.fn.f2 = $.fn.fadeTo
+$.fn.bgImg = $.backgroundImage
+$.fn.gFr = $.fn.getFrame
+$.fn.sFr = $.fn.setFrame
+$.fn.anFr = $.fn.animateFrames
+$.fn.xq = $.fn.xQ = $.fn.clrQ = $.fn.clearQueue
+$.fn.qu = $.fn.queue
+$.fn.dq = $.fn.dqu = $.fn.dequeue
+$.fn.an = $.fn.a = function (a, b, c, d) {
+    var g = G(arguments), o
+    o = g.f
+    var q = this
+    if (O(a)) {
+        if (a.c) {
+            a.color = oO('c', a.c)
+        }
+        if (a.C) {
+            a.backgroundColor = oO('c', a.C)
+        }
+    }
+    q.animate(a, b, c, d)
+    return q
+    if (o.C) {//$l(o.C+'-->');
+        o.C = oO('c', o.C);
+        //$l(o.C)
+    }
+    _.e(o, function (v, k) {
+        if (ANob[k]) {
+            o[ANob[k]] = v
+        }
+    })
+    if (N(g.s)) {
+        g.s *= 1000
+    }
+    _p = o
+    this.an(o, g.s, g.t, g[3], g[4])
+    return this
+    $.an = $.j = function () {
+        var bd = $.bd();
+        return bd.j.apply(bd, G(arguments))
+    }
+}
+$.aF = $.anFr = $.anf = function (n, w) {
+    var c = 0;
+    n = n || 10;
+    w = w || 20;
+    $.ev(function () {
+        q.sFr(c, w)
+        c = (c + 1) % n
+    })
+}
+$.notAn = function (a) { // sel
+    return a.filter(':not(:animated)')
+}
+$.fn.an = $.fn.a = function (a, b, c, d) {
+    var g = G(arguments), o
+    o = g.f
+    var q = this
+    if (O(a)) {
+        if (a.c) {
+            a.color = oO('c', a.c)
+        }
+        if (a.C) {
+            a.backgroundColor = oO('c', a.C)
+        }
+    }
+    q.animate(a, b, c, d)
+    return q
+    if (o.C) {//$l(o.C+'-->');
+        o.C = oO('c', o.C);
+        //$l(o.C)
+    }
+    _.e(o, function (v, k) {
+        if (ANob[k]) {
+            o[ANob[k]] = v
+        }
+    })
+    if (N(g.s)) {
+        g.s *= 1000
+    }
+    _p = o
+    this.an(o, g.s, g.t, g[3], g[4])
+    return this
+    $.an = $.j = function () {
+        var bd = $.bd();
+        return bd.j.apply(bd, G(arguments))
+    }
+}
+an = function (q, a) {
+    alert('an')
+    if (q.han) {
+        _.xI(q.han)
+    }
+    if (a.u) {
+        q.bi(a.u)
+    }
+    if (a.n > 1) {
+        q.han = _.sI(function () {
+            a.c++
+            if (!a.l && a.c > a.n) {
+                _.xI(q.han);
+                q.han = false
+            }
+            else {
+                a.c %= a.n
+            }
+            q.sFr(a)
+        }, a.r)
+    }
+}
+$.aF = $.anFr = $.anf = function (n, w) {
+    var c = 0;
+    n = n || 10;
+    w = w || 20;
+    $.ev(function () {
+        q.sFr(c, w)
+        c = (c + 1) % n
+    })
+}
+$.notAn = function (a) { // sel
+    return a.filter(':not(:animated)')
+}
+$.fn.bgImg = $.backgroundImage
+$.fn.gFr = $.fn.getFrame
+$.fn.sFr = $.fn.setFrame
+$.fn.anFr = $.fn.animateFrames
+$.fn.xq = $.fn.xQ = $.fn.clrQ = $.fn.clearQueue
+$.fn.qu = $.fn.queue
+$.fn.dq = $.fn.dqu = $.fn.dequeue
+$.fn.bdC = function (a) {
+    return this.css("border-color", oO('c', a || 'r'))
+}
+$.fn.pdB = function (a) {
+    return this.css("padding-bottom", a || 0)
+}
+$.fn.mgT = function (a) {
+    return this.css("margin-top", a || 0)
+}
+$.fn.pad = function (a) {
+    return this.css("padding", a || 0)
+}
 function statt(){
     $.an = function () {
         var bd = $.bd();
@@ -26,262 +195,7 @@ function statt(){
         return a.filter(':not(:animated)')
     }
 }
-
-//all are working!
-	NOTAN=function(){
-		$.x()
-		var s=1000,
-			m=function(n){
-				return {marginLeft:n}
-			},
-			n=0
-		d=$.dI('test').A(y=$.c('x',40).K('box'))
-		d2=$.dI('debug')
-		$('#test').$(
-			function(){
-				$.notAn($('.box')).an(
-					{marginLeft:-10},s,
-					function(){
-						$('#debug').A($.p('start..'+n++))
-					}
-				)
-					.an({marginLeft:10},s).an({marginLeft:-10},s)
-					.an({marginLeft:10},s).an({marginLeft:-10},s)
-					.an({marginLeft:-10},s).an(
-					{marginLeft:0},s,
-					function(){
-						$('#debug').A($.p('fin'))
-					}
-				)
-			}
-		)
-	}
-	HOVERBOX=HVBX=function(){
-		$.x()
-		$.hvBx=$.hoverBox=function(){
-			z()
-			d=$.d('o',500,500,'+').id('test')
-			y=$.c('p',400).K('box').hd()
-			d.A(y)
-			$('#test').hv(
-				function(){
-					$('.box').st().f2(200,1)
-				},
-				function(){
-					$('.box').stop().f2(200,0)
-				}
-			)
-		}
-		$.hvBx()
-		function alt(){
-			z();
-			d=$.d('o',500,500,'+').id('test')
-			y=$.c('p',400).K('box').hd();
-			d.A(y);
-			$('#test').hover(
-				function(){
-					$('.box').stop().fadeTo(200,1)
-				},function(){$('.box').stop().fadeTo(200,0)}
-			)
-		}
-	}
-	FRIDGEMAG=MAG=WORD=function(){
-		z();
-		w=word('hello','b','g');
-		word('sicko','g','b');
-		word('why, i oughta..','p','x');
-		word('it was raining..','j','k');
-		word('who ya gonna call?','h','i');
-		word('dag nabit!','f','g');
-		word('i like','d','e');
-		word('tomorrow','a','c');
-		word('me','r','b')
-		function word(t,c1,c2){
-			return $.sp(t).C(c1,c2).A().dg()
-		}
-	}
-	ANIMLOOP=ANL=function(){
-		$.fn.anL=function(){
-			var q=this
-			q.sh("slow").an({mL:300},2000)
-				.an({mL:0},2000)
-				.hd(
-				"slow",function(){
-					q.anL()
-				}
-			)
-		}
-		$.d('b',100,300).anL()
-	}
-
-	BORDERS=function(){
-		z();
-		$.fn.an=$.fn.animate
-		_.t(10,change)
-		function change(){
-			$.i('me',100).A().C('g')
-				.css(
-				{
-					borderStyle:'dashed',borderWidth:'20px'
-				}
-			)
-				.animate(
-				{
-					"border-top-width":10
-				},1000
-			)
-				.an({"border-bottom-width":10},1000)
-				.an({"border-left-width":10},1000)
-				.an({"border-right-width":10},1000)
-				.an({"padding-top":10},1000)
-				.an({"padding-bottom":10},1000)
-				.an({"padding-left":10},1000)
-				.an({"padding-right":10},1000)
-				.an({"margin-top":10},1000)
-				.an({"margin-bottom":10},1000)
-				.an({"margin-left":10},1000)
-				.an({"margin-right":10},1000)
-				.an({"margin-top":0},1000)
-				.an({"margin-bottom":0},1000)
-				.an({"margin-left":0},1000)
-				.an({"margin-right":0},1000)
-				.an({"padding-top":0},1000)
-				.an({"padding-bottom":0},1000)
-				.an({"padding-left":0},1000)
-				.an({"padding-right":0},1000)
-				.an({"border-top-width":0},1000)
-				.an({"border-bottom-width":0},1000)
-				.an({"border-left-width":0},1000)
-				.an({"border-right-width":0},1000)
-		}
-		
-		/*
-		 $.img('me').WH(100).A().C('g').bs('-')  //bs??
-		
-		 .j({bt: 40}, 1000)
-		
-		 .j({bb: 40}, 1000)
-		 .j({bl: 40}, 1000)
-		 .j({br: 40}, 1000)
-		 .j({gt: 40}, 1000)
-		 .j({gb: 40}, 1000)
-		 .j({gl: 40}, 1000).j({gr: 40}, 1000).j({mt: 40}, 1000)
-		 .j({mb: 40}, 1000).j({ml: 40}, 1000).j({mr: 40}, 1000)
-		 .j({mt: 0}, 1000).j({mb: 0}, 1000).j({ml: 0}, 1000).j({mr: 0}, 1000)
-		 .j({gt: 0}, 1000).j({gb: 0}, 1000).j({gl: 0}, 1000).j({gr: 0}, 1000)
-		 .j({bt: 0}, 1000)
-		 .j({bb: 0}, 1000).j({bl: 0}, 1000).j({br: 0}, 1000)
-		 };
-		 */
-	}
-	COOLSEL1=function(){
-		$.x()
-		// rather than worry about synchronization between each panel
-		//we will take last li in ul.k(panels) and position it to top right
-		//of ul - this way,  when he sum width of all the panels occasionally
-		//adds to greater than 100 percent of the ul as they animate..
-		//the last li never breaks to the next line
-		$.coolSelector=function(){
-			var s=200
-			d=$.dK(
-				'container',[
-					$.dK('panels').A($.sp('1'),$.sp('2'),$.sp('3'),$.sp('4'),$.sp('5')),
-					$.dK('panels').A($.sp('A'),$.sp('B'),$.sp('C'),$.sp('D'),$.sp('E'))
-				]
-			)
-			$('span').css({width:'100px',fontSize:'40px'})
-			//$('span').ss({w: 100, fZ: 40})
-			if($('div.panels').length){
-				$('div.panels span:last-child').K('last')
-				$('div.panels span').hv(
-					function(){
-						$(this).st().an({width:'110px',fontSize:'50px'},s)
-							.sib('span').st().an({width:'90px',fontSize:'30px'})
-					},
-					function(){
-						$(this).st().an({w:90,fZ:30})
-					}
-				)
-			}
-		}
-		$.coolSelector()
-	}
-	COOLSEL=function(){
-		$.x()
-		$l('COOLSEL')
-		// rather than worry about synchronization between each panel
-		//we will take last li in ul.k(panels) and position it to top right
-		//of ul - this way,  when he sum width of all the panels occasionally
-		//adds to greater than 100 percent of the ul as they animate..
-		//the last li never breaks to the next line
-		var s=200;
-		d=$.dK(
-			'container',[
-				$.dK('panels',[$.sp('1'),$.sp('2'),$.sp('3'),$.sp('4'),$.sp('5')]),
-				$.dK('panels',[$.sp('A'),$.sp('B'),$.sp('C'),$.sp('D'),$.sp('E')])
-			]
-		)
-		$('span').ss({w:200,fZ:160})
-		if(_.z($('div.panels'))){
-			$('div.panels span:last-child').K('last');
-			$('div.panels span').hv(
-				function(){
-					$(this)
-						.st().an({w:110,fZ:50},s)
-						.sb('span').st().an({w:90,fZ:30})
-				},
-				function(){
-					$(this)
-						.st().an({w:'90px',fZ:'30px'})
-				}
-			)
-		}
-	}
-	TOCAN=function(){
-		z();
-		c=$.c('o',500,500);
-		//c.save().lineWidth(30).setStrokeColor('r').lineTo([[100,100],[150,110]]).stroke().restore().lineTo([[200,100],[200,600]]).stroke()
-		// c.roundRect(100,50,100,100,50).stroke()//.fill()
-		//c.line(10,10,50,500).stroke()
-		c.line(
-			[
-				[[100,100],[200,200],[140,900]]
-				// ,  [[150,150],[250,250], [20,300]]
-			]
-		).stroke();
-		//c.line([100,100],[200,200],[150,150],[250,250] ).stroke()
-		//c.line( [350,50],[25,25],  [450,10],[20,550]).stroke()
-	}
-	FLASH=function(){
-		z()
-		timeline=$.dA().WH('auto').dg()
-		timeline.A(
-			$.c('b',500,500),
-			$.br()
-		)
-		_.t(
-			24,function(x){
-				timeline.A(
-					$.d('r',100,100)
-						.css({display:'inline-block'}).H((x*10)+100)
-				)
-			}
-		)
-		function alt(){
-			z();
-			timeline=$.dA('+').WH('auto');
-			timeline.A($.c('b',500,500),$.br());
-			_.t(
-				24,function(x){
-					timeline.A(
-						$.d('r',100,100).css({display:'inline-block'}).H((x*10)+100)
-					)
-				}
-			)
-		}
-	}
  
-
 old=function(){
     QUU = function () {
         $.x('x', 'quu')

@@ -77,6 +77,10 @@ UPLOADS=function(){
 
      })*/
 }
+
+
+
+
 EDIT = function () {
 
     st = $St('z', 400)
@@ -301,14 +305,27 @@ CUTOUTS=function(){
                     function rmParOf(bt){$(bt).pa().rm()}}})})}
     $.fm(); section1.A($.h4('click a pic to select it as your mug, or the x to delete it'))
     y = 80
+    
     $.eJ('/img', function(img){var i
         i = $.i(img.d)
         i.WH(100,100)
-        i.$(function(){ $.po('/changeMug', {url: img.d}, function(){ i.selPic() }) })
-        $.dA('b',100, 100, '+').left(y).top(200).K('pic').A(i,  $.btX('/img', img) )
+        i.$(function(){ 
+        $.po('/changeMug', {url: img.d}, function(){ i.selPic() }) })
+        
+        $.dA('b',100, 100, '+')
+        .left(y).top(200)
+        .K('pic')
+        .A(i,  $.btX('/img', img) )
+    
+    
         y += 220
+    
+    
     })
 }
+
+
+
 TWEEN=function(a){
     st=$St(500,500)
     st.mug(function(bm){
@@ -400,6 +417,8 @@ SPACE = function () {
         m.sXY(.2).dg().RT().SL()
     })
 }
+
+
 SOLAR = function () {
 
     i =  cjs.DisplayObject.prototype
@@ -595,6 +614,7 @@ HIT = function () {
         })
     })
 }
+
 UNIVERSE = function () {
 
     $addGuy = function (un) {
@@ -609,8 +629,6 @@ UNIVERSE = function () {
             }) // bitmap.o('$$', function(bm){   bm.XX(); k.emit('X', _username) })
         })
     }
-
-
     $getGuy = function (un) {
 
         var targetGuy = false //  finds a guy({un, bm}) in $GUYS array from a un ( rets false if he aint there) //alpha: can accept ob received on guyUpdates ({un, x, y})//can pass the string or also an ob with 'un' property
@@ -625,14 +643,12 @@ UNIVERSE = function () {
         })
         return targetGuy
     }
-
     $getGuyNotMe = function (un) {
         var guy = $getGuy(un)
         if (guy && guy.un != _username) {
             return guy
         }
     }
-
     $Bub = function (t, x, y) {
         var g = G(arguments), ct = $Ct()
         text = g[0] || 'hi!';
@@ -672,31 +688,33 @@ UNIVERSE = function () {
         }
         return ct
     }
-
     z();
     n = 0;
+    
     $GUYS = []
-
+    
     k.on('bub', function (bub) {
         var guy;
         if (guy = $getGuy(bub.u)) {
             $Bub(bub.t, bub.x, bub.y)
         }
     })
-
+    
     k.on('updateGuy', function (user) {
         var guy
         if (user && (guy = $getGuyNotMe(user.un))) {
             guy.bm.XY(user.x, user.y)
         }
     })
+    
+    
     k.on('inviteAccepted', function (invite) {
         if (_username == invite.from) {
             $addGuy(invite.toWho)
         }
     })
-
-
+    
+    
     k.on('newInvite', function (d) {
         var popD, pop, title, ya, na;
         if (_username != d.toWho) {
@@ -717,15 +735,12 @@ UNIVERSE = function () {
             popD.A($.i(mug).WH(200, 200), title, ya, na)
         })
     })
-
-
+    
     uni = $St(1000, 800);
-
-    uni.bgI(
-        R(2) ? '/beach.jpg' :
+    
+    uni.bgI(R(2) ? '/beach.jpg' :
             R(4) ? '/space.jpg' :
-                '/chicks.png'
-    )
+                '/chicks.png')
 
     uni.mug(function (b) {
         if (O(b)) {
@@ -754,7 +769,11 @@ UNIVERSE = function () {
             k.em('myUpdate', {un: _username, x: yourBm.x, y: yourBm.y})
         })
     })
+    
 }
+
+
+
 CHAT = function () {
 
     $CHATS = {}
@@ -799,55 +818,16 @@ USERS = function () {
 
 }
 PACK = function(){
-
     stage = $St(800)
-
     //stage.op(.7)
-
     sprite = $sprite(Pack).XY( 200, 260 ).sXY(1.2).drag()
-
-
     stage.A(sprite)
-
     //.rgc()
     sprite.framerate=6
-
     sprite.play()
-
-
 }
-SPRITE=function(sprite){
-
-    sprite = $sprite( sprite || SS ).XY(10).dg()
-
-    stage = $St('o', 400 ).dg()//.op(.7),
-    stage.A( sprite )
 
 
-    controls={
-        jump:function(){ sprite.gotoAndPlay('jump') },
-        explode:function(){ sprite.gotoAndPlay('explode') },
-        spin:function(){ sprite.gotoAndPlay('spin') },
-        stop:function(){ sprite.stop() },
-        play:function(){ sprite.play() } }
-
-    $.d('y',460, 89).css({
-        position:'absolute',
-        top: 200, left: 300,
-        padding:20, opacity:.9
-    }).dg().A(
-        $.sp(' '),
-        $.bt('spin',function(){    controls.spin() }), $.sp(' '),
-        $.bt('jump',function(){    controls.jump() }), $.sp(' '),
-        $.bt('explode',function(){   controls.explode()  }), $.sp(' '),
-        $.bt('play',function(){   controls.play()  }), $.sp(' '),
-        $.bt('stop',function(){   controls.stop()  }), $.sp(' '),
-        $.bt('meta', function(){ SPRITE() })
-
-    )
-
-    s = sprite
-    return  controls}
 BOD=function(){z()
     s = $St(800, 800).A(
         b1=Bod1(),
@@ -954,6 +934,7 @@ BOD=function(){z()
     }
 
 }
+moree()
 function moree(){
     INDEXX = function () {
         z()
@@ -2081,55 +2062,56 @@ function moree(){
             stage.update(event)
         }
     }
-
 }
 
-
-
-BOOT3 = function(){z();
-    
-    $._d = function () {
-        var g=G(arguments),  d=  $('<div>').A()
-        g.e(function(q){ d.A(q) })
-        return d
+//uses mug?
+SPRITE = function (sprite) {
+    sprite = $sprite(sprite || SS).XY(10).dg()
+    stage = $St('o', 400).dg()//.op(.7),
+    stage.A(sprite)
+    controls = {
+        jump: function () {
+            sprite.gotoAndPlay('jump')
+        },
+        explode: function () {
+            sprite.gotoAndPlay('explode')
+        },
+        spin: function () {
+            sprite.gotoAndPlay('spin')
+        },
+        stop: function () {
+            sprite.stop()
+        },
+        play: function () {
+            sprite.play()
+        }
     }
-
-
-    $._d(
-        $._d(
-            $.h4('Collapsed content'),
-            $.sp('Toggleable  via  the  navbar  brand').K("test-muted")
-        ).K("bg-inverse p-a")
-    ).K('collapse').id('exCollapsingNavbar')
-
-
-    $('<nav>').K("navbar navbar-light bg-faded").A(
-        $.bt().A('&#9776;').K("navbar-toggler")
-            .data('toggle', 'collapse')
-            .data('target', '#exCollapsingNavbar'))
-
-
-    $.h1('boot4')
-    
-    $('<button>').A('primary').A().K('btn btn-primary')
-    $('<button>').A('warning large').A().K('btn btn-warning btn-lg')
-}
-
-BOOT4=function(){z()
-    
-    $('<nav>').A().K("navbar navbar-light bg-faded").A(
-        
-        $.a(' Navbar').K("navbar-brand"), 
-        
-        $.ul().K("nav navbar-nav").A(
-            $.li().K("nav-item active").A($.a('Home').A($.sp('(current)').K('sr-only').K('nav-link'))),
-            $.li().K("nav-item").A($.a('Features').K('nav-link')),
-            $.li().K("nav-item").A($.a('Pricing').K('nav-link')),
-            $.li().K("nav-item").A($.a('About').K('nav-link'))
-        ),
-        $.f().K("form-inline navbar-form pull-right").A(
-            $.ip().K("form-control").at('placeholder','Search'),
-            $.bt('Search').K("btn btn-success-outline")
-        )
+    $.d('y', 460, 89).css({
+        position: 'absolute',
+        top: 200, left: 300,
+        padding: 20, opacity: .9
+    }).dg().A(
+        $.sp(' '),
+        $.bt('spin', function () {
+            controls.spin()
+        }), $.sp(' '),
+        $.bt('jump', function () {
+            controls.jump()
+        }), $.sp(' '),
+        $.bt('explode', function () {
+            controls.explode()
+        }), $.sp(' '),
+        $.bt('play', function () {
+            controls.play()
+        }), $.sp(' '),
+        $.bt('stop', function () {
+            controls.stop()
+        }), $.sp(' '),
+        $.bt('meta', function () {
+            SPRITE()
+        })
     )
+    s = sprite
+    return controls
 }
+ 

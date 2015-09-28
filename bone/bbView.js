@@ -236,6 +236,7 @@ EVENTS= function(){$.x('o','beauty')
      $.h1('hello'),
      bt=  $.bt('-------')
  )
+ 
  $V({
 
   el :dv ,
@@ -253,11 +254,6 @@ EVENTS= function(){$.x('o','beauty')
 
 
 }
-
-
-
-
-
 
 
 function alpha() {

@@ -1,18 +1,22 @@
 $load = function (metNames) {
-    var fun
+    
     
     
     metNames = _.isArray(metNames) ? metNames : _.toArray(arguments) 
     
+    if(_.isFunction(window['_pre'])){
+    $l('FOUND "_pre" says $load')
+    window['_pre']()
+    }
+    
     _.each(metNames, function (fn) {
-        fun = window[fn]
-        //test=1
-        if (_.isFunction(fun)) {
-            if (window['test']) {
-                console.log('running met: "' + fn + '"')
-            }
+       var fun = window[fn]
+     
+        if (_.isFunction(fun)){ //if (window['test']) {console.log('running met: "' + fn + '"')}
+            
             fun()
         }
+        
         else {
             console.log('met "' + fn + '" not found !!!!!!!!!!!!!!!!')
         }
