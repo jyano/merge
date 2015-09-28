@@ -2,7 +2,9 @@ dirs=[
 	'','bone/blog','bone/tpcs',
 	'public/pics',
 	'both',
-	'front','graphics/art','front/handy','style',
+	'front',
+	'graphics',
+	'graphics/art','front/handy','style',
 	'graphics/graf','graphics/graf/deps',
 	//bootstrap
 	'boot','boot/deps',// 'boot/deps/css', 'boot/deps/fonts',

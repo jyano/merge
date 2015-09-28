@@ -6,18 +6,14 @@ $load([
 $.fn.ss=function(){
 	var g=G(arguments),
 		qs=$.qs(g.f)
-	$l('$.s')
-	$d(qs)
 	g.f=qs
 	this.css.apply(this,g)
 	return this
 }
+
 $.fn.st=$.fn.stop
 $.fn.fT=$.fn.f2=$.fn.fadeTo
-$.fn.an=function(a,b,c,d){
-	$l('$.fn.an')
-	var g=G(arguments),
-		q=this
+$.fn.an=function(a,b,c,d){var g=G(arguments),q=this
 	//if (N(g.s)) {g.s *= 1000}
 	this.animate($.qs(g.f),g.s,g.t,g[3],g[4])
 	return this
@@ -29,12 +25,12 @@ $.an=function(){
 	var bd=$.bd();
 	return bd.j.apply(bd,G(arguments))
 }
+ 
+$.fn.qu=$.fn.queue	
+$.fn.dq=$.fn.dqu=$.fn.dequeue	
+$.fn.cQ=$.fn.xq=$.fn.xQ=$.fn.clrQ=$.fn.clearQueue	
 
-function quu(){
-	$.fn.qu=$.fn.queue
-	$.fn.dq=$.fn.dqu=$.fn.dequeue
-	$.fn.cQ=$.fn.xq=$.fn.xQ=$.fn.clrQ=$.fn.clearQueue
-	QUU=function(){
+QUU=function(){
 		$.x('x','quu')
 		//  Qu   allow series fns to be execd asynch on an el
 		//  .slideUp, .slideDown, .fadeIn, and .fadeOut all use .an()
@@ -138,7 +134,7 @@ function quu(){
 		$l(x.qu('an'))
 		//x.du('an')
 	}
-}
+ 
 function frames(){
 	$.fn.gFr=$.fn.getFrame
 	$.fn.sFr=$.fn.setFrame

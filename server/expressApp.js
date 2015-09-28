@@ -13,7 +13,7 @@ module.exports=function(dirN){
 	$a.s({
 		port: process.env.PORT||4000,
 		'view engine':'jade',
-		views: dirN+'/server/views/'
+		views: dirN+'/views/'
 	})
 	
 	

@@ -1,6 +1,6 @@
 require('./dirs')
 
-function blogsServe(){
+function bbBlogsServe(){
     $a.g('/api/blogs', function (q, p) {
         Blog.find(function (z, docs) {
             docs.forEach(function (item) {
@@ -30,20 +30,43 @@ function blogsServe(){
         })
     })
 }
+
 function render(){
-    $a.g('/', function (q, p) {   p.send('this is a test')})
 
-    $a.g('/play/:app/:pam?', function (q, p) {   p.render('play', {
-        app: q.params.app, pam: q.params.pam})  })
-    $a.g('/play/:a/:p?', function (q, p) {   p.render('play', {
-        app: q.params.a, pam: q.params.p}) })
+    $a.g('/', function (q, p) {  
+     
+     p.send('this is a test')
+     
+     })
+
+    
+	//$a.g('/play/:app/:pam?', function (q, p) {p.render('play', {app: q.params.app, pam: q.params.pam})  })
+   
+    $a.g('/play/:a/:p?', function (q, p) {  
+     
+     p.render('play', {
+     
+        app: q.params.a, pam: q.params.p
+        
+        })
+     
+         })
 
 
-    $a.g('/wap/:app/:pam?', function (q, p) {   p.render('wap', {app: q.params.app, pam: q.params.pam})  })
 
 
-    $a.g('/mvc/:a/:p?/:p2?/:p3?', function (q, p) {   p.render('mvc', {app: q.params.a, pam: q.params.p}) })
+    $a.g('/wap/:app/:pam?', function (q, p) { 
+      p.render('wap', {app: q.params.app, pam: q.params.pam})  })
+
+
+    $a.g('/mvc/:a/:p?/:p2?/:p3?', function (q, p) {
+       
+       p.render('mvc', {app: q.params.a, pam: q.params.p})
+       
+        })
 }
+
+
 function muggy(){
     $a.g('/users', function (q, p) {
         $md.user.find(q.body,
@@ -376,7 +399,7 @@ module.exports=function routing(dirN){
     })
 
 
-    blogsServe();
+    bbBlogsServe();
     render();
     muggy()
 
