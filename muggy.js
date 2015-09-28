@@ -299,7 +299,7 @@ $GuestPage= Y.GuestPage = function(){
             $.pop( f ).dg()
         }).C('z','w'), $.sp(' - '),
         $.btL('sign up',  function(){
-            usernameInput= $.dK('form-group').fS(20).name('username').A($.lb('username: ','username'), $.ip().K('form-control').id('uname') )
+            usernameInput= $.dK('form-group').fS(20).n('username').A($.lb('username: ','username'), $.ip().K('form-control').id('uname') )
             passwordInput= $.dK('form-group').A($.lb('password: ','password'), $.pw().id('password')).fS(20).n('password')
             submit= $.bt('sign up').ty('submit').fS(16)
 
@@ -524,7 +524,10 @@ $(function(){
             $.g('myMug', function(mug){
                 Y._userMug = _userMug  = mug
                 $l('going to home page..')
-                Y('HomePage')})}})
+                Y('HomePage')})
+                }
+                
+                })
 
 })
 ////////////////////////

@@ -1,3 +1,4 @@
+$l('jqPlus')
 $load=function(metNames){
 	var fun
 	metNames=A(metNames)?metNames:[metNames]
@@ -16,8 +17,10 @@ $load=function(metNames){
 	})
 }
 $load([
-	'loadSerJLib ','letterng' 
+
+	'loadSerJLib','letterng' 
 ])
+
 function letterng(){
 	letteringPlug=function(){
 		var methods={
@@ -49,7 +52,9 @@ function letterng(){
 	};
 	letteringPlug()
 }
+
 function loadSerJLib(){
+$l('loading $.fn.serializJSON')
 	// jQuery('form').serializeJSON()
 	$.fn.serializeJSON=function(options){
 		var serializedObject,formAsArray,keys,value,f,opts;
@@ -198,6 +203,7 @@ function loadSerJLib(){
 		}
 	}
 }
+
 
 LETTERING=function(){
 	$.x()
