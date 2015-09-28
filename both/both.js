@@ -18,14 +18,12 @@ $load = function (metNames) {
 
 s$=S;
 
-
 $load([
 
     'superJavascript',   'superConsole', 'superUnderscore',
     'superString','superMath','superDate', 'utl'
 
 ])
-
 function superJavascript(){
 
     $A = Array; $B = Boolean; $N = Number;
@@ -279,7 +277,6 @@ function superJavascript(){
 
 
 }
-
 function superConsole(){
 
 
@@ -317,7 +314,6 @@ function superConsole(){
         return o
     }
 }
-
 function superUnderscore(){
     _.b = _.bind
     _.l = _.last;

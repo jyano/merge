@@ -39,9 +39,16 @@ function render(){
      
      })
 
-    
-	//$a.g('/play/:app/:pam?', function (q, p) {p.render('play', {app: q.params.app, pam: q.params.pam})  })
-   
+
+
+    $a.g('/web/:a/:p?', function (q, p) {
+        p.render('web', {
+            app: q.params.a, 
+            pam: q.params.p
+        })
+    })
+
+
     $a.g('/play/:a/:p?', function (q, p) {  
      
      p.render('play', {
@@ -51,20 +58,16 @@ function render(){
         })
      
          })
-
-
-
-
-    $a.g('/wap/:app/:pam?', function (q, p) { 
+ 
+ 
+    $a.g('/wap/:a/:p?', function (q, p) { 
       p.render('wap', {
-      app: q.params.app, pam: q.params.pam
+      app: q.params.a, pam: q.params.p
       })  })
-
-
+    
+    
     $a.g('/mvc/:a/:p?/:p2?/:p3?', function (q, p) {
-       
        p.render('mvc', {app: q.params.a, pam: q.params.p})
-       
         })
 }
 

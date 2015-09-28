@@ -583,3 +583,11 @@ MARGINAUTO=function(){
 	i.mar('auto')
 	o.mar('auto')
 }
+
+$.fn.ss = function () {
+    var g = G(arguments),
+        qs = $.qs(g.f)
+    g.f = qs
+    this.css.apply(this, g)
+    return this
+}

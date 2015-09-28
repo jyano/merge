@@ -1,31 +1,30 @@
 $load([
 	
-	'quu', 'frames', 'animApps'
+	'quu', 'frames', 'animApps','statt'
 ])
-
-$.fn.ss=function(){
-	var g=G(arguments),
-		qs=$.qs(g.f)
-	g.f=qs
-	this.css.apply(this,g)
-	return this
-}
-
+ 
 $.fn.st=$.fn.stop
 $.fn.fT=$.fn.f2=$.fn.fadeTo
-$.fn.an=function(a,b,c,d){var g=G(arguments),q=this
+
+$.fn.an=function(a,b,c,d){
+var g=G(arguments),q=this
 	//if (N(g.s)) {g.s *= 1000}
-	this.animate($.qs(g.f),g.s,g.t,g[3],g[4])
+	this.animate(
+	$.qs(g.f),g.s,g.t,g[3],g[4])
 	return this
 }
+
 $.notAn=function(a){
 	return a.filter(':not(:animated)')
 }
+
+function statt(){
 $.an=function(){
 	var bd=$.bd();
-	return bd.j.apply(bd,G(arguments))
+	return bd.j.apply(
+	bd,G(arguments))
 }
- 
+}
 $.fn.qu=$.fn.queue	
 $.fn.dq=$.fn.dqu=$.fn.dequeue	
 $.fn.cQ=$.fn.xq=$.fn.xQ=$.fn.clrQ=$.fn.clearQueue	

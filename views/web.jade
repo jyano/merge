@@ -1,0 +1,29 @@
+include mixins 
+!!! 5
+html(lang="en")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        
+        +S(["us", 'string', 'moment', 'both'])
+        
+        +S(['jq','jQueryPlus']) 
+        
+        +S(['frontOb'])
+        
+        +S(['superJQuery', 'superJQuerySty',  'superJQueryAnim'])
+        
+        +S(['handy'  ])  
+        +S(['rules'])       
+        +S(['flex'])         
+        
+        +S(['handyApps', 'flexApps' , 'frontApps'])  
+        +S(['frontCan'])
+        
+        script.
+          _app = wappyApp = '#{app}'
+          _pam = wappyPam = '#{pam}'
+          $(function () {z(); window[_app.toUpperCase()](_pam)}) 
+          
+    body
+ 
+         
