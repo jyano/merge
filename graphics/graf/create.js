@@ -1,3 +1,11 @@
+z = function (fn) {
+    var g = G(arguments)
+    if (g.F_) {
+        return T.t(fn)
+    }
+    $('body').empty()
+}
+
 cjs=createjs;
 T = cjs.Ticker
 T.t = cjs.t = cjs.tick = function (fn) {

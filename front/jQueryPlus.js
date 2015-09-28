@@ -1,21 +1,5 @@
 $l('jqPlus')
-$load=function(metNames){
-	var fun
-	metNames=A(metNames)?metNames:[metNames]
-	_.e(metNames,function(fn){
-		fun=window[fn]
-		//test=1
-		if(F(fun)){
-			if(window['test']){
-				$l('running met: "'+fn+'"')
-			}
-			fun()
-		}
-		else{
-			$l('met "'+fn+'" not found !!!!!!!!!!!!!!!!')
-		}
-	})
-}
+ 
 $load([
 
 	'loadSerJLib','letterng' 

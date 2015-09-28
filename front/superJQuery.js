@@ -581,7 +581,10 @@ layout()
 				:N(b)?_z(a)==b
 				:_z(a)==_z(b)
 		}
+		
 		z=function(fn){$('body').empty()}
+
+       
 	}
 	$.rulers=function(){
 		$.d('b',100,100).al(.3).dg()
@@ -597,6 +600,7 @@ layout()
 		return oD
 	}
 }
+
 function alpha(){
 	//$.fn.sz=function(sz){return this.at('size',sz)}
 	$.fn.fCt=function(str){return this.fi(":contains("+str+")")}
