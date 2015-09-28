@@ -80,9 +80,7 @@ $f.fs = $f.fsync//(fd, fn)//$f.fsS=$f.fsyncSync(fd)
 
 require('./server/expressApp')(__dirname)
 require('./server/database')
-
 require('./server/middleware')
-
 require('./routing')(__dirname)
 
 

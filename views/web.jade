@@ -4,6 +4,11 @@ html(lang="en")
     head
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         
+        +css('jquery-ui')
+        +css('jquery-ui.structure')
+        +css('jquery-ui.theme')
+        
+        
         +S(["us", 'string', 'moment', 'both'])
         
         +S(['jq','jQueryPlus']) 
@@ -11,19 +16,19 @@ html(lang="en")
         +S(['frontOb'])
         
         +S(['superJQuery', 'superJQuerySty',  'superJQueryAnim'])
-        
-        +S(['handy'  ])  
+        +S(['handy' ,'handyInputs' ])  
         +S(['rules'])       
-        +S(['flex'])         
         
-        +S(['handyApps', 'flexApps' , 'frontApps'])  
+        +S(['frontApps'])  
         +S(['frontCan'])
+        +S(['jquery-ui', 'jquiCore', 'jquiApps', 'widgets'])
+
+
+        +S(['bb', 'bbCore', 'bbLs', 'bbTemplate', 'bbApps', 'avail', 'bbLsApps', 'imgGal', 'direc'])
         
-        script.
-          _app = wappyApp = '#{app}'
-          _pam = wappyPam = '#{pam}'
-          $(function () {z(); window[_app.toUpperCase()](_pam)}) 
-          
+        +loadApps(app, pam)
+        
+       
     body
  
          

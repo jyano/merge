@@ -62,3 +62,5 @@ $.fn.f2= $.fn.fadeTo
 $.fn.fI= $.fn.fadeIn
 $.fn.wid= $.fn.widget
 $.wg = $.wid=  $.widget
+
+ 

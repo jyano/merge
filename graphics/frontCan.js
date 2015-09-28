@@ -55,7 +55,10 @@ function can(){
 			//to be called internally by $.c //works on FIRST canvas in jquery obj
 			el.canvas=el[0]
 			el.context=el.canvas.getContext('2d')
+			
+			if(O(window['cjs'])){
 			el.stage=new cjs.Stage(el.canvas) ///////////////////////////////
+            }
 			_superCanvas(el)
 			return el
 			function _superCanvas(el){
@@ -1072,13 +1075,17 @@ function ctx(){
 		this.scale.apply(this,arguments)
 		return this
 	}
-	x.tick=function(func){
+	
+	
+    x.cjsTick= x.tick=function(func){
 		var x=this
 		cjs.tick(function(){
 			x.temp(func)
 		})
 		return this
 	}
+	
+	
 	x.beg=function(){
 		this.beginPath()
 		return this

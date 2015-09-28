@@ -431,7 +431,7 @@ $.wg("cust.sdlg", $.ui.dialog, {
     setOption: function (k, v) {this._super(k, v); this._superApply(arguments)},
     red: function (r) {this.element.C('r')}
 })
- $.wg( "demo.multi", {
+$.wg( "demo.multi", {
 
     options: { clear: null  },
 
@@ -456,7 +456,7 @@ $.wg("cust.sdlg", $.ui.dialog, {
 })
 
 
-CALC=function(){z();$Ms('clc')
+CALC=function(){z(); 
 
     buttons=[ {l:8,a:'number'}, {l:9,a:'number'}, {l:'+',k:'jy-clc-plus',a:'operator'},
         {l:4,k:'jy-clc-clearfix',a:'number'}] //{l:'Special', a:function(e,ui){$l('special clear!'+ ui)}}
@@ -483,6 +483,7 @@ CALC=function(){z();$Ms('clc')
     })
     $('a').button()
 }
+
 SLIDES=function(){z();$Ms('SLIDES')
 
 
@@ -667,6 +668,7 @@ SDLG=function(){
     $.d().sDlg()
     $(':data(ui-dialog)').dlg( "close" ) // Select both dialogs and call close() on each of them--> "close" will only be logged once.
 }
+
 function prgbar(){
     $.wg( "cust.prgbar", {
 

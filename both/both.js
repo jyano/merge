@@ -1,6 +1,9 @@
 $load = function (metNames) {
     var fun
-    metNames = _.isArray(metNames) ? metNames : [metNames]
+    
+    
+    metNames = _.isArray(metNames) ? metNames : _.toArray(arguments) 
+    
     _.each(metNames, function (fn) {
         fun = window[fn]
         //test=1
@@ -355,6 +358,7 @@ function superUnderscore(){
         return a.split(b || '.')[0]
     } //before('.')
     _.cl= _.clone
+    _.iv = _.invoke
 
 
 }
@@ -667,6 +671,10 @@ function superMath(){M=Math
         b = N(b, 2)
         return a.toFixed(b)
     }
+
+    _.pI = parseInt
+
+    _.pF = parseFloat
 }
 function superDate(){
     $Dt = Date; $Dt.n = $Dt.now  //->  cur time - ms since  1970 UTC (N)
@@ -852,4 +860,8 @@ function superDate(){
     }
     _.inx=function(){}
     _.evx=function(a){return a}
-} 
+    _.cT = function (a) {
+        return clearTimeout(a)
+    }
+    _.sT = setTimeout
+}

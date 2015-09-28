@@ -1,12 +1,22 @@
 dirs=[
 	'','bone/blog','bone/tpcs',
 	'public/pics',
-	'both',
-	'front',
-	'graphics',
-	'graphics/art','front/handy','style',
-	'graphics/graf','graphics/graf/deps',
+	'both', 'both/dep',
+	
+	
+	'front', 'front/dep',
+	
+	
+	
+	'graphics', 'graphics/art', 'graphics/graf', 'graphics/graf/deps',
+	
+	
+	 
+	
+	
+	
 	//bootstrap
+	
 	'boot','boot/deps',// 'boot/deps/css', 'boot/deps/fonts',
 	//fiz
 	'fiz','fiz/deps',

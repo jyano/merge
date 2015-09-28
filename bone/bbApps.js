@@ -1,13 +1,18 @@
+
 perfect(); needsFixin()
 
-function perfect(){
 
+$Ms=function(ms){$.h1(ms)}
+
+
+function perfect(){
     MDGET = function () {
         $.x('r').h1('tut');
         Md = $$M();
         md = Md({n: 'j'});
         $.h3('p: ' + md.g('n'))
     }
+    
     EXTEV = function () {
         $.x('o', 'EXTEV')
         o = _.x({}, Bb.E)
@@ -16,8 +21,6 @@ function perfect(){
         })
         o.trigger('yo', 'a', 'b', 'c')
     }
-
-
     VIEW = function () {
                           $.x('b', 'viw')
 
@@ -178,8 +181,6 @@ function perfect(){
             $l("new!!!!!! " + s.g('n'))
         }).A([{n: 'g1'}, {n: 'g2'}])
     }
-
-
     MDVW = function () {
         $.x('n')
         Md = $$M({d: {n: 'j', a: 20, o: 'p'}})
@@ -212,8 +213,6 @@ function perfect(){
         })
 
     }
-
-
     BACKVALL = function () {
         z();
         $l('backvall')
@@ -255,7 +254,6 @@ function perfect(){
             md.s({n: 'rigo'}, {validate: true})
         })
     }
-
     CLLEN = function () {
         z();
         $Ms('CLLEN')
@@ -445,8 +443,8 @@ function perfect(){
             tasksCollection.add([{title: 'yooo', prior: 4}])
         }).button()
     }
-
 }
+
 function needsFixin(){
         SHOWVW=NOROUTER = function () {$.x()
             V1 = $$V({
@@ -1119,7 +1117,6 @@ function needsFixin(){
 
 
 }
-
 $$$=function(ms){
     z()
     $Ms(ms)
@@ -2515,7 +2512,7 @@ $.fn.V = function(ob){
 
              c.rm(f1)
          }
-         function usesC$() {
+     function usesC$() {
              AVAIL = function () {
                  $.x('x');
                  Ap = {M: {}, C: {}, V: {}, T: {}}
@@ -2766,8 +2763,7 @@ $.fn.V = function(ob){
 
              }
          }
-
-         function unders() {
+     function unders() {
              USMETS0 = function () {
                  tds = $C({})
                  // any()  confirm  if any of  vals  incl  pass  iterator   truth  test
@@ -7038,12 +7034,8 @@ function book(){
         })
 
     }
-    BOOKVW = function () {
-
-
+   /* BOOKVW = function () {
         $.dI('td)
-
-
         TdVw = $V({
             t: 'li',
 
@@ -7082,7 +7074,6 @@ function book(){
             updateOnEnter: function (e) {
             } // executed on each keypress when in td edit mode, but we'll wait for enter to get in action
         })
-
         ListVw = $V({
             r: function () {
                 // Assume our md exposes items we will display in our list
@@ -7095,12 +7086,11 @@ function book(){
                 }, this)
             }
         })
-
         tdVw = new TdVw()
-
         // log reference toDOM el that corresponds to view instance
         $l(tdVw.el); // logs <li></li>
-    }
+    }*/
+    
     BCL = function () {
         $.x().h1('BCL but whats up wit dose funcs?')
 
@@ -7299,6 +7289,7 @@ function book(){
 
     }
 }
+
 function bbLocalStore(){
 
     LSTD = function () {

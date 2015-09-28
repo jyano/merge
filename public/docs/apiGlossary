@@ -1,3 +1,51 @@
+resources
+    defaultMug
+
+tests
+    routeTests
+
+app
+    app
+    commSocket
+    game
+    nap
+    nav
+    socekt
+    text.html
+    ui
+    uiapp
+
+base
+
+    objects
+    glossary
+    core
+    can
+    sys
+    workerFile
+    jqueryplugins
+
+
+html
+    boot
+    buts
+    struct
+    html
+    dv
+
+
+lib
+    draw
+    event
+    move
+    time
+    inputs
+    math
+    dim
+
+
+old
+    qq
 *** API ***
 -a------------------------------------------------------
 A(?)bool:array?
@@ -288,9 +336,6 @@ V  values
 _v F(a.value)? a.value():a.value::
 -w----------------------
 
-
-
-
 W $(a||$w).outerWidth:
 //_w  var w= w(a){return a?a[w()]:'width'}
 
@@ -308,19 +353,10 @@ bW  var bw=(){ return W(qW)},   B=is(b)
                             :N(a)?    mlt(bW()/a)
                             :         bw()}
 
-
 wI=(a){var g=G(arguments);
                             if(g.n){return $(a).innerWidth()};
                             return $(a).get(0).innerWidth}
                             wA=(a){return a.availWidth}
-
-
-
-
-
-
-
-
 
 -x----------------------
 _x(s) (_h(a,'.'))?a  : R(a,b||'.png')
@@ -339,18 +375,3 @@ _z/_z(a)==_z(b)}
 Z zip:
 z empty(||body):
 ------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

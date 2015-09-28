@@ -17,5 +17,10 @@ mixin v(varName, val)
     script.
         #{varName} = "#{val}"
 
-
-
+        
+mixin loadApps(app, pam)
+    script.
+        _app = wappyApp = '#{app}'
+        _pam = wappyPam = '#{pam}'
+        $(function () {z();window[_app.toUpperCase()](_pam)}) 
+             
