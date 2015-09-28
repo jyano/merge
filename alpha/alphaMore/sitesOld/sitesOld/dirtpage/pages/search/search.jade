@@ -1,0 +1,109 @@
+
+//$topic_searched = strtolower( $_GET['topic'] )
+
+
+
+
+html
+    head
+        meta(http-equiv="Content-Type", content="text/html, charset=UTF-8")
+        title dirtpage: $topic_searched
+
+    body(onLoad="document.form1.topic.focus()")
+        #everything
+
+            //include("header.php");
+            br
+            br
+            #holder
+            br
+            span.redtitle results: #{ topic_searched }
+            br
+            br
+
+
+
+
+//THIS IS TO DISPLAY THE EXACT MATCH TOPIC IF THERE IS ONE
+
+
+$result =  topics.find({topic:   like 'topic_searched' })
+
+$num_results = mysql_num_rows($result)
+
+if ($num_results > 0) {
+
+    .dirt
+        a(HREF = "page/?topic=  str_replace(" ", "+", $topic_searched) )
+            span.topic">
+                span.expandable">  toLowerCase($topic_searched)
+
+        $result =   "SELECT message FROM messages WHERE topic like '$topic_searched'"
+
+        $num_results2 = mysql_num_rows($result)
+
+        a.(HREF="http://www.dirtpage.com/page/  str_replace(" ", "+", $row['person']))
+            span.topic
+                span.expandable  toLowerCase( $row['topic'] )
+
+        span.smallgreen ( $num_results2 items )
+
+     br
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//THIS IS TO SHOW 'NO MESSAGES' IF THERE IS NO EXACT TOPIC MATCH
+if($num_results < 1)
+        span.smallgreen There is no ' toLowerCase($topic_searched) '  topic
+        a(href="page.jade?topic= $topic_searched)  - start this page!
+        br
+        br
+
+
+
+
+
+
+
+
+
+// THIS IS FOR THE FIRST BATCH'NON-EXACT' TOPIC MATCHES
+
+
+while($row =models.topics.find( { "$and" : [{"topic": /.*$topic_searched.*/},
+{ "topic": { "$ne": "$topic_searched" } } ]}).sort('-score').limit(7).exec()
+)
+
+
+
+while($row = mysql_fetch_array($result)){
+
+    .dirt
+        $t = $row['topic'];
+        $query3 = "SELECT * FROM messages WHERE topic LIKE '$t'";
+        $result3 = mysql_query($query3) ;
+        $num_results3 = mysql_num_rows($result3);
+
+        a(HREF="page.jade?topic=  str_replace(" ", "+", $row['topic']))
+            span.topic
+                span.expandable toLowerCase($row['topic'])
+        span.smallgreen" ( $num_results3 items)
+
+
+br
+
+}
+

@@ -177,8 +177,10 @@ function nav(){
             $.submitButton().A($.gl('search')))
     }
     $.ddT = function (a) {
-        return $.a(a).K("dropdown-toggle").toggle("dropdown").A($.caret())
+        return $.a(a).K("dropdown-toggle")
+            .toggle("dropdown").A($.caret())
     }
+        
     $.ddM = function () {
         var menu
         menu = $.ul().K("dropdown-menu")
@@ -190,7 +192,9 @@ function nav(){
         return menu
     }
     $.dd = function (a, b) {
-        return $.li().K("dropdown").A($.ddT(a), $.ddM.apply($, b))
+        return $.li().K("dropdown")
+            .A($.ddT(a), 
+               $.ddM.apply($, b))
     }
     $.n = function () {
         var g = G(arguments), n
@@ -209,14 +213,17 @@ function nav(){
         return n
     }
     $.nb = function () {
+            
         return $.dK("navbar navbar-default").A($.dK("container-fluid"))
     }
     $.nbH = function (brand, link) {
         return $.dK("navbar-header").A(
+            
             $.bt().K("navbar-toggle collapsed").toggle('collapse').target(".navbar-collapse").A(
                 $.sp("Toggle navigation").K("sr-only"),
                 $.iconBar(), $.iconBar(), $.iconBar()
             ),
+            
             $.a(brand).K("navbar-brand").$(function () {
                 $.l(link)
             })

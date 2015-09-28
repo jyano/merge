@@ -1036,20 +1036,21 @@ BEST=function(){
         
         
         ul =$.ul().K("nav navbar-nav").A(
+            
+            $.d().K('container').A(
             Bs.nItLk('Link 1'),
             Bs.nItLk('Link 9'),
-            Bs.nItLk('Link 4'),
-            
-            $('<li class="nav-item dropdown">').A(
-                $.a('afsd').K("nav-link dropdown-toggle").D('toggle', "dropdown"),
-                $.d().K("dropdown-menu").A($('<a class="dropdown-item" href="#">Dropdown Link 1</a>'),$('<a class="dropdown-item" href="#">Dropdown Link 2</a>'),$('<a class="dropdown-item" href="#">Dropdown Link 3</a>'))
-            
+           
+            Bs.nItLk('Link 4'),$.li().K("nav-item dropdown").A(
+                $.a('afsd').K("nav-link dropdown-toggle").D('toggle',"dropdown"),$.d().K("dropdown-menu").A(
+                    $.a('afsdfads').K("dropdown-item"),$.a('bfsdfads').K("dropdown-item"),$.a('zfsdfads').K("dropdown-item")
+                )
             )
         )
       
+        )
         
-        
-        nb=Bs.nb().K("navbar-light").K("bg-faded").A(
+        nb=Bs.nb().K("navbar-inverse fixed-top").K("bg-faded").A(
             
             bt=Bs.nbGgBt('#nb').K("hidden-sm-up"),
             
@@ -1070,3 +1071,90 @@ BEST=function(){
         $l(bt.oh())
 }
 
+NBI=function(){z()
+        
+        n = $.d().K("nav navbar-nav  navbar-inverse navbar-fixed-top")
+        
+        ct =$.d().K('container')
+        n.A(ct)
+        ct.A( $.i('me') )
+        
+}
+NBI=function(){
+        z()
+        
+        var nav=$.d().K("navbar navbar-inverse")
+        
+        nav.A(
+            
+            $.dK('container').A(
+            $.bt('☰').K("navbar-toggler hidden-sm-up").attr(
+                {
+                        'data-toggle':'collapse','data-target':'#nav-content'
+                }
+            ),$.dK("collapse navbar-toggleable-xs").id("nav-content").A(
+                $.a('Logo').K("navbar-brand"),$.ul(
+                    [
+                            
+                            $.li().K('nav-item').A($.a('Link 1').K('nav-link')),
+                            $.li().K('nav-item').A($.a('Link 2').K('nav-link')),
+                            $.li().K('nav-item').A($.a('Link 3').K('nav-link')),
+                            $.li().K('dropdown').A(
+                                
+                               $('<a>themes<a>').K('dropdown-toggle').at('data-toggle','dropdown')
+                                
+                            )
+                            
+                    ]
+                ).K("nav navbar-nav")
+            )
+        )
+        
+        
+        )
+        
+        Bs('+').A(nav)
+}
+NBI=function(){z()
+ 
+
+navbar  = $('<nav class="navbar navbar-dark bg-inverse"></nav>').A()
+        
+        
+        navbar.A($.dK('container').A(
+                 
+                    $.bt('☰').K("navbar-toggler hidden-sm-up").attr({
+                                'data-toggle':'collapse','data-target':'#nav-content'
+                        }
+                    ),$.dK("collapse navbar-toggleable-xs").id("nav-content").A(
+                        $.a('Logo').K("navbar-brand"),
+                        
+                        $.ul(
+                            [
+                                   
+                                    $.li().K('nav-item').A($.a('Link 1').K('nav-link')),
+                                    $.li().K('nav-item').A($.a('Link 2').K('nav-link')),
+                                    $.li().K('nav-item').A($.a('Link 3').K('nav-link')),Bs.nItLk('Link 4'),
+                                    
+                                    $.li().K("dropdown").A(
+                        
+                                $.a('afsd').K("dropdown-toggle").D('toggle',"dropdown"),$.d().K("dropdown-menu").A(
+                                    
+                                            $.a('afsdfads').K("nav-link dropdown-item"),$.a('bfsdfads').K("dropdown-item"),$.a('zfsdfads').K("dropdown-item")
+                                )
+                            )
+                                    
+                                    
+                            ]
+                        
+                        ).K("nav navbar-nav")
+                    
+                )
+            )
+    
+        
+        )
+        
+        Bs('+').A(nav)
+       
+}

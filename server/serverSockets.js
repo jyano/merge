@@ -3,8 +3,6 @@ io = require('socket.io').listen($hS)
 
 io.set('log level', 1)  //sessionSocketIO = require('session.socket.io'); ssK = new sessionSocketIO(io, mongoStore, cookieParser)
 
-
-
 KK = sockets = io.sockets
 US = []  //  array-hash: socketId, username
 $idToName = function (name) {

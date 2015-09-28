@@ -1,6 +1,4 @@
- 
-
-
+require('./dirs')
 
 function blogsServe(){
     $a.g('/api/blogs', function (q, p) {

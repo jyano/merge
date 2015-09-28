@@ -456,7 +456,6 @@ function lata(){
 
         }
     }
-
     function toCssManip() {
         $.fn.bgI = $.backgroundImage
 
@@ -473,7 +472,6 @@ function lata(){
             return this.css("padding", a || 0)
         }
     }
-
     old = function () {
         animate$ = function (q, a) {
 

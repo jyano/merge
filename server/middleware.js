@@ -1,5 +1,4 @@
 uplod = require('multer')({ dest: 'public/uploads/' }).single('avatar')
-
 $a.use(
     ($ss=require('express-session'))({
         store: new  (require('connect-mongo')($ss))({ url: 'mongodb://localhost/jy'}),
@@ -8,13 +7,10 @@ $a.use(
         saveUninitialized:true
     })
 )
-
 $a.use(($cP=require('cookie-parser'))('xyz'))
 $bP=require('body-parser');
 $a.use($bP.urlencoded({ extended: false }));
 $a.use($bP.json())
-
-
 $w = $Mw = function (q, p, n) {
 
     q.ss = q.session; p.lc = p.locals
@@ -22,9 +18,6 @@ $w = $Mw = function (q, p, n) {
     q.un = q.username = q.ss.username; n()
 
 }
-
-
-
 $Mw.user = function (q, p, n) {
 
     if (q.loggedIn) {
@@ -43,15 +36,7 @@ $Mw.user = function (q, p, n) {
     else {p.json('guest')}
 
 }
-
-
 $a.use($Mw)
-
-
-
-
-
-
 old=function(){
 
     MW.pamPr=function(q,p,n){l('lU');l(modl,'modl');p.l.p=q.p;p.l.pam=q.p['pam'];
