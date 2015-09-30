@@ -16,15 +16,16 @@ mixin loadApps(app, pam)
         _app = wappyApp = '#{app}'
         _pam = wappyPam = '#{pam}'
         $(function () {z();window[_app.toUpperCase()](_pam)}) 
-             
-            
-            
-            
+        
 mixin superWeb()
     +S(['us', 'string', 'moment', 'both', 'jq', 'jQueryPlus', 'frontOb'])
     +S(['superJQuery', 'superJQuerySty', 'superJQueryAnim', 'handy', 'handyInputs', 'rules', 'superContext2D', 'superWebApps'])
              
+             
+             
 mixin superCan()
     +S(['superCanvas', 'canApps', 'cjs', 'cjsMC'])
-    +S(['create', 'easel', 'tween', 'sprite', 'movie', 'anims', 'createApps'])
-         
+    +S(['create', 'easel', 'tween', 'sprite', 'movie', 'anims'])
+    +S(['createApps', 'queueApps', 'cjsAnimApps','mcApps'])
+        
+        

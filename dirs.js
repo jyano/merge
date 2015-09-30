@@ -1,6 +1,7 @@
 dirs=[
 	'','bone/blog','bone/tpcs',
 	
+	'public',
 	'public/pics',
 	'public/art',
 	'public/assets',

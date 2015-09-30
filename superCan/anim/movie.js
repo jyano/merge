@@ -3,7 +3,6 @@ cjs.Mc = function (a, b, c, d) {
     return mc
 }
 
-
 mc=cjs.MovieClip.prototype
 
 mc.auto = mc.aR = function (auto) {
@@ -70,8 +69,11 @@ mc.cL = function () {
 }
 mc.lb = function () {
     var g = G(arguments)
-    return g.p ? this.getCurrentLabel() : this.getLabels()
+    return g.p ? 
+    this.getCurrentLabel() : 
+    this.getLabels()
 }
+
 mc.lp = function (a) { //loop
     if (U(a)) {
         return this.loop
