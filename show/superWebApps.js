@@ -1,511 +1,4 @@
-  
-COOLSEL=function(){
-    $.x()
-    // rather than worry about synchronization between each panel
-    //we will take last li in ul.k(panels) and position it to top right
-    //of ul - this way,  when he sum width of all the panels occasionally
-    //adds to greater than 100 percent of the ul as they animate..
-    //the last li never breaks to the next line
-    var s=200;
-    d=$.dK('container').A(
-        $.dK('panels').A(
-            $.sp('1'),
-            $.sp('2'),$.sp('3'),$.sp('4'),
-            $.sp('5')
-        ),
-        $.dK('panels').A(
-            $.sp('A'),
-            $.sp('B'),$.sp('C'),$.sp('D'),$.sp('E')
-        )
-    );
-    $('span').css({width:'100px',fontSize:'40px'});
-    if($('div.panels').length){
-        $('div.panels span:last-child').K('last');
-        $('div.panels span').hover(
-            function(){
-                $(this).stop().animate({width:'110px',fontSize:'50px'},s)
-                    .siblings('span').stop().animate({width:'90px',fontSize:'30px'})
-            },
-            function(){
-                $(this).stop().animate({width:'90px',fontSize:'30px'})
-            }
-        )
-    }
-}
-COOLSEL1=function(){
-    $.x()
-    // rather than worry about synchronization between each panel
-    //we will take last li in ul.k(panels) and position it to top right
-    //of ul - this way,  when he sum width of all the panels occasionally
-    //adds to greater than 100 percent of the ul as they animate..
-    //the last li never breaks to the next line
-    $.coolSelector=function(){
-        var s=200
-        d=$.dK('container').A(
-            $.dK('panels').A($.sp('1'),$.sp('2'),$.sp('3'),$.sp('4'),$.sp('5')),
-            $.dK('panels').A($.sp('A'),$.sp('B'),$.sp('C'),$.sp('D'),$.sp('E'))
-        ).A()
-        $('span').css({width:'100px',fontSize:'40px'})
-        if($('div.panels').length){
-            $('div.panels span:last-child').K('last')
-            $('div.panels span').hv(
-                function(){
-                    $(this).st().an({width:'110px',fontSize:'50px'},s)
-                        .sib('span').st().an({width:'90px',fontSize:'30px'})
-                },
-                function(){
-                    $(this).st().an({width:'90px',fontSize:'30px'})
-                }
-            )
-        }
-    }
-    $.coolSelector()
-}
-COOLSEL1 = function () {
-    $.x()
-    // rather than worry about synchronization between each panel
-    //we will take last li in ul.k(panels) and position it to top right
-    //of ul - this way,  when he sum width of all the panels occasionally
-    //adds to greater than 100 percent of the ul as they animate..
-    //the last li never breaks to the next line
-    $.coolSelector = function () {
-        var s = 200
-        d = $.dK(
-            'container', [
-                $.dK('panels').A($.sp('1'), $.sp('2'), $.sp('3'), $.sp('4'), $.sp('5')),
-                $.dK('panels').A($.sp('A'), $.sp('B'), $.sp('C'), $.sp('D'), $.sp('E'))
-            ]
-        )
-        $('span').css({width: '100px', fontSize: '40px'})
-        //$('span').ss({w: 100, fZ: 40})
-        if ($('div.panels').length) {
-            $('div.panels span:last-child').K('last')
-            $('div.panels span').hv(
-                function () {
-                    $(this).st().an({width: '110px', fontSize: '50px'}, s)
-                        .sib('span').st().an({width: '90px', fontSize: '30px'})
-                },
-                function () {
-                    $(this).st().an({w: 90, fZ: 30})
-                }
-            )
-        }
-    }
-    $.coolSelector()
-}
-COOLSEL = function () {
-    $.x()
-    $l('COOLSEL')
-    // rather than worry about synchronization between each panel
-    //we will take last li in ul.k(panels) and position it to top right
-    //of ul - this way,  when he sum width of all the panels occasionally
-    //adds to greater than 100 percent of the ul as they animate..
-    //the last li never breaks to the next line
-    var s = 200;
-    d = $.dK(
-        'container', [
-            $.dK('panels', [$.sp('1'), $.sp('2'), $.sp('3'), $.sp('4'), $.sp('5')]),
-            $.dK('panels', [$.sp('A'), $.sp('B'), $.sp('C'), $.sp('D'), $.sp('E')])
-        ]
-    )
-    $('span').ss({w: 200, fZ: 160})
-    if (_.z($('div.panels'))) {
-        $('div.panels span:last-child').K('last');
-        $('div.panels span').hv(
-            function () {
-                $(this)
-                    .st().an({w: 110, fZ: 50}, s)
-                    .sb('span').st().an({w: 90, fZ: 30})
-            },
-            function () {
-                $(this)
-                    .st().an({w: '90px', fZ: '30px'})
-            }
-        )
-    }
-}
-
-FLASH=function(){
-    z();
-    timeline=$.dA('+').WH('auto');
-    timeline.A($.c('b',500,500),$.br());
-    _.t(
-        24,function(x){
-            timeline.A(
-                $.d('r',100,100).css({display:'inline-block'}).H((x*10)+100)
-            )
-        }
-    )
-}
-BORDERS=function(){
-    z();
-    change=function(){
-        var img
-        $.fn.J=$.fn.animate
-        img=$.i('me').WH(100).A()
-        $.fn.J=$.fn.animate
-        img.C('g').bS('dashed') //.bW(20)
-            .J({"border-top-width":10},1000)
-            .J({"border-bottom-width":10},1000)
-            .J({"border-left-width":10},1000)
-            .J({"border-right-width":10},1000)
-            .J({"padding-top":10},1000)
-            .J({"padding-bottom":10},1000)
-            .J({"padding-left":10},1000)
-            .J({"padding-right":10},1000)
-            .J({"margin-top":10},1000)
-            .J({"margin-bottom":10},1000)
-            .J({"margin-left":10},1000)
-            .J({"margin-right":10},1000)
-            .J({"margin-top":0},1000)
-            .J({"margin-bottom":0},1000)
-            .J({"margin-left":0},1000)
-            .J({"margin-right":0},1000)
-            .J({"padding-top":0},1000)
-            .J({"padding-bottom":0},1000)
-            .J({"padding-left":0},1000)
-            .J({"padding-right":0},1000)
-            .J({"border-top-width":0},1000)
-            .J({"border-bottom-width":0},1000)
-            .J({"border-left-width":0},1000)
-            .J({"border-right-width":0},1000)
-    }
-    $.$$(
-        function(){
-            z();
-            _.t(10,change)
-        }
-    )
-    _.t(10,change)
-}
-ANL=function(){
-    $.fn.anL=function(){
-        var q=this
-        this.sh("slow")
-        this.an({"marginLeft":"300px"},2000)
-            .an({"marginLeft":"0px"},2000)
-        this.hd(
-            "slow",function(){
-                q.anL()
-            }
-        )
-    }
-    $.d('b',100,300).anL()
-}
-HOVERBOX=function(){
-    z();
-    d=$.d('o',500,500,'+').id('test')
-    y=$.c('p',400).K('box').hd();
-    d.A(y);
-    $('#test').hover(
-        function(){
-            $('.box').stop().fadeTo(200,1)
-        },function(){
-            $('.box').stop().fadeTo(200,0)
-        }
-    )
-}
-HVBX=function(){
-    $.x()
-    $.hvBx=$.hoverBox=function(){
-        z()
-        d=$.d('o',500,500,'+').id('test')
-        y=$.c('p',400).K('box').hd()
-        d.A(y)
-        $('#test').hv(
-            function(){
-                $('.box').st().f2(200,1)
-            },
-            function(){
-                $('.box').stop().f2(200,0)
-            }
-        )
-    }
-    $.hvBx()
-}
-NOTANIM=function(){
-    $.x()
-    var s=1000,m=function(n){
-            return {marginLeft:n}
-        },
-        n=0;
-    d=$.d().id('test').A().A(y=$.can('x',40).K('box'));
-    d2=$.d().id('debug');
-    $('#test').$(
-        function(){
-            $.notAn($('.box')).an(
-                {marginLeft:-10},s,
-                function(){
-                    $('#debug').A($.p('start..'+n++))
-                }
-            )
-                .an({marginLeft:10},s)
-                .an({marginLeft:-10},s)
-                .an({marginLeft:10},s)
-                .an({marginLeft:-10},s)
-                .an({marginLeft:-10},s)
-                .an(
-                {marginLeft:0},s,
-                function(){
-                    $('#debug').A($.p('fin'))
-                }
-            )
-        }
-    )
-    NOTAN=function(){
-        $.x()
-        var s=1000,
-            m=function(n){
-                return {marginLeft:n}
-            },
-            n=0
-        d=$.dI('test').A(y=$.c('x',40).K('box'))
-        d2=$.dI('debug')
-        $('#test').$(
-            function(){
-                notAnim($('.box')).an(
-                    {marginLeft:-10},s,
-                    function(){
-                        $('#debug').A($.p('start..'+n++))
-                    }
-                )
-                    .an({marginLeft:10},s).an({marginLeft:-10},s)
-                    .an({marginLeft:10},s).an({marginLeft:-10},s)
-                    .an({marginLeft:-10},s).an(
-                    {marginLeft:0},s,
-                    function(){
-                        $('#debug').A($.p('fin'))
-                    }
-                )
-            }
-        )
-    }
-}
- 
-FRIDGEMAG=function(){
-    z();
-    word=function(text,c1,c2){
-        var s=$.sp(text).C(c1,c2).A().drag()
-        return s
-    }
-    w=word('hello','b','g');
-    word('sicko','g','b');
-    word('why, i oughta..','p','x');
-    word('it was raining..','j','k');
-    word('who ya gonna call?','h','i');
-    word('dag nabit!','f','g');
-    word('i like','d','e');
-    word('tomorrow','a','c');
-    word('me','r','b')
-}
-TXCAN=function(){
-    z();
-    c=$.c('o',500,500);
-    //c.save().lineWidth(30).setStrokeColor('r').lineTo([[100,100],[150,110]]).stroke().restore().lineTo([[200,100],[200,600]]).stroke()
-    // c.roundRect(100,50,100,100,50).stroke()//.fill()
-    //c.line(10,10,50,500).stroke()
-    c.line(
-        [
-            [[100,100],[200,200],[140,900]]
-            // ,  [[150,150],[250,250], [20,300]]
-        ]
-    ).stroke();
-    //c.line([100,100],[200,200],[150,150],[250,250] ).stroke()
-    //c.line( [350,50],[25,25],  [450,10],[20,550]).stroke()
-}
-  
-    NOTAN = function () {
-        $.x()
-        var s = 1000,
-            m = function (n) {
-                return {marginLeft: n}
-            },
-            n = 0
-        d = $.dI('test').A(y = $.c('x', 40).K('box'))
-        d2 = $.dI('debug')
-        $('#test').$(
-            function () {
-                $.notAn($('.box')).an(
-                    {marginLeft: -10}, s,
-                    function () {
-                        $('#debug').A($.p('start..' + n++))
-                    }
-                )
-                    .an({marginLeft: 10}, s).an({marginLeft: -10}, s)
-                    .an({marginLeft: 10}, s).an({marginLeft: -10}, s)
-                    .an({marginLeft: -10}, s).an(
-                    {marginLeft: 0}, s,
-                    function () {
-                        $('#debug').A($.p('fin'))
-                    }
-                )
-            }
-        )
-    }
-    HOVERBOX = HVBX = function () {
-        $.x()
-        $.hvBx = $.hoverBox = function () {
-            z()
-            d = $.d('o', 500, 500, '+').id('test')
-            y = $.c('p', 400).K('box').hd()
-            d.A(y)
-            $('#test').hv(
-                function () {
-                    $('.box').st().f2(200, 1)
-                },
-                function () {
-                    $('.box').stop().f2(200, 0)
-                }
-            )
-        }
-        $.hvBx()
-        function alt() {
-            z();
-            d = $.d('o', 500, 500, '+').id('test')
-            y = $.c('p', 400).K('box').hd();
-            d.A(y);
-            $('#test').hover(
-                function () {
-                    $('.box').stop().fadeTo(200, 1)
-                }, function () {
-                    $('.box').stop().fadeTo(200, 0)
-                }
-            )
-        }
-    }
-    FRIDGEMAG = MAG = WORD = function () {
-        z();
-        w = word('hello', 'b', 'g');
-        word('sicko', 'g', 'b');
-        word('why, i oughta..', 'p', 'x');
-        word('it was raining..', 'j', 'k');
-        word('who ya gonna call?', 'h', 'i');
-        word('dag nabit!', 'f', 'g');
-        word('i like', 'd', 'e');
-        word('tomorrow', 'a', 'c');
-        word('me', 'r', 'b')
-        function word(t, c1, c2) {
-            return $.sp(t).C(c1, c2).A().dg()
-        }
-    }
-    ANIMLOOP = ANL = function () {
-        $.fn.anL = function () {
-            var q = this
-            q.sh("slow").an({mL: 300}, 2000)
-                .an({mL: 0}, 2000)
-                .hd(
-                "slow", function () {
-                    q.anL()
-                }
-            )
-        }
-        $.d('b', 100, 300).anL()
-    }
-    BORDERS = function () {
-        z();
-        $.fn.an = $.fn.animate
-        _.t(10, change)
-        function change() {
-            $.i('me', 100).A().C('g')
-                .css(
-                {
-                    borderStyle: 'dashed', borderWidth: '20px'
-                }
-            )
-                .animate(
-                {
-                    "border-top-width": 10
-                }, 1000
-            )
-                .an({"border-bottom-width": 10}, 1000)
-                .an({"border-left-width": 10}, 1000)
-                .an({"border-right-width": 10}, 1000)
-                .an({"padding-top": 10}, 1000)
-                .an({"padding-bottom": 10}, 1000)
-                .an({"padding-left": 10}, 1000)
-                .an({"padding-right": 10}, 1000)
-                .an({"margin-top": 10}, 1000)
-                .an({"margin-bottom": 10}, 1000)
-                .an({"margin-left": 10}, 1000)
-                .an({"margin-right": 10}, 1000)
-                .an({"margin-top": 0}, 1000)
-                .an({"margin-bottom": 0}, 1000)
-                .an({"margin-left": 0}, 1000)
-                .an({"margin-right": 0}, 1000)
-                .an({"padding-top": 0}, 1000)
-                .an({"padding-bottom": 0}, 1000)
-                .an({"padding-left": 0}, 1000)
-                .an({"padding-right": 0}, 1000)
-                .an({"border-top-width": 0}, 1000)
-                .an({"border-bottom-width": 0}, 1000)
-                .an({"border-left-width": 0}, 1000)
-                .an({"border-right-width": 0}, 1000)
-        }
-
-        /*
-         $.img('me').WH(100).A().C('g').bs('-')  //bs??
-
-         .j({bt: 40}, 1000)
-
-         .j({bb: 40}, 1000)
-         .j({bl: 40}, 1000)
-         .j({br: 40}, 1000)
-         .j({gt: 40}, 1000)
-         .j({gb: 40}, 1000)
-         .j({gl: 40}, 1000).j({gr: 40}, 1000).j({mt: 40}, 1000)
-         .j({mb: 40}, 1000).j({ml: 40}, 1000).j({mr: 40}, 1000)
-         .j({mt: 0}, 1000).j({mb: 0}, 1000).j({ml: 0}, 1000).j({mr: 0}, 1000)
-         .j({gt: 0}, 1000).j({gb: 0}, 1000).j({gl: 0}, 1000).j({gr: 0}, 1000)
-         .j({bt: 0}, 1000)
-         .j({bb: 0}, 1000).j({bl: 0}, 1000).j({br: 0}, 1000)
-         };
-         */
-    }
- 
-    TOCAN = function () {
-        z();
-        c = $.c('o', 500, 500);
-        //c.save().lineWidth(30).setStrokeColor('r').lineTo([[100,100],[150,110]]).stroke().restore().lineTo([[200,100],[200,600]]).stroke()
-        // c.roundRect(100,50,100,100,50).stroke()//.fill()
-        //c.line(10,10,50,500).stroke()
-        c.line(
-            [
-                [[100, 100], [200, 200], [140, 900]]
-                // ,  [[150,150],[250,250], [20,300]]
-            ]
-        ).stroke();
-        //c.line([100,100],[200,200],[150,150],[250,250] ).stroke()
-        //c.line( [350,50],[25,25],  [450,10],[20,550]).stroke()
-    }
-    FLASH = function () {
-        z()
-        timeline = $.dA().WH('auto').dg()
-        timeline.A(
-            $.c('b', 500, 500),
-            $.br()
-        )
-        _.t(
-            24, function (x) {
-                timeline.A(
-                    $.d('r', 100, 100)
-                        .css({display: 'inline-block'}).H((x * 10) + 100)
-                )
-            }
-        )
-        function alt() {
-            z();
-            timeline = $.dA('+').WH('auto');
-            timeline.A($.c('b', 500, 500), $.br());
-            _.t(
-                24, function (x) {
-                    timeline.A(
-                        $.d('r', 100, 100).css({display: 'inline-block'}).H((x * 10) + 100)
-                    )
-                }
-            )
-        }
-    }
-    QUU = function () {
+QUU = function () {
         $.x('x', 'quu')
         //  Qu   allow series fns to be execd asynch on an el
         //  .slideUp, .slideDown, .fadeIn, and .fadeOut all use .an()
@@ -591,42 +84,8 @@ TXCAN=function(){
         })
         $l(x.qu('an'))
         x.du('an')
-    }
-    COLANIM = function () {
-        $.x()
-        $CSS({
-            $el: {C: '#aaa', c: '#006', fz: 25, ta: 'center', pad: '1em'}
-        })
-        $.d(['color anims']).id('el')
-        $.bt('anim cols').id('tog')
-        $('#tog').$(function () {
-            $("#el").an({c: 'g', C: "rgb(20,20,20)"})
-        })
-        /*
-         Color Animation
-         jQuery UI effects core adds the ability to animate color properties using rgb(), rgba(), hex values, or even color names such as "aqua". Simply include the jQuery UI effects core file and .animate() will gain support for colors.
-
-         The following properties are supported:
-
-         backgroundColor
-         borderBottomColor
-         borderLeftColor
-         borderRightColor
-         borderTopColor
-         color
-         columnRuleColor
-         outlineColor
-         textDecorationColor
-         textEmphasisColor
-         Support for color animation comes from the jQuery Color plugin. The Color plugin provides several functions for working with colors. For full documentation, please see the jQuery Color documentation.
-
-         Class Animations
-         While there are use cases for directly animating individual color properties, it is often a better approach to contain the styles in a class. jQuery UI provides a few methods which will animate the addition or removal of a CSS class, specifically .addClass(), .removeClass(), .toggleClass(), and .switchClass(). These methods will automatically determine which properties need to change and apply the appropriate animations.
-
-         link
-         */
-    }
-    ANF = function () {
+    } 
+ANF = function () {
         z()
         a = $.dA().bgI('chicks').anf()
         anim = function (o) {
@@ -658,122 +117,7 @@ TXCAN=function(){
             }
         }
     }
-    NOTANIM = function () {
-        $.x()
-        var s = 1000, m = function (n) {
-                return {marginLeft: n}
-            },
-            n = 0;
-        d = $.d().id('test').A().A(y = $.can('x', 40).K('box'));
-        d2 = $.d().id('debug');
-        $('#test').$(function () {
-            $.notAn($('.box')).an({marginLeft: -10}, s,
-                function () {
-                    $('#debug').A($.p('start..' + n++))
-                })
-                .an({marginLeft: 10}, s)
-                .an({marginLeft: -10}, s)
-                .an({marginLeft: 10}, s)
-                .an({marginLeft: -10}, s)
-                .an({marginLeft: -10}, s)
-                .an({marginLeft: 0}, s,
-                function () {
-                    $('#debug').A($.p('fin'))
-                })
-        })
-    }
-    HVBX = function () {
-        $.x()
-        $.hvBx = $.hoverBox = function () {
-            z()
-            d = $.d('o', 500, 500, '+').id('test')
-            y = $.c('p', 400).K('box').hd()
-            d.A(y)
-            $('#test').hv(function () {
-                    $('.box').st().f2(200, 1)
-                },
-                function () {
-                    $('.box').stop().f2(200, 0)
-                })
-        }
-        $.hvBx()
-    }
-    ANL = function () {
-        $.fn.anL = function () {
-            var q = this
-            this.sh("slow")
-            this.an({"marginLeft": "300px"}, 2000)
-                .an({"marginLeft": "0px"}, 2000)
-            this.hd("slow", function () {
-                q.anL()
-            })
-        }
-        $.d('b', 100, 300).anL()
-    }
-    FLASH = function () {
-        z()
-        timeline = $.divA().WH('auto').drag()
-        timeline.A(
-            $.canvas('blue', 500, 500),
-            $.br()
-        )
-        _.times(24, function (x) {
-            timeline.A(
-                $.div('red', 100, 100).css({display: 'inline-block'}).H((x * 10) + 100)
-            )
-        })
-    }
-    COOLSEL = function () {
-        $.x()
-        // rather than worry about synchronization between each panel
-        //we will take last li in ul.k(panels) and position it to top right
-        //of ul - this way,  when he sum width of all the panels occasionally
-        //adds to greater than 100 percent of the ul as they animate..
-        //the last li never breaks to the next line
-        $.coolSelector = function () {
-            var s = 200
-            d = $.dK('container').A(
-                $.dK('panels').A($.sp('1'), $.sp('2'), $.sp('3'), $.sp('4'), $.sp('5')),
-                $.dK('panels').A($.sp('A'), $.sp('B'), $.sp('C'), $.sp('D'), $.sp('E'))
-            ).A()
-            $('span').css({width: '100px', fontSize: '40px'})
-            if ($('div.panels').length) {
-                $('div.panels span:last-child').K('last')
-                $('div.panels span').hv(
-                    function () {
-                        $(this).st().an({width: '110px', fontSize: '50px'}, s)
-                            .sib('span').st().an({width: '90px', fontSize: '30px'})
-                    },
-                    function () {
-                        $(this).st().an({width: '90px', fontSize: '30px'})
-                    })
-            }
-        }
-        $.coolSelector()
-    }
-    NOTAN = function () {
-        $.x()
-        var s = 1000,
-            m = function (n) {
-                return {marginLeft: n}
-            },
-            n = 0
-        d = $.dI('test').A(y = $.c('x', 40).K('box'))
-        d2 = $.dI('debug')
-        $('#test').$(function () {
-            notAnim($('.box')).an({marginLeft: -10}, s,
-                function () {
-                    $('#debug').A($.p('start..' + n++))
-                })
-                .an({marginLeft: 10}, s).an({marginLeft: -10}, s)
-                .an({marginLeft: 10}, s).an({marginLeft: -10}, s)
-                .an({marginLeft: -10}, s).an({marginLeft: 0}, s,
-                function () {
-                    $('#debug').A($.p('fin'))
-                })
-        })
-    }
-    JQANIMZ = function () {
+JQANIMZ = function () {
         $.x('s', 'jqanim')
         /*
          setBackgroundImage = q.bi = function(url){//set background image
@@ -800,7 +144,7 @@ TXCAN=function(){
 
          */
     }
-    LETTERING = function () {
+LETTERING = function () {
         z()
         LETTERINGPLUG = function () {
             function injector(t, splitter, klass, after) {
@@ -851,12 +195,12 @@ TXCAN=function(){
             };
         };
         LETTERINGPLUG()
-        span = $.span('hello').A()
+        span = $.sp('hello').A()
         span.lettering() // wrap <span class="charx"/ > around each character within header
         $spans = span.find('span')
         $('.dropped span').css({transition: 'all 0.3s ease-in'})
     }
-    FALLING = function () {
+FALLING = function () {
         z()
         //this goes in css
         $header2 = $.span('hello').A()
@@ -883,160 +227,148 @@ TXCAN=function(){
             }, 1800) // 1800 is just rough estimate of time transition will finish, not the best way
         })
     }
-    BORDERS1 = function () {
-        change = function () {
-            $.img('me').WH(100).A().C('g').bs('-')  //bs??
-                .j({bt: 40}, 1000)
-                .j({bb: 40}, 1000)
-                .j({bl: 40}, 1000)
-                .j({br: 40}, 1000)
-                .j({gt: 40}, 1000)
-                .j({gb: 40}, 1000)
-                .j({gl: 40}, 1000).j({gr: 40}, 1000).j({mt: 40}, 1000)
-                .j({mb: 40}, 1000).j({ml: 40}, 1000).j({mr: 40}, 1000)
-                .j({mt: 0}, 1000).j({mb: 0}, 1000).j({ml: 0}, 1000).j({mr: 0}, 1000)
-                .j({gt: 0}, 1000).j({gb: 0}, 1000).j({gl: 0}, 1000).j({gr: 0}, 1000)
-                .j({bt: 0}, 1000)
-                .j({bb: 0}, 1000).j({bl: 0}, 1000).j({br: 0}, 1000)
-        };
-        m$$(function () {
-            z();
-            _.t(10, change)
-        });
-        _.t(10, change)
+ //ok:
+FRIDGEMAG = function () {
+    z();
+    word = function (text, c1, c2) {
+        var s = $.sp(text).C(c1, c2).A().drag()
+        return s
     }
-    BORDERS = function () {
-        z();
-        change = function () {
-            var img
-            img = $.qim('me', 100).A()
-            img.bC('g').bS('dashed') //.bW(20)
-                .J({"border-top-width": 10}, 1000)
-                .J({"border-bottom-width": 10}, 1000)
-                .J({"border-left-width": 10}, 1000)
-                .J({"border-right-width": 10}, 1000)
-                .J({"padding-top": 10}, 1000)
-                .J({"padding-bottom": 10}, 1000)
-                .J({"padding-left": 10}, 1000)
-                .J({"padding-right": 10}, 1000)
-                .J({"margin-top": 10}, 1000)
-                .J({"margin-bottom": 10}, 1000)
-                .J({"margin-left": 10}, 1000)
-                .J({"margin-right": 10}, 1000)
-                .J({"margin-top": 0}, 1000)
-                .J({"margin-bottom": 0}, 1000)
-                .J({"margin-left": 0}, 1000)
-                .J({"margin-right": 0}, 1000)
-                .J({"padding-top": 0}, 1000)
-                .J({"padding-bottom": 0}, 1000)
-                .J({"padding-left": 0}, 1000)
-                .J({"padding-right": 0}, 1000)
-                .J({"border-top-width": 0}, 1000)
-                .J({"border-bottom-width": 0}, 1000)
-                .J({"border-left-width": 0}, 1000)
-                .J({"border-right-width": 0}, 1000)
-        }
-        $.$$(function () {
-            z();
-            _.t(10, change)
+    w = word('hello', 'b', 'g');
+    word('sicko', 'g', 'b');
+    word('why, i oughta..', 'p', 'x');
+    word('it was raining..', 'j', 'k');
+    word('who ya gonna call?', 'h', 'i');
+    word('dag nabit!', 'f', 'g');
+    word('i like', 'd', 'e');
+    word('tomorrow', 'a', 'c');
+    word('me', 'r', 'b')
+}
+BORDERS = function () {
+    z();
+    $.fn.an = $.fn.animate
+    _.t(10, change)
+    function change() {
+        $.i('me', 100).A().C('g')
+            .css(
+            {
+                borderStyle: 'dashed', borderWidth: '20px'
+            }
+        )
+            .animate(
+            {
+                "border-top-width": 10
+            }, 1000
+        )
+            .an({"border-bottom-width": 10}, 1000)
+            .an({"border-left-width": 10}, 1000)
+            .an({"border-right-width": 10}, 1000)
+            .an({"padding-top": 10}, 1000)
+            .an({"padding-bottom": 10}, 1000)
+            .an({"padding-left": 10}, 1000)
+            .an({"padding-right": 10}, 1000)
+            .an({"margin-top": 10}, 1000)
+            .an({"margin-bottom": 10}, 1000)
+            .an({"margin-left": 10}, 1000)
+            .an({"margin-right": 10}, 1000)
+            .an({"margin-top": 0}, 1000)
+            .an({"margin-bottom": 0}, 1000)
+            .an({"margin-left": 0}, 1000)
+            .an({"margin-right": 0}, 1000)
+            .an({"padding-top": 0}, 1000)
+            .an({"padding-bottom": 0}, 1000)
+            .an({"padding-left": 0}, 1000)
+            .an({"padding-right": 0}, 1000)
+            .an({"border-top-width": 0}, 1000)
+            .an({"border-bottom-width": 0}, 1000)
+            .an({"border-left-width": 0}, 1000)
+            .an({"border-right-width": 0}, 1000)
+    }
+
+    /*
+     $.img('me').WH(100).A().C('g').bs('-')  //bs??
+
+     .j({bt: 40}, 1000)
+
+     .j({bb: 40}, 1000)
+     .j({bl: 40}, 1000)
+     .j({br: 40}, 1000)
+     .j({gt: 40}, 1000)
+     .j({gb: 40}, 1000)
+     .j({gl: 40}, 1000).j({gr: 40}, 1000).j({mt: 40}, 1000)
+     .j({mb: 40}, 1000).j({ml: 40}, 1000).j({mr: 40}, 1000)
+     .j({mt: 0}, 1000).j({mb: 0}, 1000).j({ml: 0}, 1000).j({mr: 0}, 1000)
+     .j({gt: 0}, 1000).j({gb: 0}, 1000).j({gl: 0}, 1000).j({gr: 0}, 1000)
+     .j({bt: 0}, 1000)
+     .j({bb: 0}, 1000).j({bl: 0}, 1000).j({br: 0}, 1000)
+     };
+     */
+}
+NOTANIM = function () {
+    $.x()
+    var s = 1000, m = function (n) {
+            return {marginLeft: n}
+        },
+        n = 0;
+    d = $.d().id('test').A().A(y = $.can('x', 40).K('box'));
+    d2 = $.d().id('debug');
+    $('#test').$(function () {
+        $.notAn($('.box')).an({marginLeft: -10}, s,
+            function () {
+                $('#debug').A($.p('start..' + n++))
+            })
+            .an({marginLeft: 10}, s)
+            .an({marginLeft: -10}, s)
+            .an({marginLeft: 10}, s)
+            .an({marginLeft: -10}, s)
+            .an({marginLeft: -10}, s)
+            .an({marginLeft: 0}, s,
+            function () {
+                $('#debug').A($.p('fin'))
+            })
+    })
+}
+ANL = ANIMLOOP = function () {
+    $.fn.anL = function () {
+        var q = this
+        this.sh("slow")
+        this.an({"marginLeft": "300px"}, 2000)
+            .an({"marginLeft": "0px"}, 2000)
+        this.hd("slow", function () {
+            q.anL()
         })
-        _.t(10, change)
     }
-    COOLSEL = function () {
-        $.x()
-        // rather than worry about synchronization between each panel
-        //we will take last li in ul.k(panels) and position it to top right
-        //of ul - this way,  when he sum width of all the panels occasionally
-        //adds to greater than 100 percent of the ul as they animate..
-        //the last li never breaks to the next line
-        var s = 200;
+    $.d('b', 100, 300).anL()
+}
+COOLSEL = function () {
+    $.x()
+    // rather than worry about synchronization between each panel
+    //we will take last li in ul.k(panels) and position it to top right
+    //of ul - this way,  when he sum width of all the panels occasionally
+    //adds to greater than 100 percent of the ul as they animate..
+    //the last li never breaks to the next line
+    $.coolSelector = function () {
+        var s = 200
         d = $.dK('container').A(
-            $.dK('panels').A($.sp('1'),
-                $.sp('2'), $.sp('3'), $.sp('4'),
-                $.sp('5')),
-            $.dK('panels').A($.sp('A'),
-                $.sp('B'), $.sp('C'), $.sp('D'), $.sp('E'))
-        );
-        $('span').css({width: '100px', fontSize: '40px'});
+            $.dK('panels').A($.sp('1'), $.sp('2'), $.sp('3'), $.sp('4'), $.sp('5')),
+            $.dK('panels').A($.sp('A'), $.sp('B'), $.sp('C'), $.sp('D'), $.sp('E'))
+        ).A()
+        $('span').css({width: '100px', fontSize: '40px'})
         if ($('div.panels').length) {
-            $('div.panels span:last-child').K('last');
-            $('div.panels span').hover(
+            $('div.panels span:last-child').K('last')
+            $('div.panels span').hv(
                 function () {
-                    $(this).stop().animate({width: '110px', fontSize: '50px'}, s)
-                        .siblings('span').stop().animate({width: '90px', fontSize: '30px'})
+                    $(this).st().an({width: '110px', fontSize: '50px'}, s)
+                        .sib('span').st().an({width: '90px', fontSize: '30px'})
                 },
                 function () {
-                    $(this).stop().animate({width: '90px', fontSize: '30px'})
+                    $(this).st().an({width: '90px', fontSize: '30px'})
                 })
         }
     }
-    HOVERBOX = function () {
-        z();
-        d = $.d('o', 500, 500, '+').id('test')
-        y = $.c('p', 400).K('box').hd();
-        d.A(y);
-        $('#test').hover(function () {
-            $('.box').stop().fadeTo(200, 1)
-        }, function () {
-            $('.box').stop().fadeTo(200, 0)
-        })
-    }
-    LETTERING = function () {
-        $.x()
-        sp = $.sp('hello').A()
-        sp.lettering(); // wrap <span class="charx"/ > around each character within header
-        $spans = sp.fi('span')
-        $('.dropped span')
-            .css({
-                transition: 'all 0.3s ease-in'
-            })
-    }
-    FALLING = function () {
-        z();
-        //this goes in css
-        $header2 = $.sp('hello').A();
-        $header2.lettering(); // wrap <span class="charx"/ > around each character within header
-        $spans = $header2.fi('span');
-        delay = 0;
-        $header2.$(function () {
-            $spans.e(function () {
-                $(this).css({transitionDelay: delay + 's'}); // apply sequential trans delay to each character
-                delay += 0.1
-            });
-            $header2.K('dropped'); // Add "dropped" class to header to apply transition
-            setTimeout(function () { // reset header code
-                $spans.e(function () {
-                    $(this).css({transitionDelay: '0ms'})
-                });
-                // set transition delay to 0 so when 'dropped' class is removed,
-                // letter appears instantly
-                $header2.removeClass('dropped'); // remove class at the "end" to reset header.
-                delay = 0
-            }, 1800); // 1800 is just rough estimate of time transition will finish, not the best way
-        })
-    }
-    TXPLUG = function () {
-        z();
-        d = $.d('r', 100).A('abc');
-        e = $.d(100).col('r').A('abc');
-        f = $.d('r', 100).col('b').A('abc');
-        g = $.d('b', 500, 500)
-    }
-    FRIDGEMAG = function () {
-        z();
-        word = $.word;
-        w = word('hello', 'b', 'g');
-        word('sicko', 'g', 'b');
-        word('why, i oughta..', 'p', 'x');
-        word('it was raining..', 'j', 'k');
-        word('who ya gonna call?', 'h', 'i');
-        word('dag nabit!', 'f', 'g');
-        word('i like', 'd', 'e');
-        word('tomorrow', 'a', 'c');
-        word('me', 'r', 'b')
-    }
-    
-    TXCAN = function () {
+    $.coolSelector()
+}
+TXCAN = function () {
         z();
         c = $.c('o', 500, 500);
         //c.save().lineWidth(30).setStrokeColor('r').lineTo([[100,100],[150,110]]).stroke().restore().lineTo([[200,100],[200,600]]).stroke()
@@ -1048,23 +380,63 @@ TXCAN=function(){
         ]).stroke();
         //c.line([100,100],[200,200],[150,150],[250,250] ).stroke()
         //c.line( [350,50],[25,25],  [450,10],[20,550]).stroke()
-    }
-    
-    
-    FLASH = function () {
+    } 
+FLASH = function () {
         z();
         timeline = $.dA('+').WH('auto');
         timeline.A($.c('b', 500, 500), $.br());
         _.t(24, function (x) {
             timeline.A(
-                $.d('r', 100, 100).css({display: 'inline-block'}).H((x * 10) + 100)
+                $.d('r', 100, 100)
+                .css({display: 'inline-block'}).H((x * 10) + 100)
             )
         })
     }
- 
- 
- 
+HOVERBOX = function () {
+    z();
+    d = $.d('o', 500, 500, '+').id('test')
+    y = $.c('p', 400).K('box').hd();
+    d.A(y);
+    $('#test').hover(function () {
+        $('.box').stop().fadeTo(200, 1)
+    }, function () {
+        $('.box').stop().fadeTo(200, 0)
+    })
+}
+COLANIM = function () {
+    $.x()
+    $CSS({
+        $el: {C: '#aaa', c: '#006', fz: 25, ta: 'center', pad: '1em'}
+    })
+    $.d(['color anims']).id('el')
+    $.bt('anim cols').id('tog')
+    $('#tog').$(function () {
+        $("#el").an({c: 'g', C: "rgb(20,20,20)"})
+    })
+    /*
+     Color Animation
+     jQuery UI effects core adds the ability to animate color properties using rgb(), rgba(), hex values, or even color names such as "aqua". Simply include the jQuery UI effects core file and .animate() will gain support for colors.
 
+     The following properties are supported:
+
+     backgroundColor
+     borderBottomColor
+     borderLeftColor
+     borderRightColor
+     borderTopColor
+     color
+     columnRuleColor
+     outlineColor
+     textDecorationColor
+     textEmphasisColor
+     Support for color animation comes from the jQuery Color plugin. The Color plugin provides several functions for working with colors. For full documentation, please see the jQuery Color documentation.
+
+     Class Animations
+     While there are use cases for directly animating individual color properties, it is often a better approach to contain the styles in a class. jQuery UI provides a few methods which will animate the addition or removal of a CSS class, specifically .addClass(), .removeClass(), .toggleClass(), and .switchClass(). These methods will automatically determine which properties need to change and apply the appropriate animations.
+
+     link
+     */
+}
 //cssApps:
 EXT = function () {
     $.x('x', 'ext')
@@ -1261,7 +633,6 @@ FLEXCT = function () {
         ).css({margin: 20}).C('b')
     }
 }
-
 function broke() {
     QUU = function () {
         $.x('x', 'quu')

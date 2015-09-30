@@ -1,19 +1,19 @@
 dirs=[
 	'','bone/blog','bone/tpcs',
+	
 	'public/pics',
-	'both', 'both/dep',
+	'public/art',
+	'public/assets',
+	'public/uploads',
+		
+	'both', 'both/deps',
+		
+	'superWeb', 'superWeb/deps',
+		
+	'superCan', 'superCan/deps', 'superCan/anim',  
 	
 	
-	'front', 'front/dep',
-	
-	
-	
-	'graphics', 'graphics/art', 'graphics/graf', 'graphics/graf/deps',
-	
-	
-	 
-	
-	
+		
 	
 	//bootstrap
 	

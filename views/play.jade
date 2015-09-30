@@ -3,15 +3,17 @@ include mixins
 html(lang="en")
     head
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        +S(['us', 'string', 'both', 'jq', 'jQueryPlus', 'cjs', 'cjsMC', 'gpcas', 'bx'])
-        +S(['frontOb', 'superJQuery', 'superJQuerySty', 'superJQueryAnim'])
-        +S(['handy'])
-        +S(['superCanvas','superContext2D'])
-        +S(['create', 'easel', 'tween', 'sprite', 'movie', 'anims'])
-        +S(['polyMath', 'box', 'sep', 'fiz', 'fizBod', 'coll', 'joint', 'co', 'geo'])
+        +superWeb
+        +superCan
+        
+        
+        
+        
+        +S(['gpcas','bx', 'polyMath', 'box', 'sep', 'fiz', 'fizBod', 'coll', 'joint', 'co', 'geo'])
         +S(['spaz'])
-        +S(['nice', 'tx', 'canGames', 'blocks', 'bones', 'createGames'])
+        +S(['nice', 'tx',  'blocks', 'bones', 'createApps','gunnertron'])
         +S(['contact', 'controller', 'geometry', 'webman'])
+        
         script.
             _app = wappyApp = '#{app}'
             _pam = wappyPam = '#{pam}'

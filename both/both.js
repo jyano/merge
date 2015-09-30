@@ -2,13 +2,13 @@ $load = function (metNames) {
     
     
     
-    metNames = _.isArray(metNames) ? metNames : _.toArray(arguments) 
-    
+    metNames = _.isArray(metNames) ? 
+    metNames : _.toArray(arguments) 
+	
     if(_.isFunction(window['_pre'])){
     $l('FOUND "_pre" says $load')
     window['_pre']()
     }
-    
     _.each(metNames, function (fn) {
        var fun = window[fn]
      
@@ -22,6 +22,7 @@ $load = function (metNames) {
         }
     })
 }
+
 
 s$=S;
 

@@ -26,7 +26,7 @@ ct = cjs.Container.prototype
 i = cjs.DisplayObject.prototype
 
 ct.h =   function (x, y, c, C, l, opt) {var ct = this,
-    h = cjs.h(x, y, c, C, l, opt).a2(ct)
+    h = $h(x, y, c, C, l, opt).a2(ct)
     return h.drag()
 }
 $Bm = function (i) {  var bm
@@ -596,10 +596,7 @@ $(function(){
         if( isGuest(Y._un=Y._userName=_username=un))
         {Y('GuestPage') } else { logInUser(un) }
         
-        
-
-        
-        
+         
         function logInUser(un){
             k.em('id', un);   k.em('jRm',  _username )
             $.g('myMug', function(mug){
@@ -612,10 +609,9 @@ $(function(){
 			return un=='guest'|| !un
 		}
 	})
-                
-                
-
 })
+
+
 
 
 ////////////////////////
