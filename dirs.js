@@ -4,6 +4,7 @@ dirs=[
 	'public',
 	'public/pics',
 	'public/art',
+	'public/newArt',
 	'public/assets',
 	'public/uploads',
 		
@@ -11,11 +12,9 @@ dirs=[
 		
 	'superWeb', 'superWeb/deps',
 		
-	'superCan', 'superCan/deps', 'superCan/anim',  
-	
+	'superCan', 'superCan/deps', 'createAnim',  
 	
 		
-	
 	//bootstrap
 	
 	'boot','boot/deps',// 'boot/deps/css', 'boot/deps/fonts',
