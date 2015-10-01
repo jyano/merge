@@ -84,12 +84,11 @@ EDIT1=function(){
 
 PROPBOX=function(){
 
-    var imagesDiv=$div()
+    var imagesDiv= $.d()
 
-    dA=$divA('y',200)(
-        $span('prop box'),
-        $hr(),
-        $span('selected cutout:')
+    dA=$dA('y',200).A(
+		    $.sp('prop box'),
+		    $.hr(), $sp('selected cutout:')
 
     )
 

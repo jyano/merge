@@ -976,17 +976,30 @@ function works() {
 		p()
 	}
 	SHAPES = function () {
+	
 		St()
-		s.can.P('a').XY(300)
-		s.bm('me', 0.2, function (bm) {
-		})
-		s.A(cjs.circ(100, 'blue', 'green').XY(100, 100).drag())
-		s.circ(100, 100, 10, 'red', 'yellow')
-			.circ(10, 100, 100, 'black', 'purple')
-			.circ(100, 10, 100, 'blue', 'red')
-			.circ(150, 150, 120, 'red', 'blue')
-			.circ(30, 'brown', 'gray')
+		
+		s.can.P('a').XY(200)
+		 
+		s.b('me')
+		
+		
+		s.bm('me', 0.2, function (bm) {})
+		
+		h=$h().cir()
+		
+		s.A(
+				$h().cir(100, 'blue', 'green').XY(100, 100).drag()
+		)
+		
+		s.h().cir(100, 100, 10, 'red', 'yellow')
+		s.h().cir(10, 100, 100, 'black', 'purple')
+		s.h().cir(100, 10, 100, 'blue', 'red')
+		s.h().cir(150, 150, 120, 'red', 'blue')
+		s.h().cir(30, 'brown', 'gray')
+		s.u()
 	}
+	
 	HITCIRCLES = function () {
 		z()
 		
@@ -1037,7 +1050,10 @@ function works() {
 			}
 			b.on('pressmove', b)
 		})
+		
+		st.t()
 	}
+	
 	FANCY = function (x, y) {
 		
 		
@@ -2736,6 +2752,17 @@ PEEP = PEEPHOLE = WIND = function () {
 }
 FANCY = function (x, y) {
 	z()
+	$.iD = $.imgDiv = function (st) {
+		d = $.d('y', '+')
+		$.eGj('img', function (i) {
+			d.A($.c(100, 100).fit(i.d)
+					.$(function () {
+						st.bm(i.d, function (bm) {
+							bm.sXY(.4).dg()
+						})
+					}))
+		})
+	}
 	canvas = $.c('g', 400)
 	stage = new cjs.Stage(canvas[0]).t()
 	frame = $.dragFrame(theSpan = $.sp())
@@ -2744,7 +2771,7 @@ FANCY = function (x, y) {
 				frame.remove()
 			}),
 			$.button('pics', function () {
-				$.imagesDiv(stage)
+				$.imgDiv(stage)
 			}),
 			$.button('transform'),
 			$.button('text'),
@@ -2775,14 +2802,14 @@ FANCY = function (x, y) {
 			}),
 			$.button('clone', function () {
 				var newSpan = $.sp()
-				var newStage = dragStage(newSpan)
+				var newStage = $.dragStage(newSpan)
 				newStage.bm(stage.du(), function (bm) {
 					SL(bm)
 				})
 			}),
 			$.button('recur', function () {
 				stage.bm(stage.du(), function (bm) {
-					bm.sxy(.4)
+					bm.sXY(.4)
 					SL(bm)
 				})
 			}),

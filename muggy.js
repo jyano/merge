@@ -884,8 +884,9 @@ function later() {
             $.Cl(3).A($.h4('pics'), $.h5('place to upload'))).A()
 
     }
+    
     $.iD = $.imgDiv = function (st) {
-        alert('$.imgDiv')
+        
         d = $.d('y', '+')
         $.eGj('img', function (i) {
             d.A($.c(100, 100).fit(i.d)
@@ -896,6 +897,7 @@ function later() {
                 }))
         })
     }
+    
     $.msg = $.messageDiv = function (t) {
         alert('$.msgDiv')
         return $.d('p').col('z').K('msg').mar(10).pad(10).bor(0)
