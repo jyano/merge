@@ -119,7 +119,6 @@ ct.cir = function (c, r, x, y) {
 }
 q = cjs.LoadQueue.prototype
 
-
 q.fileload = function (func) {
     this.addEventListener("fileload", func)
     return this
@@ -143,7 +142,6 @@ q.bm = function (img) {
     return $Bm(img)
 }
 
-
 cjs.handleFileLoad = function (e) {
     alert('cjs.handleFileLoad')
     if (e.item.type == "image") {
@@ -159,25 +157,24 @@ cjs.mf =  function (a) {
     return mf
 }//used
 
-Q = function (imgs, func) {var q = cjs.lq()
+Q = function (imgs, func) {
+
+alert('wap Q')
+
+var q = cjs.lq()
     mf = []
     _.e(imgs, function (v) {
         mf.push({
-
             src: _.src(v),
             id: v
-
         })
-    
     })
-    
     q.manifest(mf)
-    
     q.complete(function () {
         func(q)
     })
-
 }
+
 
 
  

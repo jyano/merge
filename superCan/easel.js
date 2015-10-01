@@ -330,42 +330,7 @@ function shape(){
 		o.h = N(o.h, 50)
 		return o
 	}
-	$Cir = function () {
-		var g = G(arguments), o
-		o = g.S_ ? {c: g.f, x: g.s, y: g.t, r: g[3]} : {x: g.f, y: g.s, r: g.t}
-		return $H(o.c, o.x, o.y).dc(o.r)
-	}
-	h.cir = function () {
-    var h = this, gx = h.graphics, g = G(arguments), o
-    o = g.O ? g.f :
-        N(g.t) ? {x: g.f, y: g.s, r: g.t, c: g[3], C: g[4], l: g[5]} :
-            N(g.s) ? {x: g.f, y: g.s, c: g.t, C: g[3], l: g[4]} :
-                g.N_ ? {r: g.f, c: g.s, C: g.t, l: g[3]} :
-                {c: g.f, C: g.s, l: g.t}
-    h.c(o)
-    if (o.bf) {
-        if (N(o.bf)) {
-            o.bm = 'me'
-        }
-
-        if (F(Q)) { //async
-            h.bf(o.bf, function () {
-                h.dc(o)
-            })
-        }
-        else { //sync
-            o.tf = o.tf || null;
-            h.bf(o.bf, o.tf).dc(o)
-        }
-    }
-
-    else {
-        h.dc(o)
-    }
-    h.alpha = N(o.al, 1)
-    return h
-
-}
+	 
 h.poly = function (V, c, C, l) {
 
 //*** this is s.poly.. not h.poly !
@@ -551,18 +516,6 @@ h.qt = function (x, y, r, startA, endA, aCW) {
     gx.quadraticCurveTo(x, y, r, startA, endA, aCW)
     return h
 }
-h._dc = function (o) {
-    var h = this, gx = h.graphics, g = G(arguments)
-    gx.dc(N(o.x, 0), N(o.y, 0), N(o.r, 50))
-    return h
-}
-h.cirs = function (g) {
-    var h = this
-    g.e(function (c) {
-        h.dc(c)
-    });
-    return this
-}
 
 
 h.bC = function (o) {
@@ -573,20 +526,10 @@ h.bC = function (o) {
 }//calls bitmap fill and lets it load up the bitmap (my face)
 //then passes in a function to be called once the image has finished loading
 //in this case, the function draws a rectangle (and the bitmap is automatically used as the fill)
-h.dc = function (x, y, r) {
-    var h = this, gx = h.graphics, g = G(arguments), o
-    h.cp()
-    if (g.A) {
-        return $a(h, 'dc', g.f)
-    }
-    if (g.OO_) {
-        return h.cirs(g)
-    }
-    o = g.O ? g.f : g.$ ? {r: g.f} : {x: g.f, y: g.s, r: g.t}
-    return h._dc(o)
-}
-
-h.pol = function (V, c, C, l) {
+	
+	
+ 
+	h.pol = function (V, c, C, l) {
     var h = this, g = G(arguments), o
 
     //array must come first b/c its an obj

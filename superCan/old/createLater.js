@@ -393,6 +393,8 @@ function later(){
             SL(h)
             return h
         }
+      
+      
         cjs.box = function (w, h, fc, sc) {
 
             w = w || 200
@@ -535,6 +537,8 @@ function later(){
             return b
         }
     }
+    
+    
     cjs.M = function (rot) {
         alert('cjs.M')
         var m = new cjs.Matrix2D()

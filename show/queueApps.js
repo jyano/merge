@@ -11,6 +11,10 @@ QUEUE = function () {
 		s.A($Bm(image))
 	}
 }
+
+
+ 
+
 QUEUEMUG = function () {
 	z()
 	s = $St(500, 500)
@@ -40,10 +44,11 @@ MF = function () {
 		w.i.A(Q.b('me'), Q.b('guy')
 		)
 	})
-}
+}//needs play 
 // with WQ.. just pass in a function to be called when ready
 // i dont think it receives anything, it dont need it
 // to access an image: var me = Q.b('me')
+
 TXWQ = function () {
 	WQ({}, worldRdy)
 	function worldRdy() {

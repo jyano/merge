@@ -53,17 +53,30 @@ cjs.lq = function (mf, func) {
 	}
 	return q
 } //cjs.loadQueue =	
-Q=function(){  var g=G(arguments),  o
+
+
+Q=function(){var g=G(arguments),  o
 	//starts off as a fn (obviously)
 	//but ends up as an obj
 	// (can use his info to test if its been ran)
-	o=g.F? {c:g.f}:  {m:g.f,c:g.s}
+	o= g.F? {c: g.f}: g.O? g.f: 
+	{m:g.f, c:g.s, f:g.t}
 	o.m = o.m || _MF
-	Q=(new cjs.LoadQueue).c(o.c).m(o.m)
+	Q=(new cjs.LoadQueue)
+	Q.c(o.c)
+	if(o.f){Q.f(o.f)}
+	Q.m(o.m)
 }
-WQ = function(){var g = G(arguments), o
-	o = _.x({ob:g.f||{}},
-			F(g.t)?{fn0: g.s, fn: g.t}: {fn: g.s})
+ 
+
+//toSpaz 
+WQ = function(){
+alert('WQ')
+var g = G(arguments), o
+	o =  F(g.t)? 
+	{ob: g.f, fn0: g.s, fn: g.t}:
+	{ob: g.f, fn: g.s}
+	o.ob = o.ob|| {}
 	o.fn = o.fn || function(){}
 	w = W(o.ob)
 	if (o.fn0) {o.fn0(w)}
@@ -72,37 +85,11 @@ WQ = function(){var g = G(arguments), o
 
 
 
+
+
 function graphics(){
-	$H = $h = function () {
-		var g = G(arguments), h = new cjs.Shape(),
-		//if (cjs.iH(x)) {return new cjs.Shape(x.graphics)}
-//pass in your own obj to use 'o.i/o.bf' or 'o.lf' or 'o.rf'
-				o = g.O ? g.f :
-						g.N_ ? ( N(g[3]) ? // 'c-C-l' pattern
-						{x: g.f, y: g.s, C: g.t, l: g[3]} : {x: g.f, y: g.s, c: g.t, C: g[3], l: g[4]} ) :
-							// 'c-C-l' pattern
-								N(g.s) ? {C: g.f, l: g.s} :
-								{c: g.f, C: g.s, l: g.t}
-		_h = h
-		h.XY(N(o.x, 0), N(o.y, 0))
-		h.c(o.c || 'z', o.C || 'w', o.l || 8)
-		if (o.C) {
-			h.C(o.C)
-		}
-		if (N(o.l)) {
-			h.l(o.l)
-		}
-		if (g.p) {
-			h.dg()
-		}
-		return h
-	}
-	ct.h = function () {
-		var ct = this,
-				h = $H.apply($H, arguments)
-		ct.A(h)
-		return h
-	}
+	 
+	
 	cjs.lg = h.lg = function () {
 		var g = G(arguments), o//h=this, gx=h.graphics,
 		if (g.A) {
@@ -123,9 +110,7 @@ function graphics(){
 		o.y2 = N(o.y2) ? o.y2 : N(o.r) ? o.r * 2 : 100
 		return o
 	}
-	cjs.iH = function (h) {
-		return O(h) && h.graphics
-	}
+
 	$Gx=cjs.Gx = cjs.gx = function (a) {return new cjs.Graphics(a)}
 	_MF = ['me', 'guy', 'chicks', 'sun', 'flame', 'earth']
 	gxHPt()
@@ -484,6 +469,7 @@ function graphics(){
 		}
 	}
 }
+
 
 function stage(){
 	
@@ -1413,3 +1399,22 @@ $.dragStage = function (x, y) {
 	$.dragFrame(c).A()
 	return s
 }
+
+
+__S = function () {
+	 var g=G(arguments)
+	 
+	st = stage = new cjs.Stage($.cv(980, 640).A()[0]);
+	if(g.p){
+	st.b('me')
+	}
+	T.setFPS(24);
+	T.on("tick", st);
+	
+	lib = {}
+	images = img = {}
+	loader = new cjs.LoadQueue(false);
+	return st
+
+}
+ 

@@ -649,19 +649,8 @@ BUSH = BUSHSPRITESHEET=function(){
 
 
 }
-
-function _pre(){
-	__S = function () {
-		st = stage = new cjs.Stage($.cv(980, 640).A()[0]);
-		//st.b('me')
-		T.setFPS(24);
-		T.on("tick", st);
-		lib = {}
-		images = img = {}
-		loader = new cjs.LoadQueue(false);
-		return st
-	}
-}
+ 
+ 
 
 BSH = BUSHMC = function(){
 	lib = {},
@@ -809,9 +798,7 @@ STK = function () {
 	p.XY(300,100)
 	p.gotoAndStop()
 }
-
-
-
+ 
 
 SIDE=function(){
 	(function (window) {
