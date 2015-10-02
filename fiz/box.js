@@ -1,6 +1,5 @@
 b2d= Box2D
 b2d.Fixture= b2d.Dynamics.b2Fixture
-
 b2d.cn= b2d.controls={}
 b2d.pollute=function(){
 
@@ -74,7 +73,6 @@ b2d.ConstantAccelController= b2d.Dynamics.Controllers.b2ConstantAccelController
 b2d.BuoyancyController=new b2d.Dynamics.Controllers.b2BuoyancyController
 b2d.Fixture = b2d.Dynamics.b2Fixture
 b2d.FixtureDef= b2d.Dynamics.b2FixtureDef
-
 b2d.p= function(){
     aCo = b2d.Dynamics.Controllers.b2ConstantAccelController.prototype
     b=b2d.Body.prototype
@@ -125,11 +123,7 @@ b2d.p= function(){
     x=  ctx=  xx=CanvasRenderingContext2D.prototype
     xGr= CanvasGradient.prototype
 }
-
-
 b2d.p()
-
-
 function old(){
 
     //cv = el = $.fn
@@ -150,79 +144,6 @@ function old(){
 //world clearforces
 //static body for ground, dynamic for objs
 }
-
-//to front/both
-
-
-_.adj= cjs.adj = cjs.camAdj = function (income, tax) {
-//tax ~ deltaLimit ~ buffer
-    var income = income || 0, tax = tax || 0
-    if (income > 0) {
-        return income > tax ? income - tax : 0
-    }
-    return -income > tax ? income + tax : 0
-
-}
-_.cap= cjs.cap = function (n, m, M) {
-
-    if (U(m)) {
-        return n
-    }
-
-
-    if (A(m)) {
-        M = m[1]
-        m = m[0]
-    }
-
-    return n < m ? m
-        : n > M ? M
-        : n
-}
-_.eW=function(str, fn){
-
-    var _gf = str.trim().split(' ')
-
-
-    _.e(_gf,
-
-        function(str){
-
-            str = str.trim()
-
-            // $l('str: '+ str)
-            if(str) {
-                fn( str.trim() )
-            }
-        }
-
-    )
-
-}
-_.ct = function(arr, item){
-
-    arr = arr || []
-
-    if(S(item)){item=item.trim()}
-
-    return _.contains(arr, item)
-
-}
-//to easel
-ct.aC=function(ac){
-    var ct=this
-    if(U(ac)){return ct.autoClear}
-    ct.autoClear = ac?true:false;
-    return ct
-}
-T.iP=function(){return T.getPaused()}
-
-
-
-//cjs.Ticker.removeAllEventListeners() //w.show(function(){})
-// not working with scroll
-
-
 v.m=  v.mult = function (num) {
     num = N(num) ? num : 30
     var v = _.clone(this)
@@ -246,7 +167,6 @@ v.add= v.a=function(){var v=this,g=G(arguments),v1
     )
 
 }
-
 v.A=function(){var v=this,g=G(arguments),v1
 
     if( A(g[0]) && U(g[1]) ){
@@ -327,15 +247,12 @@ V=function(x,y,x2,y2){var g=G(arguments),
 v.tA=function(){
     return [this.x, this.y]
 }
-
-
 b2d.mult = function(v){return V(v).mult()}
 b2d.div = function(v){return V(v).div()}
 b2d.mat22=function(v1,v2){
     var m = new b2d.Mat22()
     m.SetVV(v1,v2)
     return m}
-
 b2d.tf=function(v1,v2,v3){
     if(U(v1)){
         return new b2d.Math.b2Transform()
@@ -347,31 +264,16 @@ b2d.tf=function(v1,v2,v3){
             V(v1[4],v1[5]))}
     var tf= new b2d.Math.b2Transform(v1, b2d.mat22(v2,v3))
     return tf}
-
 ADD=function(){W().P()
-
-
     b=w.brick().C('r')
-
     p=M.p(b)
-
     //v=p.vs()
-
     //p.reg(b)
-
-
     w.S(100, 0).pol('z',  M.p(b) )
-
-
-
-    $.in(function(){
+    _.in(function(){
         // w.S(0,0).pol('y',v)
     })
-
     //v1= v.add(400,500)
-
-
-
 }
 b2d.mini=function(){
     iF=b2d.iF;
@@ -379,8 +281,6 @@ b2d.mini=function(){
     iP=b2d.iGP
     pD=function(){return new PolyDefault()}
 }
-
-
 dd.i = dd.spr = dd.sprite = function (spr) {
     var dd = this  //it is looking for  a context?
     if (U(spr)) {
@@ -427,7 +327,6 @@ dd.flags = dd.fl = function (flags) {
 
     return dd
 }
-
 b2d.AB=function(x1,y1,x2,y2){var g=G(arguments)
     var g=G(arguments), ab
     ab = new b2d.Collision.b2AABB
@@ -452,22 +351,3 @@ b2d.AB=function(x1,y1,x2,y2){var g=G(arguments)
     }
     return ab
 }
-
-
-$.mousedown=function(fn){$('body').on('mousedown', fn); return $}
-$.oMD=function(fn){return $.mousedown(function(e){fn(e.clientX, e.clientY, e)})}
-$.mousemove=function(fn){$('body').on('mousemove', fn); return $}
-$.oMM=function(fn){return $.mousemove(function(e){fn(e.clientX, e.clientY, e)})}
-$.mouseup=function(fn){$('body').on('mouseup', fn); return $}
-$.oMU = function (fn) {return $.mouseup(function (e) { fn(e.clientX, e.clientY, e) })}
-
-
-$.i = function(){var g=G(arguments),i=$(new Image()),
-    o= g.O? g.f: {sr:g.f, fn:g.s}
-    if(o.fn){i.load(function(ev){
-        o.fn($(ev.target), ev)
-    })}
-    if(o.sr){i.src(_.src(o.sr))}
-    return i
-} //img.load(function(img){var img = $(img.target)}) // gets rid of auto-scaling quirk // img.W( img.W() ) // img.H( img.H() )
-

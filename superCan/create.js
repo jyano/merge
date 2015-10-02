@@ -3,8 +3,6 @@
 $load(  'ticker','graphics','stage',
 		'containers', 'cjsMath', 'displayObs')
 
-
-
 function graphics(){
 	cjs.lg = h.lg = function () {
 		var g = G(arguments), o//h=this, gx=h.graphics,
@@ -382,7 +380,6 @@ function graphics(){
 		}
 	}
 }
-
 function stage(){
 	
 	
@@ -716,8 +713,6 @@ function containers(){
 		}
 	}
 }
-
-
 function ticker() {
 	T = cjs.Ticker
 	T.t = cjs.t = cjs.tick = function (fn) {
@@ -731,6 +726,7 @@ function ticker() {
 		return g.n ? T.t('+') - T.t() :
 				Number((T.getTime(g.p ? false : true) / 1000).toFixed(2))
 	}
+
 	T.p = function () {
 		T.setPaused(false);
 		return T
@@ -739,6 +735,7 @@ function ticker() {
 		T.setPaused(true);
 		return T
 	}
+
 	T.s = cjs.xL = function () {
 		T.removeAllEventListeners()
 	}
@@ -775,6 +772,9 @@ function ticker() {
 	T.m = function (ticks) {
 		return T.getMeasuredTickTime(ticks)
 	} //ticks: // optional The number of previous ticks over which to measure the average time spent in a tick.Defaults to the number of ticks per second.To get only the last tick's time, pass in 1.
+	T.iP = function () {
+		return T.getPaused()
+	}
 }
 function cjsMath() {
 	cjs.m2d = function (a, b, c, d, e, f) {
@@ -1266,7 +1266,6 @@ function displayObs(){
 	}
 }
 
-
 function _pre() {
 	z = function (fn) {
 		var g = G(arguments)
@@ -1311,8 +1310,6 @@ $.dragStage = function (x, y) {
 	$.dragFrame(c).A()
 	return s
 }
-
-
 __S = function () {
 	var g=G(arguments)
 	
@@ -1329,4 +1326,3 @@ __S = function () {
 	return st
 	
 }
- 

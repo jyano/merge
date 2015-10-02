@@ -1,7 +1,6 @@
 $load()
 
 ct.bm = ct.b = function() {
-	
 	var ct = this, g = G(arguments), bm,
      o = g.F_ ? {fn: g.s, sc: g.s} :
          g.N_ ? {sc: g.f, fn: g.s} :
@@ -17,7 +16,7 @@ ct.bm = ct.b = function() {
     if (O(o.i)) {
     return ct.A( $Bm(o.i) )}//alert('ct.bm O(o.i)'); never alerted
     $.i(o.i, function (i) {
-        bm = $Bm(i[0]).a2(ct).sXY(o.sc)
+        bm = $Bm(i).a2(ct).sXY(o.sc)
         if (!g.n) {bm.rC()}
         if (g.p) {bm.drag()}
         if (o.fn) {o.fn(bm)}

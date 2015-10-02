@@ -2,50 +2,7 @@ $load([
     
     'make','dSpP','hBrA','sem','table','lists', 'ipsum'
 ])
-
-$.i=$.img=function(srce,fn){
-    _Img=function(){
-        return new Image()
-    }
-    _$Img=function(){
-        return $(_Img())
-    }
-    var g=G(arguments),o,i;
-    $.im=function(img,func){
-        i=$.img().src(img);
-        func(i[0]);
-        //s$(e).contains('data:')
-        return i
-    }
-    o=F(g[0])?{fn:g[0]}:{src:g[0],fn:g[1]};
-    i=$(new Image());
-    i.i=function(src){
-        if(U(src)){
-            return this[0].src
-        }
-        this.src($.src(src));
-        return this
-    }
-    i.r=function(fn){
-        this.load(function(e){
-            fn(e,i)
-        })
-        return this
-    }
-    i.r(function(_i){
-        i._=_i.target
-    })
-    if(o.fn){
-        i.r(o.fn)
-    } //i.l(function(e){o.fn($(e.target), e)})
-    if(o.src){
-        i.i(o.src)
-    }
-    //i.A()
-    return i
-}
-  
-
+ 
 function dSpP(){
 
     $._d= $.d_ = function () {var g = G(arguments),
@@ -889,3 +846,10 @@ $.cv0=  function(){
 	return $.c2.apply($, arguments)[0]
 }
 
+
+$.i = $.img= function () {var g = G(arguments), o, i = new Image(), $i = $(i);
+	o = F(g.f) ? {fn: g.f} : O(g.f) ? g.f : {sr: g.f, fn: g.s};
+	if (o.fn) {$i.load(_.b(function (e) {o.fn(e.target, e)}, $i))}
+	if (o.sr) {$i.sr(o.sr)}
+	return $i
+}

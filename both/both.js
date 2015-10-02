@@ -364,9 +364,15 @@ function superUnderscore(){
     } //before('.')
     _.cl= _.clone
     _.iv = _.invoke
-
-
+	_.ct = function (arr, item) {
+		arr = arr || []
+		if (S(item)) {
+			item = item.trim()
+		}
+		return _.contains(arr, item)
+	}
 }
+
 function superString(){
     S.cR = function (a, b) {
         return s$(a).chompRight(b).s
@@ -419,7 +425,26 @@ function superString(){
         return String.fromCharCode(a)
     }
     _.tS = function (a) {return a.toString()}
-    _.eW=function(a,b){return s$(a).endsWith(b) } //_.eW = function (a, b) {return l$(a, _z(b)) == b}
+ 
+	_.eW = function (str, fn) {
+		
+		//use 1:ends With
+		if (S(fn)) {
+			return s$(str).endsWith(fn)
+		}
+		//use 2:each(in a string) With
+		var arr = _.compact(_.map(str.trim().split(' '),
+				function (str) {
+					return str.trim()
+				}))
+		if (fn) {
+			_.e(arr, function (str) {
+				fn(str)
+			})
+		}
+		return arr
+	}
+    
     _.j=function (a, b) {return (a || []).join(b || ' ')}
     _.tU =   _.tUc =  _.tUC = function (a) {
         return S(a) ? a.toUpperCase() :
@@ -435,6 +460,7 @@ function superString(){
     _.tLc = _.tL = _.tLC = function (a) {
         return a.toLowerCase()
     }
+	
 }
 function superMath(){M=Math
     M.tN = _.tN = function (what, aNum) {return N(what) ? what : aNum || 0}
@@ -870,3 +896,4 @@ function superDate(){
     }
     _.sT = setTimeout
 }
+

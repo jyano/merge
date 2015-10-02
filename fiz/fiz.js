@@ -16,8 +16,6 @@ b2d.cir=  function(r,x,y, d){
     if(g.n){fD.isSensor=true}
     return fD
 }
-
-
 b2d.fD=b2d.f= function(h){var g=G(arguments),
     fD=new b2d.FixtureDef
     if(g.n){fD.isSensor = true}

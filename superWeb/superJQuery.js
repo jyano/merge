@@ -348,24 +348,29 @@ function statt(){
 			return S($(i)[0].src)
 		}
 	}
+	
+	
 	$.src=function f(e){
-		if(e.image){
-			e=e.image
-		}
-		if($.tCan(e)){
-			e=$.tCan(e)
-		}
-		if(e.src){
-			e=e.src
-		}
+		
+		if(e.image){e=e.image}
+		
+		if($.tCan(e)){e=$.tCan(e)}
+		
+		if(e.src){e=e.src}
+		
 		if(e.toDataURL){
 			e=_.tDU(e)
 		}
-		return s$(e).contains('data:')?e
+	
+			return s$(e).contains('data:')?e
 			:S(e)?_.src(e)
 			:0
 	}
+	
+	
 };
+
+
 function ajax(){
 
 	$.g=$.G=function(){
@@ -471,13 +476,16 @@ function ajax(){
 };
 function atts(){
 	$.fn.at=$.fn.attr
-	$.fn.sr=$.fn.src=function(a){
+	
+	$.fn.i = $.fn.sr=$.fn.src=function(a){
 		if(U(a)){
 			return this.attr('src')
 		}
-		this.attr('src',$.src(a))
+		this.attr('src', $.src(a))
 		return this
 	}
+	  
+
 	$.fn.n=function(name){
 		if(U(name)){return this.attr('name')}
 		this.attr('name',name);
@@ -507,6 +515,7 @@ function atts(){
 		this.attr('id',id);
 		return this
 	}
+	
 	$.fn.hr=$.fn.hf=$.fn.href=function(href){
 		if(U(href)){return this.attr('href')}
 		this.attr('href',href);

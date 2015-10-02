@@ -19,9 +19,12 @@ $.iC=$.isCan=function(can){
         return $(can)[0].constructor.name=="HTMLCanvasElement"
     }
 }
+
 $.fit=function(a,b,c){
-    return $.c(c||'r',b||700,b||700).A().fit(a||'me')
+    return $.c(c||'r',b||700,b||700).A()
+    .fit(a||'me')
 }
+
 $.fn.Cv = $.fn.Can = function () {
     var c
     c = $.c.apply($, G(arguments))
@@ -684,20 +687,16 @@ function superCanvasDraw(el) {
     }
     //this will create the image (from string), and then draw it
     el.dr= el.draw = function () {
-        var el = this, g = G(arguments), i = g[0]
-       
-        $.i(i, function (e, i) {
-            ii = i
-            g[0] = i[0]
-            
+    $l('el.dr')
+        var el = this, g = G(arguments)
+        $.i(g.f, function (i) {
+            g[0] = i
+            __g=g
             el.dI.apply(el, g)
         })
     }
-    
-    
-    el.fit = function f(i, x, y) {
-        var el = this
-        //$l('fit: - el.W():' + el.W())
+	    
+    el.fit = function f(i, x, y) {var el = this//$l('fit: - el.W():' + el.W())
         i = i || 'me'
         x = x || 0
         y = y || 0
@@ -705,6 +704,7 @@ function superCanvasDraw(el) {
         //el.draw(img, X, Y, el.width(), el.height())
         return el
     }
+    
     el.dC = function f(i, x, y) {
         var that = this
         i = i || 'me'

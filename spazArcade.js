@@ -230,9 +230,9 @@ function levs() {
 				w.S(bf.x, bf.y, 'w', [[bf.w, bf.h, '-']]) //  w.dot(bf.x-bf.w/2, bf.y-bf.h/2  ,     '+')
 				T.t(function () {
 					var sX, sY
-					// sX = (bf.x-w.hW)   + cjs.adj( (t.X()-bf.x),  bf.w/2)/w.z
-					sX = bf.x - w.hW + cjs.adj(t.X() - bf.x, bf.w / 2) * bf.mX /// bf.mX //scaling not needed?
-					sY = (bf.y - w.hH) + cjs.adj(t.Y() - bf.y, bf.h / 2) * bf.mX// /bf.mY
+					// sX = (bf.x-w.hW)   + _.adj( (t.X()-bf.x),  bf.w/2)/w.z
+					sX = bf.x - w.hW + _.adj(t.X() - bf.x, bf.w / 2) * bf.mX /// bf.mX //scaling not needed?
+					sY = (bf.y - w.hH) + _.adj(t.Y() - bf.y, bf.h / 2) * bf.mX// /bf.mY
 					w.sXY(sX, sY)
 				})
 			}
@@ -260,7 +260,7 @@ function levs() {
 			return w
 		}
 		w.sXY = function (x, y) {
-			$l('sXY')
+		 
 			if (U(x)) {
 				return {}
 			}
@@ -269,7 +269,7 @@ function levs() {
 			return this
 		}
 		w.sXCap = function (s) {
-			return cjs.cap(s, 0, this.w * this.z - this.W)
+			return _.cap(s, 0, this.w * this.z - this.W)
 		}
 		w.sX = function (x) {
 			var w = this
@@ -280,7 +280,7 @@ function levs() {
 			return w
 		}
 		w.sYCap = function (s) {
-			return cjs.cap(s, 0, this.h * this.z - this.H)
+			return _.cap(s, 0, this.h * this.z - this.H)
 		}
 		w.sY = function (y) {
 			var w = this
@@ -301,7 +301,7 @@ function levs() {
 			if (U(s)) {
 				return w.z
 			}
-			w.z = s == '-' ? w.mS : cjs.cap(s, w.mS)
+			w.z = s == '-' ? w.mS : _.cap(s, w.mS)
 			w.s.sXY(w.z)
 			return w
 		}
@@ -317,14 +317,14 @@ function levs() {
 		w.zoomOut = function () {
 			var w = this //knows when to stop :)
 			w.tCb = function () {
-				w.Z(cjs.cap(w.z *= .98, w.mS))
+				w.Z(_.cap(w.z *= .98, w.mS))
 			}
 			return w
 		}
 		w.zoomIn = function () {
 			var w = this
 			w.tCb = function () {
-				w.Z(cjs.cap(w.z *= 1.02, 0, 4))
+				w.Z(_.cap(w.z *= 1.02, 0, 4))
 			}
 			return w
 		}
@@ -840,7 +840,7 @@ function levs() {
 			p.aD(8).lD(.8)
 			w.dJ(p, star).freq(.15).damp(0).len(50)
 			cjs.t(function () {
-				trans(cjs.cap(300 / M.dist(star, p), .3, 2))
+				trans(_.cap(300 / M.dist(star, p), .3, 2))
 			})
 			function trans(Z) {
 				w.s.sXY(Z)
@@ -875,7 +875,7 @@ function levs() {
 			})
 			T.t(function () {
 				var sp, dx = e.X() - p.X(), dy = e.Y() - p.Y(),
-						sc = cjs.cap(
+						sc = _.cap(
 								300 / M.sqrt(dx * dx + dy * dy), .3, 2)
 				s.XY(
 						300 - sc * (p.X() - 300),

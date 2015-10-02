@@ -1446,6 +1446,7 @@ C=sC=SUPERCAN=function(canvasEl){var c={};                       // (accepts/req
         else{l('@'); I(sr, function(e){c.x.d(e.target,0,0,c.w(),c.h())})}}
     c.a=function(ch){var ch=SRC(ch); c=this; var add=function(bm){c.s.addChild(bm); c.s.update(); return bm;}
         if(typeof ch !="string"){return add(ch)} else {B(ch,add)}}
+        
     c.bm=function(i,z,onB,bd){var m,x,w,h,c=this;
         z=z||'medium';bd=bd||'bitmap';
         onB=onB||function(b,c){c.s.a(b);c.s.u()};

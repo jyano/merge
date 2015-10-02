@@ -1,4 +1,4 @@
-b2d.sep =function(body, verts, scale){
+Box2D.sep =function(body, verts, scale){
 
     /*
      //This class is specifically for non-convex polygons.

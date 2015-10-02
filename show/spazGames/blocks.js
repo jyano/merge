@@ -84,8 +84,8 @@ function graf() {
     function grpx() {
         BLOKUS = function () {
             W(0).Y();
-            y.thr()
-
+            y.cn('thrust')
+            
             w.i.h(100, 100, '+')
                 .c({l: 20, C: 'y', lf: {c1: 'b'}})
                 .dc(100)
@@ -242,7 +242,8 @@ function graf() {
 
         }
     }
-    function bmp() {
+	
+	function bmp() {
         POLYBM = TRAPAZOID = function () {
             W(500, 700, 600, 700)._(function () {
                 w.p();
@@ -892,8 +893,6 @@ function shap() {
     }
 
     function rec() {
-
-
         DOMINO = function () {
             W()
 

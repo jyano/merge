@@ -49,8 +49,13 @@ ct.bm = function () {
         }
         return ct
     }
-    $.i(o.i, function (e, i) {
+    
+    $.i(o.i, 
+    
+    function (i, e) {
+    
         bmp = $Bm(i)
+    
         bmp.a2(ct)
         bmp.rC()
         bmp.sXY(o.sc).a2(ct)
@@ -66,6 +71,8 @@ ct.bm = function () {
     return ct
 
 }
+
+
 ct.mc = function (x, y) {
     var ct = this, g = G(arguments), mc
     mc = cjs.MovieClip.apply(cjs, g)

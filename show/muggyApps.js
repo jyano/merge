@@ -117,21 +117,17 @@ EDIT = function () {
 
     $.eJ('/img', function (i) {
 
-
-        c = d.Can('o', 40, 40)
-        c.fit(i.d)
+	    c = d.Can('o', 40, 40)
+        
+        c.fit( i.d )
+        
         c.$(function () {
-
             st.bm(i.d, function (bm) {
                 bm.rC(200, 200).XY(200,300).TR()
             })
-
         })
-
         c.mar(20).C('r')
-
         // d.A($.btX('/img', i, '-'))
-
     })
 
 
