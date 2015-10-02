@@ -1,27 +1,34 @@
 $load()
 
-ct.bm = ct.b = function() {var ct = this, g = G(arguments), bm,
+ct.bm = ct.b = function() {
+	
+	var ct = this, g = G(arguments), bm,
      o = g.F_ ? {fn: g.s, sc: g.s} :
          g.N_ ? {sc: g.f, fn: g.s} :
-             _.x({i: g.f}, N(g.s) ? {sc: g.s, fn: g.t} :
-             {fn: g.s, sc: g.t})
+             _.x(
+             {i: g.f},
+             N(g.s) ? {sc: g.s, fn: g.t} :
+             {fn: g.s, sc: g.t}
+             )
+             
     o.sc = o.sc || 1
     $df.im(o)
-    if(O(o.i)) {return ct.A($Bm(o.i))}//alert('ct.bm O(o.i)'); never alerted
+    
+    if (O(o.i)) {
+    return ct.A( $Bm(o.i) )}//alert('ct.bm O(o.i)'); never alerted
     $.i(o.i, function (i) {
         bm = $Bm(i[0]).a2(ct).sXY(o.sc)
-        if (!g.n) {
-            bm.rC()
-        }
-        if (g.p) {
-            bm.drag()
-        }
-        if (o.fn) {
-            o.fn(bm)
-        }
+        if (!g.n) {bm.rC()}
+        if (g.p) {bm.drag()}
+        if (o.fn) {o.fn(bm)}
     })
     return ct
 }
+
+
+
+
+
 // u might say xTHIS but not thisX? i dont know what i am talking about
 /* TICKER
  paused : Indicates whether the ticker is currently paused.
@@ -49,20 +56,16 @@ ct.bm = ct.b = function() {var ct = this, g = G(arguments), bm,
 b.Bm = function (iS, x, y, sX, sY, rt) {
 	var b = this, w = b.W(), g = G(arguments);
 	b.gx = b.gx || w.g.ct()
-	if (S(iS)) {
-		this.gx.bm(iS, fn)
-	}
-	if (O(iS)) {
-		fn(iS);
+	if (S(iS)) {this.gx.bm(iS, fn)}
+	if (O(iS)) {fn(iS);
 		return iS
 	}
 	return b
 	function fn(bm) {
-		bm.rC()
-				.XY(N(x, 0), N(y, 0))
+		bm.rC().XY(N(x, 0), N(y, 0))
 				.sXY(N(sX, 1), N(sY, sX || 1))
-				.rt(N(rt, 0))
-	}
+				.rt(N(rt, 0))}
+	
 }
 
 
@@ -1595,23 +1598,19 @@ W=b2d.W=function(){var g=G(arguments),o
     o.sl = U(o.sl) ? true : o.sl
     w = new b2d.World(o.g, o.sl)
     if(o.xx!==0){z()}
-
     w.W = N(o.W,1200);
     w.w = N(o.wW, w.W);
     w.Ww = w.W/w.w;
     w.wW = w.w/w.W;
-
     w.hW = w.W/2;
     w.H = N(o.H,600);
     w.h = N(o.wH, w.H);
     w.Hh = w.H/ w.h;
     w.hH = w.h/ w.H;
     w.hH = w.H/2;
-
     w.mZ = w.hH > w.wW? w.hH : w.wW;
     w.mS = w.Ww > w.Hh ? w.Ww : w.Hh;
     w.z=  w.SCALE=1
-
     //handling
     w.bH=   []; w.pH=   []; w.PH=   []; w.eH=   []  //l.P=  l.post=  function (fn) {this.PostSolve = fn; return this}
 //l.b=  l.beg=  function (fn) {this.BeginContact = fn; return this}
@@ -1638,8 +1637,12 @@ W=b2d.W=function(){var g=G(arguments),o
     w.I = $St('z', w.W, w.H ,0, 0)
     w.s= $St('X', w.W, w.H, 0, 0)//.aC(0)
     w.canvas = w.s.canvas; w.can= $(w.canvas); w.ctx = w.can.ctx('2d')
-    w.bg= w.s.ct();w.g=  w.s.ct();w.fg= w.s.ct()
-    w.i =  $St('X', w.W, w.H, 0, 0)
+    
+    w.bg= w.s.ct();
+    w.g=  w.s.ct();
+    w.fg= w.s.ct()
+    
+	w.i =  $St('X', w.W, w.H, 0, 0)
     if(o.i){ w.s.bm(o.i) }
     w.lG($r())
     if(o.aC==1){
@@ -1647,7 +1650,6 @@ W=b2d.W=function(){var g=G(arguments),o
         // if(g.O){; return w}
         // return g.u? w.i.aC(!w.i.aC()): g.s? w.i.aC(w):
     }
-
     w.walls(_w)
     keys()
     mouse()
@@ -1662,10 +1664,11 @@ W=b2d.W=function(){var g=G(arguments),o
             b.wY= b.Y()
             b.sX = w.wTS(b.wX, b.wY).x
             b.sY= w.wTS(b.wX, b.wY).y
-            if(O(b.gx)){b.gx.XY(b.X(), b.Y()).rt(b.rt())}
+            if(O(b.gx)){
+            b.gx.XY( b.X(), b.Y() ).rt(b.rt())
+            }
         })
     })
-
     if(o.t!==0){
         w.t =  w._t = w._t || w.S(w.hW, w.hH, 'w', [[20,2,'-'] ]).r(.8) //trackee
         w.i.A( w.tSpr=  $Ct().XY(w.t.X(), w.t.Y()) ) //  w.tSpr.bm('guy', function(g){  g.sXY(.2)}) // w.tSpr.A(g)
@@ -1676,12 +1679,10 @@ W=b2d.W=function(){var g=G(arguments),o
             if(w.t == w._t){w.t.XY(w.tSpr.X(), w.tSpr.Y()); w.s.rt(w.tSpr.rt())}
         })
     }
-
     w.o=o //w.stats()
-
     return w
-
 }
+
 $W=function(){
     W()
     w.y()

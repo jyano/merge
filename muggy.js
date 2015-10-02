@@ -25,101 +25,82 @@ h =  cjs.Shape.prototype
 ct = cjs.Container.prototype
 i = cjs.DisplayObject.prototype
 
+
+
+
+
+
 ct.h =   function (x, y, c, C, l, opt) {var ct = this,
     h = $h(x, y, c, C, l, opt).a2(ct)
     return h.drag()
 }
-$Bm = function (i) {  var bm
-    if (O(i)) {
-        if ($.iI(i)) {
-            i = $(i)[0]
-            _i = i
-            bm = new cjs.Bitmap(i)
-            return bm
-        }
-        bm = $Bm(i.i)
-        if (i.al) {
-            bm.al(i.al)
-        }
-        if (i.fl) {
-            bm.fl(i.fl)
-        }
-        if (i.aF2) {
-            bm.aF2(i.aF2)
-        }
-        return bm
 
-    }}
-$St = function (a, b, c, d, e) {
-    var g = G(arguments), st
+$Bm = function (i) {  var bm
+
+    if (O(i)) {
+	    if ($.iI(i)) {_i = i = $(i)[0]; return bm = new cjs.Bitmap(i) }
+        bm = $Bm(i.i)
+        if (i.al) {bm.al(i.al)}
+        if (i.fl) {bm.fl(i.fl)}
+        if (i.aF2) {bm.aF2(i.aF2)}
+        return bm}
+        
+}
+
+$St = function (a, b, c, d, e) {var g = G(arguments), st
+
     st = A(g[0]) ? new cjs.Stage(g[0][0]) :
         O(g[0]) ? new cjs.Stage($(g[0])[0]) :
             new cjs.Stage($.c(g[0], g[1], g[2], g[3], g[4]) [0])
     st.c = st.can = $(st.canvas)
-    if (g.p) {
-        st.can.dg()
-    }
-    if (!g.n) {
-
-        st.can.A()
-    }
+    if (g.p) {st.can.dg()}
+    if (!g.n) {st.can.A()}
     return st.t()
 }
-h.ss = h.l = function (a) {var h = this, gx = h.graphics, g, o
-    if (S(a)) {
-        this.C(a)
-        return this.ss.apply(this, _.rest(arguments))
-    }
-    g = G(arguments)
-    o = {
-        l: g[0],
-        caps: g[1],
-        jts: g[2],
-        mit: g[3],
-        ignSc: false
-    }
-    o.l = N(o.l) ? o.l : 4
-    if (o.caps == 'r') {
-        o.caps = 'round'
-    }
-    if (o.caps == 's') {
-        o.caps = 'square'
-    }
-    if (o.caps == 'b') {
-        o.caps = 'butt'
-    }
-    if (o.mit == 'r') {
-        o.mit = 'round'
-    }
-    if (o.mit == 'm') {
-        o.mit = 'miter'
-    }
-    if (o.mit == 'b') {
-        o.mit = 'bevel'
-    }
-    o.jts = o.jts || 0
-    if (U(o.mit)) {
-        o.mit = 100
-    }
-    if (g.n) {
-        o.ignSc = true
-    }
-    gx.ss(o.l, o.caps, o.jts, o.mit, o.ignSc)
-    return h
-}
-ct.cir = function (c, r, x, y) {
-    var ct = this,cir
+
+ct.cir = function (c, r, x, y) {var ct = this, cir
+
     if (!S(c)) {y = x;x = r;r = c;c = 'y'}
-    y = N(y,0)
-    x = N(x,0)
+    y = N(y,0); x = N(x,0)
     r =  N(r, 50)
+    
     cir= $h().c(c).dc(x, y, r)
     ct.A(cir)
+    
     return cir
 }
 
- 
- 
+h.ss = h.l = function (a) {var h = this, gx = h.graphics, g, o
+
+	if (S(a)) {this.C(a); return this.ss.apply(this, _.rest(arguments))}
+
+	g = G(arguments)
+	o = {l: g[0], caps: g[1], jts: g[2], mit: g[3], ignSc: false}
+
+	o.l = N(o.l) ? o.l : 4
+
+	if (o.caps == 'r') {o.caps = 'round'}
+	if (o.caps == 's') {o.caps = 'square'}
+	if (o.caps == 'b') {o.caps = 'butt'}
+	
+	if (o.mit == 'r') {o.mit = 'round'}
+	if (o.mit == 'm') {o.mit = 'miter'}
+	if (o.mit == 'b') {o.mit = 'bevel'}
+	
+	o.jts = o.jts || 0
+	if (U(o.mit)) {o.mit = 100}
+	if (g.n) {o.ignSc = true}
+	
+	gx.ss(o.l, o.caps, o.jts, o.mit, o.ignSc)
+	return h
+}
+
+
+
+
+
+
+
 $.wd=  $.w=$.win=function(a, size,  id){
     var g=G(arguments),
         t,  lBt,mBt,xBt, o, wd,w

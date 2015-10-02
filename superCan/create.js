@@ -1,14 +1,11 @@
 
 
 $load(  'ticker','graphics','stage',
-'containers',
-		'cjsMath', 'displayObs')
+		'containers', 'cjsMath', 'displayObs')
 
- 
+
 
 function graphics(){
-	 
-	
 	cjs.lg = h.lg = function () {
 		var g = G(arguments), o//h=this, gx=h.graphics,
 		if (g.A) {
@@ -29,9 +26,7 @@ function graphics(){
 		o.y2 = N(o.y2) ? o.y2 : N(o.r) ? o.r * 2 : 100
 		return o
 	}
-
 	$Gx=cjs.Gx = cjs.gx = function (a) {return new cjs.Graphics(a)}
-	_MF = ['me', 'guy', 'chicks', 'sun', 'flame', 'earth']
 	gxHPt()
 	balls()
 	function gxHPt(){
@@ -365,7 +360,6 @@ function graphics(){
 			return this
 		}
 	}
-	
 	function balls() {
 		s.cannonBall = function (x, y) {
 			var s = this, h
@@ -388,13 +382,30 @@ function graphics(){
 		}
 	}
 }
+
 function stage(){
 	
 	
 	cjs.S = cjs.Stage
 	$St = function () {
-		var st, g = G(arguments), cv
-		st = St(cv = g.A ? canById(g.f) : O(g.f) ? canEl(g.f) : newCan(g))
+		var g = G(arguments),
+				cv, st
+		if (S(g.f) && $('#' + g.f).length) {
+			cv = g.f
+		}
+		else if (O(g.f)) {
+			cv = $(g.f)[0]
+		}
+		else {
+			cv = $.c(
+					g.f || 'p',
+					g.s || 1200,
+					g.t || 600,
+					g[3],
+					g[4]
+			)[0]
+		}
+		st = new cjs.Stage(cv)
 		st.cv = st.c = st.can = $(st.canvas)
 		st.cv0 = st.cv[0]
 		st.xc = st.cv0.getContext('2d')
@@ -402,29 +413,15 @@ function stage(){
 		if (g.p) {
 			st.t()
 		}//.t()
-		function canById(a) {
-			return a[0]
-		}
-		
-		function canEl(a) {
-			//can pass it a canvas OR a $canvas object
-			return $(a)[0]
-		}
-		
-		function newCan(g) {
-			return $.c(g.f || 'p', g.s || 1200, g.t || 600, g[3], g[4])[0]
-		}
-		
 		return st
-		function St(cv) {
-			var s = new cjs.Stage(cv)
-			return s
-		}
 	}
 	St = function () {
+		var g = G(arguments);
 		z();
-		var g = G(arguments)
-		st = s = $St(g[0] || 'p', 1200, 600)
+		s = st = $St(
+				g[0] || 'p',
+				1200, 600
+		)
 		h = $h(0, 0).a2(s)
 		if (g.p) {
 			SL(h)
@@ -568,11 +565,11 @@ function containers(){
 	
 	ctPt()
 	function ctPt() {
-	ct._A=function(){
-	
-	return this.addChild.apply(this,arguments)
-	}
-	 	ct.A = function () {
+		ct._A=function(){
+			
+			return this.addChild.apply(this,arguments)
+		}
+		ct.A = function () {
 //$l('ct.A')
 			var ct = this,
 					g = G(arguments),
@@ -1317,11 +1314,11 @@ $.dragStage = function (x, y) {
 
 
 __S = function () {
-	 var g=G(arguments)
-	 
+	var g=G(arguments)
+	
 	st = stage = new cjs.Stage($.cv(980, 640).A()[0]);
 	if(g.p){
-	st.b('me')
+		st.b('me')
 	}
 	T.setFPS(24);
 	T.on("tick", st);
@@ -1330,6 +1327,6 @@ __S = function () {
 	images = img = {}
 	loader = new cjs.LoadQueue(false);
 	return st
-
+	
 }
  

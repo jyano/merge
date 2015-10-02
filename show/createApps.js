@@ -1,3 +1,26 @@
+$load('stage')
+
+
+
+function stage(){
+	ST1=function(){
+		$St('+').b('me')
+	}
+	ST2 = function () {
+	cv=	$.c().id('can')
+		$St(cv, '+').b('me')
+	}
+	ST3 = function () {
+		cv = $.c().id('can')
+		$St('can', '+').b('me')
+	}
+	ST4 = function () {
+		$St('r',800,100, '+').b('me')
+	}
+}
+
+
+
 //shape apps
 BUBBLE = function () {
 	St()
