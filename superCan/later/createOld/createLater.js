@@ -593,13 +593,10 @@ function later(){
         xy(o, s.mx(), s.my())
         return o
     } //mxy
+ 
     ct.bData = function (data) {
-        alert('ct.bData')
-        return J.bm($.i().src($.parseJSON(data))).a2(this)
-    }
-    ct.bData = function (data) {
-        alert('ct.bData')
-        return J.bm($.i().src($.parseJSON(data))).a2(this)
+       
+        return cjs.bm($.i().src($.parseJSON(data))).a2(this)
     }
     st.snap = function (f) {alert('st.snap')
         var st = this
