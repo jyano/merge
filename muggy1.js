@@ -117,8 +117,66 @@ ct.cir = function (c, r, x, y) {
     ct.A(cir)
     return cir
 }
+q = cjs.LoadQueue.prototype
 
- 
+q.fileload = function (func) {
+    this.addEventListener("fileload", func)
+    return this
+}
+q.complete = function (func) {
+    this.addEventListener("complete", func)
+    return this
+}
+q.manifest = function (manifest) {
+    this.loadManifest(manifest)
+    return this
+}
+q.mf = function () {
+    this.loadManifest(cjs.mf.apply(null, arguments))
+    return this
+
+}
+q.bm = function (img) {
+
+    img = this.getResult(img)
+    return $Bm(img)
+}
+
+cjs.handleFileLoad = function (e) {
+    alert('cjs.handleFileLoad')
+    if (e.item.type == "image") {
+        images[e.item.id] = e.result
+    }
+}
+cjs.mf =  function (a) {
+
+    var g = G(arguments), mf = []
+    _.e(g, function (v) {
+        mf.push({src: _.src(v), id: v})
+    })
+    return mf
+}//used
+
+Q = function (imgs, func) {
+
+alert('wap Q')
+
+var q = cjs.lq()
+    mf = []
+    _.e(imgs, function (v) {
+        mf.push({
+            src: _.src(v),
+            id: v
+        })
+    })
+    q.manifest(mf)
+    q.complete(function () {
+        func(q)
+    })
+}
+
+
+
  
 $.wd=  $.w=$.win=function(a, size,  id){
     var g=G(arguments),

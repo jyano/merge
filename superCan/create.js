@@ -1,91 +1,10 @@
 
 
-$load('ticker','graphics','stage',
+$load(  'ticker','graphics','stage',
 'containers',
 		'cjsMath', 'displayObs')
 
-
-q = cjs.LoadQueue.prototype
-q.f= q.l= function(fn){var q=this
-	q.on("fileload", fn)
-	return q}
-q.c= function (fn) {var q=this
-	if(F(fn)){ q.on("complete", fn) }
-	return q
-}
-q.b=  q.bm =function(i, ct, x, y){
-	var bm = $Bm( this.r(i) );
-	if(ct){bm.a2(ct,x,y)}; return bm
-}
-q.i=  q.r= function(i){
-	i  = this.getResult(i); i.w= i.width;i.h = i.height; return i}
-q.$= function(i){return $(this.i(i))}
-q.m = q.mf= function(){var q=this, g=G(arguments), _mf, mf
-	// q.m:
-// protosig:
-//
-// 'me',..
-//
-// {src:'me', id:'him'},..
-//
-// [ {src:*, id:*}, 'me',.. ]
-	
-	if(g.u){return q}
-	_mf = g.A ? g.f : g
-	mf = _.m(_mf,  function(item){
-		return S(item)? {src: _.src(item),id:item} : item
-	})
-	q.loadManifest( mf )
-	return q
-}
-
-cjs.lq = function (mf, func) {
-	var q = new cjs.LoadQueue(true)
-	if (A(mf)) {
-		q.loadManifest(cjs.mf.apply(null, mf))
-	}
-	if (F(func)) {
-		q.complete(function () {
-			func(function (img) {
-				return q.getResult(img)
-			})
-		})
-	}
-	return q
-} //cjs.loadQueue =	
-
-
-Q=function(){var g=G(arguments),  o
-	//starts off as a fn (obviously)
-	//but ends up as an obj
-	// (can use his info to test if its been ran)
-	o= g.F? {c: g.f}: g.O? g.f: 
-	{m:g.f, c:g.s, f:g.t}
-	o.m = o.m || _MF
-	Q=(new cjs.LoadQueue)
-	Q.c(o.c)
-	if(o.f){Q.f(o.f)}
-	Q.m(o.m)
-}
  
-
-//toSpaz 
-WQ = function(){
-alert('WQ')
-var g = G(arguments), o
-	o =  F(g.t)? 
-	{ob: g.f, fn0: g.s, fn: g.t}:
-	{ob: g.f, fn: g.s}
-	o.ob = o.ob|| {}
-	o.fn = o.fn || function(){}
-	w = W(o.ob)
-	if (o.fn0) {o.fn0(w)}
-	Q(o.ob.I||_MF , function(){o.fn(w)})
-}
-
-
-
-
 
 function graphics(){
 	 
@@ -469,8 +388,6 @@ function graphics(){
 		}
 	}
 }
-
-
 function stage(){
 	
 	
@@ -624,8 +541,6 @@ function stage(){
 		return this.m().y
 	}
 }
-
-
 function containers(){
 	ct.ct = function (x, y) {
 		var ct = this,
