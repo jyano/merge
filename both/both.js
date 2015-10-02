@@ -6,7 +6,11 @@ $load = function (metNames) {
     metNames : _.toArray(arguments) 
 	
     if(_.isFunction(window['_pre'])){
+    
+    if($load.test){
     $l('FOUND "_pre" says $load')
+    }
+   
     window['_pre']()
     }
     _.each(metNames, function (fn) {
@@ -18,10 +22,12 @@ $load = function (metNames) {
         }
         
         else {
+	        if ($load.test) {
             console.log('met "' + fn + '" not found !!!!!!!!!!!!!!!!')
-        }
+	        }  }
     })
 }
+
 
 
 s$=S;

@@ -19,7 +19,7 @@ dirs=[
 	
 	'boot','boot/deps',// 'boot/deps/css', 'boot/deps/fonts',
 	//fiz
-	'fiz','fiz/deps',
+	'superBox','superBox/deps',
 	'show','show/mugApps','show/spazGames',
 	//jQuery UI
 	'jqui','jqui/deps','jqui/deps/images','jqui/custWid',
