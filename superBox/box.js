@@ -118,6 +118,7 @@ w.sB = function (x, y) {
 }
 w.n = w.count = w.getBodyCount = w.bC = w.gBC = function () {
 	return this.GetBodyCount()}
+
 b2d.cH = function (r) {
 	r = N(r, 50)
 	return new b2d.CircleShape(r / 30)
@@ -134,17 +135,25 @@ b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
 	}
 	return p
 }
-b2d.fD = b2d.f = function (h) {
+
+
+b2d.fD = b2d.f = function (h,x,y) {
+
 	var g = G(arguments),
 			fD = new b2d.FixtureDef
 	if (g.n) {
 		fD.isSensor = true
 	}
+	
 	if (h) {
 		fD.shape = h
+		if(x){fD.shape.sLP(x,y)}
 	}
 	return fD
 }
+
+
+
 b2d.cir = function (r, x, y, d) {
 	alert('b2d.cir')
 	var g = G(arguments), o, fD, h
@@ -283,9 +292,12 @@ b.cF = function (fD) {
 	return this.CreateFixture(fD)
 }
 b.A=function(fD){this.cF(fD);return this}
+
 b2d.cFD = function (rad) {
 	return b2d.fD(b2d.cH(rad))
 }
+
+
 fD.DBF = function (d, bo, fr) {
 	this.d(N(d, 1))
 	this.bo(N(bo, .9))
@@ -862,6 +874,7 @@ function _pre() {
 		ct = cjs.Container.prototype
 		co = b2d.Dynamics.Controllers.b2Controller.prototype
 		c = HTMLCanvasElement.prototype
+		cH = b2d.CircleShape.prototype
 		dd = b2d.Dynamics.b2DebugDraw.prototype
 		dJD = b2d.Joints.b2DistanceJointDef.prototype
 		dJ = b2d.Joints.b2Joint.prototype
@@ -880,6 +893,7 @@ function _pre() {
 		mc = cjs.MovieClip.prototype
 		flDa = b2d.Dynamics.b2FilterData.prototype
 		pH = b2d.PolygonShape.prototype
+		
 		pJ = b2d.Joints.b2PrismaticJoint.prototype
 		pJD = pd = b2d.Joints.b2PrismaticJointDef.prototype
 		pD = gpcas.geometry.PolyDefault.prototype//////////////////
@@ -891,17 +905,30 @@ function _pre() {
 		sS = ss = cjs.SpriteSheet.prototype
 		sSB = cjs.SpriteSheetBuilder.prototype
 		sp = s = cjs.Sprite.prototype
+		
 		tl = cjs.Timeline.prototype
+		
 		t = cjs.Text.prototype
+		
 		tCo = b2d.Dynamics.Controllers.b2TensorDampingController.prototype
+		
 		tw = cjs.Tween.prototype
-		v = b2d.Common.Math.b2Vec2.prototype
+	
+			v = b2d.Common.Math.b2Vec2.prototype
 		w = b2d.World.prototype
 		wJD = b2d.Joints.b2WeldJointDef
 		wJ = b2d.Joints.b2WeldJoint
-		x = ctx = xx = CanvasRenderingContext2D.prototype
+	
+	
+		
+				x = ctx = xx = CanvasRenderingContext2D.prototype
 		xGr = CanvasGradient.prototype
+	
+	
+	
+	
 	}
+	
 	b2d.p()
 	b2d.cn = b2d.controls = {}
 }

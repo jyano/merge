@@ -67,8 +67,9 @@ Q=function(){var g=G(arguments),
 						g.f
 						
 	o.m = o.m || _MF
-	Q = (new cjs.LoadQueue)
 	
+	Q = (new cjs.LoadQueue)
+	Q.ran=true
 	if (o.f) {Q.f(o.f)}
 	if (o.c) {
 		Q.c(function (e) {
@@ -76,9 +77,12 @@ Q=function(){var g=G(arguments),
 			return Q.i(i)}, e)
 		})
 	}
+	
+	
 	if(o.m){Q.m(o.m)}
+	
 	return Q
-}
+}; Q.ran=false
 
 
 

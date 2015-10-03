@@ -68,48 +68,30 @@ cjs.cir = function () {
 	return h
 
 }
- 
- 
-h.cir = function () {
-	var h = this, gx = h.graphics, g = G(arguments), o
-	o = g.O ? g.f : N(g.t) ?
-			{x: g.f, y: g.s, r: g.t,
-			 c: g[3], C: g[4], l: g[5]} :
+h.cir = function () { var h = this, gx = h.graphics, g = G(arguments), o
+	o = g.O ? g.f : N(g.t) ? {x: g.f, y: g.s, r: g.t, c: g[3], C: g[4], l: g[5]} :
 			N(g.s) ? {x: g.f, y: g.s, c: g.t, C: g[3], l: g[4]} : 
 			g.N_ ? {r: g.f, c: g.s, C: g.t, l: g[3]} :
 			{c: g.f, C: g.s, l: g.t}
-	
 	h.c(o)
-	
 	if (o.bf) {
-	
-		if (N(o.bf)) {
-			o.bm = 'me'
-		}
-		
+		if (N(o.bf)) { o.bm = 'me' }
 		if (F(Q)) { //async
-			h.bf(o.bf, function () {
-				h.dc(o)
-			})
-		}
-		
+			h.bf(o.bf, function () { h.dc(o) }) }
 		else { //sync
 			o.tf = o.tf || null;
 			h.bf(o.bf, o.tf).dc(o)
 		}
 	}
 	
-	
-	else {
-		h.dc(o)
-	}
-
+	else { h.dc(o) }
 	h.alpha = N(o.al, 1)
-	
 	return h
-	
 }
 
+
+
+ 
  
 
 SIR=function(){$.C('b')

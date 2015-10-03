@@ -88,10 +88,12 @@ HEADACHE=function(){W().P()
     w.brick(200,400, 80,20)
     w.brick(300,200,80,20)
     //$.joystick()
-
-
     w.p(600,200).r(4)
+	w.p(600, 200).r(4)
 }
+
+
+
 TRAMP=function(){W().P()
     w.S(500, 600, 's', 30, 200)
     w.S(600, 600, 's', 30, 200)
@@ -454,6 +456,44 @@ SLOOM=function(){
     })
 
 }
+
+_.t10=function(){
+
+var g=G(arguments)
+
+	g.e(function(fn){
+		_.t(10,fn)
+	})
+}
+
+
+KISSBALLS=function(){W(1500,300)
+
+	_.t10(function (i) {
+		
+		w.D(100 + i * 100, 100).cir({r: 20, 
+										
+										lf: 1
+		}).d(.1)
+		
+		w.S(100 + i * 140, 160).cir({
+			r: 50,
+							rf: {c1:'*', c2:'*'}
+		}).d(.1)
+	
+	
+	})
+
+
+
+
+
+}
+
+
+
+
+
 KISS=function(){
     W([  1200, 600, 2400, 600 ],{g:10})
 
@@ -465,9 +505,8 @@ KISS=function(){
         ['x', 10, 55,-12],
         ['u', 30,40, 75,-12]
     ]
+    
     w.D(400, 280,turtle, '-')  //this changes the data object for future uses !!!
-
-
     w.D(600, 280, [
         ['g', [0,0], [-50,-10], [-40,-20],[0,-40],[20,-10] ],
         ['y', [10,-10], [20,-30],[50,-15], [45,-5] ],
@@ -476,33 +515,47 @@ KISS=function(){
         ['x', 10, 55,-12, '-'],
         ['u', 30,40, 75,-12 ,'-']
     ])
-
-
-
-    _.times(10, function(i){
-        w.D(100+i*100,100).cir({r:35,lf:{c1:'*',c2:'*'}}).den(.1)
-        w.D(100+i*100,100).cir({r:20,lf:1}).den(.1)
+	
+	
+    _.t(10, function(i){
+    
+        w.D(100+i*100,100)
+        .cir({
+			        r:35,
+			        lf: {c1:'*',c2:'*'}
+        }).d(.1)
+	    
+        w.D(100+i*100,100).cir({
+             r:20,
+	         lf:1
+        }).d(.1)
+    
     })
-
-
-
-    _.times(10, function(i){
+	
+    _.t(10, function(i){
+    
         w.D(100+i*140,160).cir({r:50,
-
+    
             rf:{
+    
                 c1:$r(),
                 c2:$r(),
+    
             }
-        }).den(.1)})
+            
+        }).d(.1)})
+
+
+
+
+
 
 
     w.D(800, 300).cir({r:120,
         C:'y',   l:2,  bf:'me', ls:['y','x']//?
     }).den(.1)
 
-
-
-
+	
     y = w.ship(50,50).C('d').mid()
     y2 = w.ship(100, 300).C('x').rot(180)
     //i thought i may want t for timer/ticker.. but time has no x and y !
@@ -510,14 +563,13 @@ KISS=function(){
     //these funcs can change stage, or the tick can update it every tick based on its value w.tx/ w.ty?
     w.tRightLeft()
     w.showOff()
-    I(function changeT(){if( w.t == y2){w.C('w'); w.t=y } else {w.C('z');w.t= y2}}, 5000)
-
+    I(function changeT(){
+    if( w.t == y2){w.C('w'); w.t=y } else {w.C('z');w.t= y2}}, 5000)
     b=w.D(100,300)
     pf = b.pol({s:1, C:'y',v:[[-200,-100],[0,-200],[100, -100]] })
     pfs =  b.pol({s:1, C: 'o',  v: [  [-100, 0],  [0, -200],  [100, 20],    [0, -150] ]})
     cf = b.cir({k:'cir', r:100, x:200, y:-100, d:.2, b:.8, f:100, C:'x'})
     rf = b.rec({x:100, y:100,w:10,  h:100,   C:'x'})
-
     w.D(200,300).pol({
 
         v:[[0,100],[0,-100],[200,-150],[200,150]],
@@ -526,14 +578,7 @@ KISS=function(){
         bm:1
 
     })
-
-
-
-
     //FROM POL ->0, -100]] })
-
-
-
     w.D(800,300).pol({
         v:[
             [[5,100],[0,-100],[200,-150],[200,150]],
@@ -542,10 +587,11 @@ KISS=function(){
         c:'b',C:'X',
         bm:1
     })
-
-
-
 }
+
+
+
+
 WORLDPAN=function(){W([1200, 600, 2400, 600],{g:0})
     w.S(400,300,'r',200,100)
     w.S(800,300,'z',100,100)

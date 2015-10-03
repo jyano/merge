@@ -1601,6 +1601,7 @@ function err(){
 
 GEMS = function () {W()
  
+ /*
     h= w.i.h(100, 300, '+')
     h.bR({
         i:'chicks',
@@ -1612,14 +1613,28 @@ GEMS = function () {W()
     })
  
 	
+	*/
 	
 	
-    w.D(200, 160).cir(
-        {r: 120, rf: {c1: 'r', c2: 'b'}}, {r: 100, C: 'y', l: 2, bf: 'me'}
-    )
+	
+	
+			    w.D(200, 160).cir({ r: 120, 
+    rf: {c1: 'r', c2: 'b'} },
+					    
+					    
+			    { r: 100,
+		    C: 'y', l: 2, 
+    bf: 'me' })
+	
+	
+	
 	
 	
 }
+
+
+
+
 
 
 

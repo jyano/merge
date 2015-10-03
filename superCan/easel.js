@@ -193,115 +193,89 @@ function cts(){
 	}
 }
 
+
 function shape(){
-	
-	//calls bitmap fill and lets it load up the bitmap (my face)
-//then passes in a function to be called once the image has finished loading
-//in this case, the function draws a rectangle (and the bitmap is automatically used as the fill)
-	
-	h._bf = function () {
-		$l('h._bf')
-		var h = this, gx = h.graphics, g = G(arguments),
-				tf
-		if (A(g.s)) {
-			g.s = cjs.m2d.apply(cjs, g.s)
-		}
-		tf = g.s || cjs.m2d(R(500), R(300))
-		if (S(g.f)) {
-			$l('h._bf: str')
-			gx.bf(Q.i(g.f), null, tf)
-		}
-		else if (O(g.f)) {
-			$l('h._bf: obj')
-			gx.bf(g.f, null, tf)
-		}
-		else {
-			$l('h._bf: ?')
-		}
-		return h
-	}
-	h.bf = function () {
-		$l('h.bf')
-		var h = this,
-				gx = h.graphics, g = G(arguments), img, tf
-		if (!F(Q)) {
-			$l('h.bf: !F(Q)')
-			///// $l('!F(Q)') !!! only this gets logged
-			return this._bf.apply(this, g)
+	h.bf=function(){var h = this, gx = h.graphics, g = G(arguments), o
+			
+						
+		if( O(g.f) && A(g.f.hs) ){
+		o= {i: g.f.i,  hs: g.f.hs, mx: g.f.mx, fn: g.f.fn }
 		}
 		
-		else {
-			if (g.S_) {
-				$l('yes F(Q)')
-				$.i(g.f, function (i) {
-					gx.bf( i  )
-					if (F(g.s)) {
-						g.s(h)
-					}
-				})
+		else {o = F(g.s) ? {i: g.f, fn: g.s} : {i: g.f, mx: g.s, fn: g.t}}
+			
+		o.i = o.i || 'me'
+		
+		  if(o.hs){
+			
+			 $l('aaaa')
+			   $.i(o.i, function (i){
+				_bf(i, o.mx);
+				var n=0
+				if(o.fn) {
+					$l('n: '+ n++)
+				_.e( o.hs, o.fn )
+					
+				}
+			})
 			}
-			//if object with an 'hs' property
-			else if (g.O_ && A(g.f.hs)) {
-				$l('g.O_ && A(g.f.hs)')
-				img = g.f.i || 'me'
-				$.i(img, function (i) {
-					gx.bf(i)
-					if (F(g.s)) {
-						_.e(g.f.hs, g.s)
-					}
-				})
-			}
-			else {
-				$l('..else')
-				gx.bf(g.f, null, g.s)
-			}
-			return h //h.ef()
+		  else if (S(o.i)) {
+			  Q.ran ? _bf(Q.i(o.i), o.mx, o.fn, '/') :
+					  $.i(o.i, function (i) {
+						  _bf(i, o.mx, o.fn)
+					  })
+		  }
+		  else { _bf(o.i, o.mx)}
+			return h
+		
+		
+		function _bf(i, mx, fn, hs) {
+		var g = G(arguments), 
+		o= {i: g.f, mx: g.s, fn: g.t, hs:g[3] }
+		__bf(o.i, o.mx)
+		if(o.fn){
+			o.hs? _.e(o.hs, function(shp){o.fn(shp, h)   }):
+			 o.fn(h) }
 		}
-	
-	}  // BITMAP FILL  !!!!!!
-//bitmap fill rec
-	h.bmCir = function (o) {
-		var h = this
+		
+		function __bf(i, mx) {
+			if (A(mx)) {
+				mx = cjs.m2d.apply(cjs, mx)
+			}
+			else if (g.d) {
+				mx = cjs.m2d(R(500), R(300))
+			}
+			h.graphics.bf(i, null, mx)
+			return h
+		}
+	}
+	h.bs = function (i) {
+		var h = this;
+		h.graphics.bs(i);
+		return h
+	}
+	h.bmCir = function (o) {var h = this
 		o = o || {}
 		o.i = o.i || 'me'
 		o.circs = o.circs || []
-		$.img(o.i, function (i) {
-			 
-			_.each(o.circs, function (c) {
-				h.bf(i)
-				h.dc(c)
-				h.ef()
-			})
+		$.i(o.i, function (i) {				
+		_.e(o.circs, function (c) {
+		h.bf(i).dc(c).ef()})
 		})
 		return h
 	}
-	h.bC = function (o) {
-		var h = this;
-		return h.bf(o, function (h1) {
-			h.dc(h1)
-		})
-	}
-	
-	
-	
-	
-	
 	h.bmV = function (o) {
 		var h = this
 		o = o || {}
 		o.i = o.i || 'me'
-		
-		$.img(o.i, function (i) {
+		$.i(o.i, function (i) {
 			i = i[0]
 			_.e(o.v, function (v) {
-				
 				h.bf(i)
 				h.lt(v)
 				h.ef().cp()
-				
 			})
 		})
-		
 		return h
 	}
 	h.bV = function (o) {
@@ -324,9 +298,7 @@ function shape(){
 		_.e(o.v, function (v) {
 			h.lt(v)
 		})
-		
 		return h
-		
 	}
 	h.pol = function (V, c, C, l) {
 		var h = this, g = G(arguments), o
@@ -364,9 +336,10 @@ function shape(){
 		return h
 		//= h.bfR = h.bmR
 	}
-	
-	
-	
+	//calls bitmap fill and lets it load up the bitmap (my face)
+//then passes in a function to be called once the image has finished loading
+//in this case, the function draws a rectangle
+// (and the bitmap is automatically used as the fill)
 	recs()
 	paths()
 	defs()
@@ -442,20 +415,21 @@ function shape(){
 		}
 	}
 	function paths() {
+		
 		h.es = function () {
 			var h = this, gx = h.graphics
 			gx.es()
 			return h
 		}
+		
 		h.cp = function () {
 			this.graphics.cp();
 			return this
 		}
-		h.bs = function (i) {
-			var h = this;
-			h.graphics.bs(i);
-			return h
-		}
+		
+		
+	
+		
 		h.ef = function () {
 			var h = this, gx = h.graphics
 			gx.f()
@@ -779,7 +753,6 @@ function shape(){
 		return i
 	}
 }
-
 
 
 
@@ -1456,3 +1429,16 @@ function alpha(){
 		return w
 	}
 }
+function uselessWithExample() {
+	h.bC = function (o) {
+		var h = this;
+		return h.bf(o, function (h1) {
+			h.dc(h1)
+		})
+	}//uselsess!
+	HBC = function () {
+		st = $St().t()
+		st.h(300, 200).bC('me')
+	}
+}
+	

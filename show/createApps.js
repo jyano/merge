@@ -1,4 +1,4 @@
-$load('stage')
+$load('stage','bitmapFill')
 
 
 
@@ -18,6 +18,46 @@ function stage(){
 		$St('r',800,100, '+').b('me')
 	}
 }
+
+
+
+function bitmapFill(){
+	HBFF = function () {
+		st = $St().t()
+		Q('me', function () {
+			st.h(300, 200, '+').bf(Q.i('me')).dc(100)
+			st.h(500, 100, '+').bf('me').dc(100)
+		})
+	}
+	
+	HBFHS = function () {
+		st = $St(1800, 500).t()
+		h = st.h(300, 100)
+		h.bf({
+			i: 'me',
+			hs: [100, 300, 500, 700, 900],
+			fn: function(x) {
+				h.dc(x, 30, 120).es()
+			}
+		})
+	}
+	HBF = function () {
+		$St().t().h(300, 300).bf('me', function (h) {
+			h.dc(300)
+		})
+	}
+	HBMCIR = function () {
+		st = $St().t()
+		st.h(300, 200).bmCir({
+			circs: [{r: 100}, {x: 200, y: 200}, {}]
+		})
+	}
+}
+
+
+
+
+
 
 
 

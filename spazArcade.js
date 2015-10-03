@@ -1170,15 +1170,26 @@ function chars() {
 				x: 0,
 				y: 20 * sc,
 			}).K('feet').C('X')
+			
+			
 			p.Bm('me', 0, 0, 0.25 * sc)
+			
+			
 			// p.bS(   {i:'me', sc: .25*sc, x:-10,y:-110}  )
+			
 			if (g.p) {
 				p.tr()
 			}
+			
+			
 			p.r(.4)
 			p.lD(.5)
 			return p
 		}
+		
+		
+		
+		
 		b.inAir = function () {
 			var b = this, onG = false
 			this.cxs(function (cx) {
