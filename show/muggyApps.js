@@ -781,11 +781,15 @@ UNIVERSE = function () {
                 $Bub($('#textinput').V(), '+')
             }))
         $.eG('users', function (user) {
+        
             if (user.mug) {
+            
                 var mugInviteBt = $.i(user.mug).WH(100)
+        
                 mugInviteBt.$(function () {
                     k.em('sendInvite', {from: _username, toWho: user.un})
                 });
+        
                 page.A(mugInviteBt)
             }
         })
@@ -793,6 +797,7 @@ UNIVERSE = function () {
             k.em('myUpdate', {un: _username, x: yourBm.x, y: yourBm.y})
         })
     })
+    
     
 }
 

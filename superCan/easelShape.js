@@ -88,11 +88,21 @@ h.cir = function () { var h = this, gx = h.graphics, g = G(arguments), o
 	h.alpha = N(o.al, 1)
 	return h
 }
-
-
-
- 
- 
+ct.cir = function (c, r, x, y) {
+	var ct = this, cir
+	if (!S(c)) {
+		y = x;
+		x = r;
+		r = c;
+		c = 'y'
+	}
+	y = N(y, 0);
+	x = N(x, 0)
+	r = N(r, 50)
+	cir = $h().c(c).dc(x, y, r)
+	ct.A(cir)
+	return cir
+}
 
 SIR=function(){$.C('b')
 	 $S({

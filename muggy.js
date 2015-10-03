@@ -16,7 +16,6 @@ $.fn.selPic = function () {
     this.parent().C('y')
 }
 
-
 st = cjs.Stage.prototype
 ct = cjs.Container.prototype
 t = cjs.Text.prototype
@@ -24,82 +23,6 @@ st = cjs.Stage.prototype
 h =  cjs.Shape.prototype
 ct = cjs.Container.prototype
 i = cjs.DisplayObject.prototype
-
-
-
-
-
-
-ct.h =   function (x, y, c, C, l, opt) {var ct = this,
-    h = $h(x, y, c, C, l, opt).a2(ct)
-    return h.drag()
-}
-
-$Bm = function (i) {  var bm
-
-    if (O(i)) {
-	    if ($.iI(i)) {_i = i = $(i)[0]; return bm = new cjs.Bitmap(i) }
-        bm = $Bm(i.i)
-        if (i.al) {bm.al(i.al)}
-        if (i.fl) {bm.fl(i.fl)}
-        if (i.aF2) {bm.aF2(i.aF2)}
-        return bm}
-        
-}
-
-$St = function (a, b, c, d, e) {var g = G(arguments), st
-
-    st = A(g[0]) ? new cjs.Stage(g[0][0]) :
-        O(g[0]) ? new cjs.Stage($(g[0])[0]) :
-            new cjs.Stage($.c(g[0], g[1], g[2], g[3], g[4]) [0])
-    st.c = st.can = $(st.canvas)
-    if (g.p) {st.can.dg()}
-    if (!g.n) {st.can.A()}
-    return st.t()
-}
-
-ct.cir = function (c, r, x, y) {var ct = this, cir
-
-    if (!S(c)) {y = x;x = r;r = c;c = 'y'}
-    y = N(y,0); x = N(x,0)
-    r =  N(r, 50)
-    
-    cir= $h().c(c).dc(x, y, r)
-    ct.A(cir)
-    
-    return cir
-}
-
-h.ss = h.l = function (a) {var h = this, gx = h.graphics, g, o
-
-	if (S(a)) {this.C(a); return this.ss.apply(this, _.rest(arguments))}
-
-	g = G(arguments)
-	o = {l: g[0], caps: g[1], jts: g[2], mit: g[3], ignSc: false}
-
-	o.l = N(o.l) ? o.l : 4
-
-	if (o.caps == 'r') {o.caps = 'round'}
-	if (o.caps == 's') {o.caps = 'square'}
-	if (o.caps == 'b') {o.caps = 'butt'}
-	
-	if (o.mit == 'r') {o.mit = 'round'}
-	if (o.mit == 'm') {o.mit = 'miter'}
-	if (o.mit == 'b') {o.mit = 'bevel'}
-	
-	o.jts = o.jts || 0
-	if (U(o.mit)) {o.mit = 100}
-	if (g.n) {o.ignSc = true}
-	
-	gx.ss(o.l, o.caps, o.jts, o.mit, o.ignSc)
-	return h
-}
-
-
-
-
-
-
 
 $.wd=  $.w=$.win=function(a, size,  id){
     var g=G(arguments),
@@ -145,12 +68,10 @@ $.fm = $.format = function () {
 
 };
 k = io.connect(); k.em = k.emit
-
 Y = function self(page){
     self.render(page)
     return self
 }
-
 $ren=Y.render = function(page){
     $l('in render')
     
@@ -159,7 +80,6 @@ $ren=Y.render = function(page){
         return Y[page]() || true
     }
 }
-
 $run=Y.run = function(app){$l('Y.run')
     app = app.toUpperCase()
     if(app = Y[app] || window[app]){
@@ -350,10 +270,6 @@ $.fn.dots = function () {
 
     return el
 }
-
-
-
-
 $.fn.snap = function (fn) {
     $.po('/img', {
         d: this.canvas.toDataURL(),
@@ -383,27 +299,29 @@ $.pic = function(pic){
         .$(function(){
             $.cut(pic._id + pic.ext) }) 
             }
-            
 $.picDiv = function (top) {$l('in picDiv')
     return $.dA('b', '+').WH('auto').XY(200, top).K('pic')
         .pad(25)}
+
 $mug=  function(un, fn){
+
     //make default un YOU (_username)
-    $.g('/mugByUsername/'+un,  function(mug){if(mug){fn(mug)}})}
-cjs.Container.prototype.mug = function(){
-    var ct = this, g = G(arguments), o
+    $.g('/mugByUsername/'+un,  function(mug){if(mug){fn(mug)}})
+
+}
+$.mug= $.myMug= function(fn){
+	$.g('myMug', fn)
+}
+cjs.Container.prototype.mug = function(){var ct = this, g = G(arguments), o
     o = g.N_ ? {sc: g.f, fn: g.s} : {fn: g.f}
     o.sc = N(o.sc) ? o.sc : 1
-    o.fn = o.fn || function () {
-    }
-    $.g('myMug', function (m) {
-        if (!m) {
-            alert('!mug')
-        }
-        ct.bm(m, o.sc, o.fn, g.p ? '+' : null)
+    o.fn = o.fn || function () {}
+	$.myMug( function (m) {
+        ct.bm( m, o.sc, o.fn )
     })
     return ct
 }
+
 $.user=function(u){
 
     $.wStatus  = function(user, fn){
@@ -506,16 +424,11 @@ $(function(){
 		}
 	})
 })
-
-
-
-
 ////////////////////////
 ////////////////////////
 ////////////////////////
 ////////////////////////
 ////////////////////////
-
 $.pop = function (message, o) {
 
     if (S(o)) {
@@ -937,7 +850,6 @@ function later() {
         }
     }
 }
-
 function ditto(){
     $.delBt=function(url, data){var bt
         bt = $.bt('delete', function( el ){

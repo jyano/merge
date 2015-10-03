@@ -76,8 +76,6 @@ b.rec = function (c, W, H, x, y, a) {
 	return f
 	
 }
-
-
 w.sH = function (h) {
 	
 	
@@ -98,7 +96,6 @@ w.wTS=w.wToS=  function(x,y){var w=this,
 		x=(x +w.s.x/w.z)*w.z,
 		y=(y+ w.s.y/w.z)*w.z
 	return {x:x, y:y}}
-
 w.lG=function(c,c2){var w=this,o
 	o={c1:c2||'z', c2:c||'r', x1:0,y1:0,x2:0,y2:0}
 	_.x(o,R()?(R()?{y2:w.h}:{x2:w.w}):
@@ -129,7 +126,6 @@ w.warp = function () {
 	
 	return w
 }
-
 w.tE=function(fn){var w=this
 	T.t(function(){  w.e(fn)  })
 	return this
@@ -291,7 +287,20 @@ w.show = function (fn) {
 	return w
 	
 }
-
+b.sp = function () {
+	$l('b.sp')
+	var b = this, g = G(arguments), ch
+	if (b.gx && b.gx.children) {
+		ch = g.p ? b.gx.children : g.n ? b.gx.children[0] : _.l(b.gx.children)
+		if (g.u) {
+			return ch
+		}
+		if (g.F_) {
+			_.e(ch, g.f);
+			return this
+		}
+	}
+}
 function wall(){
 	
 	
@@ -796,20 +805,8 @@ function later() {
 		sp = $Sp(o.sp)
 		return b._Sp(sp, o)
 	}
-	b.sp = function () {
-		$l('b.sp')
-		var b = this, g = G(arguments), ch
-		if (b.gx && b.gx.children) {
-			ch = g.p ? b.gx.children : g.n ? b.gx.children[0] : _.l(b.gx.children)
-			if (g.u) {
-				return ch
-			}
-			if (g.F_) {
-				_.e(ch, g.f);
-				return this
-			}
-		}
-	}
+
+	
 	f.bSQ = function (j) {
 		alert('f.bSQ')
 		var f = this

@@ -3,6 +3,8 @@
 $load(  'ticker','graphics','stage',
 		'containers', 'cjsMath', 'displayObs')
 
+ 
+
 function graphics(){
 	cjs.lg = h.lg = function () {
 		var g = G(arguments), o//h=this, gx=h.graphics,
@@ -356,40 +358,30 @@ function stage(){
 		if (S(g.f) && $('#' + g.f).length) {
 			cv = g.f
 		}
-		
 		else if (O(g.f)) {
 			cv = $(g.f)[0]
 		}
-		
-		
 		else {
-			
-			
-			
-			cv = S(g.f)?
-			$.c(
-					g.f || 'p',
-					g.s || 1200,
-					g.t || 600,
-					g[3], g[4])[0]: 
-					
-					
+			cv = S(g.f) ?
+					$.c(
+							g.f || 'p',
+							g.s || 1200,
+							g.t || 600,
+							g[3], g[4])[0] :
 					$.c(
 							g.f || 1200,
 							g.s || 600,
 							g.t, g[3])[0]
-			
 		}
-		
 		st = new cjs.Stage(cv)
 		st.cv = st.c = st.can = $(st.canvas)
 		st.cv0 = st.cv[0]
 		st.xc = st.cv0.getContext('2d')
-		st.A();
-		if (g.p) {
-			st.t()
-		}//.t()
-		return st
+		if (!g.n) {
+			st.can.A()
+		}
+		//if (g.p) {st.t() }//.t()
+		return st.t()
 	}
 	St = function () {
 		var g = G(arguments);
@@ -480,6 +472,9 @@ function stage(){
 	st.Bm = function (i) {
 		return $Bm(i).a2(this)
 	}
+	
+	
+	
 	st.hW = function () {
 		return this.W() / 2
 	}
@@ -787,13 +782,32 @@ function displayObs(){
 			ob.rm()
 		}
 	}
-	$Bm = function (bm) {
+	
+	 
+	$Bm = function (i) {
+		var bm
 		var g = G(arguments)
-		bm = new cjs.Bitmap(bm)
-		if (g.p) {
-			bm.drag()
+		if (O(i)) {
+			if ($.iI(i)) {
+				_i = i = $(i)[0];
+				bm = new cjs.Bitmap(i)
+				if (g.p) {
+					bm.drag()
+				}
+				return bm
+			}
+			bm = $Bm(i.i)
+			if (i.al) {
+				bm.al(i.al)
+			}
+			if (i.fl) {
+				bm.fl(i.fl)
+			}
+			if (i.aF2) {
+				bm.aF2(i.aF2)
+			}
+			return bm
 		}
-		return bm
 	}
 	textOb();
 	dObPt();
@@ -873,7 +887,9 @@ function displayObs(){
 		i.W = function (a) {
 			var i = this
 			if (U(a)) {
-				return i.getBounds().width * i.scaleX
+				var bds= i.getBounds()
+				if(bds){return bds.width * i.scaleX}
+				return
 			}
 			i.sX(i.scaleX * a / i.W())
 			return i
@@ -881,8 +897,10 @@ function displayObs(){
 		i.H = function (a) {
 			var i = this
 			if (U(a)) {
-				return this.getBounds().height * this.scaleY
+				if(this.getBounds()){return this.getBounds().height * this.scaleY}
+				return
 			}
+			
 			this.sY(this.scaleY * a / this.H())
 			return this
 		}
@@ -1305,3 +1323,63 @@ __S = function () {
 	return st
 	
 }
+cjs.hasDim = function (bm) {
+	$l('cjs.hasDim')
+	return !cjs.iH(bm) && !cjs.iCt(bm)
+}
+ct.dot = function () {
+	var g = G(arguments),
+			o = {c: g.f, x: g.s, y: g.t}
+	o.x = N(o.x, ct.W() / 2)
+	o.y = N(o.y, ct.H() / 2)
+	o.c = o.c || 'y'
+	d = this.h(o.x, o.y).cir(8, o.c, 'z', 2).al(.7).drag()
+	tw = d.twL([{sxy: 1.3}, 100], [{sxy: 1}, 100]).$()
+	d.$$(function () {
+		tw.$()
+	})
+	return d.K('dot')
+}
+i.dot = function () {
+	var i = this
+	i.getStage().dot(i.X(), i.Y())
+	return i
+}
+h.ss = function (a) {
+	var h = this, gx = h.graphics, g, o
+	if (S(a)) {
+		this.C(a);
+		return this.ss.apply(this, _.rest(arguments))
+	}
+	g = G(arguments)
+	o = {l: g[0], caps: g[1], jts: g[2], mit: g[3], ignSc: false}
+	o.l = N(o.l) ? o.l : 4
+	if (o.caps == 'r') {
+		o.caps = 'round'
+	}
+	if (o.caps == 's') {
+		o.caps = 'square'
+	}
+	if (o.caps == 'b') {
+		o.caps = 'butt'
+	}
+	if (o.mit == 'r') {
+		o.mit = 'round'
+	}
+	if (o.mit == 'm') {
+		o.mit = 'miter'
+	}
+	if (o.mit == 'b') {
+		o.mit = 'bevel'
+	}
+	o.jts = o.jts || 0
+	if (U(o.mit)) {
+		o.mit = 100
+	}
+	if (g.n) {
+		o.ignSc = true
+	}
+	gx.ss(o.l, o.caps, o.jts, o.mit, o.ignSc)
+	return h
+}
+

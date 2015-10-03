@@ -1,5 +1,4 @@
 $load('cts','shape','tran','text')
-
 function cts(){
 	ct.cX = function () {
 		return this.St().cen().x
@@ -25,41 +24,33 @@ function cts(){
 		return this
 	}
 	ct.bm = function () {
-		
-		var ct = this, g = G(arguments), o, bmp
-		
-		o = N(g.s) ?
-		{i: g.f, sc: g.s, fn: g.t} :
-		{i: g.f, fn: g.s}
-		o.sc = N(o.sc) ? o.sc : 1
-		
+		var ct = this, g = G(arguments), o, bm
+		o = g.F_ ? {fn: g.s, sc: g.s} :
+				g.N_ ? {sc: g.f, fn: g.s} :
+						_.x({i: g.f},
+								N(g.s) ? {sc: g.s, fn: g.t} :
+								{fn: g.s, sc: g.t})
+		//fn,sc  //sc,fn //i,sc,fn  //i,fn,sc
+		o.sc = o.sc || 1;
+		o.i = o.i || 'me';
+		o.al = N(o.al, 1)
+		o.fn = o.fn || function () {
+		}
 		if (_.iDU(o.i)) {
 			o.i = $.i(o.i)
 		}
-		
-		
 		if (O(o.i)) {
-			bmp = $Bm(o.i).a2(ct)
-			if (o.fn) {
-				o.fn(bmp)
-			}
+			o.fn($Bm(o.i).a2(ct))
 			return ct
 		}
-		
-		$.i(o.i, function (i, e) {
-					bmp = $Bm(i)
-					bmp.a2(ct)
-					bmp.rC()
-					bmp.sXY(o.sc).a2(ct)
-					//bm.XY( that.W()/2, that.H()/2 )
-					// works with stage i guess.. but fucks with 'container' - cant check bounds
-					if (g.n) {
-						bmp.XY(-1000)
-					}
-					if (o.fn) {
-						o.fn(bmp)
-					}
-				})
+		$.i(o.i, function (i) {
+			bm = $Bm(i).a2(ct).sXY(o.sc)
+			if (!g.n) {
+				bm.rC()
+			}
+			//if (g.p) {bm.drag()}; if (g.d) {bm.XY(-1000)}
+			o.fn(bm)
+		})
 		return ct
 	}
 	ct.mc = function (x, y) {
@@ -192,9 +183,8 @@ function cts(){
 		return ct2
 	}
 }
-
-
 function shape(){
+
 	h.bf=function(){var h = this, gx = h.graphics, g = G(arguments), o
 			
 						
@@ -207,8 +197,6 @@ function shape(){
 		o.i = o.i || 'me'
 		
 		  if(o.hs){
-			
-			 $l('aaaa')
 			   $.i(o.i, function (i){
 				_bf(i, o.mx);
 				var n=0
@@ -228,24 +216,28 @@ function shape(){
 		  else { _bf(o.i, o.mx)}
 			return h
 		
-		
 		function _bf(i, mx, fn, hs) {
 		var g = G(arguments), 
 		o= {i: g.f, mx: g.s, fn: g.t, hs:g[3] }
-		__bf(o.i, o.mx)
+		
+		__bf(o.i, o.mx, '/')
+		
 		if(o.fn){
 			o.hs? _.e(o.hs, function(shp){o.fn(shp, h)   }):
-			 o.fn(h) }
+			 o.fn(h) 
+			 }
 		}
 		
-		function __bf(i, mx) {
+		function __bf(i, mx) {var g=G(arguments)
 			if (A(mx)) {
 				mx = cjs.m2d.apply(cjs, mx)
 			}
+			
 			else if (g.d) {
-				mx = cjs.m2d(R(500), R(300))
+			mx = cjs.m2d(R(500), R(300))
 			}
-			h.graphics.bf(i, null, mx)
+	
+					h.graphics.bf(i, null, mx)
 			return h
 		}
 	}
@@ -318,16 +310,20 @@ function shape(){
 		}
 		return h
 	}
-	h.bR = function (o) {
-		var h = this;
-		if (F(Q)) {
+	
+	h.bR = function (o) {var h = this;
+		if (!Q.ran) {
 			h.bf(o, function (h1) {
-				h.rec(h1)
+				//h.rec(h1)
+				//h.rec(o.hs)
+				_.e(o.hs, function (r) {
+					w.rec(r.w, r.h)
+				})
 			})
 		}
 		else {
-			alert('h.bR not preloaded?')
 			h.bf(o.bf)
+			
 			h.rec(o.hs)
 			_.e(o.hs, function (r) {
 				w.rec(r.w, r.h)
@@ -753,10 +749,6 @@ function shape(){
 		return i
 	}
 }
-
-
-
-
 function tran(){
 	cjs.bindSlide = SL = function () {
 		var g = G(arguments),
@@ -1441,4 +1433,3 @@ function uselessWithExample() {
 		st.h(300, 200).bC('me')
 	}
 }
-	

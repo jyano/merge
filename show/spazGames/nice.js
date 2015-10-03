@@ -171,21 +171,19 @@ BINDSP = function () {
 
 }
 CHICKBALLS=function(){
-
-    W(1200,1200)._(function(){
-
+	
+	
+    W(1600,1200)._(function(){
+        
         _.t(14, function(){
-
+        
             w.D(R(1100,50),R(1100,50))
                 .cir({
-                    bf:'chicks',
-
+                    bf: 'chicks',
                     r: R(180, 50)
                 })
-
         })
-
-
+	    
         w.y()
         w.p()
     })

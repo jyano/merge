@@ -1,4 +1,6 @@
 $load('fxSp', 'bdSp', 'rmSp', 'toElse', 'bods', 'dev', 'edge', 'wall', 'anim', 'wStuff', 'fromCreate')
+
+/*
 ct.bm = ct.b = function () {
 	var ct = this, g = G(arguments), bm,
 			o = g.F_ ? {fn: g.s, sc: g.s} :
@@ -27,6 +29,8 @@ ct.bm = ct.b = function () {
 	})
 	return ct
 }
+
+*/
 // u might say xTHIS but not thisX? i dont know what i am talking about
 /* TICKER
  paused : Indicates whether the ticker is currently paused.
@@ -51,41 +55,12 @@ ct.bm = ct.b = function () {
 
  */
  
- 
- 
 b.Bm = function (iS, x, y, sX, sY, rt) {var b = this, w = b.W(), g = G(arguments);
-	
-	b.gx = b.gx || w.g.ct()
-	
-	if (S(iS)) {
-		this.gx.bm(iS, fn)
-	}
-	
-	
+	b.gx = b.gx || w.gx.ct()
+	if (S(iS)) {this.gx.bm(iS, fn)}
 	if (O(iS)) {fn(iS); return iS }
-	
 	return b
-	
-	function fn(bm) {
-		bm.rC().XY(N(x, 0), N(y, 0))
-				.sXY(N(sX, 1), N(sY, sX || 1))
-				.rt(N(rt, 0)) }
-	
-	
-	
-}
-
-
-
-
-
-
-
-
-
-cjs.hasDim = function (bm) {
-	$l('cjs.hasDim')
-	return !cjs.iH(bm) && !cjs.iCt(bm)
+	function fn(bm) {bm.rC().XY(N(x, 0), N(y, 0)).sXY(N(sX, 1), N(sY, sX || 1)).rt(N(rt, 0)) }
 }
 w._D = function (o) {
 	return this.D(o.x, o.y, o.c, o.w, o.h)
@@ -191,9 +166,6 @@ b._bS = function (j, o) {
 				b.Y() + o.y).rt(b.rt() + o.rt)
 	})
 }
-
-
-
 b.bS = function () {
 	var b = this, w = b.W(), g = G(arguments), o, i, a, sc 
 	//pass it a display object (which i guess implies its already loaded)
@@ -229,18 +201,11 @@ b.bS = function () {
 	return this
 
 }
-
-
-
-
 b._gx = function (a) {
-	$l('b._gx')
-	this.gx = this.gx || w.g.ct();
+	this.gx = this.gx || w.gx.ct();
 	if (a) { this.gx.A(a) }
 	return this
 }
-
-
 
 BINDSPR=function(){W()
 
@@ -253,7 +218,6 @@ BINDSPR=function(){W()
 	})
 
 }
-
 BINDSPP = function () {
 	W()
 	b = w.D(100, 300).cir(120)
@@ -265,12 +229,6 @@ BINDSPP = function () {
 		b.bS(sp1)
 	})
 }
-
-
-
-
-
-
 
 W = b2d.W = function () {
 	var g = G(arguments), o
@@ -348,23 +306,26 @@ W = b2d.W = function () {
 		})
 	)
 	
-
+	
 	
 	//grpx
-	w.I = $St('z', w.W, w.H, 0, 0)
 	
+	w.BG= w.I = $St('z', w.W, w.H, 0, 0)
 	w.st = w.s =   $St('X', w.W, w.H, 0, 0)//.aC(0)
-	
 	w.cv= w.canvas = w.st.canvas;
 	w.$cv=	w.can = $(w.canvas);
 	w.cx= w.ctx = w.can.ctx('2d')
-	
-	
 	w.bg = w.st.ct();
 	w.gx= w.g = w.st.ct();
 	w.fg = w.st.ct()
+	w.FG = w.i = $St('X', w.W, w.H, 0, 0)
 	
-	w.i = $St('X', w.W, w.H, 0, 0)
+	
+	
+	
+	
+	
+	
 	
 	if (o.i) {
 		w.s.bm(o.i)
@@ -405,11 +366,16 @@ W = b2d.W = function () {
 			b.wY = b.Y()
 			b.sX = w.wTS(b.wX, b.wY).x
 			b.sY = w.wTS(b.wX, b.wY).y
+			
 			if (O(b.gx)) {
 				b.gx.XY(b.X(), b.Y()).rt(b.rt())
 			}
+		
+		
 		})
 	})
+	
+	
 	if (o.t !== 0) {
 		w.t = w._t = w._t || w.S(w.hW, w.hH, 'w', [[20, 2, '-']]).r(.8) //trackee
 		w.i.A(w.tSpr = $Ct().XY(w.t.X(), w.t.Y())) //  w.tSpr.bm('guy', function(g){  g.sXY(.2)}) // w.tSpr.A(g)
@@ -518,8 +484,6 @@ W = b2d.W = function () {
 		})
 	}
 }
-
-
 f.S = f.stg = function () {
 	return this.W().s
 }
@@ -546,21 +510,13 @@ w.killD = w.xD = function () {
 		}
 	})
 }
-w.pol = function () {
-	var w = this, g = G(arguments), b, o
-	if (g.A) {
-		return $a(w, 'pol', g.f)
-	}
+w.pol = function () {var w = this, g = G(arguments), b, o
+	if (g.A) { return $a(w, 'pol', g.f) }
 	b2d.mini()
 	if (g.OO) {
-		g.e(function (g) {
-			w.pol(g)
-		})
+		g.e(function (g) { w.pol(g) })
 		return w
 	}
-	
-	
-	
 	// if(g.N_ && N(g.s) && O(g.t) &&U(g[3])){return w.D(g.f,g.s).pol(g.t)}
 	else if (g.N_ && N(g.s) && O(g.t)) {
 		b = w.D(g.f, g.s)
@@ -599,15 +555,11 @@ w.pol = function () {
 w.cir = w.ball = w.ba = w.circ = function (x, y, r, c) {
 alert('w.cir w.ball w.ba w.circ')
 	var w = this, g = G(arguments), b, o
-	o = g.O ? g.f :
-			N(g.s) ?
-			{
+	o = g.O ? g.f : N(g.s) ? {
 				x: g.f, y: g.s,
 				r: g.t,
 				c: g[3]
-			}
-					:
-			{r: g.f}
+			} :		{r: g.f}
 	o.x = N(o.x, w.hW)
 	o.y = N(o.y, w.hH)
 	o.r = N(o.r, 50)
@@ -615,11 +567,10 @@ alert('w.cir w.ball w.ba w.circ')
 	b = w.D(o.x, o.y, o.c, o.r)
 			.d(.5).fr(0).r(.5)
 			.K('ball cir')
-	if (g.n) {
-		b.sen(true)
-	}
+	if (g.n) {b.sen(true)}
 	return b
 }
+
 w.bump = w.baa = function () {
 	var w = this, g = G(arguments), b, o
 	o = O(g[0]) ? g[0] : N(g[1]) ? {
@@ -662,14 +613,9 @@ $l('w.$h')
 } // h = $h().a2(s).rXY(100, 300).XY(100,300).drag()
 //  h.rec( 'r','b',600, 200,  600, 200)
 // h.rec( 'g',100, 100,  100, 20)
-ct.d = ct.dot = function (c, x, y) {
+ct.d =  function (c, x, y) {
 	var ct = this, o, d, tw, g = G(arguments)
-	if (b2d.isGPoly(g.f)) {
-		_.e(g.f.vs(), function (v) {
-			ct.dot(V(v))
-		})
-		return this
-	}
+	//if (b2d.isGPoly(g.f)) {_.e(g.f.vs(), function (v) {ct.dot(V(v))}); return this}
 	if (g.A) {
 		_.e(c, function (G) {
 			if (A(G)) {
@@ -681,6 +627,7 @@ ct.d = ct.dot = function (c, x, y) {
 		})
 		return this
 	}
+	
 	o = g.S_ ? (
 			b2d.iB(g.s) ? {c: g.f, x: g.s.sX, y: g.s.sY} :
 					O(g.s) ? {c: g.f, x: g.s.x, y: g.s.y} :
@@ -689,20 +636,17 @@ ct.d = ct.dot = function (c, x, y) {
 			b2d.iB(g.f) ? {x: g.f.sX, y: g.f.sY} :
 					g.O_ ? {x: g.f.x, y: g.f.y} :
 					{x: g.f, y: g.s}
-
+	
+	
+	
 	o.x = N(o.x, ct.W() / 2)
 	o.y = N(o.y, ct.H() / 2)
 	o.c = o.c || 'y'
-	
 	d = this.h(o.x, o.y).cir(8, o.c, 'z', 2).al(.7).drag()
 	tw = d.twL([{sxy: 1.3}, 100], [{sxy: 1}, 100]).$()
 	d.$$(function () {tw.$()})
 	return d.K('dev dot')
-}
-i.dot = function () {
-	var i = this
-	i.getStage().dot(i.X(), i.Y())
-	return i
+
 }
 f.dot = function (c) {
 	var f = this, w = f.B().W(), v
@@ -738,14 +682,14 @@ b.dot = function () {
 }
 function rmSp() {
 	f.clrSp = function () {
-		$l('clrSp')
+		//$l('clrSp')
 		this.sprites = []
 		this_sp = []
 		this.SP = []
 		return this
 	}
 	f.rmSp = function () {
-		$l('rmSp')
+		//$l('rmSp')
 		_.e(this.initSp().sprites, function (s) {
 			cjs.rmOb(s)
 		})
@@ -829,6 +773,7 @@ function bods() {
 				});
 				return b
 			}
+			
 			// can pass obj
 			// can pass: c C [r] [x] [y]
 			// can pass: c [r] [x] [y]
@@ -1068,5 +1013,3 @@ function _pre() {
 	h = cjs.Shape.prototype // gx = cjs.Graphics.prototype
 	ct = cjs.Container.prototype
 }
-
-
