@@ -243,8 +243,6 @@ function fixDef() {
         this.isSensor = isSensor ? true : false
         return this
     }
-
-
     fD.K =   function (k) {var fD=this
         if (U(clas)) {return fD.getClass()}
         fD.classes = fD.classes || []

@@ -752,28 +752,38 @@ function shap() {
     function cir() {
         //same, all circles
         CATAPILLER = function () {
+        
+        
             W(1000, 500, 1000, 500).G(10000)
-
-
+	        
+	        
             b = w.D(800, 300)
             b.cir('r', 100)
             b.cir('b', 80, 0, -60)
             b.cir('g', 'w', 60, 0, -140)
             b.cir('*', '*', 20, 0, -140)
-
+	        
+	        
             b = w.D(300, 300)
             b.cir('o', 20)
             b.cir('b', 100, 140, 0)
             b.cir('r', 20, 100, 100)
             b.cir('b', 20)
             b.cir(20, 100, 100).C('r')
+	        
+	        
+            w.D(600, 300, 'b', [['b', 50, 50, 50]])
+            .cir({c: 'o', r: 50})
+            
+            
+            w.D(600, 300, 'y', [['b', 50, 50, 50]])
+            .cir({c: 'b', r: 50, x: 50})
 
 
-            w.D(600, 300, 'b', [['b', 50, 50, 50]]).cir({c: 'o', r: 50})
-            w.D(600, 300, 'y', [['b', 50, 50, 50]]).cir({c: 'b', r: 50, x: 50})
 
-
+        
         }
+
 
 //same but has shakiness, all circles
         RADIOACTIVE = function () {
@@ -881,7 +891,7 @@ function shap() {
         }
         PUZ = function () {
             W(0);
-            w.ship().tr()
+	        w.ship().tr()
             _.t(10, function () {
                 w.D(400, 400, [
                     ['r', 20, 0, 0],
@@ -889,8 +899,13 @@ function shap() {
                     ['y', 20, 0, 100]
                 ])
             })
+        
+        
         }
+    
     }
+    
+    
 
     function rec() {
         DOMINO = function () {
@@ -1585,25 +1600,32 @@ function err(){
 
 
 GEMS = function () {W()
-
-    h=w.i.h(100, 300, '+')
-
+ 
+    h= w.i.h(100, 300, '+')
     h.bR({
-
         i:'chicks',
-
         hs: [
             {w: 150, h: 500}, {w: 150, h: 500, x: 200},
             //{w: 150, h: 500, x: 400},
             {w: 150, h: 500, x: 600}
         ]
-
     })
-
-
-    w.D(200, 160).cir({r: 120, rf: {c1: 'r', c2: 'b'}}, {r: 100, C: 'y', l: 2, bf: 'me'})
-
+ 
+	
+	
+	
+    w.D(200, 160).cir(
+        {r: 120, rf: {c1: 'r', c2: 'b'}}, {r: 100, C: 'y', l: 2, bf: 'me'}
+    )
+	
+	
 }
+
+
+
+
+
+
 POLGEMS  = function () {W()
 
 

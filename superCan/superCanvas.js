@@ -14,7 +14,6 @@ $.tC=$.tCan=function(a){
     }
 }
 $.iC=$.isCan=function(can){
-    alert('$.iC $.isCan')
     if(O(can)){
         return $(can)[0].constructor.name=="HTMLCanvasElement"
     }
