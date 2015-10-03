@@ -257,12 +257,14 @@ function debug() {
 			return dd.GetFlags()
 		}
 		if (flags == '*') {
-			flags = (DD.e_shapeBit | DD.e_jointBit | DD.e_pairBit | DD.e_aabbBit | DD.e_centerOfMassBit | DD.e_controllerBit)
+			flags = DD.e_shapeBit //| DD.e_jointBit | DD.e_pairBit | DD.e_aabbBit | DD.e_centerOfMassBit | DD.e_controllerBit
 		}
 		dd.SetFlags(flags)
 		return dd
 	}
 }
+
+
 function bMath() {
 	b2d.AB = function (x1, y1, x2, y2) {
 		var g = G(arguments)
@@ -493,22 +495,29 @@ function obvious() {
 	}
 }
 function makeBodDef() {
+	
+	
 	b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
 		var v = V(x, y)
 		return b2d.bD(v.x, v.y).dyn()
 	}
+	
 	b2d.bD = function (x, y) {
-		var v = V(x, y),
+	
+			var v = V(x, y),
 				bD = new b2BodyDef()
 		return bD.XY(N(v.x, 100), N(v.y, 100))
 	}
+	
 	b2d.sD = b2d.S = b2d.stat = function (x, y) {
 		return b2d.bD(x, y).stat()
 	}
+	
 	b2d.kD = function (x, y) {
 		return b2d.bD(x, y).T(1)
 	}
 }
+
 function isTy() {
 	b2d.iV = b2d.isV = function (v) {
 		if (v) {
@@ -551,6 +560,7 @@ function alpha() {
 		return [pos.x, pos.y, col1.x, col1.y, col2.x, col2.y]
 	}
 }
+
 function mouse() {
 	w.md = function (fn) {
 		var w = this
@@ -616,6 +626,9 @@ function mouse() {
 		return this
 	}
 }
+
+
+
 function step() {
 	w.dbD = w.bug = w.debugDraw = function () {
 		var w = this, g = G(arguments)
@@ -656,6 +669,8 @@ function step() {
 		return w
 	}
 }
+
+
 function _pre() {
 	b2d = Box2D
 	b2d.Fixture = b2d.Dynamics.b2Fixture
