@@ -136,6 +136,15 @@ GPC=function(){
 }
 uni()
 sub()
+
+
+function basicShapes() {
+	WT = function () {
+		W()
+		b0 = w.S(600, 300, 'y', 300, 100, 0, 0, 30)
+		b = w.S(600, 300, 'r', 300, 100).rot(-30)
+	}
+}
 function sub(){ SUB = function () {W(20).Y();y.rot(90).XY(20, 50)
 
     face = w.S(300, 400, 'b', 100, 100)
@@ -182,7 +191,6 @@ function sub(){ SUB = function () {W(20).Y();y.rot(90).XY(20, 50)
 
 
 }
-
     SENSUB=function(){W(0).Y()
         r  = w.D(600,350, 'r', 400, 200).grp(-1)
         b  = w.D(1000,300,[['b', 100,100 ], ['b',100,100,30,30 ]]).grp(-1)
@@ -407,7 +415,6 @@ function uni() {
 
 
     }
-
     UNII=function(){W(50).Y()
 
         fn=function() {var p1,p2, b, r, d,f
@@ -456,7 +463,6 @@ function uni() {
 
 
     }
-
     GERN = function () {
         W({g: 0}).Y()
         w.p(200, 200)
@@ -873,8 +879,6 @@ function alpha() {
 
 
     }
-
-
     DES=function(){W(0)
 
 
@@ -926,14 +930,5 @@ function alpha() {
         rect.dyn()
         pC.dyn()
 
-    }
-
-
-}
-function basicShapes() {
-    WT = function () {
-        W()
-        b0 = w.S(600, 300, 'y', 300, 100, 0, 0, 30)
-        b = w.S(600, 300, 'r', 300, 100).rot(-30)
     }
 }
