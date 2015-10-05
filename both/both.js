@@ -902,4 +902,17 @@ function superDate(){
     }
     _.sT = setTimeout
 }
-
+rgba = function () {
+	var g = G(arguments),
+			o = g.N_ ? {r: g.f, g: g.s, b: g.t, a: g[3]} :
+					g.O_ && N(g.s) ? {r: g.f.r, g: g.f.g, b: g.f.b, a: g.s} :
+							g.O ? {r: g.f.r, g: g.f.g, b: g.f.b, a: g.f.a} : {}
+	o.r = N(o.r, 0)
+	o.g = N(o.g, 0)
+	o.b = N(o.b, 0)
+	o.a = N(o.a, 1)
+	var str = 'rgba('
+	str = str + o.r + ',' + o.g + ',' + o.b + ',' + o.a
+	str += ')'
+	return str
+}

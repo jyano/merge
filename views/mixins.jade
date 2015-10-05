@@ -17,15 +17,32 @@ mixin loadApps(app, pam)
         _pam = wappyPam = '#{pam}'
         $(function () {z();window[_app.toUpperCase()](_pam)}) 
         
-mixin superWeb()
+        
+mixin front()
     +S(['us', 'string', 'moment', 'both', 'jq', 'jQueryPlus', 'frontOb'])
-    +S(['superJQuery', 'superJQuerySty', 'superJQueryAnim', 'handy', 'handyInputs', 'rules', 'superContext2D', 'superWebApps'])
-             
-             
-             
-mixin superCan()
-    +S(['superCanvas', 'canApps', 'cjs', 'cjsMC'])
-    +S(['create', 'cjsLQ', 'easel', 'easelShape','tween', 'sprite', 'movie', 'anims'])
-    +S(['createApps', 'queueApps', 'cjsAnimApps','mcApps'])
-        
-        
+    +S(['superJQuery', 'superJQuerySty', 'superJQueryAnim', 'handy', 'handyInputs', 'rules',  'superWebApps'])
+    
+mixin canvas()
+    +S(['gpcas', 'polyMath', 'superContext2D','cxGpc', 'cxApps', 'superCanvas', 'canApps'])
+    
+    
+mixin create()
+    +S(['cjs', 'cjsMC'])
+    +S(['create', 'cjsLQ', 'easel', 'easelShape','bitmapFill', 'tween', 'sprite', 'movie', 'anims'])
+    +S(['createApps', 'queueApps', 'cjsAnimApps','mcApps','matrixApps' ,'easelGpc'])
+    
+    
+    
+mixin box2d()
+    +S([ 'bx', 'sep'])
+    +S(['box', 'boxBods'])
+    +S(['coll', 'joint', 'co', 'geo'])
+    +S(['boxApps', 'bush'])
+
+
+mixin superWeb()
+    +front()
+    +canvas()
+    +create()
+    +box2d() 
+    

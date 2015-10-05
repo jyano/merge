@@ -1,30 +1,31 @@
-dirs=[
-	'','bone/blog','bone/tpcs',
-	
-	'public',
-	'public/pics',
-	'public/art',
-	'public/newArt',
-	'public/assets',
-	'public/uploads',
-		
+dirs=['', 'public', 'public/pics', 'public/art', 'public/newArt', 'public/assets', 'public/uploads',
+
 	'both', 'both/deps',
+
+	'jquery', 'jquery/deps', 
 		
-	'superWeb', 'superWeb/deps',
+				
+	'gpc', 'gpc/deps',
+
+
+	'canvas',
+
+	'create','create/deps', 'anim',
+
+	'box2d', 'box2d/deps',
+	'spaz',
 		
-	'superCan', 'superCan/deps', 'createAnim',  
+	'bootstrap','bootstrap/deps',
+	'jqUI', 'jqUI/deps', 'jqUI/deps/images', 'jqUI/custWid',
+	'backbone', 'backbone/deps', 'backbone/blog', 'backbone/tpcs', 'backbone/tuts','backbone/bbApps',
+	'knockout','knockout/deps','knockout/custBind','knockout/comps',
 	
 		
-	//bootstrap
-	
-	'boot','boot/deps',// 'boot/deps/css', 'boot/deps/fonts',
-	//fiz
-	'superBox','superBox/deps',
-	'show','show/mugApps','show/spazGames',
-	//jQuery UI
-	'jqui','jqui/deps','jqui/deps/images','jqui/custWid',
-	//backbone
-	'bone','bone/deps','bone/tuts','bone/bbApps',
-	//knockout
-	'knock','knock/deps','knock/custBind','knock/comps'
+	'show',
+	'show/jquery', 'show/canvas', 'show/create',
+	'show/box2d',
+	'show/spaz',
+	'show/backbone', 'show/bootstrap'
+		
+
 ]
