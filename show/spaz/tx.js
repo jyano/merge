@@ -159,15 +159,18 @@ function Butterfly(){
 
 }
 function snow() {
+
+/*
 //a little square snow
     _.ev(5, function () {
 
-        w.D(
+      var b=   w.D(
             R(1000), -300, $r()
         )//.g()
-            .al(.9).rec('w', 'z', 0, 0, 180, 180).al(.7)
+           // b.al(.9)
+            b.rec('w', 'z', 0, 0, 180, 180) 
     })
-
+*/
 
 }
 

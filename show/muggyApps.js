@@ -679,10 +679,12 @@ UNIVERSE = function () {
         x = g[1] || yourBm.x;
         y = g[2] || yourBm.y
         uni.A(ct);
-        ct.cir('w', 120, x - 250, y - 250, 50)
-        ct.cir('b', 30, x - 120, y - 120, 30)
-        ct.cir('g', 20, x - 80, y - 80)
+        
+        ct.h().cir({c:'w', r:120, x:x - 250, y:y - 250, r1:50})
+        ct.h().cir({c:'b', r:30, x:x - 120, y:y - 120, r1:30})
+        ct.h().cir({c:'g', r:20, x:x - 80, y:y - 80})
 
+	    
        ct.text = function (t, f, c, x, y) {
             var ct = this, o, cX, st = this.getStage()
 

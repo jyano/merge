@@ -416,15 +416,22 @@ b.bc=  function (fn) {var b=this, g=G(arguments),
 
 
 }
+
 b.al=function(al){
-
     al = N(al,.8)
-
-
-    this.f().sprites[0].al(al)
-
+	if(this.f() && O(this.f().sprites)){
+		this.f().sprites[0].al(al)
+	}
     return this
 }
+
+
+f.alx = function (al) {
+	al = N(al, .8)
+//	if ( O(this.sprites)) {this.sprites[0].al(al)}
+	return this
+}
+
 b.end=function(){var b=this, w= b.W(), g=G(arguments), o
 
     o = F(g.s)? {k:g.f, fn:g.s} : {fn:g.f}

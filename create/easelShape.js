@@ -178,22 +178,34 @@ function circle() {
 		h.alpha = N(o.al, 1)
 		return h
 	}
-	ct.cir = function (c, r, x, y) {
-		var ct = this, cir
-		if (!S(c)) {
-			y = x;
-			x = r;
-			r = c;
-			c = 'y'
-		}
-		y = N(y, 0);
-		x = N(x, 0)
-		r = N(r, 50)
-		cir = $h().c(c).dc(x, y, r)
-		ct.A(cir)
-		return cir
+	
+	ct.cir = function () {
+	
+		var ct = this,g=G(arguments), 
+		 h=this.h(), o
+		 
+		 
+		
+		o =  g.O ?  g.f :
+		  N(g.s)? {x: g.f,  y: g.s, r: g.t,  c:g[3] }:
+		   {r: g.f, c: g.s}
+		o.y = N(o.y, 0);
+		o.x = N(o.x, 0)
+		o.r = N(o.r, 50)
+		h.c(o.c)
+		h.dc(o.x, o.y, o.r)
+		return h
 	}
+	
+	ct.cir=function(){
+		var h=this.h()
+		return h.cir.apply(h, arguments)
+	}
+
 }
+
+
+
 function curve(){
 h.arc = h._a = function (x, y, r, startA, endA, aCW) {
 	var h = this, gx = h.graphics

@@ -104,38 +104,37 @@ w.cen = w.cent = function () {
 	return v
 }
 
-
-f.c= f.C = function () {
-	
-	var f = this, b = f.B(), w = b.W(), g = G(arguments), o,
-	 h
-	
-	o = g.O ? g.f : {c: g.f, C: g.s, l: g[2]}
-	o.c = (o.c == '*') ? $r() : (o.c || 'b')
-	o.C = o.C || o.c
-	
-	f.rmSp()
-	
-	
-	h = f.iC() ?  // if circle?
-			w.st.h().cir(f.pX(), f.pY(), f.rad(), o.c, o.C, o.l) :
-		// if poly
-			
-			w.st.h().pol( f.vs(), o.c, o.C, o.l )
-			// {v: g.f, c: g[1], C: g[2], l: g[3]}
-			
-			
-	f.bS(h)
-	b.i = h
-	return f
+f.rpSp=function(sp){
+	this.rmSp()
+	if(sp){this.bS(sp)}
+	return this
 }
 
 
 
+f.c= f.C = function () {var f = this, b = f.B(), w = b.W(), g = G(arguments), 
+	o = g.O ? g.f : {c: g.f, C: g.s, l: g.t}
+	o.c = (o.c == '*') ? $r() : (o.c || 'b'); o.C = o.C || o.c
+	return f.rpSp(
+	 f.iC() ? b.i= w.st.cir( f.cir(o) ) : b.i=w.st.pol( f.pol(o) )  ) 
+}
+
+
+f.cir=function(o){
+	var f=this
+	
+	return   _.x(o||{}, {x: f.pX(), y: f.pY(), r: f.rad()})
+}
+f.pol=function(o){return _.x(o || {}, {v: this.vs()})}
+
 FXC=function(){
 	W().C('z')
+	
 	b= w.D()
-	f = b.cir()
+	f = b.cir({c:'o'})
+	
+	
+	
 	b1 =  w.D(300,400)
 	f1 = b1.pol(v1)[0]
 	_.in(function(){
@@ -144,57 +143,76 @@ FXC=function(){
 	})
 }
 
-
-
-
-
 b.wP = b.wPt = function (x, y) {
 	var b = this
 	return b.GetWorldPoint(V(x, y).div()).mult()
 }
 f.initSp = function () {
+alert('initSp')
 	this._sp = this._sp || [];
 	this.SP = this.SP || [];
 	this.sprites = this.sprites || []
 	return this
 }
+
 f.spritePush = function (j) {
-	this.initSp().sprites.push(j)
+	alert('spritePush')
+	this.sprites = this.sprites || []
+	this.sprites.push(j)
 	return this
 }
+
+
+
+
 f._bS = function (o) {
+	this.sprites = this.sprites || []
 	var f = this, b = f.B(), w = b.W(), j
 	$df.bsDF(o)
 	j = o.j
 	j.al(o.al)
-	w.g.A(j)
-	f.spritePush(j)
+	w.gx.A(j); f.sprites.push(j)
 	b._bS(j, o)
-	return this
+	return f
 }
 f.bS = function () {
 	//higher level.. can handle obs and Q-strings
 	var f = this, b = f.B(), w = b.W(), g = G(arguments), sp
-	if (S(g.f)) {
-		alert('f.bSQ');
-		return f.bSQ(g.f)
-	}
-	sp = cjs.iDO(g.f) ?
-	{j: g.f, rt: g.s, x: g.t, y: g[3], o: g[4]} :
-			g.f
-	return f._bS(sp)
+	//if (S(g.f)) { return f.bSQ(g.f) }// not alerted
+	 f._bS(
+			sp = cjs.iDO(g.f) ?
+			 {j: g.f, rt: g.s, x: g.t, y: g[3], o: g[4]} :
+			  g.f
+	)
+	return f
 }
+
+
+
+
 b.fSp = function () {
-	$l('b.fSp')
+	alert('b.fSp')
 	return this.f().sprites[0]
 }
-b._bS = function (j, o) {
-	var b = this
-	T.t(function () {
-		j.XY(b.X() + o.x,
-				b.Y() + o.y).rt(b.rt() + o.rt)
-	})
+
+
+
+
+b._bS = function (sprite, o) {var b = this
+	T.t(function () {sprite
+		.XY(b.X() + o.x, b.Y() + o.y)
+		.rt(b.rt() + o.rt)
+	 })
 }
+
+
+
+
+
+
+
+
+
 b.bS = function () {
 	var b = this, w = b.W(), g = G(arguments), o, i, a, sc 
 	//pass it a display object (which i guess implies its already loaded)
@@ -588,17 +606,7 @@ w.pol = function () {var w = this, g = G(arguments), b, o
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 w.cir = w.ball = w.ba = w.circ = function (x, y, r, c) {
 alert('w.cir w.ball w.ba w.circ')
 	var w = this, g = G(arguments), b, o
@@ -726,22 +734,27 @@ b.dot = function () {
 			w.d(g.f || 'y', g.p ? b.wC() : b)
 	return b
 }
+
 function rmSp() {
+
+/*
 	f.clrSp = function () {
 		//$l('clrSp')
-		this.sprites = []
-		this_sp = []
-		this.SP = []
+		this.sprites = []; //this_sp = []; this.SP = []
 		return this
 	}
+*/
+
+	
+	
+	
 	f.rmSp = function () {
-		//$l('rmSp')
-		_.e(this.initSp().sprites, function (s) {
-			cjs.rmOb(s)
-		})
-		this.clrSp()
+		_.e(this.sprites||[], function (s) { cjs.rmOb(s) })
+		this.sprites = []
 		return this
 	} //= f.xSp=f.Xx=f.rmSp
+	
+	
 	w._preKill = function (b) {
 		$l('w._preKill')
 		if (b.sprite) {
@@ -759,7 +772,12 @@ function rmSp() {
 		$l('w._fPreKill')
 		f.rmSp()
 	}
+	
+	
 }
+
+
+
 function bods() {
 	b.__f = function (f) {
 		var b = this, g = G(arguments)
