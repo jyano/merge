@@ -201,22 +201,27 @@ h._pol = h.bmV = function (o) {
 	return h
 }
 
-h.pol = h.poly = function (V, c, C, l) {
+h.pol = h.poly = function (Vs,c,C,l) {
 	var h = this, g = G(arguments), o = _poly()
 	h.ef().es().c(o)
-	if (o.bf) {h.bf('me', draw)}
-	else {draw()}
-	return h
-	
-	function draw() {h.lt(o.v).cp()}
+	if (o.bf) {h.bf('me', draw)} else {draw()}
 	function _poly() {
-		var o = A(g.f) ? {v: g.f, c: g[1], C: g[2], l: g[3]}
-			//array must come first b/c its an obj
-				: O(g.f) ? g.f : {}
-		oDef(o);
-		return o
+		var o = A(g.f) ? {v: g.f, c: g[1], C: g[2], l: g[3]}:
+		 g.f//array must come first b/c its an obj
+		return oDef(o||{})
 	}
+	function draw() {
+		h.lt(o.v).cp()
+	}
+	return h
 }
+
+
+
+
+
+
+
 
 h.pols = h.bV = function (o) {
 	var h = this, g = G(arguments), o

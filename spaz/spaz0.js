@@ -103,25 +103,51 @@ w.cen = w.cent = function () {
 	}
 	return v
 }
-f.C = function () {
-	var f = this,
-			b = f.B(), w = b.W(), g = G(arguments), o, h
+
+
+f.c= f.C = function () {
+	
+	var f = this, b = f.B(), w = b.W(), g = G(arguments), o,
+	 h
+	
 	o = g.O ? g.f : {c: g.f, C: g.s, l: g[2]}
 	o.c = (o.c == '*') ? $r() : (o.c || 'b')
 	o.C = o.C || o.c
+	
 	f.rmSp()
-
-
-	h = f.iC() ?
-		// if circle?
-			w.s.h().cir(f.pX(), f.pY(), f.rad(), o.c, o.C, o.l) :
+	
+	
+	h = f.iC() ?  // if circle?
+			w.st.h().cir(f.pX(), f.pY(), f.rad(), o.c, o.C, o.l) :
 		// if poly
-			w.s.h().pol(f.vs(), o.c, o.C, o.l)
-
+			
+			w.st.h().pol( f.vs(), o.c, o.C, o.l )
+			// {v: g.f, c: g[1], C: g[2], l: g[3]}
+			
+			
 	f.bS(h)
 	b.i = h
 	return f
 }
+
+
+
+FXC=function(){
+	W().C('z')
+	b= w.D()
+	f = b.cir()
+	b1 =  w.D(300,400)
+	f1 = b1.pol(v1)[0]
+	_.in(function(){
+		f.C( $r() )
+		 f1.C( $r() )
+	})
+}
+
+
+
+
+
 b.wP = b.wPt = function (x, y) {
 	var b = this
 	return b.GetWorldPoint(V(x, y).div()).mult()
@@ -993,80 +1019,77 @@ function _pre() {
 	ct = cjs.Container.prototype
 }
 
-
-b.pol = function () {
-	
+f= b2Fixture.prototype
  
-	var b = this, w = b.W(), g = G(arguments), o, n, 
-	fs, h, numFixtsAdded, newFixts
-	
+f.set=function(o){if(!O(o)){return false}
+	var f=this
+	if(D(o.d)){ f.d(o.d) }
+	if (D(o.bo)) {f.bo(o.b)} else if (D(o.r)) {f.r(o.b)}
+	if (D(o.fr)) { f.fr(o.f)  }
+	if ( o.s ){f.sen(1)}
+	if(D(o.k)){f.K(o.k)}
+	return f
+}
+f.c= f.C
+
+b.sepNew =function(vs,fn){
+//this proxies to b.sep.. but has two advantages
+	//- it returns NEW fixtures formed in an array
+	//- if u pass in a function, then it loops those fxs
+	// //alt:if only one fixture added.. it is returned as a single fixture (not in array) ?
+	var n = this.n(), 
+	b = this.sep(vs),
+	numNewFs = b.n() - n, 
+	newFs = _.f(b.fs(), numNewFs)
+	if(F(fn)){_.e(newFs, fn)}
+	return newFs
+	//return newFs[1]? newFs: newFs[0]
+}
+b.pol = function () {var b = this, w = b.W(), g = G(arguments), o, 
+		newFs
 	
 	if (g.u) {return b}
+	if (b2d.iB(g.f)) { g.f.fs(b); return b }
 	
-	n = b.n()
+	_morph()
 	
+	newFs = b.sepNew(o.v, function (f) {
 	
-	//if passed verts:
-	if ( gpc.iP(g.f) && U(g.s) ) {
-		return b.pol({  v: g.f  })
-	  }
-	  
-	//if passed color and verts:
-	if (S(g.f) &&  gpc.iP(g.s) && U(g.t)) {
-	  return b.pol({c: g.f, v: g.s})
-	   }
+		f.set(o)
+		f.c(o.c, o.C, o.l)
+		if (o.lf) {f.bS(  w.st.h().lf(o).lt(o.v) )}
+		if (o.rf) {f.bS(  w.st.h().rf(o).lt(o.v) )}
 	
-	if (b2d.iB(g.f)) { g.f.fs(b); 
-	return b }
-	
-	else if (b2d.iF(g.f)) {
-	  g.f = g.f.vs()
-	   }
-	
-	o = g.A ? (
-		// pass in ['r',[],[],[]]
-			S(g.f[0]) ? {c: g.f[0], v: _.r(g.f)} :
-				// pass in [[],[],[]]
-			{v: g.f}
-	) :
-			g.O ? g.f : 
-					!g.S_ ? {v: g} : //pass in [],[]
-					g.t ? {c: g.f, v: g.r} : // pass in 'r', [], []
-					{c: g.f, v: g.s}   //pass in  {c:'r', v:[[],[],[]]}
-	
-	
-	$df.h(o)
-	
-	_s = b.sep(o.v)
-	
-	numFixtsAdded = b.n() - n
-	newFixts = _.f(b.fs(), numFixtsAdded)
-	
-	_.e(newFixts, function(f){
-		f.d(o.d).r(o.b).fr(o.f)
-		if (o.s) {
-			f.m_isSensor = o.s ? true : false;
-			f.sen(1)
-			//which line does it?
-		}
-		f.K(o.k)
-		f.C(o.c, o.C, o.l)
-		if (o.lf) { f.bS(w.s.h().lf(o).lt(o.v)) }
-		if (o.rf) { f.bS(w.s.h().rf(o).lt(o.v)) }
 	})
 	
 	
-	o.i = o.i || o.bf
+	if (o.i) { b.bS( __h =   w.gx.h().bV(o)    )}
 	
-	if (o.i) {
-		h = w.g.h();
-		h.bV(o);
-		b.bS(h)
+	
+	return newFs
+	
+	function _morph() {
+		//if passed [[ color and ]] verts:
+		o = S(g.f) && gpc.iP(g.s) ? {c: g.f, v: g.s} : gpc.iP(g.f) ? {v: g.f} :
+				b2d.iF(g.f) ? {v: g.f.vs()} :
+					// pass in  [[],[],[]]   or  ['r',[],[],[]]
+						g.A && S(g.f[0]) ? {c: g.f[0], v: _.r(g.f)} : g.A ? {v: g.f} :
+								g.O ? g.f : g.O_ ? {v: g} : //pass in [],[]
+										g.t ? {c: g.f, v: g.r} : // pass in 'r', [], []
+										{c: g.f, v: g.s}   //pass in  {c:'r', v:[[],[],[]]}
+		
+		$df.h(o)
+		o.i = o.i || o.bf
 	}
-	
-	return _.z(newFixts) > 1 ? newFixts : 
-	newFixts[0]
 }
+
+
+
+
+
+
+
+
 
 
 
