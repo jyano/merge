@@ -152,7 +152,6 @@ function worldStuff(){
 		if (g.A) {
 			return $a(w, 'pol', g.f)
 		}
-		b2d.mini()
 		if (g.OO) {
 			g.e(function (g) {
 				w.pol(g)
@@ -444,6 +443,8 @@ function bods(){
 			o.i = o.i || o.bf
 		}
 	}
+	
+	
 	b.sep = function (verts, scale) {
 		var body = this
 		if (!O(verts)) {
@@ -459,6 +460,7 @@ function bods(){
 		})  //  'sep' each of the verts onto the body
 		return this
 	}
+	
 	b.sepNew = function (vs, fn) {
 	//this proxies to b.sep.. but has two advantages
 		//- it returns NEW fixtures formed in an array
@@ -474,6 +476,8 @@ function bods(){
 		return newFs
 		//return newFs[1]? newFs: newFs[0]
 	}
+	
+	
 	b.__f = function (f) {
 		var b = this, g = G(arguments)
 		if (g.u) {

@@ -796,3 +796,14 @@ LJQFN=function(){
 	p=$('span').p()//.C('z')
 	//r=	$('body').f('div').C("b")//.r()
 }
+$.iQ = function (o) {
+	return O(o) && F(o.ajaxStart)
+}
+$.iO$ = function (o) {
+	return O$(o) && !$.iQ(o)
+}
+
+$al = function (er) {
+	alert(er)
+	return false
+}

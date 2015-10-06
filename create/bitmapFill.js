@@ -1,19 +1,3 @@
-cjs.M = cjs.Mx = cjs.Matrix2D
-i.gM = i.getMatrix
-
-
-$Mx = function (a, b, c, d, e, f, g, h) {
-	var mx = new cjs.Mx(a, b, c, d, e, f, g, h)
-	return mx
-}
-$tMx = function (x, y, sx, sy, rt, kx, ky, rx, ry) {
-	var m = $Mx()
-
-	m.appendTransform(N(x,0), N(y,0), N(sx,1), N(sy,1), rt, kx, ky, rx, ry)
-
-	return m
-
-}
 h._bf = function(){var g=G(arguments), args= g.A? g.f: g
 	this.graphics.bf.apply(this.graphics, args)
 	return this
@@ -37,56 +21,22 @@ h._bfTAs=function(str, tfPropsArr, fn){var h=this, g=G(arguments), o
 	return h
 
 }
-
-TXBF=function(){
-	st=$St()
-	h=st.h()
-	$.i('me', function(i){
-		h._bf(i).dr(100,100,500,200)
-		h.C('z').dr(100,100,10,10)
-	})
-}
-TXB=function(){
-	st = $St()
-	h = st.h()
-	$.i('me', function (i) {
-		h._bfT(i,-100).dr(100, 100, 500, 200)
-	})
-}
-TBX = function () {
-	st = $St()
-	h = st.h()
-	
-	$.i('me', function (i) {
-
-		h._bfT(i, -100).dr(100, 100, 500, 200)
-
-	})
-
-
-
-}
-
-
 h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
-	
+$l('h.bf')
+
+
+
 	if (O(g.f) && A(g.f.hs)) {
 	
 		o = {i: g.f.i, hs: g.f.hs, mx: g.f.mx, fn: g.f.fn}
 	
 	}
-	
-	
 	else {
 	
 		o = F(g.s) ? {i: g.f, fn: g.s} : {i: g.f, mx: g.s, fn: g.t}
 	
 	}
-	
-	
 	o.i = o.i || 'me'
-	
-	
 	if (o.hs) {
 	
 			$.i(o.i, function (i) {
@@ -100,22 +50,21 @@ h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 			}
 		})
 	}
-	
-	
 	else if (S(o.i)) {
 		Q.ran ? _bf(Q.i(o.i), o.mx, o.fn, '/') : $.i(o.i, function (i) {
 			_bf(i, o.mx, o.fn)
 		})
 	}
-	
 	else {
 		_bf(o.i, o.mx)
 	}
-	
 	return h
 	
-	function _bf(i, mx, fn, hs) {
-		var g = G(arguments),
+	
+	function _bf(i, mx, fn, hs) {var g = G(arguments),o
+	
+	
+	
 				o = {i: g.f, mx: g.s, fn: g.t, hs: g[3]}
 		__bf(o.i, o.mx, '/')
 		o.fn = o.fn || function () {
@@ -127,25 +76,32 @@ h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 				o.fn(h)
 	}
 	
-	function __bf(i, mx) {
-		var g = G(arguments)
+	
+	
+	
+	function __bf(i, mx) {var g = G(arguments)
+		 
+		
 		if (A(mx)) {
 			mx = cjs.m2d.apply(cjs, mx)
 		}
-		else if (g.d) {
-			mx = cjs.m2d(R(500), R(300))
-		}
+		
+		//else if (g.d) {mx = cjs.m2d(R(500), R(300))}
+		
 		h._bf(i, null, mx)
+		
 		return h
 	}
-
+	
 }
 h.bs = function (i) {
+	$l('h.bs')
 	var h = this;
 	h.graphics.bs(i);
 	return h
 }
 h.bmCir = function (o) {
+	$l('h.bmCir')
 	var h = this
 	//o = o || {}
 	o.i = o.i || 'me'
@@ -160,6 +116,7 @@ h.bmCir = function (o) {
 	return h
 }
 h.bR = function (o) {
+	$l('h.bR')
 	var h = this;
 	if (!Q.ran) {
 		h.bf(o, function (h1) {
@@ -180,12 +137,8 @@ h.bR = function (o) {
 	return h
 	//= h.bfR = h.bmR
 }
-
-
-
-
-
-h._pol = h.bmV = function (o) {
+h.bmV = function (o) {
+	$l('h.bmV')
 	var h = this
 	o = o || {}
 	o.i = o.i || 'me'
@@ -199,30 +152,7 @@ h._pol = h.bmV = function (o) {
 		})
 	})
 	return h
-}
-
-h.pol = h.poly = function (Vs,c,C,l) {
-	var h = this, g = G(arguments), o = _poly()
-	h.ef().es().c(o)
-	if (o.bf) {h.bf('me', draw)} else {draw()}
-	function _poly() {
-		var o = A(g.f) ? {v: g.f, c: g[1], C: g[2], l: g[3]}:
-		 g.f//array must come first b/c its an obj
-		return oDef(o||{})
-	}
-	function draw() {
-		h.lt(o.v).cp()
-	}
-	return h
-}
-
-
-
-
-
-
-
-
+}//h._pol = 
 h.pols = h.bV = function (o) {
 	var h = this, g = G(arguments), o
 	o = g.A ? {hs: g.f} : g.f || {}
@@ -252,13 +182,91 @@ h.pols = h.bV = function (o) {
 	}
 }
 
-
-
-
-
+TXBF = function () {
+	st = $St()
+	h = st.h()
+	$.i('me', function (i) {
+		h._bf(i).dr(100, 100, 500, 200)
+		h.C('z').dr(100, 100, 10, 10)
+	})
+}
+TXB = function () {
+	st = $St()
+	h = st.h()
+	$.i('me', function (i) {
+		h._bfT(i, -100).dr(100, 100, 500, 200)
+	})
+}
+TBX = function () {
+	st = $St()
+	h = st.h()
+	$.i('me', function (i) {
+		h._bfT(i, -100).dr(100, 100, 500, 200)
+	})
+}
 //calls bitmap fill and lets it load up the bitmap (my face)
 //then passes in a function to be called once the image has finished loading
 //in this case, the function draws a rectangle
 // (and the bitmap is automatically used as the fill)
 
 
+
+BMFV=function(){
+	
+	
+
+	
+	Q(function(){
+	
+		__St()
+		
+		im = Q.i('me')
+		
+		$im = $(im).A()
+		
+		h.bf(im)
+		h.cir({x:40, y:289, r:100})
+		
+		
+		h.mt(vs1)
+		
+		h.mt([
+			[550, 20],
+				[800,100],[700,300],[500,120]
+		])//.cp()
+		
+	
+		h.mt([
+			[750, 20],
+			[900, 100], [900, 300], [700, 120]
+		], 50, 200)//.cp()
+		h.mt([
+			[550, 20],
+			[800, 100], [700, 300], [500, 120]
+		],0,50)//.cp()
+		h.cir({
+		 x: 550, y: 20, r: 20, c: 'b'
+		 })
+		
+		 h.cir({
+		 x:800,y:100, r:30,c:'b'
+		 })
+		
+		
+		 h.cir({
+		 x: 700, y: 300, r: 20, c: 'g'
+		 })
+		
+		
+		 h.cir({
+		 x: 500, y: 120, r: 30, c: 'g'
+		 })
+		
+		 
+		
+		
+	})
+
+	
+
+}

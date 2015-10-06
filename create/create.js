@@ -21,13 +21,19 @@ cjs.lg = h.lg = function () {
 	return o
 }
 $Gx=cjs.Gx = cjs.gx = function (a) {return new cjs.Graphics(a)}
-gx.fC = gx.fs = function (c, C, l) {
+
+
+gx.cCL= gx.fC = gx.fs = function (c, C, l) {
+
 	var gx = this
 	gx.f(oO('c', c || 'z'))
 	gx.s(oO('c', C || null))
 	gx.ss(N(l) ? l : 2)
 	return gx
 }
+
+
+
 gx.sC = function (s, w) {
 	var gx = this
 	w = N(w) ? w : 2
@@ -36,11 +42,14 @@ gx.sC = function (s, w) {
 	gx.ss(w)
 	return gx
 }
+
 h.col = h.fs = function () {
 	var h = this, gx = h.graphics, g = G(arguments)
 	gx.fs.apply(gx, g)
 	return h
 }
+
+
 h.c = h.f = function (c, C, l) {
 	var h = this, gx = h.graphics, g = G(arguments), o
 	o = g.O ? g.f :
@@ -48,13 +57,21 @@ h.c = h.f = function (c, C, l) {
 					g.f == '**' ? {c: '**'} :
 							g.f == '***' ? {c: '***'} :
 									g.u ? {c: 'z', C: 'w', l: 6} :
+									
+									
 											N(g.s) ? {c: g.f, l: g.s} :
 													g.N_ ? {l: g.f, C: g.s} :
 													{c: g.f, C: g.s, l: g.t}  // 'c-C-l'
+	
+	
+	
+	
+	
 	fCol()
 	fGrad()
 	fBmap()
 	function fCol() {
+		
 		if (A(o.c)) {
 			if (N(o.c[1])) {
 				o.c = o.c[0];
@@ -74,11 +91,11 @@ h.c = h.f = function (c, C, l) {
 			o.C = o.C[0];
 			o.l = o.C[1]
 		}
+		
 		if (o.c == 0) {
 			gx.f(null);
 			o.c = 'X'
 		}
-		;
 		if (o.C == 0) {
 			gx.s(null);
 			o.C = 'X'
@@ -89,15 +106,12 @@ h.c = h.f = function (c, C, l) {
 			o.c = 'X';
 			o.C = 'X'
 		}
-		//
 		if (o.c == '*') {
 			o.c = $r()
 		}
-		;
 		if (o.C == '*') {
 			o.C = $r()
 		}
-		;
 		if (o.c == '**') {
 			o.c = $r();
 			o.C = $r()
@@ -107,7 +121,6 @@ h.c = h.f = function (c, C, l) {
 			o.C = $r();
 			o.l = R(20)
 		}
-		///
 		if (S(o.c)) {
 			gx.f(oO('c', o.c))
 		}
@@ -117,7 +130,11 @@ h.c = h.f = function (c, C, l) {
 		if (N(o.l)) {
 			h.l(o.l)
 		}
+	
+	
 	}
+	
+	
 	
 	function fGrad() {
 		if (o.lf) {/*
@@ -175,20 +192,22 @@ h.c = h.f = function (c, C, l) {
 			h.rs(o.rs)
 		}
 	}
-	
 	function fBmap() {
 		if (o.bs) {
 			h.bs(o.bs)
 		}
-		;
 		if (o.bf) {
 			h.bf(o.bf)
 		}
-		;
 	}
-	
 	return h
 }
+
+
+
+
+
+
 h.C = h.s = function (C, l) {
 	var h = this, gx = h.graphics
 	gx.s(oO('c', C))
@@ -270,6 +289,10 @@ h.rs = function me() {
 	gx.rs([o.c1, o.c2], [o.s1, o.s2], o.x1, o.y1, o.r1, o.x2, o.y2, o.r2)
 	return h
 }
+
+
+
+
 function balls() {
 	s.cannonBall = function (x, y) {
 		var s = this, h
@@ -695,13 +718,36 @@ function ticker() {
 	}
 }
 function cjsMath() {
-	cjs.m2d = function (a, b, c, d, e, f) {
-		if (U(c)) {
-			return new cjs.Matrix2D(1, 0, 0, 1, N(a, 0), N(b, 0))
-		}
-		return new cjs.Matrix2D(N(a, 1), N(b, 0), N(c, 0), N(d, 1), N(e, 0), N(f, 0))
+
+	cjs.M = cjs.Mx = cjs.Matrix2D
+	i.gM = i.getMatrix
+	
+	
+	$Mx =  cjs.m2d = function () {var g=G(arguments), o
+		o= g.O? g.f: 
+		U(g.t)? {tx: N(g.f), ty: N(g.s)} :
+		{a: g.f, b: g.s, c: g.t, d: g.fo, tx: g.fi, ty: g.si}
+		o.a = N(o.a, 1)
+		o.b = N(o.b)
+		o.c = N(o.c)
+		o.d = N(o.d, 1)
+		o.tx = N(o.tx)
+		o.ty = N(o.ty)
+		
+		return new cjs.Matrix2D(o.a, o.b, o.c , o.d , o.tx , o.ty)
+		
+	} //( [a=1]  [b=0]  [c=0]  [d=1]  [tx=0]  [ty=0] )
+	$tMx = function (x, y, sx, sy, rt, kx, ky, rx, ry) {
+		return  $Mx().appendTransform(
+				N(x), N(y), N(sx,1), N(sy,1), rt, kx, ky, rx, ry
+		 )
 	}
-	P = cjs.P = $Pt = cjs.Pt = function (x, y) {
+	
+	
+	
+	
+	cjs.P = $Pt = cjs.Pt = function (x, y) {
+		$l('cjs.Pt $Pt')
 		if (U(x)) {
 			return new C$.Point
 		}
@@ -715,8 +761,12 @@ function cjsMath() {
 			)
 		}
 		return new cjs.Point(x, y)
-	}
+	}//=P=
 }
+
+
+
+
 function displayObs(){
 	cjs.iDO = function (i) {
 		return O(i) && F(i.getStage)
@@ -1266,6 +1316,33 @@ __S = function () {
 	loader = new cjs.LoadQueue(false);
 	return st
 	
+}
+__St = function () {
+	st = $St();
+	
+	h = st.h()//.drag()
+	cjs.SL(h)
+	
+	vs1 = [
+		[61, 68],
+		[145, 122],
+		[186, 94],
+		[224, 135],
+		[204, 211],
+		[105, 200],
+		[141, 163],
+		[48, 139],
+		[74, 117]
+	];
+	vs2 = [
+		[131, 84],
+		[224, 110],
+		[174, 180],
+		[120, 136],
+		[60, 167],
+	];
+	p1 = $pD(vs1);
+	p2 = $pD(vs2)
 }
 cjs.hasDim = function (bm) {
 	$l('cjs.hasDim')

@@ -77,7 +77,14 @@ function superJavascript(){
         }
         return _.tN(n, n2)
     }//N = _.isNumber
-    O = function (a, b) {
+	N = function (n, n2) {
+		if (U(n2)) {
+			return _.isNumber(n) || 0
+		}
+		
+		return _.tN(n, n2)
+	}//N = _.isNumber
+	O = function (a, b) {
 
         if (_.isUndefined(b)) {
             return _.isObject(a)
@@ -142,154 +149,174 @@ function superJavascript(){
             F(a) ? a : F(a.value) ?
                 a.value() : a.value
     }
-    G = function (arg, str) {
-        var a, ag = _.tA(arguments), p, n, m, d, g
-        //conflict with N(not neg) and N(g.$ && N(g.f) )
-        if (S(ag[0])) {
-            a = _.tA(ag[1])
-            if (S(a[0])) {
-                a[ag[0]] = a.shift()
-            }
-        }
-        else {
-            a = _.tA(ag[0])
-        }
-        if (_.l(a) == '+') {
-            p = a.pop()
-        }
-        else if (_.l(a) == '-') {
-            n = a.pop()
-        }
-        else if (_.l(a) == '*') {
-            m = a.pop()
-        }
-        else if (_.l(a) == '/') {
-            d = a.pop()
-        }
-        if (S(ag[1]) && S(_.l(a))) {
-            a[ag[1]] = a.pop()
-        }
-        g = _.df(
-            a, {
-                z: a.length,
-                f: _.f(a),
-                s: a[1],
-                t: a[2],
-                l: _.l(a),
-                r: _.r(a), i: _.i(a),
-                p: p, P: !p, m: m, M: !m,
-                d: d, D: !d, n: n, N: !n
-            }
-        )
-        g.u = U(g.f);
-        g.U = !g.u
-        g.L = g.length
-        str = ''
-        _.t(
-            g.L, function () {
-                str = str + '$'
-            }
-        )
-        g[str] = 1
-        //g.N= g.$ && N(g.f);
-        g.N = g.$ && N(g.f)
-        g.N_ = N(g.f);
-        g._N = N(g.l)
-        g.$N = N(g.f)
-        g.$_N = N(g.s)
-        g.S = g.$ && S(g.f)
-        g._S = S(g.l)
-        g.$S = g.S_ = S(g.f)
-        g.$_S = S(g.s)
-        g.O = g.$ && O(g.f)
-        g.O_ = O(g.f)
-        g._O = O(g.l)
-        g.A = g.$ && A(g.f)
-        g.A_ = A(g.f);
-        g._A = A(g.l)
-        g.F = g.$ && F(g.f);
-        g.F_ = F(g.f);
-        g._F = F(g.l)
-        g.SA = g.$$ && g.S_ && A(g.s)
-        g.OO_ = O(g.f) && O(g.s)
-        g.e = function (fn, str) {
-            var g = this
-            if (str) {
-                g.e(
-                    function (g) {
-                        fn[str](g)
-                    }
-                )
-                return fn
-            }
-            _.e(g, fn)
-            return g
-        }
-        g.e0 = function (fn) {
-            _.e(this[0], fn)
-        }
-        g.e1 = function (fn) {
-            _.e(this[1], fn)
-        }
-        g.eR = function (fn) {
-            _.eR(this, fn)
-        }
-        g.eF = function (fn) {
-            _.e(g.f, fn)
-        }
-        g.eS = function (fn) {
-            this.e(
-                function (k) {
-                    if (S(k)) {
-                        fn(k)
-                    }
-                }
-            )
-        }
-        g.G = function (a) {
-            a = _.clone(a)
-            if (g.n) {
-                a.push('-')
-            }
-            else if (g.p) {
-                a.push('+')
-            }
-            else if (g.d) {
-                a.push('/')
-            }
-            else if (g.m) {
-                a.push('*')
-            }
-            return a
-        }
-        g.g = g.G(g)
-        g.a = g.ap = function () {
-            var g = this, gg = G(arguments)
-            //if(g.A){
-            return gg.s ?
-                $a(gg.s, gg.t, g.f) :
-                $a(gg.f, g.f)
-        }
-        g.ush = function (d) {
-            var g = this,
-                res
-            if (U(d)) {
-                d = null
-            }
-            g.t = g.s
-            g.s = g.f
-            g.f = d
-            res = g.unshift(d)
-            return res
-        }
-        return _g = g
-    }
-    G._ = function () {
-        g = G(arguments)
-        alert("$l(g.L + ' args')")
-    }
+}
 
 
+
+
+G = function (arg, str) {//history: conflict with N(not neg) and N(g.$ && N(g.f) ) .. resolved!
+	var a, ag = _.tA(arguments),
+	p, n, m, d, g
+	
+	function setA(){
+	if (S(ag[0])) {
+		a = _.tA(ag[1])
+		if (S(a[0])) {
+			a[ag[0]] = a.shift()
+		}
+	}
+	else {
+		a = _.tA(ag[0])
+	}
+	if (_.l(a) == '+') {
+		p = a.pop()
+	}
+	else if (_.l(a) == '-') {
+		n = a.pop()
+	}
+	else if (_.l(a) == '*') {
+		m = a.pop()
+	}
+	else if (_.l(a) == '/') {
+		d = a.pop()
+	}
+	if (S(ag[1]) && S(_.l(a))) {
+		a[ag[1]] = a.pop()
+	}
+	g = _.df(a, {
+		f: _.f(a), s: a[1], t: a[2],
+		fo:a[3], fi:a[4], si:a[5],
+		se:a[6], ei:a[7], ni:a[8], te:a[9],
+		l: _.l(a), r: _.r(a), i: _.i(a),
+		L: a.length,	z: a.length,
+		p: p,  m: m, d: d,  n: n
+	})
+	};setA()
+	
+	function numArgs(){
+		g.u = U(g.f);
+		g.U = !g.u
+		var str = ''
+	_.t(g.L, function () {
+		str += '$'
+	})
+	g[str] = 1
+	
+	};numArgs()
+	function gStr(){
+		g.S = g.$ && S(g.f)
+		g._S = S(g.l)
+		g.$S = g.S_ = S(g.f)
+		g.$_S = S(g.s)};gStr()
+	function gNum() {
+		g.N = g.$ && N(g.f)
+		g.N_ = N(g.f);
+		g._N = N(g.l)
+		g.$N = N(g.f)
+		g.$_N = N(g.s)
+	};gNum()
+	function gArr() {
+		g.A = g.$ && A(g.f)
+		g.A_ = A(g.f);
+		g._A = A(g.l)
+		g.SA = g.$$ && g.S_ && A(g.s)
+	};gArr()
+	function gFn() {
+		g.F = g.$ && F(g.f);
+		g.F_ = F(g.f);
+		g._F = F(g.l)
+	};gFn()
+	function gOb(){
+	g.O = g.$ && O(g.f)
+	g.O_ = O(g.f)
+	g._O = O(g.l)
+ 	g.OO_ = O(g.f) && O(g.s)
+};gOb()
+	function gEach(){
+	g.e = function (fn, str) {
+		var g = this
+		if (str) {
+			g.e(
+					function (g) {
+						fn[str](g)
+					}
+			)
+			return fn
+		}
+		_.e(g, fn)
+		return g
+	}
+	g.e0 = function (fn) {
+		_.e(this[0], fn)
+	}
+	g.e1 = function (fn) {
+		_.e(this[1], fn)
+	}
+	g.eR = function (fn) {
+		_.eR(this, fn)
+	}
+	g.eF = function (fn) {
+		_.e(g.f, fn)
+	}
+	g.eS = function (fn) {
+		this.e(
+				function (k) {
+					if (S(k)) {
+						fn(k)
+					}
+				}
+		)
+	}
+	};gEach()
+	function gAdv(){
+	g.G = function (a) {
+		a = _.clone(a)
+		if (g.n) {
+			a.push('-')
+		}
+		else if (g.p) {
+			a.push('+')
+		}
+		else if (g.d) {
+			a.push('/')
+		}
+		else if (g.m) {
+			a.push('*')
+		}
+		return a
+	}
+	g.g = g.G(g)
+	g.a = g.ap = function () {
+		var g = this, gg = G(arguments)
+		//if(g.A){
+		return gg.s ?
+				$a(gg.s, gg.t, g.f) :
+				$a(gg.f, g.f)
+	}
+	g.ush = function (d) {
+		var g = this,
+				res
+		if (U(d)) {
+			d = null
+		}
+		g.t = g.s
+		g.s = g.f
+		g.f = d
+		res = g.unshift(d)
+		return res
+	}
+	};gAdv()
+	return _g = g
+}
+
+
+
+
+
+
+G._ = function () {
+	g = G(arguments)
+	alert("$l(g.L + ' args')")
 }
 function superConsole(){
 
@@ -916,3 +943,26 @@ rgba = function () {
 	str += ')'
 	return str
 }
+  
+M.os = function (arr, x, y) {
+	if (!arr) {
+		return $al('M.os needs arr')
+	}
+	if (A(arr[0])) {
+		return _.m(arr, function (pt) {
+			pt[0] = pt[0] + N(x, 0)
+			pt[1] = pt[1] + N(y, 0)
+			return pt
+		})
+	}
+	return _.m(arr, function (pt) {
+		pt = V(pt)
+		pt.x += N(x, 0)
+		pt.y += N(y, 0)
+		return pt
+	})
+}
+O$ = function (o) {
+	return O(o) && !F(o) && !A(o)
+}
+	

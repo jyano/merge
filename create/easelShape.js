@@ -1,4 +1,4 @@
-$load('curve','circle','defs', '_adv')
+$load('curve','circle','defs', '_adv','lineTo')
 
 
 h.dr = function () {
@@ -180,15 +180,15 @@ function circle() {
 	}
 	
 	ct.cir = function () {
-	
-		var ct = this,g=G(arguments), 
-		 h=this.h(), o
-		 
-		 
+		
+		var ct = this,g=G(arguments),
+				h=this.h(), o
+		
+		
 		
 		o =  g.O ?  g.f :
-		  N(g.s)? {x: g.f,  y: g.s, r: g.t,  c:g[3] }:
-		   {r: g.f, c: g.s}
+				N(g.s)? {x: g.f,  y: g.s, r: g.t,  c:g[3] }:
+				{r: g.f, c: g.s}
 		o.y = N(o.y, 0);
 		o.x = N(o.x, 0)
 		o.r = N(o.r, 50)
@@ -201,118 +201,105 @@ function circle() {
 		var h=this.h()
 		return h.cir.apply(h, arguments)
 	}
-
+	
 }
 
 
 
 function curve(){
-h.arc = h._a = function (x, y, r, startA, endA, aCW) {
-	var h = this, gx = h.graphics
-	/*
-	 Draws an arc defined by the radius, startAngle and endAngle arguments, centered at the position (x, y).
-	 For example, to draw a full circle with a radius of 20 centered at (100, 100):
-	 arc(100, 100, 20, 0, Math.PI*2)
-	 */
-	h.arc(x, y, r, startA, endA, aCW)
-	return h
-}
-h.arc2 = h._a2 = function (x, y, X, Y, r) {
-	var h = this, gx = h.graphics
+	h.arc = h._a = function (x, y, r, startA, endA, aCW) {
+		var h = this, gx = h.graphics
+		/*
+		 Draws an arc defined by the radius, startAngle and endAngle arguments, centered at the position (x, y).
+		 For example, to draw a full circle with a radius of 20 centered at (100, 100):
+		 arc(100, 100, 20, 0, Math.PI*2)
+		 */
+		h.arc(x, y, r, startA, endA, aCW)
+		return h
+	}
+	h.arc2 = h._a2 = function (x, y, X, Y, r) {
+		var h = this, gx = h.graphics
 //Draws an arc with the specified control points and radius.
-	gx.arcTo(x, y, X, Y, r)
-	return h
-}
-h.bz = h.bez = h.bt = h._bt = function (cp1x, cp1y, cp2x, cp2y, x, y) {
-	var h = this,
-			gx = h.graphics
-	gx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
-	return h
-}
-h._qt = function (cpx, cpy, x, y) {
-	var h = this, gx = h.graphics
-	gx.quadraticCurveTo(cpx, cpy, x, y)
-	return h
-}
-h.qt = function (a, b, c, d, e, f) {
-	var h = this, gx = h.graphics
-	if (O(a)) {
-		a = V(a)
-		b = V(b)
-		gx.qt(a.x, a.y, b.x, b.y)
+		gx.arcTo(x, y, X, Y, r)
+		return h
 	}
-	else {
-		gx.qt(a, b, c, d, e, f)
+	h.bz = h.bez = h.bt = h._bt = function (cp1x, cp1y, cp2x, cp2y, x, y) {
+		var h = this,
+				gx = h.graphics
+		gx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)
+		return h
 	}
-	return h
-}
-h.de = h.ell = function () {
-	var h = this,
-			gx = h.graphics,
-			g = G(arguments),
-			o = N(g[2]) ? {x: g.f, y: g[1], w: g[2], h: g[3]} :
-					N(g.f) ? {w: g.f, h: g[1]} :
-							O(g.f) ? g.f : {}
-	o.x = _.tN(o.x)
-	o.y = _.tN(o.y)
-	o.w = _.tN(o.w, 100)
-	o.h = _.tN(o.h, o.w)
-	gx.drawEllipse(o.x, o.y, o.w, o.h)
-	return h
-}
-h.de2 = function (x, y, W, H, r) {
-	var h = this
-	h.de(-W / 2 + x, -H / 2 + y, W, H, r)
-	return h
-}
-h._rr=function(){
-this.graphics.rr.apply(this.graphics, arguments)
-return this
-}
-h.rr = function () {
-	var h = this,
-			gx = h.graphics,
-			g = G(arguments),
-			o = N(g[3]) ? {x: g.f, y: g[1], w: g[2], h: g[3], r: g[4]} :
-					N(g[1]) ? {w: g.f, r: g[1]} :
-							N(g.f) ? {w: g.f, h: g[1], r: g[2]} :
-									O(g.f) ? g.f : {}
-	
-	o.x =  N(o.x, 0)
-	o.y =  N(o.y, 0)
-	o.w =  N(o.w, 100)
-	o.h =  N(o.h, o.w)
-	
-	return h._rr(o.x, o.y, o.w, o.h, o.r)
-}
-h.rr2 = function (x, y, W, H, r) {
-	var h = this
-	h.rr(-W / 2 + x, -H / 2 + y, W, H, r)
-	return h
-}
-h.rc = h.roundRectComplex = function () {
-	var h = this, gx = h.graphics
-	gx.drawRoundRectComplex.apply(gx, arguments)
-	return h
-}
+	h._qt = function (cpx, cpy, x, y) {
+		var h = this, gx = h.graphics
+		gx.quadraticCurveTo(cpx, cpy, x, y)
+		return h
+	}
+	h.qt = function (a, b, c, d, e, f) {
+		var h = this, gx = h.graphics
+		if (O(a)) {
+			a = V(a)
+			b = V(b)
+			gx.qt(a.x, a.y, b.x, b.y)
+		}
+		else {
+			gx.qt(a, b, c, d, e, f)
+		}
+		return h
+	}
+	h.de = h.ell = function () {
+		var h = this,
+				gx = h.graphics,
+				g = G(arguments),
+				o = N(g[2]) ? {x: g.f, y: g[1], w: g[2], h: g[3]} :
+						N(g.f) ? {w: g.f, h: g[1]} :
+								O(g.f) ? g.f : {}
+		o.x = _.tN(o.x)
+		o.y = _.tN(o.y)
+		o.w = _.tN(o.w, 100)
+		o.h = _.tN(o.h, o.w)
+		gx.drawEllipse(o.x, o.y, o.w, o.h)
+		return h
+	}
+	h.de2 = function (x, y, W, H, r) {
+		var h = this
+		h.de(-W / 2 + x, -H / 2 + y, W, H, r)
+		return h
+	}
+	h._rr=function(){
+		this.graphics.rr.apply(this.graphics, arguments)
+		return this
+	}
+	h.rr = function () {
+		var h = this,
+				gx = h.graphics,
+				g = G(arguments),
+				o = N(g[3]) ? {x: g.f, y: g[1], w: g[2], h: g[3], r: g[4]} :
+						N(g[1]) ? {w: g.f, r: g[1]} :
+								N(g.f) ? {w: g.f, h: g[1], r: g[2]} :
+										O(g.f) ? g.f : {}
+		
+		o.x =  N(o.x, 0)
+		o.y =  N(o.y, 0)
+		o.w =  N(o.w, 100)
+		o.h =  N(o.h, o.w)
+		
+		return h._rr(o.x, o.y, o.w, o.h, o.r)
+	}
+	h.rr2 = function (x, y, W, H, r) {
+		var h = this
+		h.rr(-W / 2 + x, -H / 2 + y, W, H, r)
+		return h
+	}
+	h.rc = h.roundRectComplex = function () {
+		var h = this, gx = h.graphics
+		gx.drawRoundRectComplex.apply(gx, arguments)
+		return h
+	}
 }
 
 
-h.vs = function (vs, ox, oy) {
-	//this function is HUUUUUGE
-// well.. it takes an array of verts and draws it.. with optional offsets..
-//actually not a huge deal //used by gPoly.. but not dependent on IT
-	
-	var h = this
-	ox = N(ox, 0)
-	oy = N(oy, 0)
-	
-	h.mt(_.f(vs)[0] + ox, _.f(vs)[1] + oy)
-	_.e(_.r(vs), function (v) {
-		h.lt(v[0] + ox, v[1] + oy)
-	})
-	return h
-}
+
+
 h.z = h.clr = function () {
 	this.graphics.clear();
 	return this
@@ -320,64 +307,19 @@ h.z = h.clr = function () {
 h.same = function () {
 	return $h(this)
 } // h.copy=
-h.lt = function (x, y) {
-	var h = this, gx = h.graphics, v
-	if (A(x) && O(x[0])) {
-		return h.lt.apply(h, x)
-	}
-	if (N(x)) {
-		gx.lt(x, y);
-		return h
-	}
-	_.e(arguments, function (v) {
-		v = V(v)
-		h.lt(v.x, v.y)
-	})
-	return h
-}
-h.mt = function (x, y) {
-	var h = this, gx = h.graphics, g = arguments, x = g[0], y = g[1], v
-	if (A(g[0]) && O(g[0][0])) {
-		_.e(g, function (v) {
-			h.mt.apply(h, v)
-		});
-		return h
-	}
-	if (N(x)) {
-		v = V(x, y);
-		gx.mt(v.x, v.y)
-	}
-	else {
-		v = V(_.f(g))
-		h.mt(v.x, v.y)
-		_.e(_.r(g), function (v) {
-			v = V(v)
-			h.lt(v.x, v.y)
-		})
-	}
-	return h
-}
-h.dl = h.line = function () {
-	var g = G(arguments), o
-	o = N(g[0]) ? {x1: g[0], y1: g[1], x2: g[2], y2: g[3]} :
-	{x1: g[0].x, y1: g[0].y, x2: g[1].x, y2: g[1].y}
-	this.mt(o.x1, o.y1).lt(o.x2, o.y2)
-	return this
+AO = function (a) {
+	return A(a) && O(a[0])
 }
 
 
-gx.fancyLt= gx.poly = function (vs, f, s, w) {var   gx=this,  g=G(arguments)
-	if( AA(g.f) ) {
-		vs = g.f
-		gx.fs(g.s, g.t, g[3])
-	}
-	else {vs=g}
-	_.e(vs,  function (v) {
-	gx.lt(v[0], v[1])})
-	
-	gx.cp()
-	return this
+
+
+function lineTo(){
 }
+
+
+
+
 i.tf = function () {
 	var i = this, g = G(arguments)
 	if (U(g.f)) {
@@ -446,109 +388,9 @@ TSIR = function () {
 
 
 function defs() {
-	$df = {
-		bsDF: function (o) {
-			o = o || {}
-			o.x = N(o.x, 0);
-			o.y = N(o.y, 0);
-			o.rt = N(o.rt, 0);
-			o.al = N(o.al, 1)
-			return o
-		},
-		xyr: function (o) {
-			o.x = N(o.x, 0)
-			o.y = N(o.y, 0)
-			o.r = N(o.r, 0)
-			return o
-		},
-		im: function (o) {
-			o.i = o.i || 'me';
-			o.al = N(o.al, 1)
-		},
-		sc: function (o) {
-			o.sc = N(o.sc, ( cjs.iH(o.i) ? 1 : .4 ));
-			if (!A(o.sc)) {
-				o.sc = [o.sc, o.sc]
-			}
-			;
-			return o
-		},
-		b: function () {
-			var g = G(arguments), o
-			o = g.A ? {hs: g.f} : g.f || {}
-			o.hs = o.hs || []
-			o.i = o.i || 'me'
-			return o
-		},
-		h: function (o) {
-			o = o || {}
-			if (U(o.v)) {
-				o.v = [[-100, 50], [0, -50], [100, 0]]
-			}
-			//o.v= _.m(o.v, function(v){v=V(v);return [v.x,v.y]})
-			o.c = o.c || 'p'
-			o.x = _.tN(o.x)
-			o.y = _.tN(o.y)
-			o.a = _.tN(o.a)
-			o.r = N(o.r, 40)
-			o.w = N(o.w, 50)
-			o.h = N(o.h, o.w || 100)
-			o.d = N(o.d, 0.5)
-			o.b = N(o.b, 0.5)
-			o.f = N(o.f, 0.5)
-			o.s = D(o.s) ? o.s : 0
-			o.o = N(o.o, 1)
-			o.q = D(q) ? o.q : true
-			return o
-		},
-		rec: function (o) {
-			o.al = N(o.al, 1)
-			o.c = o.c || 'z'
-			o.C = o.C || 'w'
-			o.x = N(o.x, 0)
-			o.y = N(o.y, 0)
-			o.a = N(o.a, 0)
-			o.w = N(o.w, 50)
-			o.h = N(o.h, 50)
-			return o
-		},
-		cov: function (x, y, c, C, l, l2) {
-			alert('b2d.cov')
-			var g = G(arguments), x = g.f, y = g[1], c = g[2], C = g[3], l = g[4], l2 = g[5],
-					o = N(c) ? {x: x, y: y, a: c, c: C, C: l, l: l2}
-							: N(x) ? {x: x, y: y, c: c, C: C, l: l}
-							: x,
-					h = new cjs.Shape()
-			df.oDef(o)
-			h.XY(o.x, o.y).rot(o.a).c(o.c, o.C, o.l)
-			if (o.d) {
-				h.drag()
-			}
-			return h
-		},
-		oDef: function (o) {
-			o = o || {}
-			o.x = N(o.x, 0)
-			o.y = N(o.y, 0)
-			o.a = N(o.a, 0)
-			o.w = N(o.w, 50)
-			o.h = N(o.h, 50)
-			o.r = N(o.r, 50)
-			o.c = o.c || 'z'
-			o.C = o.C || 'w'
-			return o
-		},
-		grad: function (o) {
-			o = o || {}
-			o.c1 = oO('c', o.c1 || 'z')
-			o.c2 = oO('c', o.c2 || 'w')
-			o.s1 = N(o.s1)
-			o.s2 = N(o.s2, 1)
-			o.x1 = N(o.x1)
-			o.y1 = N(o.y1)
-			return o
-		}
-	}
+	
+	 
+	
 	oDef = function (o) {
 		o = o || {}
 		o.x = N(o.x, 0)
@@ -561,6 +403,11 @@ function defs() {
 		return o
 	}
 }
+
+
+
+
+
 
 function _adv() {
 	h.pStr = h.dp = h.polyStar = function (x, y, r, sides, ptSiz, ang) {
