@@ -919,10 +919,13 @@ function displayObs(){
 			return U(a) ? i.y + hH : i.Y(a - hH)
 		}
 		i.dg = i.drag = function () {
+		
 			var i = this;
-			SL(i);
+			cjs.SL(i);
 			return i
 		} // ~ scroll
+		
+		
 		i.$ = function (fn) {
 			return this.on('click', fn)
 		}

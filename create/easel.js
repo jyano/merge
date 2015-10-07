@@ -481,10 +481,7 @@ function tran(){
 		cjs.TR(this);
 		return this
 	}
-	i.dg = i.drag = i.SL = function () {
-		SL(this);
-		return this
-	}
+ 
 	cjs.SL = function (b, b2) {
 		
 		var g = G(arguments),
@@ -675,7 +672,7 @@ function tran(){
 	i.TR = function(){TR(this);return this}
 	
 	i.dg=i.drag=i.SL = function(){
-		SL(this);
+		cjs.SL(this);
 		return this
 	}
 }

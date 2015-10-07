@@ -471,8 +471,10 @@ function _pre() {
 			h.l(o.l)
 		}
 		if (g.p) {
+		
 			h.dg()
 		}
+		
 		return h
 	}
 	cjs.iH = function (h) {
@@ -484,6 +486,7 @@ function _pre() {
 		ct.A(h)
 		return h
 	}
+	
 	h = cjs.Shape.prototype
 	//alert
 	$Cir = function () {

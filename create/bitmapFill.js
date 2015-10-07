@@ -33,10 +33,14 @@ $tMx = function (x, y, sx, sy, rt, kx, ky, rx, ry) {
 			N0(x), N0(y), N1(sx), N1(sy), rt, kx, ky, rx, ry)
 }
 
+h = cjs.Shape.prototype
+
+
 h._bf = function(i,tf){
-	this.graphics._bf( i,tf )
+	this.graphics._bf( i, tf )
 	return this
 }
+
 
 h._bfT=function(i){var g=G(arguments)
 	return this._bf(i, $tMx(A(g.s)?g.s:g.r)  )
@@ -51,8 +55,6 @@ h._bfTAs=function(str, tfPropsArr, fn){var h=this, g=G(arguments), o
 	})
 	return h
 }
-
-
 h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 	if (O(g.f) && A(g.f.hs)) {
 	
@@ -116,6 +118,7 @@ h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 	}
 }
 
+
 h.bs = function (i) {
 	 
 	var h = this;
@@ -178,35 +181,49 @@ h.bV  = function (o) {var h = this, g = G(arguments), o
 	return h
 }
 
+ 
+
+cjs.DisplayObject.prototype._ =function(fn){
+	var that=this
+	Q(function(){
+		fn(that)
+	})
+	return this
+}
 
 
-TXBF = function () {
-	st = $St()
-	h = st.h()
+
+
+TXBF = function () {__St()
+	
 	$.i('me', function (i) {
+		
 		h._bf(i).dr(100, 100, 500, 200)
+			
+		    
 		h.C('z').dr(100, 100, 10, 10)
 	})
 }
-TXB = function () {
-	st = $St()
-	h = st.h()
-	$.i('me', function (i) {
-		h._bfT(i, -100).dr(100, 100, 500, 200)
-	})
-}
-TBX = function () {
-	st = $St()
-	h = st.h()
-	$.i('me', function (i) {
-		h._bfT(i, -100).dr(100, 100, 500, 200)
-	})
-}
-//calls bitmap fill and lets it load up the bitmap (my face)
-//then passes in a function to be called once the image has finished loading
-//in this case, the function draws a rectangle
-// (and the bitmap is automatically used as the fill)
 
+
+TXB = function () {
+	
+	
+	st = $St()
+	st._(function(st){
+		i = Q.i('me')
+		
+		h= st.h('+')
+ 
+		h._bfT(i, -100).dr(0,0,500,200)
+		//.dr(100, 100, 500, 200)
+	})
+}
+ 
+
+
+
+ 
 
 
 BMFV=function(){
@@ -417,9 +434,8 @@ SAN  = function () {
 	
 	
 }
-
-
-
-
-
+//calls bitmap fill and lets it load up the bitmap (my face)
+//then passes in a function to be called once the image has finished loading
+//in this case, the function draws a rectangle
+// (and the bitmap is automatically used as the fill)
 
