@@ -69,7 +69,7 @@ b.rec = function (c, W, H, x, y, a) {
 	
 }
 b.sp = function () {
-	$l('b.sp')
+	//!!!$l('b.sp')
 	var b = this, g = G(arguments), ch
 	if (b.gx && b.gx.children) {
 		ch = g.p ? b.gx.children : g.n ? b.gx.children[0] : _.l(b.gx.children)

@@ -1,4 +1,4 @@
-$load = function (metNames) {
+$L = $load = function (metNames) {
     
     
     
@@ -965,4 +965,10 @@ M.os = function (arr, x, y) {
 O$ = function (o) {
 	return O(o) && !F(o) && !A(o)
 }
-	
+_.t10 = function () {
+	var g = G(arguments)
+	g.e(function (fn) {
+		_.t(10, fn)
+	})
+}
+

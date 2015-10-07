@@ -205,9 +205,6 @@ h.c = h.f = function (c, C, l) {
 
 
 
-
-
-
 h.C = h.s = function (C, l) {
 	var h = this, gx = h.graphics
 	gx.s(oO('c', C))
@@ -1345,7 +1342,7 @@ __St = function () {
 	p2 = $pD(vs2)
 }
 cjs.hasDim = function (bm) {
-	$l('cjs.hasDim')
+	//!$l('cjs.hasDim')
 	return !cjs.iH(bm) && !cjs.iCt(bm)
 }
 ct.dot = function () {

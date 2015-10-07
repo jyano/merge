@@ -1,4 +1,6 @@
 
+$l('upload.js')
+
     (function (factory) {
         if(typeof define === 'function' && define.amd) {define(['jquery','jquery.ui.widget'], factory)}
         else {factory(window.jQuery)}}(function($){

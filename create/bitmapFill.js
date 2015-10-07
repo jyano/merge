@@ -22,7 +22,7 @@ h._bfTAs=function(str, tfPropsArr, fn){var h=this, g=G(arguments), o
 
 }
 h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
-$l('h.bf')
+ 
 
 
 
@@ -95,7 +95,7 @@ $l('h.bf')
 	
 }
 h.bs = function (i) {
-	$l('h.bs')
+	 
 	var h = this;
 	h.graphics.bs(i);
 	return h
@@ -127,6 +127,7 @@ h.bR = function (o) {
 			})
 		})
 	}
+	
 	else {
 		h.bf(o.bf)
 		h.rec(o.hs)
@@ -137,50 +138,31 @@ h.bR = function (o) {
 	return h
 	//= h.bfR = h.bmR
 }
-h.bmV = function (o) {
-	$l('h.bmV')
+
+
+
+h._bV=function(i,vs){
+	i = i || 'me'
+return this.bf(i).lt(vs).cp()}
+h._bVAsy = function (i,v) {
 	var h = this
-	o = o || {}
-	o.i = o.i || 'me'
-	$.i(o.i, function (i) {
-		i = i[0]
-		_.e(o.v, function (v) {
-			h.bf(i)
-			h.lt(v)
-			//h.ef()
-			//.cp()
-		})
-	})
+	i =  i || 'me'
+	$.i(i, function (i) { h._bV(i,v) })
+	return h}
+h.bV  = function (o) {var h = this, g = G(arguments), o
+	o = g.A ? {hs: g.f} : g.f || {} // o.hs = o.hs || []
+	if(Q.ran){
+		h._bV(o.i, o.v) }
+	 else {
+	    h._bVAsy(o.i, o.v) }
 	return h
-}//h._pol = 
-h.pols = h.bV = function (o) {
-	var h = this, g = G(arguments), o
-	o = g.A ? {hs: g.f} : g.f || {}
-	o.hs = o.hs || []
-	o.i = o.i || 'me'
-	if (F(Q)) {
-		$.i(o.i, function (i) {
-			h.bf(i)
-			_.e(o.v, function (v) {
-				h.lt(v)
-			})
-			h.cp()
-			h.ef()
-		})
-		return h
-	}
-	h.bf(o.i)
-	_.e(o.v, function (v) {
-		h.lt(v)
-	})
-	return h
-	function draw() {
-		h.bf(o.i)
-		_.e(o.v, function (v) {
-			h.lt(v)
-		})
-	}
 }
+
+
+
+
+
+
 
 TXBF = function () {
 	st = $St()
@@ -270,3 +252,64 @@ BMFV=function(){
 	
 
 }
+
+
+BPOLLL=function(){
+	verts = [
+		[[5, 100], [0, -100], [200, -150], [200, 150]],
+		[[-50, 50], [-50, -100], [450, -50], [450, 50]]
+	]
+	
+	
+	W()._(function(w){
+	
+			
+		
+		 w.D(250, 300).pol({
+			v: verts,
+			c: {c: 'r', C: 'y', l: 10},
+				bf: 'chicks'
+		})
+		
+		
+		w.D(450, 300).pol({
+			v: verts,
+			c: {c: 'r', C: 'y', l: 10},
+			bf: 'me'
+		})
+	})
+	 
+	
+}
+
+
+
+
+POLLB = function () {W()._(function (w) {v = [[[5, 100], [0, -100], [200, -150], [200, 150]], [[-50, 50], [-50, -100], [450, -50], [450, 50]] ]
+		
+	
+		w.D(250, 300).pol({
+			//c: {c: 'r', C: 'y', l: 10},
+			bf: Q.i('chicks'),
+			v: v
+		
+		})
+		
+		
+	
+		
+		
+		w.D(450, 300).pol({v: v, c: {c: 'r', C: 'y', l: 10}, bf: Q.i('me')})
+
+
+
+
+
+	
+})}
+
+
+
+
+
+

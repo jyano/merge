@@ -2,56 +2,27 @@ $load()
 
 gx.pol=function(){}
 
-//lineTo is quite roboust
-h._lt = function (x, y) {
+h._lt= h.lt = function(x,y){
 	var h = this, g = G(arguments)
-	if (O(g.s)) {g.e(function (pt) {h._lt(pt)})}
-	
-	else {
-		this.graphics.lt(
-		V(x, y).x, 
-		V(x, y).y
-		)
-	}
-
+	if(AO(g.f)){g.e(function(v){h.lt.apply(h, v)})}
+	else if (O(g.s)) {g.e(function (pt) {h.lt(pt)})}
+	else {this.graphics.lt( V(x, y).x, V(x, y).y )}
 	return this
 }
-h.lt = function (x, y) {
-	var h = this, 
-	gx = h.graphics, 
-	g = arguments
-	if (AO(x)) {return h.lt.apply(h, x)}
-	if (N(x)) {return h._lt(x, y)}
-	_.e(g, function (v) {
-		h._lt(v)
-	})
-	return h
-}
 h._mt = function (x, y) {var g=G(arguments)
-	
-	 
-	
 	var pt = V(g.f, g.s)
 	this.graphics.mt(pt.x, pt.y)
 	return this
-
 }
 h.mt = function(){var  g = G(arguments),o
 	if(g.N ) {return  this._mt(g.f, g.s)}
-	o = AO(g)?  { 
-			  firPt: _.f(g.f), 
-			  restPts: _.r(g.f), 				
-			  ox: g.s, 
-			  oy: g.t
-	}: {firPt: g.f, restPts: g.r}
+	o = AO(g)?  {firPt: _.f(g.f), restPts: _.r(g.f), 							
+	ox: g.s, oy: g.t}: {firPt: g.f, restPts: g.r}
 	return  this._mt(
-	o.firPt[0] + N(o.ox,0 ), o.firPt[1] + N(o.oy, 0) 
-	  ).lt( M.os( o.restPts, o.ox, o.oy ) )
+		o.firPt[0] + N(o.ox,0 ), 
+		o.firPt[1] + N(o.oy, 0)
+	).lt( M.os( o.restPts, o.ox, o.oy ) )
 }
-
-
-
-
 h.pol  = function () {
 
 
@@ -73,6 +44,7 @@ var h = this, g = G(arguments),o;
 	else { h.lt(o.v).cp() }
 	return h
 }
+
 
 
 

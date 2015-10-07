@@ -70,17 +70,24 @@ pol=Pol()
 }
 
 
-function Pol(){var pol,
+function Pol(){
+
+var pol,
+
     verts=[
             [[5, 100], [0, -100], [200, -150], [200, 150]],
             [[-50, 50], [-50, -100], [450, -50], [450, 50]]
     ]
     pol =w.D(2500, 300)
+    
+    
     pol.pol({
         v: verts,
-        c: {c: 'r', C: 'y', l: 10},
-        bf: 'me'
+    
+        c: {c: 'r', C: 'y', l: 10}, bf: 'me'
+    
     })
+
     return pol
     //right now b.pol returns an array of the fixts added..
 }

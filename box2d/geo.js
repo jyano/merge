@@ -114,9 +114,10 @@ var f = this, b = f.B(), g = G(arguments),
 		$l('!hV(p)')
 		return
 	}
-	_p = $l( p.vs())
+	
+//	_p = $l( p.vs())
 	p = p.reg(f)
-	__p = $l(p.vs())
+//	__p = $l(p.vs())
 //	if (g.n) {
 	 p = p.reg(f.B())
 	// }

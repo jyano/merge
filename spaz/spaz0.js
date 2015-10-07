@@ -147,6 +147,10 @@ function worldStuff(){
 		b.bS(h)
 		return b
 	}
+	
+	
+	
+	
 	w.pol = function () {
 		var w = this, g = G(arguments), b, o
 		if (g.A) {
@@ -176,13 +180,15 @@ function worldStuff(){
 		o.y = N(o.y, w.hH)
 		o.p = M.p(o.p)
 		b = w.D(o.x, o.y)
+		
 		if (g.P) {
-			if (iB(o.p)) {
+			if (b2d.iB(o.p)) {
 				o.p = M.p(o.p)
 			}
 			b.pol(o.p)
 			return g.m ? M.p(b) : b
 		}
+		
 		if (o.rg) {
 			o.p.ps(o.rg, function (p) {
 				b.pol(o)
@@ -195,8 +201,11 @@ function worldStuff(){
 		}
 		return b.f()
 	}
+	
+	
+	
 	w._preKill = function (b) {
-		$l('w._preKill')
+		//$l('w._preKill')
 		if (b.sprite) {
 			b.sprite.rm()
 		}
@@ -209,7 +218,7 @@ function worldStuff(){
 		})
 	}
 	w._fPreKill = function (f) {
-		$l('w._fPreKill')
+		//$l('w._fPreKill')
 		f.rmSp()
 	}
 	w.killD = w.xD = function () {
@@ -405,19 +414,29 @@ function bods(){
 				w.d(g.f || 'y', g.p ? b.wC() : b)
 		return b
 	}
+	
+	
+	
 	b.pol = function () {
 		var b = this, w = b.W(), g = G(arguments), o,
 				newFs
+		
 		if (g.u) {
 			return b
 		}
+		
+		
 		if (b2d.iB(g.f)) {
 			g.f.fs(b);
 			return b
 		}
+		
 		_morph()
+		
 		newFs = b.sepNew(o.v, function (f) {
+			
 			f.set(o)
+			
 			f.c(o.c, o.C, o.l)
 			if (o.lf) {
 				f.bS(w.st.h().lf(o).lt(o.v))
@@ -426,11 +445,22 @@ function bods(){
 				f.bS(w.st.h().rf(o).lt(o.v))
 			}
 		})
+		
+		
 		if (o.i) {
-			b.bS(__h = w.gx.h().bV(o))
+		
+			__h = w.gx.h().bV(o)
+		
+				b.bS( __h )
 		}
+		
+		
+		
 		return newFs
+		
+		
 		function _morph() {
+		
 			//if passed [[ color and ]] verts:
 			o = S(g.f) && gpc.iP(g.s) ? {c: g.f, v: g.s} : gpc.iP(g.f) ? {v: g.f} :
 					b2d.iF(g.f) ? {v: g.f.vs()} :
@@ -439,10 +469,19 @@ function bods(){
 									g.O ? g.f : g.O_ ? {v: g} : //pass in [],[]
 											g.t ? {c: g.f, v: g.r} : // pass in 'r', [], []
 											{c: g.f, v: g.s}   //pass in  {c:'r', v:[[],[],[]]}
+			
 			$df.h(o)
+			
 			o.i = o.i || o.bf
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	b.sep = function (verts, scale) {
