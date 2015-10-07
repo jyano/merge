@@ -1,31 +1,59 @@
-h._bf = function(){var g=G(arguments), args= g.A? g.f: g
-	this.graphics.bf.apply(this.graphics, args)
+gx._bf=  function(i,tf){return this.bf(i,null,tf)}
+gx._bs  = function (i, tf) {return this.bs(i, null, tf)}
+cjs.M = cjs.Mx = cjs.Matrix2D
+i.gM = i.getMatrix
+
+
+$Mx = cjs.m2d = function () {var g = G(arguments), o
+
+	
+	if(A(g.f)){
+		return $Mx.apply(null, g.f)
+	}
+	
+	o = g.O ? g.f :
+	U(g.t) ? {tx: N(g.f), ty: N(g.s)} :
+	{a: g.f, b: g.s, c: g.t, d: g.fo, tx: g.fi, ty: g.si}
+	
+	dfMx(o)
+	return new cjs.Mx(o.a, o.b, o.c, o.d, o.tx, o.ty)
+	function dfMx(o) {//( [a=1]  [b=0]  [c=0]  [d=1]  [tx=0]  [ty=0] )
+		o.a = N1(o.a)
+		o.b = N0(o.b)
+		o.c = N0(o.c)
+		o.d = N1(o.d)
+		o.tx = N0(o.tx)
+		o.ty = N0(o.ty)
+		return o
+	}
+} 
+
+$tMx = function (x, y, sx, sy, rt, kx, ky, rx, ry) {
+	return $Mx().appendTransform(
+			N0(x), N0(y), N1(sx), N1(sy), rt, kx, ky, rx, ry)
+}
+
+h._bf = function(i,tf){
+	this.graphics._bf( i,tf )
 	return this
 }
-h._bfT=function(i){var  g=G(arguments),tf
-	tf = A(g.s)? g.s: g.r
-	return this._bf(g.f, null, $tMx.apply(null, tf)  )
+
+h._bfT=function(i){var g=G(arguments)
+	return this._bf(i, $tMx(A(g.s)?g.s:g.r)  )
 }
 h._bfTAs=function(str, tfPropsArr, fn){var h=this, g=G(arguments), o
 	o =  A(g.s)? 
-	{i: g.f, tf: g.s, fn: g.t} 
-	:{i: g.f,  fn :	g.s}
-	o.tf = o.tf || []
-	o.fn = o.fn || function(){}
-	
+	{i: g.f, tf: g.s, fn: g.t} :
+	{i: g.f, fn: g.s}
 	$.i(o.i, function (i) {
-		h._bf(g.f, null, $tMx.apply(null, o.tf))			
-		o.fn(h)
+		_.tFn(o.fn)(
+			h._bf(g.f, $tMx( _.tA(o.tf)   )))
 	})
-	
 	return h
-
 }
+
+
 h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
- 
-
-
-
 	if (O(g.f) && A(g.f.hs)) {
 	
 		o = {i: g.f.i, hs: g.f.hs, mx: g.f.mx, fn: g.f.fn}
@@ -59,8 +87,6 @@ h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 		_bf(o.i, o.mx)
 	}
 	return h
-	
-	
 	function _bf(i, mx, fn, hs) {var g = G(arguments),o
 	
 	
@@ -75,10 +101,6 @@ h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 				}) :
 				o.fn(h)
 	}
-	
-	
-	
-	
 	function __bf(i, mx) {var g = G(arguments)
 		 
 		
@@ -92,8 +114,8 @@ h.bf = function () {var h = this, gx = h.graphics, g = G(arguments), o
 		
 		return h
 	}
-	
 }
+
 h.bs = function (i) {
 	 
 	var h = this;
@@ -138,17 +160,15 @@ h.bR = function (o) {
 	return h
 	//= h.bfR = h.bmR
 }
-
-
-
-h._bV=function(i,vs){
-	i = i || 'me'
-return this.bf(i).lt(vs).cp()}
 h._bVAsy = function (i,v) {
 	var h = this
 	i =  i || 'me'
 	$.i(i, function (i) { h._bV(i,v) })
 	return h}
+h._bV = function (i, vs) {
+	i = i || 'me'
+	return this.bf(i).lt(vs).cp()
+}
 h.bV  = function (o) {var h = this, g = G(arguments), o
 	o = g.A ? {hs: g.f} : g.f || {} // o.hs = o.hs || []
 	if(Q.ran){
@@ -157,10 +177,6 @@ h.bV  = function (o) {var h = this, g = G(arguments), o
 	    h._bVAsy(o.i, o.v) }
 	return h
 }
-
-
-
-
 
 
 
@@ -252,8 +268,6 @@ BMFV=function(){
 	
 
 }
-
-
 BPOLLL=function(){
 	verts = [
 		[[5, 100], [0, -100], [200, -150], [200, 150]],
@@ -281,10 +295,6 @@ BPOLLL=function(){
 	 
 	
 }
-
-
-
-
 POLLB = function () {W()._(function (w) {v = [[[5, 100], [0, -100], [200, -150], [200, 150]], [[-50, 50], [-50, -100], [450, -50], [450, 50]] ]
 		
 	
@@ -307,6 +317,106 @@ POLLB = function () {W()._(function (w) {v = [[[5, 100], [0, -100], [200, -150],
 
 	
 })}
+SANDWICH =  function(){
+	Q(function(){ __St()
+		ch = Q.i('chicks')
+		me  = Q.i('me')
+		Ch = function(){return st.h('+').l(20).bf(ch).bs(me)}
+		Ch().rec(200, 200, 200, 300)
+		Ch().rec(400, 250, 200, 300)
+		Ch().rec(600, 250, 200, 300)
+		Ch().rec(750, 350, 200, 300)
+		Ch().rec(900, 250, 200, 300)
+	})
+}
+SANDY = function () {
+	Q(function () {
+		__St()
+		ch = Q.i('chicks')
+		me = Q.i('me')
+		h.l(20).bf(me).bs(ch)
+		h.rec(200, 200, 200, 300)
+		h.rec(400, 250, 200, 300)
+		h.rec(600, 250, 200, 300)
+		h.rec(750, 350, 200, 300)
+		h.rec(900, 250, 200, 300)
+	})
+}
+SAND = function () {
+ 
+ 
+  
+
+
+	Q(function () {
+		__St()
+
+		ch = Q.i('chicks')
+		me = Q.i('me')
+		
+		
+		Ch = function (x,y) {
+			
+			var h  =  st.h(x,y).l(8)
+					
+			
+			h.graphics.bf(ch)
+			
+					
+			h.bs(me)
+			
+			cjs.SL(h)
+			return h
+		}
+		
+		
+		Ch(200, 200).rec( 200, 300)
+		Ch(400, 250).rec( 200, 300)
+		Ch(600, 250).rec( 200, 300)
+		Ch(750, 350).rec( 200, 300)
+		Ch(900, 250).rec( 200, 300)
+	
+	})
+
+}
+SAN  = function () {
+	
+	
+	
+	/*
+	
+	 Optional. Indicates whether to repeat the image in the fill area. 
+	 One of "repeat", "repeat-x", "repeat-y", or "no-repeat". Defaults to "repeat". 
+	 Note that Firefox does not support "repeat-x" or "repeat-y"
+	 (latest tests were in FF 20.0), and will default to "repeat".
+	
+	 */
+	Q(function () {
+	
+		__St()
+		ch = Q.i('chicks')
+		Ch = function (x, y) {
+			var h = st.h(x,y).l(8)
+			mx = $Mx(.5, .2,-.2, .5, 0, 0)
+			//mx = $Mx(.1, 0, 0, .1, 0, 0)
+			
+			mx= $Mx(1,0,0,1,-800,-400)
+			//mx = $Mx(.5, .6, 0, .5, 0, 0)
+			h.graphics.bf( ch, null, mx )
+			
+			cjs.SL(h)
+			
+			return h.rec(1600, 800)
+		
+		}
+		
+		Ch(0,0).XY(700,550)
+		
+	})
+	
+	
+	
+}
 
 
 

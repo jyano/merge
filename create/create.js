@@ -1,39 +1,16 @@
-$load(  'ticker', 'stage', 'containers', 'cjsMath', 'displayObs', 'balls')
+$load(  'ticker', 'stage', 'containers',   'displayObs', 'soon', 'balls')
 
-cjs.lg = h.lg = function () {
-	var g = G(arguments), o//h=this, gx=h.graphics,
-	if (g.A) {
-		return cjs.lg.apply(null, g.f)
-	}
-	o = g.O ? g.f :
-			_.x({c1: g.f, c2: g.s},
-					N(g[5]) ? {x1: g[2], y1: g[3], x2: g[4], y2: g[5]}
-							: N(g[4]) ? {y1: g[2], x2: g[3], y2: g[4]}
-							: N(g[3]) ? {x2: g[2], y2: g[3]} : {y2: g[2]})
-	o.c1 = oO('c', o.c1 || 'z');
-	o.c2 = oO('c', o.c2 || 'w')
-	o.s1 = N(o.s1, 0);
-	o.s2 = N(o.s2, 1)
-	o.x1 = N(o.x1, 0);
-	o.y1 = N(o.y1, 0)
-	o.x2 = N(o.x2, 0)
-	o.y2 = N(o.y2) ? o.y2 : N(o.r) ? o.r * 2 : 100
-	return o
-}
+
+
 $Gx=cjs.Gx = cjs.gx = function (a) {return new cjs.Graphics(a)}
-
-
 gx.cCL= gx.fC = gx.fs = function (c, C, l) {
-
+	
 	var gx = this
 	gx.f(oO('c', c || 'z'))
 	gx.s(oO('c', C || null))
 	gx.ss(N(l) ? l : 2)
 	return gx
 }
-
-
-
 gx.sC = function (s, w) {
 	var gx = this
 	w = N(w) ? w : 2
@@ -42,14 +19,11 @@ gx.sC = function (s, w) {
 	gx.ss(w)
 	return gx
 }
-
 h.col = h.fs = function () {
 	var h = this, gx = h.graphics, g = G(arguments)
 	gx.fs.apply(gx, g)
 	return h
 }
-
-
 h.c = h.f = function (c, C, l) {
 	var h = this, gx = h.graphics, g = G(arguments), o
 	o = g.O ? g.f :
@@ -57,8 +31,8 @@ h.c = h.f = function (c, C, l) {
 					g.f == '**' ? {c: '**'} :
 							g.f == '***' ? {c: '***'} :
 									g.u ? {c: 'z', C: 'w', l: 6} :
-									
-									
+											
+											
 											N(g.s) ? {c: g.f, l: g.s} :
 													g.N_ ? {l: g.f, C: g.s} :
 													{c: g.f, C: g.s, l: g.t}  // 'c-C-l'
@@ -130,8 +104,8 @@ h.c = h.f = function (c, C, l) {
 		if (N(o.l)) {
 			h.l(o.l)
 		}
-	
-	
+		
+		
 	}
 	
 	
@@ -202,9 +176,6 @@ h.c = h.f = function (c, C, l) {
 	}
 	return h
 }
-
-
-
 h.C = h.s = function (C, l) {
 	var h = this, gx = h.graphics
 	gx.s(oO('c', C))
@@ -311,7 +282,6 @@ function balls() {
 		return s.h(x, y).rf('a', 'w', 18).dc(18).ef()
 	}
 }
-
 function stage(){
 	
 	
@@ -714,56 +684,6 @@ function ticker() {
 		return T.getPaused()
 	}
 }
-function cjsMath() {
-
-	cjs.M = cjs.Mx = cjs.Matrix2D
-	i.gM = i.getMatrix
-	
-	
-	$Mx =  cjs.m2d = function () {var g=G(arguments), o
-		o= g.O? g.f: 
-		U(g.t)? {tx: N(g.f), ty: N(g.s)} :
-		{a: g.f, b: g.s, c: g.t, d: g.fo, tx: g.fi, ty: g.si}
-		o.a = N(o.a, 1)
-		o.b = N(o.b)
-		o.c = N(o.c)
-		o.d = N(o.d, 1)
-		o.tx = N(o.tx)
-		o.ty = N(o.ty)
-		
-		return new cjs.Matrix2D(o.a, o.b, o.c , o.d , o.tx , o.ty)
-		
-	} //( [a=1]  [b=0]  [c=0]  [d=1]  [tx=0]  [ty=0] )
-	$tMx = function (x, y, sx, sy, rt, kx, ky, rx, ry) {
-		return  $Mx().appendTransform(
-				N(x), N(y), N(sx,1), N(sy,1), rt, kx, ky, rx, ry
-		 )
-	}
-	
-	
-	
-	
-	cjs.P = $Pt = cjs.Pt = function (x, y) {
-		$l('cjs.Pt $Pt')
-		if (U(x)) {
-			return new C$.Point
-		}
-		if (O(x) && O(y)) {
-			return new C$.Point(x.x + y.mx() >> 1, x.y + y.my() >> 1)
-		}
-		if (O(x)) {
-			return new cjs.Point(
-					x.mx(),
-					x.my()
-			)
-		}
-		return new cjs.Point(x, y)
-	}//=P=
-}
-
-
-
-
 function displayObs(){
 	cjs.iDO = function (i) {
 		return O(i) && F(i.getStage)
@@ -1253,7 +1173,6 @@ function displayObs(){
 		}
 	}
 }
-
 function _pre() {
 	z = function (fn) {
 		var g = G(arguments)
@@ -1273,6 +1192,44 @@ function _pre() {
 	q = cjs.LoadQueue.prototype
 	t = cjs.Text.prototype
 }
+
+function soon(){
+	cjs.P = $Pt = cjs.Pt = function (x, y) {
+		$l('cjs.Pt $Pt')
+		if (U(x)) {
+			return new C$.Point
+		}
+		if (O(x) && O(y)) {
+			return new C$.Point(x.x + y.mx() >> 1, x.y + y.my() >> 1)
+		}
+		if (O(x)) {
+			return new cjs.Point(
+					x.mx(),
+					x.my()
+			)
+		}
+		return new cjs.Point(x, y)
+	}//=P=
+	cjs.lg = h.lg = function () {
+		var g = G(arguments), o//h=this, gx=h.graphics,
+		if (g.A) {
+			return cjs.lg.apply(null, g.f)
+		}
+		o = g.O ? g.f :
+				_.x({c1: g.f, c2: g.s},
+						N(g[5]) ? {x1: g[2], y1: g[3], x2: g[4], y2: g[5]}
+								: N(g[4]) ? {y1: g[2], x2: g[3], y2: g[4]}
+								: N(g[3]) ? {x2: g[2], y2: g[3]} : {y2: g[2]})
+		o.c1 = oO('c', o.c1 || 'z');
+		o.c2 = oO('c', o.c2 || 'w')
+		o.s1 = N(o.s1, 0);
+		o.s2 = N(o.s2, 1)
+		o.x1 = N(o.x1, 0);
+		o.y1 = N(o.y1, 0)
+		o.x2 = N(o.x2, 0)
+		o.y2 = N(o.y2) ? o.y2 : N(o.r) ? o.r * 2 : 100
+		return o
+	}
 $.dragFrame = function (ob) {
 	var outerDiv = $.d('r').drag().pad(20).A()
 	ob = ob || $.d('y', 50, 50).mar(20)
@@ -1315,9 +1272,10 @@ __S = function () {
 	
 }
 __St = function () {
-	st = $St();
+	st = $St(2000,1000);
 	
 	h = st.h()//.drag()
+	
 	cjs.SL(h)
 	
 	vs1 = [
@@ -1340,7 +1298,11 @@ __St = function () {
 	];
 	p1 = $pD(vs1);
 	p2 = $pD(vs2)
+
 }
+
+
+
 cjs.hasDim = function (bm) {
 	//!$l('cjs.hasDim')
 	return !cjs.iH(bm) && !cjs.iCt(bm)
@@ -1422,4 +1384,5 @@ $sw = cjs.sw = cjs.stopWatch = function () {
 		}
 		return d
 	}
+}
 }

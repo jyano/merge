@@ -66,24 +66,43 @@ function superJavascript(){
         return _.isUndefined(b) ? !_.isUndefined(a)
             : _.defaults.apply(_.defaults, arguments)
     }
-    F = function f(a, b, c) {
-        //if(_.isDefined(b)){return _.filter(a,b,c)}
-        return _.isFunction(a)  // return a.prototype||true
-
+    
+	
+	
+    F = function f(fn, dfFn) {
+    
+	    return   fn && _.isFunction(fn)
+    
     }
+    
+	
+	_.tFn=function(fn, fn2){
+	
+		return	F(fn) ? fn : fn2? fn2: function () {
+			return
+		}
+	}
+    
+    
     N = function (n, n2) {
         if (U(n2)) {
             return _.isNumber(n)
         }
         return _.tN(n, n2)
     }//N = _.isNumber
-	N = function (n, n2) {
-		if (U(n2)) {
-			return _.isNumber(n) || 0
-		}
-		
+	
+	N0 = function (n) {return N(n,0)}//N = _.isNumber
+	N1 = function (n) {
+		return N(n,1)
+	}//N = _.isNumber
+	/*
+	PN = function (n, n2) {
+		if (U(n2)) {return ( _.isNumber(n)&&n<0)||1}
 		return _.tN(n, n2)
 	}//N = _.isNumber
+	 */
+	
+	
 	O = function (a, b) {
 
         if (_.isUndefined(b)) {
@@ -370,9 +389,12 @@ function superUnderscore(){
     _.t = _.times
     _.x = _.extend;
     _.p = _.partial;
+    
     _.tA = function (a) {
-        return O(a) ? _.toArray(a) : [a]
+        return O(a) ? _.toArray(a) : A(a)? a : a? [a]: []
     }
+    
+    
     _.tp = _.template
     _.df = _.defaults
     _.th= _.throttle
@@ -729,6 +751,7 @@ function superMath(){M=Math
     V = function (x, y) {
         return {x: x, y: y}
     }
+
 
 
     _.tF = function (a, b) {
