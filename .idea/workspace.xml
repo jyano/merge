@@ -29,41 +29,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bitmapFill.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bitmapFill.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create/bitmapFill.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.67341775">
+              <caret line="455" column="21" selection-start-line="455" selection-start-column="21" selection-end-line="455" selection-end-column="21" />
               <folding>
-                <element signature="e#226#260#0" expanded="false" />
-                <element signature="e#1262#1323#0" expanded="false" />
-                <element signature="e#1330#1400#0" expanded="false" />
-                <element signature="e#1431#1543#0" expanded="false" />
-                <element signature="e#1500#1535#0" expanded="false" />
-                <element signature="e#1562#1660#0" expanded="false" />
-                <element signature="e#1667#1688#0" expanded="false" />
-                <element signature="e#2007#2043#0" expanded="false" />
-                <element signature="e#2493#2614#0" expanded="false" />
-                <element signature="e#2524#2535#0" expanded="false" />
-                <element signature="e#2623#2705#0" expanded="false" />
-                <element signature="e#3038#3059#0" expanded="false" />
-                <element signature="e#3067#3094#0" expanded="false" />
-                <element signature="e#3154#3215#0" expanded="true" />
-                <element signature="e#3184#3199#0" expanded="true" />
-                <element signature="e#3381#3522#0" expanded="true" />
-                <element signature="e#3417#3519#0" expanded="true" />
-                <element signature="e#5839#6127#0" expanded="false" />
-                <element signature="e#6493#6553#0" expanded="false" />
+                <element signature="e#237#271#0" expanded="false" />
+                <element signature="e#3258#3546#0" expanded="false" />
+                <element signature="e#4334#4394#0" expanded="false" />
+                <element signature="e#4685#4742#0" expanded="false" />
+                <element signature="e#4749#4815#0" expanded="false" />
+                <element signature="e#4847#5045#0" expanded="false" />
+                <element signature="e#4861#4960#0" expanded="false" />
+                <element signature="e#4922#4950#0" expanded="false" />
+                <element signature="e#4980#5042#0" expanded="false" />
+                <element signature="e#5064#5096#0" expanded="false" />
+                <element signature="e#5103#5124#0" expanded="false" />
+                <element signature="e#5456#5503#0" expanded="true" />
+                <element signature="e#5779#5900#0" expanded="false" />
+                <element signature="e#5810#5821#0" expanded="false" />
+                <element signature="e#5907#5989#0" expanded="false" />
+                <element signature="e#6330#6352#0" expanded="false" />
+                <element signature="e#6359#6384#0" expanded="false" />
+                <element signature="e#6746#6804#0" expanded="true" />
+                <element signature="e#6898#7225#0" expanded="true" />
+                <element signature="e#7188#7209#0" expanded="true" />
+                <element signature="e#7646#7728#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="easel.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="easel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create/easel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12844037">
-              <caret line="483" column="1" selection-start-line="483" selection-start-column="1" selection-end-line="483" selection-end-column="1" />
+            <state vertical-scroll-proportion="-7.185185">
+              <caret line="480" column="21" selection-start-line="480" selection-start-column="21" selection-end-line="480" selection-end-column="21" />
               <folding>
                 <element signature="e#4058#4396#0" expanded="true" />
                 <element signature="e#4204#4392#0" expanded="true" />
@@ -72,7 +74,6 @@
                 <element signature="e#7729#7825#0" expanded="true" />
                 <element signature="e#7894#8240#0" expanded="true" />
                 <element signature="e#8183#8236#0" expanded="true" />
-                <element signature="e#9034#9068#0" expanded="true" />
                 <element signature="e#12641#12675#0" expanded="true" />
               </folding>
             </state>
@@ -463,10 +464,10 @@
       <list>
         <option value="$PROJECT_DIR$/spaz/spaz.js" />
         <option value="$PROJECT_DIR$/both/both.js" />
-        <option value="$PROJECT_DIR$/create/bitmapFill.js" />
         <option value="$PROJECT_DIR$/create/easelShape.js" />
         <option value="$PROJECT_DIR$/create/create.js" />
         <option value="$PROJECT_DIR$/create/easel.js" />
+        <option value="$PROJECT_DIR$/create/bitmapFill.js" />
       </list>
     </option>
   </component>
@@ -854,34 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create/bitmapFill.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
-          <folding>
-            <element signature="e#226#260#0" expanded="false" />
-            <element signature="e#1262#1323#0" expanded="false" />
-            <element signature="e#1330#1400#0" expanded="false" />
-            <element signature="e#1431#1543#0" expanded="false" />
-            <element signature="e#1500#1535#0" expanded="false" />
-            <element signature="e#1562#1660#0" expanded="false" />
-            <element signature="e#1667#1688#0" expanded="false" />
-            <element signature="e#2007#2043#0" expanded="false" />
-            <element signature="e#2493#2614#0" expanded="false" />
-            <element signature="e#2524#2535#0" expanded="false" />
-            <element signature="e#2623#2705#0" expanded="false" />
-            <element signature="e#3038#3059#0" expanded="false" />
-            <element signature="e#3067#3094#0" expanded="false" />
-            <element signature="e#3154#3215#0" expanded="true" />
-            <element signature="e#3184#3199#0" expanded="true" />
-            <element signature="e#3381#3522#0" expanded="true" />
-            <element signature="e#3417#3519#0" expanded="true" />
-            <element signature="e#5839#6127#0" expanded="false" />
-            <element signature="e#6493#6553#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spaz/spaz0.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.407408">
@@ -1196,8 +1169,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/create/easel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12844037">
-          <caret line="483" column="1" selection-start-line="483" selection-start-column="1" selection-end-line="483" selection-end-column="1" />
+        <state vertical-scroll-proportion="-7.185185">
+          <caret line="480" column="21" selection-start-line="480" selection-start-column="21" selection-end-line="480" selection-end-column="21" />
           <folding>
             <element signature="e#4058#4396#0" expanded="true" />
             <element signature="e#4204#4392#0" expanded="true" />
@@ -1206,8 +1179,37 @@
             <element signature="e#7729#7825#0" expanded="true" />
             <element signature="e#7894#8240#0" expanded="true" />
             <element signature="e#8183#8236#0" expanded="true" />
-            <element signature="e#9034#9068#0" expanded="true" />
             <element signature="e#12641#12675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create/bitmapFill.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67341775">
+          <caret line="455" column="21" selection-start-line="455" selection-start-column="21" selection-end-line="455" selection-end-column="21" />
+          <folding>
+            <element signature="e#237#271#0" expanded="false" />
+            <element signature="e#3258#3546#0" expanded="false" />
+            <element signature="e#4334#4394#0" expanded="false" />
+            <element signature="e#4685#4742#0" expanded="false" />
+            <element signature="e#4749#4815#0" expanded="false" />
+            <element signature="e#4847#5045#0" expanded="false" />
+            <element signature="e#4861#4960#0" expanded="false" />
+            <element signature="e#4922#4950#0" expanded="false" />
+            <element signature="e#4980#5042#0" expanded="false" />
+            <element signature="e#5064#5096#0" expanded="false" />
+            <element signature="e#5103#5124#0" expanded="false" />
+            <element signature="e#5456#5503#0" expanded="true" />
+            <element signature="e#5779#5900#0" expanded="false" />
+            <element signature="e#5810#5821#0" expanded="false" />
+            <element signature="e#5907#5989#0" expanded="false" />
+            <element signature="e#6330#6352#0" expanded="false" />
+            <element signature="e#6359#6384#0" expanded="false" />
+            <element signature="e#6746#6804#0" expanded="true" />
+            <element signature="e#6898#7225#0" expanded="true" />
+            <element signature="e#7188#7209#0" expanded="true" />
+            <element signature="e#7646#7728#0" expanded="true" />
           </folding>
         </state>
       </provider>
