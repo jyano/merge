@@ -9,7 +9,9 @@ ps.iH = function () {
 /////
 
 
-ps.x= ps.gX = getX; ps.y= ps.gY = getY
+ps.x= ps.gX = getX; 
+ps.y= ps.gY = getY
+
 ps.A = ps.aPt =   addPoints
 ps.vs= function(){var p=this,vs=[]
     _.t(p.n(), function(i){
@@ -20,9 +22,11 @@ ps.vs= function(){var p=this,vs=[]
 ps.n = ps.num = ps.numPoints = getNumPoints
 
 ////
-pD.gX = getX;
-pD.gY = getY
+pD.x= pD.gX = getX;//used?redundant?
+pD.y =pD.gY = getY//redundant reduant (ref:above) was a joke
+
 pD.gIP = pD.g = function (n) {return this.getInnerPoly(n || 0)}
+
 pD.nP = getNumInnerPoly
 pD.n = pD.num = getNumPoints
 pD.A = pD.aPt = addPoints

@@ -1642,6 +1642,7 @@ GPCLIB=function(){
     gpcas.geometry.EdgeTable.prototype.getNode = function (index) {
         return this.m_List.get(index);
     }
+    
     gpcas.geometry.EdgeTable.prototype.FWD_MIN = function(i) {
         var m_List = this.m_List;
 
