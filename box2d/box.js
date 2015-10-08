@@ -1,4 +1,4 @@
-$load('mouse','vector','bool','moreWorld')
+$load('debug','cirFx', 'mouse','vector','bool','moreWorld')
 
 $bW = function () {
 	var g = G(arguments), o
@@ -11,23 +11,14 @@ $bW = function () {
 	ab = b2d.AB(100 / 30, 100 / 30, 500 / 30, 500 / 30)
 	return new b2d.World(V(0, 10), false)
 }
-w.G = function (x, y) {
-	var w = this,
-			v, currG = w.GetGravity()
-	if (U(x)) {
-		return currG
+V0 = function (x, y) {
+	if (O(x)) {
+		return V0(V(x).x, V(x).y)
 	}
-	if (N(x)) {
-		v = N(y) ? V(x, y) : V(0, x)
-	}
-	else if (x == 'flip') {
-		v = V(-currG.x, -currG.y)
-	}
-	w.SetGravity(v)
-	return w
+	return {x: N0(x), y: N0(y)}
 }
-function debug(){
-	dd.cx= dd.spr= dd.i=  dd.sprite = function (spr) {
+function debug() {
+	dd.cx = dd.spr = dd.i = dd.sprite = function (spr) {
 		var dd = this  //it is looking for  a context?
 		if (U(spr)) {
 			return dd.GetSprite()
@@ -35,7 +26,7 @@ function debug(){
 		dd.SetSprite(spr)
 		return dd
 	}
-	dd.sc= dd.dS=  dd.scale = dd.drawScale = function (sc) {
+	dd.sc = dd.dS = dd.scale = dd.drawScale = function (sc) {
 		var dd = this
 		if (U(sc)) {
 			return dd.GetDrawScale()
@@ -43,7 +34,7 @@ function debug(){
 		dd.SetDrawScale(sc)
 		return dd
 	}
-	dd.fA= dd.alpha = dd.fillAlpha =  function (a) {
+	dd.fA = dd.alpha = dd.fillAlpha = function (a) {
 		var dd = this
 		if (U(a)) {
 			return dd.GetFillAlpha()
@@ -51,7 +42,7 @@ function debug(){
 		dd.SetFillAlpha(a)
 		return dd
 	}
-	dd.lT= dd.line = dd.lineThickness =  function (lt) {
+	dd.lT = dd.line = dd.lineThickness = function (lt) {
 		var dd = this
 		if (U(lt)) {
 			return dd.GetLineThickness()
@@ -59,7 +50,7 @@ function debug(){
 		dd.SetLineThickness(lt);
 		return dd
 	}
-	dd.fl= dd.flags =  function (flags) {
+	dd.fl = dd.flags = function (flags) {
 		var dd = this, DD = b2DebugDraw
 		if (U(flags)) {
 			return dd.GetFlags()
@@ -70,75 +61,52 @@ function debug(){
 		dd.SetFlags(flags)
 		return dd
 	}
-	w.sDD= function(dbD){this.SetDebugDraw(dbD);return this}
-	$dD =b2d.debugDraw = function () {
+	w.sDD = function (dbD) {
+		this.SetDebugDraw(dbD);
+		return this
+	}
+	$dD = b2d.debugDraw = function () {
 		var g = G(arguments), o, dbD = new b2DebugDraw()
 		var DD = b2DebugDraw
 		//var flags= DD.e_shapeBit | DD.e_pairBit | DD.e_aabbBit | DD.e_centerOfMassBit
 		var flags = b2DebugDraw.e_shapeBit// | DD.e_pairBit | DD.e_aabbBit | DD.e_centerOfMassBit
-		o = {cx: g.f,  sc: g.s,  fl: g.t,  al: g[4], l: g[3]}
-		if ($.iC(o.cx)){ o.cx = $(o.cx).ctx()  }
+		o = {cx: g.f, sc: g.s, fl: g.t, al: g[4], l: g[3]}
+		if ($.iC(o.cx)) {
+			o.cx = $(o.cx).ctx()
+		}
 		o.sc = N(o.sc, 30)
-		
 		o.fl = o.fl || flags
-		
 		o.l = N(o.l, 20)
-		
 		o.al = N(o.al, .95)
-		if (o.cx) {dbD.sprite(o.cx)}
-		if (o.sc) {dbD.scale(o.sc)}
+		if (o.cx) {
+			dbD.sprite(o.cx)
+		}
+		if (o.sc) {
+			dbD.scale(o.sc)
+		}
 		dbD.flags(o.fl)
 		dbD.alpha(N(o.al, 0.5))
 		return _dbD = dbD
 	}
-	w.dbD = w.bug =   function () {var w = this, g = G(arguments)
+	w.dbD = w.bug = function () {
+		var w = this, g = G(arguments)
 		// this.scale = dd.scale()
-		w.sDD( $dD.apply(null, g) )
+		w.sDD($dD.apply(null, g))
 		return w
 	}
 	w.dDD = function () {
 		this.DrawDebugData()
 		return this
 	}
-}; debug()
-w.go=w.step = function (time, a, b) {w = this, g = G(arguments)
-	
-	w.Step(time, N(a, 8), N(b, 3))
-	if(g.p){w.dDD()}
-	
-	return w
-	
-}
+};
 
 
-w.cB =  function(bD){
-	
-	var b = this.CreateBody(bD)
-	
-	return b
-}
 
-
-V0=function(x,y){
-
-	if(O(x)){return V0( V(x).x, V(x).y )  }
-	
-	return {x: N0(x), y: N0(y)}
-
-}
-w.dB = function (x, y) {
-	return this.cB(b2d.bD(x, y))
-}
-w.sB = function (x, y) {
-	return this.cB(b2d.sD(x, y))
-}
-w.n = w.count = w.getBodyCount = w.bC = w.gBC = function () {
-	return this.GetBodyCount()}
-b2d.cH = function (r) {
+$cH= b2d.cH = function (r) {
 	r = N(r, 50)
 	return new b2d.CircleShape(r / 30)
 }
-b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
+$pH= b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
 	//| 50,200[[,200,60,45
 //| [20,300],.. //-> g.a(p,'arr')// -> g.a(p.arr)
 	var g = G(arguments), p = new b2d.PolygonShape()
@@ -150,38 +118,80 @@ b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
 	}
 	return p
 }
-b2d.fD = b2d.f = function (h,x,y) {
-
-	var g = G(arguments),
-			fD = new b2d.FixtureDef
-	if (g.n) {
-		fD.isSensor = true
-	}
+$fD= b2d.fD = b2d.f = function (h,x,y) {
 	
+	var g = G(arguments),
+	 fD = new b2d.FixtureDef
+	if (g.n) {fD.isSensor = true}
 	if (h) {
+	
 		fD.shape = h
-		if(x){fD.shape.sLP(x,y)}
-	}
+	
+	if(x){fD.shape.sLP(x,y)}}
+	
 	return fD
 }
-b2d.cir = function (r, x, y, d) {
-	alert('b2d.cir')
-	var g = G(arguments), o, fD, h
-	o = g.O ? g.f : {x: g.f, y: g.s, r: g.t, d: g[3]}
-	o.x = N(o.x, 0)
-	o.y = N(o.y, 0)
-	o.r = N(o.r, 60)
-	o.d = N(o.d, 1)
-	fD = new b2d.FixtureDef
-	h = new b2d.CircleShape(r / 30)
-	h.SetLocalPosition(V(x, y).div())
-	fD.shape = h
-	fD.d(d)
-	if (g.n) {
-		fD.isSensor = true
-	}
+
+
+cH.lP = function (x, y) {
+
+	this.SetLocalPosition( V(x, y).div() )
+	return this
+}
+
+cH.sLP = function (x, y) {
+	var v = V(x, y)
+	this.SetLocalPosition( V(v.x / 30, v.y / 30))
+	return this
+}
+
+
+
+b2d.m = function (vs) {
+	return _.m(vs, b2d.mult)
+}
+b2d.tA = function (vs) {
+	return _.m(vs, function (v) {
+		return v.tA(v)
+	})
+}
+
+
+
+function cirFx(){
+
+
+b2d.cFD = function (r) {
+	$l('cFD')
+	var fD =  $fD( b2d.cH(r) )
 	return fD
 }
+
+
+
+b2d.cir = function () {
+	
+	$l('cir')
+var g = G(arguments),
+	o = $df.cF(
+	g.O ? g.f :
+	 {x: g.f, y: g.s, r: g.t, d: g.fo}
+	  )
+	  
+	  
+	  
+	return $fD(
+		$cH(o.r).lP(o.x, o.y), 
+			g.o
+	).d(o.d)
+
+
+} 
+}
+
+ 
+ 
+ 
 b2d.pol = function () {
 	return b2d.fD($a(b2d.pH, arguments))
 			.d(1).fr(.2).r(.2)
@@ -236,6 +246,7 @@ b2d.rec = function () {
 	 //o.z clr
 	 */
 }
+
 $bD= b2d.bD = b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
 
 	var v, bD 
@@ -250,91 +261,138 @@ $bD= b2d.bD = b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
 	return bD
 
 }
+
 b2d.sD = b2d.S = b2d.stat = function (x, y) {
 	return b2d.bD(x, y).stat()
 }
 b2d.kD = function (x, y) {
 	return b2d.bD(x, y).T(1)
 }
-w.S = function () {
-	var w = this, g = G(arguments), bD, b, fs, k, o//,D=b2d.D
-	if (S(_.l(g))) {
-		k = g.pop()
-	}
-	//here, we just have two options..
-	// we can pass in x and y as numbers..
-	// or as an object
-	// the rest (non-position-related) args form an array of fixtures
-	o = g.N_ ? {
-		b: V(g.f, g.s),
-		f: _.r(g, 2)
-	} : {
-		b: V(g.f),
-		f: _.r(g)
-	}
-	o.b = b2d.S(o.b)
-	if (k) {
-		o.k = k
-	}
-	b = w.cB(o.b)
-	if (g.n) {
-		o.f.push('-')
-	}
-	b.f.apply(b, o.f)
-	if (o.k) {
-		b.K(o.k)
-	}
-	return b
-	function alpha() {
-		//array of multiple fixtures
-		if (g.A) {//alert('see w.D'); $l('mult')
-			_.e(o.f, function (f) {
-				if (g.n) {
-					b.f(f, '-')
-				}
-				else {
-					b.f(f)
-				}
-			})
-			if (o.k) {
-				b.K(o.k)
-			}
-			return b
-		}
-	}
+
+ 
+b.cF = function (fD){
+	return this.CreateFixture(fD)}
+
+b.A=function(fD){
+	this.cF(fD);
+	return this
+	
 }
-b.cF = function (fD) {
-	return this.CreateFixture(fD)
-}
-b.A=function(fD){this.cF(fD);return this}
-b2d.cFD = function (rad) {
-	return b2d.fD(b2d.cH(rad))
-}
+
+
+
 fD.DBF = function (d, bo, fr) {
 	this.d(N(d, 1))
 	this.bo(N(bo, .9))
 	this.fr(N(fr, .5))
 	return this
 }
+
 b.sP = function (x, y) {
 	var v = V(x, y)
 	this.SetPosition(V(v.x / 30, v.y / 30))
 	return this
-}
-w.xB = w.Xx = w.Xb = function (b) {
-	var w = this
-	if (U(b)) {
-		w.e(function (b) {
-			w.xB(b)
-		})
-	}
-	else {
-		w.DestroyBody(b)
-	}
-	return w
-}
+} 
+
+
+
 function moreWorld() {
-	
+
+	w.G = function (x, y) {
+		var w = this,
+				v, currG = w.GetGravity()
+		if (U(x)) {
+			return currG
+		}
+		if (N(x)) {
+			v = N(y) ? V(x, y) : V(0, x)
+		}
+		else if (x == 'flip') {
+			v = V(-currG.x, -currG.y)
+		}
+		w.SetGravity(v)
+		return w
+	}
+	w.go = w.step = function (time, a, b) {
+		w = this, g = G(arguments)
+		w.Step(time, N(a, 8), N(b, 3))
+		if (g.p) {
+			w.dDD()
+		}
+		return w
+	}
+	w.cB = function (bD) {
+		var b = this.CreateBody(bD)
+		return b
+	}
+	w.dB = function (x, y) {
+		return this.cB(b2d.bD(x, y))
+	}
+	w.sB = function (x, y) {
+		return this.cB(b2d.sD(x, y))
+	}
+	w.n = w.count = w.getBodyCount = w.bC = w.gBC = function () {
+		return this.GetBodyCount()
+	}
+	w.S = function () {
+		var w = this, g = G(arguments), bD, b, fs, k, o//,D=b2d.D
+		if (S(_.l(g))) {
+			k = g.pop()
+		}
+		//here, we just have two options..
+		// we can pass in x and y as numbers..
+		// or as an object
+		// the rest (non-position-related) args form an array of fixtures
+		o = g.N_ ? {
+			b: V(g.f, g.s),
+			f: _.r(g, 2)
+		} : {
+			b: V(g.f),
+			f: _.r(g)
+		}
+		o.b = b2d.S(o.b)
+		if (k) {
+			o.k = k
+		}
+		b = w.cB(o.b)
+		if (g.n) {
+			o.f.push('-')
+		}
+		b.f.apply(b, o.f)
+		if (o.k) {
+			b.K(o.k)
+		}
+		return b
+		function alpha() {
+			//array of multiple fixtures
+			if (g.A) {//alert('see w.D'); $l('mult')
+				_.e(o.f, function (f) {
+					if (g.n) {
+						b.f(f, '-')
+					}
+					else {
+						b.f(f)
+					}
+				})
+				if (o.k) {
+					b.K(o.k)
+				}
+				return b
+			}
+		}
+	}
+	w.xB = w.Xx = w.Xb = function (b) {
+		var w = this
+		if (U(b)) {
+			w.e(function (b) {
+				w.xB(b)
+			})
+		}
+		else {
+			w.DestroyBody(b)
+		}
+		return w
+	}
 }
 
 function bool() {
@@ -373,7 +431,38 @@ function bool() {
 		return f.constructor.name == "b2Fixture"
 	}
 }
-function mouse() {
+
+
+function mouse(){
+
+	w.$ = function (fn) {
+		var w = this
+		w.UI().click(function (e) {
+			fn({x: w.mx, y: w.my, e: e})
+		})
+		return w
+	}
+	w.$$ = function (fn) {
+		var w = this
+		w.UI().dblclick(function (e) {
+			fn({x: w.mx, y: w.my, e: e})
+		})
+		return w
+	}
+	w.mm = function (fn) {
+		var w = this, g = G(arguments)
+		$.mousemove(function (e) {
+			var o = {
+				x: w.mx,
+				y: w.my,
+				X: e.clientX,
+				Y: e.clientY,
+				e: e
+			}
+			fn(o)
+		})
+		return w
+	}
 	w.md = function (fn) {
 		var w = this
 		w.i.c.mousedown(function (e) {
@@ -389,55 +478,46 @@ function mouse() {
 		return w
 	}
 	w.mu = function (fn) {
-		var w = this
-		$(w.i.canvas)
-				.mouseup(function (e) {
-					fn({x: w.mx, y: w.my, e: e})
-				})
-		return w
-	}
-	w.mm = function (fn) {
-		var w = this, g = G(arguments)
-		$.mousemove(function (e) {
-			var o = {x: w.mx, y: w.my, X: e.clientX, Y: e.clientY, e: e}
-			fn(o)
-		})
-		return w
-	}
-	w.$ = function (fn) {
-		var w = this
-		w.UI().click(function (e) {
-			fn({x: w.mx, y: w.my, e: e})
-		})
-		return w
-	}
-	w.$$ = function (fn) {
-		var w = this
-		w.UI().dblclick(function (e) {
-			fn({x: w.mx, y: w.my, e: e})
-		})
-		return w
-	}
-	w.mdq = function (fn) {
-		var w = this
-		w.md(function (e) {
-			w.q(e.x, e.y, function (f) {
-				fn(f, e)
+
+		var w = this, $cv = $(w.i.canvas)
+		
+		$cv.mouseup(function (e) {
+			fn({
+			
+			x: w.mx, 
+			y: w.my, 
+			e: e
+			
 			})
 		})
+		
+		return w
+	}
+	
+	w.mdq = function (fn) {var w = this
+		w.md(function(e){
+			w.q(e.x, e.y, function (f) {
+				fn(f, e)})})
+		
 		return this
 	}
-	w.e$ = function () {
-		var g = G(arguments), o
-		o = F(g.s) ? {k: g.f, fn: g.s} : {fn: g.f}
-		this.e(function (b) {
-			if (b.of(o.k)) {
-				b.$(o.fn)
-			}
-		})
+	
+	w.e$ = function () {var g = G(arguments), o
+		o = F(g.s) ? {k: g.f, fn: g.s} : { fn: g.f}
+		this.e(function (b) {if (b.of(o.k)) {b.$(o.fn)}})
 		return this
 	}
+	
+	
 }
+
+
+
+
+
+
+
+
 wowOld = function () {/*
 
  b.aI=function(sc){var b=this;
@@ -573,6 +653,14 @@ b2d.edg = function (x1, y1, x2, y2) {
 	return fd
 }
 function _pre() {
+	$df.cF = function (o) {
+		o = o || {}
+		o.x = N(o.x, 0)
+		o.y = N(o.y, 0)
+		o.r = N(o.r, 60)
+		o.d = N(o.d, 1)
+		return o
+	}
 	b2d = Box2D
 	b2d.Fixture = b2d.Dynamics.b2Fixture
 	b2B = b2Body = b2d.Dynamics.b2Body

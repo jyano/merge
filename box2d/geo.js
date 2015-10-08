@@ -232,9 +232,13 @@ function plus() {
 		}
 		return pD.union(M.p(g[0]))
 	}
+	
 	w.polU = function (x, y, p1, p2) {
+	
 		return this.pol(x, y, M.p(p1).U(p2))
 	}
+	
+	
 	w.polS = function () {
 		alert('you found w.polS');
 		var w = this, g = G(arguments), b, o

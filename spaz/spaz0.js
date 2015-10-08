@@ -3,26 +3,34 @@ $load('worldStuff', 'fixts', 'bods', 'fxSp', 'bdSp', 'rmSp', 'toElse', 'bods', '
 
 
 
-w.D = function () {var w = this, g = G(arguments, 'k'), o, b
+w.D = function () {
+
 	
-	if (g.u) { return w.D( w.hW, w.hH ) }
+	var w = this, g = G(arguments, 'k'), o, b
+
+	if (g.u) { return w.D( 
 	
-	o = g.O ? g.f :
+		w.hW, w.hH ) }
 	
-	g.O_ ? {p: g.f, f: g.r} : 
-	 
-	 {
-		 p: [g.f, g.s], f: _.r(g, 2)
-	 }
+	//	o = //g.O ? g.f :
 	
+	o= g.O_ ? {p: g.f, f: g.r} :
 	
-	b = w.cB(    b2d.bD(  o.p  )   )
+	  {p: [g.f, g.s], f: _.r(g, 2)}
 	
+	b = w.cB(
 	
+	       b2d.bD(  o.p  )   )
+
 	b.K(g.k)
+
 	
-	$a(b, 'f', g.G( o.f ))
+	$a(b, 'f',
 	
+		g.G( o.f )
+	)
+
+
 	return b
 }
 
@@ -31,7 +39,19 @@ w.D = function () {var w = this, g = G(arguments, 'k'), o, b
 
 
 
-w._D = function (o) {
+
+WBF=function(){W()
+
+	b = w.D(400,300)
+	//b.f('r', 100,'-')
+	b.f([['r',100,'-']])
+}
+
+
+
+
+w.D_= w._D = function (o) {
+	alert('w._D??? nah, w.D_')
 	return this.D(o.x, o.y, o.c, o.w, o.h)
 }
 function worldStuff(){
@@ -43,7 +63,6 @@ function worldStuff(){
 		}
 		return v
 	}
-
 	w.UI = function () {
 		//alert('w.UI');
 		return $(this.i.canvas)
@@ -164,63 +183,6 @@ function worldStuff(){
 		b.bS(h)
 		return b
 	}
-	
-	
-	
-	
-	w.pol = function () {
-		var w = this, g = G(arguments), b, o
-		if (g.A) {
-			return $a(w, 'pol', g.f)
-		}
-		if (g.OO) {
-			g.e(function (g) {
-				w.pol(g)
-			})
-			return w
-		}
-		
-		
-		
-		// if(g.N_ && N(g.s) && O(g.t) &&U(g[3])){return w.D(g.f,g.s).pol(g.t)}
-		else if (g.N_ && N(g.s) && O(g.t)) {
-			b = w.D(g.f, g.s) // if(iB(g[2])){ g[2]= g[2].wV()} //M.p(g[2]).vs()
-			_.e(g.t, function (p) {
-				b.pol({v: p})
-			})
-			return g.m ? M.p(b) : b
-		}
-		o = g.O ? g.f :
-				N(g.f) ? {x: g.f, y: g.s, p: g.t}
-						: {p: g.f}
-		o.x = N(o.x, w.hW)
-		o.y = N(o.y, w.hH)
-		o.p = M.p(o.p)
-		b = w.D(o.x, o.y)
-		
-		if (g.P) {
-			if (b2d.iB(o.p)) {
-				o.p = M.p(o.p)
-			}
-			b.pol(o.p)
-			return g.m ? M.p(b) : b
-		}
-		
-		if (o.rg) {
-			o.p.ps(o.rg, function (p) {
-				b.pol(o)
-			})
-		}
-		else {
-			o.p.ps(function (p) {
-				b.pol(o)
-			})
-		}
-		return b.f()
-	}
-	
-	
-	
 	w._preKill = function (b) {
 		//$l('w._preKill')
 		if (b.sprite) {
@@ -251,7 +213,7 @@ function worldStuff(){
 		})
 	}
 }
-
+ 
 function fixts(){
 	f.tP = f.hit = f.testPoint = f.test = function () {
 		var f = this, b = f.B(), w = b.W(), g = G(arguments), v
@@ -365,310 +327,10 @@ function fixts(){
 	}
 }
 
-
-
 function bods(){
-	b.wP = b.wPt = function (x, y) {var b = this
-		return b.GetWorldPoint(V(x, y).div()).mult()
-	}
-	b.St = b.S = b.stg = function () {
-		return this.W().s
-	}
-	b.$h = function () {
-		$l('b.$h')
-		var h = $H()
-		this.bS(h)
-		h.c.apply(h, G(arguments))
-		return h
-	}
-	b.c = b.C = function (c) {
-		this.fs(function (f) {
-			f.C(c)
-		})
-		this._col = c
-		return this
-	}
-	b.cir = function () {
-		var b = this,
-				g = G(arguments), o = g.f, fD, f
-		polyMorph()
-		fD = b2d.fD(b2d.cH(o.r), o.x, o.y)
-		fD.sen(o.s || g.n || false)
-		f = b.f(fD.DBF(o.d, o.b, o.f)).K(o.k || 'cir')
-		return o.c === 0 ? f : f.cSp(o)
-		function polyMorph() {
-			//if passed array, it assumes it is arguments for ONE cir
-			if (g.A) {
-				return b.cir.apply(b, g.f)
-			}
-			//if you pass at least two objects, it makes multiple cirs and passes back b
-			if (O(g.s)) {
-				g.e(function (c) {
-					b.cir(c)
-				});
-				return b
-			}
-			// can pass obj
-			// can pass: c C [r] [x] [y]
-			// can pass: c [r] [x] [y]
-			// can pass: [r] [x] [y] [c] [C]
-			o = g.O ? g.f
-					: S(g.s) ? {c: g.f, C: g.s, r: g[2], x: g[3], y: g[4]}
-					: S(g.f) ? {c: g.f, r: g.s, x: g[2], y: g[3]}
-					: {r: g.f, x: g.s, y: g[2], c: g[3], C: g[4]}
-			return cirDfs(o)
-		}
-	}
-	b.dot = function () {
-		var b = this, w = b.W(), g = G(arguments)
-		g.N_ ? (
-				g.p ?
-						T.t(function () {
-							b.dot(g.f, g.s)
-						}) :
-						w.d(b.wP(g.f, g.s)))
-				:
-				w.d(g.f || 'y', g.p ? b.wC() : b)
-		return b
-	}
-	
-	
-	
-	b.pol = function () {
-		var b = this, w = b.W(), g = G(arguments), o,
-				newFs
-		
-		if (g.u) {
-			return b
-		}
-		
-		
-		if (b2d.iB(g.f)) {
-			g.f.fs(b);
-			return b
-		}
-		
-		_morph()
-		
-		newFs = b.sepNew(o.v, function (f) {
-			
-			f.set(o)
-			
-			f.c(o.c, o.C, o.l)
-			if (o.lf) {
-				f.bS(w.st.h().lf(o).lt(o.v))
-			}
-			if (o.rf) {
-				f.bS(w.st.h().rf(o).lt(o.v))
-			}
-		})
-		
-		
-		if (o.i) {
-		
-			__h = w.gx.h().bV(o)
-		
-				b.bS( __h )
-		}
-		
-		
-		
-		return newFs
-		
-		
-		function _morph() {
-		
-			//if passed [[ color and ]] verts:
-			o = S(g.f) && gpc.iP(g.s) ? {c: g.f, v: g.s} : gpc.iP(g.f) ? {v: g.f} :
-					b2d.iF(g.f) ? {v: g.f.vs()} :
-						// pass in  [[],[],[]]   or  ['r',[],[],[]]
-							g.A && S(g.f[0]) ? {c: g.f[0], v: _.r(g.f)} : g.A ? {v: g.f} :
-									g.O ? g.f : g.O_ ? {v: g} : //pass in [],[]
-											g.t ? {c: g.f, v: g.r} : // pass in 'r', [], []
-											{c: g.f, v: g.s}   //pass in  {c:'r', v:[[],[],[]]}
-			
-			$df.h(o)
-			
-			o.i = o.i || o.bf
-		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	b.sep = function (verts, scale) {
-		var body = this
-		if (!O(verts)) {
-			alert('o.v must be object');
-			return
-		}
-		if (gpc.iP(verts)) {
-			verts = verts.vs()
-		}
-		//needs array of verts.. or one vert (which is converted here to arr)
-		_.e(O(verts[0][0]) ? verts : [verts], function (v) {
-			b2d.sep(body, v, scale)
-		})  //  'sep' each of the verts onto the body
-		return this
-	}
-	
-	b.sepNew = function (vs, fn) {
-	//this proxies to b.sep.. but has two advantages
-		//- it returns NEW fixtures formed in an array
-		//- if u pass in a function, then it loops those fxs
-		// //alt:if only one fixture added.. it is returned as a single fixture (not in array) ?
-		var n = this.n(),
-				b = this.sep(vs),
-				numNewFs = b.n() - n,
-				newFs = _.f(b.fs(), numNewFs)
-		if (F(fn)) {
-			_.e(newFs, fn)
-		}
-		return newFs
-		//return newFs[1]? newFs: newFs[0]
-	}
-	
-	
-	b.__f = function (f) {
-		var b = this, g = G(arguments)
-		if (g.u) {
-			return b.GetFixtureList()
-		}
-		f = b.CreateFixture(f)
-		return f
-	}
-	b._f = function (f, c) {
-		var b = this, g = G(arguments)
-		// if(g.u){ return b.GetFixtureList() }
-		// f = b.CreateFixture(f)
-		f = b.__f(f)
-		if (c) {
-			f.C(c)
-		}
-		return f
-	}
-	b.f = function () {
-		var b = this, g = G(arguments), o;
-		if (g.u) {
-			return b._f()
-		}
-		if (g.S_) {
-			g.L--
-		}
-		;
-		if (g._S) {
-			g.L--
-		}
-		//PASS IN AN ARRAY OF FIXTS (AND OPTIONALLY A COLOR)
-		if (g.A) {
-			g.e0(function (gg) {
-				b.ap('f', g.G(gg))
-			})
-		}//   [ [],[],fD,4,[] ]
-		else if (g.SA) {
-			g.e1(function (f) {//       'c',  [ [.,.],[.,.],fD ]
-				if (b2d.iFD(f)) {
-					b._f(f, g.f)
-				}
-				else {
-					if (!S(_.f(f))) {
-						f.unshift(g.f)
-					}
-					b2d.iFD(f[1]) ? b._f(f[1], f[0]) : $a(b, 'f', f)
-				}
-			})
-		}
-		//PASS IN A FIXTURE DEF (AND OPTINALLY A COLOR)
-		else if (b2d.iFD(g.f)) {
-			return b._f(g.f)
-		}//(fD)
-		else if (g.S_ && b2d.iFD(g.s)) {
-			b._f(g.s, g.f)
-		}//('c', fD)
-		//PASS IN NUMBERS OR VERTS, TO MAKE JUST ONE FIXT
-		else if (O(g.s)) {
-			pol()
-		}
-		else if (g.L == 1 || g.L == 3) {
-			cir()
-		}
-		else {
-			rec()
-		}
-		function cir() {
-			o = {c: g.f, r: g.s, x: g.t, y: g[3]}
-			if (g.n) {
-				o.s = 1
-			}
-			b.cir(o)
-		}
-		
-		function rec() {
-			o = {c: g.f, w: g.s, h: g.t, x: g[3], y: g[4], a: g[5]}
-			if (g.n) {
-				o.s = 1
-			}
-			b.rec(o).C(o.c)  // $a(b,'rec', g.g)
-		}
-		
-		function pol() {
-			b.pol(g.S_ ? {c: g.f, v: g.r} : {v: g})
-			if (g.n) {
-				b.sen(1)
-			}  //if (g.n) {o.s=1}
-		}
-		
-		return b.d(1)
-	}
-	b.bS = function () {
-		var b = this, w = b.W(), g = G(arguments), o, i, a, sc
-		//pass it a display object (which i guess implies its already loaded)
-		o = cjs.iDO(g.f) ? {i: g.f, bm: g.f} :
-				g.O ? g.f :
-				{i: g.f, sc: g.s, x: g.t, y: g[3], r: g[4], al: g[5]}
-		if (S(o.i)) {
-			w.g.bm(o.i, function (bm) {
-				b.bS(_.x(o, {i: bm, bm: bm}))
-			})
-		}
-		//if not loaded, async loads and passes it back as a data object 
-		// next time, then, when loaded it can bypass async
-		else {
-			$df.xyr(o)
-			$df.sc(o)
-			$df.im(o)
-			//they can pass in a formed shapeer
-			if (cjs.hasDim(o.bm) && !g.n) {
-				o.bm.rC()
-			} //regCent //can not center things that dont have dimensions! 
-			// scale, position and place the bm in the ct (which is on the stage)
-			o.bm.sXY(o.sc).XY(o.x, o.y).rt(o.r).al(o.al)
-			this.gx = this.gx || w.gx.ct();
-			this.gx.A(o.bm)
-		}
-		return this
-	}
-	b.Bm = function (iS, x, y, sX, sY, rt) {
-		var b = this, w = b.W(), g = G(arguments);
-		b.gx = b.gx || w.gx.ct()
-		if (S(iS)) {
-			this.gx.bm(iS, fn)
-		}
-		if (O(iS)) {
-			fn(iS);
-			return iS
-		}
-		return b
-		function fn(bm) {
-			bm.rC().XY(N(x, 0), N(y, 0)).sXY(N(sX, 1), N(sY, sX || 1)).rt(N(rt, 0))
-		}
-	}
+	 
 }
+
 
 
 ct.d =  function (c, x, y) {
@@ -719,38 +381,8 @@ cirDfs = function (o) {
 	o.s = D(o.s) ? o.s : 0;
 	return o
 }
-FXC = function () {
-	W().C('z')
-	b = w.D()
-	f = b.cir({c: 'o'})
-	b1 = w.D(300, 400)
-	f1 = b1.pol(v1)[0]
-	_.in(function () {
-		f.C($r())
-		f1.C($r())
-	})
-}
-BINDSPR = function () {
-	W()
-	b = w.D(100, 300).cir(120)
-	$.i('me', function (i) {
-		w.g.A(sp = $Bm(i))
-		b.bS(sp.rC())
-		w.g.A(sp1 = $Bm(i))
-		b.bS(sp1)
-	})
-}
-BINDSPP = function () {
-	W()
-	b = w.D(100, 300).cir(120)
-	Q('guy', function () {
-		var i = Q.i('guy')
-		w.g.A(sp = $Bm(i))
-		b.bS(sp.rC())
-		w.g.A(sp1 = $Bm(i))
-		b.bS(sp1)
-	})
-}
+
+
 function _pre() {
 
 //
@@ -767,8 +399,6 @@ function _pre() {
 	h = cjs.Shape.prototype // gx = cjs.Graphics.prototype
 	h = cjs.Shape.prototype // gx = cjs.Graphics.prototype
 	ct = cjs.Container.prototype
-}
-BPOL=function(){
 	vs1 = [
 		[61, 68],
 		[145, 122],
@@ -780,19 +410,7 @@ BPOL=function(){
 		[48, 139],
 		[74, 117]
 	]
-	
-	
-	W()
-	
-	
-	w.D(200,400).pol(vs1)
-	w.D(800, 400).pol($pD(vs1))
-	w.D(800, 400).pol('o', $pD(vs1))
-	
-	w.D(500, 400).pol({ vs: vs1, c:'r' })
-	w.D(800, 400).pol({  vs: $pD(vs1), c:'b' })
 }
-
 function later() {
 	b._gx = function (a) {
 		alert('b._gx')
@@ -830,229 +448,7 @@ function later() {
 		})
 	}
 }
-
-
-W = b2d.W = function () {
-	var g = G(arguments), o
-	o = g.A_ ? _.x(g.s || {}, {W: g.f[0], H: g.f[1], wW: g.f[2], wH: g.f[3]}) :
-			N(g.f) && U(g.s) ? {g: g.f} :
-					g.$N ? {W: g.f, H: g.s, wW: g.t, wH: g[3]} :
-							g.S ? {w: g.f} : g.f || {} //W([], [{}]) //W(1000)//W(1200,600,[N],[N])//W('U')
-	_w = o.w
-	o.g = N(o.g) ? V(0, o.g) : O(o.g) ? V(o.g) : V(0, 10)
-	o.sl = U(o.sl) ? true : o.sl
-	w = new b2d.World(o.g, o.sl)
-	if (o.xx !== 0) {
-		z()
-	}
-	w.W = N(o.W, 1200);
-	w.w = N(o.wW, w.W);
-	w.Ww = w.W / w.w;
-	w.wW = w.w / w.W;
-	w.hW = w.W / 2;
-	w.H = N(o.H, 600);
-	w.h = N(o.wH, w.H);
-	w.Hh = w.H / w.h;
-	w.hH = w.h / w.H;
-	w.hH = w.H / 2;
-	w.mZ = w.hH > w.wW ? w.hH : w.wW;
-	w.mS = w.Ww > w.Hh ? w.Ww : w.Hh;
-	w.z = w.SCALE = 1
-	//handling
-	w.bH = [];
-	w.pH = [];
-	w.PH = [];
-	w.eH = []  //l.P=  l.post=  function (fn) {this.PostSolve = fn; return this}
-//l.b=  l.beg=  function (fn) {this.BeginContact = fn; return this}
-//l.e=  l.end= function (fn) {this.EndContact = fn; return this}
-//l.p=  l.pre=  function (fn) {this.PreSolve=fn;return this}
-//w.listen = w.setContactListener = w.sCL = w.SetContactListener
-	b2d.L = b2d.listener = b2d.contactListener = function () {
-		return new b2d.Dynamics.b2ContactListener
-	}
-	w.SetContactListener(_.x(w.ln = new b2d.Dynamics.b2ContactListener, {
-				BeginContact: function (cx) {
-					_.e(w.bH, function (fn) {
-						_.in(0, function () {
-							fn(cx)
-						})
-					})
-				},
-				EndContact: function (cx) {
-					_.e(w.eH, function (fn) {
-						_.in(0, function () {
-							fn(cx)
-						})
-					})
-				},
-				PreSolve: function (cx, i) {
-					_.e(w.pH, function (fn) {
-						fn(cx, i)
-					})
-				},
-				PostSolve: function (cx, pam2) {
-					_.e(w.PH, function (fn) {
-						_.in(0, function () {
-							fn(cx, pam2)
-						})
-					})
-				}
-			})
-	)
-	//grpx
-	w.BG = w.I = $St('z', w.W, w.H, 0, 0)
-	w.st = w.s = $St('X', w.W, w.H, 0, 0)//.aC(0)
-	w.cv = w.canvas = w.st.canvas;
-	w.$cv = w.can = $(w.canvas);
-	w.cx = w.ctx = w.can.ctx('2d')
-	w.bg = w.st.ct();
-	w.gx = w.g = w.st.ct();
-	w.fg = w.st.ct()
-	w.FG = w.i = $St('X', w.W, w.H, 0, 0)
-	if (o.i) {
-		w.s.bm(o.i)
-	}
-	w.lG($r())
-	if (o.aC == 1) {
-		//w.i.aC(0)
-		// if(g.O){; return w}
-		// return g.u? w.i.aC(!w.i.aC()): g.s? w.i.aC(w):
-	}
-	w.walls(_w)
-	keys()
-	mouse()
-	T.t(function () {
-		if (w.mj) {
-			w.mj.tg(w.mx, w.my)
-		}
-		w.step(1 / 60)
-		if (F(o.cb)) {
-			o.cb()
-		}
-		if (!T.iP()) {
-			w.I.u();
-			w.s.u();
-			w.i.u()
-		}
-		//  w.DrawDebugData()
-		w.e(function (b) {
-			b.wX = b.X();
-			b.wY = b.Y()
-			b.sX = w.wTS(b.wX, b.wY).x
-			b.sY = w.wTS(b.wX, b.wY).y
-			if (O(b.gx)) {
-				b.gx.XY(b.X(), b.Y()).rt(b.rt())
-			}
-		})
-	})
-	if (o.t !== 0) {
-		w.t = w._t = w._t || w.S(w.hW, w.hH, 'w', [[20, 2, '-']]).r(.8) //trackee
-		w.i.A(w.tSpr = $Ct().XY(w.t.X(), w.t.Y())) //  w.tSpr.bm('guy', function(g){  g.sXY(.2)}) // w.tSpr.A(g)
-		T.t(function () {
-			if (F(w.t.cb)) {
-				w.t.cb()
-			} else if (F(w.tCb)) {
-				w.tCb()
-			}
-			w.s.x = -w.sXCap((w.t.X() - w.hW + w.hW) * w.z - w.hW)
-			w.s.y = -w.sYCap((w.t.Y() - w.hH + w.hH) * w.z - w.hH)
-			if (w.t == w._t) {
-				w.t.XY(w.tSpr.X(), w.tSpr.Y());
-				w.s.rt(w.tSpr.rt())
-			}
-		})
-	}
-	w.o = o //w.stats()
-	return w
-	function mouse() {
-		w.mm(logMXY)
-		w.md(function (o) {
-			logMXY(o)
-			w.q(o.x, o.y, function (f) {
-				
-				//if(!f.iD()){return true}
-				if (f.of(w.o.m)) {
-					w.mj = w.mJ(f.B(), o.x, o.y)
-				}
-			})
-		})
-		//world mouse functions are great//they demonstrates md, q, m, and ofClass //but it has a real purpose too!//anytime mousedown..
-		// because that implies there was a mouse up //so there should be no current mouse joint.. smart!
-		w.mu(function () {
-			if (w.mj) {
-				w.j(w.mj);
-				w.mj = 0
-			}
-		})
-		function logMXY(e) {
-			var p = w.sToW(e.X, e.Y);
-			w.mx = p.x;
-			w.my = p.y
-		}
-	}
-	
-	function keys() {
-		$.kD('l', function () {
-			if ($.test) {
-				$l('left pressed')
-			}
-			$.K.l = 1
-			$.K.L = 0
-			$.K.dir = 'left'
-		})
-		$.kU('l', function () {
-			if ($.test) {
-				$l('left lifted')
-			}
-			$.K.l = false
-			$.K.l = 0;
-			$.K.L = 1
-		})
-		$.kD('r', function () {
-			if ($.test) {
-				$l('right pressed')
-			}
-			$.K.r = 1
-			$.K.dir = 'right'
-			$.K.R = 0
-		})
-		$.kU('r', function () {
-			if ($.test) {
-				$l('right lifted')
-			}
-			$.K.r = 0;
-			$.K.R = 1
-		})
-		$.kD('u', function () {
-			if ($.test) {
-				$l('up pressed')
-			}
-			$.K.u = 1;
-			$.K.U = 0
-		})
-		$.kU('u', function () {
-			if ($.test) {
-				$l('up lifted')
-			}
-			$.K.u = 0;
-			$.K.U = 1
-		})
-		$.kD('d', function () {
-			if ($.test) {
-				$l('down pressed')
-			}
-			$.K.d = 1;
-			$.K.D = 0
-		})
-		$.kU('d', function () {
-			if ($.test) {
-				$l('down lifted')
-			}
-			$.K.d = 0;
-			$.K.D = 1
-		})
-	}
-}
+old=function(){
 /*
  ct.bm = ct.b = function () {
  var ct = this, g = G(arguments), bm,
@@ -1116,3 +512,40 @@ W = b2d.W = function () {
  return this
  }
  */
+ 
+}
+
+
+FXC = function () {
+	W().C('z')
+	b = w.D()
+	f = b.cir({c: 'o'})
+	b1 = w.D(300, 400)
+	f1 = b1.pol(v1)[0]
+	_.in(function () {
+		f.C($r())
+		f1.C($r())
+	})
+}
+BINDSPR = function () {
+	W()
+	b = w.D(100, 300).cir(120)
+	$.i('me', function (i) {
+		w.g.A(sp = $Bm(i))
+		b.bS(sp.rC())
+		w.g.A(sp1 = $Bm(i))
+		b.bS(sp1)
+	})
+}
+BINDSPP = function () {
+	W()
+	b = w.D(100, 300).cir(120)
+	Q('guy', function () {
+		var i = Q.i('guy')
+		w.g.A(sp = $Bm(i))
+		b.bS(sp.rC())
+		w.g.A(sp1 = $Bm(i))
+		b.bS(sp1)
+	})
+}
+ 

@@ -895,10 +895,10 @@ function displayObs(){
 		i.rt = function () {
 			var i = this, g = G(arguments), a = g[0]
 			if (g.p) {
-				return i.rT(i.rotation + _.tN(a, 1))
+				return i.rt(i.rotation + _.tN(a, 1))
 			}
 			if (g.n) {
-				return i.rT(i.rotation - _.tN(a, 1))
+				return i.rt(i.rotation - _.tN(a, 1))
 			}
 			if (U(a)) {
 				return i.rotation

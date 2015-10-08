@@ -61,7 +61,7 @@ w.qA=function(fn,ab){
 
 
 w.q =w.qP= w.qPt= w.queryPt= w.query =  function () {
-	alert('q.qP w.qPt q.query w.q')
+	//alert('q.qP w.qPt q.query w.q')
 	
 var w = this, g = G(arguments), o, fx
 	o = g.S_ && N(g.s) ?
@@ -84,6 +84,8 @@ var w = this, g = G(arguments), o, fx
 			},
 			$AB(o.x, o.y)
 	)
+	
+	
 	if (fx) {
 		if ( F(o.fn )) {
 		     _.b(o.fn, fx)(fx); 
@@ -92,6 +94,9 @@ var w = this, g = G(arguments), o, fx
 		return fx
 	}
 }
+
+
+
 
 
 

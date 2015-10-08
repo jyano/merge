@@ -7,38 +7,34 @@ TX= function(){
 }
 
 function onReady(w){ //, m: 'm'
-snow()
+
+	//snow()
+	
     w.$$(function(){ w.showOff() })
 
-    _.t(10, function (i) {
-        w.S(   R(5000), 1000+R(500), 'r', R(250,50),  R(60, 15)).K('rr')
-    })
-
-
+    _.t(10, function (i) {w.S(   R(5000), 1000+R(500), 'r', R(250,50),  R(60, 15)).K('rr')})
+	
     y = w.y(2600,1500,6).K('p')
 
     p = w.p(2200, w.h-300, 3).K('p')
 
-    bike = x = Bike().K('p')
+     bike = x = Bike().K('p')
 
 
-    but = b = Butterfly().aD(1000000).r(0).XY(500,200).K('p');
-
+     but = b = Butterfly().aD(1000000).r(0).XY(500,200).K('p');
+ 
     _.in(1, function(){
         but.cn('thrust', 500)
     })
 
-pol=Pol()
+	pol=Pol()
 
 
     but.XY(pol.X(), pol.Y())
 
     distJoint= j= w.dJ(but, pol ).l(600).fq(55).d(.1)
-
-
-   flub= Flub()
-
-    r = w.D(300, 400, 'r', 250).r(.5).cl('p', function(f){
+	flub= Flub()
+	r = w.D(300, 400, 'r', 250).r(.5).cl('p', function(f){
 
         if(f.B()== w.t){  }
 
@@ -56,18 +52,22 @@ pol=Pol()
 
         w.bg.bm('earth')
     })
-
-    destWall = t=DestWall()
-
+	destWall = t=DestWall()
     curtain = w.i.h(-300,-200,'+')
         .bf('me')
         .rec(  {w:150,h:500}, {w:150,h:500,x:200}, {w:150,h:500,x:400}, {w:150,h:500,x:600} )
     y.track()
-
     _.in(1,function(){
         w.C('z')
     })
+
+
+
+
+
 }
+
+
 
 
 function Pol(){
@@ -91,10 +91,6 @@ var pol,
     return pol
     //right now b.pol returns an array of the fixts added..
 }
-
-
-
-
 
 
 
@@ -179,7 +175,9 @@ function snow() {
     })
 */
 
+
 }
+
 
 function Bike(){
     car = w.D(2300, 300, 'r', [[200, 20], [20, 165, -50, -50, 45], [20, 165, 50, -50, -45]])
@@ -254,3 +252,5 @@ function DestWall(){
 
     return t
 }
+
+ 

@@ -1,379 +1,15 @@
-$L = $load = function (metNames) {
-    
-    
-    
-    metNames = _.isArray(metNames) ? 
-    metNames : _.toArray(arguments) 
-	
-    if(_.isFunction(window['_pre'])){
-    
-    if($load.test){
-    $l('FOUND "_pre" says $load')
-    }
-   
-    window['_pre']()
-    }
-    _.each(metNames, function (fn) {
-       var fun = window[fn]
-     
-        if (_.isFunction(fun)){ //if (window['test']) {console.log('running met: "' + fn + '"')}
-            
-            fun()
-        }
-        
-        else {
-	        if ($load.test) {
-            console.log('met "' + fn + '" not found !!!!!!!!!!!!!!!!')
-	        }  }
-    })
-}
-
-
-
-s$=S;
+ 
 
 $load([
 
-    'superJavascript',   'superConsole', 'superUnderscore',
+      'superUnderscore',
     'superString','superMath','superDate', 'utl'
 
 ])
-function superJavascript(){
+ 
 
-    $A = Array; $B = Boolean; $N = Number;
-    $O = Object; $F = Function; $S = String;
-    J = $J = JSON
-    _.jS = function (a, b, c) {
-        return S(a) ? $.Gj(a, b, c) : JSON.stringify(a)
-    }
-    _.jP = function (a, b, c) {
-        return S(a) ? JSON.parse(a, b) : $(a).prepend(b, c)
-    }
-    U = function u(a, b) {
+ 
 
-        if (_.isUndefined(b)) {
-            return _.isUndefined(a)
-        }
-
-        // return  _.extend.apply(_.extend, arguments)
-    }
-    A = _.isArray
-    AA = function (a) {
-        return A(a) && A(a[0])
-    }
-    B = _.isBoolean
-    D = function (a, b, c) {
-        return _.isUndefined(b) ? !_.isUndefined(a)
-            : _.defaults.apply(_.defaults, arguments)
-    }
-    
-	
-	
-    F = function f(fn, dfFn) {
-    
-	    return   fn && _.isFunction(fn)
-    
-    }
-    
-	
-	_.tFn=function(fn, fn2){
-	
-		return	F(fn) ? fn : fn2? fn2: function () {
-			return
-		}
-	}
-    
-    
-    N = function (n, n2) {
-        if (U(n2)) {
-            return _.isNumber(n)
-        }
-        return _.tN(n, n2)
-    }//N = _.isNumber
-	
-	N0 = function (n) {return N(n,0)}//N = _.isNumber
-	N1 = function (n) {
-		return N(n,1)
-	}//N = _.isNumber
-	/*
-	PN = function (n, n2) {
-		if (U(n2)) {return ( _.isNumber(n)&&n<0)||1}
-		return _.tN(n, n2)
-	}//N = _.isNumber
-	 */
-	
-	
-	O = function (a, b) {
-
-        if (_.isUndefined(b)) {
-            return _.isObject(a)
-        }
-        if (_.isObject(a)) {
-            // return  _.extend.apply(_.extend, arguments)
-        }
-    }
-    I = function (f, i) {
-        var g = G(arguments), clear
-
-
-        if (F(g[0])) {
-            f = g[0];
-            i = g[1]
-        }
-
-        else {
-            f = g[1];
-            i = g[0]
-        }
-
-        i = !N(i) ? 1000 : i > 5 ? i : i * 1000
-
-
-        if (g.N) {
-            f()
-        }
-
-        clear = setInterval(f, i)
-
-        return function () {
-            clearInterval(clear)
-        }
-
-    }
-    S = function (a) {
-        return _.isString(a)
-    }
-    $a = function (ob, met, arr) {
-        var g = G(arguments)
-        if (g.t) {
-            return g.f[g.s].apply(g.f, g.t)
-        }
-        return g.f.apply(null, g.s)
-    }
-    _.gS = function (pop) {
-        //for gen
-        var g = G(arguments), that = this
-        return function (val) {
-            if (U(val)) {
-                return this[pop]
-            }
-            this[pop] = val
-            return this
-        }
-    }
-    _v = function (a) {
-        return S(a) ? function () {
-            Function(a)()
-        } :
-            F(a) ? a : F(a.value) ?
-                a.value() : a.value
-    }
-}
-
-
-
-
-G = function (arg, str) {//history: conflict with N(not neg) and N(g.$ && N(g.f) ) .. resolved!
-	var a, ag = _.tA(arguments),
-	p, n, m, d, g
-	
-	function setA(){
-	if (S(ag[0])) {
-		a = _.tA(ag[1])
-		if (S(a[0])) {
-			a[ag[0]] = a.shift()
-		}
-	}
-	else {
-		a = _.tA(ag[0])
-	}
-	if (_.l(a) == '+') {
-		p = a.pop()
-	}
-	else if (_.l(a) == '-') {
-		n = a.pop()
-	}
-	else if (_.l(a) == '*') {
-		m = a.pop()
-	}
-	else if (_.l(a) == '/') {
-		d = a.pop()
-	}
-	if (S(ag[1]) && S(_.l(a))) {
-		a[ag[1]] = a.pop()
-	}
-	g = _.df(a, {
-		f: _.f(a), s: a[1], t: a[2],
-		fo:a[3], fi:a[4], si:a[5],
-		se:a[6], ei:a[7], ni:a[8], te:a[9],
-		l: _.l(a), r: _.r(a), i: _.i(a),
-		L: a.length,	z: a.length,
-		p: p,  m: m, d: d,  n: n
-	})
-	};setA()
-	
-	function numArgs(){
-		g.u = U(g.f);
-		g.U = !g.u
-		var str = ''
-	_.t(g.L, function () {
-		str += '$'
-	})
-	g[str] = 1
-	
-	};numArgs()
-	function gStr(){
-		g.S = g.$ && S(g.f)
-		g._S = S(g.l)
-		g.$S = g.S_ = S(g.f)
-		g.$_S = S(g.s)};gStr()
-	function gNum() {
-		g.N = g.$ && N(g.f)
-		g.N_ = N(g.f);
-		g._N = N(g.l)
-		g.$N = N(g.f)
-		g.$_N = N(g.s)
-	};gNum()
-	function gArr() {
-		g.A = g.$ && A(g.f)
-		g.A_ = A(g.f);
-		g._A = A(g.l)
-		g.SA = g.$$ && g.S_ && A(g.s)
-	};gArr()
-	function gFn() {
-		g.F = g.$ && F(g.f);
-		g.F_ = F(g.f);
-		g._F = F(g.l)
-	};gFn()
-	function gOb(){
-	g.O = g.$ && O(g.f)
-	g.O_ = O(g.f)
-	g._O = O(g.l)
- 	g.OO_ = O(g.f) && O(g.s)
-};gOb()
-	function gEach(){
-	g.e = function (fn, str) {
-		var g = this
-		if (str) {
-			g.e(
-					function (g) {
-						fn[str](g)
-					}
-			)
-			return fn
-		}
-		_.e(g, fn)
-		return g
-	}
-	g.e0 = function (fn) {
-		_.e(this[0], fn)
-	}
-	g.e1 = function (fn) {
-		_.e(this[1], fn)
-	}
-	g.eR = function (fn) {
-		_.eR(this, fn)
-	}
-	g.eF = function (fn) {
-		_.e(g.f, fn)
-	}
-	g.eS = function (fn) {
-		this.e(
-				function (k) {
-					if (S(k)) {
-						fn(k)
-					}
-				}
-		)
-	}
-	};gEach()
-	function gAdv(){
-	g.G = function (a) {
-		a = _.clone(a)
-		if (g.n) {
-			a.push('-')
-		}
-		else if (g.p) {
-			a.push('+')
-		}
-		else if (g.d) {
-			a.push('/')
-		}
-		else if (g.m) {
-			a.push('*')
-		}
-		return a
-	}
-	g.g = g.G(g)
-	g.a = g.ap = function () {
-		var g = this, gg = G(arguments)
-		//if(g.A){
-		return gg.s ?
-				$a(gg.s, gg.t, g.f) :
-				$a(gg.f, g.f)
-	}
-	g.ush = function (d) {
-		var g = this,
-				res
-		if (U(d)) {
-			d = null
-		}
-		g.t = g.s
-		g.s = g.f
-		g.f = d
-		res = g.unshift(d)
-		return res
-	}
-	};gAdv()
-	return _g = g
-}
-
-
-
-
-
-
-G._ = function () {
-	g = G(arguments)
-	alert("$l(g.L + ' args')")
-}
-function superConsole(){
-
-
-    $l=function(a){var g=G(arguments),v
-        if(O(a)&&N(a.x)&&N(a.y)){
-            v=a.toFixed()
-            //  $l(v.x + ' , ' + v.y)
-            return a
-        }
-        _.e(
-            g,function(a){
-                console.log(
-                    _.isFunction(a)?a.toString()
-                        :O(a)?JSON.stringify(a)
-                        :a
-                )
-            }
-        )
-        return a
-       
-    }
-  
-    
-    $l=function(a){
-        console.log.apply(console, arguments)
-        return a
-    }
-
-
-    $z = function (z) {
-        console.error(z)
-    }
-    $d = function (o) {
-        console.dir(o);
-        return o
-    }
-}
 function superUnderscore(){
     _.b = _.bind
     _.l = _.last;
@@ -389,12 +25,9 @@ function superUnderscore(){
     _.t = _.times
     _.x = _.extend;
     _.p = _.partial;
-    
     _.tA = function (a) {
         return O(a) ? _.toArray(a) : A(a)? a : a? [a]: []
     }
-    
-    
     _.tp = _.template
     _.df = _.defaults
     _.th= _.throttle
@@ -427,7 +60,6 @@ function superUnderscore(){
 		return _.contains(arr, item)
 	}
 }
-
 function superString(){
     S.cR = function (a, b) {
         return s$(a).chompRight(b).s
@@ -517,9 +149,10 @@ function superString(){
     }
 	
 }
-function superMath(){M=Math
-    M.tN = _.tN = function (what, aNum) {return N(what) ? what : aNum || 0}
-    M.fl = M.floor
+function superMath(){
+ 
+	
+	M.fl = M.floor
     M.c = M.cos;
     M.s = M.sin
     M.tD = M.toDegrees = tDeg = function (r) {
@@ -705,13 +338,6 @@ function superMath(){M=Math
             :N(b)?_z(a)==b
             :_z(a)==_z(b)
     }
-    _.pI=M.pI=_.tI=function(a,b){
-        if(U(b)){
-            return parseInt(a)
-        }
-        return parseInt(_.tN(a,b))
-        //_.pI = parseInt//_.tI = function (a, b) {return parseInt(_.tN(a, b))}
-    }
     _.adj=function(income,tax){
         //tax ~ deltaLimit ~ buffer
         var income=income||0,tax=tax||0
@@ -732,37 +358,43 @@ function superMath(){M=Math
             :n>M?M
             :n
     }
-    R=function(n,n2){var num
-        n=N(n)?n:1
-        n2=N(n2)?n2:0
-        return M.round((M.random()*n)+n2)
-
-        function alt(n,n2){
-            var num
-            if(O(n)){
-                n=n.length
-            }
-            n=N(n)?n:1
-            n2=N(n2)?n2:0
-            num=(M.random()*n)+n2
-            return M.floor(num)
-        }
-    }
-    V = function (x, y) {
-        return {x: x, y: y}
-    }
-
-
-
+    
+    
+ 
+    
     _.tF = function (a, b) {
         b = N(b, 2)
         return a.toFixed(b)
     }
 
-    _.pI = parseInt
-
-    _.pF = parseFloat
+ 
+	_.pI = M.pI = _.tI = function (a, b) {
+		if (U(b)) {return parseInt(a)}
+		return parseInt(_.tN(a, b))
+		//_.pI = parseInt//_.tI = function (a, b) {return parseInt(_.tN(a, b))}
+	}
+	
+	_.pF = parseFloat
+	M.os = function (arr, x, y) {
+		if (!arr) {
+			return $al('M.os needs arr')
+		}
+		if (A(arr[0])) {
+			return _.m(arr, function (pt) {
+				pt[0] = pt[0] + N(x, 0)
+				pt[1] = pt[1] + N(y, 0)
+				return pt
+			})
+		}
+		return _.m(arr, function (pt) {
+			pt = V(pt)
+			pt.x += N(x, 0)
+			pt.y += N(y, 0)
+			return pt
+		})
+	}
 }
+
 function superDate(){
     $Dt = Date; $Dt.n = $Dt.now  //->  cur time - ms since  1970 UTC (N)
     $Dt.H = 3600000
@@ -967,27 +599,9 @@ rgba = function () {
 	return str
 }
   
-M.os = function (arr, x, y) {
-	if (!arr) {
-		return $al('M.os needs arr')
-	}
-	if (A(arr[0])) {
-		return _.m(arr, function (pt) {
-			pt[0] = pt[0] + N(x, 0)
-			pt[1] = pt[1] + N(y, 0)
-			return pt
-		})
-	}
-	return _.m(arr, function (pt) {
-		pt = V(pt)
-		pt.x += N(x, 0)
-		pt.y += N(y, 0)
-		return pt
-	})
-}
-O$ = function (o) {
-	return O(o) && !F(o) && !A(o)
-}
+
+O$ = function (o) {return O(o) && !F(o) && !A(o)}
+
 _.t10 = function () {
 	var g = G(arguments)
 	g.e(function (fn) {

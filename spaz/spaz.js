@@ -516,19 +516,7 @@ function _pre() {
 	}
 	
 	function toElse() {
-		cH.sLP = function (v, y) {
-			var v = V(x, y)
-			this.SetLocalPosition(V(v.x / 30, v.y / 30))
-			return this
-		}
-		b2d.m = function (vs) {
-			return _.m(vs, b2d.mult)
-		}
-		b2d.tA = function (vs) {
-			return _.m(vs, function (v) {
-				return v.tA(v)
-			})
-		}
+	 
 		M.lC = M.lineCenter
 	}
 }
