@@ -44,19 +44,12 @@ pD.e = function (fn) {
 //this is great!!  it lets u look through all the inner polies of a complex (default) poly, a
 //and run a  fn on them
 // the function is passed the new poly, the index, and the total num of inner polies
-	var pD = this, 
-	
-	
-	n = pD.nP()
-	
-	
+	var pD = this, n = pD.nP()
 	_.t(n, function (i) {
 		var p = pD.gIP(i)
 		fn(p, i, n)
 	})
-	
 	return pD
-
 }
 
 
@@ -64,13 +57,18 @@ pD.e = function (fn) {
 
 pD.I = pD.intersection
 pD.X = pD.xor
-pD.U=function(p){
-	var g=G(arguments)
-	return this.union(  gpc.p(g.f)  )
+
+pD.U=function(p){var pD = this, g = G(arguments)
+	g.e(function (pol) {
+		pD = pD.union( gpc.p(pol) )
+	})
+	
+	return pD
 }
+
+
 pD.D = function () {var pD = this, 
 	g = G(arguments)
-	
 	g.e(function (pol) {
 		pD = pD.difference( gpc.p(pol) )
 	})
@@ -115,6 +113,7 @@ function getNumInnerPoly() {
 	n = pD.getNumInnerPoly()
 	return n
 }
+
 function _pre(){
 	gpc = gpcas
 	gpc.g = gpcas.geometry
