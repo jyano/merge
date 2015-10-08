@@ -1,5 +1,39 @@
 $load('worldStuff', 'fixts', 'bods', 'fxSp', 'bdSp', 'rmSp', 'toElse', 'bods', 'dev', 'edge', 'wall', 'anim', 'wStuff', 'fromCreate')
 
+
+
+
+w.D = function () {var w = this, g = G(arguments, 'k'), o, b
+	
+	if (g.u) { return w.D( w.hW, w.hH ) }
+	
+	o = g.O ? g.f :
+	
+	g.O_ ? {p: g.f, f: g.r} : 
+	 
+	 {
+		 p: [g.f, g.s], f: _.r(g, 2)
+	 }
+	
+	
+	b = w.cB(    b2d.bD(  o.p  )   )
+	
+	
+	b.K(g.k)
+	
+	$a(b, 'f', g.G( o.f ))
+	
+	return b
+}
+
+
+
+
+
+
+w._D = function (o) {
+	return this.D(o.x, o.y, o.c, o.w, o.h)
+}
 function worldStuff(){
 	w.cen = w.cent = function () {
 		var w = this, g = G(arguments),
@@ -9,24 +43,7 @@ function worldStuff(){
 		}
 		return v
 	}
-	w._D = function (o) {
-		return this.D(o.x, o.y, o.c, o.w, o.h)
-	}
-	w.D = function () {
-		var w = this, g = G(arguments, 'k'), o,
-				b
-		if (g.u) {
-			return w.D(w.hW, w.hH)
-		}
-		o = g.O ? g.f :
-				g.O_ ? {p: g.f, f: g.r} :
-					//position, fixtures
-				{p: [g.f, g.s], f: _.r(g, 2)}
-		b = w.cB(b2d.BD(o.p))
-		b.K(g.k)
-		$a(b, 'f', g.G(o.f))
-		return b
-	}
+
 	w.UI = function () {
 		//alert('w.UI');
 		return $(this.i.canvas)

@@ -109,7 +109,23 @@ w.go=w.step = function (time, a, b) {w = this, g = G(arguments)
 	return w
 	
 }
-w.cB = w.CreateBody
+
+
+w.cB =  function(bD){
+	
+	var b = this.CreateBody(bD)
+	
+	return b
+}
+
+
+V0=function(x,y){
+
+	if(O(x)){return V0( V(x).x, V(x).y )  }
+	
+	return {x: N0(x), y: N0(y)}
+
+}
 w.dB = function (x, y) {
 	return this.cB(b2d.bD(x, y))
 }
@@ -118,7 +134,6 @@ w.sB = function (x, y) {
 }
 w.n = w.count = w.getBodyCount = w.bC = w.gBC = function () {
 	return this.GetBodyCount()}
-
 b2d.cH = function (r) {
 	r = N(r, 50)
 	return new b2d.CircleShape(r / 30)
@@ -135,8 +150,6 @@ b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
 	}
 	return p
 }
-
-
 b2d.fD = b2d.f = function (h,x,y) {
 
 	var g = G(arguments),
@@ -151,9 +164,6 @@ b2d.fD = b2d.f = function (h,x,y) {
 	}
 	return fD
 }
-
-
-
 b2d.cir = function (r, x, y, d) {
 	alert('b2d.cir')
 	var g = G(arguments), o, fD, h
@@ -226,14 +236,19 @@ b2d.rec = function () {
 	 //o.z clr
 	 */
 }
-b2d.bD = b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
-	var v = V(x, y),
-			
-			bD = new b2BodyDef()
+$bD= b2d.bD = b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
+
+	var v, bD 
 	
-	bD.XY(N(v.x, 100), N(v.y, 100))
+	v = V(x, y)
+	
+	bD = new b2BodyDef()
+	
+	bD.XY( N(v.x, 100), N(v.y, 100) )
+
 	bD.dyn()
 	return bD
+
 }
 b2d.sD = b2d.S = b2d.stat = function (x, y) {
 	return b2d.bD(x, y).stat()
@@ -292,12 +307,9 @@ b.cF = function (fD) {
 	return this.CreateFixture(fD)
 }
 b.A=function(fD){this.cF(fD);return this}
-
 b2d.cFD = function (rad) {
 	return b2d.fD(b2d.cH(rad))
 }
-
-
 fD.DBF = function (d, bo, fr) {
 	this.d(N(d, 1))
 	this.bo(N(bo, .9))
@@ -309,276 +321,22 @@ b.sP = function (x, y) {
 	this.SetPosition(V(v.x / 30, v.y / 30))
 	return this
 }
- 
-
-function vector() {
-	b2d.AB = function (x1, y1, x2, y2) {
-		var g = G(arguments)
-		var g = G(arguments), ab
-		ab = new b2d.Collision.b2AABB
-		if (g.p) {
-			ab.lowerBound.Set(x1, y1)
-			ab.upperBound.Set(x2, y2)
-		}
-		else {
-			if (U(g[2])) {
-				ab.lowerBound.Set(g[0] / 30 - 0.01, g[1] / 30 - 0.01)
-				ab.upperBound.Set(g[0] / 30 + 0.01, g[1] / 30 + 0.01)
-			}
-			else {
-				ab.lowerBound.Set(g[0] / 30, g[1] / 30)
-				ab.upperBound.Set(g[2] / 30, g[3] / 30)
-			}
-		}
-		return ab
+w.xB = w.Xx = w.Xb = function (b) {
+	var w = this
+	if (U(b)) {
+		w.e(function (b) {
+			w.xB(b)
+		})
 	}
-	v.m = v.mult = function (num) {
-		num = N(num) ? num : 30
-		var v = _.clone(this)
-		v.Multiply(num)
-		return v
+	else {
+		w.DestroyBody(b)
 	}
-	v.d = v.div = function (num) {
-		num = N(num) ? num : 30
-		return this.mult(1 / num)
-	}
-	v.add = v.a = function () {
-		var v = this, g = G(arguments), v1
-		if (g[2]) {
-			return _.m(g, function (g) {
-				return v.add(g)
-			})
-		}
-		v1 = g.u ? V(1, 1) : V(g.f, g[1])
-		return V(
-				v.x + v1.x,
-				v.y + v1.y
-		)
-	}
-	v.A = function () {
-		var v = this, g = G(arguments), v1
-		if (A(g[0]) && U(g[1])) {
-			_.e(g, function (g) {
-				v1 = V(g)
-				v.add(v1.x, v1.y)
-			})
-		}
-		else {
-			v1 = V(g)
-			v.add(v1.x, v1.y)
-		}
-	}
-	/*
-	 b2d.add=function(vs,p){
-	
-	 return _.m(vs, function(v){
-	
-	 return v.add(p)
-	
-	 })
-	 }*/
-	v.s = v.sub = function () {
-		var v = this, g = G(arguments),
-				o = V(g[0], g[1])
-		o.x = N(o.x, 0)
-		o.y = N(o.y, 0)
-		return V(v.x - o.x, v.y - o.y)
-	}
-	v.tF = v.f = v.dec = v.toFixed = function (n) {
-		var v = this
-		n = N(n, 1)
-		return V(
-				Number(v.x.toFixed(n)),
-				Number(v.y.toFixed(n))
-		)
-	}
-	v.r = v.rt= v.rot = function (rot) {
-		var x = this.x, y = this.y,
-				rot = Math.toRadians(rot),
-				cos = Math.cos, sin = Math.sin
-		return V(
-				x * cos(rot) - y * sin(rot),
-				x * sin(rot) + y * cos(rot)
-		).dec(3)
-	}
-	V = function (x, y, x2, y2) {
-		var g = G(arguments),
-				x = g[0], y = g[1],
-				x2 = g[2], y2 = g[3],
-				v
-		if (A(x)) {
-			y2 = x[3]
-			x2 = x[2]
-			y = x[1]
-			x = x[0]
-		}
-		if (N(y2)) {
-			x = (x - x2) / 2
-			y = (y - y2) / 2
-		} //for dist difs?
-		else if (O(x)) {
-			if (b2d.iF(O(x))) {
-				x = x.B()
-			}
-			y = F(x.Y) ? x.Y() : x.y
-			x = F(x.X) ? x.X() : x.x
-		}
-		x = N(x, 0)
-		y = N(y, x)
-		v = new b2d.Common.Math.b2Vec2(x, y)
-		if (g.n || g.d) {
-			v = v.d()
-		}
-		if (g.p || g.m) {
-			v = v.m()
-		}
-		return v}
-	v.tA = function () {
-		return [this.x, this.y]
-	}
-	b2d.mult = function (v) {
-		return V(v).mult()
-	}
-	b2d.div = function (v) {
-		return V(v).div()
-	}
-	b2d.mat22 = function (v1, v2) {
-		var m = new b2d.Mat22()
-		m.SetVV(v1, v2)
-		return m
-	}
-	b2d.tf = function (v1, v2, v3) {
-		if (U(v1)) {
-			return new b2d.Math.b2Transform()
-		}
-		if (A(v1)) {
-			return b2d.tf(
-					V(v1[0], v1[1]),
-					V(v1[2], v1[3]),
-					V(v1[4], v1[5]))
-		}
-		var tf = new b2d.Math.b2Transform(v1, b2d.mat22(v2, v3))
-		return tf
-	}
+	return w
 }
 function moreWorld() {
-	w.bs = w.bL = function () {
-		return this.GetBodyList()
-	}    //can be result of w.b if g.u//= w.getBodyList
-	w.xB = w.Xx = w.Xb = function (b) {
-		var w = this
-		if (U(b)) {
-			w.e(function (b) {
-				w.xB(b)
-			})
-		}
-		else {
-			w.DestroyBody(b)
-		}
-		return w
-	}
-	w.Q = function () {
-		var w = this, g = G(arguments), o
-		o = g.O ? g.f :
-				g.S_ && N(g.s) ? {k: g.f, x: g.s, y: g.t, fn: g[3]} :
-						g.S_ && O(g.s) ? {k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
-								g.F_ ? _.x({fn: g.f, n: 0}, O(g.s) ? {x1: g.s.x, y1: g.s.y} : {
-									x1: g.s,
-									y1: g.t,
-									x2: g[3],
-									y2: g[4]
-								}) :
-										g.O_ ? {x1: g.f.x, y1: g.f.y, fn: g.s} :
-										{x1: g.f, x2: g.s, fn: g.t}
-		o.n = 0
-		w.QueryAABB(function (f) {
-					var res;
-					o.n++
-					res = o.fn(f, f.B(), o.n)
-					if (res !== false) {
-						return true
-					}
-				},
-				b2d.AB(o.x1, o.y1, o.x2, o.y2))
-		return w
-		//but it makes a rectangle not square ??
-	}//w.QUERY =
-	w.rad = function (x, y, r, fn) {
-		return this.Q({
-			x1: x - r,
-			y1: y - r,
-			x2: x + r,
-			y2: y + r,
-			fn: fn
-		})
-	}
-	w.query = w.q = function () {
-		var w = this, g = G(arguments), o, fx
-		o = g.S_ && N(g.s) ? {k: g.f, x: g.s, y: g.t, fn: g[3]} :
-				g.S_ && O(g.s) ? {k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
-						g.N_ ? {x: g.f, y: g.s, fn: g.t, k: g[3]} :
-								g.A_ ? {x: g.f[0], y: g.f[1], fn: g.s, k: g.t} :
-								{x: g.f.x, y: g.f.y, fn: g.s, k: g.t}
-		w.QueryAABB(
-				function (f) {
-					if (f && f.of(o.k) && f.tP(o.x, o.y)) {
-						fx = f;
-						return
-					}
-					return true
-				},
-				b2d.AB(o.x, o.y)
-		)
-		if (fx) {
-			if (F(o.fn)) {
-				_.b(o.fn, fx)(fx);
-				return w
-			}
-			return fx
-		}
-	}
-	w.eEv = w.eachEvery = function (fn) {
-		var w = this
-		z(function () {
-			w.e(fn)
-		})
-		return w
-	}
-	w.inEv = function (n1, n2, fn) {
-		_.in(n1, function () {
-			_.ev(n2, function () {
-				fn()
-			})
-		})
-	}
-	w.evIn = function (n1, n2, fn) {
-		_.ev(n1, function () {
-			_.in(n2, function () {
-				fn()
-			})
-		})
-	}
-	w.e = w.each = function () {
-		var w = this, g = G(arguments), o,
-				bs = w.GetBodyList(), k, b, arr
-		o = g.S_ ? {k: g.f, fn: g.s} : {fn: g.f}
-		if (g.u) {
-			alert('w.e')
-		}
-		arr = []
-		while (bs) {
-			b = bs;
-			bs = bs.N()
-			if (b.of(o.k)) {
-				arr.push(b)
-			}
-		}
-		_.e(arr, function (b) {
-			o.fn(b)
-		})
-		return w
-	}
+	
 }
+
 function bool() {
 	b2d.tB = b2d.toBody = function (b) {
 		return b2d.iB(b) ? b :
