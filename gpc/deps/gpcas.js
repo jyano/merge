@@ -6,13 +6,10 @@ GPCLIB=function(){
 //////////
 
 //Object.prototype.equals = function(x) {
-    function equals(x1, x) {
-
-        var p;
+    function equals(x1, x) {var p;
         for(p in x1) {
             if(typeof(x[p])=='undefined') {return false;}
         }
-
         for(p in x1) {
             if (x1[p]) {
                 switch(typeof(x1[p])) {
@@ -31,13 +28,13 @@ GPCLIB=function(){
                     return false;
             }
         }
-
         for(p in x) {
             if(typeof(x1[p])=='undefined') {return false;}
         }
-
         return true;
     }
+    
+    
 ///point
      Point = function(x,y) {
         this.x = x;
@@ -46,7 +43,6 @@ GPCLIB=function(){
 ////////////// CLASS ArrayHelper ////////////////////////////////////
     gpcas.util.ArrayHelper = function() {};
     var static = gpcas.util.ArrayHelper;
-
     static.create2DArray = function(x,y){
         var a = [];
         for (var i=0; i<x; i++){
@@ -55,6 +51,7 @@ GPCLIB=function(){
         return a;
     };
     static.valueEqual = function(obj1, obj2) {
+
         if (obj1==obj2) return true;
         if(equals(obj1, obj2)) return true;
 
@@ -73,16 +70,10 @@ GPCLIB=function(){
         var maxBottom  = null;
         var maxLeft   = null;
         var maxRight  = null;
-
-
         var maxLeftIndex;
         var newVertices = vertices;
-
-
-
         for (var i  = 0; i<vertices.length; i++){
             var vertex  = vertices[i] ;
-
             if ((maxTop==null)||(maxTop.y>vertex.y)||((maxTop.y==vertex.y)&&(vertex.x<maxTop.x))){
                 maxTop=vertex;
             }
@@ -97,7 +88,6 @@ GPCLIB=function(){
                 maxRight=vertex;
             }
         }
-
         if (maxLeftIndex>0){
             newVertices = []
             var j = 0;
@@ -109,8 +99,6 @@ GPCLIB=function(){
             }
             vertices=newVertices;
         }
-
-
         var reverse  = false;
         for(var i=0 ; i<vertices.length;i++) {
             var vertex = vertices[i];
@@ -133,12 +121,9 @@ GPCLIB=function(){
 
         return (isArrayList?(new ArrayList(vertices)):(vertices));
     }
-
-/////////////// END ArrayHelper  ////////////////////////////////////////////////
-
+	/////////////// END ArrayHelper  ////////////////////////////////////////////////
     var ArrayHelper = gpcas.util.ArrayHelper;
-////////////////// CLASS ArrayList  /////////////////////////
-
+	////////////////// CLASS ArrayList  /////////////////////////
     gpcas.util.ArrayList = function(arr) {
         this._array = [];
         if(arr != null) {
@@ -147,7 +132,6 @@ GPCLIB=function(){
 
     };
     var p = gpcas.util.ArrayList.prototype;
-
     p.add = function(value) {
         this._array.push(value);
     };
@@ -183,13 +167,7 @@ GPCLIB=function(){
     p.toArray = function(){
         return this._array;
     }
-///////////////// END ArrayList ////////////////////////
-
-
-
-
-
-
+    ///////////////// END ArrayList ////////////////////////
     gpcas.geometry.Clip = function(){};
     gpcas.geometry.Clip.DEBUG = false;
     gpcas.geometry.Clip.GPC_EPSILON = 2.2204460492503131e-016;
@@ -200,16 +178,12 @@ GPCLIB=function(){
     gpcas.geometry.Clip.BELOW = 1;
     gpcas.geometry.Clip.CLIP = 0;
     gpcas.geometry.Clip.SUBJ = 1;
-
-
-
     var p = gpcas.geometry.Clip.prototype;
+   
     var static = gpcas.geometry.Clip;
-
-// ----------------------
+    // ----------------------
 // --- Static Methods ---
 // ----------------------
-
     /**
      * Return the intersection of <code>p1</code> and <code>p2</code> where the
      * return type is of <code>polyClass</code>.  See the note in the class description
@@ -219,16 +193,12 @@ GPCLIB=function(){
      * @param p2        One of the polygons to performt he intersection with
      * @param polyClass The type of <code>Poly</code> to return
      */
-
     static.intersection = function(p1, p2, polyClass) {
         if(polyClass==null || polyClass==undefined) {
             polyClass = "PolyDefault";
         }
         return Clip.clip( OperationType.GPC_INT, p1, p2, polyClass );
     };
-
-
-
     /**
      * Return the union of <code>p1</code> and <code>p2</code> where the
      * return type is of <code>polyClass</code>.  See the note in the class description
@@ -246,8 +216,6 @@ GPCLIB=function(){
 
         return Clip.clip( OperationType.GPC_UNION, p1, p2, polyClass );
     };
-
-
     /**
      * Return the xor of <code>p1</code> and <code>p2</code> where the
      * return type is of <code>polyClass</code>.  See the note in the class description
@@ -263,8 +231,6 @@ GPCLIB=function(){
         }
         return Clip.clip( OperationType.GPC_XOR, p1, p2, polyClass );
     };
-
-
     /**
      * Return the difference of <code>p1</code> and <code>p2</code> where the
      * return type is of <code>polyClass</code>.  See the note in the class description
@@ -280,16 +246,14 @@ GPCLIB=function(){
         }
         return Clip.clip(OperationType.GPC_DIFF, p2, p1, polyClass );
     }
-
     static.intersection = function( p1, p2) {
         return Clip.clip(OperationType.GPC_INT, p1, p2, "PolyDefault.class" );
     }
-
-
-// -----------------------
+	
+	// -----------------------
 // --- Private Methods ---
 // -----------------------
-
+    
     /**
      * Create a new <code>Poly</code> type object using <code>polyClass</code>.
      */
@@ -315,7 +279,6 @@ GPCLIB=function(){
 
         return null;
     }
-
     /**
      * <code>clip()</code> is the main method of the clipper algorithm.
      * This is where the conversion from really begins.
@@ -977,26 +940,20 @@ GPCLIB=function(){
 
         return result ;
     }
-
     static.EQ = function(a, b) {
         return (Math.abs(a - b) <= Clip.GPC_EPSILON);
     }
-
     static.PREV_INDEX = function( i, n) {
         return ((i - 1+ n) % n);
     }
-
     static.NEXT_INDEX = function(i, n) {
         return ((i + 1) % n);
     }
-
     static.OPTIMAL = function ( p, i) {
         return (p.getY(Clip.PREV_INDEX (i, p.getNumPoints())) != p.getY(i)) ||
             (p.getY(Clip.NEXT_INDEX(i, p.getNumPoints())) != p.getY(i)) ;
     }
-
-    static.create_contour_bboxes = function (p)
-    {
+    static.create_contour_bboxes = function (p) {
         var box= [] ;
 
         /* Construct contour bounding boxes */
@@ -1007,7 +964,6 @@ GPCLIB=function(){
         }
         return box;
     }
-
     static.minimax_test = function ( subj, clip, op){
         var s_bbox= Clip.create_contour_bboxes(subj);
         var c_bbox= Clip.create_contour_bboxes(clip);
@@ -1060,7 +1016,6 @@ GPCLIB=function(){
             }
         }
     }
-
     static.bound_list = function( lmt_table, y) {
         if( lmt_table.top_node == null )
         {
@@ -1118,7 +1073,6 @@ GPCLIB=function(){
             return node ;
         }
     }
-
     static.insert_bound = function ( lmt_node, e) {
         if( lmt_node.first_bound == null )
         {
@@ -1211,7 +1165,6 @@ GPCLIB=function(){
             }
         }
     }
-
     static.add_edge_to_aet = function ( aet, edge) {
         if ( aet.top_node == null )
         {
@@ -1309,7 +1262,6 @@ GPCLIB=function(){
             }
         }
     }
-
     static.add_to_sbtree = function ( sbte, y) {
         if( sbte.sb_tree == null )
         {
@@ -1354,8 +1306,6 @@ GPCLIB=function(){
             }
         }
     }
-
-
     static.build_lmt = function( lmt_table,
                                  sbte,
                                  p,
@@ -1515,8 +1465,6 @@ GPCLIB=function(){
         }
         return edge_table;
     }
-
-
     static.add_st_edge = function( st, it, edge, dy) {
         if (st == null)
         {
@@ -1550,9 +1498,6 @@ GPCLIB=function(){
         }
         return st ;
     }
-
-
-
     static.add_intersection = function ( it_node,
                                          edge0,
                                          edge1,
@@ -1581,7 +1526,7 @@ GPCLIB=function(){
     }
 
 
-/////////// AetTree ////////////////////////////////////
+	/////////// AetTree ////////////////////////////////////
     gpcas.geometry.AetTree = function(){
         this.top_node = null; //EdgeNode
     };
@@ -1591,9 +1536,7 @@ GPCLIB=function(){
             //console.log("edge.vertex.x="+edge.vertex.x+"  edge.vertex.y="+edge.vertex.y);
         }
     }
-
-
-///////////////  BundleState  //////////////////////////////
+	///////////////  BundleState  //////////////////////////////
     gpcas.geometry.BundleState = function(state){
         this.m_State = state ; //String
     };
@@ -1604,7 +1547,7 @@ GPCLIB=function(){
         return this.m_State;
     };
 
-/////////////// EdgeNode ////////////////////////////
+	/////////////// EdgeNode ////////////////////////////
     gpcas.geometry.EdgeNode = function(){
         this.vertex= new Point(); /* Piggy-backed contour vertex data  */
         this.bot= new Point(); /* Edge lower (x, y) coordinate      */
@@ -1623,12 +1566,7 @@ GPCLIB=function(){
         this.succ;         /* Edge connected at the upper end   */
         this.next_bound;   /* Pointer to next bound in LMT      */
     };
-
-
-
-////////////////   EdgeTable /////////////////////////////////////////
-
-
+	////////////////   EdgeTable /////////////////////////////////////////
     gpcas.geometry.EdgeTable = function() {
         this.m_List = new ArrayList();
     };
@@ -1642,7 +1580,6 @@ GPCLIB=function(){
     gpcas.geometry.EdgeTable.prototype.getNode = function (index) {
         return this.m_List.get(index);
     }
-    
     gpcas.geometry.EdgeTable.prototype.FWD_MIN = function(i) {
         var m_List = this.m_List;
 
@@ -1675,18 +1612,14 @@ GPCLIB=function(){
         var ith= (m_List.get(i));
         return (prev.vertex.y > ith.vertex.y) ;
     }
-
-
-/////////////////////   HState   //////////////////////////////////////
+	/////////////////////   HState   //////////////////////////////////////
     gpcas.geometry.HState = function(){};
     gpcas.geometry.HState.NH = 0; /* No horizontal edge                */
     gpcas.geometry.HState.BH = 1; /* Bottom horizontal edge            */
     gpcas.geometry.HState.TH = 2; /* Top horizontal edge               */
-
     var NH = gpcas.geometry.HState.NH;
     var BH = gpcas.geometry.HState.BH;
     var TH = gpcas.geometry.HState.TH;
-
     /* Horizontal edge state transitions within scanbeam boundary */
     gpcas.geometry.HState.next_h_state =
         [
@@ -1696,9 +1629,6 @@ GPCLIB=function(){
             /* BH */ [NH, NH,   NH, NH,   TH, TH],
             /* TH */ [NH, NH,   NH, NH,   BH, BH]
         ];
-
-
-
 ///////////////////////    	  IntersectionPoint /////////////////////////////
     gpcas.geometry.IntersectionPoint = function(p1,p2,p3){
         this.polygonPoint1 = p1; /* of Point */;
@@ -1708,8 +1638,6 @@ GPCLIB=function(){
     gpcas.geometry.IntersectionPoint.prototype.toString = function (){
         return "P1 :"+polygonPoint1.toString()+" P2:"+polygonPoint2.toString()+" IP:"+intersectionPoint.toString();
     }
-
-
 ///////////////////////////    ItNode   ///////////////
     gpcas.geometry.ItNode = function(edge0, edge1, x, y, next){
         this.ie= [];     /* Intersecting edge (bundle) pair   */
@@ -1720,8 +1648,6 @@ GPCLIB=function(){
         this.ie[1] = edge1 ;
 
     };
-
-
 ///////////////////////////    ItNodeTable   ///////////////
     gpcas.geometry.ItNodeTable = function(){
         this.top_node;
@@ -1742,15 +1668,12 @@ GPCLIB=function(){
 
         }
     }
-
 ////////////// Line //////////////////////////
     gpcas.geometry.Line = function(){
         this.start;
         this.end;
     }
-
 ////////////   LineHelper /////////////////////
-
     gpcas.geometry.LineHelper = function(){};
     gpcas.geometry.LineHelper.equalPoint = function (p1,p2){
         return ((p1[0]==p2[0])&&(p1[1]==p2[1]));
@@ -1784,14 +1707,13 @@ GPCLIB=function(){
         p[0]=Math.round(p[0]);
         p[1]=Math.round(p[1]);
     }
-//---------------------------------------------------------------
+	//---------------------------------------------------------------
 //Checks for intersection of Segment if as_seg is true.
 //Checks for intersection of Line if as_seg is false.
 //Return intersection of Segment "AB" and Segment "EF" as a Point
 //Return null if there is no intersection
 //---------------------------------------------------------------
-    gpcas.geometry.LineHelper.lineIntersectLine = function(A,B,E,F,as_seg)
-    {
+    gpcas.geometry.LineHelper.lineIntersectLine = function(A,B,E,F,as_seg) {
         if(as_seg == null) as_seg = true;
         var ip;
         var a1;
@@ -1838,9 +1760,7 @@ GPCLIB=function(){
         }
         return new Point(Math.round(ip.x),Math.round(ip.y));
     }
-
-
-//////////////  LineIntersection  ///////////////////////
+	//////////////  LineIntersection  ///////////////////////
     gpcas.geometry.LineIntersection = function(){};
     gpcas.geometry.LineIntersection.iteratePoints = function(points, s1, s2,e1,e2) {
         var direction=true;
@@ -1873,7 +1793,6 @@ GPCLIB=function(){
 
         return newPoints;
     }
-
     gpcas.geometry.LineIntersection.intersectPoly = function(poly, line /* of Points */){
         var res = [];
         var numPoints = poly.getNumPoints();
@@ -1976,10 +1895,7 @@ GPCLIB=function(){
         }
         return true;
     }
-
-
-///////////  LmtNode //////////////////////////
-
+	///////////  LmtNode //////////////////////////
     gpcas.geometry.LmtNode = function(yvalue) {
         this.y = yvalue;            /* Y coordinate at local minimum     */
         this.first_bound;  /* Pointer to bound list             */
@@ -2239,7 +2155,6 @@ GPCLIB=function(){
     gpcas.geometry.PolyDefault.prototype.isHole = function () {
         var m_List = this.m_List;
         var m_IsHole = this.m_IsHole;
-
         if( m_List.size() > 1)
         {
             alert( "Cannot call on a poly made up of more than one poly." );
@@ -2276,6 +2191,7 @@ GPCLIB=function(){
      *
      * @throws IllegalStateException if called on a complex polygon
      */
+    
     gpcas.geometry.PolyDefault.prototype.setContributing = function( polyIndex, contributes) {
         var m_List = this.m_List;
         if( m_List.size() != 1)
@@ -2304,7 +2220,6 @@ GPCLIB=function(){
     gpcas.geometry.PolyDefault.prototype.union = function(p) {
         return Clip.union( p, this, "PolyDefault");
     }
-
     /**
      * Return a Poly that is the exclusive-or of this polygon with the given polygon.
      * The returned polygon could be complex.
@@ -2314,7 +2229,6 @@ GPCLIB=function(){
     gpcas.geometry.PolyDefault.prototype.xor = function(p) {
         return Clip.xor( p, this, "PolyDefault" );
     }
-
     /**
      * Return a Poly that is the difference of this polygon with the given polygon.
      * The returned polygon could be complex.
@@ -2324,7 +2238,6 @@ GPCLIB=function(){
     gpcas.geometry.PolyDefault.prototype.difference = function(p){
         return Clip.difference(p,this,"PolyDefault");
     }
-
     /**
      * Return the area of the polygon in square units.
      */
@@ -2338,7 +2251,6 @@ GPCLIB=function(){
         }
         return area ;
     }
-
     // -----------------------
     // --- Package Methods ---
     // -----------------------
@@ -2363,8 +2275,7 @@ GPCLIB=function(){
         }
         return res;
     }
-
-///////////////  Polygon   /////////////////////////////////
+    ///////////////  Polygon   /////////////////////////////////
     gpcas.geometry.Polygon = function(){
         this.maxTop ;
         this.maxBottom ;
@@ -2380,7 +2291,6 @@ GPCLIB=function(){
             this.vertices.push(new Point(pointArr[0],pointArr[1]));
         }
     }
-
     /*Normalize vertices in polygon to be ordered clockwise from most left point*/
     gpcas.geometry.Polygon.prototype.normalize = function() {
         var maxLeftIndex ;
@@ -2438,19 +2348,14 @@ GPCLIB=function(){
     }
     gpcas.geometry.Polygon.prototype.getVertexIndex = function(vertex){
         for (var i=0; i<this.vertices.length; i++){
-            if (equals(vertices[i], vertex)){
-                return i;
-            }
+            if (equals(vertices[i], vertex)){return i}
         }
         return -1;
     }
     gpcas.geometry.Polygon.prototype.insertVertex = function(vertex1,vertex2, newVertex){
         var vertex1Index  = getVertexIndex(vertex1);
         var vertex2Index  = getVertexIndex(vertex2);
-        if ((vertex1Index==-1)||(vertex2Index==-1)){
-            return false;
-        }
-
+        if ((vertex1Index==-1)||(vertex2Index==-1)){return false}
         if (vertex2Index<vertex1Index){
             var i  = vertex1Index;
             vertex1Index=vertex2Index;
@@ -2486,9 +2391,7 @@ GPCLIB=function(){
         res+="]";
         return res;
     }
-
-
-////////////////////  PolygonNode ///////////////////////////
+    ////////////////////  PolygonNode ///////////////////////////
     gpcas.geometry.PolygonNode = function(next, x, y) {
 
 
@@ -2528,10 +2431,7 @@ GPCLIB=function(){
         /* Update proxy->[Clip.LEFT] to point to nv */
         proxy.v[Clip.LEFT]= nv;
     }
-
-
-//////////////////   PolySimple ////////////////
-
+    //////////////////   PolySimple ////////////////
     /**
      * <code>PolySimple</code> is a simple polygon - contains only one inner polygon.
      * <p>
@@ -2540,8 +2440,6 @@ GPCLIB=function(){
      *
      * @author  Dan Bridenbecker, Solution Engineering, Inc.
      */
-     
-     
     gpcas.geometry.PolySimple = function(){
         /**
          * The list of Point objects in the polygon.
@@ -2551,7 +2449,6 @@ GPCLIB=function(){
         /** Flag used by the Clip algorithm */
         this.m_Contributes= true ;
     };
-
     /**
      * Return true if the given object is equal to this one.
      * <p>
@@ -2609,7 +2506,6 @@ GPCLIB=function(){
         }
         return true ;
     }
-
     /**
      * Return the hashCode of the object.
      * <p>
@@ -2626,14 +2522,12 @@ GPCLIB=function(){
         result = 37*result + this.m_List.hashCode();
         return result;
     }
-
     /**
      * Return a string briefly describing the polygon.
      */
     gpcas.geometry.PolySimple.prototype.toString = function() {
         return "PolySimple: num_points="+getNumPoints();
     }
-
     // --------------------
     // --- Poly Methods ---
     // --------------------
@@ -2643,21 +2537,19 @@ GPCLIB=function(){
     gpcas.geometry.PolySimple.prototype.clear = function() {
         this.m_List.clear();
     }
-
-
     gpcas.geometry.PolySimple.prototype.add = function(arg0,arg1) {
         var args = [];
         args[0] = arg0;
         if(arg1) {
             args[1] = arg1;
         }
-
         if (args.length==2){
             this.addPointXY(args[0] , args[1] );
-        } else if (args.length==1){
+        }
+        else if (args.length==1){
             if (args[0] instanceof Point){
-                this.addPoint(args[0]);
-            } else if (args[0] instanceof Poly){
+                this.addPoint(args[0])}
+             else if (args[0] instanceof Poly){
                 this.addPoly(args[0]);
             } else if (args[0] instanceof Array){
                 for(var k=0 ; k<args[0].length ; k++) {
@@ -2667,36 +2559,27 @@ GPCLIB=function(){
             }
         }
     }
-
-
+    
     /**
      * Add a point to the first inner polygon.
      */
     gpcas.geometry.PolySimple.prototype.addPointXY = function(x, y) {
         this.addPoint( new Point( x, y ) );
     }
-
+    
     /**
      * Add a point to the first inner polygon.
      */
-    gpcas.geometry.PolySimple.prototype.addPoint = function(p) {
-        this.m_List.add( p );
-    }
-
+    gpcas.geometry.PolySimple.prototype.addPoint = function(p) {this.m_List.add( p )}
+   
     /**
      * Throws IllegalStateexception if called
      */
-    gpcas.geometry.PolySimple.prototype.addPoly = function(p) {
-        alert("Cannot add poly to a simple poly.");
-    }
-
+    gpcas.geometry.PolySimple.prototype.addPoly = function(p) {alert("Cannot add poly to a simple poly.")}
     /**
      * Return true if the polygon is empty
      */
-    gpcas.geometry.PolySimple.prototype.isEmpty = function() {
-        return this.m_List.isEmpty();
-    }
-
+    gpcas.geometry.PolySimple.prototype.isEmpty = function() {return this.m_List.isEmpty()}
     /**
      * Returns the bounding rectangle of this polygon.
      */
@@ -2718,7 +2601,7 @@ GPCLIB=function(){
 
         return new Rectangle( xmin, ymin, (xmax-xmin), (ymax-ymin) );
     }
-
+    
     /**
      * Returns <code>this</code> if <code>polyIndex = 0</code>, else it throws
      * IllegalStateException.
@@ -2730,48 +2613,30 @@ GPCLIB=function(){
         }
         return this ;
     }
-
     /**
      * Always returns 1.
      */
-    gpcas.geometry.PolySimple.prototype.getNumInnerPoly = function() {
-        return 1;
-    }
-
+    
+    gpcas.geometry.PolySimple.prototype.getNumInnerPoly = function() {return 1}
+    
     /**
      * Return the number points of the first inner polygon
      */
-    gpcas.geometry.PolySimple.prototype.getNumPoints = function() {
-        return this.m_List.size();
-    }
-
+    gpcas.geometry.PolySimple.prototype.getNumPoints = function() {return this.m_List.size()}
     /**
      * Return the X value of the point at the index in the first inner polygon
      */
-    gpcas.geometry.PolySimple.prototype.getX = function(index) {
-        return (this.m_List.get(index)).x;
-    }
-
+    gpcas.geometry.PolySimple.prototype.getX = function(index) {return (this.m_List.get(index)).x}
     /**
      * Return the Y value of the point at the index in the first inner polygon
      */
-    gpcas.geometry.PolySimple.prototype.getY = function(index) {
-        return (this.m_List.get(index)).y;
-    }
-
-    gpcas.geometry.PolySimple.prototype.getPoint = function(index){
-        return (this.m_List.get(index));
-    }
-
-    gpcas.geometry.PolySimple.prototype.getPoints = function() {
-        return this.m_List.toArray();
-    }
-
+    gpcas.geometry.PolySimple.prototype.getY = function(index) {return (this.m_List.get(index)).y}
+    gpcas.geometry.PolySimple.prototype.getPoint = function(index){return (this.m_List.get(index))}
+    gpcas.geometry.PolySimple.prototype.getPoints = function() {return this.m_List.toArray();}
     gpcas.geometry.PolySimple.prototype.isPointInside = function(point) {
         var points  = this.getPoints();
         var j  = points.length - 1;
         var oddNodes = false;
-
         for (var i  = 0; i < points.length; i++)
         {
             if (points[i].y < point.y && points[j].y >= point.y ||
@@ -2787,22 +2652,18 @@ GPCLIB=function(){
         }
         return oddNodes;
     }
-
-
     /**
      * Always returns false since PolySimples cannot be holes.
      */
     gpcas.geometry.PolySimple.prototype.isHole = function() {
         return false ;
     }
-
     /**
      * Throws IllegalStateException if called.
      */
     gpcas.geometry.PolySimple.prototype.setIsHole =function(isHole) {
         alert("PolySimple cannot be a hole");
     }
-
     /**
      * Return true if the given inner polygon is contributing to the set operation.
      * This method should NOT be used outside the Clip algorithm.
@@ -2816,7 +2677,6 @@ GPCLIB=function(){
         }
         return this.m_Contributes ;
     }
-
     /**
      * Set whether or not this inner polygon is constributing to the set operation.
      * This method should NOT be used outside the Clip algorithm.
@@ -2830,7 +2690,6 @@ GPCLIB=function(){
         }
         this.m_Contributes = contributes ;
     }
-
     /**
      * Return a Poly that is the intersection of this polygon with the given polygon.
      * The returned polygon is simple.
@@ -2840,7 +2699,6 @@ GPCLIB=function(){
     gpcas.geometry.PolySimple.prototype.intersection = function(p) {
         return Clip.intersection( this, p,"PolySimple");
     }
-
     /**
      * Return a Poly that is the union of this polygon with the given polygon.
      * The returned polygon is simple.
@@ -2850,7 +2708,6 @@ GPCLIB=function(){
     gpcas.geometry.PolySimple.prototype.union = function(p) {
         return Clip.union( this, p, "PolySimple");
     }
-
     /**
      * Return a Poly that is the exclusive-or of this polygon with the given polygon.
      * The returned polygon is simple.
@@ -2860,7 +2717,6 @@ GPCLIB=function(){
     gpcas.geometry.PolySimple.prototype.xor = function(p) {
         return Clip.xor( p, this, "PolySimple");
     }
-
     /**
      * Return a Poly that is the difference of this polygon with the given polygon.
      * The returned polygon could be complex.
@@ -2870,7 +2726,6 @@ GPCLIB=function(){
     gpcas.geometry.PolySimple.prototype.difference = function(p){
         return Clip.difference(p,this,"PolySimple");
     }
-
     /**
      * Returns the area of the polygon.
      * <p>
@@ -2898,7 +2753,7 @@ GPCLIB=function(){
         area = 0.5*Math.abs(area);
         return area ;
     }
-
+    
     /////////////////////// Rectangle  ///////////////////
     gpcas.geometry.Rectangle = function(_x, _y, _w, _h) {
         this.x = _x;
@@ -2921,15 +2776,15 @@ GPCLIB=function(){
     gpcas.geometry.Rectangle.prototype.toString = function(){
         return "["+x.toString()+" "+y.toString()+" "+w.toString()+" "+h.toString()+"]";
     }
-
-/////////////////// ScanBeamTree //////////////////////
+	
+	/////////////////// ScanBeamTree //////////////////////
     gpcas.geometry.ScanBeamTree = function(yvalue) {
         this.y = yvalue;         /* Scanbeam node y value             */
         this.less;         /* Pointer to nodes with lower y     */
         this.more;         /* Pointer to nodes with higher y    */
     }
-
-///////////////////////// ScanBeamTreeEntries /////////////////
+	
+	///////////////////////// ScanBeamTreeEntries /////////////////
     gpcas.geometry.ScanBeamTreeEntries = function(){
         this.sbt_entries=0;
         this.sb_tree;
@@ -2961,23 +2816,22 @@ GPCLIB=function(){
         }
         return entries ;
     }
-
-///////////////////////////  StNode
+	
+	///////////////////////////  StNode
     gpcas.geometry.StNode = function( edge, prev) {
         this.edge;         /* Pointer to AET edge               */
         this.xb;           /* Scanbeam bottom x coordinate      */
         this.xt;           /* Scanbeam top x coordinate         */
         this.dx;           /* Change in x for a unit y increase */
         this.prev;         /* Previous edge in sorted list      */
-
         this.edge = edge ;
         this.xb = edge.xb ;
         this.xt = edge.xt ;
         this.dx = edge.dx ;
         this.prev = prev ;
     }
-
-/////////////////////   TopPolygonNode /////////////////
+	
+	/////////////////////   TopPolygonNode /////////////////
     gpcas.geometry.TopPolygonNode = function(){
         this.top_node;
     };
@@ -3156,7 +3010,7 @@ GPCLIB=function(){
             }
         }
     }
-
+    
     ///////////    VertexNode  ///////////////
     gpcas.geometry.VertexNode = function( x, y) {
         this.x;    // X coordinate component
@@ -3167,8 +3021,8 @@ GPCLIB=function(){
         this.y = y ;
         this.next = null ;
     }
-
-/////////////   VertexType   /////////////
+	
+	/////////////   VertexType   /////////////
     gpcas.geometry.VertexType = function(){};
     gpcas.geometry.VertexType.NUL=  0; /* Empty non-intersection            */
     gpcas.geometry.VertexType.EMX=  1; /* External maximum                  */
@@ -3189,15 +3043,13 @@ GPCLIB=function(){
     gpcas.geometry.VertexType.getType = function( tr, tl ,br ,bl) {
         return tr + (tl << 1) + (br << 2) + (bl << 3);
     }
-
-////////////////// WeilerAtherton  /////////////
+	
+	////////////////// WeilerAtherton  /////////////
     gpcas.geometry.WeilerAtherton = function(){};
-
     gpcas.geometry.WeilerAtherton.prototype.merge = function(p1,p2) {
         p1=p1.clone();
         p2=p2.clone();
     }
-
     PolyDefault = gpcas.geometry.PolyDefault ;
     ArrayList = gpcas.util.ArrayList;
     PolySimple = gpcas.geometry.PolySimple;
@@ -3221,10 +3073,8 @@ GPCLIB=function(){
     StNode = gpcas.geometry.StNode;
     ItNode = gpcas.geometry.ItNode;
 
-
-
-
-
-
 }; GPCLIB()
+ 
  //the geometry lib
+ 
+ 

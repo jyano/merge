@@ -1,3 +1,8 @@
+b2d.reg = function (ps, b) {
+	return _.m(ps, function (p) {
+		return p.reg(b)
+	})
+}
 pD.reg = pD.rel = function (x, y) {
 	return M.p(b2d.sub(this.vs(), V(x, y)))
 }//you can pass in the verts, // or the gPoly itself! //what about a f?
@@ -29,37 +34,44 @@ f.wV = function () {
 			vs = g.n ? this.vs() : this.vs('+')
 	return b2d.tA(b2d.add(vs, this.B()))
 }//used in MEET
-b2d.reg = function (ps, b) {
-	return _.m(ps, function (p) {
-		return p.reg(b)
+
+
+
+pD.eP=pD.eachPoly=function(fn){
+	var pD=this,polys=[]
+	_.t(pD.nP(), function (i) {
+			fn(pD.g(i), pD, i)
 	})
 }
-pD.polys = pD.ps = pD.hs=  pD.pols=  function () {
 
-	var pD = this, g = G(arguments), fn,  polys
-
-	//put all my polys in a new array
-	polys=  []
-	_.t(pD.nP(), function (i) {
-		polys.push( pD.g(i) )
+pD._polys=function() {
+	var polys = []
+	this.eP(function (poly) {
+		polys.push(poly)
 	})
-	
-	if (b2d.iB(g.f)) {
-		polys = b2d.reg(polys,  g.f)	//return M.p(p).rel(g[0])
-		fn = g.s
-	}
-	
-	else if (g.N_) {
-		polys = b2d.reg(polys,   V(g.f, g.s) )
-		fn = g.t
-	}
-	
-	else {fn = g.f}
-	
-	if (g.p) {polys = _.m(polys, M.p)}
-	
-	if (F(fn)) {_.e(polys, fn); return pD}; return polys
+	return polys
+}
+
+
+pD.polys = pD.ps = pD.hs=  pD.pols=  function () {
+	var pD = this, g = G(arguments),
+		o = b2d.iB(g.f)? {
+					polys : b2d.reg( this._polys(), g.f), 
+					fn : g.s
+		}:
+				g.N_? {
+					polys : b2d.reg( this._polys(), V(g.f, g.s)),
+					fn : g.t
+				 } : 
+				 {fn : g.f}
+	if (g.p) {o.polys = _.m(o.polys, M.p)}
+	if (F(o.fn)) {_.e(o.polys, o.fn); return this};
+	return o.polys
 } // used in MEET
+
+
+
+
 $L('_post')//careful here.. didnt properly implement _post yet (in $load)
 function _pre(){
 b.pos = function () {
