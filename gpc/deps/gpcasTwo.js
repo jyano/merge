@@ -1,35 +1,12 @@
+function polyDf(){
 
-function polyDf() {
-/////////////// PolyDefault  /////////////////////
-	/**
-	 * <code>PolyDefault</code> is a default <code>Poly</code> implementation.
-	 * It provides support for both complex and simple polygons.  A <i>complex polygon</i>
-	 * is a polygon that consists of more than one polygon.  A <i>simple polygon</i> is a
-	 * more traditional polygon that contains of one inner polygon and is just a
-	 * collection of points.
-	 * <p>
-	 * <b>Implementation Note:</b> If a point is added to an empty <code>PolyDefault</code>
-	 * object, it will create an inner polygon of type <code>PolySimple</code>.
-	 *
-	 * @see PolySimple
-	 *
-	 * @author  Dan Bridenbecker, Solution Engineering, Inc.
-	 */
-	
-	
-	
 	gpcas.geometry.PolyDefault = function (isHole) {
-		if (isHole == null) isHole = false;
-		/**
-		 * Only applies to the first poly and can only be used with a poly that contains one poly
-		 */
+		if (isHole == null) isHole = false;			// Only applies to the first poly and can only be used with a poly that contains one poly
 		this.m_IsHole = isHole;
 		this.m_List = new ArrayList();
 	}
-	/**
-	 * Return true if the given object is equal to this one.
-	 */
-	gpcas.geometry.PolyDefault.prototype.equals = function (obj) {
+	pD= gpcas.geometry.PolyDefault.prototype
+	pD.equals = function (obj) {
 		if (!(obj instanceof PolyDefault)) {
 			return false;
 		}
@@ -38,98 +15,36 @@ function polyDf() {
 		if (!equals(this.m_List, that.m_List)) return false;
 		return true;
 	}
-	/**
-	 * Return the hashCode of the object.
-	 *
-	 * @return an integer value that is the same for two objects
-	 * whenever their internal representation is the same (equals() is true)
-	 **/
-	gpcas.geometry.PolyDefault.prototype.hashCode = function () {
+	pD.hashCode = function () {
+		/**
+		 * Return the hashCode of the object.
+		 *
+		 * @return an integer value that is the same for two objects
+		 * whenever their internal representation is the same (equals() is true)
+		 **/
 		var m_List = this.m_List;
 		var result = 17;
 		result = 37 * result + m_List.hashCode();
 		return result;
 	}
-	/**
-	 * Remove all of the points.  Creates an empty polygon.
-	 */
-	gpcas.geometry.PolyDefault.prototype.clear = function () {
-		this.m_List.clear();
-	}
-	gpcas.geometry.PolyDefault.prototype.add = function (arg0, arg1) {
-		var args = [];
-		args[0] = arg0;
-		if (arg1) {
-			args[1] = arg1;
-		}
-		if (args.length == 2) {
-			this.addPointXY(args[0], args[1]);
-		} else if (args.length == 1) {
-			if (args[0] instanceof Point) {
-				this.addPoint(args[0]);
-			} else if (args[0] instanceof gpcas.geometry.PolySimple) {
-				this.addPoly(args[0]);
-			} else if (args[0] instanceof Array) {
-				var arr = args[0];
-				if ((arr.length == 2) && (arr[0] instanceof Number) && (arr[1] instanceof Number)) {
-					this.add(arr[0], arr[1])
-				} else {
-					for (var i = 0; i < args[0].length; i++) {
-						this.add(args[0][i]);
-					}
-				}
+	pD.add = function (arg0, arg1) {
+		var args = [];args[0] = arg0;
+		if (arg1) {args[1] = arg1}
+		if (args.length == 2) {this.addPointXY(args[0], args[1])}
+		else if (args.length == 1) {
+			if (args[0] instanceof Point) {this.addPoint(args[0])}
+			else if (args[0] instanceof gpcas.geometry.PolySimple) {this.addPoly(args[0])}
+			else if (args[0] instanceof Array) {var arr = args[0];
+				if ((arr.length == 2) && (arr[0] instanceof Number) && (arr[1] instanceof Number)) {this.add(arr[0], arr[1])}
+				else {for (var i = 0; i < args[0].length; i++) {this.add(args[0][i]) }}
 			}
 		}
 	}
-	/**
-	 * Add a point to the first inner polygon.
-	 * <p>
-	 * <b>Implementation Note:</b> If a point is added to an empty PolyDefault object,
-	 * it will create an inner polygon of type <code>PolySimple</code>.
-	 */
-	gpcas.geometry.PolyDefault.prototype.addPointXY = function (x, y) {
-		this.addPoint(new Point(x, y));
-	}
-	/**
-	 * Add a point to the first inner polygon.
-	 * <p>
-	 * <b>Implementation Note:</b> If a point is added to an empty PolyDefault object,
-	 * it will create an inner polygon of type <code>PolySimple</code>.
-	 */
-	gpcas.geometry.PolyDefault.prototype.addPoint = function (p) {
-		var m_List = this.m_List;
-		if (m_List.size() == 0) {
-			m_List.add(new PolySimple());
-		}
-		(m_List.get(0)).addPoint(p);
-	}
-	/**
-	 * Add an inner polygon to this polygon - assumes that adding polygon does not
-	 * have any inner polygons.
-	 *
-	 * @throws IllegalStateException if the number of inner polygons is greater than
-	 * zero and this polygon was designated a hole.  This would break the assumption
-	 * that only simple polygons can be holes.
-	 */
-	gpcas.geometry.PolyDefault.prototype.addPoly = function (p) {
-		var m_IsHole = this.m_IsHole;
-		var m_List = this.m_List;
-		if ((m_List.size() > 0) && m_IsHole) {
-			alert("ERROR : Cannot add polys to something designated as a hole.");
-		}
-		m_List.add(p);
-	}
-	/**
-	 * Return true if the polygon is empty
-	 */
-	gpcas.geometry.PolyDefault.prototype.isEmpty = function () {
-		return this.m_List.isEmpty();
-	}
-	/**
-	 * Returns the bounding rectangle of this polygon.
-	 * <strong>WARNING</strong> Not supported on complex polygons.
-	 */
-	gpcas.geometry.PolyDefault.prototype.getBounds = function () {
+	pD.getBounds = function () {
+		/**
+		 * Returns the bounding rectangle of this polygon.
+		 * <strong>WARNING</strong> Not supported on complex polygons.
+		 */
 		var m_List = this.m_List;
 		if (m_List.size() == 0) {
 			return new Rectangle();
@@ -142,60 +57,56 @@ function polyDf() {
 			console.log("getBounds not supported on complex poly.");
 		}
 	}
-	/**
-	 * Returns the polygon at this index.
-	 */
-	gpcas.geometry.PolyDefault.prototype.getInnerPoly = function (polyIndex) {
-		return this.m_List.get(polyIndex);
-	}
-	/**
-	 * Returns the number of inner polygons - inner polygons are assumed to return one here.
-	 */
-	gpcas.geometry.PolyDefault.prototype.getNumInnerPoly = function () {
-		var m_List = this.m_List;
-		return m_List.size();
-	}
-	/**
-	 * Return the number points of the first inner polygon
-	 */
-	gpcas.geometry.PolyDefault.prototype.getNumPoints = function () {
-		return (this.m_List.get(0)).getNumPoints();
-	}
-	/**
-	 * Return the X value of the point at the index in the first inner polygon
-	 */
-	gpcas.geometry.PolyDefault.prototype.getX = function (index) {
-		return (this.m_List.get(0)).getX(index);
-	}
-	gpcas.geometry.PolyDefault.prototype.getPoint = function (index) {
-		return (this.m_List.get(0)).getPoint(index);
-	}
-	gpcas.geometry.PolyDefault.prototype.getPoints = function () {
-		return (this.m_List.get(0)).getPoints();
-	}
-	gpcas.geometry.PolyDefault.prototype.isPointInside = function (point) {
-		var m_List = this.m_List;
-		if (!(m_List.get(0)).isPointInside(point)) return false;
-		for (var i = 0; i < m_List.size(); i++) {
-			var poly = m_List.get(i);
-			if ((poly.isHole()) && (poly.isPointInside(point))) return false;
+	function poly(){
+	
+			
+		pD.clear = function () {				this.m_List.clear()}// Remove all of the points.  Creates an empty polygon.
+		pD.isEmpty = function () {return this.m_List.isEmpty()}
+		
+		pD.addPoly = function (p) {
+			/**
+			 * Add an inner polygon to this polygon - assumes that adding polygon does not
+			 * have any inner polygons.
+			 * @throws IllegalStateException if the number of inner polygons is greater than
+			 * zero and this polygon was designated a hole.  This would break the assumption
+			 * that only simple polygons can be holes.
+			 */
+					
+					
+			var m_IsHole = this.m_IsHole, m_List = this.m_List;
+			if ((m_List.size() > 0) && m_IsHole) {
+					alert("ERROR : Cannot add polys to something designated as a hole.")}
+			m_List.add(p)
 		}
-		return true;
-	}
-	/**
-	 * Return the Y value of the point at the index in the first inner polygon
-	 */
-	gpcas.geometry.PolyDefault.prototype.getY = function (index) {
-		var m_List = this.m_List;
-		return (m_List.get(0)).getY(index);
-	}
-	/**
-	 * Return true if this polygon is a hole.  Holes are assumed to be inner polygons of
-	 * a more complex polygon.
-	 *
-	 * @throws IllegalStateException if called on a complex polygon.
-	 */
-	gpcas.geometry.PolyDefault.prototype.isHole = function () {
+		
+		pD.getInnerPoly = function (polyIndex) {return this.m_List.get(polyIndex) }	// Returns the polygon at this index.
+		pD.getNumInnerPoly = function () {return this.m_List.size()}	//Returns the number of inner polygons - inner polygons are assumed to return one here.
+		
+	}; poly()
+	
+	function point(){
+		
+		
+		pD.getNumPoints = function () {return (this.m_List.get(0)).getNumPoints()}// Return the number points of the first inner polygon
+		pD.addPointXY = function (x, y) {this.addPoint(new Point(x, y))} // Add a point to the first inner polygon. If a point is added to an empty PolyDefault object,it will create an inner polygon of type PolySimple
+		pD.addPoint = function (p) {// Add a point to the first inner polygon.  If a point is added to an empty PolyDefault object, it will create an inner polygon PolySimple
+			var m_List = this.m_List; if (m_List.size() == 0) {m_List.add(new PolySimple())}
+			(m_List.get(0)).addPoint(p)}
+			
+		pD.getX = function (index) {return (this.m_List.get(0)).getX(index) } //Return the X value of the point at the index in the first inner polygon
+		pD.getY = function (index) {return (this.m_List.get(0)).getY(index) }//Return the Y value of the point at the index in the first inner polygon
+		pD.getPoint = function (index) {return (this.m_List.get(0)).getPoint(index)}
+		pD.getPoints = function () {return (this.m_List.get(0)).getPoints()}
+		pD.isPointInside = function (point) {var m_List = this.m_List;
+			if (!(m_List.get(0)).isPointInside(point)) return false;
+			for (var i = 0; i < m_List.size(); i++) {var poly = m_List.get(i);
+				if ((poly.isHole()) && (poly.isPointInside(point))) return false;
+			}
+			return true
+		}
+	}; point()
+	function hole(){
+	pD.isHole = function () {// Return true if this polygon is a hole.  Holes are assumed to be inner polygons of a more complex polygon.
 		var m_List = this.m_List;
 		var m_IsHole = this.m_IsHole;
 		if (m_List.size() > 1) {
@@ -203,80 +114,37 @@ function polyDf() {
 		}
 		return m_IsHole;
 	}
-	/**
-	 * Set whether or not this polygon is a hole.  Cannot be called on a complex polygon.
-	 *
-	 * @throws IllegalStateException if called on a complex polygon.
-	 */
-	gpcas.geometry.PolyDefault.prototype.setIsHole = function (isHole) {
+	pD.setIsHole = function (isHole) { // Set whether or not this polygon is a hole.  Cannot be called on a complex polygon.
 		var m_List = this.m_List;
 		if (m_List.size() > 1) {
 			alert("Cannot call on a poly made up of more than one poly.");
 		}
 		this.m_IsHole = isHole;
 	}
-	/**
-	 * Return true if the given inner polygon is contributing to the set operation.
-	 * This method should NOT be used outside the Clip algorithm.
-	 */
-	gpcas.geometry.PolyDefault.prototype.isContributing = function (polyIndex) {
+	};hole()
+	function contrib(){
+	pD.isContributing = function (polyIndex) { // Return true if the given inner polygon is contributing to the set operation. This method should NOT be used outside the Clip algorithm.
 		var m_List = this.m_List;
 		return (m_List.get(polyIndex)).isContributing(0);
 	}
-	/**
-	 * Set whether or not this inner polygon is constributing to the set operation.
-	 * This method should NOT be used outside the Clip algorithm.
-	 *
-	 * @throws IllegalStateException if called on a complex polygon
-	 */
-	
-	gpcas.geometry.PolyDefault.prototype.setContributing = function (polyIndex, contributes) {
+	pD.setContributing = function (polyIndex, contributes) { // Set whether or not this inner polygon is constributing to the set operation. This method should NOT be used outside the Clip algorithm.
 		var m_List = this.m_List;
 		if (m_List.size() != 1) {
 			alert("Only applies to polys of size 1");
 		}
 		(m_List.get(polyIndex)).setContributing(0, contributes);
 	}
-	/**
-	 * Return a Poly that is the intersection of this polygon with the given polygon.
-	 * The returned polygon could be complex.
-	 *
-	 * @return the returned Poly will be an instance of PolyDefault.
-	 */
-	gpcas.geometry.PolyDefault.prototype.intersection = function (p) {
-		return Clip.intersection(p, this, "PolyDefault");
-	}
-	/**
-	 * Return a Poly that is the union of this polygon with the given polygon.
-	 * The returned polygon could be complex.
-	 *
-	 * @return the returned Poly will be an instance of PolyDefault.
-	 */
-	gpcas.geometry.PolyDefault.prototype.union = function (p) {
-		return Clip.union(p, this, "PolyDefault");
-	}
-	/**
-	 * Return a Poly that is the exclusive-or of this polygon with the given polygon.
-	 * The returned polygon could be complex.
-	 *
-	 * @return the returned Poly will be an instance of PolyDefault.
-	 */
-	gpcas.geometry.PolyDefault.prototype.xor = function (p) {
-		return Clip.xor(p, this, "PolyDefault");
-	}
-	/**
-	 * Return a Poly that is the difference of this polygon with the given polygon.
-	 * The returned polygon could be complex.
-	 *
-	 * @return the returned Poly will be an instance of PolyDefault.
-	 */
-	gpcas.geometry.PolyDefault.prototype.difference = function (p) {
-		return Clip.difference(p, this, "PolyDefault");
-	}
-	/**
-	 * Return the area of the polygon in square units.
-	 */
-	gpcas.geometry.PolyDefault.prototype.getArea = function () {
+	};contrib()
+	function opers(){
+	
+	pD.intersection = function (p) {return Clip.intersection(p, this, "PolyDefault")}// Return a Poly that is the intersection of this polygon with the given polygon. The returned polygon could be complex.
+	pD.union = function (p) {return Clip.union(p, this, "PolyDefault")}//could be complex, will be an instance of PolyDefault.
+	pD.xor = function (p) {return Clip.xor(p, this, "PolyDefault")}//returned polygon could be complex.
+	pD.difference = function (p) {return Clip.difference(p, this, "PolyDefault") }//   returned polygon could be complex.
+	
+	};opers()
+	
+	pD.getArea = function () {//in square units.
 		var that = this
 		var area = 0.0;
 		for (var i = 0; i < that.getNumInnerPoly(); i++) {
@@ -286,46 +154,39 @@ function polyDf() {
 		}
 		return area;
 	}
-	// -----------------------
-	// --- Package Methods ---
-	// -----------------------
-	gpcas.geometry.PolyDefault.prototype.toString = function () {
-		var res = "";
-		var m_List = this.m_List;
+	pD.toString = function () {
+	var res = ""; var m_List = this.m_List;
 		for (var i = 0; i < m_List.size(); i++) {
 			var p = this.getInnerPoly(i);
 			res += ("InnerPoly(" + i + ").hole=" + p.isHole());
-			var points = [];
-			for (var j = 0; j < p.getNumPoints(); j++) {
-				points.push(new Point(p.getX(j), p.getY(j)));
-			}
+			var points = []
+			for (var j = 0; j < p.getNumPoints(); j++) {points.push(new Point(p.getX(j), p.getY(j)))}
 			points = ArrayHelper.sortPointsClockwise(points);
-			for (var k = 0; k < points.length; k++) {
-				res += points[k].toString();
-			}
+			for (var k = 0; k < points.length; k++) { res += points[k].toString() }
 		}
 		return res;
 	}
-};
+
+}
+
+
+
+
 polyDf()
+
 function polygon() {
-	///////////////  Polygon   /////////////////////////////////
-	gpcas.geometry.Polygon = function () {
-		this.maxTop;
-		this.maxBottom;
-		this.maxLeft;
-		this.maxRight;
-		this.vertices  /* of Point */;
-	};
-	gpcas.geometry.Polygon.prototype.fromArray = function (v) {
+
+	gpcas.geometry.Polygon = function () {this.maxTop;this.maxBottom;this.maxLeft;this.maxRight;this.vertices}  /* of Point */;
+	pg= gpcas.geometry.Polygon.prototype
+	
+	pg.fromArray = function (v) {
 		this.vertices = [];
 		for (var i = 0; i < v.length; i++) {
 			var pointArr = v[i];
 			this.vertices.push(new Point(pointArr[0], pointArr[1]));
 		}
 	}
-	/*Normalize vertices in polygon to be ordered clockwise from most left point*/
-	gpcas.geometry.Polygon.prototype.normalize = function () {
+	pg.normalize = function () {//Normalize vertices in polygon to be ordered clockwise from most left point*/
 		var maxLeftIndex;
 		var vertices = this.vertices;
 		var newVertices = this.vertices;
@@ -376,7 +237,7 @@ function polygon() {
 			vertices = newVertices;
 		}
 	}
-	gpcas.geometry.Polygon.prototype.getVertexIndex = function (vertex) {
+	pg.getVertexIndex = function (vertex) {
 		for (var i = 0; i < this.vertices.length; i++) {
 			if (equals(vertices[i], vertex)) {
 				return i
@@ -384,7 +245,7 @@ function polygon() {
 		}
 		return -1;
 	}
-	gpcas.geometry.Polygon.prototype.insertVertex = function (vertex1, vertex2, newVertex) {
+	pg.insertVertex = function (vertex1, vertex2, newVertex) {
 		var vertex1Index = getVertexIndex(vertex1);
 		var vertex2Index = getVertexIndex(vertex2);
 		if ((vertex1Index == -1) || (vertex2Index == -1)) {
@@ -410,12 +271,13 @@ function polygon() {
 		}
 		return true;
 	}
-	gpcas.geometry.Polygon.prototype.clone = function () {
+	pg.clone = function () {
 		var res = new Polygon();
 		res.vertices = vertices.slice(this.vertices.length - 1);
 		return res;
 	}
-	gpcas.geometry.Polygon.prototype.toString = function () {
+	
+	pg.toString = function () {
 		var vertices = this.vertices;
 		var res = "[";
 		for (var i = 0; i < vertices.length; i++) {
@@ -446,14 +308,15 @@ function polygon() {
 		/* Initialise proxy to point to p itself */
 		this.active = 1; //TRUE
 	}
-	gpcas.geometry.PolygonNode.prototype.add_right = function (x, y) {
+	pgN = gpcas.geometry.PolygonNode.prototype
+	pgN.add_right = function (x, y) {
 		var nv = new VertexNode(x, y);
 		/* Add vertex nv to the right end of the polygon's vertex list */
 		this.proxy.v[Clip.RIGHT].next = nv;
 		/* Update proxy->v[Clip.RIGHT] to point to nv */
 		this.proxy.v[Clip.RIGHT] = nv;
 	}
-	gpcas.geometry.PolygonNode.prototype.add_left = function (x, y) {
+	pgN.add_left = function (x, y) {
 		var proxy = this.proxy;
 		var nv = new VertexNode(x, y);
 		/* Add vertex nv to the left end of the polygon's vertex list */
@@ -461,7 +324,8 @@ function polygon() {
 		/* Update proxy->[Clip.LEFT] to point to nv */
 		proxy.v[Clip.LEFT] = nv;
 	}
-};
+}
+
 polygon()
 function polySimp() {
 	//////////////////   PolySimple ////////////////
@@ -481,13 +345,14 @@ function polySimp() {
 		/** Flag used by the Clip algorithm */
 		this.m_Contributes = true;
 	};
+	 ps = gpcas.geometry.PolySimple.prototype
 	/**
 	 * Return true if the given object is equal to this one.
 	 * <p>
 	 * <strong>WARNING:</strong> This method failse if the first point
 	 * appears more than once in the list.
 	 */
-	gpcas.geometry.PolySimple.prototype.equals = function (obj) {
+	ps.equals = function (obj) {
 		if (!(obj instanceof PolySimple)) {
 			return false;
 		}
@@ -534,7 +399,7 @@ function polySimp() {
 	 * @return an integer value that is the same for two objects
 	 * whenever their internal representation is the same (equals() is true)
 	 */
-	gpcas.geometry.PolySimple.prototype.hashCode = function () {
+	ps.hashCode = function () {
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		// !!! WARNING:  This hash and equals break the contract. !!!
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -545,7 +410,7 @@ function polySimp() {
 	/**
 	 * Return a string briefly describing the polygon.
 	 */
-	gpcas.geometry.PolySimple.prototype.toString = function () {
+	ps.toString = function () {
 		return "PolySimple: num_points=" + getNumPoints();
 	}
 	// --------------------
@@ -554,10 +419,10 @@ function polySimp() {
 	/**
 	 * Remove all of the points.  Creates an empty polygon.
 	 */
-	gpcas.geometry.PolySimple.prototype.clear = function () {
+	ps.clear = function () {
 		this.m_List.clear();
 	}
-	gpcas.geometry.PolySimple.prototype.add = function (arg0, arg1) {
+	ps.add = function (arg0, arg1) {
 		var args = [];
 		args[0] = arg0;
 		if (arg1) {
@@ -583,31 +448,24 @@ function polySimp() {
 	/**
 	 * Add a point to the first inner polygon.
 	 */
-	gpcas.geometry.PolySimple.prototype.addPointXY = function (x, y) {
+	ps.addPointXY = function (x, y) {
 		this.addPoint(new Point(x, y));
 	}
 	/**
 	 * Add a point to the first inner polygon.
 	 */
-	gpcas.geometry.PolySimple.prototype.addPoint = function (p) {
+	ps.addPoint = function (p) {
 		this.m_List.add(p)
 	}
-	/**
-	 * Throws IllegalStateexception if called
-	 */
-	gpcas.geometry.PolySimple.prototype.addPoly = function (p) {
-		alert("Cannot add poly to a simple poly.")
-	}
-	/**
-	 * Return true if the polygon is empty
-	 */
-	gpcas.geometry.PolySimple.prototype.isEmpty = function () {
-		return this.m_List.isEmpty()
-	}
-	/**
-	 * Returns the bounding rectangle of this polygon.
-	 */
-	gpcas.geometry.PolySimple.prototype.getBounds = function () {
+	
+	
+ 	ps.addPoly = function (p) {alert("Cannot add poly to a simple poly.")}
+	
+	
+ps.isEmpty = function () {		return this.m_List.isEmpty()	}
+	
+	
+	ps.getBounds = function () {
 		var xmin = Number.MAX_VALUE;
 		var ymin = Number.MAX_VALUE;
 		var xmax = -Number.MAX_VALUE;
@@ -622,42 +480,16 @@ function polySimp() {
 		}
 		return new Rectangle(xmin, ymin, (xmax - xmin), (ymax - ymin));
 	}
-	/**
-	 * Returns <code>this</code> if <code>polyIndex = 0</code>, else it throws
-	 * IllegalStateException.
-	 */
-	gpcas.geometry.PolySimple.prototype.getInnerPoly = function (polyIndex) {
-		if (polyIndex != 0) {
-			alert("PolySimple only has one poly");
-		}
-		return this;
-	}
-	/**
-	 * Always returns 1.
-	 */
-	gpcas.geometry.PolySimple.prototype.getNumInnerPoly = function () {
-		return 1
-	}
-	/**
-	 * Return the number points of the first inner polygon
-	 */
-	gpcas.geometry.PolySimple.prototype.getNumPoints = function () {
-		return this.m_List.size()
-	}
+	ps.getInnerPoly = function (polyIndex) {if (polyIndex != 0) {alert("PolySimple only has one poly")}; return this }
+	ps.getNumInnerPoly = function () {return 1}
+	 // Return the number points of the first inner polygon
+	ps.getNumPoints = function () {return this.m_List.size()}
 	// Return  X/Y value of the point at the index in the first inner polygon
-	gpcas.geometry.PolySimple.prototype.getX = function (index) {
-		return (this.m_List.get(index)).x
-	}
-	gpcas.geometry.PolySimple.prototype.getY = function (index) {
-		return (this.m_List.get(index)).y
-	}
-	gpcas.geometry.PolySimple.prototype.getPoint = function (index) {
-		return (this.m_List.get(index))
-	}
-	gpcas.geometry.PolySimple.prototype.getPoints = function () {
-		return this.m_List.toArray()
-	}
-	gpcas.geometry.PolySimple.prototype.isPointInside = function (point) {
+	ps.getX = function (index) {return (this.m_List.get(index)).x}
+	ps.getY = function (index) {return (this.m_List.get(index)).y}
+	ps.getPoint = function (index) {return (this.m_List.get(index))}
+	ps.getPoints = function () {return this.m_List.toArray()}
+	ps.isPointInside = function (point) {
 		var points = this.getPoints();
 		var j = points.length - 1;
 		var oddNodes = false;
@@ -673,49 +505,35 @@ function polySimp() {
 		}
 		return oddNodes;
 	}
-	/**
-	 * Always returns false since PolySimples cannot be holes.
-	 */
-	gpcas.geometry.PolySimple.prototype.isHole = function () {
-		return false;
-	}
-	/**
-	 * Throws IllegalStateException if called.
-	 */
-	gpcas.geometry.PolySimple.prototype.setIsHole = function (isHole) {
-		alert("PolySimple cannot be a hole");
-	}
+	ps.isHole = function () {return false}// Always returns false since PolySimples cannot be holes.
+	ps.setIsHole = function (isHole) {alert("PolySimple cannot be a hole")}
 	/**
 	 * Return true if the given inner polygon is contributing to the set operation.
 	 * This method should NOT be used outside the Clip algorithm.
 	 *
 	 * @throws IllegalStateException if <code>polyIndex != 0</code>
 	 */
-	gpcas.geometry.PolySimple.prototype.isContributing = function (polyIndex) {
+	ps.isContributing = function (polyIndex) {
 		if (polyIndex != 0) {
 			alert("PolySimple only has one poly");
 		}
 		return this.m_Contributes;
 	}
 	/**
-	 * Set whether or not this inner polygon is constributing to the set operation.
-	 * This method should NOT be used outside the Clip algorithm.
-	 *
+	 * Set whether or not this inner polygon is constributing to the set operation.* This method should NOT be used outside the Clip algorithm.
 	 * @throws IllegalStateException if <code>polyIndex != 0</code>
 	 */
-	gpcas.geometry.PolySimple.prototype.setContributing = function (polyIndex, contributes) {
+	ps.setContributing = function (polyIndex, contributes) {
 		if (polyIndex != 0) {
 			alert("PolySimple only has one poly");
 		}
 		this.m_Contributes = contributes;
 	}
 	/**
-	 * Return a Poly that is the intersection of this polygon with the given polygon.
-	 * The returned polygon is simple.
-	 *
+	 * Return a Poly that is the intersection of this polygon with the given polygon.* The returned polygon is simple.
 	 * @return The returned Poly is of type PolySimple
 	 */
-	gpcas.geometry.PolySimple.prototype.intersection = function (p) {
+	ps.intersection = function (p) {
 		return Clip.intersection(this, p, "PolySimple");
 	}
 	/**
@@ -724,7 +542,7 @@ function polySimp() {
 	 *
 	 * @return The returned Poly is of type PolySimple
 	 */
-	gpcas.geometry.PolySimple.prototype.union = function (p) {
+	ps.union = function (p) {
 		return Clip.union(this, p, "PolySimple");
 	}
 	/**
@@ -733,16 +551,14 @@ function polySimp() {
 	 *
 	 * @return The returned Poly is of type PolySimple
 	 */
-	gpcas.geometry.PolySimple.prototype.xor = function (p) {
-		return Clip.xor(p, this, "PolySimple");
-	}
+	ps.xor = function (p) {return Clip.xor(p, this, "PolySimple")}
 	/**
 	 * Return a Poly that is the difference of this polygon with the given polygon.
 	 * The returned polygon could be complex.
 	 *
 	 * @return the returned Poly will be an instance of PolyDefault.
 	 */
-	gpcas.geometry.PolySimple.prototype.difference = function (p) {
+	ps.difference = function (p) {
 		return Clip.difference(p, this, "PolySimple");
 	}
 	/**
@@ -751,13 +567,9 @@ function polySimp() {
 	 * The algorithm for the area of a complex polygon was take from
 	 * code by Joseph O'Rourke author of " Computational Geometry in C".
 	 */
-	gpcas.geometry.PolySimple.prototype.getArea = function () {
-		if (this.getNumPoints() < 3) {
-			return 0.0;
-		}
-		var ax = this.getX(0);
-		var ay = this.getY(0);
-		var area = 0.0;
+	ps.getArea = function () {
+		if (this.getNumPoints() < 3) { return 0.0 }
+		var ax = this.getX(0),  ay = this.getY(0), area = 0.0
 		for (var i = 1; i < (this.getNumPoints() - 1); i++) {
 			var bx = this.getX(i);
 			var by = this.getY(i);
@@ -766,10 +578,8 @@ function polySimp() {
 			var tarea = ((cx - bx) * (ay - by)) - ((ax - bx) * (cy - by));
 			area += tarea;
 		}
-		area = 0.5 * Math.abs(area);
-		return area;
+		return 0.5 * Math.abs(area)
 	}
-
 }
 
 
@@ -777,27 +587,17 @@ function polySimp() {
 
 polySimp()
 
-function rect() {
-	gpcas.geometry.Rectangle = function (_x, _y, _w, _h) {
-		this.x = _x;
-		this.y = _y;
-		this.w = _w;
-		this.h = _h;
-	}
-	gpcas.geometry.Rectangle.prototype.getMaxY = function () {
-		return this.y + this.h;
-	}
-	gpcas.geometry.Rectangle.prototype.getMinY = function () {
-		return this.y;
-	}
-	gpcas.geometry.Rectangle.prototype.getMaxX = function () {
-		return this.x + this.w;
-	}
-	gpcas.geometry.Rectangle.prototype.getMinX = function () {
-		return this.x;
-	}
-	gpcas.geometry.Rectangle.prototype.toString = function () {
+function rect(){
+
+	gpcas.geometry.Rectangle = function (_x, _y, _w, _h) { this.x = _x; this.y = _y; this.w = _w; this.h = _h }
+	rct=gpcas.geometry.Rectangle.prototype
+	rct.getMaxY = function () {return this.y + this.h}
+	rct.getMinY = function () {return this.y}
+	rct.getMaxX = function () {return this.x + this.w}
+	rct.getMinX = function () {return this.x}
+	rct.toString = function () {
 		return "[" + x.toString() + " " + y.toString() + " " + w.toString() + " " + h.toString() + "]";
 	}
-};
+}
+
 rect()
