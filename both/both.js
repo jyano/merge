@@ -17,11 +17,20 @@ function superUnderscore(){
     _.i = _.initial;
     _.r = _.rest
     _.e = _.each;
-    _.eR=function(g,fn){
-        _.e(_.r(g),fn)
-    }
-    _.z=  _.size // _.s ???
-    _.m = _.map;
+    _.eR=function(g,fn){_.e(_.r(g),fn)}
+    
+	
+	_.z = function (a, n) {
+		//	why does this break it???? var g =G (arguments) of all things????
+		var siz = _.size(arguments[0])
+		if (!N(arguments[1])) {return siz}
+		else { return n === siz}
+		//return g.p ? siz > n : g.n ? siz < n : siz == n
+	}
+	
+	
+	
+	_.m = _.map;
     _.t = _.times
     _.x = _.extend;
     _.p = _.partial;

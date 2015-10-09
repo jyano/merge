@@ -1,26 +1,18 @@
 // http://www.cs.man.ac.uk/~toby/alan/software/gpc.html
 
 
-
- //PolyDefault  is a default  Poly  implementation. 
  
- // It provides support for both complex and simple polygons. 
- 
- //complex polygon:    polygon that consists of more than one polygon.  
-
-
-
- //simple polygon:  contains  ONE  inner polygon (a  cl of pts )
- //CANT BE A HOLE
  
  // Subject and clip polygons may be convex or concave, self-intersecting,
  // contain holes, or be comprised of several disjoint contours
+
 
 //output may take the form of polygon outlines or tristrips.
 
 
 //A generic polygon (or `polygon set') consists of zero or more disjoint boundaries 
-// of arbitrary configuration. Each boundary is termed a `contour', and may be convex, concave or self-intersecting. 
+// of arbitrary configuration. 
+// Each boundary is termed a `contour', and may be convex, concave or self-intersecting. 
 // Internal holes may be formed by contour nesting.
 
 
@@ -29,7 +21,8 @@
  The clipper takes a pair of subject and clip polygons and combines them to form a result polygon.
  
   For each contour polygon 
- in the result polygon, the hole value flags whether or not the given contour forms a hole or an external boundary.
+ in the result polygon, the hole value flags 
+ whether or not the given contour forms a hole or an external boundary.
 
  Alternatively
   a collection of tristrips may be generated as the result,

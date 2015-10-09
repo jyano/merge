@@ -1,9 +1,7 @@
- 
 G = function (arg, str) {//history: conflict with N(not neg) and N(g.$ && N(g.f) ) .. resolved!
 	var  ag = _.tA(arguments), p, n, m, d, g
 	
 	function setA() {
-		
 		//G('k', arguments)
 		if (S(ag[0])) {
 			g = _.tA(ag[1])
@@ -11,20 +9,27 @@ G = function (arg, str) {//history: conflict with N(not neg) and N(g.$ && N(g.f)
 		}
 		else {  g = _.tA(ag[0])  }
 		//G(arguments, 'k')
+		
+		
 		if (S(ag[1]) && S(_.l(g))) { g[ ag[1] ] = g.pop()  }
 		if (_.l(g) == '+') {p = g.pop() }
 		else if (_.l(g) == '-') {n = g.pop()}
 		else if (_.l(g) == '*') {m = g.pop()}
 		else if (_.l(g) == '/') {d = g.pop()}
+		
+		
 		_.df(g, {
 			f: _.f(g), s: g[1], t: g[2],
 			fo: g[3], fi: g[4], si: g[5],
 			se: g[6], ei: g[7], ni: g[8], te: g[9],
 			l: _.l(g), r: _.r(g), i: _.i(g),
-			L: g.length, z: g.length,
+			L: g.length, 
+			z: g.length,
 			p: p, m: m, d: d, n: n
 		})
 	}
+	
+	
 	setA()
 	function numArgs() {
 		g.u = U(g.f);
