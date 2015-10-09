@@ -11,11 +11,13 @@ stt = gpc.g.Clip
  * @param p2        One of the polygons to performt he intersection with
  * @param polyClass The type of Poly to return
  */
-stt.intersection = function (p1, p2, polyClass) {
-	if (polyClass == null || polyClass == undefined) {
-		polyClass = "PolyDefault";
+ 
+ 
+stt.intersection = function (p1, p2, k) {
+	if (k == null || k == undefined) {
+		k = "PolyDefault";
 	}
-	return Clip.clip(OperationType.GPC_INT, p1, p2, polyClass);
+	return Clip.clip(OperationType.GPC_INT, p1, p2, k);
 };
 /**
  * Return the union of p1 and p2 where the
@@ -32,9 +34,9 @@ stt.intersection = function (p1, p2, polyClass) {
 
 stt.union = function (p1, p2, k) {
 	if (k == null || U(k)) {
-		polyClass = "PolyDefault"
+		k = "PolyDefault"
 	}
-	return Clip.clip(OperationType.GPC_UNION, p1, p2, polyClass)
+	return Clip.clip(OperationType.GPC_UNION, p1, p2, k)
 }
 /**
  * Return the xor of p1 and p2 where the
@@ -45,11 +47,11 @@ stt.union = function (p1, p2, k) {
  * @param p2        One of the polygons to performt he xor with
  * @param polyClass The type of Poly to return
  */
-stt.xor = function (p1, p2, polyClass) {
-	if (!polyClass || U(polyClass)) {
-		polyClass = "PolyDefault"
+stt.xor = function (p1, p2, k) {
+	if (!k || U(k)) {
+		k = "PolyDefault"
 	}
-	return Clip.clip(OperationType.GPC_XOR, p1, p2, polyClass)
+	return Clip.clip(OperationType.GPC_XOR, p1, p2, k)
 }
 /**
  * Return the difference of p1 and p2 where the
@@ -60,25 +62,25 @@ stt.xor = function (p1, p2, polyClass) {
  * @param p2        Second polygon
  * @param polyClass The type of Poly to return
  */
-stt.difference = function (p1, p2, polyClass) {
-	if (!polyClass || U(polyClass)) {
-		polyClass = "PolyDefault"
+stt.difference = function (p1, p2, k) {
+	if (!k || U(k)) {
+		k = "PolyDefault"
 	}
-	return Clip.clip(OperationType.GPC_DIFF, p2, p1, polyClass)
+	return Clip.clip(OperationType.GPC_DIFF, p2, p1, k)
 }
 stt.intersection = function (p1, p2) {
 	return Clip.clip(OperationType.GPC_INT, p1, p2, "PolyDefault.class")
 }
 stt.createNewPoly = function (k) {
-	// return (Poly)polyClass.newInstance();
+	// return (Poly)k.newInstance();
 	return k == "PolySimple" ? new PolySimple() :
 			k == "PolyDefault" ? new PolyDefault() :
 					k == "PolyDefault.class" ? new PolyDefault() :
 							null
 }
 // MAIN method of the clipper algorithm, -where the conversion from really begins.
-stt.clip = function (op, subj, clip, polyClass) {
-	var result = Clip.createNewPoly(polyClass);
+stt.clip = function (op, subj, clip, k) {
+	var result = Clip.createNewPoly(k);
 	/* Test for trivial NULL result cases */
 	if ((subj.isEmpty() && clip.isEmpty()) ||
 			(subj.isEmpty() && ((op == OperationType.GPC_INT) || (op == OperationType.GPC_DIFF))) ||
@@ -576,7 +578,7 @@ stt.clip = function (op, subj, clip, polyClass) {
 	}
 	/* === END OF SCANBEAM PROCESSING ================================== */
 	/* Generate result polygon from out_poly */
-	result = out_poly.getResult(polyClass);
+	result = out_poly.getResult(k);
 	//console.log("result = "+result);
 	return result
 }

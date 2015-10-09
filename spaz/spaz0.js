@@ -16,12 +16,7 @@ w.D = function () {
 	)
 	return b
 }
-WBF = function () {
-	W()
-	b = w.D(400, 300)
-	//b.f('r', 100,'-')
-	b.f([['r', 100, '-']])
-}
+
 w.D_ = w._D = function (o) {
 	alert('w._D??? nah, w.D_')
 	return this.D(o.x, o.y, o.c, o.w, o.h)
@@ -461,36 +456,3 @@ old = function () {
 	 }
 	 */
 }
-FXC = function () {
-	W().C('z')
-	b = w.D()
-	f = b.cir({c: 'o'})
-	b1 = w.D(300, 400)
-	f1 = b1.pol(v1)[0]
-	_.in(function () {
-		f.C($r())
-		f1.C($r())
-	})
-}
-BINDSPR = function () {
-	W()
-	b = w.D(100, 300).cir(120)
-	$.i('me', function (i) {
-		w.g.A(sp = $Bm(i))
-		b.bS(sp.rC())
-		w.g.A(sp1 = $Bm(i))
-		b.bS(sp1)
-	})
-}
-BINDSPP = function () {
-	W()
-	b = w.D(100, 300).cir(120)
-	Q('guy', function () {
-		var i = Q.i('guy')
-		w.g.A(sp = $Bm(i))
-		b.bS(sp.rC())
-		w.g.A(sp1 = $Bm(i))
-		b.bS(sp1)
-	})
-}
- 

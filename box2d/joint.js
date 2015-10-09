@@ -1051,27 +1051,7 @@ prisJ=function(){
     }
 
     old=function(){
-
-        PRISM0=function(){W(5)
-            p= w.player(500,200,'thrust').den(1).fric(1)
-
-
-            j = w.pJ({
-                a: w.S(400,300,'s',40,40).den(1).fric(1),
-                aV:[-30, 2 ],
-                b:w.D(500, 200,'d',200,40).den(1).K('box'),
-                ax: V(1,-2),
-                rA: 45})
-            speed=10
-            j.mt(speed)
-            w.beg(function(cx){
-                cx.with('box',
-                    function(){speed *= -1})
-                j.mt(speed)
-            })
-
-        }
-
+	  
 
 
 
@@ -1144,13 +1124,12 @@ prisJ=function(){
      maxMotorForce - the maximum allowable force the motor can use
 
      */
-    function JointGetJointTranslation(){
-        var axis = this.m_bodyA.GetWorldVector(this.m_localXAxis1),
-            p1 = this.m_bodyA.GetWorldPoint(this.m_localAnchor1),
-            p2 = this.m_bodyB.GetWorldPoint(this.m_localAnchor2)
-        return axis.x*(p2.x-p1.x)  +  axis.y*(p2.y-p1.y)
-    }//box2d source
-
+ 
 
 };prisJ()
-
+function JointGetJointTranslation() {
+	var axis = this.m_bodyA.GetWorldVector(this.m_localXAxis1),
+			p1 = this.m_bodyA.GetWorldPoint(this.m_localAnchor1),
+			p2 = this.m_bodyB.GetWorldPoint(this.m_localAnchor2)
+	return axis.x * (p2.x - p1.x) + axis.y * (p2.y - p1.y)
+}//box2d source

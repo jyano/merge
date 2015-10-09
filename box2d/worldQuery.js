@@ -1,141 +1,115 @@
-
-
 w.bs = w.bL = function () {
 	return this.GetBodyList()
 }    //can be result of w.b if g.u//= w.getBodyList
-
-
-ab= b2AABB.prototype
-
-ab.lB= ab._lB=function(x,y){
-	this.lowerBound.Set(x,y)
+ab = b2AABB.prototype
+ab.lB = ab._lB = function (x, y) {
+	this.lowerBound.Set(x, y)
 	return this
 }
-
 ab.uB = ab._uB = function (x, y) {
 	this.upperBound.Set(x, y)
 	return this
 }
-
-
-ab.lUB=function(){var ab=this, g=G(arguments),
-		o= {
-			x1: g.f, y1: g.s,
-			x2: g.t, y2: g.fo
-		}
-	if(g.n){
-	o.x1 /=30; o.y1 /=30; o.x2 /=30; o.y2 /=30}
+ab.lUB = function () {
+	var ab = this, g = G(arguments),
+			o = {
+				x1: g.f, y1: g.s,
+				x2: g.t, y2: g.fo
+			}
+	if (g.n) {
+		o.x1 /= 30;
+		o.y1 /= 30;
+		o.x2 /= 30;
+		o.y2 /= 30
+	}
 	ab.lB(o.x1, o.y1)
 	ab.uB(o.x2, o.y2)
 	return ab
 }
-
-
-
-ab.pt=function(x,y){var g=G(arguments)
+ab.pt = function (x, y) {
+	var g = G(arguments)
 	return this.lUB(
-			alg(x,'-'), alg(y, '-'), alg(x ), alg(y)
+			alg(x, '-'), alg(y, '-'), alg(x), alg(y)
 	)
-	function alg(){var g=G(arguments)
-		return g.f/30 + (g.n? -.01: .01) 
+	function alg() {
+		var g = G(arguments)
+		return g.f / 30 + (g.n ? -.01 : .01)
 	}
 }
-
-
-
-$AB = b2d.AB = function () {var g = G(arguments), ab = new b2d.Collision.b2AABB
-	if (g.p) {ab.lUB(g.f, g.s, g.t, g.f)}
-	else  if (U(g.t)) { ab.pt(g.f, g.s) }			//ab.lUB(g.f/30 - 0.01, g.s/30 - 0.01, g.f/30 + 0.01, g.s/30 + 0.01)
-	else { ab.lUB(g.f, g.s, g.t, g.fo, '-')}
+$AB = b2d.AB = function () {
+	var g = G(arguments), ab = new b2d.Collision.b2AABB
+	if (g.p) {
+		ab.lUB(g.f, g.s, g.t, g.f)
+	}
+	else if (U(g.t)) {
+		ab.pt(g.f, g.s)
+	}			//ab.lUB(g.f/30 - 0.01, g.s/30 - 0.01, g.f/30 + 0.01, g.s/30 + 0.01)
+	else {
+		ab.lUB(g.f, g.s, g.t, g.fo, '-')
+	}
 	return ab
 }
-
-
-
- 
-
-w.qA=function(fn,ab){
+w.qA = function (fn, ab) {
 	this.QueryAABB(fn, ab)
 	return this
 }
-
-
-w.q =w.qP= w.qPt= w.queryPt= w.query =  function () {
+w.q = w.qP = w.qPt = w.queryPt = w.query = function () {
 	//alert('q.qP w.qPt q.query w.q')
-	
-var w = this, g = G(arguments), o, fx
+	var w = this, g = G(arguments), o, fx
 	o = g.S_ && N(g.s) ?
-	 {k: g.f, x: g.s, y: g.t, fn: g.fo } :
-			g.S_ && O(g.s) ? 
+	{k: g.f, x: g.s, y: g.t, fn: g.fo} :
+			g.S_ && O(g.s) ?
 			{k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
 					g.N_ ? {x: g.f, y: g.s, fn: g.t, k: g.fo} :
 							g.A_ ?
 							{x: g.f[0], y: g.f[1], fn: g.s, k: g.t} :
-									{x: g.f.x, y: g.f.y, fn: g.s, k: g.t}
+							{x: g.f.x, y: g.f.y, fn: g.s, k: g.t}
 	w.qA(
 			function (f) {
-			
-				if(!f){alert('w.query !this(f)')}
-				if (f && f.of(o.k) && f.tP( o.x, o.y )) {
-						fx = f; 
-						return false
+				if (!f) {
+					alert('w.query !this(f)')
+				}
+				if (f && f.of(o.k) && f.tP(o.x, o.y)) {
+					fx = f;
+					return false
 				}
 				return true
 			},
 			$AB(o.x, o.y)
 	)
-	
-	
 	if (fx) {
-		if ( F(o.fn )) {
-		     _.b(o.fn, fx)(fx); 
-		     return w 
+		if (F(o.fn)) {
+			_.b(o.fn, fx)(fx);
+			return w
 		}
 		return fx
 	}
 }
-
-
-
-
-
-
 w.Q = function () {
 	$l('w.Q')
-var w = this, g = G(arguments), o, fx
-	
+	var w = this, g = G(arguments), o, fx
 	o = g.O ? g.f :
 			g.S_ && N(g.s) ?
 			{k: g.f, x: g.s, y: g.t, fn: g.fo} :
-							g.S_ && O(g.s) ? {k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
-							g.F_ &&  O(g.s) ? {fn: g.f, x1: g.s.x, y1: g.s.y} :
-									g.F_? {fn: g.f, x1: g.s, y1: g.t, x2: g.fo,  y2: g.fi} :
+					g.S_ && O(g.s) ? {k: g.f, x: g.s.x, y: g.s.y, fn: g.t} :
+							g.F_ && O(g.s) ? {fn: g.f, x1: g.s.x, y1: g.s.y} :
+									g.F_ ? {fn: g.f, x1: g.s, y1: g.t, x2: g.fo, y2: g.fi} :
 											g.O_ ? {x1: g.f.x, y1: g.f.y, fn: g.s} :
 											{x1: g.f, x2: g.s, fn: g.t}
 	o.n = 0
-	
 	w.qA(qAFn, $AB(o.x1, o.y1, o.x2, o.y2))
-
 	function qAFn(f) {
 		o.n++
 		$l('w.Q qAFn' + o.n)
-		
 		if (o.fn(f, f.B(), o.n) !== false) {
-				return true
-			}
+			return true
+		}
 	}
-
-
-
+	
 	return w
 	//but it makes a rectangle not square ??
-
 }//w.QUERY =
-
-
-
 w.rad = function (x, y, r, fn) {
- 
 	return this.Q({
 		x1: x - r,
 		y1: y - r,
@@ -144,12 +118,6 @@ w.rad = function (x, y, r, fn) {
 		fn: fn
 	})
 }
-
-
-
-
-
-
 w.eEv = w.eachEvery = function (fn) {
 	var w = this
 	z(function () {
@@ -246,9 +214,7 @@ f.AB = function () {
 		u: ab.upperBound.m()
 	}
 }
-
 //// ray
-
 f.rC = function () {
 	var inp, res
 	i = inp = new b2d.Collision.b2RayCastInput(V(0, 0, '-'), V(430, 450, '-'))
@@ -304,78 +270,3 @@ rayDocs = function () {
 	 Now we need a ray to cast against these shapes. Let's make a ray starting from the center of the screen and going outward, and rotating slowly around. The only state we need to keep for this is the current angle, so instead of making a special class for it, we'll just keep a variable at global scope.
 	 */
 }
- 
-	IMP = function () {
-		W({g: 0, w: 0}).Y()
-		// y.rt(90).XY(200,240)
-		w.D(200, 235, 'b', 10).lV(20, 0).d(10)
-		w.D(900, 200, 'r', 100, 100).rt(45)
-		r = w.D(1100, 500, 'r', [[80], [20, 300]]).d(.1)
-		r.$(function () {
-			this.B().I(100, -2000)
-		})
-		f = r.f()
-		w.i.dot(856, 240)
-		/*
-		 s = b2d.Seg(0,0,1200, 600)
-		 s1 = b2d.Seg(1200,0, 0, 600)
-		 lArr =  'the shape world transform'
-		 nl = '2Vec2 — returns the hit fraction.'
-		 // You can use this to compute the contact point
-		 // p = (1 - lambda) segment.p1 + lambda segment.p2.
-		 sg = ''//segment:b2Segment — returns the normal at the contact point. If there is no intersection, the normal is not set.
-		 maxLam = 1000000//:Number — defines the begin and end point of the ray cast.
-		 s.TestSegment(lArr, nl, s1, maxLam )
-		 */
-		ip = b2d.rCIp(0, 0, 1200, 600)
-		op = b2d.rCOp(1, 2)
-		res = f.rC(op, ip)
-	}
-	RAY = function () {
-		W().C('z')
-		w.S(200, 200, 'f', 100);
-		w.S(500, 500, 'l', 160, 60)
-		rs = w.ray(0, 0, 800, 800)
-		_.in(function () {
-			w.ray(0, 0, 500, 500, function (f) {
-				f.C('g')
-			})
-			w.ray(0, 0, 500, 500, function (f) {
-				f.B().bS('me')
-			}, '-')
-			w.ray(0, 0, 500, 500, function (f) {
-				f.B().bS('sun')
-			}, '+')
-		})
-	}
-	RC = function () {
-		W();
-		var p1, p2, d, l
-		w.me(400, 100);
-		w.S(200, 200, 'r', 400, 20)
-		w.$(function (v) {
-			if (!p1) {
-				p1 = v;
-				return
-			}
-			if (!p2) {
-				p2 = v
-			} else {
-				p1 = p2;
-				p2 = v
-			}
-			w.i.e(function (c) {
-				if (c.of('dot') || c.of('line')) {
-					c.rm()
-				}
-				// if( c.K() == 'dot' || c.K()=='line' ){c.rm()}
-			})
-			w.d('b', p1);
-			w.d('r', p2);
-			w.l(p1.x, p1.y, p2.x, p2.y).K('line')
-			w.rC(function (f) {
-				f.B().dot()
-			}, p1, p2)
-		})
-	}
- 

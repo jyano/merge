@@ -1,5 +1,4 @@
-$load('debug','cirFx', 'mouse','vector','bool','moreWorld')
-
+$load('debug', 'cirFx', 'mouse', 'vector', 'bool', 'moreWorld')
 $bW = function () {
 	var g = G(arguments), o
 	o = N(g.s) ? {gx: g.f, gy: g.s, igSl: g.t} :
@@ -99,14 +98,11 @@ function debug() {
 		return this
 	}
 };
-
-
-
-$cH= b2d.cH = function (r) {
+$cH = b2d.cH = function (r) {
 	r = N(r, 50)
 	return new b2d.CircleShape(r / 30)
 }
-$pH= b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
+$pH = b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
 	//| 50,200[[,200,60,45
 //| [20,300],.. //-> g.a(p,'arr')// -> g.a(p.arr)
 	var g = G(arguments), p = new b2d.PolygonShape()
@@ -118,35 +114,29 @@ $pH= b2d.pH = function (W, H, x, y, a) {//makes a fixtDef with a polyShape
 	}
 	return p
 }
-$fD= b2d.fD = b2d.f = function (h,x,y) {
-	
+$fD = b2d.fD = b2d.f = function (h, x, y) {
 	var g = G(arguments),
-	 fD = new b2d.FixtureDef
-	if (g.n) {fD.isSensor = true}
+			fD = new b2d.FixtureDef
+	if (g.n) {
+		fD.isSensor = true
+	}
 	if (h) {
-	
 		fD.shape = h
-	
-	if(x){fD.shape.sLP(x,y)}}
-	
+		if (x) {
+			fD.shape.sLP(x, y)
+		}
+	}
 	return fD
 }
-
-
 cH.lP = function (x, y) {
-
-	this.SetLocalPosition( V(x, y).div() )
+	this.SetLocalPosition(V(x, y).div())
 	return this
 }
-
 cH.sLP = function (x, y) {
 	var v = V(x, y)
-	this.SetLocalPosition( V(v.x / 30, v.y / 30))
+	this.SetLocalPosition(V(v.x / 30, v.y / 30))
 	return this
 }
-
-
-
 b2d.m = function (vs) {
 	return _.m(vs, b2d.mult)
 }
@@ -155,43 +145,25 @@ b2d.tA = function (vs) {
 		return v.tA(v)
 	})
 }
-
-
-
-function cirFx(){
-
-
-b2d.cFD = function (r) {
-	$l('cFD')
-	var fD =  $fD( b2d.cH(r) )
-	return fD
+function cirFx() {
+	b2d.cFD = function (r) {
+		$l('cFD')
+		var fD = $fD(b2d.cH(r))
+		return fD
+	}
+	b2d.cir = function () {
+		$l('cir')
+		var g = G(arguments),
+				o = $df.cF(
+						g.O ? g.f :
+						{x: g.f, y: g.s, r: g.t, d: g.fo}
+				)
+		return $fD(
+				$cH(o.r).lP(o.x, o.y),
+				g.o
+		).d(o.d)
+	}
 }
-
-
-
-b2d.cir = function () {
-	
-	$l('cir')
-var g = G(arguments),
-	o = $df.cF(
-	g.O ? g.f :
-	 {x: g.f, y: g.s, r: g.t, d: g.fo}
-	  )
-	  
-	  
-	  
-	return $fD(
-		$cH(o.r).lP(o.x, o.y), 
-			g.o
-	).d(o.d)
-
-
-} 
-}
-
- 
- 
- 
 b2d.pol = function () {
 	return b2d.fD($a(b2d.pH, arguments))
 			.d(1).fr(.2).r(.2)
@@ -246,58 +218,39 @@ b2d.rec = function () {
 	 //o.z clr
 	 */
 }
-
-$bD= b2d.bD = b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
-
-	var v, bD 
-	
+$bD = b2d.bD = b2d.BD = b2d.dBD = b2d.dD = b2d.D = b2d.dyn = function (x, y) {
+	var v, bD
 	v = V(x, y)
-	
 	bD = new b2BodyDef()
-	
-	bD.XY( N(v.x, 100), N(v.y, 100) )
-
+	bD.XY(N(v.x, 100), N(v.y, 100))
 	bD.dyn()
 	return bD
-
 }
-
 b2d.sD = b2d.S = b2d.stat = function (x, y) {
 	return b2d.bD(x, y).stat()
 }
 b2d.kD = function (x, y) {
 	return b2d.bD(x, y).T(1)
 }
-
- 
-b.cF = function (fD){
-	return this.CreateFixture(fD)}
-
-b.A=function(fD){
+b.cF = function (fD) {
+	return this.CreateFixture(fD)
+}
+b.A = function (fD) {
 	this.cF(fD);
 	return this
-	
 }
-
-
-
 fD.DBF = function (d, bo, fr) {
 	this.d(N(d, 1))
 	this.bo(N(bo, .9))
 	this.fr(N(fr, .5))
 	return this
 }
-
 b.sP = function (x, y) {
 	var v = V(x, y)
 	this.SetPosition(V(v.x / 30, v.y / 30))
 	return this
-} 
-
-
-
+}
 function moreWorld() {
-
 	w.G = function (x, y) {
 		var w = this,
 				v, currG = w.GetGravity()
@@ -394,7 +347,6 @@ function moreWorld() {
 		return w
 	}
 }
-
 function bool() {
 	b2d.tB = b2d.toBody = function (b) {
 		return b2d.iB(b) ? b :
@@ -431,10 +383,7 @@ function bool() {
 		return f.constructor.name == "b2Fixture"
 	}
 }
-
-
-function mouse(){
-
+function mouse() {
 	w.$ = function (fn) {
 		var w = this
 		w.UI().click(function (e) {
@@ -478,46 +427,36 @@ function mouse(){
 		return w
 	}
 	w.mu = function (fn) {
-
 		var w = this, $cv = $(w.i.canvas)
-		
 		$cv.mouseup(function (e) {
 			fn({
-			
-			x: w.mx, 
-			y: w.my, 
-			e: e
-			
+				x: w.mx,
+				y: w.my,
+				e: e
 			})
 		})
-		
 		return w
 	}
-	
-	w.mdq = function (fn) {var w = this
-		w.md(function(e){
+	w.mdq = function (fn) {
+		var w = this
+		w.md(function (e) {
 			w.q(e.x, e.y, function (f) {
-				fn(f, e)})})
-		
+				fn(f, e)
+			})
+		})
 		return this
 	}
-	
-	w.e$ = function () {var g = G(arguments), o
-		o = F(g.s) ? {k: g.f, fn: g.s} : { fn: g.f}
-		this.e(function (b) {if (b.of(o.k)) {b.$(o.fn)}})
+	w.e$ = function () {
+		var g = G(arguments), o
+		o = F(g.s) ? {k: g.f, fn: g.s} : {fn: g.f}
+		this.e(function (b) {
+			if (b.of(o.k)) {
+				b.$(o.fn)
+			}
+		})
 		return this
 	}
-	
-	
 }
-
-
-
-
-
-
-
-
 wowOld = function () {/*
 
  b.aI=function(sc){var b=this;
@@ -568,7 +507,7 @@ wowOld = function () {/*
 		return pH
 	}
 }
-function later(){
+function later() {
 	w.gB = function () {
 		$l('w.gB')
 		return this.GetGroundBody()
@@ -590,9 +529,9 @@ function later(){
 			return [pos.x, pos.y, col1.x, col1.y, col2.x, col2.y]
 		}
 	}
+
 //hmm.. fixt doesnt have a rel loc.. its shape does
 //what if u want to change 'shape' of shape, but keep its rel loc?
-	
 	b2d.pollute = function () {
 		alert('b2d.pollute')
 		b2Vec2 = Box2D.Common.Math.b2Vec2
@@ -633,26 +572,19 @@ function later(){
 //world clearforces
 //static body for ground, dynamic for objs
 	}
-	
 }
-ADD = function () {
-	W().P()
-	b = w.brick().C('r')
-	p = M.p(b)
-	//v=p.vs()
-	//p.reg(b)
-	w.S(100, 0).pol('z', M.p(b))
-	_.in(function () {
-		// w.S(0,0).pol('y',v)
-	})
-	//v1= v.add(400,500)
-}
+
 b2d.edg = function (x1, y1, x2, y2) {
 	var fd = b2d.pol()
 	fd.shape.SetAsEdge(V(x1, y1, '-'), V(x2, y2, '-'))
 	return fd
 }
+
 function _pre() {
+
+
+
+
 	$df.cF = function (o) {
 		o = o || {}
 		o.x = N(o.x, 0)
@@ -660,7 +592,9 @@ function _pre() {
 		o.r = N(o.r, 60)
 		o.d = N(o.d, 1)
 		return o
-	}
+	} /////////
+
+
 	b2d = Box2D
 	b2d.Fixture = b2d.Dynamics.b2Fixture
 	b2B = b2Body = b2d.Dynamics.b2Body
@@ -739,7 +673,6 @@ function _pre() {
 		mc = cjs.MovieClip.prototype
 		flDa = b2d.Dynamics.b2FilterData.prototype
 		pH = b2d.PolygonShape.prototype
-		
 		pJ = b2d.Joints.b2PrismaticJoint.prototype
 		pJD = pd = b2d.Joints.b2PrismaticJointDef.prototype
 		pD = gpcas.geometry.PolyDefault.prototype//////////////////
@@ -751,31 +684,17 @@ function _pre() {
 		sS = ss = cjs.SpriteSheet.prototype
 		sSB = cjs.SpriteSheetBuilder.prototype
 		sp = s = cjs.Sprite.prototype
-		
 		tl = cjs.Timeline.prototype
-		
 		t = cjs.Text.prototype
-		
 		tCo = b2d.Dynamics.Controllers.b2TensorDampingController.prototype
-		
 		tw = cjs.Tween.prototype
-	
-			v = b2d.Common.Math.b2Vec2.prototype
+		v = b2d.Common.Math.b2Vec2.prototype
 		w = b2d.World.prototype
 		wJD = b2d.Joints.b2WeldJointDef
 		wJ = b2d.Joints.b2WeldJoint
-	
-	
-		
-				x = ctx = xx = CanvasRenderingContext2D.prototype
+		x = ctx = xx = CanvasRenderingContext2D.prototype
 		xGr = CanvasGradient.prototype
-	
-	
-	
-	
 	}
-	
 	b2d.p()
 	b2d.cn = b2d.controls = {}
 }
- 

@@ -267,29 +267,42 @@ DFF = function () {
 		b.kill()
 		b1.kill()
 	})
-	fn = function () {
-		var b = w.S(100, 100, 'r', 100, 100),
-				b1 = w.S(130, 100, 'b', 100, 80)
-		_.in(function () {
-			b.sub(b1, '-')
-		})
-	}//;fn()
-	fn = function () {
-		var b = w.S(300, 100, 'r', 100, 100),
-				b1 = w.S(330, 100, 'b', 100, 80)
-		w.$$(function () {
-			w.D(300, 200).pol(b.f().dif(b1, '-'))
-		})
-	};//fn()
-	fn = function () {
-		var b, o, p
-		b = w.S(200, 400, 'b', [-80, -40], [0, -200], [100, 50])
+	
+	
+	
+	
+}
+
+
+DDF=function(){W()
+ 
+		 b = w.S(100, 100, 'r', 100, 100)
+		 
+		 b1 = w.S(130, 100, 'b', 100, 80)
+	
+	_.in(function () { b.sub(b1, '-') })
+	 b = w.S(300, 100, 'r', 100, 100) 
+	 //	b1 = w.S(330, 100, 'b', 100, 80)
+	
+	//w.$$(function () {w.D(300, 200).pol(b.f().dif(b1, '-'))})
+ 
+ 
+
+}
+FFD = function () {
+	W()
+	 
+	 
+		 b = w.S(200, 400, 'b', [-80, -40], [0, -200], [100, 50])
 		o = w.S(280, 420, 'o', 100, 100)
 		p = b.dif(o)
 		w.D(300, 300).pol(p)
 		w.dot(300, 300)
-	}//;fn()
-	fn = function () {
+	 
+}
+DFD = function () {
+	W() 
+ 
 		white = w.S(700, 400, 'w', 100, 100)
 		red = w.S(700, 400)
 		f = red.pol({
@@ -312,10 +325,10 @@ DFF = function () {
 				green.sub(w.S(930, 300).pol(yel))
 			})
 		})
-	};//fn()
+ 
 }
-PC = function () {
-	W()
+
+PCP = function () {W()
 	w.S(700, 100).pC('d', 60, 5)
 	w.S(530, 170).pC('d', 80, 10)
 	w.pC(325, 155, 'd', 120, 15)

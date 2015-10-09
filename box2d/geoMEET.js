@@ -133,7 +133,7 @@ b.subFxt = b.subF = b._sub = function (f) {
 	})
 	return b
 }
-b.subBod = b.subB = function (b) {
+b.subBod = b.subB = function (bod) {
 	return this.subFrom(bod)
 }
 b.sub = function () {
@@ -208,14 +208,6 @@ b.expl=function(){
 	if(g.f){b.C(g.f === '*'? $r(): g.f )}})
 	return b
 }
-
-
-MEETY = function () { W([1200, 600], {g: 10}).y(100, 300).C('x')
-	w.S(500, 300, $r(), 200, 800).expl('*')
-}
-
-
-
 
 
 //alt way to handle explosion sub
