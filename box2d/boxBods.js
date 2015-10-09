@@ -176,6 +176,8 @@ b.XY = function (x, y) {
 	this.SetPosition(newPos)
 	return this
 }
+
+
 b.fr = b.fric = function (fr) {
 	var b = this
 	if (U(fr)) {
@@ -186,6 +188,8 @@ b.fr = b.fric = function (fr) {
 	})
 	return b
 }
+
+
 b.sen = function (s) {
 	var b = this
 	b.fs(function (f) {

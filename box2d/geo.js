@@ -6,16 +6,14 @@ b2d.vs = function () {var g = G(arguments)
 	//all this does is to 'scale down' a series of points
 	//can pass in pts naked OR in an array
 	return _.m(
-	g.s? g: //passed in verts ([],[],[])
-			g.f,
-	       b2d.div
+			g.s? g: //passed in verts ([],[],[])
+					g.f,
+			b2d.div
 	) //passed an array [[],[],[]]
 	//b2d.div <- function div(v){return V(v).div()}	
 }
+
  
-
-
-
 
 
 b2d.ol = b2d.overlapping = function (b1, b2) {
@@ -30,7 +28,7 @@ b2d.ol = b2d.overlapping = function (b1, b2) {
 
 ps.vs = function () {
 	var p = this,
-	vs = []
+			vs = []
 	_.t(p.n(), function (i) {
 		vs.push([p.x(i), p.y(i)])
 	})
@@ -45,8 +43,8 @@ b2d.sub = function (vs, p) {
 	})
 }
 b.wV = function () {
-$l('b.wV')
-return this.pD().vs()}
+	$l('b.wV')
+	return this.pD().vs()}
 
 
 b.rV = function () {
@@ -63,59 +61,59 @@ b.rV = function () {
 	//this returns [V,V,V...]
 } //b.vs????
 
- 
-function gPoly(){
 
+function gPoly(){
+	
 	b2d.iG = b2d.iGP = b2d.isGPoly = function (a) {
 		return O(a) && F(a.isHole)
 	}
 	f.A = f.area = function () {
-	return M.p(this).getArea()
-}
+		return M.p(this).getArea()
+	}
 	f.tGP = function () {return $pD(this.wV())}
 	pD.A = pD.addPoints = function (pts) {
-	var p = this
-	if (A(pts)) {
-		_.e(pts, function (pt) {
-			p.addPoint(V(pt))
-		})
+		var p = this
+		if (A(pts)) {
+			_.e(pts, function (pt) {
+				p.addPoint(V(pt))
+			})
+		}
+		return p
 	}
-	return p
-}
 	b.P = b.pD = function () {
-	var b = this, p, fs = b.fs()
-	if (!_.f(fs)) {
-		return new PolyDefault()
+		var b = this, p, fs = b.fs()
+		if (!_.f(fs)) {
+			return new PolyDefault()
+		}
+		p = M.p(_.f(fs))
+		_.eR(fs, function (f) {
+			p = p.U(f)
+		})
+		return p//p.reg(b)
+		//this returns a gPoly
 	}
-	p = M.p(_.f(fs))
-	_.eR(fs, function (f) {
-		p = p.U(f)
-	})
-	return p//p.reg(b)
-	//this returns a gPoly
-}
 	M.p = b2d.gpcPD = function () {
-	//it expects worldVerts....
+		//it expects worldVerts....
 //it works with worldVerts...
 //it was designed   with
 //that in
 //mind
-	var g = G(arguments), p, b, fs, vs
-	if (b2d.iGP(g.f)) {
-		return g.f
+		var g = G(arguments), p, b, fs, vs
+		if (b2d.iGP(g.f)) {
+			return g.f
+		}
+		if (b2d.iB(g.f)) {
+			vs = g.f.wV()
+			_.eR(g.f.fs(), function (v) {
+				vs = vs.uni(v)
+			})
+		}
+		else {
+			vs = b2d.iF(g.f) ? g.f.wV() :
+					g.f
+		}
+		return $pD(vs)
 	}
-	if (b2d.iB(g.f)) {
-		vs = g.f.wV()
-		_.eR(g.f.fs(), function (v) {
-			vs = vs.uni(v)
-		})
-	}
-	else {
-		vs = b2d.iF(g.f) ? g.f.wV() :
-				g.f
-	}
-	return $pD(vs)
-}
 	pD.pol = function (b) {
 		alert('pD.pol')
 		var p = this
@@ -127,7 +125,7 @@ function gPoly(){
 		return p
 	}
 	
-
+	
 }
 
 function draw() {
@@ -234,7 +232,7 @@ function plus() {
 	}
 	
 	w.polU = function (x, y, p1, p2) {
-	
+		
 		return this.pol(x, y, M.p(p1).U(p2))
 	}
 	
@@ -279,129 +277,10 @@ function plus() {
 		return a.glu(b)
 	}
 }
-function dif() {
-	pD.minus = function (x, y) {
-		return M.p(_.m(this.vs(), function (v) {
-			return V(v).sub(x || 0, y || 0)
-		}))
-	}
-	$dif = DIF = function () {
-		$l('DIF')//not each of the ps?
-		var g = G(arguments),
-				p = M.p(g.f)
-		g.eR(function (p1) {
-			p = p.D(p1)
-		})
-		return p
-	}
-	f._dif = function (toRm) {
-		var f = this, b = f.B(), g = G(arguments),	//f.dif does the math and returns the answer (vs)
-				p = f.tGP()
-		g.e(function (g) {
-			if (b2d.iB(g)) {
-				g.fs(function (f) {
-					p = p.D(f)
-				})
-			}
-			else {
-				p = p.D(g)
-			}
-		})
-		return p
-	}
-	f.dif = function () { // called a lot! $l('f.dif') //f.dif does the math and returns the answer (vs)
-		var f = this, b = f.B(), g = G(arguments),
-				p = f._dif.apply(f, g)
-		if (!b2d.hV(p)) {
-			$l('f.dif says: !hV(p), does: return nada');
-			return
-		}
-		p = p.reg(f)
-		return !g.n ? p : p.reg(b)
-	}
-	f.sub = function () {
-		var f = this, b = f.B(), g = G(arguments),
-				p
-//f.sub uses f.dif and replaces itself on a body
-// with its (potentially) 'slimmer' self
-		p = f.dif(g[0], '-') //vs is f minus something
-		if (p && !M.p(p).hH()) {
-			f.kill() //then f goes away
-			if (M.p(p).getArea() < 2000) {
-				return
-			}
-			b.pol(p)//the body makes a new f, from the the vs
-		}
-		if (g.n) {
-			g.f.kill()
-		}
-		if (g.p) {
-			g.f.dyn()
-		} //can optionally delete the 'something'
-		return f
-	}
-	b.dif = function (o) {
-		var b = this, g = G(arguments),
-				f = b.f(), fs = b.fs(), p
-		if (b.n() == 1) {
-			return b.f().dif(o, '-')
-		}
-		p = $dif(b, o).reg(b)
-		if (g.n) {
-			if (b2d.iB(o) || b2d.iF(o)) {
-				o.kill()
-			}
-			else {
-				b.kill()
-			}
-		}
-		return p
-	}
-	b.sub = function () {
-		var b = this, gg = G(arguments), c = b.c()
-		gg.e(function (g) {
-			if (b2d.iF(g)) {
-				b.fs(function (f) {
-					f.sub(g)
-				})
-				if (gg.n) {
-					g.kill()
-				}
-			}
-			else if (b2d.iB(g)) {
-				g.fs(function (f) {
-					b.sub(f)
-				})
-				if (gg.n) {
-					g.kill()
-				}
-			}
-		})
-		b.C(b.c())
-		return b
-	}
-	pD.D = function () {
-		var pD = this, gg = G(arguments)
-		gg.e(function (g) {
-			if (b2d.iB(g)) {
-				if (g.n() == 1) {
-					return pD.D(g.f())
-				}
-				g.fs(function (f) {
-					pD = pD.D(f)
-				})
-			}
-			else {
-				pD = pD.difference(M.p(g))
-			}
-		})
-		return pD
-	}
-	w.polD = function (x, y, p1, p2) {
-		return this.pol(x, y, M.p(p1).D(p2))
-	}
-}
+
  
+
+
 function clone() {
 	b.clone = function (x, y, a) {
 		var b = this
@@ -461,18 +340,18 @@ function reg(){
 		})
 		//this returns [V,V,V...]
 	}
-ps.reg = function (b) {$l('ps.reg')
-	var p = this, g = G(arguments),
-			vs = p.vs(), b, o
-	//you can pass in the verts,
-	// or the gPoly itself!                 //what about a f?
-	o = V(g.f, g.s)
-	return M.p(vs = _.m(vs, function (v) {
-		return V(v).sub(o.x, o.y)
-	}))
-}
-
-
+	ps.reg = function (b) {$l('ps.reg')
+		var p = this, g = G(arguments),
+				vs = p.vs(), b, o
+		//you can pass in the verts,
+		// or the gPoly itself!                 //what about a f?
+		o = V(g.f, g.s)
+		return M.p(vs = _.m(vs, function (v) {
+			return V(v).sub(o.x, o.y)
+		}))
+	}
+	
+	
 }
 
 
@@ -559,7 +438,7 @@ function _pre() {
 	b2d.tF = function (f) {
 		return b2d.iB(f) ? f.f() : f
 	}
-
+	
 	gpc = gpcas
 	gpc.g = gpc.geometry
 	ps = gpc.g.PolySimple.prototype
@@ -610,6 +489,33 @@ function terrGame() {
 	}
 }
 function later() {
+	function oldDIf() {
+		b2d.hasAtLeastOnePolyX = b2d.hVSource = function (gP) {
+			// if gP is a dP, then m_List is an array of (its inner) polySimples
+			// [polySimp]
+			//get just gets the index from the same (its own) array, hurray :)
+			//as a bool tool, it checks to make sure that it has at least one polygon
+			return gP.hasAtLeastOnePoly()
+		}
+		pD.minus = function (x, y) {
+			$l('pD.minus')
+			return M.p(
+					_.m(this.vs(), function (v) {
+						return V(v).sub(x || 0, y || 0)
+					})
+			)
+		}
+		$dif = DIF = function () {
+			$l('$dif DIF')
+			$l('DIF')//not each of the ps?
+			var g = G(arguments),
+					p = M.p(g.f)
+			g.eR(function (p1) {
+				p = p.D(p1)
+			})
+			return p
+		}
+	}
 	f.dots = function () {
 		var f = this;
 		b2d.pD = b2d.polyDot = function (vs) {

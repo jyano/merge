@@ -8,7 +8,7 @@ pD= gpcas.geometry.PolyDefault.prototype
 
 
 pD.getNumPoints = function () {
-	$l('pD.getNumPoints')
+//	$l('pD.getNumPoints')
 	return (this.m_List.get(0)).getNumPoints()
 	
 }// Return the number points of the first inner polygon
@@ -97,10 +97,7 @@ pD.getBounds = function () {
 		console.log("getBounds not supported on complex poly.");
 	}
 }
-
 pD._ty=function(){return 'PolyDefault'}
-
-
 function poly(){
 	
 	
@@ -127,8 +124,6 @@ function poly(){
 	pD.getNumInnerPoly = function () {return this.m_List.size()}	//Returns the number of inner polygons - inner polygons are assumed to return one here.
 	
 }; poly()
-
-
 function hole(){
 	pD.isHole = function () {// Return true if this polygon is a hole.  Holes are assumed to be inner polygons of a more complex polygon.
 		var m_List = this.m_List;
@@ -189,12 +184,6 @@ pD.toString = function () {
 	}
 	return res;
 }
-
-
-
-
-
-
 function polygon(){
 	
 	gpcas.geometry.Polygon = function () {this.maxTop;this.maxBottom;this.maxLeft;this.maxRight;this.vertices}  /* of Point */;
@@ -345,7 +334,6 @@ function polygon(){
 		proxy.v[Clip.LEFT] = nv;
 	}
 }
-
 polygon()
 function polySimp(){
 	// <code>PolySimple</code> is a simple polygon - contains only one inner polygon.
@@ -584,12 +572,7 @@ function polySimp(){
 		return 'PolySimple'
 	}
 }
-
-
-
-
 polySimp()
-
 function rect(){
 	
 	gpcas.geometry.Rectangle = function (_x, _y, _w, _h) { this.x = _x; this.y = _y; this.w = _w; this.h = _h }
@@ -602,5 +585,4 @@ function rect(){
 		return "[" + x.toString() + " " + y.toString() + " " + w.toString() + " " + h.toString() + "]";
 	}
 }
-
 rect()

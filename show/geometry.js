@@ -754,7 +754,8 @@ MOREDFF=function(){W()
 	})
 }
 
-
+$vs = {}
+$vs.expl = [[0, 100], [-100, 0], [0, -100], [100, 0]]
 DES=function(){W(0)
 	b=w.S(300,300,'b',300,200).c('b')
 	r=w.S(200,400,'r',300,200).c('r')
@@ -786,26 +787,30 @@ DES=function(){W(0)
 	pC.dyn()
 }
 MEET = function () {
+
 	W([1200, 600, 1800, 600], {g: 10})
-	y2 = w.y(100, 300).C('x').rot(180)
-	terrainWall = w.S(500, 300, 'g', 200, 800)
-	terrainWall.cl(function (bullet) {
-		var bulletBody = bullet.B()
-		var bulletPosition = bulletBody.XY(),
-				bulletX = bulletPosition.x,
-				bulletY = bulletPosition.y
-		bulletBody.kill()
-		var explosionPol = gpc.p([[0, 100], [-100, 0], [0, -100], [100, 0]]).ger(bulletPosition)
-		terrainWall.fs(function (terrainFxt) {
-			terrainFxt.sub( explosionPol )
-		})
-		//alt way to handle explosion sub
-		//w.rad(bulletX, bulletY, 15, function (terrainFxt) {terrainFxt.sub( explosionPol )})
-		terrainWall.fs(function (f) {
-			f.C('r')
-		})
+	
+	y2 = w.y(100,300).C('x').rot(180)
+	 
+	t=	ter = w.S(500, 300, 'g', 200, 800).cl(function (buF) {
+		var bu  = buF.B(), xy  = bu.XY()
+		bu.kill()
+		pol = gpc.p( $vs.expl ).ger(xy)
+		t.fs(function (f) { f.sub(pol) })
+		t.C('r')
 	})
+	
+	
+	
+	//alt way to handle explosion sub
+	//w.rad(bulletX, bulletY, 15, function (terrainFxt) {terrainFxt.sub( explosionPol )})
 }
+
+
+
+
+
+
 MEETMORE = function () {
 	W()
 	y2 = w.y(400, 300).C('x').rot(180)

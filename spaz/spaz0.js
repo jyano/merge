@@ -213,8 +213,7 @@ function worldStuff(){
 		})
 	}
 }
- 
-function fixts(){
+  
 	f.tP = f.hit = f.testPoint = f.test = function () {
 		var f = this, b = f.B(), w = b.W(), g = G(arguments), v
 		v = V(g.f, g.s)
@@ -224,19 +223,12 @@ function fixts(){
 		return f.H().TestPoint(b.tf(), v.div())
 		//is a point within the fixture // very accurate
 	}
-	f.vs = function () {
-		var f = this, b = f.B(), g = G(arguments),
-				vs = b2d.m(this.H().m_vertices)
-		if (g.p) {
-			b2d.rot = function (vs, b) {
-				return _.m(vs, function (v) {
-					return v.rot(b.rot())
-				})
-			}
-			vs = b2d.rot(vs, b)
-		}
-		return b2d.tA(vs)
-	} //=f.rV
+	
+	
+	 
+	
+	
+	
 	f.S = f.stg = function () {
 		return this.W().s
 	}
@@ -325,7 +317,7 @@ function fixts(){
 		}
 		return this
 	}
-}
+ 
 
 function bods(){
 	 

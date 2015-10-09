@@ -20,7 +20,8 @@ ps.vs= function(){var p=this,vs=[]
     return vs
 }
 ps.n = ps.num = ps.numPoints = getNumPoints
-
+ps.ty=function(){return ('pS')}
+pD.ty=function(){return ('pD')}
 ////
 pD.x= pD.gX = getX;//used?redundant?
 pD.y =pD.gY = getY//redundant reduant (ref:above) was a joke
