@@ -21,11 +21,9 @@ dirs=['', 'public', 'public/pics', 'public/art', 'public/newArt', 'public/assets
 	'knockout','knockout/deps','knockout/custBind','knockout/comps',
 	
 		
-	'show',
-	'show/jquery', 'show/canvas', 'show/create',
-	'show/box2d',
-	'show/spaz',
-	'show/backbone', 'show/bootstrap'
+		
+	'show', 'show/backbone', 'show/bootstrap',
+	'show/box2d', 'show/canvas', 'show/create',  'show/games', 'show/jquery', 'show/jqUI' , 'show/spaz'
 		
 
 ]

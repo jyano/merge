@@ -1,50 +1,34 @@
-$load('worldStuff', 'fixts', 'bods', 'fxSp', 'bdSp', 'rmSp', 'toElse', 'bods', 'dev', 'edge', 'wall', 'anim', 'wStuff', 'fromCreate')
-w.D = function () {
-	var w = this, g = G(arguments, 'k'), o, b
-	if (g.u) {
-		return w.D(
-				w.hW, w.hH)
-	}
-	//	o = //g.O ? g.f :
-	o = g.O_ ? {p: g.f, f: g.r} :
-	{p: [g.f, g.s], f: _.r(g, 2)}
-	b = w.cB(
-			b2d.bD(o.p))
-	b.K(g.k)
-	$a(b, 'f',
-			g.G(o.f)
-	)
-	return b
-}
-
-w.D_ = w._D = function (o) {
-	alert('w._D??? nah, w.D_')
-	return this.D(o.x, o.y, o.c, o.w, o.h)
-}
-function worldStuff() {
-	w.cen = w.cent = function () {
-		var w = this, g = G(arguments),
-				v = V(w.s.W() / 2, w.s.H() / 2)
-		if (g.p) {
-			w.dot(v)
+w.killD = w.xD = function () {
+	w.e(function (b) {
+		if (b.iD()) {
+			b.kill()
 		}
-		return v
+	})
+}
+$L('color', 'baground', 'miground', 'foground' , 'cirRec', 'props')
+function color(){
+f.color = f.c = f.C = function () {
+	var f = this, b = f.B(), w = b.W(), g = G(arguments),
+			o = g.O ? g.f : {c: g.f, C: g.s, l: g.t}
+	o.c = (o.c == '*') ? $r() : (o.c || 'b');
+	o.C = o.C || o.c
+	return f.rpSp(
+			f.iC() ? b.i = w.st.cir(f.cir(o)) : b.i = w.st.pol(f.pol(o)))
+}
+b.alpha=b.al = function (al) {
+	al = N(al, .8)
+	if (this.f() && O(this.f().sprites)) {
+		this.f().sprites[0].al(al)
 	}
-	w.UI = function () {
-		//alert('w.UI');
-		return $(this.i.canvas)
-	}
-	w.$h = function () {
-		$l('w.$h')
-		return this.i.h.apply(this.i, arguments)
-	} // h = $h().a2(s).rXY(100, 300).XY(100,300).drag()
-//  h.rec( 'r','b',600, 200,  600, 200)
-// h.rec( 'g',100, 100,  100, 20)
-	w.C = function (c) {
-		var w = this
-		w.bg.h().c(c || $r()).dr(0, 0, w.w, w.h)
-		return w
-	}
+	return this
+}
+f.alpha=f.al = function (al) {
+	al = N(al, .8)
+//	if ( O(this.sprites)) {this.sprites[0].al(al)}
+	return this
+}
+}
+function cirRec() {
 	w.cir = w.ball = w.ba = w.circ = function (x, y, r, c) {
 		//alert('w.cir w.ball w.ba w.circ')
 		var w = this, g = G(arguments), b, o
@@ -65,6 +49,17 @@ function worldStuff() {
 		}
 		return b
 	}
+	f.circle = f.cir = function (o) {
+		var f = this
+		return _.x(o || {}, {x: f.pX(), y: f.pY(), r: f.rad()})
+	}
+	f.cirSpr = f.cSp = function (o) {
+		var f = this, b = f.B(), w = b.W(),
+				cir = w.g.h().cir(o)
+		this.bS(cir)
+		this.g = cir
+		return f
+	}
 	w.bump = w.baa = function () {
 		var w = this, g = G(arguments), b, o
 		o = O(g[0]) ? g[0] : N(g[1]) ? {
@@ -81,38 +76,6 @@ function worldStuff() {
 			b.sen(true)
 		}
 		return b
-	}
-	w.d = w.dot = function () {
-		var w = this, g = G(arguments), o
-		if (g.S_) {
-			o = N(g.s) ?
-			{c: g.f, x: g.s, y: g[2]} :
-			{c: g.f, x: V(g.s).x, y: V(g[1]).y}
-		}
-		else {
-			o = N(g.s) ?
-			{x: g.f, y: g.s} :
-			{x: V(g.f).x, y: V(g.f).y}
-		}
-		if (g.m) {
-			w.dot(o.c, o.x, o.y, '-')
-			w.dot(o.c, o.x, o.y, '/')
-			w.dot(o.c, o.x, o.y, '+')
-			w.dot(o.c, o.x, o.y)
-		}
-		else if (g.p) {
-			w.fg.dot(o.c, o.x, o.y)
-		}
-		else if (g.n) {
-			w.bg.dot(o.c, o.x, o.y)
-		}
-		else if (g.d) {
-			w.g.dot(o.c, o.x, o.y)
-		}
-		else {
-			w.i.dot(o)
-		}
-		return w
 	}
 	w.brick = w.bii = function (x, y, W, H) {
 		var w = this, g = G(arguments), b, o
@@ -133,7 +96,7 @@ function worldStuff() {
 		}
 		return b
 	}
-	w.bfR = function () {
+	w.bimapRec = w.bfR = function () {
 		var w = this, g = G(arguments), b, h, o
 		o = _.x({x: g.f, y: g.s},
 				S(g.t) ? {i: g.t, w: g[3], h: g[4], c: g[5]} :
@@ -150,75 +113,9 @@ function worldStuff() {
 		b.bS(h)
 		return b
 	}
-	w._preKill = function (b) {
-		//$l('w._preKill')
-		if (b.sprite) {
-			b.sprite.rm()
-		}
-		b.sprite = null
-		if (b.sp()) {
-			b.sp().rm()
-		}
-		b.fs(function (f) {
-			f.rmSp()
-		})
-	}
-	w._fPreKill = function (f) {
-		//$l('w._fPreKill')
-		f.rmSp()
-	}
-	w.killD = w.xD = function () {
-		w.e(function (b) {
-			if (b.iD()) {
-				b.kill()
-			}
-		})
-	}
-	w._ = function (fn) {
-		Q(function () {
-			fn(w)
-		})
-	}
 }
-f.tP = f.hit = f.testPoint = f.test = function () {
-	var f = this, b = f.B(), w = b.W(), g = G(arguments), v
-	v = V(g.f, g.s)
-	if (g.p) {
-		w.dot(v)
-	}
-	return f.H().TestPoint(b.tf(), v.div())
-	//is a point within the fixture // very accurate
-}
-f.S = f.stg = function () {
-	return this.W().s
-}
-f.c = f.C = function () {
-	var f = this, b = f.B(), w = b.W(), g = G(arguments),
-			o = g.O ? g.f : {c: g.f, C: g.s, l: g.t}
-	o.c = (o.c == '*') ? $r() : (o.c || 'b');
-	o.C = o.C || o.c
-	return f.rpSp(
-			f.iC() ? b.i = w.st.cir(f.cir(o)) : b.i = w.st.pol(f.pol(o)))
-}
-f.cir = function (o) {
-	var f = this
-	return _.x(o || {}, {x: f.pX(), y: f.pY(), r: f.rad()})
-}
-f.dot = function (c) {
-	var f = this, w = f.B().W(), v
-	v = f.cen()
-	if (S(c)) {
-		w.dot(c, v)
-	}
-	else {
-		w.dot(v)
-	}
-	return f
-}
-f.pol = function (o) {
-	return _.x(o || {}, {v: this.vs()})
-}
-f.set = function (o) {
+function props(){
+f.setProps = f.set = function (o) {
 	if (!O(o)) {
 		return false
 	}
@@ -242,7 +139,90 @@ f.set = function (o) {
 	}
 	return f
 }
-f.bS = function () {
+}
+function baground(){
+	w.lG = function (c, c2) {
+		var w = this, o
+		o = {c1: c2 || 'z', c2: c || 'r', x1: 0, y1: 0, x2: 0, y2: 0}
+		_.x(o, R() ? (R() ? {y2: w.h} : {x2: w.w}) :
+				R() ? (R() ? {x1: w.w, y1: w.h} : {x2: w.w, y2: w.h}) :
+						R() ? {x1: w.w, y2: w.h} : {y1: w.h, x1: w.w})
+		w.bg.h().lf(o).dr(0, 0, w.w, w.h)
+		w.bg.h(0, 0, $r()).dr(0, 0, w.w, w.h).al(.2)
+		return w
+	}
+	w.C = function (c) {
+		var w = this
+		w.bg.h().c(c || $r()).dr(0, 0, w.w, w.h)
+		return w
+	}
+}
+function miground() {
+	w.cen = w.cent = function () {
+		var w = this, g = G(arguments),
+				v = V(w.s.W() / 2, w.s.H() / 2)
+		if (g.p) {
+			w.dot(v)
+		}
+		return v
+	}
+	f.S = f.stg = function () {
+		return this.W().s
+	}
+}
+function foground() {
+	w.UI = function () {
+		//alert('w.UI');
+		return $(this.i.canvas)
+	}
+	w.$h = function () {
+		return this.i.h.apply(this.i, arguments)
+	} // h = $h().a2(s).rXY(100, 300).XY(100,300).drag()
+//  h.rec( 'r','b',600, 200,  600, 200)
+// h.rec( 'g',100, 100,  100, 20)
+}
+w.D = function () {
+	var w = this, g = G(arguments, 'k'), o, b
+	if (g.u) {
+		return w.D(
+				w.hW, w.hH)
+	}
+	//	o = //g.O ? g.f :
+	o = g.O_ ? {p: g.f, f: g.r} :
+	{p: [g.f, g.s], f: _.r(g, 2)}
+	b = w.cB(
+			b2d.bD(o.p))
+	b.K(g.k)
+	$a(b, 'f',
+			g.G(o.f)
+	)
+	return b
+}
+
+
+f.tP = f.hit = f.testPoint = f.test = function () {
+	var f = this, b = f.B(), w = b.W(), g = G(arguments), v
+	v = V(g.f, g.s)
+	if (g.p) {
+		w.dot(v)
+	}
+	return f.H().TestPoint(b.tf(), v.div())
+	//is a point within the fixture // very accurate
+}
+b.sp = function () {
+	var b = this, g = G(arguments), ch
+	if (b.gx && b.gx.children) {
+		ch = g.p ? b.gx.children : g.n ? b.gx.children[0] : _.l(b.gx.children)
+		if (g.u) {
+			return ch
+		}
+		if (g.F_) {
+			_.e(ch, g.f);
+			return this
+		}
+	}
+}
+f.bindSpr = f.bS = function () {
 	this.sprites = this.sprites || []
 	//higher level.. can handle obs and Q-strings
 	var f = this, b = f.B(), w = b.W(), g = G(arguments), o, sprite
@@ -259,13 +239,6 @@ f.bS = function () {
 	})
 	return f
 }
-f.cSp = function (o) {
-	var f = this, b = f.B(), w = b.W(),
-			cir = w.g.h().cir(o)
-	this.bS(cir)
-	this.g = cir
-	return f
-}
 f.rmSp = function () {
 	_.e(this.sprites || [], function (s) {
 		cjs.rmOb(s)
@@ -273,186 +246,31 @@ f.rmSp = function () {
 	this.sprites = []
 	return this
 } //= f.xSp=f.Xx=f.rmSp
-f.rpSp = function (sp) {
-	this.rmSp()
-	if (sp) {
-		this.bS(sp)
+f.rpSp = function (sp) {this.rmSp()
+	if (sp) {this.bS(sp)}
+	return this }
+w._preKill = function (b) {
+	if (b.sprite) {
+		b.sprite.rm()
 	}
-	return this
-}
-function bods() {
-}
-ct.d = function (c, x, y) {
-	var ct = this, o, d, tw, g = G(arguments)
-	//if (b2d.isGPoly(g.f)) {_.e(g.f.vs(), function (v) {ct.dot(V(v))}); return this}
-	if (g.A) {
-		_.e(c, function (G) {
-			if (A(G)) {
-				ct.dot.apply(ct, G)
-			}
-			else {
-				ct.dot(G)
-			}
-		})
-		return this
+	b.sprite = null
+	if (b.sp()) {
+		b.sp().rm()
 	}
-	o = g.S_ ? (
-			b2d.iB(g.s) ? {c: g.f, x: g.s.sX, y: g.s.sY} :
-					O(g.s) ? {c: g.f, x: g.s.x, y: g.s.y} :
-					{c: g.f, x: g.s, y: g.t}
-	) :
-			b2d.iB(g.f) ? {x: g.f.sX, y: g.f.sY} :
-					g.O_ ? {x: g.f.x, y: g.f.y} :
-					{x: g.f, y: g.s}
-	o.x = N(o.x, ct.W() / 2)
-	o.y = N(o.y, ct.H() / 2)
-	o.c = o.c || 'y'
-	d = this.h(o.x, o.y).cir(8, o.c, 'z', 2).al(.7).drag()
-	tw = d.twL([{sxy: 1.3}, 100], [{sxy: 1}, 100]).$()
-	d.$$(function () {
-		tw.$()
+	b.fs(function (f) {
+		f.rmSp()
 	})
-	return d.K('dev dot')
+} //w._fPreKill = function (f) { f.rmSp() }
+w._ = w.preload = function (fn) {
+	Q(function () {
+		fn(w)
+	})
 }
-cirDfs = function (o) {
-	o = o || {}
-	//with object...
-	o.al = N(o.al, 1)
-	o.x = N(o.x, 0)
-	o.y = N(o.y, 0)
-	o.r = N(o.r, 50)
-	o.b = N(o.b, .5)
-	o.f = N(o.f, .5)
-	o.d = N(o.d, .5)
-	o.s = D(o.s) ? o.s : 0;
-	return o
-}
-function _pre() {
 
-//
-	b2d.p()
-	i = cjs.DisplayObject.prototype
-	ct = cjs.Container.prototype
-	st = s = cjs.Stage.prototype
-	t = cjs.Text.prototype
-	h = cjs.Shape.prototype
-	ct = cjs.Container.prototype
-	s = cjs.Stage.prototype
-	h = cjs.Shape.prototype
-	ct = cjs.Container.prototype
-	h = cjs.Shape.prototype // gx = cjs.Graphics.prototype
-	h = cjs.Shape.prototype // gx = cjs.Graphics.prototype
-	ct = cjs.Container.prototype
-	vs1 = [
-		[61, 68],
-		[145, 122],
-		[186, 94],
-		[224, 135],
-		[204, 211],
-		[105, 200],
-		[141, 163],
-		[48, 139],
-		[74, 117]
-	]
-}
-function later() {
-	b._gx = function (a) {
-		alert('b._gx')
-		this.gx = this.gx || w.gx.ct();
-		if (a) {
-			this.gx.A(a)
-		}
-		return this
-	}
-	f.initSp = function () {
-		alert('initSp')
-		this._sp = this._sp || [];
-		this.SP = this.SP || [];
-		this.sprites = this.sprites || []
-		return this
-	}
-	f.spritePush = function (j) {
-		alert('spritePush')
-		this.sprites = this.sprites || []
-		this.sprites.push(j)
-		return this
-	}
-	b.fSp = function () {
-		alert('b.fSp')
-		return this.f().sprites[0]
-	}
-	b._bS = function (sprite, o) {
-		alert('b._bS')
-		var b = this, w = b.W()
-		w.gx.A(sprite)
-		T.t(function () {
-			sprite
-					.XY(b.X() + o.x, b.Y() + o.y)
-					.rt(b.rt() + o.rt)
-		})
-	}
-}
-old = function () {
-	/*
-	 ct.bm = ct.b = function () {
-	 var ct = this, g = G(arguments), bm,
-	 o = g.F_ ? {fn: g.s, sc: g.s} :
-	 g.N_ ? {sc: g.f, fn: g.s} :
-	 _.x(
-	 {i: g.f},
-	 N(g.s) ? {sc: g.s, fn: g.t} :
-	 {fn: g.s, sc: g.t}
-	 )
-	 o.sc = o.sc || 1
-	 $df.im(o)
-	 if (O(o.i)) {
-	 return ct.A($Bm(o.i))
-	 }//alert('ct.bm O(o.i)'); never alerted
-	 $.i(o.i, function (i) {
-	 bm = $Bm(i).a2(ct).sXY(o.sc)
-	 if (!g.n) {
-	 bm.rC()
-	 }
-	 if (g.p) {
-	 bm.drag()
-	 }
-	 if (o.fn) {
-	 o.fn(bm)
-	 }
-	 })
-	 return ct
-	 }
-	
-	 */
-// u might say xTHIS but not thisX? i dont know what i am talking about
-	/* TICKER
-	 paused : Indicates whether the ticker is currently paused.
-	 d       delta :  time since the last tick
-	 t       time : how much  since T  started
-	 r      runTime  : how much time has T been running for
-	 */
-	/*
-	 // returns   The average time spent in a tick in milliseconds.
-	 //This can vary significantly from the value provided by getMeasuredFPS because it only measures the time spent
-	 // within the tick execution stack.
-	 Example 1: With a target FPS of 20, getMeasuredFPS()
-	 returns 20fps, which indicates an average of 50ms between the end of one tick and the end of the next.
-	 However, getMeasuredTickTime() returns 15ms.
-	 This indicates i there may be up to 35ms of "idle" time between the end of one tick and the start of the next.
-	
-	 Example 2: With a target FPS of 30, getFPS() returns 10fps,
-	 which indicates an average of 100ms between the end of one tick and the end of the next. However,
-	 getMeasuredTickTime() returns 20ms.
-	 This would indicate i something other than the tick is using ~80ms
-	 (another script, DOM rendering, etc).
-	
-	 */
-//w.sp=w.ct=function(x,y){var w=this;return w.hud.ct(x||w.hW,y||w.hH).drag()}
-	/*
-	 f.clrSp = function () {
-	 //$l('clrSp')
-	 this.sprites = []; //this_sp = []; this.SP = []
-	 return this
-	 }
-	 */
-}
+ 
+
+old=function(){
+	w.D_ = w._D = function (o) {
+		alert('w._D??? nah, w.D_')
+		return this.D(o.x, o.y, o.c, o.w, o.h)
+	}}

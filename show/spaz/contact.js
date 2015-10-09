@@ -46,68 +46,68 @@ PRESOLVE = function () {
 		}
 	})
 }
-NORMAL = function () {
-	W({W: 1500, H: 1200, g: 0}).C('b')
-	y = w.D(100, 100, 'w', 40).fR().cn('thrust').bS('me')
-	y.cir('y', 50)
-	y.cl(w.S(300, 300, 'g', 50),
-			function (f, cx) {
-				w.D(600, 300, 'g', 20).K('g').I(-cx.nX(300), cx.nY(300))
-			})
-	y.cl(w.S(900, 300, 'o', 50), function (f, cx) {
-		w.D(600, 300, 'o', 20).K('o')
-				.I(-cx.nX(300), cx.nY(300))
-	})
-	y1 = w.D(300, 300, 'w', 10).fR().cn('thrust').bS('me').I(20, 20)
-	y1.cir('y', 40).r(.8)
-	Ball = _.mo(.5, function (n) {
-		w.D(600, 200, 'o', 5).bit(0)
-				.K('o').r(.9).I(n.x, n.y)
-	})
-	w.D(600, 300, 'o', 70).r(.8)
-			.cl(function (f, cx) {
-				if (cx.nX() || cx.nY()) {
-					if (O(cx) && F(cx.n)) {
-						Ball(cx.n(10000))
+SICK = BBALL = MOONSOCCER = function () {
+	NORMAL = function () {
+		W({W: 1500, H: 1200, g: 0}).C('b')
+		y = w.D(100, 100, 'w', 40).fR().cn('thrust').bS('me')
+		y.cir('y', 50)
+		y.cl(w.S(300, 300, 'g', 50),
+				function (f, cx) {
+					w.D(600, 300, 'g', 20).K('g').I(-cx.nX(300), cx.nY(300))
+				})
+		y.cl(w.S(900, 300, 'o', 50), function (f, cx) {
+			w.D(600, 300, 'o', 20).K('o')
+					.I(-cx.nX(300), cx.nY(300))
+		})
+		y1 = w.D(300, 300, 'w', 10).fR().cn('thrust').bS('me').I(20, 20)
+		y1.cir('y', 40).r(.8)
+		Ball = _.mo(.5, function (n) {
+			w.D(600, 200, 'o', 5).bit(0)
+					.K('o').r(.9).I(n.x, n.y)
+		})
+		w.D(600, 300, 'o', 70).r(.8)
+				.cl(function (f, cx) {
+					if (cx.nX() || cx.nY()) {
+						if (O(cx) && F(cx.n)) {
+							Ball(cx.n(10000))
+						}
 					}
-				}
-			})
-	/*
-	 //just copies lV
-	 b=w.D(500,300,'b',50).d(1).K('b')
-	 r = w.D(700,300,'r', 80).d(1)
-	 w.b( function(cx){ cx.w('b', function(f){
-	 if(cx.a().of('b')){r.lV(cx.lV(cx.a()))}
-	 else {r.lV( cx.lV(cx.b()))}})})
-	 */
+				})
+		/*
+		 //just copies lV
+		 b=w.D(500,300,'b',50).d(1).K('b')
+		 r = w.D(700,300,'r', 80).d(1)
+		 w.b( function(cx){ cx.w('b', function(f){
+		 if(cx.a().of('b')){r.lV(cx.lV(cx.a()))}
+		 else {r.lV( cx.lV(cx.b()))}})})
+		 */
 //w.pop('me absorbs energy of tims collision!'); $.in(4, function(){w.pop('gets actual v of bA')}); $.in(8, function(){w.pop('at moment of col!')})
 //normalImpulse is the magnitude of the correcting impulse applied to push the two bodies apart when they collide.
 // This is in the direction of the contact normal.
-	NL0 = function () {
-		W({W: 900, H: 600, g: 0, w: '|'}).C('b')
-		y = w.D(100, 100, 'w', 40)
-		y.fR().cn('thrust').warp().bS('me').cir('g', 50)
-		w.S(200, 300, 'g', 100).cl(function (f, cx) {
-			w.D(600, 300, 'g', 20).I(-cx.nX(300),
-					cx.nY(300))
-		})
+		NL0 = function () {
+			W({W: 900, H: 600, g: 0, w: '|'}).C('b')
+			y = w.D(100, 100, 'w', 40)
+			y.fR().cn('thrust').warp().bS('me').cir('g', 50)
+			w.S(200, 300, 'g', 100).cl(function (f, cx) {
+				w.D(600, 300, 'g', 20).I(-cx.nX(300),
+						cx.nY(300))
+			})
+		}
+		NL = function () {
+			W({W: 1200, H: 600, g: 0, w: '|'}).C('b')
+			y = w.D(100, 100, 'w', 40).fR().cn('thrust').warp().bS('me')
+			y.cir('y', 50)
+			y.cl(w.S(300, 300, 'g', 100), function (f, cx) {
+				w.D(300, 300, 'g', 20).I(-cx.no(300).x, cx.no(300).y)
+			})
+			y.cl(w.S(900, 300, 'o', 100), function (f, cx) {
+				w.D(900, 300, 'o', 20).I(-cx.no(300).x, cx.no(300).y)
+			})
+			y.cl(w.S(600, 300, 'w', 60, '-'), function (f, cx) {
+				w.D(600, 300, 'z', 20, '-').K('w').I(cx.no(300).x, cx.no(300).y)
+			})
+		}
 	}
-	NL = function () {
-		W({W: 1200, H: 600, g: 0, w: '|'}).C('b')
-		y = w.D(100, 100, 'w', 40).fR().cn('thrust').warp().bS('me')
-		y.cir('y', 50)
-		y.cl(w.S(300, 300, 'g', 100), function (f, cx) {
-			w.D(300, 300, 'g', 20).I(-cx.no(300).x, cx.no(300).y)
-		})
-		y.cl(w.S(900, 300, 'o', 100), function (f, cx) {
-			w.D(900, 300, 'o', 20).I(-cx.no(300).x, cx.no(300).y)
-		})
-		y.cl(w.S(600, 300, 'w', 60, '-'), function (f, cx) {
-			w.D(600, 300, 'z', 20, '-').K('w').I(cx.no(300).x, cx.no(300).y)
-		})
-	}
-}
-SICK = BBALL = MOONSOCCER = function () {
 	W({W: 1500, H: 1200, g: 0}).C('b')
 	y = w.D(100, 100, 'w', 40).fR().cn('thrust').bS('me')
 	y.cir('y', 50)
@@ -168,28 +168,28 @@ SICK = BBALL = MOONSOCCER = function () {
 		})
 	}
 }
-CAT = function () {
-	W([800, 800], {g: 50}).C('z')
-	//g=  w.D(600,600,'g',183,183).f().bit(4, [1,2] );
-	// b=  w.D(600,600,'b',100).f().bit(2, [1,4] )
-	w.t_.bit(1, [8])
-	w.D(600, 200, 'w', 180).bit(1, [1]).r(.5)
-	w.D(400, 0, 'g', 100).bit(2, [1, 2, 4, 8]).r(.8)
-	w.D(300, 0, 'g', 183, 183).bit(2, [1, 2, 4, 8]).r(.8)
-	_.t(38, function () {
-		w.D(R(1100, 100), R(300, -2500), 'w', 20).bit(1, [1])
-	})
-	y = w.y(100, 100).rt(40).bit(8, [1, 2, 4])
-/////////////////
-	//together, same with walls
-	// w.D(300,300,'o',183,183)//.grp(-3)
-	// w.D(300,600,'o',100).cat(2)//.grp(-3)
-	//w.D(600,600,'u',150).r(1).I(100,0).cat(0)
-	//w.D(600,600,'b',80).bit(2,[1,4])
-	//w.D(600,600,'p',60,90).bit(4,[1,2,4])
-	// w.D(600,600,'r',183,183).bit(4,[1,2,4])
-}
 ROOM3D = BOUNCELAY = function () {
+	CAT = function () {
+		W([800, 800], {g: 50}).C('z')
+		//g=  w.D(600,600,'g',183,183).f().bit(4, [1,2] );
+		// b=  w.D(600,600,'b',100).f().bit(2, [1,4] )
+		w.t_.bit(1, [8])
+		w.D(600, 200, 'w', 180).bit(1, [1]).r(.5)
+		w.D(400, 0, 'g', 100).bit(2, [1, 2, 4, 8]).r(.8)
+		w.D(300, 0, 'g', 183, 183).bit(2, [1, 2, 4, 8]).r(.8)
+		_.t(38, function () {
+			w.D(R(1100, 100), R(300, -2500), 'w', 20).bit(1, [1])
+		})
+		y = w.y(100, 100).rt(40).bit(8, [1, 2, 4])
+/////////////////
+		//together, same with walls
+		// w.D(300,300,'o',183,183)//.grp(-3)
+		// w.D(300,600,'o',100).cat(2)//.grp(-3)
+		//w.D(600,600,'u',150).r(1).I(100,0).cat(0)
+		//w.D(600,600,'b',80).bit(2,[1,4])
+		//w.D(600,600,'p',60,90).bit(4,[1,2,4])
+		// w.D(600,600,'r',183,183).bit(4,[1,2,4])
+	}
 	W([800, 800], {g: 50}).C('z')
 	//g=  w.D(600,600,'g',183,183).f().bit(4, [1,2] );
 	// b=  w.D(600,600,'b',100).f().bit(2, [1,4] )
@@ -210,89 +210,34 @@ ROOM3D = BOUNCELAY = function () {
 	//w.D(600,600,'p',60,90).bit(4,[1,2,4])
 	// w.D(600,600,'r',183,183).bit(4,[1,2,4])
 }
-CXPT = function () {
-	W().randRects().Y() //only works on NON-sensors?
-	y.stat()
-	w.y(100, 100)
-	w.b(function (cx) {
-		w.i.dot($r(), cx.pt().x, cx.pt().y)
-	})
-}
-LCXPT = function () {
-	W([3000, 1000], {g: 0, t: 0})
-	//<- var lP=cx.lP(b) //b.lP( cx.pX(), cx.pY() )
-	b = w.D(300, 400, 'b', 200, 200).cn('thrust').K('sqr')
-	r = w.D(300, 400, 'r', 200, 200).cn('thrust').K('sqr')
-	b.SetBullet(true)
-	w.b(function (cx) {
-		cx.w(
-				'sqr',
-				function () {
-					if (!cx.w('bruise')) {
-						b.cir({c: 'z', r: 15, x: cx.lP(b).x, y: cx.lP(b).y})
-								.K('bruise')
-					}
-				}
-		)
-	})
-	CRAZY = function () {
-		W({g: 0}).randRects();
-		b = w.D(300, 400, 'r', 200, 200).cn('thrust')
-		w.b(function (cx) {
-			w.dot($r(), cx.p())
-			lP = b.lP(cx.p())
-			b.cir({c: 'z', r: 15, x: lP.x, y: lP.y})
-		})
-	}
-}
-PAINTBALL = function () {
-	W().randRects().Y() //only works on NON-sensors?
-	y.stat()
-	w.y(100, 100)
-	w.b(function (cx) {
-		w.i.dot($r(), cx.pt().x, cx.pt().y)
-	})
-}
-BUB = SPRINK = BUBBLEPOP = function () {
-	W({W: 2000, g: 0}).Y();
-	_.t(10, function () {
-		w.D(800, 200, 'r', 20).K('r')
-	})
-	w.S(50, 550, 'o', 200);  //w.S(800,300,'z', 80)
-	b = w.S(300, 0, 'o', 200, 300).K('r')
-	r = w.D(300, 300, 'r', 80).K('b')
-	// dot both upper and lower bounds of AABB of both fixts
-	w.cl(function (f, cx) {
-		var ab, lb, up
-		ab = f.GetAABB();
-		lb = ab.lowerBound;
-		ub = ab.upperBound
-		w.i.dot('w', ub.x * 30, ub.y * 30);
-		w.dot('p', lb.x * 30, lb.y * 30)
-		ab = this.GetAABB();
-		lb = ab.lowerBound;
-		ub = ab.upperBound
-		w.i.dot('w', ub.x * 30, ub.y * 30);
-		w.dot('p', lb.x * 30, lb.y * 30)
-		f.dot('g')
-		this.dot('r')   //dot center of both fixts
-		w.i.dot('y', M.lC(f.cen(), this.cen()))   //dot center of their centers
-		cx.w(b, col)
-		cx.w('b', 'r', col);
-		cx.w(b, r, col);
-		cx.w('b', r, col)
-	})
-	w.end(function (cx) {
-		cx.w('b', col)
-	})
-	function col(f) {
-		this.C($r())
-	}
-	
-	//2do:draw line to connect these pts..
-	// w.chalk('center of the two fixtures not necessarily  same as the cX pt. (can only represent col center if fSs are sSAME size... maybe halfway btwen this and the actual contact point would be nice')
-}  //M.lC is not a function
 BRUISE = CORNERBATTLE = function () {
+	LCXPT = function () {
+		W([3000, 1000], {g: 0, t: 0})
+		//<- var lP=cx.lP(b) //b.lP( cx.pX(), cx.pY() )
+		b = w.D(300, 400, 'b', 200, 200).cn('thrust').K('sqr')
+		r = w.D(300, 400, 'r', 200, 200).cn('thrust').K('sqr')
+		b.SetBullet(true)
+		w.b(function (cx) {
+			cx.w(
+					'sqr',
+					function () {
+						if (!cx.w('bruise')) {
+							b.cir({c: 'z', r: 15, x: cx.lP(b).x, y: cx.lP(b).y})
+									.K('bruise')
+						}
+					}
+			)
+		})
+		CRAZY = function () {
+			W({g: 0}).randRects();
+			b = w.D(300, 400, 'r', 200, 200).cn('thrust')
+			w.b(function (cx) {
+				w.dot($r(), cx.p())
+				lP = b.lP(cx.p())
+				b.cir({c: 'z', r: 15, x: lP.x, y: lP.y})
+			})
+		}
+	}
 	W([3000, 1000], {g: 0, t: 0})
 	//<- var lP=cx.lP(b) //b.lP( cx.pX(), cx.pY() )
 	w.p()
@@ -325,6 +270,58 @@ BRUISE = CORNERBATTLE = function () {
 	}
 }
 POSTSOLVE = function () {
+	SMASHOUT = function () {
+		W([1200, 600], {
+			g: 10//g:50//,w:'='
+		})
+		// I want the dir of the tangent and its ratio to the impulse part!!!
+		//PostSolve
+//with post, u get a second pam, which tells impulses(both norm and tang)
+// we can find out what the collision response was.
+//b2d.wM=  b2d.man= b2d.manifold= b2d.worldManifold= function(){return new b2d.Collision.b2WorldManifold}
+//direction of collision normal:
+//By convention in Box2d, the collision normal
+// (for both the world manifold and the contact manifold) points from A to B -
+//gets the linVel at time of collision!
+		w.b_.fr(100000000000)
+		w.S(100, 100, $r(), 800, 100, 0, 0, -20).fr(100000)
+		y = w.y(140, 400, '+').r(.6).fr(1000000).lD(1).aD(10000000)//'++'
+		w.D(200, 200, 'b', 20).r(1)
+		w.D(900, 200, 'r', 100).r(1)
+		//JASON YANOFSKI LISTEN TO YOU:
+		//OK SO THIS IS IMPORTANT OR U WILL WASTE TIME AND FUCK THINGS UP
+		// THE WHOLE 'FIRST' THING IS NOT NECESSARY ANYMORE BECAUSE WE ARE NOT CONCERNED WITH
+		// THAT PARTICULAR FUNCTANILTY IN THIS PARTICULAR FUNCTION
+		//BUT YOU MAY HAVE REASON TO WANT TO
+		//'GET SPECIFICALLY THE first ONLY VALUE FROM ONE COLLISION (FIRST TIME POSTSOLVE IS EVER CALLED ON THAT COLL OBJ)
+		imp = 0;
+		tang = 0;
+		sum = 0
+		w.po(function (cx, i, t) {
+			imp = i;
+			tang = t
+			if (first && M.avg(i + t) > 5) {
+				sum = M.avg(i + t)
+				first = 0
+			}
+		})
+		w.b(function () {
+			first = 1
+		})
+		w.show(function () {
+			return imp + ' + ' + tang + ' = ' + sum
+		})
+// $l('i:'+i+' t:'+t+' sum:'+(M.avg(i)+ M.avg(t)) + ' prod:'+M.avg((i*t)))
+// tangentImpulse is the magnitude of the impulse applied to simulate friction between
+// the two colliding fixtures, and this is perpendicular to the contact normal.
+//   You can put these together to get the overall impulse applied.
+// I'm not sure which way the tangent faces in relation to the normal
+// but in 2D there are only two possibilities.
+		w.D(400, 200, 'y', 50).d(.1).lV(10)
+		w.D(200, 500, 'r', 40).d(1)
+		w.D(200, 500, 'b', 25).d(100)
+		w.D(800, 200, 'p', 10).d(1000).lV(-10)
+	}
 	W([1200, 600], {
 		g: 10//g:50//,w:'='
 	})
@@ -376,59 +373,7 @@ POSTSOLVE = function () {
 	w.D(200, 500, 'b', 25).d(100)
 	w.D(800, 200, 'p', 10).d(1000).lV(-10)
 }
-SMASHOUT = function () {
-	W([1200, 600], {
-		g: 10//g:50//,w:'='
-	})
-	// I want the dir of the tangent and its ratio to the impulse part!!!
-	//PostSolve
-//with post, u get a second pam, which tells impulses(both norm and tang)
-// we can find out what the collision response was.
-//b2d.wM=  b2d.man= b2d.manifold= b2d.worldManifold= function(){return new b2d.Collision.b2WorldManifold}
-//direction of collision normal:
-//By convention in Box2d, the collision normal
-// (for both the world manifold and the contact manifold) points from A to B -
-//gets the linVel at time of collision!
-	w.b_.fr(100000000000)
-	w.S(100, 100, $r(), 800, 100, 0, 0, -20).fr(100000)
-	y = w.y(140, 400, '+').r(.6).fr(1000000).lD(1).aD(10000000)//'++'
-	w.D(200, 200, 'b', 20).r(1)
-	w.D(900, 200, 'r', 100).r(1)
-	//JASON YANOFSKI LISTEN TO YOU:
-	//OK SO THIS IS IMPORTANT OR U WILL WASTE TIME AND FUCK THINGS UP
-	// THE WHOLE 'FIRST' THING IS NOT NECESSARY ANYMORE BECAUSE WE ARE NOT CONCERNED WITH
-	// THAT PARTICULAR FUNCTANILTY IN THIS PARTICULAR FUNCTION
-	//BUT YOU MAY HAVE REASON TO WANT TO
-	//'GET SPECIFICALLY THE first ONLY VALUE FROM ONE COLLISION (FIRST TIME POSTSOLVE IS EVER CALLED ON THAT COLL OBJ)
-	imp = 0;
-	tang = 0;
-	sum = 0
-	w.po(function (cx, i, t) {
-		imp = i;
-		tang = t
-		if (first && M.avg(i + t) > 5) {
-			sum = M.avg(i + t)
-			first = 0
-		}
-	})
-	w.b(function () {
-		first = 1
-	})
-	w.show(function () {
-		return imp + ' + ' + tang + ' = ' + sum
-	})
-// $l('i:'+i+' t:'+t+' sum:'+(M.avg(i)+ M.avg(t)) + ' prod:'+M.avg((i*t)))
-// tangentImpulse is the magnitude of the impulse applied to simulate friction between
-// the two colliding fixtures, and this is perpendicular to the contact normal.
-//   You can put these together to get the overall impulse applied.
-// I'm not sure which way the tangent faces in relation to the normal
-// but in 2D there are only two possibilities.
-	w.D(400, 200, 'y', 50).d(.1).lV(10)
-	w.D(200, 500, 'r', 40).d(1)
-	w.D(200, 500, 'b', 25).d(100)
-	w.D(800, 200, 'p', 10).d(1000).lV(-10)
-}
-WLWN = function () {
+VORTEX = function () {
 	W([1200, 800], {g: 8}).Y()
 	vor = w.S(600, 200)
 	vor.cir({s: 1, c: 'z', r: 140, o: .2, C: 'z', l: 20})
@@ -469,7 +414,7 @@ WLWN = function () {
 	//w.plat(400,500,40,20).K('pf').cl('x', function(){w.D(50,100,'x',60,60).K('x').warp()})
 	//w.D(440,100,'y',50).K('ball'); w.cl('ball', function(cx){this.B().dot() })
 }
-VORTEX = function () {
+WLWN = function () {
 	W([1200, 800], {g: 8}).Y()
 	vor = w.S(600, 200)
 	vor.cir({s: 1, c: 'z', r: 140, o: .2, C: 'z', l: 20})
@@ -568,5 +513,79 @@ MY = function () {
 		}
 	})
 }
+CXPT = function () {
+	W().randRects().Y() //only works on NON-sensors?
+	y.stat()
+	w.y(100, 100)
+	w.b(function (cx) {
+		w.i.dot($r(), cx.pt().x, cx.pt().y)
+	})
+}
+PAINTBALL = function () {
+	W().randRects().Y() //only works on NON-sensors?
+	y.stat()
+	w.y(100, 100)
+	w.b(function (cx) {
+		w.i.dot($r(), cx.pt().x, cx.pt().y)
+	})
+}
+BUB = SPRINK = BUBBLEPOP = function () {
+	W({W: 2000, g: 0}).Y();
+	_.t(10, function () {
+		w.D(800, 200, 'r', 20).K('r')
+	})
+	w.S(50, 550, 'o', 200);  //w.S(800,300,'z', 80)
+	b = w.S(300, 0, 'o', 200, 300).K('r')
+	r = w.D(300, 300, 'r', 80).K('b')
+	// dot both upper and lower bounds of AABB of both fixts
+	w.cl(function (f, cx) {
+		var ab, lb, up
+		ab = f.GetAABB();
+		lb = ab.lowerBound;
+		ub = ab.upperBound
+		w.i.dot('w', ub.x * 30, ub.y * 30);
+		w.dot('p', lb.x * 30, lb.y * 30)
+		ab = this.GetAABB();
+		lb = ab.lowerBound;
+		ub = ab.upperBound
+		w.i.dot('w', ub.x * 30, ub.y * 30);
+		w.dot('p', lb.x * 30, lb.y * 30)
+		f.dot('g')
+		this.dot('r')   //dot center of both fixts
+		w.i.dot('y', M.lC(f.cen(), this.cen()))   //dot center of their centers
+		cx.w(b, col)
+		cx.w('b', 'r', col);
+		cx.w(b, r, col);
+		cx.w('b', r, col)
+	})
+	w.end(function (cx) {
+		cx.w('b', col)
+	})
+	function col(f) {
+		this.C($r())
+	}
+	
+	//2do:draw line to connect these pts..
+	// w.chalk('center of the two fixtures not necessarily  same as the cX pt. (can only represent col center if fSs are sSAME size... maybe halfway btwen this and the actual contact point would be nice')
+}  //M.lC is not a function
+SMH = function () {
+	W([2000, 1500, 2000, 1500]).G(200).C('b');
+	var b1, b2
+	// y and remote control fireball
+	var y = w.y(300, 100, '+')
+	farMoon = w.D(600, 100, 'y', 150).K('b').r(1.2).lV(200, 0).cn('thrust').fR()
+	nearMoon = w.D(400, 200, 'y', 100)
+	T.t(function () {
+		var lV = y.lVW(y.X(), y.Y()).mult(20)
+		nearMoon.lV(lV.x, lV.y)
+	})
+	p = w.p(900, 400).cn('jump').cl(_.m(function () {
+		w.D(300, 100, 'r', 5)
+	}))
+	sun = r1 = w.S(600, 300, 'r', 30, '-').K('r').bS('sun')
+	sun.cl(function (f, cx) {
+		var pt = cx.cen(), v1 = b.lVW(pt), v2 = r1.lVW(pt)
+		w.D(630, 350, 'r', 10).I(v1.x - v2.x, v1.y - v2.y)
+	})
+}
  
-

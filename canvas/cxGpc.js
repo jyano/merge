@@ -33,163 +33,14 @@ x.drawPs = function (pol, c, ox, oy) {
 	})
 	return x
 }
-
-
-PXX = function () {
-	cx = $.cx()
-	Q('me', function () {
-		cx.d(Q.i('me'), 0, 0)
-		
-		
-		cx.pol([
-			[400, 0], [800, 100] , [120, 120]
-		])
-		
-	})
+$.cx = function () {
+	return $.c.apply($, arguments).cx()
 }
-PXC = function () {
-	cx = $.cx()
-	cx.drP( [[400, 0], [800, 100], [120, 120]],'r','v')
-}
-
-GPM = function () {
-	$.h1('blue op red')
-	x = $.cx()
-	$.d([
-		$.bt('diff', function () {
-			setup()
-			drawP(p1.difference(p2), 'g', 0, 150)
-		}),
-		$.bt('inter', function () {
-			setup()
-			drawP(p1.intersection(p2), 'g', 0, 150)
-		}),
-		$.bt('uni', function () {
-			setup()
-			drawP(p1.union(p2), 'g', 0, 150)
-		}),
-		$.bt('xor', function () {
-			setup()
-			drawP(p1.xor(p2), 'g', 0, 150)
-		})
-	])
-	
-	function setup() {
-		x.cR();
-		drawP(p1, "blue", 0, -30);
-		drawP(p2, "red", 0, -30)
-	}
+ 
+function _preX() {
+	 
 	
 	
-	drawP = function (p, sC, ox, oy) {var num = p.nP()
-		_.t(num, function (i) {var pol = p.gIP(i), vs = []
-			_.t(pol.n(), function (i) {vs.push([pol.gX(i), pol.gY(i)]);})
-			if (i == 0) {draw1p(vs, oO('c', sC), pol.iH(), ox, oy)}
-			else {draw1p(vs, ["#91ab19", "#ab9119", "#e5ce35", "#ab1998"][i % num], pol.iH(), ox, oy)}
-			
-		})
-		
-	}
-	
-	
-	draw1p = function (vs, sC, hole, ox, oy) {
-		
-		var i;
-		
-		ox = N(ox, 0);
-		oy = N(oy, 0)
-		
-		x.b().mt(vs[0][0] + ox, vs[0][1] + oy);
-		
-		for (i = 1; i < _.z(vs); i++) {x.lt(vs[i][0] + ox, vs[i][1] + oy)}
-		
-		x.lW(4).s(sC).f("rgba(255, 0, 0, 0.1)")
-		
-		if (hole) {
-			alert('hole')
-			x.f("z")
-		}
-		
-		x.cP().s().f()
-	}
-	
-	
-	
-	p1 = $pD(vs1)
-	p2 = $pD(vs2)
-	setup()
-}
-HOLEY =   function () {
-	vs2 = [
-		
-		
-		[131, 84], [224, 110], [174, 280], [120, 136], [60, 167],
-	
-	
-	]
-	$.h1('holey - blue op red')
-	x = $.cx()
-	p1 = $pD(vs1)
-	p2 = $pD(vs2)
-	$.d([ Bt( 'diff', p1.D(p2) ), Bt('inter',   p1.I(p2) ), Bt('uni',  p1.U(p2) ), Bt('xor',  p1.X(p2) ) ])
-	function setup() {
-		x.cR();
-		drawP(p1, "b", 0, -30);
-		drawP(p2, "r", 0, -30)
-	}
-	function Bt(tx, p) {
-		return $.bt(tx, function () {
-			setup();
-			drawP(p, 'g', 0, 150)
-		})
-	}
-	function drawP(pol, sC, ox, oy) {var n
-		_.t(n = pol.nP(), draw)
-		function draw(i) {var p = pol.gIP(i)
-			draw1p( p.pts(), col(i, n), p.iH(), N(ox, 0), N(oy, 0)) }
-		function col(i){return i==0?sC:['G','n','o','v'][i%n]}
-	}
-	function draw1p(vs, sC, hole, ox, oy) {
-	
-	var v0= _.f(vs), i;
-		
-		ox=N(ox,0)
-		oy=N(oy,0)
-		x.b().mt(v0[0]+ox,v0[1]+oy)
-		_.e(_.r(vs), function(v){
-			x.lt(v[0]+ox, v[1]+oy)
-		})
-		x.lW(4).s(oO('c',sC)).f(rgba({r:255},.1))
-		if (hole) { alert('hole'); x.f("z") }
-		x.cP().s().f()
-	}
-	setup()
-}
-
-
-
-
-
-function _pre() {
-
-	vs1 = [
-		[61, 68],
-		[145, 122],
-		[186, 94],
-		[224, 135],
-		[204, 211],
-		[105, 200],
-		[141, 163],
-		[48, 139],
-		[74, 117]
-	];
-	vs2 = [
-		[131, 84],
-		[224, 110],
-		[174, 180],
-		[120, 136],
-		[60, 167],
-	];
 	PolyDefault = gpcas.geometry.PolyDefault;
 	ArrayList = gpcas.util.ArrayList;
 	PolySimple = gpcas.geometry.PolySimple;
@@ -232,6 +83,7 @@ function _pre() {
 		return vs
 	}
 }
+
 old = function () {
 	GPD = function () {
 		cx = $.cx()
@@ -313,7 +165,6 @@ old = function () {
 		drawP(p1 = $pD(vs1), "blue", 0, -30);
 		drawP(p2 = $pD(vs2), "red", 0, -30);
 	}
-	
 	x.drawP = function (vs, sc, hole, ox, oy) {
 		alert('drawP')
 		ox = N(ox) ? ox : 0;

@@ -283,8 +283,7 @@ function balls() {
 	}
 }
 function stage(){
-	
-	
+	 
 	cjs.S = cjs.Stage
 	$St = function () {
 		var g = G(arguments),
@@ -621,69 +620,7 @@ function containers(){
 		}
 	}
 }
-function ticker() {
-	T = cjs.Ticker
-	T.t = cjs.t = cjs.tick = function (fn) {
-		var g = G(arguments)
-		if (g.F_) {
-			if (!g.n) {
-				fn()
-			}
-			return T.on('tick', fn) // T.addEventListener? return T?
-		}
-		return g.n ? T.t('+') - T.t() :
-				Number((T.getTime(g.p ? false : true) / 1000).toFixed(2))
-	}
-	
-	T.p = function () {
-		T.setPaused(false);
-		return T
-	}
-	T.P = T.s = function () {
-		T.setPaused(true);
-		return T
-	}
-	
-	T.s = cjs.xL = function () {
-		T.removeAllEventListeners()
-	}
-	T.$ = function () {
-		T.setPaused(T.getPaused() == false ? true : false)
-		return T
-	}
-	T.i = function () {
-		//indicates the target time (in ms) between ticks
-		//default is 50 (20 fps)
-		//Note: actual time between ticks may be more than specified,
-		//  depending on CPU load. (but this property is ignored if the ticker is using the RAF timing mode)
-		return T.interval
-	}
-	T.f = function (numTicks) {
-		var g = G(arguments)  //numTicks:   optional: The number of previous ticks over which to measure the actual frames
-// / ticks per second.Defaults to the number of ticks per second.
-		if (N(numTicks)) {
-			T.setFPS(numTicks);
-			return T
-		}
-		return g.n ?
-				T.getFPS() :
-				T.getMeasuredFPS() //returns *ACTUAL* frames
-		// / ticks per second//
-		// Depending on performance,
-		// this may differ from the target frames per second.
-	}
-	T.e = function (runTimePropReturnedInsteadOfTime) {
-		//Similar to getTime(), but returns the time on the most recent tick event object.
-// returns the time or runTime property from the most recent tick event or -1.
-		T.getEventTime(runTimePropReturnedInsteadOfTime)//df: false ( If true, the runTime property will be returned instead of time  )
-	}
-	T.m = function (ticks) {
-		return T.getMeasuredTickTime(ticks)
-	} //ticks: // optional The number of previous ticks over which to measure the average time spent in a tick.Defaults to the number of ticks per second.To get only the last tick's time, pass in 1.
-	T.iP = function () {
-		return T.getPaused()
-	}
-}
+ 
 function displayObs(){
 	cjs.iDO = function (i) {
 		return O(i) && F(i.getStage)
@@ -1047,9 +984,10 @@ function displayObs(){
 			ob.cache(o.x, o.y, o.w, o.h)
 			return ob
 		}
+		
 		i.shad = function (color, x, y, blur) {
 			cjs.shad = function (color, x, y, blur) {
-				alert('cjs.shad')
+			//see *SHADOW*
 				if (color == '-') {
 					return new cjs.Shadow(null, 0, 0, 0)
 				}
@@ -1064,6 +1002,7 @@ function displayObs(){
 			this.shadow = shadow
 			return this
 		}
+		
 		i.St = i.S = i.st = function () {
 			return this.getStage()
 		}
@@ -1303,9 +1242,7 @@ __St = function () {
 	p2 = $pD(vs2)
 
 }
-
-
-
+	
 cjs.hasDim = function (bm) {
 	//!$l('cjs.hasDim')
 	return !cjs.iH(bm) && !cjs.iCt(bm)

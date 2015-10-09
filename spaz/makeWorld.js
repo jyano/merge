@@ -225,14 +225,6 @@ function mouse() {
 
 
 }
-
-
-
-
-
-
-
-
 function keys() {
 	$.kD('l', function () {
 		if ($.test) {

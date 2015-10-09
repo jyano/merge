@@ -108,13 +108,24 @@ I = function (f, i) {
 S = function (a) {
 	return _.isString(a)
 }
+
+
 $a = function (ob, met, arr) {
+
 	var g = G(arguments)
+
 	if (g.t) {
-		return g.f[g.s].apply(g.f, g.t)
+	
+		return g.f[ g.s ].apply(g.f, g.t)
 	}
+
+
 	return g.f.apply(null, g.s)
 }
+
+
+
+
 R = function (n, n2) {
 	var num
 	n = N(n) ? n : 1

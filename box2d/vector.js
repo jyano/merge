@@ -63,50 +63,32 @@ _vec = function (o, g) {
 	}
 	return v
 }
-
 V = function (x, y, x2, y2) {
-
-
 	var g = G(arguments),
 			x = g.f, y = g.s, x2 = g.t, y2 = g.fo,
-			v,o
-			
-	
-	o= {x: g.f, y: g.s, x2: g.t, y2: g.fo}
-			
+			v, o
+	o = {x: g.f, y: g.s, x2: g.t, y2: g.fo}
 	if (A(x)) {
-	
 		y2 = x[3]
 		x2 = x[2]
 		y = x[1]
 		x = x[0]
 		o = {x: g.f, y: g.s, x2: g.t, y2: g.fo}
 	}
-	
 	if (N(y2)) {
-	
 		x = (x - x2) / 2
 		y = (y - y2) / 2
 		o = {x: g.f, y: g.s, x2: g.t, y2: g.fo}
 	}
-	
-	
 	else if (O(x)) {
-		o=	obX(x)
-		x=o.x
-		y=o.y
+		o = obX(x)
+		x = o.x
+		y = o.y
 	}
-	
-	
 	o.x = N0(o.x)
 	o.y = N(o.y, o.x)
-	
-	
-	return _vec({ x: N0(x), y: N(y, x) }, g)
+	return _vec({x: N0(x), y: N(y, x)}, g)
 }
-
-
-
 function obX(x) {
 	if (b2d.iF(O(x))) {
 		x = x.B()
@@ -118,14 +100,8 @@ function obX(x) {
 		y: y
 	}
 }
-
-
-
 V0 = function () {
- }
-
- 
-
+}
 v.m = v.mult = function (num) {
 	num = N(num) ? num : 30
 	var v = _.clone(this)

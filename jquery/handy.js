@@ -853,3 +853,6 @@ $.i = $.img= function () {var g = G(arguments), o, i = new Image(), $i = $(i);
 	if (o.sr) {$i.sr(o.sr)}
 	return $i
 }
+$.pre = function () {
+	return $("<pre>").A()
+}

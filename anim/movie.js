@@ -113,8 +113,7 @@ mc.tl = function () {
 
     return this
 }
-timeline()
-function timeline(){
+ 
     cjs.tl=cjs.Tl = function(args){var tl = new cjs.Timeline()
         if(A(args)){
 
@@ -170,4 +169,4 @@ function timeline(){
 
         return this
     }
-}
+ 

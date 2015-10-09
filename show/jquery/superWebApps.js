@@ -983,4 +983,293 @@ function notSure(){
             }
         })
     }
-} 
+}
+MOVE = function () {
+	z()
+	d = $.div('b', 100, 100).A().drag()
+	f = function (num) {
+		d.toR(num)
+	}
+	setInterval(f, 100)
+}
+MOVEWARP = function () {
+	z()
+	d = $.div('b', 100, 100).A().drag()
+	f = function (num) {
+		d.toR(num)
+	}
+	setInterval(f, 100)
+}
+INPUTKEYS = function () {
+	z()
+	input = $.input().A()
+	$.span('span ').C('y').A().id('spn')
+	input.on('keypress', function (e) {
+		$('#spn').text(
+				$('#spn').text() + e.which
+		)
+	})
+			.on('keyup', function (e) {
+				if (e.which == 13) {
+					$l('enter')
+					$('body').C('*')
+				}
+			})
+			.on('keydown', function (e) {
+				var key = e.which, //why these nums?
+						result = (key > 48 && key < 57) || ( key > 96 && key < 105) || (key == 8)
+				$l('result: ' + result)
+			})
+}
+INPUTUPDOWN = function () {
+	$.input().A()
+	onTextInputKeyup(function (e) {
+		var dir = (parseInt(e.which) == 38) ? 'up'
+				: (parseInt(e.which) == 40) ? 'down'
+				: 'neither'
+		$l(dir)
+	})
+	function onTextInputKeyup(func) {
+		return $('input[type=text]').on('keyup', func)
+	}
+}
+TESTWATCHKEYS = function () {
+	z()
+	$.test = true
+	cjs.watchKeys()
+}
+TESTKEYBOARD = function () {
+	z()
+	cjs.watchKeys()
+	b2.mW({debug: true})
+	w.footListener()
+	//  p = w.addMe().controlMe('standard')
+	b = w.ba()
+	b.bindSprite('guy')
+	b.controlMe('basic')
+}
+UPPERVSLOWERLETTERS = function () {
+	//cool!
+	z()
+	i = $.input().A()
+	i.on('keydown keypress',
+			function (e) {
+				$l(e.type + ':' + String.fromCharCode(e.which) + '(' + e.which + ')')
+			})
+}
+HIDEONKEYDOWN = function () {
+	z()
+	c = $.canvas('r', 500).A()
+	c.hideOnKeyDown()
+}
+RESPONSIVEBOTPANEL = function () {
+	z()
+	$.div('red').P('f').X(0).css({
+		bottom: 0,
+		width: '50%', height: '50%',
+		'min-width': 110,
+		'max-width': 318,
+		opacity: 4
+	}).A().A(
+			$.img('me')
+	)
+	// call and then play with browser size
+}
+SLOWFADEAWAY = function self(opacity) {
+	z()
+	//makes a yellow square and black dot??
+	c = $.canvas('y', 500, 500).A()
+	c.circle(10, 10, 10)
+	opacity = U(opacity) ? 0.2 : parseFloat(opacity) - 0.001
+	c.opacity(opacity).fillStyle('red').fillRect()
+	if (opacity < 1) {
+		setTimeout(function () {
+			self(opacity)
+		}, 30)
+	}
+}
+JOYSTICK = function () {
+	W()//.P()
+	$.joystick = function () {
+		$('#left').on('mousedown mouseover touchenter', function (e) {
+			K.left = true;
+			e.preventDefault()
+		})
+		$('#left').on('mouseup mouseout touchleave', function () {
+			K.left = false
+		})
+		$('#jump').on('mousedown mouseover touchenter', function () {
+			K.up = true
+		})
+		$('#jump').on('mouseup mouseout touchleave', function () {
+			K.up = false
+		})
+		$('#right').on('mousedown mouseover touchenter', function () {
+			K.right = true
+		})
+		$('#right').on('mouseup mouseout touchleave', function () {
+			K.right = false
+		})
+	}
+	w.brick(200, 400, 80, 20)
+	w.brick(300, 200, 80, 20)
+	$.joystick()
+	p = w.p(100, 100, 'power')
+	p.r(.8)
+}
+WHYQ = function () {
+	cjs.Keys.l = cjs.Keys.left = false
+	cjs.Keys.r = cjs.Keys.right = false
+	cjs.Keys.u = cjs.Keys.up = false
+	cjs.Keys.d = cjs.Keys.down = false
+	$.kU('l', function () {
+		if ($.test) {
+			$l('left lifted')
+		}
+		cjs.Keys.l = cjs.Keys.left = false
+	})
+	$.kD('l', function () {
+		if ($.test) {
+			$l('left pressed')
+		}
+		cjs.Keys.l = cjs.Keys.left = true
+		cjs.Keys.dir = 'left'
+	})
+	$.kD('l', function () {
+		if ($.test) {
+			$l('left pressed')
+		}
+		cjs.Keys.l = cjs.Keys.left = true
+		cjs.Keys.dir = 'left'
+	})
+	$.kD('r', function () {
+		if ($.test) {
+			$l('right pressed')
+		}
+		cjs.Keys.r = cjs.Keys.right = true
+		cjs.Keys.dir = 'right'
+	})
+	$.kU('r', function () {
+		if ($.test) {
+			$l('right lifted')
+		}
+		cjs.Keys.r = cjs.Keys.right = false
+	})
+	$.kD('u', function () {
+		if ($.test) {
+			$l('up pressed')
+		}
+		cjs.Keys.u = cjs.Keys.up = true
+	})
+	$.kU('u', function () {
+		if ($.test) {
+			$l('up lifted')
+		}
+		cjs.Keys.u = cjs.Keys.up = false
+	})
+	$.kD('d', function () {
+		if ($.test) {
+			$l('down pressed')
+		}
+		cjs.Keys.d = cjs.Keys.down = true
+	})
+	$.kU('d', function () {
+		if ($.test) {
+			$l('down lifted')
+		}
+		cjs.Keys.d = cjs.Keys.down = false
+	})
+}
+
+
+//this is actually the 'lettering' plugin
+(function ($) {
+	function injector(t, splitter, klass, after) {
+		var text = t.text()
+				, a = text.split(splitter)
+				, inject = '';
+		if (a.length) {
+			$(a).each(function (i, item) {
+				inject += '<span class="' + klass + (i + 1) + '" aria-hidden="true">' + item + '</span>' + after;
+			});
+			t.attr('aria-label', text)
+					.empty()
+					.append(inject)
+		}
+	}
+	
+	var methods = {
+		init: function () {
+			return this.each(function () {
+				injector($(this), '', 'char', '');
+			});
+		},
+		words: function () {
+			return this.each(function () {
+				injector($(this), ' ', 'word', ' ');
+			});
+		},
+		lines: function () {
+			return this.each(function () {
+				var r = "eefec303079ad17405c889e092e105b0";
+				// Because it's hard to split a <br/> tag consistently across browsers,
+				// (*ahem* IE *ahem*), we replace all <br/> instances with an md5 hash
+				// (of the word "split").  If you're trying to use this plugin on that
+				// md5 hash string, it will fail because you're being ridiculous.
+				injector($(this).children("br").replaceWith(r).end(), r, 'line', '');
+			});
+		}
+	};
+	$.fn.lettering = function (method) {
+		// Method calling logic
+		if (method && methods[method]) {
+			return methods[method].apply(this, [].slice.call(arguments, 1));
+		} else if (method === 'letters' || !method) {
+			return methods.init.apply(this, [].slice.call(arguments, 0)); // always pass an array
+		}
+		$.error('Method ' + method + ' does not exist on jQuery.lettering');
+		return this;
+	};
+})(jQuery)
+LETTERING = function () {
+	z()
+	span = $.span('hello').A()
+	span.lettering() // wrap <span class="charx"/ > around each character within header
+	$spans = span.find('span')
+	$('.dropped span').css({transition: 'all 0.3s ease-in'})
+}
+FALLING = function () {
+	z()
+	//this goes in css
+	$header2 = $.span('hello').A()
+	$header2.lettering() // wrap <span class="charx"/ > around each character within header
+	$spans = $header2.find('span')
+	delay = 0
+	$header2.on('click', function () {
+		$spans.each(function () {
+			$(this).css({transitionDelay: delay + 's'}) // apply sequential trans delay to each character
+			delay += 0.1
+		})
+		$header2.addClass('dropped') // Add "dropped" class to header to apply transition
+		setTimeout(function () { // reset header code
+			$spans.each(
+					function () {
+						$(this).css({
+							transitionDelay: '0ms'
+						})
+					})
+			// set transition delay to 0 so when 'dropped' class is removed,
+			// letter appears instantly
+			$header2.removeClass('dropped') // remove class at the "end" to reset header.
+			delay = 0
+		}, 1800) // 1800 is just rough estimate of time transition will finish, not the best way
+	})
+}
+MARGINAUTO = MGA = function () {
+	z()
+	o = outer = $.d('b', 500, 500).A()
+	o.A(i = inner = $.d('r', 100, 100))
+	i.M('auto')
+	o.M('auto')
+}
+  

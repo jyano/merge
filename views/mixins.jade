@@ -19,28 +19,25 @@ mixin loadApps(app, pam)
         
         
 mixin front()
-    +S(['us', 'string', 'moment', 'superJs', 'gee', 'console', 'both', 'jq', 'jQueryPlus', 'frontOb', 'defs'])
+    +S(['us', 'string', 'moment', 'superJs', 'gee', 'nerd', 'console', 'dateTime', 'both', 'jq', 'jQueryPlus', 'frontOb', 'defs'])
     +S(['superJQuery', 'superJQuerySty', 'superJQueryAnim', 'handy', 'handyInputs', 'rules',  'superWebApps'])
     
     
 mixin canvas()
-    +S(['gClip', 'gStatic', 'gLines', 'polyD','polyAndRec', 'polyS', 'beamTree', 'polyMath', 'superContext2D','cxGpc', 'cxApps', 'superCanvas', 'canApps'])
-    
-    
+    +S(['gClip', 'gStatic', 'gLines', 'polyD','polyAndRec', 'polyS', 'beamTree', 'polyMath'])
+    +S(['superContext2D', 'contextDraw', 'cxGpc', 'cxApps', 'superCanvas','canvasDraw', 'canApps'])
     
 mixin create()
     +S(['cjs', 'cjsMC'])
-    +S(['create', 'cjsLQ', 'easel','paths', 'easelShape','bitmapFill', 'tween', 'sprite', 'movie', 'anims'])
-    +S(['createApps', 'queueApps', 'cjsAnimApps','mcApps','matrixApps' ,'easelGpc'])
-    
+    +S(['create', 'ticker', 'cjsText', 'cjsLQ', 'easel','paths', 'easelShape','bitmapFill', 'tween', 'sprite', 'movie', 'anims'])
+    +S(['createApps', 'queueApps',  'mcApps','matrixApps'  ])
     
 mixin box2d()
-    +S([ 'bx', 'sep'])
-    +S(['box','vector','worldQuery', 'boxBods', 'boxK'])
-    +S(['coll', 'joint', 'co', 'geo','geoDif', 'geoMeet'])
+    +S([ 'bx', 'sep', 'preBox'])
+    +S(['box', 'debug', 'vector','worldQuery', 'bodyDef', 'boxBods', 'boxCx', 'boxFxts'])
+    +S(['boxKlass', 'boxShape', 'coll', 'collHandle',  'joint', 'jointRev', 'jointMore', 'cont', 'conts','contWorld', 'geo','geoDif', 'geoUni'])
     +S(['boxApps', 'bush'])
-
-
+    
 mixin superWeb()
     +front()
     +canvas()

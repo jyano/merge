@@ -676,193 +676,65 @@ function tran(){
 		return this
 	}
 }
-function text() {
-	cjs.iT = function (t) {
-		if (O(t)) {
-			return (t.textBaseline)
-		}
+function text() { 
+}
+
+
+$S.styCan = {canvas: {outline: 'red 10px dashed'}}
+cjs.C = cjs.Container
+cjs.DO = cjs.DisplayObject
+dO = cjs.DO.prototype
+cjs.DO.prototype.sTf = cjs.DO.prototype.setTransform
+dO.nW = function () {
+	return this.nominalBounds.width}
+	$.c2 = function (w, y) {
+		var c = $.c(w || 960, h || 200)
+		c.id('canvas')
+		c.k('canvas can')
+		return c
 	}
-	$T = function (a, f, c, x, y) {
-		var t
-		if (N(f)) {
-			f = String(f) + "px Arial"
+	function alpha() {
+		i.flash = function () {
+			var i = this
+			i.al(0)
+			$.in(.3, function () {
+				i.al(1)
+			})
+			return i
 		}
-		if (S(c)) {
-			c = oO('c', c)
-		}
-		t = new cjs.Text(a, f, c)
-		if (O(x)) {
-			if (F(x.cen)) {
-				x = x.cen()
+		i.rZero = function (a) {
+			var i = this, g = G(arguments), x = i.W() / 2, y = i.H() / 2
+			if (g.p) {
+				i.rX(0, '+').rY(0, '+')
+			}//i.X(a, i.regX()-a, '+')
+			else {
+				i.rXY(0, 0)
 			}
-			y = x.y
-			x = x.x
+			return i
+		}//
+		tw.Plugin = function (a, b) {
+			var g = G(arguments), a = g[0], b = g[1]
+			if (U(a)) {
+				return g.p ? w.pluginData.data : w.pluginData
+			}
+			if (U(b)) {
+				w.pluginData = a;
+				return w
+			}
+			w.pluginData[a] = b
+			return w
 		}
-		if (N(x)) {
-			t.X(x)
-		}
-		if (N(y)) {
-			t.Y(y)
-		}
-		return t
-	}
-	$T = function (a, b, c, d, e) {
-		var g = G(arguments), o, t
-		return new cjs.Text(a, b, c, d, e)
-		o = g.O ? g.f :
-		{t: g.f, f: g.s, c: g.t, x: g[3], y: g[4]}
-		o.f = N(o.f) ? o.f + 'px Arial' : o.f
-		o.f = o.f || '50px Arial'
-		o.c = o.c || 'y'
-		o.x = N(o.x, 600)
-		o.y = N(o.y, 100)
-		t = new cjs.Text(o.t, o.f, o.c)
-		t.XY(o.x, o.y).drag()
-		if (g.n) {
-			t.regX = t.W() / 2
-		}
-		if (g.p) {
-			t.bl('alphabetic')
-		}
-		return t.bl('middle')
-	}
-	cjs.T = cjs.Tx = function (text, font, color, x, y) {
-		x = N(x) ? x : 600
-		y = N(y) ? y : 100
-//var g=G(arguments); if(g.N){text.bl( 'alphabetic' )}   //if(g.p){ TR(text) }
-		if (N(font)) {
-			font = font + 'px Arial'
-		}
-		font = font || '50px Arial'
-		color = color || 'y'
-		textOb = new createjs.Text(text, font, oO('c', color))
-		textOb.regX = textOb.W() / 2
-		textOb.XY(x, y)
-		return textOb
-	}
-	cjs.niceText = function (text, x, y) {
-		var t = cjs.text(text, 'yellow', '40px Arial')
-		if (N(x)) {
-			t.XY(x, y)
-		}
-		return t.drag()
-	}
-	t.lW = _.gS('linewidth')
-	t.lH = _.gS('lineHeight') //o.lineHeight = this.lineHeight || this.getMeasuredLineHeight();
-	t.lWH = function (w, h) {
-		return this.lW(w).lH(N(h, w))
 	}
 	
-	
-	t.tA = function(a){
-		$l('tA')
-		if(U(a)){
+	function uselessWithExample() {
+		h.bC = function (o) {
+			var h = this;
+			return h.bf(o, function (h1) {
+				h.dc(h1)
+			})
+		}//uselsess!
+		HBC = function () {
+			st = $St().t()
+			st.h(300, 200).bC('me')
 		}
-		this.textAlign = (a)
-		return this
 	}
-	
-	
-	t.bl = function (bl) {
-		var g = G(arguments)
-		if (g.p) {
-			bl = 'bottom'
-		}
-		if (g.n) {
-			bl = 'top'
-		}
-		if (bl === '') {
-			bl = 'middle'
-		}
-		if (U(bl)) {
-			return this.textBaseline
-		}
-		this.textBaseline = bl
-		return this
-	}
-	t.ol = _.gS(t, 'outline')
-	t.mW = function () {
-		return this.getMeasuredWidth()
-	}
-	t.lineH = t.lH = function (lH) {
-		if (U(lH)) {
-			return this.lineHeight
-		}
-		this.lineHeight = lH
-		return this
-	}
-	t.lineW = t.lW = function (lW) {
-		if (U(lW)) {
-			return this.lineWidth
-		}
-		this.lineWidth = lW
-		return this
-	}
-	t.lWH = function (w, h) {
-		if (U(h)) {
-			h = w
-		}
-		;
-		return this.lW(w).lH(h)
-	}
-	t.align = t.textA = t.tA = function (textAlign) {
-		if (U(textAlign)) {
-			return this.textAlign
-		}
-		this.textAlign = textAlign
-		return this
-	}
-	t.baseline = t.textB = t.tB = function (textBaseline) {
-		if (U(textBaseline)) {
-			return this.textBaseline
-		}
-		this.textBaseline = textBaseline
-		return this
-	}
-	t.outL = t.oL = function (outline) {
-		if (U(outline)) {
-			return this.outline
-		}
-		this.outline = outline
-		return this
-	}
-}
-function alpha(){
-	i.flash = function () {
-		var i = this
-		i.al(0)
-		$.in(.3, function () {
-			i.al(1)
-		})
-		return i
-	}
-	i.rZero = function (a) {
-		var i = this, g = G(arguments), x = i.W() / 2, y = i.H() / 2
-		if (g.p) {
-			i.rX(0, '+').rY(0, '+')
-		}//i.X(a, i.regX()-a, '+')
-		else {
-			i.rXY(0, 0)
-		}
-		return i
-	}//
-	tw.Plugin =function(a,b){
-		var g=G(arguments),a=g[0],b=g[1]
-		if(U(a)){ return g.p? w.pluginData.data: w.pluginData}
-		if(U(b)){ w.pluginData=a;return w}
-		w.pluginData[a]=b
-		return w
-	}
-}
-function uselessWithExample() {
-	h.bC = function (o) {
-		var h = this;
-		return h.bf(o, function (h1) {
-			h.dc(h1)
-		})
-	}//uselsess!
-	HBC = function () {
-		st = $St().t()
-		st.h(300, 200).bC('me')
-	}
-}

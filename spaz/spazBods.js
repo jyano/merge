@@ -1,6 +1,5 @@
- 
-b = b2Body.prototype
-
+ $l('spazBods')
+b2d.p()
 b.__f = function (f) {
 	var b = this, g = G(arguments)
 	if (g.u) {
@@ -147,20 +146,7 @@ b.cir = function () {
 		return cirDfs(o)
 	}
 }
-b.dot = function () {
-	var b = this, w = b.W(), g = G(arguments)
-	g.N_ ? (
-			g.p ?
-					T.t(function () {
-						b.dot(g.f, g.s)
-					}) :
-					w.d(b.wP(g.f, g.s)))
-			:
-			w.d(g.f || 'y', g.p ? b.wC() : b)
-	return b
-}
- 
-	b.bS = function () {
+ b.bS = function () {
 		var b = this, w = b.W(), g = G(arguments), o, i, a, sc
 		//pass it a display object (which i guess implies its already loaded)
 		o = cjs.iDO(g.f) ? {i: g.f, bm: g.f} :
@@ -188,7 +174,7 @@ b.dot = function () {
 		}
 		return this
 	}
-	b.Bm = function (iS, x, y, sX, sY, rt) {
+ b.Bm = function (iS, x, y, sX, sY, rt) {
 		var b = this, w = b.W(), g = G(arguments);
 		b.gx = b.gx || w.gx.ct()
 		if (S(iS)) {

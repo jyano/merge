@@ -1,7 +1,4 @@
 $load('gPoly','draw','plus','dif','verts','clone','reg','polyCir','terrGame')
-
-
-
 b2d.vs = function () {var g = G(arguments)
 	//all this does is to 'scale down' a series of points
 	//can pass in pts naked OR in an array
@@ -12,10 +9,6 @@ b2d.vs = function () {var g = G(arguments)
 	) //passed an array [[],[],[]]
 	//b2d.div <- function div(v){return V(v).div()}	
 }
-
- 
-
-
 b2d.ol = b2d.overlapping = function (b1, b2) {
 	
 	alert('b2d.ol overlapping')
@@ -25,7 +18,6 @@ b2d.ol = b2d.overlapping = function (b1, b2) {
 	return !(_.isEqual(p.vs(), v1.vs()) ||
 	_.isEqual(p.vs(), v2.vs()))
 }
-
 ps.vs = function () {
 	var p = this,
 			vs = []
@@ -34,9 +26,6 @@ ps.vs = function () {
 	})
 	return vs
 }
-
-
-
 b2d.sub = function (vs, p) {
 	return _.m(vs, function (v) {
 		return V(v).sub(p)
@@ -45,8 +34,6 @@ b2d.sub = function (vs, p) {
 b.wV = function () {
 	$l('b.wV')
 	return this.pD().vs()}
-
-
 b.rV = function () {
 	
 	$l('b.rV')
@@ -60,8 +47,6 @@ b.rV = function () {
 	return vs
 	//this returns [V,V,V...]
 } //b.vs????
-
-
 function gPoly(){
 	
 	b2d.iG = b2d.iGP = b2d.isGPoly = function (a) {
@@ -127,7 +112,6 @@ function gPoly(){
 	
 	
 }
-
 function draw() {
 	w.pDraw = function (p, x, y) {
 		var w = this,
@@ -167,119 +151,6 @@ function draw() {
 		return h
 	}
 }
-function plus() {
-	pD.plus = function (x, y) {
-		return M.p(_.m(this.vs(), function (v) {
-			return V(v).add(x || 0, y || 0)
-		}))
-	}
-	$uni = UNI = b2d.u = function me() {
-		$l('UNI')
-		var g = G(arguments), p
-		if (g.A) {
-			return g.ap(UNI)
-			//return $a(UNI,g.f)
-		}
-		p = M.p(g.f)
-		g.eR(function (pol) {
-			p = p.U(M.p(pol))
-		})
-		return p
-	}
-	b.uni = function () {
-		var b = this, g = G(arguments), n, fs
-		fs = b.fs()
-		if (g.u) {
-			return g.p ? UNI(fs).reg(b) : b2d.u(fs)
-		}
-		//unite with fixt or first-fixt(of body)
-		if (O(g.f) && !F(g.s)) {
-			return b.f().uni(b2d.tF(g.f))
-		}
-	}
-	f.uni = function () {
-		var f = this,
-				b = f.B(), g = G(arguments), p, n
-		//can handle a fixt OR a body!
-		//-> [f]
-		if (g.A) {
-			return $a(f, 'uni', g.f)
-		}
-		p = M.p(f).U(g.f)
-		g.eR(function (f) {
-			p = p.U(f)
-		})
-		return p.reg(b)
-		//n= p.getNumInnerPoly()
-		//to do now!
-		//if it receives a body, i should uni all thatbody's fixs against it
-		//dont worry about rebuilding the body first? hmm....
-	}
-	b.sum = function (b1) {
-		return $uni(this, b1).vs(this, '-')
-	}
-	pD.U = function () {
-		var pD = this, g = G(arguments),
-				uP
-		if (b2d.iB(g[0])) {
-			uP = pD.U(g[0].f())
-			_.eR(g[0].fs(), function (f) {
-				uP = pD.U(f)
-			})
-			return uP
-		}
-		return pD.union(M.p(g[0]))
-	}
-	
-	w.polU = function (x, y, p1, p2) {
-		
-		return this.pol(x, y, M.p(p1).U(p2))
-	}
-	
-	
-	w.polS = function () {
-		alert('you found w.polS');
-		var w = this, g = G(arguments), b, o
-		if (g.A) {
-			return w.pol.apply(w, g.f)
-		}
-		if (O(g.f) && O(g.s)) {
-			g.e(function (g) {
-				w.pol(g).stat()
-			})
-			return w
-		}
-		o = O(g.f) ? g.f : N(g.f) ? {x: g.f, y: g[1], p: g[2]} : {p: g.f}
-		o.x = N(o.x, w.hW);
-		o.y = N(o.y, w.hH)
-		b = w.D(o.x, o.y)
-		if (!g.p) {
-			return b.pol(o.p)
-		}
-		if (o.rg) {
-			o.p.ps(o.rg, function (p) {
-				b.pol(o)
-			})
-		}
-		else {
-			o.p.ps(function (p) {
-				b.pol(o)
-			})
-		}
-		return b.f()
-	}
-	b2d.add = function (vs, p) {
-		return _.m(vs, function (v) {
-			return V(v).add(p)
-		})
-	}
-	b2d.glu = function (a, b) {
-		return a.glu(b)
-	}
-}
-
- 
-
 
 function clone() {
 	b.clone = function (x, y, a) {
@@ -353,10 +224,6 @@ function reg(){
 	
 	
 }
-
-
-
-
 function polyCir() {
 	b2d.pC = function () {
 		var g = G(arguments), //b2d.polyCirc =
@@ -429,23 +296,8 @@ function polyCir() {
 		return g.m ? M.p(pC) : pC
 	}
 }
-function _pre() {
-	b2d.recV = function (x, y, w, h) {
-		var hW = w / 2, hH = h / 2
-		return [[x - hW, y - hH], [x + hW, y - hH],
-			[x + hW, y + hH], [x - hW, y + hH]]
-	}
-	b2d.tF = function (f) {
-		return b2d.iB(f) ? f.f() : f
-	}
-	
-	gpc = gpcas
-	gpc.g = gpc.geometry
-	ps = gpc.g.PolySimple.prototype
-	pD = gpc.g.PolyDefault.prototype
-	b2d.p()
-	h = cjs.Shape.prototype
-}
+
+
 function terrGame() {
 	w.md1 = function (fn) {
 		return this.md(function (a, b, c) {
@@ -488,85 +340,6 @@ function terrGame() {
 		})
 	}
 }
-function later() {
-	function oldDIf() {
-		b2d.hasAtLeastOnePolyX = b2d.hVSource = function (gP) {
-			// if gP is a dP, then m_List is an array of (its inner) polySimples
-			// [polySimp]
-			//get just gets the index from the same (its own) array, hurray :)
-			//as a bool tool, it checks to make sure that it has at least one polygon
-			return gP.hasAtLeastOnePoly()
-		}
-		pD.minus = function (x, y) {
-			$l('pD.minus')
-			return M.p(
-					_.m(this.vs(), function (v) {
-						return V(v).sub(x || 0, y || 0)
-					})
-			)
-		}
-		$dif = DIF = function () {
-			$l('$dif DIF')
-			$l('DIF')//not each of the ps?
-			var g = G(arguments),
-					p = M.p(g.f)
-			g.eR(function (p1) {
-				p = p.D(p1)
-			})
-			return p
-		}
-	}
-	f.dots = function () {
-		var f = this;
-		b2d.pD = b2d.polyDot = function (vs) {
-			var t = 0
-			vs = A(vs) ? vs : vs.wV
-			w.dot('g', V(_.f(vs)))
-			_.e(vs,
-					function (v) {
-						$.in(t, function () {
-							w.dot(V(v))
-						}, t)
-						t += .1
-					}
-			)
-			w.dot('r', V(_.l(vs)))
-		}
-		b2d.polyDot(f.wV())
-		return f
-	}
-	pD.dot = function () {
-		var p = this
-		p.vs(function (v) {
-			w.dot('o', v)
-		})
-		return p
-	}
-	pD.dot = function (w) {
-		var pD = this
-		pD.vs(function (v) {
-			w.dot('w', v[0], v[1])
-		})
-		return pD
-	}
-	b2d.miniX = function () {
-		iF = b2d.iF;
-		iB = b2d.iB;
-		iP = b2d.iGP
-		pD = function () {
-			return new PolyDefault()
-		}
-	}
-	w.vDot = function (d) {
-		var w = this
-		w.dot('g', _.f(d))
-		_.eR(d, function (v) {
-			w.dot(v)
-		})
-		w.dot('r', _.l(d))
-		return d
-	}
-}
 
 b.ps = function (fn) {
 	alert('b.ps sucks')
@@ -589,3 +362,15 @@ w.ps = function (x, y, p) {
 	})
 }
 
+f.pol = function (o) {return _.x(o || {}, {v: this.vs()})}
+
+function _pre() {
+
+
+	gpc = gpcas
+	gpc.g = gpc.geometry
+	ps = gpc.g.PolySimple.prototype
+	pD = gpc.g.PolyDefault.prototype
+	b2d.p()
+	h = cjs.Shape.prototype
+}

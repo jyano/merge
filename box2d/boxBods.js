@@ -1,131 +1,4 @@
-$load('bodDef', 'obvious', 'wake', 'fixRot','fixDef','fixts','bods')
-pH.vs = pH.vertsx = function () {
-    var pH = this
-    return _.m(pH.m_vertices, function (v) {
-        return [v.x * 30, v.y * 30]
-    })
-}
-pH.arr = function (v) {
-    var p = this
-    v = _.m(v, function (v) {
-        return V(v).d()
-    })
-    p.SetAsArray(v, v.length)
-    return p
-}
-pH._box = function () {
-    var pH = this
-    pH.SetAsOrientedBox.apply(this, arguments)
-    return pH
-}
-pH.box = function () {
-    var pH = this, g = G(arguments),
-        o = g.O ? g.f :
-            _.x({w: g.f, h: g.s}, O(g.t) ?
-            {x: V(g.t).x, y: V(g.t).y, a: g[3]} :
-            {x: g.t, y: g[3], a: g[4]})
-    o.x = N(o.x, 0)
-    o.y = N(o.y, 0)
-    o.a = N(o.a, 0)
-    o.w = N(o.w, 50)
-    o.h = N(o.h, 50)
-    return pH._box(o.w / 60, o.h / 60, V(o.x, o.y, '-'), M.tR(o.a))
-}
-pH.setAsVec = function (v, sc) {
-    var pH = this //used by SepLib
-    pH.SetAsVector(_.m(v, function (v) {
-        return V(v).div(N(sc, 30))
-    }))
-    return pH
-}
-f.N = f.next = function () {
-	return this.GetNext()
-}
-
-
-
-f.sen = function (s) {
-	var f = this
-	if (U(s)) {
-		return f.IsSensor()
-	}
-	if (s == '/') {
-		s = f.SetSensor(!f.IsSensor())
-	}
-	else {
-		f.SetSensor(s ? true : false)
-	}
-	return f
-}
-f.r = f.bo = f.rest = function (rest) {
-	if (U(rest)) {
-		return this.GetRestitution()
-	}
-	this.SetRestitution(rest);
-	return this
-}
-f.rot = function (rot, g) {
-	return this.B().rot(rot, g)
-}
-f.fr = f.f = f.fric = function (fric) {
-	if (U(fric)) {
-		return this.GetFriction()
-	}
-	this.SetFriction(fric);
-	return this
-}
-f.d = f.den = function (den) {
-	if (U(den)) {
-		return this.GetDensity()
-	}
-	this.SetDensity(den)
-	this.body().ResetMassData()
-	return this
-}
-f.lV = function () {
-	var f = this, b = f.B(), g = G(arguments)
-	b.lV.apply(b, g)
-	return f
-}
-f.stat = function () {
-	var b = this.B();
-	b.stat.apply(b, arguments);
-	return this
-}
-f.dyn = function () {
-	var b = this.B();
-	b.dyn.apply(b, arguments);
-	return this
-}
-f.kin = function () {
-	var b = this.B();
-	b.kin.apply(b, arguments);
-	return this
-}
-f.B = f.body = function () {
-	return this.GetBody()
-}
-f.W = function () {
-	return this.B().W()
-}
-f.iS = function () {
-	return this.B().iS()
-}
-f.iD = function () {
-	return this.B().iD()
-}
-f.iK = function () {
-	return this.B().iK()
-}
-f.isBType = f.isType = function (t) {
-	var f = this
-	if (t) {
-		return f.bType() == t
-	}
-}
-f.bType = function () {
-	return this.B().GetType()
-}
+ 
 b.n = b.num = b.count = function () {
 	return this.m_fixtureCount
 }
@@ -176,8 +49,6 @@ b.XY = function (x, y) {
 	this.SetPosition(newPos)
 	return this
 }
-
-
 b.fr = b.fric = function (fr) {
 	var b = this
 	if (U(fr)) {
@@ -188,8 +59,6 @@ b.fr = b.fric = function (fr) {
 	})
 	return b
 }
-
-
 b.sen = function (s) {
 	var b = this
 	b.fs(function (f) {
@@ -388,371 +257,151 @@ b.ap = function (met, g) {
 	var b = this;
 	return b[met].apply(b, g)
 }
-
-
-
-
-
-function fixts(){
-f.cen=  f.mid= f.cent=f.center=function(){
-    //center point of its BOUNDING BOX
-    var f=this,b= f.B(),w= b.W(), g=G(arguments),
-        bd=f.GetAABB(),
-        v=M.lC(bd.lowerBound, bd.upperBound).mult()
-    if(g.p){w.dot(v)}
-    return  v
+b.fixedRot = b.sFR = b.fR = function (bool) {
+	this.SetFixedRotation(bool ? true : false)
+	return this
 }
-f.pX=function(){return this.pos().x}
-f.pY=function(){return this.pos().y}
-f.rad = function(){return this.H().m_radius*30}
-f.H=  function(h){ //should let user specify dimensions of shape, // not just have to pass formed shape in
-    if(U(h)) {return this.GetShape()}
-    this.m_shape = h
-    // it DOES WORK! // but is this much different than // just replacing the fixt?
-    return this}
-f.iC= function(){ return this.H() && this.H().m_type == 0 }
-f.hT= f.hType=function(){return this.H().m_type}
-f.pos = function(){// for circs
-    return V(this.H().m_p.x * 30, this.H().m_p.y * 30)
+b.fR = b.fixRot = function () {
+	return this.fixedRot(true)
 }
-f.$=function(fn){var f=this, b=f.B(), w=b.W()
-    w.$(function(o){
-        w.q(o.x, o.y, function(fx){
-            if(f==fx){  _.b(fn,f)(o) }
-        })
-    })
-    return f
+b.FR = function () {
+	return this.fixedRot(false)
 }
-f.kill   = function () {
-    var f=this,b= f.B(),w= b.W()
-    if (!f) {return}
-    if(w._fPreKill){w._fPreKill(f)}
-    if(b){b.rmF(f)}
-}//= f.xx = f.remove
-f.killB=  f.kB= f.xB = f.xX = f.XX = function () { if (this && this.B()) {
-    this.B().kill() }}
+b.mid = function () {
+	var b = this, w = b.W()
+	return b.XY(
+			w.w / 2,
+			w.h / 2
+	)
 }
-function bods(){
-b.mid=function(){var b=this, w= b.W()
-    return b.XY(
-        w.w/2,
-        w.h/2
-    )
+b.tf = b.transform = function (tf) {
+	var b = this
+	if (U(tf)) {
+		return b.GetTransform()
+	}
+	b.SetTransform(tf)
+	return b
 }
-b.tf =b.transform=function(tf){var b=this
-    if(U(tf)){return b.GetTransform() }
-    b.SetTransform(tf)
-    return b}
-b.H = function () {return this.f().H()}
-b.fs=b.e=function(fn){var b=this,  g=G(arguments),
-    fl=b.f(), fn = g.f, arr = []
-
-    while (fl) {
-        arr.push(fl);
-        fl = fl.GetNext()
-    }
-
-    if(N(fn)){return arr[fn]}
-    if(F(fn)){ _.e(arr, fn); return b }
-
-    if(b2d.iB(fn)){
-
-        b.fs(function(f){
-            fn.pol(f)
-        })
-
-        return fn
-    }
-
-    return arr
-
-    /*
-     if (g.p) {//order by biggest
-     arr = arr.sort(function (a, b) {return b.area() - a.area() }) }
-     if (g.n) {//order by smallest
-     arr = arr.sort(function (a, b) {return a.area() - b.area()}) }
-     */
-
+b.H = function () {
+	return this.f().H()
 }
-b.wC=   function(){var b=this,
-    w=b.W(),
-    g=G(arguments)
-    //gives {x,y}, but of its CENTER-OF-MASS
-
-    if(g.p){return b.XY(w.hW, w.hH) }
-
-    return b.GetWorldCenter().m()
+b.fs = b.e = function (fn) {
+	var b = this, g = G(arguments),
+			fl = b.f(), fn = g.f, arr = []
+	while (fl) {
+		arr.push(fl);
+		fl = fl.GetNext()
+	}
+	if (N(fn)) {
+		return arr[fn]
+	}
+	if (F(fn)) {
+		_.e(arr, fn);
+		return b
+	}
+	if (b2d.iB(fn)) {
+		b.fs(function (f) {
+			fn.pol(f)
+		})
+		return fn
+	}
+	return arr
+	/*
+	 if (g.p) {//order by biggest
+	 arr = arr.sort(function (a, b) {return b.area() - a.area() }) }
+	 if (g.n) {//order by smallest
+	 arr = arr.sort(function (a, b) {return a.area() - b.area()}) }
+	 */
 }
-b.lC=   function(){var b=this,w=b.W(),g=G(arguments)
-    //gives {x,y}, but of its CENTER-OF-MASS
-    if(g.p){return b.XY(w.hW, w.hH) }
-    return b.GetLocalCenter().m()
+b.wC = function () {
+	var b = this,
+			w = b.W(),
+			g = G(arguments)
+	//gives {x,y}, but of its CENTER-OF-MASS
+	if (g.p) {
+		return b.XY(w.hW, w.hH)
+	}
+	return b.GetWorldCenter().m()
 }
-b.rmF =    function (f) {
-    if(f){this.DestroyFixture(f)}
-    else {this.fs(function (f) {this.rmF(f)  })}
-    return this
+b.lC = function () {
+	var b = this, w = b.W(), g = G(arguments)
+	//gives {x,y}, but of its CENTER-OF-MASS
+	if (g.p) {
+		return b.XY(w.hW, w.hH)
+	}
+	return b.GetLocalCenter().m()
+}
+b.rmF = function (f) {
+	if (f) {
+		this.DestroyFixture(f)
+	}
+	else {
+		this.fs(function (f) {
+			this.rmF(f)
+		})
+	}
+	return this
 } //= b.xF=  b.Xx=  b.Xf =b.E =  b.clr = b.empty = b.clear
-b._r=function(n){n=N(n,100)
-    h = this.f().H()
-    if (h.SetRadius) h.SetRadius(n/30)
+b._r = function (n) {
+	n = N(n, 100)
+	h = this.f().H()
+	if (h.SetRadius) h.SetRadius(n / 30)
 }
-b.hit= b.h=function (x, y, dot) {
-    var b = this,
-        w = b.W(),
-        g=G(arguments),hit=false
-    if (g.p) {w.dot(x, y)}
-    b.fs(function (f) {
-        if (f.hit(x, y)) { hit = true }
-    })
-    return hit
+b.hit = b.h = function (x, y, dot) {
+	var b = this,
+			w = b.W(),
+			g = G(arguments), hit = false
+	if (g.p) {
+		w.dot(x, y)
+	}
+	b.fs(function (f) {
+		if (f.hit(x, y)) {
+			hit = true
+		}
+	})
+	return hit
 }
-b.$=function(fn){var b=this, w=b.W()
-
-    w.$(function(o){
-
-        w.q(o.x, o.y, function(f){
-            if(f.of(b)){ _.b(fn,f)(o) }
-        })
-    })
-
-    return b
-
+b.$ = function (fn) {
+	var b = this, w = b.W()
+	w.$(function (o) {
+		w.q(o.x, o.y, function (f) {
+			if (f.of(b)) {
+				_.b(fn, f)(o)
+			}
+		})
+	})
+	return b
 }
-b.$$=function(fn){var b=this, w=b.W()
-    w.$$(function(o){w.q(o.x, o.y, function(f){
-
-        if(f.of(b)){ _.b(fn, f)(o)}
-    })
-    })
-    return b
+b.$$ = function (fn) {
+	var b = this, w = b.W()
+	w.$$(function (o) {
+		w.q(o.x, o.y, function (f) {
+			if (f.of(b)) {
+				_.b(fn, f)(o)
+			}
+		})
+	})
+	return b
 }
 b.kill = b.xx = b.destroy = function () {
-    var b = this, w = b.W()
-    b.SetActive(false)
-    if (w._preKill) {w._preKill(b)}
-    b.W().DestroyBody(b)
-    return b.pos()
+	var b = this, w = b.W()
+	b.SetActive(false)
+	if (w._preKill) {
+		w._preKill(b)
+	}
+	b.W().DestroyBody(b)
+	return b.pos()
 }
+b.wake = b.wakeUp = function () {
+	this.SetAwake(true);
+	return this
 }
-
-function fixDef() {
-    fD.H = function (h) {
-        if (U(h)) {
-            return this.shape
-        }
-        this.shape = h
-        return this
-    }
-    fD.vrt = fD.verts = function () {
-
-        var shape = this.shape,
-
-            verts = shape.m_vertices,
-
-            verts = [
-                verts[0].mult(),
-                verts[1].mult(),
-                verts[2].mult(),
-                verts[3].mult()]
-
-        return $l(verts)
-    }
-    fD.box = fD.sAB = function (a, b, p, A) {
-        if (!p) {
-            this.shape.SetAsBox(a / 30, b / 30)
-        }
-        else {
-            this.shape.SetAsOrientedBox(a / 30, b / 30, p, A)
-        }
-        return this
-    }
-    fD.fr = fD.f = fD.frc = fD.fric = function (f) {
-        var fD = this
-        if (U(f)) {
-            return this.friction
-        }
-        fD.friction = f
-        return fD
-    }
-    fD.d = fD.den = function (d) {
-        var fD = this
-        if (U(d)) {
-            return fD.density
-        }
-        fD.density = d;
-        return fD
-    }
-    fD.r = fD.bo = fD.rst = fD.rest = function (r) {
-        var fD = this
-        if (U(r)) {
-            return fD.restitution
-        }
-        fD.restitution = r;
-        return fD
-    }
-    fD.sen = fD.sensor = fD.iS = function (isSensor) {
-        if (U(isSensor)) {
-            return this.isSensor
-        }
-        this.isSensor = isSensor ? true : false
-        return this
-    }
-    fD.K =   function (k) {var fD=this
-        if (U(clas)) {return fD.getClass()}
-        fD.classes = fD.classes || []
-        fD.classes.push(clas)
-        return fD
-    }
-    fD.getClasses = fD.getClass = function () {var g = G(arguments), fD=this, classes
-        fD._K = fD._K|| []
-        ks = fD.classes.join(' ')
-        if (g.p) {ks += ' : ' + fD.body().getClasses()}
-        return ks}
-    fD.D = fD.data = function (data) {
-        if (U(data)) {return this.userData}
-        this.userData = data;
-        return this
-    }
-
+b.awake = function () {
+	var g = G(arguments)
+	this.SetAwake(g.n ? false : true)
+	return this
 }
-function bodDef() {
-    bD.XY = bD.p = bD.ps = bD.xy = function (x, y) {
-        var bD = this, g = G(arguments), p
-        if (g.u) {
-            return bD.position.m()
-        }
-        p = V(g.f, g.s, '-')
-        bD.position.Set(p.x, p.y)
-        return bD
-    }
-    bD.X = function (x) {
-        var bD = this, p = bD.XY()
-        if (U(x)) {
-            return p.x
-        }
-        return bD.XY(x, p.y)
-    }
-    bD.Y = function (y) {
-        var bD = this, p = bD.XY()
-        if (U(y)) {
-            return p.y
-        }
-        return bD.XY(p.x, y)
-    }
-    bD.bul = bD.bull = bD.fR = function (iBu) {
-        var bD = this
-        if (U(iBu)) {
-            return bD.bullet
-        }
-        bD.bullet = iBu;
-        return bD
-    }
-    bD.inertia = function (inertia) {
-        if (U(inertia)) {
-            return this.insertiaScale
-        }
-        this.insertiaScale = inertia;
-        return this
-    }
-    bD.T = bD.typ = bD.kind = function (type) {
-        if (U(type)) {
-            return this.type
-        }
-        this.type = type
-        return this
-    }
-    bD.dyn = function () {
-        return this.T(2)
-    }
-    bD.stat = function () {
-        return this.T(0)
-    }
-    bD.kin = function () {
-        return this.T(1)
-    }
-    bD.act = bD.setActive = function (isActive) {
-        this.active = isActive ? true : false
-        return this
-    }
-    bD.sleepy = bD.aS = function (canSleep) {
-        this.allowSleep = canSleep ? true : false
-        return this
-    }
-    bD.lV = function (v) {
-        var bD = this
-        if (U(v)) {
-            return pD.linearVelocity
-        }
-        pD.linearVelocity = v
-        return pD
-    }
-    bD.aV = function (vel) {
-        if (U(a)) {
-            return this.angularVelocity
-        }
-
-
-        this.angularVelocity = vel
-        return this
-    }
-    bD.rt = bD.rot = bD.ang = function (ang) {
-        //The world angle of the body in radians.
-//should fix
-//use ang for box and rot for cjs?
-        if (U(ang)) {
-            return d.angle
-        }
-        this.angle = ang;
-        return this
-    }
-    bD.fixedRot = bD.fR = function (isFixed) {
-        if (U(isFixed)) {
-            return this.fixedRotation
-        }
-        this.fixedRotation = isFixed;
-        return this
-    }
-    bD.lD = function (dm) {
-        var bD = this
-        if (U(dm)) {
-            return bD.linearDamping
-        }
-        bD.linearDamping = dm
-        return bD
-    }
-    bD.aD = function (damp) {
-        if (U(damp)) {
-            return this.angularDamping
-        }
-        this.angularDamping = damp;
-        return this
-    }
-} 
-
-function wake() {
-    b.wake = b.wakeUp = function () {
-        this.SetAwake(true);
-        return this
-    }
-    b.awake = function () {
-        var g = G(arguments)
-        this.SetAwake(g.n ? false : true)
-        return this
-    }
-    b.sleep = function () {
-        this.SetAwake(false);
-        return this
-    }
-}
-function fixRot(){
-    b.fixedRot= b.sFR= b.fR=function(bool){
-        this.SetFixedRotation(bool? true: false)
-        return this}
-    b.fR=b.fixRot=function(){ return this.fixedRot(true) }
-    b.FR=function(){
-        return this.fixedRot(false)
-    }}
-function _pre() {
-	p = b
+b.sleep = function () {
+	this.SetAwake(false);
+	return this
 }

@@ -82,7 +82,10 @@ h.ef = function () {
 	gx.f()
 	return h
 }
-function circle() {
+
+
+
+function curve(){
 	h._dc = function () {
 		var h = this, gx = h.graphics, g = G(arguments),
 				o = g.O ? g.f :
@@ -93,32 +96,41 @@ function circle() {
 		gx.dc(o.x, o.y, o.r)
 		return h
 	}
+	
+	
+	
 	h.dc = function () {
 		var h = this, gx = h.graphics,
 				g = G(arguments), o
 		if (g.A) {
 			return $a(h, 'dc', g.f)
 		}
+		
 		if (g.OO_) {
-			return h.cirs(g)
+		
+			
+			//$l('returning h.cirs(g)' )
+				return h.cirs.apply(h, g)
 		}
+		
+		
 		o = g.O ? g.f :
 				N(g.t) ? {x: g.f, y: g.s, r: g.t, c: g[3], C: g[4], l: g[5]} :
 						N(g.s) ? {x: g.f, y: g.s, c: g.t, C: g[3], l: g[2]} :
 								N(g.f) ? {r: g.f, c: g.s, C: g.t, l: g[3]} : {c: g.f, C: g.s, l: g.t}
-		if (o.c) {
-			h.c(o.c)
-		}
-		if (o.C) {
-			h.C(o.C)
-		}
-		if (N(o.l)) {
-			h.l(o.l)
-		}
+		
+		
+		if (o.c) {h.c(o.c)}
+		if (o.C) {h.C(o.C)}
+		if (N(o.l)) {h.l(o.l)}
 		h.cp()
 		h._dc(o)
 		return h
 	}
+	
+	
+	
+	
 	h.cirs = function () {
 		var h = this, g = G(arguments)
 		g.e(function (c) {
@@ -178,16 +190,11 @@ function circle() {
 		h.alpha = N(o.al, 1)
 		return h
 	}
-	
 	ct.cir = function () {
-		
-		var ct = this,g=G(arguments),
-				h=this.h(), o
-		
-		
-		
-		o =  g.O ?  g.f :
-				N(g.s)? {x: g.f,  y: g.s, r: g.t,  c:g[3] }:
+		var ct = this, g = G(arguments),
+				h = this.h(), o
+		o = g.O ? g.f :
+				N(g.s) ? {x: g.f, y: g.s, r: g.t, c: g[3]} :
 				{r: g.f, c: g.s}
 		o.y = N(o.y, 0);
 		o.x = N(o.x, 0)
@@ -196,17 +203,10 @@ function circle() {
 		h.dc(o.x, o.y, o.r)
 		return h
 	}
-	
-	ct.cir=function(){
-		var h=this.h()
+	ct.cir = function () {
+		var h = this.h()
 		return h.cir.apply(h, arguments)
 	}
-	
-}
-
-
-
-function curve(){
 	h.arc = h._a = function (x, y, r, startA, endA, aCW) {
 		var h = this, gx = h.graphics
 		/*
@@ -307,18 +307,7 @@ h.z = h.clr = function () {
 h.same = function () {
 	return $h(this)
 } // h.copy=
-AO = function (a) {
-	return A(a) && O(a[0])
-}
-
-
-
-
-function lineTo(){
-}
-
-
-
+ 
 
 i.tf = function () {
 	var i = this, g = G(arguments)
@@ -341,71 +330,6 @@ i.tf = function () {
 	i.setTransform.apply(i, A(g.f) ? g.f : g)
 	return i
 }
-SIR = function () {
-	$.C('b')
-	$S({
-		body: {fZ: 40, c: 'o'},
-		canvas: {M: 20}
-	})
-	$.h1('SIR')
-	st = new cjs.Stage($.c(600, 300)[0]).t()
-	st.A(new cjs.Text('h.dc', '50px Arial', 'white').X(400))
-	h = $H().a2(st)
-	h.dc()
-	h.dc(36)
-	h.dc(18, 'o')
-	h.dc(200, 100)
-	h.dc(300, 100, 20, 'r')
-	h.dc(300, 200, 20)
-	//
-	st2 = new cjs.Stage($.c(600, 300)[0]).t()
-	st2.A(new cjs.Text('h.cirs', '50px Arial', 'white').X(400))
-	st2.A($H().cirs({}, {x: 300, c: 'b'}, {y: 200, C: 'o'}))
-	//
-	st1 = new cjs.Stage($.c(600, 300)[0]).t()
-	st1.A(new cjs.Text('cjs.cir', '50px Arial', 'white').X(400))
-	st1.A(cjs.cir(300, 'g'))
-	st1.A(cjs.cir(140, 220, 20, 'o').dc())
-	st1.A(cjs.cir('r').XY(220, 200))
-	st3 = new cjs.Stage($.c(600, 300)[0]).t()
-	st3.A(new cjs.Text('cjs.cirs', '50px Arial', 'white').X(400))
-	st3.A(
-			$H().cirs({}, {x: 300, c: 'b'}, {y: 200, C: 'o'})
-	)
-}
-TSIR = function () {
-	$.C('b')
-	$S({
-		body: {fZ: 40, c: 'o'},
-		canvas: {M: 20}
-	})
-	$.h1('SIR')
-	st = new cjs.Stage($.c(600, 300)[0]).t()
-	st.A(new cjs.Text('h.dc', '50px Arial', 'white').X(400))
-	h = $H().a2(st)
-	h.dc()
-}
-
-
-function defs() {
-	
-	 
-	
-	oDef = function (o) {
-		o = o || {}
-		o.x = N(o.x, 0)
-		o.y = N(o.y, 0)
-		o.a = N(o.a, 0)
-		o.c = o.c || 'z'
-		o.C = o.C || 'w'
-		o.w = N(o.w, 50)
-		o.h = N(o.h, 50)
-		return o
-	}
-}
-
-
-
 
 
 
@@ -496,3 +420,18 @@ function _pre() {
 		return $H(o.c, o.x, o.y).dc(o.r)
 	}
 }
+function defs() {
+	oDef = function (o) {
+		o = o || {}
+		o.x = N(o.x, 0)
+		o.y = N(o.y, 0)
+		o.a = N(o.a, 0)
+		o.c = o.c || 'z'
+		o.C = o.C || 'w'
+		o.w = N(o.w, 50)
+		o.h = N(o.h, 50)
+		return o
+	}
+}
+
+
