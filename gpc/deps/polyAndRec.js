@@ -1,3 +1,10 @@
+$gPol = function (vs) {
+	var pg = new Polygon()
+	if (vs) {
+		pg.vertices = vs
+	}
+	return pg
+}
 gpc.g.Pol= gpc.g.Polygon = function () {
 	this.maxTop;
 	this.maxBottom;
@@ -6,14 +13,16 @@ gpc.g.Pol= gpc.g.Polygon = function () {
 	this.vertices
 }  /* of Point */
 pg = gpc.g.Pol.prototype
-pg.fromArray = function (v) {
-	this.vertices = [];
-	for (var i = 0; i < v.length; i++) {
-		var pointArr = v[i];
-		this.vertices.push(new Point(pointArr[0], pointArr[1]));
+pg.fA=pg.fromArray = function (v) {var i,pointArr
+	this.vertices=[]
+	for (i=0;i<_.z(v);i++){
+		pointArr = v[i]
+		this.vertices.push(new Point(pointArr[0], pointArr[1]))
 	}
+	
+	
 }
-pg.normalize = function () {//Normalize vertices in polygon to be ordered clockwise from most left point*/
+pg.no=pg.normalize = function () {//Normalize vertices in polygon to be ordered clockwise from most left point*/
 	var maxLeftIndex,
 			vs = this.vertices,
 			newVs = vs,
@@ -39,81 +48,62 @@ pg.normalize = function () {//Normalize vertices in polygon to be ordered clockw
 		vs = newVs
 	}
 }
-
-pg.getVertexIndex = function (v) {
-
+pg.vIx= pg.gVIx= pg.getVertexIndex = function (v) {
 	for (var i = 0; i < this.vertices.length; i++) {
-		if (equals(vertices[i], v)) {
+		if (equals(this.vertices[i], v)) {
 			return i
 		}
 	}
 	return -1;
 }
+pg.iV=pg.insertVertex = function (v1, v2, newV) {
 
-pg.insertVertex = function (v1, v2, newVertex) {
-	var v1Index = getVertexIndex(v1), v2Index = getVertexIndex(v2)
-	if ((v1Index == -1) || (v2Index == -1)) { return false  }
-	if (v2Index < v1Index) {var i = v1Index; v1Index = v2Index; v2Index = i }
-	if (v2Index == v1Index + 1) {
+	var v1Ix = getVertexIndex(v1), v2Ix = getVertexIndex(v2)
+	if ((v1Ix == -1) || (v2Ix == -1)) { return false  }
+	if (v2Ix < v1Ix) {var i = v1Ix; v1Ix = v2Ix; v2Ix = i }
+	if (v2Ix == v1Ix + 1) {
 		var newVertices = []
-		for (var i = 0; i <= v1Index; i++) {newVertices[i] = this.vertices[i] }
-		newVertices[v2Index] = newVertex
-		for (var i = v2Index; i < this.vertices.length; i++) {newVertices[i + 1] = this.vertices[i] }
+		for (var i = 0; i <= v1Ix; i++) {newVertices[i] = this.vertices[i] }
+		newVertices[v2Ix] = newV
+		for (var i = v2Ix; i < this.vertices.length; i++) {newVertices[i + 1] = this.vertices[i] }
 		this.vertices = newVertices
 	}
-	else if ((v2Index == vertices.length - 1) && (v1Index == 0)) {this.vertices.push(newVertex)}
+	else if ((v2Ix == vertices.length - 1) && (v1Ix == 0)) {this.vertices.push(newV)}
 	return true
 }
-
-
-pg.clone = function () {
-	var res = new Polygon();
-	res.vertices = vertices.slice(this.vertices.length - 1);
-	return res;
-}
-
-
-pg.toString = function () {var vs = this.vertices, res = "[", i,v
+pg.cl=pg.clo= pg.cp= pg.clone = function () {return $gPol(this.vertices.slice(this.vertices.length - 1)) }
+pg.tS=pg.toString = function () {var vs = this.vertices, res = "[", i,v
 	for (i = 0; i < _.z(vs); i++) {
 		v = vs[i];
 		res += (i > 0 ? "," : "") + "[" + v.x + "," + v.y + "]";
 	}
 	return res + "]"
 }
-
-
 gpc.g.PolygonNode = function (next, x, y) {
-
-	
-	function alpha(){
-	this.active;
-	/* Active flag / v count        */
-	this.hole;
-	/* Hole / external contour flag      */
-	
-	/* Left and right vertex list ptrs   */
-	this.next;
-	/* Pointer to next polygon contour   */
-	this.proxy;
-	/* Pointer to actual structure used  */
-	/* Make v[Clip.LEFT] and v[Clip.RIGHT] point to new vertex */
+	var ge = this, vn = new VertexNode(x, y)
+	ge.v = [];
+	ge.v[Clip.LEFT] = vn; ge.v[Clip.RIGHT] = vn;
+	ge.next = next; ge.proxy = this; // Initialise proxy to point to p itself 
+	ge.active = 1; //TRUE
+	function alpha() {
+		this.active;
+		/* Active flag / v count        */
+		this.hole;
+		/* Hole / external contour flag      */
+		/* Left and right vertex list ptrs   */
+		this.next;
+		/* Pointer to next polygon contour   */
+		this.proxy;
+		/* Pointer to actual structure used  */
+		/* Make v[Clip.LEFT] and v[Clip.RIGHT] point to new vertex */
 	}
-	
-	this.v = [];
-	var vn = new VertexNode(x, y);
-	this.v[Clip.LEFT] = vn;
-	this.v[Clip.RIGHT] = vn;
-	this.next = next;
-	this.proxy = this;
-	/* Initialise proxy to point to p itself */
-	this.active = 1; //TRUE
 }
 pgN = gpc.g.PolygonNode.prototype
 pgN.add_right = function (x, y) {
 	var nv = new VertexNode(x, y);
-	/* Add vertex nv to the right end of the polygon's vertex list */
+	// Add vertex nv to the right end of the polygon's vertex list 
 	this.proxy.v[Clip.RIGHT].next = nv;
-	/* Update proxy->v[Clip.RIGHT] to point to nv */
+	// Update proxy->v[Clip.RIGHT] to point to nv 
 	this.proxy.v[Clip.RIGHT] = nv;
 }
 pgN.add_left = function (x, y) {

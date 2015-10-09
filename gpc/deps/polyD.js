@@ -1,10 +1,9 @@
-gpc.g.PolyDefault = function (isHole) {
-	if (isHole == null) isHole = false;			// Only applies to the first poly and can only be used with a poly that contains one poly
-	this.m_IsHole = isHole;
-	this.m_List = new ArrayList();
+gpc.g.PD= gpc.g.PolyDefault = function (iHo) {
+	// Only applies to the first poly and can only be used with a poly that contains one poly
+	this.m_IsHole = iHo?true:false
+	this.m_List = new ArrayList()
 }
-pD= gpc.g.PolyDefault.prototype
-
+pD= gpc.g.PD.prototype
 pD.ls=function(n){
 	var ls = this.m_List
 	if(N(n)){return ls.get(n)}
@@ -45,9 +44,7 @@ pD.x=pD.getX = function (i) {return (this.g()).getX(i)} //Return the X value of 
 pD.y=pD.getY = function (i) {return (this.g()).getY(i)}//Return the Y value of the point at the index in the first inner polygon
 pD.pt = gPt= pD.getPoint = function (i) { return this.g().getPoint(i) }
 pD.pts = pD.gPts=pD.getPoints = function () {return this.g().getPoints() }
-
 pD.clear = function () {this.m_List.clear()}// Remove all of the points.  Creates an empty polygon.
-
 pD.a= pD.aP=pD.aPol=pD.addPoly = function (p) {var pD=this
 	/**
 	 * Add an inner polygon to this polygon - assumes that adding polygon does not
@@ -56,48 +53,43 @@ pD.a= pD.aP=pD.aPol=pD.addPoly = function (p) {var pD=this
 	 * zero and this polygon was designated a hole.  This would break the assumption
 	 * that only simple polygons can be holes.
 	 */
-			
+	
 	var iHo=pD.m_IsHole, ls=pD.ls()
 	if ( ls.size() > 0 && iHo) {alert("ERROR : Cannot add polys to something designated as a hole.")}
 	ls.add(p)
 	return pD
 }
-
-
-
 pD.gIP= pD.getInnerPoly = function (i) {return this.ls(i) }	// Returns the polygon at this index.
 pD.gNIP= pD.getNumInnerPoly = function () {return this.ls().size()}	//Returns the number of inner polygons - inner polygons are assumed to return one here.
-
-
 pD.$pS = function () {
 	this.a($pS());
 	return this
 }
-
-
 pD.iE= pD.isEmpty = function () {return this.ls().isEmpty()}
 pD.ho = pD.hole=function(iHo){
 	if(U(iHo)){return this.isHole()}
 	this.setIsHole(iHo)
 	return this
 }
+
+
 pD.iHo= pD.isHole = function () {
 // Return true if this polygon is a hole. 
 // Holes are assumed to be inner polygons of a more complex polygon.
-	var ls = this.ls(), iHo = this.m_IsHole
+	var ls = this.ls(),
+	 iHo = this.m_IsHole
 	if (ls.size() > 1) {alert("Cannot call on a poly made up of more than one poly.")}
 	return iHo
 }
-pD.setIsHole = function (iHo) { // Set whether or not this polygon is a hole.  Cannot be called on a complex polygon.
+
+pD.setIsHole = function (iHo) { 
+// Set whether or not this polygon is a hole.  Cannot be called on a complex polygon.
 	var ls= this.ls()
 	if (ls.size() > 1) {
 		alert("Cannot call on a poly made up of more than one poly.");
 	}
-	
 	this.m_IsHole = iHo
 }
-
-
 
 pD.isContributing = function (i) {return this.ls(i).isContributing(0)
 	// Return true if the given inner polygon is contributing to the set operation.
@@ -109,20 +101,10 @@ pD.setContributing = function (i, ctbs) {
 	if (ls.size() != 1) {alert("Only applies to polys of size 1")}
 	pD.ls(i).setContributing(0, ctbs)
 }
-
-
-
-
-
-function opers(){
-	
-	pD.int=pD.intersection = function (p) {return Clip.intersection(p, this, "PolyDefault")}// Return a Poly that is the intersection of this polygon with the given polygon. The returned polygon could be complex.
-	
-	pD.uni=	pD.union = function (p) {return Clip.union(p, this, "PolyDefault")}//could be complex, will be an instance of PolyDefault.
-	pD.xor = function (p) {return Clip.xor(p, this, "PolyDefault")}//returned polygon could be complex.
-	pD.dif=	pD.difference = function (p) {return Clip.difference(p, this, "PolyDefault") }//   returned polygon could be complex.
-	
-};opers()
+pD.int=pD.intersection = function (p) {return Clip.intersection(p, this, "PolyDefault")}// Return a Poly that is the intersection of this polygon with the given polygon. The returned polygon could be complex.
+pD.uni=	pD.union = function (p) {return Clip.union(p, this, "PolyDefault")}//could be complex, will be an instance of PolyDefault.
+pD.xor = function (p) {return Clip.xor(p, this, "PolyDefault")}//returned polygon could be complex.
+pD.dif=	pD.difference = function (p) {return Clip.difference(p, this, "PolyDefault") }//   returned polygon could be complex.
 pD.getBounds = function () {
 	/**
 	 * Returns the bounding rectangle of this polygon.
@@ -143,7 +125,7 @@ pD.getBounds = function () {
 pD.ty = pD._ty = function () {
 	return 'PolyDefault'
 }
-pD.getArea = function () {//in square units.
+pD.gA= pD.getArea = function () {//in square units.
 	var that = this
 	var area = 0.0;
 	for (var i = 0; i < that.getNumInnerPoly(); i++) {
@@ -159,8 +141,7 @@ gpc.iPD = function (ob) {
 gpc.iPS = function (ob) {
 	return ob instanceof gpc.g.PolySimple
 }
-
-pD.toString = function () {
+pD.tS= pD.toString = function () {
 	var res = ""; var m_List = this.m_List;
 	for (var i = 0; i < m_List.size(); i++) {
 		var p = this.getInnerPoly(i);
@@ -172,7 +153,7 @@ pD.toString = function () {
 	}
 	return res;
 }
-pD.hashCode = function () {
+pD.hC=pD.hashCode = function () {
 	/**
 	 * Return the hashCode of the object.
 	 *
@@ -184,7 +165,7 @@ pD.hashCode = function () {
 	result = 37 * result + m_List.hashCode();
 	return result;
 }
-pD.isPointInside = function (pt) {
+pD.iPtI=pD.isPointInside = function (pt) {
 	var m_List = this.m_List;
 	if (!(m_List.get(0)).isPointInside(pt)) return false;
 	for (var i = 0; i < m_List.size(); i++) {
@@ -193,10 +174,14 @@ pD.isPointInside = function (pt) {
 	}
 	return true
 }
+
 pD.eq = pD.equals = function (ob) {
-	if (!gpc.iPD(ob)) {
-		return false
-	}
+	if (!gpc.iPD(ob)) {return false}
 	return (this.m_IsHole != ob.m_IsHole) || !equals(this.m_List, ob.m_List) ? false : true
 }
- 
+
+
+
+
+
+
