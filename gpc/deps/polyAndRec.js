@@ -1,11 +1,11 @@
-gpc.g.Polygon = function () {
+gpc.g.Pol= gpc.g.Polygon = function () {
 	this.maxTop;
 	this.maxBottom;
 	this.maxLeft;
 	this.maxRight;
 	this.vertices
-}  /* of Point */;
-pg = gpc.g.Polygon.prototype
+}  /* of Point */
+pg = gpc.g.Pol.prototype
 pg.fromArray = function (v) {
 	this.vertices = [];
 	for (var i = 0; i < v.length; i++) {
@@ -14,117 +14,92 @@ pg.fromArray = function (v) {
 	}
 }
 pg.normalize = function () {//Normalize vertices in polygon to be ordered clockwise from most left point*/
-	var maxLeftIndex;
-	var vertices = this.vertices;
-	var newVertices = this.vertices;
-	for (var i = 0; i < vertices.length; i++) {
-		var vertex = vertices[i];
-		if ((maxTop == null) || (maxTop.y > vertex.y) || ((maxTop.y == vertex.y) && (vertex.x < maxTop.x))) {
-			maxTop = vertex;
-		}
-		if ((maxBottom == null) || (maxBottom.y < vertex.y) || ((maxBottom.y == vertex.y) && (vertex.x > maxBottom.x))) {
-			maxBottom = vertex;
-		}
-		if ((maxLeft == null) || (maxLeft.x > vertex.x) || ((maxLeft.x == vertex.x) && (vertex.y > maxLeft.y))) {
-			maxLeft = vertex;
-			maxLeftIndex = i;
-		}
-		if ((maxRight == null) || (maxRight.x < vertex.x) || ((maxRight.x == vertex.x) && (vertex.y < maxRight.y))) {
-			maxRight = vertex;
-		}
+	var maxLeftIndex,
+			vs = this.vertices,
+			newVs = vs,
+			i, j, v,reverse=false
+	_.e(vs, function (v) {
+		if(maxTop == null ||  maxTop.y > v.y || (  maxTop.y == v.y && v.x < maxTop.x)) {maxTop = v }
+		if(maxBottom == null || maxBottom.y < v.y || ( maxBottom.y == v.y && v.x > maxBottom.x)) {maxBottom = v}
+		if(maxLeft == null ||  maxLeft.x > v.x || ( maxLeft.x == v.x && v.y > maxLeft.y)) {maxLeft = v; maxLeftIndex = i }
+		if(maxRight == null || maxRight.x < v.x || ( maxRight.x == v.x && v.y < maxRight.y)) {maxRight = v}
+	})
+	if (maxLeftIndex > 0) { newVs = [];  j = 0;
+		for ( i = maxLeftIndex;i<_.z(vs); i++) {newVs[j++] = vs[i] }
+		for ( i = 0; i < maxLeftIndex; i++) { newVs[j++] = vs[i] }
+		vs = newVs
 	}
-	if (maxLeftIndex > 0) {
-		newVertices = [];
-		var j = 0;
-		for (var i = maxLeftIndex; i < vertices.length; i++) {
-			newVertices[j++] = this.vertices[i];
-		}
-		for (var i = 0; i < maxLeftIndex; i++) {
-			newVertices[j++] = this.vertices[i];
-		}
-		vertices = newVertices;
-	}
-	var reverse = false;
-	for (var k = 0; k < this.vertices.length; k++) {
-		var vertex = this.vertices[k];
-		if (equals(vertex, maxBottom)) {
-			reverse = true;
-			break;
-		} else if (equals(vertex, maxTop)) {
-			break;
-		}
+	for (var k = 0; k < _.z(vs); k++) {var v = vs[k];
+		if (equals(v, maxBottom)) {reverse = true; break} 
+		else if (equals(v, maxTop)) {break }
 	}
 	if (reverse) {
-		newVertices = [];
-		newVertices[0] = vertices[0];
-		var j = 1;
-		for (var i = vertices.length - 1; i > 0; i--) {
-			newVertices[j++] = this.vertices[i];
-		}
-		vertices = newVertices;
+		newVs= []; newVs[0] = vs[0]; j = 1;
+		for ( i = _.z(vs) - 1; i > 0; i--) {newVs[j++] = vs[i] }
+		vs = newVs
 	}
 }
-pg.getVertexIndex = function (vertex) {
+
+pg.getVertexIndex = function (v) {
+
 	for (var i = 0; i < this.vertices.length; i++) {
-		if (equals(vertices[i], vertex)) {
+		if (equals(vertices[i], v)) {
 			return i
 		}
 	}
 	return -1;
 }
-pg.insertVertex = function (vertex1, vertex2, newVertex) {
-	var vertex1Index = getVertexIndex(vertex1);
-	var vertex2Index = getVertexIndex(vertex2);
-	if ((vertex1Index == -1) || (vertex2Index == -1)) {
-		return false
+
+pg.insertVertex = function (v1, v2, newVertex) {
+	var v1Index = getVertexIndex(v1), v2Index = getVertexIndex(v2)
+	if ((v1Index == -1) || (v2Index == -1)) { return false  }
+	if (v2Index < v1Index) {var i = v1Index; v1Index = v2Index; v2Index = i }
+	if (v2Index == v1Index + 1) {
+		var newVertices = []
+		for (var i = 0; i <= v1Index; i++) {newVertices[i] = this.vertices[i] }
+		newVertices[v2Index] = newVertex
+		for (var i = v2Index; i < this.vertices.length; i++) {newVertices[i + 1] = this.vertices[i] }
+		this.vertices = newVertices
 	}
-	if (vertex2Index < vertex1Index) {
-		var i = vertex1Index;
-		vertex1Index = vertex2Index;
-		vertex2Index = i;
-	}
-	if (vertex2Index == vertex1Index + 1) {
-		var newVertices = [];
-		for (var i = 0; i <= vertex1Index; i++) {
-			newVertices[i] = this.vertices[i];
-		}
-		newVertices[vertex2Index] = newVertex;
-		for (var i = vertex2Index; i < this.vertices.length; i++) {
-			newVertices[i + 1] = this.vertices[i];
-		}
-		this.vertices = newVertices;
-	} else if ((vertex2Index == vertices.length - 1) && (vertex1Index == 0)) {
-		this.vertices.push(newVertex);
-	}
-	return true;
+	else if ((v2Index == vertices.length - 1) && (v1Index == 0)) {this.vertices.push(newVertex)}
+	return true
 }
+
+
 pg.clone = function () {
 	var res = new Polygon();
 	res.vertices = vertices.slice(this.vertices.length - 1);
 	return res;
 }
-pg.toString = function () {
-	var vertices = this.vertices;
-	var res = "[";
-	for (var i = 0; i < vertices.length; i++) {
-		var vertex = vertices[i];
-		res += (i > 0 ? "," : "") + "[" + vertex.x + "," + vertex.y + "]";
+
+
+pg.toString = function () {var vs = this.vertices, res = "[", i,v
+	for (i = 0; i < _.z(vs); i++) {
+		v = vs[i];
+		res += (i > 0 ? "," : "") + "[" + v.x + "," + v.y + "]";
 	}
-	res += "]";
-	return res;
+	return res + "]"
 }
+
+
 gpc.g.PolygonNode = function (next, x, y) {
+
+	
+	function alpha(){
 	this.active;
-	/* Active flag / vertex count        */
+	/* Active flag / v count        */
 	this.hole;
 	/* Hole / external contour flag      */
-	this.v = [];
+	
 	/* Left and right vertex list ptrs   */
 	this.next;
 	/* Pointer to next polygon contour   */
 	this.proxy;
 	/* Pointer to actual structure used  */
 	/* Make v[Clip.LEFT] and v[Clip.RIGHT] point to new vertex */
+	}
+	
+	this.v = [];
 	var vn = new VertexNode(x, y);
 	this.v[Clip.LEFT] = vn;
 	this.v[Clip.RIGHT] = vn;

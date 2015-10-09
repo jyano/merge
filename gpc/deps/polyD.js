@@ -5,34 +5,25 @@ gpc.g.PolyDefault = function (isHole) {
 }
 pD= gpc.g.PolyDefault.prototype
 
-
-
 pD.ls=function(n){
 	var ls = this.m_List
 	if(N(n)){return ls.get(n)}
 	return ls
 }
-
 pD.g=function(n){return this.ls().g(N0(n))}
 pD.f = function(){return this.ls(0)}
-
-
-
 pD.numPts=pD.getNumPoints = function () {
 	return (this.m_List.get(0)).getNumPoints()
 } // Return the number points of the first inner polygon
-
 pD.aXY=pD.addPointXY = function (x, y) {
 	this.addPoint(new gpc.Point(x, y))
 } // Add a point to the first inner polygon. If a point is added to an empty PolyDefault object,it will create an inner polygon of type PolySimple
-
 pD.z=function(n){
 	
 	var z= this.ls().size()
 	if(N(n)){return z=== n}
 	return z
 }
-
 pD.A = pD.add = function () {var pD=this, g = G(arguments)
 	return g.L==2?  pD.aXY(g.f, g.s): oneArg(g)
 	function oneArg(g){
@@ -42,7 +33,6 @@ pD.A = pD.add = function () {var pD=this, g = G(arguments)
 		function arrArgs(g) {
 			if (_.z(g, 2) && N(g[0]) && N(g[1])) {pS.A(g[0],g[1])}
 			else {_.e(g, function (g) {pS.A(g)})} }} }
-
 pD.aPt= pD.addPoint = function (pt) {var pD=this
 	// Add pt to   first inner poly
 	// If pt added to   empty pD,
