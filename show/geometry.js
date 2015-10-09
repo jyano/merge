@@ -1,13 +1,4 @@
-$vs = {}
-$vs.expl = [[0, 100], [-100, 0], [0, -100], [100, 0]]
-p1 = [[-50, 50], [-50, -50], [50, -50], [50, 50]]
-p2 = [[-100, 0], [-100, -100], [0, -100], [0, 0], [-98, 2]]
-cross = function () {
-	r = w.S(600, 300, 'r', 300, 100, 0, 0, 30)
-	b = w.S(600, 300, 'b', 300, 100).rt(-35)
-}
-//
-POLS = function () {
+PLS = function () {
 	W(50)
 	p1 = M.p([[-50, 50], [-50, -50], [50, -50], [50, 50]])
 	p2 = M.p([[-100, 0], [-100, -100], [0, -100], [0, 0], [-98, 2]])
@@ -22,7 +13,7 @@ POLS = function () {
 			[700, 200, p1.I(p2)],
 			[800, 200, p1.X(p2)])
 }
-STAMP = function () {
+STM = function () {
 	W({w: 'U', g: 50})
 	soda = w.S(300, 300, 'b', 300, 200).c('b')
 	r = w.S(200, 400, 'r', 300, 200).c('r')
@@ -52,8 +43,8 @@ STAMP = function () {
 		r.kill()
 		soda.dyn()
 	})
-} // w.S(...).c NOT FUNC
-SAUCERS = function () {
+}
+SCR = function () {
 	W(0)
 	b = w.S(300, 300, [['g', 30, 30], ['b', 100, 6], ['o', 100, 6, 0, 30]])
 	//one way
@@ -97,7 +88,7 @@ GPC = function () {
 		}).A()
 	})
 }
-VSGLUE = function () {
+VGL = function () {
 	W(5)
 	u = UNI(
 			w.S(100, 100, 'r', 50, 50),
@@ -140,7 +131,7 @@ VSGLUE = function () {
 		['b', 40, 50, 20, 0],
 		['r', 50, 20, 50, 0, 20]]).uni())
 }
-UNII = function () {
+UNI = function () {
 	W(50).Y()
 	p0 = w.pol({v: p1})
 	//pol1 = M.p(p1)
@@ -156,7 +147,7 @@ UNII = function () {
 	//	d = w.S(500,200)//.dot('y')
 	//f = d.pol({c:'w',C:'z',l:5,v:b.sum(r)})  //f[0].C('z');f[2].C('o')//f is an ARRAY OF FIXTS!!!
 }
-UNIII = function () {
+UNN = function () {
 	W()
 	b = w.S(100, 400, 'r', [-40, -20], [0, -100], [50, 25])
 	r = b.f()
@@ -173,7 +164,7 @@ UNIII = function () {
 		v: w.S(1000, 300, [['g', 50, 200], ['o', 200, 50], ['r', 100, 100]]).uni('+')
 	})
 }
-GERN = function () {
+GER = function () {
 	W({g: 0}).Y()
 	w.p(200, 200)
 	ter = w.S(400, 400, 'g', 300, 300).K('ter')
@@ -220,7 +211,7 @@ SUB = function () {
 	c = w.S(450, 300, 'w', 100, 100)
 	c.minusPolyCirc(550, 300, 100, 20)
 }
-SENSUB = function () {
+SSB = function () {
 	W(0).Y()
 	r = w.D(600, 350, 'r', 400, 200).grp(-1)
 	b = w.D(1000, 300, [['b', 100, 100], ['b', 100, 100, 30, 30]]).grp(-1)
@@ -234,7 +225,7 @@ SENSUB = function () {
 		b = w.D(1000, 300, [['b', 100, 100], ['b', 100, 100, 30, 30]]).grp(-1)
 	})
 }
-SUBCOL = function () {
+SBC = function () {
 	W(0)
 	/*
 	 b=w.S(300,300,'b',300,200).c('b')
@@ -341,7 +332,7 @@ PC = function () {
 		})
 	})
 }
-HULL = function () {
+HUL = function () {
 	z()
 	c = $.c('y', 800, 400).id('canvas').A()
 	window.onload = init
@@ -568,7 +559,7 @@ HULL = function () {
 		}
 	}
 }
-PDPS = function () {
+PPS = function () {
 	W()
 	b = w.brick()
 	p = M.p(b)
@@ -589,14 +580,14 @@ HOL = function () {
 	b1 = w.S(400, 400, 'z', 100, 100).f()
 	d = M.p(b).D(b1)
 }
-HOLE = function () {
+HLL = function () {
 	W(0)
 	out = w.S(300, 300, 'b', 200, 200)
 	inn = w.S(300, 300, 'c', 100, 100)
 	out.dif(inn)
 	inn.dyn()
 }
-WALLZ = function () {
+WLZ = function () {
 	W(10).Y()
 	x = w.S(900, 450, 'r', 250, 200)
 	bb = w.S(w.w, w.h / 2, 'w', 200, 100)
@@ -611,7 +602,7 @@ WALLZ = function () {
 			})
 	b.kill()
 }
-MOREDFF = function () {
+MDF = function () {
 	W()
 	fn = function () {
 		var white = w.S(700, 400, 'w', 100, 100),
@@ -681,7 +672,7 @@ DES = function () {
 	rect.dyn()
 	pC.dyn()
 }
-MEET = function () {
+MET = function () {
 	W([1200, 600, 1800, 600], {g: 10})
 	y2 = w.y(100, 300).C('x').rot(180)
 	t = ter = w.S(500, 300, 'g', 200, 800).cl(function (buF) {
@@ -696,7 +687,7 @@ MEET = function () {
 	//alt way to handle explosion sub
 	//w.rad(bulletX, bulletY, 15, function (terrainFxt) {terrainFxt.sub( explosionPol )})
 }
-MEETMORE = function () {
+MMM = function () {
 	W()
 	y2 = w.y(400, 300).C('x').rot(180)
 	w.S(200, 300, 'b', 200, 800).cl('bul', function (bulletFxt) {
@@ -713,7 +704,7 @@ MEETMORE = function () {
 		this.sub(bu.B().exp(), '-')
 	})
 }
-MEETS = function () {
+MTS = function () {
 	W()
 	//pol
 	w.D(200, 300).pol({
@@ -806,7 +797,7 @@ SEB = function () {
 		}
 	}
 }
-TERREASEL = function () {
+TEE = function () {
 	z()
 	s = stage = $St(1600, 600).A()
 	h = s.h()
@@ -861,7 +852,7 @@ TERREASEL = function () {
 	vvv = [V(645, 380), V(595, 380), V(595, 372), V(617, 369), V(645, 373)]
 	h.drawPolygon(vvv, 'z')
 }
-TERR = function () {
+TRR = function () {
 	W()
 	explosion = function (x, y) {
 		var c, b

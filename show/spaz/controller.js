@@ -18,7 +18,7 @@ LVW = function () {
 		w.D(630, 350, 'r', 10).I(v1.x - v2.x, v1.y - v2.y)
 	})
 }
-HOVER = function () {
+HVR = function () {
 	W([1200, 1200, 1200, 1200], {g: 130})//.C('w')
 	p = w.p(500, 100)
 	sen = w.S(1200, 800, 'w', [[2400, 200, '-']]).K('sen').al(.2)
@@ -60,7 +60,7 @@ HOVER = function () {
 		co.xB(b)
 	}
 }
-MARIOACO = function () {
+MAO = function () {
 	W([1200, 600, 2400, 1200], {g: 400})
 	w.p(100, 300, '+')
 	w.elev(300, 100, 300)
@@ -72,7 +72,7 @@ MARIOACO = function () {
 	w.elev(750, 700, 300)
 	w.elev(900, 900, 300)
 }
-STICKY = function () {
+SIY = function () {
 	W([1200, 600, 2400, 600], {g: 50})
 	x = w.S(600, 300, 'w', 280, 370, '-').K('sen').al(.4)
 	p = w.p(100, 100)
@@ -91,7 +91,7 @@ STICKY = function () {
 	 })
 	 */
 }
-ACO = SENCOUNT = function () {
+ACO = function () {
 	W([1200, 1200, 1200, 1200], {g: 130})//.C('w')
 	p = w.p(500, 100)
 	sen = w.S(1200, 800, 'w', [[2400, 200, '-']]).K('sen').al(.2)
@@ -296,7 +296,7 @@ BCO = function () {
 		})
 	})
 }
-ISTOUCHING = function () {
+IST = function () {
 	W().Y()
 	co = w.bCo()  //(0,-1,5,2).os(-6).d(2)
 	sen = w.S(320, 245, 'z')
@@ -330,7 +330,7 @@ ISTOUCHING = function () {
 		k = i._K
 	})
 }
-BCO1 = function () {
+BC1 = function () {
 	W({g: 200})
 	p = w.p(500, 200)
 	w.S(320, 540, 'g', 320, 20)
@@ -369,7 +369,7 @@ BCO1 = function () {
 	// w.end('right', function(){$l('end!')})
 	// w.r_.end( function(){$l('end!')})
 }
-BCO2 = function () {
+BC2 = function () {
 	W(200)
 	w.S(320, 480, 'r', 640, 20)
 	w.S(320, 340, 'b', 320, 20)
@@ -406,7 +406,7 @@ BCO2 = function () {
 	 }})
 	 })*/
 }
-BCO3 = function () {
+BC3 = function () {
 	W({
 		w: 'U',
 		g: 200
@@ -427,7 +427,7 @@ BCO3 = function () {
 	w.D(300, 40, 'b', 24).d(.1)
 	p = w.p(200, -1000).d(.9)
 }
-BCO4 = function () {
+BC4 = function () {
 	W({g: 100}).Y();
 	y.XY(100, 500)
 	s1 = w.sensorBucket(320, 300, 's1')
@@ -465,7 +465,7 @@ BCO4 = function () {
 				})
 	})
 }
-SENSORBOXES = function () {
+SBS = function () {
 	W({g: 300})
 //gives u a controller-edge, which is a body-controller pair
 	//it is linked both to other bodies for that controller..
@@ -501,7 +501,7 @@ SENSORBOXES = function () {
 		})
 	})
 }
-BCO5 = function () {
+BC5 = function () {
 	W().Y();
 	y.XY(100, 500)
 	p = w.p(300, 100)
@@ -551,7 +551,7 @@ BCO5 = function () {
 	
 	 */
 }
-BCO6 = function () {
+BC6 = function () {
 	W({g: 0}).C('g')
 	p = w.p(200, 200)
 	y = w.y(300, 50).lD(5)
@@ -575,7 +575,7 @@ BCO6 = function () {
 	 })
 	 */
 }
-BCOWALL = function () {
+BWL = function () {
 	W([1200, 600, 2400, 600], {g: 50})
 	x = w.S(600, 300, 'w', 280, 370, '-').K('sen').al(.4)
 	p = w.p(100, 100)
@@ -595,7 +595,7 @@ BCOWALL = function () {
 	 })
 	 */
 }
-FLOOD = WEIRD = function () {
+FKD = function () {
 	W({g: 0}).C('g')
 	p = w.p(200, 200)
 	y = w.y(300, 50).lD(5)
@@ -616,7 +616,7 @@ FLOOD = WEIRD = function () {
 	 })
 	 */
 }
-PARTRIVER = function () {
+PRV = function () {
 	W({g: 100}).Y();
 	y.XY(100, 500)
 	s1 = w.sensorBucket(320, 300, 's1')
@@ -654,7 +654,7 @@ PARTRIVER = function () {
 				})
 	})
 }
-FB = FISHBOWLS = function () {
+FSB = function () {
 	W({g: 300})
 //gives u a controller-edge, which is a body-controller pair
 	//it is linked both to other bodies for that controller..
@@ -690,7 +690,7 @@ FB = FISHBOWLS = function () {
 		})
 	})
 }
-FBL2 = function () {
+FBL = function () {
 	W().Y();
 	y.XY(100, 500)
 	p = w.p(300, 100)
@@ -740,7 +740,7 @@ FBL2 = function () {
 	
 	 */
 }
-ANTIGTANK = BCO = function () {
+AIG = function () {
 	W([1200, 1200], {g: 50, w: 'U'})
 	sen = w.S(1200, 300, 'o', [[2400, 200, '-']]).K('sen')
 	aCo = w.aCo(0, -50)
@@ -773,7 +773,7 @@ ANTIGTANK = BCO = function () {
 		})
 	})
 }
-VANISH = function () {
+VNH = function () {
 	W().Y()
 	co = w.bCo()  //(0,-1,5,2).os(-6).d(2)
 	sen = w.S(320, 245, 'z')
@@ -807,7 +807,7 @@ VANISH = function () {
 		k = i._K
 	})
 }
-BREW = function () {
+BRW = function () {
 	W({g: 200})
 	p = w.p(500, 200)
 	w.y()
@@ -847,7 +847,7 @@ BREW = function () {
 	// w.end('right', function(){$l('end!')})
 	// w.r_.end( function(){$l('end!')})
 }
-POPCORN = FLOAT = function () {
+PPC = function () {
 	W(200)
 	w.S(320, 480, 'r', 640, 20)
 	w.S(320, 340, 'b', 320, 20)
@@ -884,7 +884,7 @@ POPCORN = FLOAT = function () {
 	 }})
 	 })*/
 }
-FUNNYPOOL = function () {
+FNP = function () {
 	W({
 		w: 'U',
 		g: 200
@@ -905,7 +905,7 @@ FUNNYPOOL = function () {
 	w.D(300, 40, 'b', 24).d(.1)
 	p = w.p(200, -1000).d(.9)
 }
-BO = BOUNCEOUT = function () {
+BOU = function () {
 	W({w: 'r2', g: 0}).C('e')
 //.pen('blue has constForce(1,0)  red has constAcc(1,0)')
 	//aCo=w.aCo(1,0).B(w.D(100,300,'x', 20 ).d(1), w.D(100,400, 'x',40 ).d(1))
@@ -926,7 +926,7 @@ BO = BOUNCEOUT = function () {
 		})
 	})
 }
-BOL2 = function () {
+BOL = function () {
 	W({g: 10, w: 'r2'})
 	p = w.p().tr().r(2)
 	w.Z(1.4)
@@ -1053,7 +1053,7 @@ TCO = function () {
 	// w.r_.cl(function(f){f.C('b'); co.xB(f)})
 	l = w.m_controllerList.GetBodyList()
 }
-TCO1 = function () {
+TC1 = function () {
 	W({g: 0})
 	w.S(200, 200, 'b', 50, 260)
 	w.S(140, 200, 'd', 140, 50)

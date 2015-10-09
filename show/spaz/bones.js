@@ -1,4 +1,4 @@
-DIST = function () {
+DST = function () {
 	W([600, 600, 600, 1200])
 	b = w.D(300, 200, 'b', 150).tr()
 	x = w.D(200, 100, 'x', 20).cn('thrust').bS('me').aD(100).fR()
@@ -8,7 +8,7 @@ DIST = function () {
 	jD.Initialize(x, b, wAncA, wAncB)  // dJD.collideConnected = true;
 	j = w.J(jD)
 }
-DISTROPE = function () {
+DRP = function () {
 	W([1000, 600], {})
 	//p.lD(2).fR()//.r(1.6)
 	// p.stat()
@@ -27,7 +27,7 @@ DISTROPE = function () {
 	// chain.d(0).f(60)
 	chain.d(.4).f(12).l(40)
 }
-DISTDOT = LOCDJ = function () {
+DLD = function () {
 	W([2000, 1400], {})
 	x = w.S(300, 400, 'r', 100, 100)
 	//b = w.D(400,200, 'b' ,100, 50, 0, 0, 28).fR()
@@ -181,7 +181,7 @@ SPG = function () {
 	//damp is STRENGTH of oscillation
 	// so bodies cant rotate if they dont have density???
 }
-RAGD = function () {
+RAG = function () {
 	W({})
 	w.spg(
 			b1 = w.D(100, 100, 'b', 30),
@@ -194,7 +194,7 @@ RAGD = function () {
 	w.spg(b1, p)
 	w.spg(b2, p)
 }
-VINE = function () {
+VIN = function () {
 	W(250).Y().P()
 	w.trap(50)
 	w.vine(200, 100, 15, 8)
@@ -222,7 +222,7 @@ VINE = function () {
 		})
 	})
 }
-LEASH = function () {
+LSH = function () {
 	W()
 	p = w.p(300, 200)
 	base = link(300, 20).stat()
@@ -320,7 +320,7 @@ RJ = function () {
 		w.rJ(b1, r1)
 	})
 }
-REVJ = function () {
+RVJ = function () {
 	W().C('z')
 	j = w.rJ(w.S(700, 280), w.D(800, 280, 'r', 200, 40)).mt(4, 100000)
 	_.ev(4, function () {
@@ -355,7 +355,7 @@ REVJ = function () {
 			w.D(400, 30, 'o', 20, 160)
 	).mt(7)
 }
-ROUL = function () {
+RUL = function () {
 	W()
 	w.D(400, 200, 'b', [
 		[60],
@@ -380,7 +380,7 @@ ROUL = function () {
 			-80, -90, 60, 0
 	).mt(10)
 }
-REVROPE = function () {
+RRP = function () {
 	W(300).C('z')
 	// w.S(600,300,'z',50,50).rJ(25).C('z').rJ(  w.y(300,300).cn('thrust')  )
 	// p= w.p(300,200).cn('thrust').r(2)
@@ -401,7 +401,7 @@ REVROPE = function () {
 	link.rJ(w.p().cn('jump'))
 	j = js[3]
 }
-LILROPE = function () {
+LLR = function () {
 	W({m: 0, g: 0}).Y()
 	b = w.S(600, 100, 'b', 10)
 	w.rJ(b,
@@ -413,7 +413,7 @@ LILROPE = function () {
 	w.rJ(link,
 			link = w.D(600, 170, 'b', 10))
 }
-REDROPE = function () {
+RDP = function () {
 	W([1200, 600], {g: 0})
 	// anchor = w.S(600,300,'z',50,50)
 	//  anchor.rJ(15).C('z').rJ(w.y(300,100).cn('thrust'))
@@ -422,7 +422,7 @@ REDROPE = function () {
 			.rJ(200, 180, 'r', 30)
 			.rJ(200, 260, 'o', 10)
 }
-BIKE = function () {
+BIK = function () {
 	W([1200, 600, 2000, 600], {})
 	//yy=w.y().aD(5000)//.fixRot()
 	dir = 12
@@ -478,7 +478,7 @@ BIKE = function () {
 	})
 	//car.aD(1000).lD(1000)
 }
-WAGON = function () {
+WGN = function () {
 	W([1200, 600, 4000, 600], {}).P()
 	p.d(.2).track().cl(function () {
 		p.onGround = true
@@ -500,7 +500,7 @@ WAGON = function () {
 	wh.cir({r: 20, lf: 'x'})
 	w.rJ(x, wh)
 }
-STAND = function () {
+STN = function () {
 	W([600, 1000, 600, 1200], {}).P('+')
 	//y= w.ship(500,200)
 	dir = 12
@@ -529,7 +529,7 @@ STAND = function () {
 		w2.mt(dir)
 	})
 }
-WHEEL = function () {
+WL = function () {
 	W([1200, 600, 2400, 600], {g: 50}).P()
 	p.track()
 	yy = w.y().aD(5000)//.fixRot()
@@ -558,7 +558,7 @@ WHEEL = function () {
 		return w.D(x, y, 'b', pC).d(5)
 	}
 }
-TANK = function () {
+TNK = function () {
 	W({g: 0}).P()
 	g = V(0, 1000)
 	dir = 12
@@ -586,7 +586,7 @@ TANK = function () {
 	 w.floor.cl(function(){g=V(0,1000)})
 	 */
 }
-WALLWHEELS = function () {
+WHW = function () {
 	W(0).Y()
 	x = w.S(600, 300, 'r', 500, 500, '-')
 	wh = w.pWh({
@@ -623,7 +623,7 @@ WALLWHEELS = function () {
 	 })
 	 */
 }
-BOOTCAN = function () {
+BTC = function () {
 	W({g: 0})
 	w.rJ(w.S(300, 600, 'a', 200),
 			w.D(300, 400, 'b', 100, 100))
@@ -634,7 +634,7 @@ BOOTCAN = function () {
 		b.F(0, 400)
 	})
 }
-MOTORS = function () {
+MTR = function () {
 	W().P().P().P().Y()
 	w.rJ(
 			w.D(800, 300, 'r', 20, 300),
@@ -657,53 +657,11 @@ MOTORS = function () {
 		w.D(300, 500, 'y', 20)
 	})
 }
-w.flips = w.flippers = function (x, y, x2, y2) {
-	if (U(y2)) {
-		y2 = y
-	}
-	if (U(x2)) {
-		x2 = x + 230
-	}
-	var lf = w.lFlip(x, y),
-			rf = w.rFlip(x2, y2)
-	var flip = function flip() {
-		lf.flip();
-		rf.flip();
-		return flip
-	}
-	flip.left = lf
-	flip.right = rf
-	return flip
-}
-w.rFlip = w.rightFlipper = function (x, y) {
-	var w = this
-	var rightJoint = w.S(x, y, 'r', 20),
-			rightFlip = w.D(x, y, 'b', 100, 25).DBF(1, .5, 0),
-			flipper = w.rJ(
-					rightJoint, rightFlip, 0, 0, 40, 0
-			).lm(-70, 30)
-	flipper.flip = function () {
-		rightFlip.I(-1000, 0)
-	}
-	return flipper
-}
-w.lFlip = w.leftFlipper = function (x, y) {
-	var w = this
-	var fl = w.D(x, y, 'b', 100, 25).DBF(1, .5, 0),
-			flipper = w.rJ(
-					w.S(x, y, 'r', 20), fl,
-					0, 0, 40, 0
-			).lm(150, 250)
-	flipper.flip = function () {
-		fl.I(1000, 0)
-	}
-	return flipper
-}
-LFLIP = function () {
+LFL = function () {
 	W()
 	w.lFlip(600, 300)
 }
-FLIP = function () {
+FLP = function () {
 	W()
 	f1 = w.flippers(100, 430)
 	f2 = w.flippers(100, 230)
@@ -714,7 +672,7 @@ FLIP = function () {
 		f3()
 	}
 }
-PRIS = BUMPER = function () {
+PRS = function () {
 	W().P(800)
 	j1 = w.pJ(w.D(200, 500, 'z', 60).K('ride'),
 			w.S(200, 500, 's', 40, 150).K('cart'))//.lm(-30, 60).speed(-100).motor(1).maxForce(1000)
@@ -784,7 +742,7 @@ WED = function () {
 	 w.wed(w.D(900,500,'x',30), w.S(900,500,'v',30),-10,-50)
 	 */
 }
-JOINTTRANSLATION = function () {
+JTL = function () {
 	W({g: 300}).P()
 	p.XY(100, 550).track()
 	j = w.pJ(
@@ -795,8 +753,7 @@ JOINTTRANSLATION = function () {
 		return this.GetJointTranslation() * 30
 	}
 }
-//ERR
-SPOLL = function () {
+SPL = function () {
 	W({g: 0, w: 0});
 	Q(function () {
 		s = w.s
@@ -819,7 +776,7 @@ SPOLL = function () {
 		})
 	})
 }
-BINOTAFUNCTION = DEMOREV = function () {
+DRV = function () {
 	W()
 	w.rJ(a = w.S(100, 100, 20), b = w.D(100, 100, 100, 40)).mt(5, 1)
 	w.rJ(w.S(250, 100, 20), w.D(250, 100, 100, 40)).mt(5, 2)
@@ -849,7 +806,7 @@ BINOTAFUNCTION = DEMOREV = function () {
 	w.rJ(w.baa(700, 460), w.bi(700, 460, 100, 40)).lm(-360, 180).mt(-20, 10)
 	w.rJ(w.baa(850, 460), w.bi(850, 460, 100, 40)).lm(0, 1000).mt(-20, 10000)
 }
-CARNOTDEFINED = HORSE = function () {
+HRS = function () {
 	W({w: 'L'}).P()
 	s = w.D(300, 400, 'b', 90, 30).d(1000).stat()
 	//w.rJ(w.D(300-40, 400+50,'o',30), s)//.mt( 2)

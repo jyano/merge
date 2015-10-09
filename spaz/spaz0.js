@@ -1,60 +1,32 @@
 $load('worldStuff', 'fixts', 'bods', 'fxSp', 'bdSp', 'rmSp', 'toElse', 'bods', 'dev', 'edge', 'wall', 'anim', 'wStuff', 'fromCreate')
-
-
-
-
 w.D = function () {
-
-	
 	var w = this, g = G(arguments, 'k'), o, b
-
-	if (g.u) { return w.D( 
-	
-		w.hW, w.hH ) }
-	
+	if (g.u) {
+		return w.D(
+				w.hW, w.hH)
+	}
 	//	o = //g.O ? g.f :
-	
-	o= g.O_ ? {p: g.f, f: g.r} :
-	
-	  {p: [g.f, g.s], f: _.r(g, 2)}
-	
+	o = g.O_ ? {p: g.f, f: g.r} :
+	{p: [g.f, g.s], f: _.r(g, 2)}
 	b = w.cB(
-	
-	       b2d.bD(  o.p  )   )
-
+			b2d.bD(o.p))
 	b.K(g.k)
-
-	
 	$a(b, 'f',
-	
-		g.G( o.f )
+			g.G(o.f)
 	)
-
-
 	return b
 }
-
-
-
-
-
-
-
-WBF=function(){W()
-
-	b = w.D(400,300)
+WBF = function () {
+	W()
+	b = w.D(400, 300)
 	//b.f('r', 100,'-')
-	b.f([['r',100,'-']])
+	b.f([['r', 100, '-']])
 }
-
-
-
-
-w.D_= w._D = function (o) {
+w.D_ = w._D = function (o) {
 	alert('w._D??? nah, w.D_')
 	return this.D(o.x, o.y, o.c, o.w, o.h)
 }
-function worldStuff(){
+function worldStuff() {
 	w.cen = w.cent = function () {
 		var w = this, g = G(arguments),
 				v = V(w.s.W() / 2, w.s.H() / 2)
@@ -79,7 +51,7 @@ function worldStuff(){
 		return w
 	}
 	w.cir = w.ball = w.ba = w.circ = function (x, y, r, c) {
-		alert('w.cir w.ball w.ba w.circ')
+		//alert('w.cir w.ball w.ba w.circ')
 		var w = this, g = G(arguments), b, o
 		o = g.O ? g.f : N(g.s) ? {
 			x: g.f, y: g.s,
@@ -213,119 +185,109 @@ function worldStuff(){
 		})
 	}
 }
-  
-	f.tP = f.hit = f.testPoint = f.test = function () {
-		var f = this, b = f.B(), w = b.W(), g = G(arguments), v
-		v = V(g.f, g.s)
-		if (g.p) {
-			w.dot(v)
-		}
-		return f.H().TestPoint(b.tf(), v.div())
-		//is a point within the fixture // very accurate
+f.tP = f.hit = f.testPoint = f.test = function () {
+	var f = this, b = f.B(), w = b.W(), g = G(arguments), v
+	v = V(g.f, g.s)
+	if (g.p) {
+		w.dot(v)
 	}
-	
-	
-	 
-	
-	
-	
-	f.S = f.stg = function () {
-		return this.W().s
-	}
-	f.c= f.C = function () {var f = this, b = f.B(), w = b.W(), g = G(arguments),
-			o = g.O ? g.f : {c: g.f, C: g.s, l: g.t}
-		o.c = (o.c == '*') ? $r() : (o.c || 'b'); o.C = o.C || o.c
-		return f.rpSp(
-				f.iC() ? b.i= w.st.cir( f.cir(o) ) : b.i=w.st.pol( f.pol(o) )  )
-	}
-	f.cir=function(o){
-		var f=this
-		
-		return   _.x(o||{}, {x: f.pX(), y: f.pY(), r: f.rad()})
-	}
-	f.dot = function (c) {
-		var f = this, w = f.B().W(), v
-		v = f.cen()
-		if (S(c)) {
-			w.dot(c, v)
-		}
-		else {
-			w.dot(v)
-		}
-		return f
-	}
-	f.pol=function(o){return _.x(o || {}, {v: this.vs()})}
-	f.set = function (o) {
-		if (!O(o)) {
-			return false
-		}
-		var f = this
-		if (D(o.d)) {
-			f.d(o.d)
-		}
-		if (D(o.bo)) {
-			f.bo(o.b)
-		} else if (D(o.r)) {
-			f.r(o.b)
-		}
-		if (D(o.fr)) {
-			f.fr(o.f)
-		}
-		if (o.s) {
-			f.sen(1)
-		}
-		if (D(o.k)) {
-			f.K(o.k)
-		}
-		return f
-	}
-	f.bS = function () {
-		this.sprites = this.sprites || []
-		//higher level.. can handle obs and Q-strings
-		var f = this, b = f.B(), w = b.W(), g = G(arguments), o, sprite
-		//if (S(g.f)) { return f.bSQ(g.f) }// not alerted
-		o = cjs.iDO(g.f) ? {j: g.f, rt: g.s, x: g.t, y: g[3], o: g[4]} : g.f
-		$df.bsDF(o)
-		sprite = o.j.al(N(o.al, 1))
-		f.sprites.push(sprite)
-		w.gx.A(sprite)
-		T.t(function () {
-			sprite
-					.XY(b.X() + o.x, b.Y() + o.y)
-					.rt(b.rt() + o.rt)
-		})
-		return f
-	}
-	f.cSp = function (o) {
-		var f = this, b = f.B(), w = b.W(),
-				cir = w.g.h().cir(o)
-		this.bS(cir)
-		this.g = cir
-		return f
-	}
-	f.rmSp = function () {
-		_.e(this.sprites || [], function (s) {
-			cjs.rmOb(s)
-		})
-		this.sprites = []
-		return this
-	} //= f.xSp=f.Xx=f.rmSp
-	f.rpSp = function (sp) {
-		this.rmSp()
-		if (sp) {
-			this.bS(sp)
-		}
-		return this
-	}
- 
-
-function bods(){
-	 
+	return f.H().TestPoint(b.tf(), v.div())
+	//is a point within the fixture // very accurate
 }
-
-
-
-ct.d =  function (c, x, y) {
+f.S = f.stg = function () {
+	return this.W().s
+}
+f.c = f.C = function () {
+	var f = this, b = f.B(), w = b.W(), g = G(arguments),
+			o = g.O ? g.f : {c: g.f, C: g.s, l: g.t}
+	o.c = (o.c == '*') ? $r() : (o.c || 'b');
+	o.C = o.C || o.c
+	return f.rpSp(
+			f.iC() ? b.i = w.st.cir(f.cir(o)) : b.i = w.st.pol(f.pol(o)))
+}
+f.cir = function (o) {
+	var f = this
+	return _.x(o || {}, {x: f.pX(), y: f.pY(), r: f.rad()})
+}
+f.dot = function (c) {
+	var f = this, w = f.B().W(), v
+	v = f.cen()
+	if (S(c)) {
+		w.dot(c, v)
+	}
+	else {
+		w.dot(v)
+	}
+	return f
+}
+f.pol = function (o) {
+	return _.x(o || {}, {v: this.vs()})
+}
+f.set = function (o) {
+	if (!O(o)) {
+		return false
+	}
+	var f = this
+	if (D(o.d)) {
+		f.d(o.d)
+	}
+	if (D(o.bo)) {
+		f.bo(o.b)
+	} else if (D(o.r)) {
+		f.r(o.b)
+	}
+	if (D(o.fr)) {
+		f.fr(o.f)
+	}
+	if (o.s) {
+		f.sen(1)
+	}
+	if (D(o.k)) {
+		f.K(o.k)
+	}
+	return f
+}
+f.bS = function () {
+	this.sprites = this.sprites || []
+	//higher level.. can handle obs and Q-strings
+	var f = this, b = f.B(), w = b.W(), g = G(arguments), o, sprite
+	//if (S(g.f)) { return f.bSQ(g.f) }// not alerted
+	o = cjs.iDO(g.f) ? {j: g.f, rt: g.s, x: g.t, y: g[3], o: g[4]} : g.f
+	$df.bsDF(o)
+	sprite = o.j.al(N(o.al, 1))
+	f.sprites.push(sprite)
+	w.gx.A(sprite)
+	T.t(function () {
+		sprite
+				.XY(b.X() + o.x, b.Y() + o.y)
+				.rt(b.rt() + o.rt)
+	})
+	return f
+}
+f.cSp = function (o) {
+	var f = this, b = f.B(), w = b.W(),
+			cir = w.g.h().cir(o)
+	this.bS(cir)
+	this.g = cir
+	return f
+}
+f.rmSp = function () {
+	_.e(this.sprites || [], function (s) {
+		cjs.rmOb(s)
+	})
+	this.sprites = []
+	return this
+} //= f.xSp=f.Xx=f.rmSp
+f.rpSp = function (sp) {
+	this.rmSp()
+	if (sp) {
+		this.bS(sp)
+	}
+	return this
+}
+function bods() {
+}
+ct.d = function (c, x, y) {
 	var ct = this, o, d, tw, g = G(arguments)
 	//if (b2d.isGPoly(g.f)) {_.e(g.f.vs(), function (v) {ct.dot(V(v))}); return this}
 	if (g.A) {
@@ -339,7 +301,6 @@ ct.d =  function (c, x, y) {
 		})
 		return this
 	}
-	
 	o = g.S_ ? (
 			b2d.iB(g.s) ? {c: g.f, x: g.s.sX, y: g.s.sY} :
 					O(g.s) ? {c: g.f, x: g.s.x, y: g.s.y} :
@@ -348,17 +309,15 @@ ct.d =  function (c, x, y) {
 			b2d.iB(g.f) ? {x: g.f.sX, y: g.f.sY} :
 					g.O_ ? {x: g.f.x, y: g.f.y} :
 					{x: g.f, y: g.s}
-	
-	
-	
 	o.x = N(o.x, ct.W() / 2)
 	o.y = N(o.y, ct.H() / 2)
 	o.c = o.c || 'y'
 	d = this.h(o.x, o.y).cir(8, o.c, 'z', 2).al(.7).drag()
 	tw = d.twL([{sxy: 1.3}, 100], [{sxy: 1}, 100]).$()
-	d.$$(function () {tw.$()})
+	d.$$(function () {
+		tw.$()
+	})
 	return d.K('dev dot')
-	
 }
 cirDfs = function (o) {
 	o = o || {}
@@ -373,8 +332,6 @@ cirDfs = function (o) {
 	o.s = D(o.s) ? o.s : 0;
 	return o
 }
-
-
 function _pre() {
 
 //
@@ -440,74 +397,70 @@ function later() {
 		})
 	}
 }
-old=function(){
-/*
- ct.bm = ct.b = function () {
- var ct = this, g = G(arguments), bm,
- o = g.F_ ? {fn: g.s, sc: g.s} :
- g.N_ ? {sc: g.f, fn: g.s} :
- _.x(
- {i: g.f},
- N(g.s) ? {sc: g.s, fn: g.t} :
- {fn: g.s, sc: g.t}
- )
- o.sc = o.sc || 1
- $df.im(o)
- if (O(o.i)) {
- return ct.A($Bm(o.i))
- }//alert('ct.bm O(o.i)'); never alerted
- $.i(o.i, function (i) {
- bm = $Bm(i).a2(ct).sXY(o.sc)
- if (!g.n) {
- bm.rC()
- }
- if (g.p) {
- bm.drag()
- }
- if (o.fn) {
- o.fn(bm)
- }
- })
- return ct
- }
-
- */
+old = function () {
+	/*
+	 ct.bm = ct.b = function () {
+	 var ct = this, g = G(arguments), bm,
+	 o = g.F_ ? {fn: g.s, sc: g.s} :
+	 g.N_ ? {sc: g.f, fn: g.s} :
+	 _.x(
+	 {i: g.f},
+	 N(g.s) ? {sc: g.s, fn: g.t} :
+	 {fn: g.s, sc: g.t}
+	 )
+	 o.sc = o.sc || 1
+	 $df.im(o)
+	 if (O(o.i)) {
+	 return ct.A($Bm(o.i))
+	 }//alert('ct.bm O(o.i)'); never alerted
+	 $.i(o.i, function (i) {
+	 bm = $Bm(i).a2(ct).sXY(o.sc)
+	 if (!g.n) {
+	 bm.rC()
+	 }
+	 if (g.p) {
+	 bm.drag()
+	 }
+	 if (o.fn) {
+	 o.fn(bm)
+	 }
+	 })
+	 return ct
+	 }
+	
+	 */
 // u might say xTHIS but not thisX? i dont know what i am talking about
-/* TICKER
- paused : Indicates whether the ticker is currently paused.
- d       delta :  time since the last tick
- t       time : how much  since T  started
- r      runTime  : how much time has T been running for
- */
-/*
- // returns   The average time spent in a tick in milliseconds.
- //This can vary significantly from the value provided by getMeasuredFPS because it only measures the time spent
- // within the tick execution stack.
- Example 1: With a target FPS of 20, getMeasuredFPS()
- returns 20fps, which indicates an average of 50ms between the end of one tick and the end of the next.
- However, getMeasuredTickTime() returns 15ms.
- This indicates i there may be up to 35ms of "idle" time between the end of one tick and the start of the next.
-
- Example 2: With a target FPS of 30, getFPS() returns 10fps,
- which indicates an average of 100ms between the end of one tick and the end of the next. However,
- getMeasuredTickTime() returns 20ms.
- This would indicate i something other than the tick is using ~80ms
- (another script, DOM rendering, etc).
-
- */
-
+	/* TICKER
+	 paused : Indicates whether the ticker is currently paused.
+	 d       delta :  time since the last tick
+	 t       time : how much  since T  started
+	 r      runTime  : how much time has T been running for
+	 */
+	/*
+	 // returns   The average time spent in a tick in milliseconds.
+	 //This can vary significantly from the value provided by getMeasuredFPS because it only measures the time spent
+	 // within the tick execution stack.
+	 Example 1: With a target FPS of 20, getMeasuredFPS()
+	 returns 20fps, which indicates an average of 50ms between the end of one tick and the end of the next.
+	 However, getMeasuredTickTime() returns 15ms.
+	 This indicates i there may be up to 35ms of "idle" time between the end of one tick and the start of the next.
+	
+	 Example 2: With a target FPS of 30, getFPS() returns 10fps,
+	 which indicates an average of 100ms between the end of one tick and the end of the next. However,
+	 getMeasuredTickTime() returns 20ms.
+	 This would indicate i something other than the tick is using ~80ms
+	 (another script, DOM rendering, etc).
+	
+	 */
 //w.sp=w.ct=function(x,y){var w=this;return w.hud.ct(x||w.hW,y||w.hH).drag()}
-/*
- f.clrSp = function () {
- //$l('clrSp')
- this.sprites = []; //this_sp = []; this.SP = []
- return this
- }
- */
- 
+	/*
+	 f.clrSp = function () {
+	 //$l('clrSp')
+	 this.sprites = []; //this_sp = []; this.SP = []
+	 return this
+	 }
+	 */
 }
-
-
 FXC = function () {
 	W().C('z')
 	b = w.D()
