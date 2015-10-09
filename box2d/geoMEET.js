@@ -58,7 +58,6 @@ f.difKill = function (what) {
 	//difdFxt = f.dif(g.f, '-') //vs is f minus something
 	//f.kill() //then f goes away
 }
-
 f.sub = function (what) {
 	var f = this, b = f.B(), g = G(arguments), what = g.f, difdFxt
 	//f.sub uses f.dif and replaces itself on a body
@@ -137,18 +136,16 @@ b.subFxt = b.subF = b._sub = function (f) {
 b.subBod = b.subB = function (b) {
 	return this.subFrom(bod)
 }
-
-
 b.sub = function () {
-
+/// hhi im here ///////////////////////////////////////////////////////
 	var b = this, g = G(arguments), col = g.f
 	g.e(function (ob) {
+		
 		b2d.iF(ob) ? b.subF(ob) : b2d.iB(ob) ? b.subB(ob) : null
-		if (g.n) {
-			ob.kill()
-		}
-	})
 	
+	
+			if (g.n) {ob.kill()}
+	})
 	
 	if (col !== 0) {
 		b.C(col || b.c())
@@ -156,17 +153,13 @@ b.sub = function () {
 	
 	return b
 }
-
-
-
-
 w.polD = function (x, y, p1, p2) {
 	return this.pol(x, y, M.p(p1).D(p2))
 }
 b.pos = function () {
 	return this.tf().position.m()
 }//used in MEET
-pD.here = pD.to = pD.at = pD.ger = function (x, y) {
+pD.butHere = pD.to = pD.at = pD.ger = function (x, y) {
 	return this.reg(-V(x, y).x, -V(x, y).y)
 }
 pD.from = pD.cameFrom = pD.reg = pD.rel = function (x, y) {
@@ -193,40 +186,38 @@ f.wV = function () {
 	return b2d.tA(b2d.add(this.vs(), this.B()))
 }//used in MEET
 //b2d.hV = b2d.hasVerts = gpc.hV
+b.subPoly =b.subPol = b.subP=function(poly, where){
 
-
-
-MEETY = function () { W([1200, 600], {g: 10})
-	
-	y2 = w.y(100, 300).C('x').rot(180)
-	
-	
-	t = ter = w.S(500, 300, $r(), 200, 800).cl(function (buF) {
-		
-		
-		var bu = buF.B(),
-	
-			xy = bu.XY()
-			bu.kill()
-		
-		pol = gpc.p($vs.expl).ger(xy)
-		
-		
-		t.fs(function (f) {
-			f.sub(pol)
-		})
-		
-		
-		t.C($r())
-	
+	var b=this
+	if(S(poly)){poly = $vs[poly]}
+	poly = gpc.p(poly)
+	if(where){poly = poly.butHere(where)}
+	b.fs(function (f) {
+		f.sub(poly)
 	})
-	
-	
-	
-	
-	//alt way to handle explosion sub
-	//w.rad(bulletX, bulletY, 15, function (terrainFxt) {terrainFxt.sub( explosionPol )})
+	return b
+}
+b.killBull= b.killXY=function(){
+	var xy = this.XY()
+	this.kill()
+	return xy
+}
+b.expl=function(){
+	var b=this, g=G(arguments)
+	b.cl(function (f) {b.subPoly('expl', f.B().killBull())
+	if(g.f){b.C(g.f === '*'? $r(): g.f )}})
+	return b
 }
 
 
+MEETY = function () { W([1200, 600], {g: 10}).y(100, 300).C('x')
+	w.S(500, 300, $r(), 200, 800).expl('*')
+}
+
+
+
+
+
+//alt way to handle explosion sub
+//w.rad(bulletX, bulletY, 15, function (terrainFxt) {terrainFxt.sub( explosionPol )})
 

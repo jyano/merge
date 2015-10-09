@@ -32,28 +32,27 @@
       <file leaf-file-name="geoMEET.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/box2d/geoMEET.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84060913">
-              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.16243654">
+              <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
               <folding>
                 <element signature="e#320#369#0" expanded="false" />
                 <element signature="e#991#1016#0" expanded="false" />
                 <element signature="e#1204#1257#0" expanded="false" />
-                <element signature="e#1383#1431#0" expanded="false" />
-                <element signature="e#1619#1672#0" expanded="false" />
-                <element signature="e#1792#1805#0" expanded="false" />
-                <element signature="e#1807#1875#0" expanded="false" />
-                <element signature="e#2359#2450#0" expanded="false" />
-                <element signature="e#2657#2675#0" expanded="false" />
-                <element signature="e#2740#2757#0" expanded="false" />
-                <element signature="e#2933#2964#0" expanded="false" />
-                <element signature="e#2998#3075#0" expanded="false" />
-                <element signature="e#3030#3047#0" expanded="false" />
-                <element signature="e#3055#3072#0" expanded="false" />
-                <element signature="e#3452#3670#0" expanded="true" />
-                <element signature="e#3517#3610#0" expanded="true" />
-                <element signature="e#4362#4395#0" expanded="false" />
-                <element signature="e#4490#4504#0" expanded="false" />
-                <element signature="e#4862#4895#0" expanded="false" />
+                <element signature="e#1382#1430#0" expanded="false" />
+                <element signature="e#1618#1671#0" expanded="false" />
+                <element signature="e#1791#1804#0" expanded="false" />
+                <element signature="e#1806#1874#0" expanded="false" />
+                <element signature="e#2358#2449#0" expanded="false" />
+                <element signature="e#2656#2674#0" expanded="false" />
+                <element signature="e#2739#2756#0" expanded="false" />
+                <element signature="e#2932#2963#0" expanded="false" />
+                <element signature="e#2997#3074#0" expanded="false" />
+                <element signature="e#3029#3046#0" expanded="false" />
+                <element signature="e#3054#3071#0" expanded="false" />
+                <element signature="e#3699#3723#0" expanded="false" />
+                <element signature="e#4428#4461#0" expanded="false" />
+                <element signature="e#4556#4570#0" expanded="false" />
+                <element signature="e#5160#5193#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -838,28 +837,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/box2d/geoMEET.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84060913">
-          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16243654">
+          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
           <folding>
             <element signature="e#320#369#0" expanded="false" />
             <element signature="e#991#1016#0" expanded="false" />
             <element signature="e#1204#1257#0" expanded="false" />
-            <element signature="e#1383#1431#0" expanded="false" />
-            <element signature="e#1619#1672#0" expanded="false" />
-            <element signature="e#1792#1805#0" expanded="false" />
-            <element signature="e#1807#1875#0" expanded="false" />
-            <element signature="e#2359#2450#0" expanded="false" />
-            <element signature="e#2657#2675#0" expanded="false" />
-            <element signature="e#2740#2757#0" expanded="false" />
-            <element signature="e#2933#2964#0" expanded="false" />
-            <element signature="e#2998#3075#0" expanded="false" />
-            <element signature="e#3030#3047#0" expanded="false" />
-            <element signature="e#3055#3072#0" expanded="false" />
-            <element signature="e#3452#3670#0" expanded="true" />
-            <element signature="e#3517#3610#0" expanded="true" />
-            <element signature="e#4362#4395#0" expanded="false" />
-            <element signature="e#4490#4504#0" expanded="false" />
-            <element signature="e#4862#4895#0" expanded="false" />
+            <element signature="e#1382#1430#0" expanded="false" />
+            <element signature="e#1618#1671#0" expanded="false" />
+            <element signature="e#1791#1804#0" expanded="false" />
+            <element signature="e#1806#1874#0" expanded="false" />
+            <element signature="e#2358#2449#0" expanded="false" />
+            <element signature="e#2656#2674#0" expanded="false" />
+            <element signature="e#2739#2756#0" expanded="false" />
+            <element signature="e#2932#2963#0" expanded="false" />
+            <element signature="e#2997#3074#0" expanded="false" />
+            <element signature="e#3029#3046#0" expanded="false" />
+            <element signature="e#3054#3071#0" expanded="false" />
+            <element signature="e#3699#3723#0" expanded="false" />
+            <element signature="e#4428#4461#0" expanded="false" />
+            <element signature="e#4556#4570#0" expanded="false" />
+            <element signature="e#5160#5193#0" expanded="false" />
           </folding>
         </state>
       </provider>
