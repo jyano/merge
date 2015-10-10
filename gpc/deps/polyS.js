@@ -5,18 +5,12 @@ $gPt = function (x, y) {
 	var pt = new Point(x, y)
 	return pt
 }
-
-
-
 gpc.g.PS = gpc.g.PolySimple = function () {
 	// The list of Point objects in the poly
 	this.m_List = new ArrayList()
 	// Flag used by the Clip algorithm 
 	this.m_Contributes = true 
 }
-
-
-
 $pS = function () {
 	var g=G(arguments),
 	pS = new gpc.g.PolySimple()
@@ -25,8 +19,6 @@ $pS = function () {
 	})
 	return pS
 }
-
-
  // PolySimple ( simple polygon )  - contains only one inner poly, 
  ps = gpc.g.PS.prototype
  // cannot be used for an inner polygon that is a hole.
@@ -238,5 +230,5 @@ ps.eq = ps.equals = function (obj) {
 	return true
 }
 ps.tS = ps.toString = function () {
-	return "PolySimple: num_points=" + numPts()
+	return "PolySimple: num_points=" + this.numPts()
 }

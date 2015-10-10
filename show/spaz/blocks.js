@@ -15,6 +15,8 @@ NRM = function () {
 
 CANC = function () {
 	Q(function () {
+	
+	
 		z()
 		w = {W: 1200, H: 600}
 		ii = w.I = $St('z', w.W, w.H, 0, 0).t()
@@ -34,33 +36,10 @@ CANC = function () {
 		})
 	})
 	
-}
-CANC1 = function () {
-	w = {W: 1200, H: 600}
-	/*
-	 w.I = $St('z', w.W, w.H ,0, 0).t()
-	 w.s= $St('X', w.W, w.H, 0, 0).t()//.aC(0)
-	 w.canvas = w.s.canvas
-	 w.can= $(w.canvas)
-	 w.ctx = w.can.ctx('2d')
-	 w.bg= w.s.ct();
-	 w.g=  w.s.ct();
-	 w.fg= w.s.ct()
-	 */
-	w.i = $St('b', w.W, w.H, 0, 0).t()
-	/*
-	 ii = w.I
-	 s= w.s
-	 bg= w.bg
-	 g= w.g
-	 fg= w.fg
-	 i= w.i
-	 */
-	
-	_.in(1, function () {
-		w.i.bm('me', '+')
-	})
-}
+} 
+
+
+
 
 
 BSP = function () {
@@ -71,6 +50,9 @@ BSP = function () {
 		f.bS(me, 0, f.pX(), f.pY())
 	})
 }
+
+
+
 TZ1 = function () {
 	W()
 	w.D(600, 280, [

@@ -77,36 +77,53 @@ b.pol = function () {var b = this, w = b.W(), g = G(arguments), o
 
 b.sep = function (verts, scale) {
 	var body = this
+	
 	if (!O(verts)) {
-		alert('o.v must be object');
-		return
+		$l('o.v must be object');
+		return body
 	}
+	
 	if (gpc.iP(verts)) {
 		verts = verts.vs()
 	}
 	//needs array of verts.. or one vert (which is converted here to arr)
-	_.e(O(verts[0][0]) ? verts : [verts], function (v) {
+	
+	_.e(    O( verts) &&  O(verts[0]) && O( verts[0][0] ) ? verts : [verts], function (v) {
 		b2d.sep(body, v, scale)
 	})  //  'sep' each of the verts onto the body
+	
+	
 	return this
 }
+
+
 b.sepNew = function (vs, fn) {
+
+	if(!this){$l('b.sepNew says: !this');return }
+
 	//this proxies to b.sep.. but has two advantages
 	//- it returns NEW fixtures formed in an array
 	//- if u pass in a function, then it loops those fxs
 	// //alt:if only one fixture added.. it is returned as a single fixture (not in array) ?
 	var n = this.n(),
 			b = this.sep(vs),
-			numNewFs = b.n() - n,
-			newFs = _.f(b.fs(), numNewFs)
-	if (F(fn)) {
-		_.e(newFs, fn)
-	}
+			numNewFs,
+			newFs
+	
+	numNewFs = b.n() - n
+	
+	newFs = _.f(b.fs(), numNewFs)
+			
+	if (F(fn)) { _.e(newFs, fn) }
+	
 	return newFs
 	//return newFs[1]? newFs: newFs[0]
 }
+
+
+
 w.pol = function () {
-	alert('-- w.pol --');
+	 
 	var w = this, g = G(arguments), b, o
 	if (g.A) {
 		$l('w.pol g.A')

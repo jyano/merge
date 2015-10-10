@@ -15,7 +15,12 @@ pD.D = function () {
 //f.dif does the math and returns the answer (vs)
 //returns pD with array of pS's ( pD.m_List )
 b.pDWo = b.gPolWo = function (gPol) {
+
+	
+	var gPol=this
+
 	this.fs(function (f) {
+	
 		gPol = gPol.D(f)
 	})
 	return gPol
@@ -38,63 +43,77 @@ f.vs = function () {
 f.dif = function () {
 	var f = this, b = f.B(), g = G(arguments),
 			pD = this.tGP()
+			
 	g.e(function (ob) {
 		pD = b2d.iB(ob) ? ob.gPolWo(pD)
 				: pD.D(ob)
 	})
+	
 	if (!pD.hasAtLeastOnePoly()) {
 		return $l('f.dif')
 	}
-	return pD.reg(f).reg(g.n ? b : f)
+	
+	return pD.reg( b ).reg( g.n ? b : f )
 }
+
+
 f.difKill = function (what) {
 	var f = this,
-			difdFxt = f.dif(what, '-') //vs is f minus something
+			difdFxt = f.dif(what, '-' ) //vs is f minus something
 	f.kill() //then f goes away
 	return difdFxt
-	//difdFxt = f.dif(g.f, '-') //vs is f minus something
-	//f.kill() //then f goes away
 }
+
+
 f.sub = function (what) {
-	var f = this, b = f.B(), g = G(arguments), what = g.f, difdFxt
+	var f = this,
+	  b = f.B(), g = G(arguments), 
+	
+	what = g.f, 
+	difdFxt
+	
 	//f.sub uses f.dif and replaces itself on a body
 	// with its (potentially) 'slimmer' self
 	//lets begin:
 	// we get the dif of the this and the thing we are subtracting from it...
 	// then we kill THIS fixt
-	difdFxt = f.difKill(what)
+	difdFxt = f.difKill( what )
+	
 	//otionally put a min size to allow it to be replaced
 	//i guess if it's too small, don't bother
 	//but calculating area could also be bottleneck?
-	if (!bigEnough(difdFxt)) {
-		return
-	}
+	//if (!bigEnough(difdFxt)) {return}
+	
 	//here, body makes a new f from the dif (hence, it might be slimmer)
 	//again... it is fixtizing the result of the gPol subtraction operation
-	// it subtracted something from this... killed itself..
+	// it subtracted something from  this... killed itself..
 	// .. and now is adding a NEW fixture to replace itself..
 	//but the new fixture is the difference result of subtracting something else, from it
 	//so after that subtraction, it killed itself, and and now 
 	// we are replacing the body that held that fixt, replaces it with the resutl
 	// of the difference between it and another fixt
-	b.pol(difdFxt)
+	
+	 b.pol( difdFxt )
+	
+	
 	//now that other thing that we subtracted from our fixt before it was killed and replaced..
 	//..letst talk about that thing
 	//we can optionally kill that thing too!!
 	//it may have been a real manufactured body or fixt
 	//... though there should be a better way than that!!! !!!! :=)(+
 	if (g.n) {
-		what.kill()
+	
+		 what.kill()
 	}
 	//and  aparently we can also optionally dynamize it!
-	if (g.p) {
-		what.dyn()
-	}
+	//if (g.p) {what.dyn()}
+	
 	return f
 	function bigEnough(f) {
 		return M.p(f).getArea() > 2000
 	}
 }
+
 b.dif = function (o) {
 	var b = this, g = G(arguments),
 			f = b.f(), fs = b.fs(), p
